@@ -79,7 +79,7 @@ describe("R04_B01 complete research gate", () => {
     expect(journals.every((row) => row.sourceOpened === true && row.actualOpenedUrl.startsWith("http"))).toBe(true);
     expect(new Set(journals.map((row) => row.journalEntryId)).size).toBe(141);
     const architecture = JSON.parse(readFileSync(resolve("artifacts/simulator/v4/ARCHITECTURE_LOCK.json"), "utf8"));
-    expect(architecture.completedRegionBatches).toEqual(["R01_B01", "R01_B02", "R02_B01", "R02_B02", "R03_B01", "R04_B01"]);
+    expect(architecture.completedRegionBatches.slice(0, 6)).toEqual(["R01_B01", "R01_B02", "R02_B01", "R02_B02", "R03_B01", "R04_B01"]);
     expect(architecture.status).toBe("ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS");
   });
 });
