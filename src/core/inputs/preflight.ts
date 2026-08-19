@@ -42,7 +42,7 @@ export interface RealPreflightReport {
     august17StartingAuthority: { filename: string; sha256: string; rows: number };
     august18SourceLeads: { filename: string; sha256: string; semanticPrecedence: "SOURCE_LEADS_ONLY" };
     legacyCsv: { filename: string; semanticPrecedence: "METADATA_ONLY" };
-    v3SemanticAuthority: null | { filename: string; sha256: string; rows: number; verdict: "ACCEPT_FINAL"; safeToImport: true };
+    v3SemanticAuthority: null | { filename: string; sha256: string; rows: number; status: "RETIRED_FALSE_COMPLETION" };
   };
 }
 
@@ -103,7 +103,7 @@ export function preflightRealBundle(packDirectory: string, startingResearchZip =
     if (semanticRows.some((row) => !startingIds.has(String(row.breedId)))) throw new Error("V3 contains an unknown Breed ID");
     v3Assessment = assessV3Research({ breeds: semanticRows, evidence: getZipRows(v3ResearchZip, "evidence.jsonl"), citations: getZipRows(v3ResearchZip, "citations.jsonl"), sources: getZipRows(v3ResearchZip, "sources.jsonl") });
     hasV3 = true;
-    if (v3Assessment.verdict === "ACCEPT_FINAL" && v3Assessment.safeToImport) v3Authority = { filename: basename(v3ResearchZip), sha256: sha256(readFileSync(v3ResearchZip)), rows: semanticRows.length, verdict: "ACCEPT_FINAL", safeToImport: true };
+    v3Authority = { filename: basename(v3ResearchZip), sha256: sha256(readFileSync(v3ResearchZip)), rows: semanticRows.length, status: "RETIRED_FALSE_COMPLETION" };
   }
   const merged = semanticRows.map((row) => {
     const metadata = legacyById.get(String(row.breedId));
@@ -130,7 +130,8 @@ export function preflightRealBundle(packDirectory: string, startingResearchZip =
 
   const coverage = Object.fromEntries(RESEARCH_SEMANTIC_FIELDS.map((field) => [field, countCoverage(civic, field, hasV3)]));
   const activeIssues: PreflightIssue[] = [];
-  if (!hasV3) activeIssues.push({ issueCode: "MISSING_COMPLETE_V3_RESEARCH_PACK", severity: "BLOCKER", blocksCanonical: true, message: "No complete V3 Breed research pack was supplied; August 17 remains the starting authority and August 18 remains source leads only." });
+  if (!hasV3) activeIssues.push({ issueCode: "MISSING_SIMULATION_READY_V4_SEMANTICS", severity: "BLOCKER", blocksCanonical: true, message: "No simulation-ready V4 Breed semantic authority was supplied; V3 false completion is retired." });
+  if (hasV3) activeIssues.push({ issueCode: "RETIRED_V3_AUTHORITY", severity: "BLOCKER", blocksCanonical: true, message: "The supplied V3 pack is retained only as RETIRED_FALSE_COMPLETION provenance and cannot authorize canonical execution." });
   if (v3Assessment && (!v3Assessment.safeToImport || v3Assessment.verdict !== "ACCEPT_FINAL")) activeIssues.push({ issueCode: "V3_RESEARCH_INTEGRITY_FAILED", severity: "BLOCKER", blocksCanonical: true, message: "The supplied V3 authority failed its recomputed structural or semantic evidence audit.", details: v3Assessment.findings });
   const invalidFields = Object.entries(coverage).filter(([, count]) => count.invalidUnresearched > 0);
   if (invalidFields.length) activeIssues.push({ issueCode: "BREED_RESEARCH_INCOMPLETE", severity: "BLOCKER", blocksCanonical: true, message: "One or more civic Breed fields are invalid or unresearched.", details: Object.fromEntries(invalidFields) });

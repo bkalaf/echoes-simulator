@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "eidolon-research-authority-retirement-v1",
+  "filename": "ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip",
+  "sha256": "6527d3e41d1a3af72dc30f998e5d0b7d0563599b08eba6bc9a0e4e9b6b56731c",
+  "status": "RETIRED_FALSE_COMPLETION",
+  "priorVerdictAuthority": "INVALIDATED",
+  "reason": "V3 mass-terminal-null semantics did not satisfy simulation-critical personality, terrain, or raw-dimension coverage.",
+  "preservedFreshRegressionProvenance": {
+    "path": "artifacts/simulator/remediation/research/fresh_regression_research.json",
+    "sha256": "5fc2c0f7505d321bd42be2fb3b303b4ad4e1cf3d51558b2d76cca654a3cd322c"
+  }
+}

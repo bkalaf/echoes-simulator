@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoesofeidolon.local/contracts/research-v4.schema.json",
+  "title": "Echoes of Eidolon simulation-ready Breed semantics V4",
+  "simulationCritical": [
+    "personalityId", "terrainBroad", "terrainSpecific", "motivation", "operatingStyle",
+    "structureOrientation", "administrationMode", "ownershipMode", "allocationMode",
+    "legitimacyBasis", "authoritySource", "loquacity", "emotionalTemperature",
+    "outlookOrientation", "collaborativePosture"
+  ],
+  "authoringEnrichment": ["traits", "foodBroad", "foodSpecific"],
+  "$defs": {
+    "researchUnit": {
+      "type": "object",
+      "required": ["unitType", "unitId", "populationKind", "initialRegion", "breedIds"],
+      "properties": {
+        "unitType": { "enum": ["HUMAN_CULTURE", "BEAST_SPECIES", "MYTHOS_SPECIES"] },
+        "unitId": { "type": "string", "minLength": 1 },
+        "populationKind": { "enum": ["HUMAN", "BEAST", "MYTHOS"] },
+        "initialRegion": { "type": "string", "pattern": "^R(0[1-9]|1[1-9]|2[0-5])$" },
+        "breedIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^BRD_" } }
+      }
+    },
+    "researchJournal": {
+      "type": "object",
+      "required": ["journalEntryId", "batchId", "researchUnitId", "researchedAt", "queries", "consideredUrls", "openedSourceIds"]
+    },
+    "source": {
+      "type": "object",
+      "required": ["sourceId", "title", "authorOrOrganization", "publisher", "stableUrlOrIdentifier", "sourceOpened"]
+    },
+    "citation": {
+      "type": "object",
+      "required": ["citationId", "sourceId", "locator", "boundedContext", "sourceFact", "subjectAlignment", "claimAlignment"]
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["evidenceId", "researchUnitId", "targetField", "batchId", "journalEntryId", "researchedAt", "sourceOpened", "citationRefs", "normalizationBridge"],
+      "properties": { "generatedBy": { "const": "BATCH_RESEARCH" }, "sourceOpened": { "const": true } }
+    },
+    "unitResult": {
+      "type": "object",
+      "required": ["researchUnitId", "personalityId", "terrainBroad", "terrainSpecific", "evidenceRefs", "status"],
+      "properties": {
+        "personalityId": { "type": "string", "minLength": 1 },
+        "terrainBroad": { "type": "array", "minItems": 1 },
+        "terrainSpecific": { "type": "array", "minItems": 1 },
+        "status": { "const": "SIMULATION_READY" }
+      }
+    },
+    "inheritanceEdge": {
+      "type": "object",
+      "required": ["researchUnitId", "breedId", "inheritanceRule", "unitEvidenceRefs"]
+    },
+    "personalityPolicyProfile": {
+      "type": "object",
+      "required": ["family", "baseDimensions", "fieldRationales", "policyRef"],
+      "properties": { "policyRef": { "const": "PERSONALITY_PROFILE_DIMENSIONS_V1" } }
+    },
+    "effectiveBreedSemantics": {
+      "type": "object",
+      "required": ["breedId", "researchUnitId", "personalityId", "terrainBroad", "terrainSpecific", "dimensions"],
+      "properties": {
+        "schemaVersion": { "const": "eidolon-effective-breed-semantics-v4" },
+        "personalityId": { "type": "string", "minLength": 1 },
+        "terrainBroad": { "type": "array", "minItems": 1 },
+        "terrainSpecific": { "type": "array", "minItems": 1 }
+      }
+    },
+    "auditFinding": {
+      "type": "object",
+      "required": ["findingId", "shardId", "severity", "researchUnitId", "field", "status", "message"]
+    }
+  }
+}

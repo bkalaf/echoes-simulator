@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "eidolon-research-v4-architecture-lock-v1",
+  "status": "ARCHITECTURE_LOCKED_RESEARCH_NOT_STARTED",
+  "promptPack": {
+    "files": 91,
+    "integrity": "PASS"
+  },
+  "identityAuthority": {
+    "filename": "full_breed_with_region_ids(1).csv",
+    "sha256": "7d542ebeebbdc3798a062af8a9e1553031932e6dc756f2fa29a824b3f2adca42",
+    "role": "CURRENT_CANONICAL_IDENTITY_FOR_V4_RECONCILIATION"
+  },
+  "assignments": {
+    "filename": "region_species_group_assignments(1).csv",
+    "sha256": "43ee260b6a8c537e37d03ca5e8d27ec7a577b66089ea926a29579f2ac43f5b85"
+  },
+  "reconciliation": {
+    "units": 1219,
+    "civicBreeds": 1773
+  },
+  "unitTypes": {
+    "HUMAN_CULTURE": 125,
+    "BEAST_SPECIES": 959,
+    "MYTHOS_SPECIES": 135
+  },
+  "simulationCritical": [
+    "personalityId",
+    "terrainBroad",
+    "terrainSpecific",
+    "motivation",
+    "operatingStyle",
+    "structureOrientation",
+    "administrationMode",
+    "ownershipMode",
+    "allocationMode",
+    "legitimacyBasis",
+    "authoritySource",
+    "loquacity",
+    "emotionalTemperature",
+    "outlookOrientation",
+    "collaborativePosture"
+  ],
+  "authoringEnrichment": [
+    "traits",
+    "foodBroad",
+    "foodSpecific"
+  ],
+  "personalityDimensionPolicy": "PERSONALITY_PROFILE_DIMENSIONS_V1",
+  "completedRegionBatches": [],
+  "completedAuditShards": []
+}
