@@ -59,7 +59,8 @@
     "R08_B01",
     "R09_B01",
     "R11_B01",
-    "R12_B01"
+    "R12_B01",
+    "R13_B01"
   ],
   "completedAuditShards": []
 }
