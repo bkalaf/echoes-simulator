@@ -1,6 +1,6 @@
 {
   "schemaVersion": "eidolon-research-v4-architecture-lock-v1",
-  "status": "ARCHITECTURE_LOCKED_RESEARCH_NOT_STARTED",
+  "status": "ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS",
   "promptPack": {
     "files": 91,
     "integrity": "PASS"
@@ -46,6 +46,8 @@
     "foodSpecific"
   ],
   "personalityDimensionPolicy": "PERSONALITY_PROFILE_DIMENSIONS_V1",
-  "completedRegionBatches": [],
+  "completedRegionBatches": [
+    "R01_B01"
+  ],
   "completedAuditShards": []
 }
