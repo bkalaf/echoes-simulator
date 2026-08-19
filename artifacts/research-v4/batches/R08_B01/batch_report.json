@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "eidolon-research-v4-batch-report-v1",
+  "batchId": "R08_B01",
+  "regionId": "R08",
+  "status": "PASS",
+  "counts": {
+    "manifestUnits": 54,
+    "manifestBreeds": 76,
+    "resultUnits": 54,
+    "effectiveBreeds": 76,
+    "journalEntries": 162,
+    "sources": 54,
+    "citations": 162,
+    "evidence": 162,
+    "inheritanceEdges": 76,
+    "dimensionValuesExpected": 912,
+    "dimensionValuesMaterialized": 912
+  },
+  "missingUnits": [],
+  "missingBreeds": [],
+  "criticalNulls": 0,
+  "unresolvedCriticalFields": 0,
+  "invalidPersonalityIds": 0,
+  "invalidTerrainValues": 0,
+  "twelveDimensionMaterializationPercent": 100,
+  "regionPreview": {
+    "status": "PASS",
+    "worlds": {
+      "CONCORD": {
+        "totalPopulation": "85731",
+        "dominantBreed": "BRD_AFRICAN_PIED_WAGTAIL",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "motivation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "loquacity": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          }
+        }
+      },
+      "SCHISM": {
+        "totalPopulation": "85731",
+        "dominantBreed": "BRD_AFRICAN_PIED_WAGTAIL",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "motivation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "loquacity": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          }
+        }
+      },
+      "RUIN": {
+        "totalPopulation": "85731",
+        "dominantBreed": "BRD_AFRICAN_PIED_WAGTAIL",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "motivation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "loquacity": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "85731",
+            "totalPopulation": "85731"
+          }
+        }
+      }
+    }
+  }
+}
