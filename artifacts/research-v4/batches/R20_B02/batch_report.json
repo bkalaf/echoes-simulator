@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "eidolon-research-v4-batch-report-v1",
+  "batchId": "R20_B02",
+  "regionId": "R20",
+  "status": "PASS",
+  "counts": {
+    "manifestUnits": 4,
+    "manifestBreeds": 5,
+    "resultUnits": 4,
+    "effectiveBreeds": 5,
+    "journalEntries": 12,
+    "sources": 4,
+    "citations": 12,
+    "evidence": 12,
+    "inheritanceEdges": 5,
+    "dimensionValuesExpected": 60,
+    "dimensionValuesMaterialized": 60
+  },
+  "missingUnits": [],
+  "missingBreeds": [],
+  "criticalNulls": 0,
+  "unresolvedCriticalFields": 0,
+  "invalidPersonalityIds": 0,
+  "invalidTerrainValues": 0,
+  "twelveDimensionMaterializationPercent": 100,
+  "regionPreview": {
+    "status": "PASS",
+    "worlds": {
+      "CONCORD": {
+        "totalPopulation": "95884",
+        "dominantBreed": "BRD_AFRICAN_BRUSH_TAILED_PORCUPINE",
+        "dominantFaction": "CONCORD",
+        "politicalForm": "DELEGATE_LEAGUE",
+        "economicForm": "COMMUNE_PLAN",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "motivation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "loquacity": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          }
+        }
+      },
+      "SCHISM": {
+        "totalPopulation": "95884",
+        "dominantBreed": "BRD_AFRICAN_BRUSH_TAILED_PORCUPINE",
+        "dominantFaction": "CONCORD",
+        "politicalForm": "DELEGATE_LEAGUE",
+        "economicForm": "COMMUNE_PLAN",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "motivation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "loquacity": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          }
+        }
+      },
+      "RUIN": {
+        "totalPopulation": "95884",
+        "dominantBreed": "BRD_AFRICAN_BRUSH_TAILED_PORCUPINE",
+        "dominantFaction": "CONCORD",
+        "politicalForm": "DELEGATE_LEAGUE",
+        "economicForm": "COMMUNE_PLAN",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "motivation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "loquacity": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "95884",
+            "totalPopulation": "95884"
+          }
+        }
+      }
+    }
+  }
+}
