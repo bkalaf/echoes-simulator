@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "eidolon-research-v4-batch-report-v1",
+  "batchId": "R17_B01",
+  "regionId": "R17",
+  "status": "PASS",
+  "counts": {
+    "manifestUnits": 48,
+    "manifestBreeds": 107,
+    "resultUnits": 48,
+    "effectiveBreeds": 107,
+    "journalEntries": 144,
+    "sources": 48,
+    "citations": 144,
+    "evidence": 144,
+    "inheritanceEdges": 107,
+    "dimensionValuesExpected": 1284,
+    "dimensionValuesMaterialized": 1284
+  },
+  "missingUnits": [],
+  "missingBreeds": [],
+  "criticalNulls": 0,
+  "unresolvedCriticalFields": 0,
+  "invalidPersonalityIds": 0,
+  "invalidTerrainValues": 0,
+  "twelveDimensionMaterializationPercent": 100,
+  "regionPreview": {
+    "status": "PASS",
+    "worlds": {
+      "CONCORD": {
+        "totalPopulation": "120696",
+        "dominantBreed": "BRD_AUSTRALIAN_BRUSH_TURKEY",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "motivation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "loquacity": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          }
+        }
+      },
+      "SCHISM": {
+        "totalPopulation": "120696",
+        "dominantBreed": "BRD_AUSTRALIAN_BRUSH_TURKEY",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "motivation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "loquacity": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          }
+        }
+      },
+      "RUIN": {
+        "totalPopulation": "120696",
+        "dominantBreed": "BRD_AUSTRALIAN_BRUSH_TURKEY",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "motivation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "loquacity": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "120696",
+            "totalPopulation": "120696"
+          }
+        }
+      }
+    }
+  }
+}
