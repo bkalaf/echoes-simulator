@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "eidolon-research-v4-batch-report-v1",
+  "batchId": "R15_B01",
+  "regionId": "R15",
+  "status": "PASS",
+  "counts": {
+    "manifestUnits": 41,
+    "manifestBreeds": 95,
+    "resultUnits": 41,
+    "effectiveBreeds": 95,
+    "journalEntries": 123,
+    "sources": 41,
+    "citations": 123,
+    "evidence": 123,
+    "inheritanceEdges": 95,
+    "dimensionValuesExpected": 1140,
+    "dimensionValuesMaterialized": 1140
+  },
+  "missingUnits": [],
+  "missingBreeds": [],
+  "criticalNulls": 0,
+  "unresolvedCriticalFields": 0,
+  "invalidPersonalityIds": 0,
+  "invalidTerrainValues": 0,
+  "twelveDimensionMaterializationPercent": 100,
+  "regionPreview": {
+    "status": "PASS",
+    "worlds": {
+      "CONCORD": {
+        "totalPopulation": "107160",
+        "dominantBreed": "BRD_AYE_AYE",
+        "dominantFaction": "CONCORD",
+        "politicalForm": "APPOINTED_DIRECTORATE",
+        "economicForm": "COMMAND_DEMESNE",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "motivation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "loquacity": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          }
+        }
+      },
+      "SCHISM": {
+        "totalPopulation": "107160",
+        "dominantBreed": "BRD_AYE_AYE",
+        "dominantFaction": "CONCORD",
+        "politicalForm": "APPOINTED_DIRECTORATE",
+        "economicForm": "COMMAND_DEMESNE",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "motivation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "loquacity": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          }
+        }
+      },
+      "RUIN": {
+        "totalPopulation": "107160",
+        "dominantBreed": "BRD_AYE_AYE",
+        "dominantFaction": "CONCORD",
+        "politicalForm": "APPOINTED_DIRECTORATE",
+        "economicForm": "COMMAND_DEMESNE",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "motivation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "loquacity": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "107160",
+            "totalPopulation": "107160"
+          }
+        }
+      }
+    }
+  }
+}
