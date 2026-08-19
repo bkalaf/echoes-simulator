@@ -33,6 +33,7 @@ describe("R18_B01 complete research gate", () => {
     const whiteRhino = readJsonl("research_journal.jsonl").filter((row) => row.targetUnitId === "SPC_CERATOTHERIUM_SIMUM");
     expect(whiteRhino).toHaveLength(3); expect(whiteRhino.every((row) => row.actualOpenedUrl === "https://animals.sandiegozoo.org/animals/white-rhinoceros")).toBe(true);
     const architecture = JSON.parse(readFileSync(resolve("artifacts/simulator/v4/ARCHITECTURE_LOCK.json"), "utf8"));
-    expect(architecture.completedRegionBatches.slice(-2)).toEqual(["R17_B01","R18_B01"]); expect(architecture.completedRegionBatches).toHaveLength(20); expect(architecture.status).toBe("ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS");
+    const r18Index = architecture.completedRegionBatches.indexOf("R18_B01");
+    expect(r18Index).toBe(19); expect(architecture.completedRegionBatches[r18Index - 1]).toBe("R17_B01"); expect(architecture.completedRegionBatches.length).toBeGreaterThanOrEqual(20); expect(architecture.status).toBe("ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS");
   });
 });
