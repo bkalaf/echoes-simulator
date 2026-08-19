@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "eidolon-research-v4-batch-report-v1",
+  "batchId": "R18_B01",
+  "regionId": "R18",
+  "status": "PASS",
+  "counts": {
+    "manifestUnits": 46,
+    "manifestBreeds": 87,
+    "resultUnits": 46,
+    "effectiveBreeds": 87,
+    "journalEntries": 138,
+    "sources": 46,
+    "citations": 138,
+    "evidence": 138,
+    "inheritanceEdges": 87,
+    "dimensionValuesExpected": 1044,
+    "dimensionValuesMaterialized": 1044
+  },
+  "missingUnits": [],
+  "missingBreeds": [],
+  "criticalNulls": 0,
+  "unresolvedCriticalFields": 0,
+  "invalidPersonalityIds": 0,
+  "invalidTerrainValues": 0,
+  "twelveDimensionMaterializationPercent": 100,
+  "regionPreview": {
+    "status": "PASS",
+    "worlds": {
+      "CONCORD": {
+        "totalPopulation": "98139",
+        "dominantBreed": "BRD_AFRICAN_WILD_ASS",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "motivation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "loquacity": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          }
+        }
+      },
+      "SCHISM": {
+        "totalPopulation": "98139",
+        "dominantBreed": "BRD_AFRICAN_WILD_ASS",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "motivation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "loquacity": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          }
+        }
+      },
+      "RUIN": {
+        "totalPopulation": "98139",
+        "dominantBreed": "BRD_AFRICAN_WILD_ASS",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "CHIEFTAIN_COUNCIL",
+        "economicForm": "FOLK_COMMONS",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "motivation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "loquacity": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "98139",
+            "totalPopulation": "98139"
+          }
+        }
+      }
+    }
+  }
+}
