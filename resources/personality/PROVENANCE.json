@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "eidolon-simulator-reference-provenance-v1",
+  "sourcePath": "/home/bobby/echoes-of-eidolon/apps/web/src/data/personality-expression-registry-v3.json",
+  "sourceRepositorySha": "b503f48a39c6be823fa295c8f2bfb305107e25ef",
+  "sha256": "f9a74e1563babc15d86121b5f43246e6d666b6a51736610629acca26d6b7fb38",
+  "rowCount": 369,
+  "runtimeDependencyOnSourceRepository": false
+}

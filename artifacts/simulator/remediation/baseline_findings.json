@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "eidolon-simulator-remediation-baseline-v1",
+  "date": "2026-08-18",
+  "standaloneWorkspace": "/home/bobby/echoes-simulator",
+  "standaloneWorkspaceIsGitRepository": false,
+  "placementAuthority": {
+    "decision": "STANDALONE_EXTERNAL_ELECTRON_PRODUCER",
+    "source": "Notion SIMULATOR page fetched 2026-08-19T02:41:07.461Z",
+    "url": "https://app.notion.com/p/3c12380d0cae81a69020c64b86b0457c",
+    "monorepoPlacementInstructionSuperseded": true
+  },
+  "readOnlyApplicationRepository": {
+    "path": "/home/bobby/echoes-of-eidolon",
+    "head": "b503f48a39c6be823fa295c8f2bfb305107e25ef",
+    "branch": "main",
+    "workingTreeClean": false,
+    "appsSimulatorExisted": false,
+    "modifiedByRemediation": false
+  },
+  "remediationPack": {
+    "manifestEntries": 12,
+    "manifestChecksPassed": 12,
+    "manifestChecksFailed": 0,
+    "priorZipSha256": "c30b148a1e9b9ddf6ae8afa845f7adaad79904d232a58a9fb438f3d6f777ed5c",
+    "priorZipIntegrity": "PASS",
+    "august17ZipSha256": "7d6b1651472a504ce861bf031f89a582df3a8ad06b3417a7d38436bcae7a9033",
+    "august17ZipIntegrity": "PASS"
+  },
+  "priorImplementation": {
+    "testFiles": 11,
+    "recordedPassingTests": 23,
+    "electronE2E": "NOT_RUN",
+    "packaging": "FAILED",
+    "acceptedAsComplete": false,
+    "knownDefectsConfirmed": [
+      "WRONG_BREED_AUTHORITY_MODEL",
+      "AGGREGATE_NOT_COHORT_RUNTIME",
+      "SYNTHETIC_MIGRATION_FOUNDING_DJT",
+      "FIXTURE_FORMS",
+      "NONREPLAYABLE_CHECKPOINTS",
+      "NAMING_NOT_END_TO_END",
+      "SQLITE_NOT_RUNTIME_SOURCE_OF_TRUTH",
+      "ARTIFACT_BACKED_UI",
+      "INCOMPLETE_EXPORT_SCHEMAS",
+      "NO_ELECTRON_E2E",
+      "PACKAGE_FAILURE"
+    ]
+  },
+  "august17Checkpoint": {
+    "breedRows": 2056,
+    "uniqueBreedIds": 2056,
+    "populationKinds": { "HUMAN": 631, "BEAST": 961, "MYTHOS": 181, "PET": 283 },
+    "statuses": { "RESOLVED_IMPORTABLE": 285, "IMPORTABLE_WITH_OPTIONAL_GAPS": 283, "REVIEW_REQUIRED": 1488 },
+    "evidenceRows": 7146,
+    "citationRows": 14522,
+    "sourceRows": 23,
+    "traitResearchRows": 338,
+    "containsEcologyFields": false,
+    "containsTwelveDimensions": false,
+    "role": "SOLE_STARTING_BREED_VALUES_AUTHORITY"
+  },
+  "compatibility": {
+    "personalityRegistryRows": 369,
+    "personalityRegistrySha256": "f9a74e1563babc15d86121b5f43246e6d666b6a51736610629acca26d6b7fb38"
+  },
+  "canonicalReady": false
+}

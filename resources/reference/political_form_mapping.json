@@ -1,0 +1,167 @@
+{
+  "source": "Notion Political Form current authority",
+  "rows": [
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "ELECTION",
+      "politicalForm": "ACCLAIMED_IMPERATOR"
+    },
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "APPOINTED_DIRECTORATE"
+    },
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "COVENANT_CROWN"
+    },
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "DIVINE_THRONE"
+    },
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "ELECTION",
+      "politicalForm": "ELECTED_EXECUTIVE"
+    },
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "JUNTA"
+    },
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "MILITANT_THEOCRACY"
+    },
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "REGENT_THRONE"
+    },
+    {
+      "administrationMode": "CENTRALIZED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "ELECTION",
+      "politicalForm": "ELECTIVE_CROWN"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "APPOINTED_COMMISSION"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "ELECTION",
+      "politicalForm": "CAPTAINS_COUNCIL"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "CONSECRATED_REPUBLIC"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "ELECTION",
+      "politicalForm": "ESTATES_DIET"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "FEUDAL_ORDER"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "GARRISON_COMMAND"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "MILITANT_ORDER"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "ELECTION",
+      "politicalForm": "REPUBLIC"
+    },
+    {
+      "administrationMode": "DELEGATED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "TEMPLE_HIERARCHY"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "ELECTION",
+      "politicalForm": "CHIEFTAIN_COUNCIL"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "COVENANT_ASSEMBLY"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "DELEGATE_LEAGUE"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "ELDER_MOOT"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "ELECTION",
+      "politicalForm": "FREE_COMPANY"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "ANCESTRAL",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "HALLOWED_CUSTOM"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "CHARTERED",
+      "authoritySource": "ELECTION",
+      "politicalForm": "POPULAR_FEDERATION"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "APPOINTMENT",
+      "politicalForm": "RAIDER_CONFEDERACY"
+    },
+    {
+      "administrationMode": "DISTRIBUTED",
+      "legitimacyBasis": "MARTIAL",
+      "authoritySource": "DIVINE_MANDATE",
+      "politicalForm": "ZEALOT_BANDS"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+2026-08-18 standalone root: /home/bobby/echoes-simulator
+
+PASS  pnpm install --offline --frozen-lockfile --ignore-scripts
+PASS  node node_modules/typescript/bin/tsc -p tsconfig.json --noEmit
+PASS  node node_modules/typescript/bin/tsc -p tsconfig.node.json --noEmit
+PASS  node scripts/check-engine-randomness.mjs
+PASS  node node_modules/vitest/vitest.mjs run
+      11 files, 23 tests passed
+PASS  node node_modules/typescript/bin/tsc -p tsconfig.node.json
+PASS  node dist-electron/src/scripts/run-diagnostic.js
+      3 worlds, years 0-2000, 1203 checkpoints, 0 invariant failures
+PASS  node node_modules/vite/bin/vite.js build (with cached executable ESBUILD_BINARY_PATH)
+      28 modules transformed
+PASS  deterministic export reopen/checksum/schema/consumer verification
+      72 checksummed payload files, 6687 event idempotency keys
+BLOCKED  in-app visual inspection
+      no Browser backend was connected; no alternate browser surface was substituted
+BLOCKED  electron-builder --dir
+      cached Electron 37.10.3 distribution was accepted, then electron-builder 26.15.3 captured an empty pnpm dependency-tree file; the same pnpm list command succeeds directly

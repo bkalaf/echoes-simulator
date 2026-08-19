@@ -1,0 +1,2994 @@
+[
+  {
+    "personalityId": "ACCOUNTABILITY_CURSE_EXCUSE_CONFLICT",
+    "family": "ACCOUNTABILITY",
+    "expression": "CURSE_EXCUSE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "ACCOUNTABILITY_DENIED_HARM_WOUND",
+    "family": "ACCOUNTABILITY",
+    "expression": "DENIED_HARM",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "ACCOUNTABILITY_ERROR_CORRECTION_EXPRESSION",
+    "family": "ACCOUNTABILITY",
+    "expression": "ERROR_CORRECTION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "ACCOUNTABILITY_SCAPEGOAT_WOUND",
+    "family": "ACCOUNTABILITY",
+    "expression": "SCAPEGOAT",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "AMBIGUITY_BETWEEN_STATES_CONFLICT",
+    "family": "AMBIGUITY",
+    "expression": "BETWEEN_STATES",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AMBIGUITY_BLESSING_CURSE_CONFLICT",
+    "family": "AMBIGUITY",
+    "expression": "BLESSING_CURSE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AMBIGUITY_CONTEXT_SHIFTING_SIGNAL_EXPRESSION",
+    "family": "AMBIGUITY",
+    "expression": "CONTEXT_SHIFTING_SIGNAL",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AMBIGUITY_FRAGMENTED_RECORD_WOUND",
+    "family": "AMBIGUITY",
+    "expression": "FRAGMENTED_RECORD",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AMBIGUITY_MIXED_STRATEGY_EXPRESSION",
+    "family": "AMBIGUITY",
+    "expression": "MIXED_STRATEGY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AMBIGUITY_ROLE_FLUID_EXPRESSION",
+    "family": "AMBIGUITY",
+    "expression": "ROLE_FLUID",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AMBIGUITY_UNFIXED_FORM_CONFLICT",
+    "family": "AMBIGUITY",
+    "expression": "UNFIXED_FORM",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "ANGER_CONTAINED_FURY_CONFLICT",
+    "family": "ANGER",
+    "expression": "CONTAINED_FURY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "ANGER_PUNISHED_ANGER_WOUND",
+    "family": "ANGER",
+    "expression": "PUNISHED_ANGER",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "ANGER_RAGE_POWERED_CONFLICT",
+    "family": "ANGER",
+    "expression": "RAGE_POWERED",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "ANGER_THREAT_DISPLAY_EXPRESSION",
+    "family": "ANGER",
+    "expression": "THREAT_DISPLAY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_AMBUSH_FEEDING_EXPRESSION",
+    "family": "APPETITE",
+    "expression": "AMBUSH_FEEDING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_EXTRACTION_WOUND",
+    "family": "APPETITE",
+    "expression": "EXTRACTION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_FILTER_FEEDING_EXPRESSION",
+    "family": "APPETITE",
+    "expression": "FILTER_FEEDING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_FORBIDDEN_FOOD_CONFLICT",
+    "family": "APPETITE",
+    "expression": "FORBIDDEN_FOOD",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_GORGE_AND_FAST_EXPRESSION",
+    "family": "APPETITE",
+    "expression": "GORGE_AND_FAST",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_GRAZING_EXPRESSION",
+    "family": "APPETITE",
+    "expression": "GRAZING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_HOST_DEPENDENCE_CONFLICT",
+    "family": "APPETITE",
+    "expression": "HOST_DEPENDENCE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_PARASITIC_EXPRESSION",
+    "family": "APPETITE",
+    "expression": "PARASITIC",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "APPETITE_UNENDING_HUNGER_CONFLICT",
+    "family": "APPETITE",
+    "expression": "UNENDING_HUNGER",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "ATTACHMENT_ANCHOR_PERSON_CONFLICT",
+    "family": "ATTACHMENT",
+    "expression": "ANCHOR_PERSON",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "ATTACHMENT_FAMILY_SEPARATION_WOUND",
+    "family": "ATTACHMENT",
+    "expression": "FAMILY_SEPARATION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "ATTACHMENT_LIFELONG_BOND_EXPRESSION",
+    "family": "ATTACHMENT",
+    "expression": "LIFELONG_BOND",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "AUTHENTICITY_ASSIMILATION_WOUND",
+    "family": "AUTHENTICITY",
+    "expression": "ASSIMILATION",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AUTHENTICITY_CONTEXTUAL_FORM_EXPRESSION",
+    "family": "AUTHENTICITY",
+    "expression": "CONTEXTUAL_FORM",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AUTHENTICITY_INDIVIDUAL_SIGNATURE_EXPRESSION",
+    "family": "AUTHENTICITY",
+    "expression": "INDIVIDUAL_SIGNATURE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "AUTHENTICITY_MADE_PURPOSE_CONFLICT",
+    "family": "AUTHENTICITY",
+    "expression": "MADE_PURPOSE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AUTHENTICITY_MASK_FUSION_CONFLICT",
+    "family": "AUTHENTICITY",
+    "expression": "MASK_FUSION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AUTHENTICITY_PURITY_TEST_WOUND",
+    "family": "AUTHENTICITY",
+    "expression": "PURITY_TEST",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AUTHENTICITY_SHAPE_WITHOUT_SELF_CONFLICT",
+    "family": "AUTHENTICITY",
+    "expression": "SHAPE_WITHOUT_SELF",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "AUTHORITY_ABUSIVE_RULE_WOUND",
+    "family": "AUTHORITY",
+    "expression": "ABUSIVE_RULE",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "AUTHORITY_ORDAINED_RANK_CONFLICT",
+    "family": "AUTHORITY",
+    "expression": "ORDAINED_RANK",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "AUTHORITY_REPRODUCTIVE_LEADER_EXPRESSION",
+    "family": "AUTHORITY",
+    "expression": "REPRODUCTIVE_LEADER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "AUTHORITY_STEWARD_OR_OWNER_CONFLICT",
+    "family": "AUTHORITY",
+    "expression": "STEWARD_OR_OWNER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "AUTONOMY_DEPENDENCY_TOLERANT_EXPRESSION",
+    "family": "AUTONOMY",
+    "expression": "DEPENDENCY_TOLERANT",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "AUTONOMY_ENSLAVEMENT_WOUND",
+    "family": "AUTONOMY",
+    "expression": "ENSLAVEMENT",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "AUTONOMY_FREEDOM_THROUGH_ISOLATION_CONFLICT",
+    "family": "AUTONOMY",
+    "expression": "FREEDOM_THROUGH_ISOLATION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "AUTONOMY_PAIRING_CHOICE_EXPRESSION",
+    "family": "AUTONOMY",
+    "expression": "PAIRING_CHOICE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "AUTONOMY_PATERNAL_RULE_WOUND",
+    "family": "AUTONOMY",
+    "expression": "PATERNAL_RULE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "AUTONOMY_POSSESSION_WITHIN_CONFLICT",
+    "family": "AUTONOMY",
+    "expression": "POSSESSION_WITHIN",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "BELONGING_COLONY_EXPRESSION",
+    "family": "BELONGING",
+    "expression": "COLONY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "BELONGING_DISPLACEMENT_WOUND",
+    "family": "BELONGING",
+    "expression": "DISPLACEMENT",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "BELONGING_HERDING_EXPRESSION",
+    "family": "BELONGING",
+    "expression": "HERDING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "BELONGING_KINDLESS_CONFLICT",
+    "family": "BELONGING",
+    "expression": "KINDLESS",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "BELONGING_MORTAL_LONGING_CONFLICT",
+    "family": "BELONGING",
+    "expression": "MORTAL_LONGING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "BELONGING_THRESHOLD_KEEPER_CONFLICT",
+    "family": "BELONGING",
+    "expression": "THRESHOLD_KEEPER",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "BELONGING_TWO_WORLD_CONFLICT",
+    "family": "BELONGING",
+    "expression": "TWO_WORLD",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "BOUNDARIES_DOMAIN_BOUND_CONFLICT",
+    "family": "BOUNDARIES",
+    "expression": "DOMAIN_BOUND",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "BOUNDARIES_LAND_BOUNDARY_WOUND",
+    "family": "BOUNDARIES",
+    "expression": "LAND_BOUNDARY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "BOUNDARIES_TERRITORIAL_MARKING_EXPRESSION",
+    "family": "BOUNDARIES",
+    "expression": "TERRITORIAL_MARKING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CARE_ABANDONMENT_WOUND",
+    "family": "CARE",
+    "expression": "ABANDONMENT",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "CARE_CARRYING_EXPRESSION",
+    "family": "CARE",
+    "expression": "CARRYING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CARE_CREATED_SERVANT_CONFLICT",
+    "family": "CARE",
+    "expression": "CREATED_SERVANT",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "CARE_PROVISIONING_EXPRESSION",
+    "family": "CARE",
+    "expression": "PROVISIONING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CARE_SELECTIVE_NEGLECT_EXPRESSION",
+    "family": "CARE",
+    "expression": "SELECTIVE_NEGLECT",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CARE_UNIVERSAL_GUARDIAN_CONFLICT",
+    "family": "CARE",
+    "expression": "UNIVERSAL_GUARDIAN",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CHANGE_DEVELOPMENTAL_PLASTICITY_EXPRESSION",
+    "family": "CHANGE",
+    "expression": "DEVELOPMENTAL_PLASTICITY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "CHANGE_FORM_SURRENDER_CONFLICT",
+    "family": "CHANGE",
+    "expression": "FORM_SURRENDER",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "CHANGE_MIGRATION_CHANGE_WOUND",
+    "family": "CHANGE",
+    "expression": "MIGRATION_CHANGE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "CHANGE_MOLTING_EXPRESSION",
+    "family": "CHANGE",
+    "expression": "MOLTING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "CHANGE_WORLD_ADAPTATION_CONFLICT",
+    "family": "CHANGE",
+    "expression": "WORLD_ADAPTATION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "CLOSURE_OPEN_DOOR_CONFLICT",
+    "family": "CLOSURE",
+    "expression": "OPEN_DOOR",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "CLOSURE_RAPID_CLASSIFICATION_EXPRESSION",
+    "family": "CLOSURE",
+    "expression": "RAPID_CLASSIFICATION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CLOSURE_UNRESOLVED_DISAPPEARANCE_WOUND",
+    "family": "CLOSURE",
+    "expression": "UNRESOLVED_DISAPPEARANCE",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "COLLECTIVE_MEMORY_LIVING_MEMORIAL_CONFLICT",
+    "family": "COLLECTIVE_MEMORY",
+    "expression": "LIVING_MEMORIAL",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "COLLECTIVE_MEMORY_TECHNIQUE_TRADITION",
+    "family": "COLLECTIVE_MEMORY",
+    "expression": "TECHNIQUE_TRADITION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COMPASSION_INJURY_AID_EXPRESSION",
+    "family": "COMPASSION",
+    "expression": "INJURY_AID",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COMPASSION_NECESSARY_HARM_CONFLICT",
+    "family": "COMPASSION",
+    "expression": "NECESSARY_HARM",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "COMPASSION_RESCUE_CONTROL_WOUND",
+    "family": "COMPASSION",
+    "expression": "RESCUE_CONTROL",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COMPETITION_COSMIC_TOURNAMENT_CONFLICT",
+    "family": "COMPETITION",
+    "expression": "COSMIC_TOURNAMENT",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "COMPETITION_MANUFACTURED_RIVALRY_WOUND",
+    "family": "COMPETITION",
+    "expression": "MANUFACTURED_RIVALRY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "COMPETITION_MATE_COMPETITION",
+    "family": "COMPETITION",
+    "expression": "MATE_COMPETITION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COMPETITION_UNFAIR_GIFT_CONFLICT",
+    "family": "COMPETITION",
+    "expression": "UNFAIR_GIFT",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "CONFORMITY_ASSIMILATION_WOUND",
+    "family": "CONFORMITY",
+    "expression": "ASSIMILATION",
+    "dominantFaction": [
+      "CONCORD",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "CONFORMITY_EMERGENCE_SYNCHRONY_EXPRESSION",
+    "family": "CONFORMITY",
+    "expression": "EMERGENCE_SYNCHRONY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONFORMITY_MOVEMENT_SYNCHRONY_EXPRESSION",
+    "family": "CONFORMITY",
+    "expression": "MOVEMENT_SYNCHRONY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONFORMITY_OBEDIENCE_NATURE_CONFLICT",
+    "family": "CONFORMITY",
+    "expression": "OBEDIENCE_NATURE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONTROL_ADAPTIVE_SURRENDER_EXPRESSION",
+    "family": "CONTROL",
+    "expression": "ADAPTIVE_SURRENDER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONTROL_BINDING_RITUAL_CONFLICT",
+    "family": "CONTROL",
+    "expression": "BINDING_RITUAL",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONTROL_ENVIRONMENT_ENGINEERING_EXPRESSION",
+    "family": "CONTROL",
+    "expression": "ENVIRONMENT_ENGINEERING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONTROL_POWERLESSNESS_WOUND",
+    "family": "CONTROL",
+    "expression": "POWERLESSNESS",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONTROL_RESOURCE_CONTROL_EXPRESSION",
+    "family": "CONTROL",
+    "expression": "RESOURCE_CONTROL",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONTROL_UNCONTROLLABLE_CORE_CONFLICT",
+    "family": "CONTROL",
+    "expression": "UNCONTROLLABLE_CORE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "CONTROL_UNPREDICTABILITY_WOUND",
+    "family": "CONTROL",
+    "expression": "UNPREDICTABILITY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COOPERATION_CIRCLE_DEPENDENT_POWER_CONFLICT",
+    "family": "COOPERATION",
+    "expression": "CIRCLE_DEPENDENT_POWER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COOPERATION_COOPERATIVE_HUNTING_EXPRESSION",
+    "family": "COOPERATION",
+    "expression": "COOPERATIVE_HUNTING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COOPERATION_GROUP_DEFENSE_EXPRESSION",
+    "family": "COOPERATION",
+    "expression": "GROUP_DEFENSE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COOPERATION_SOLIDARITY_FRACTURE_WOUND",
+    "family": "COOPERATION",
+    "expression": "SOLIDARITY_FRACTURE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COURAGE_COURAGE_WITHOUT_CHOICE_CONFLICT",
+    "family": "COURAGE",
+    "expression": "COURAGE_WITHOUT_CHOICE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "COURAGE_FEIGNED_INJURY_EXPRESSION",
+    "family": "COURAGE",
+    "expression": "FEIGNED_INJURY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "COURAGE_RESISTANCE_COURAGE_WOUND",
+    "family": "COURAGE",
+    "expression": "RESISTANCE_COURAGE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "CURIOSITY_BOUNDARY_BLIND_INQUIRY_CONFLICT",
+    "family": "CURIOSITY",
+    "expression": "BOUNDARY_BLIND_INQUIRY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "CURIOSITY_LOST_HISTORY_WOUND",
+    "family": "CURIOSITY",
+    "expression": "LOST_HISTORY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "CURIOSITY_PROBLEM_SOLVING_EXPRESSION",
+    "family": "CURIOSITY",
+    "expression": "PROBLEM_SOLVING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DESIRE_COMMODIFIED_DESIRE_WOUND",
+    "family": "DESIRE",
+    "expression": "COMMODIFIED_DESIRE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DESIRE_COMPELLED_ATTRACTION_CONFLICT",
+    "family": "DESIRE",
+    "expression": "COMPELLED_ATTRACTION",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "DESIRE_COURTSHIP_DISPLAY_EXPRESSION",
+    "family": "DESIRE",
+    "expression": "COURTSHIP_DISPLAY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DESIRE_HUNGER_VERSUS_LOVE_CONFLICT",
+    "family": "DESIRE",
+    "expression": "HUNGER_VERSUS_LOVE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DESIRE_WISH_GRANTER_CONFLICT",
+    "family": "DESIRE",
+    "expression": "WISH_GRANTER",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "DISCIPLINE_ASCETIC_POWER_CONFLICT",
+    "family": "DISCIPLINE",
+    "expression": "ASCETIC_POWER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DISCIPLINE_COMMANDED_DISCIPLINE_CONFLICT",
+    "family": "DISCIPLINE",
+    "expression": "COMMANDED_DISCIPLINE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DISCIPLINE_FORAGING_DISCIPLINE_EXPRESSION",
+    "family": "DISCIPLINE",
+    "expression": "FORAGING_DISCIPLINE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DISCIPLINE_FORM_MAINTENANCE_CONFLICT",
+    "family": "DISCIPLINE",
+    "expression": "FORM_MAINTENANCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DISCIPLINE_PUNITIVE_TRAINING_WOUND",
+    "family": "DISCIPLINE",
+    "expression": "PUNITIVE_TRAINING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DISCIPLINE_VIGIL_WITHOUT_END_CONFLICT",
+    "family": "DISCIPLINE",
+    "expression": "VIGIL_WITHOUT_END",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DISSENT_CONTRARIAN_IDENTITY_CONFLICT",
+    "family": "DISSENT",
+    "expression": "CONTRARIAN_IDENTITY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DISSENT_HERETICAL_DIVINITY_CONFLICT",
+    "family": "DISSENT",
+    "expression": "HERETICAL_DIVINITY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DISSENT_MINORITY_VOICE_WOUND",
+    "family": "DISSENT",
+    "expression": "MINORITY_VOICE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DISSENT_REFUSAL_EXPRESSION",
+    "family": "DISSENT",
+    "expression": "REFUSAL",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DISSENT_SUPPRESSED_SPEECH_WOUND",
+    "family": "DISSENT",
+    "expression": "SUPPRESSED_SPEECH",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "DOMINANCE_POSTURE_DOMINANCE_EXPRESSION",
+    "family": "DOMINANCE",
+    "expression": "POSTURE_DOMINANCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DOMINANCE_RESOURCE_MONOPOLY_EXPRESSION",
+    "family": "DOMINANCE",
+    "expression": "RESOURCE_MONOPOLY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DOMINANCE_RULE_OR_BE_RULED_CONFLICT",
+    "family": "DOMINANCE",
+    "expression": "RULE_OR_BE_RULED",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DOUBT_MAKER_DECEPTION_CONFLICT",
+    "family": "DOUBT",
+    "expression": "MAKER_DECEPTION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "DOUBT_RETESTING_EXPRESSION",
+    "family": "DOUBT",
+    "expression": "RETESTING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "DUTY_ABANDONED_DUTY_WOUND",
+    "family": "DUTY",
+    "expression": "ABANDONED_DUTY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DUTY_LAST_GUARDIAN_CONFLICT",
+    "family": "DUTY",
+    "expression": "LAST_GUARDIAN",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DUTY_NEST_DUTY_EXPRESSION",
+    "family": "DUTY",
+    "expression": "NEST_DUTY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "DUTY_WATCH_DUTY_EXPRESSION",
+    "family": "DUTY",
+    "expression": "WATCH_DUTY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EMBODIMENT_DISEMBODIED_LONGING_CONFLICT",
+    "family": "EMBODIMENT",
+    "expression": "DISEMBODIED_LONGING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EMBODIMENT_DISPLACEMENT_FROM_BODY_WOUND",
+    "family": "EMBODIMENT",
+    "expression": "DISPLACEMENT_FROM_BODY",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EMBODIMENT_FUNCTIONAL_BODY_EXPRESSION",
+    "family": "EMBODIMENT",
+    "expression": "FUNCTIONAL_BODY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EMBODIMENT_ORNAMENTAL_BODY_EXPRESSION",
+    "family": "EMBODIMENT",
+    "expression": "ORNAMENTAL_BODY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EMBODIMENT_PRISON_BODY_CONFLICT",
+    "family": "EMBODIMENT",
+    "expression": "PRISON_BODY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EMBODIMENT_PROTECTED_BODY_EXPRESSION",
+    "family": "EMBODIMENT",
+    "expression": "PROTECTED_BODY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EMBODIMENT_WEAPON_BODY_CONFLICT",
+    "family": "EMBODIMENT",
+    "expression": "WEAPON_BODY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EMPATHY_CONSOLATION_EXPRESSION",
+    "family": "EMPATHY",
+    "expression": "CONSOLATION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EMPATHY_DEHUMANIZATION_WOUND",
+    "family": "EMPATHY",
+    "expression": "DEHUMANIZATION",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EMPATHY_DISTRESS_RESPONSE_EXPRESSION",
+    "family": "EMPATHY",
+    "expression": "DISTRESS_RESPONSE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EMPATHY_PREDATOR_EMPATHY_CONFLICT",
+    "family": "EMPATHY",
+    "expression": "PREDATOR_EMPATHY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "ENVY_INTERNAL_COMPARISON_WOUND",
+    "family": "ENVY",
+    "expression": "INTERNAL_COMPARISON",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "ENVY_OBJECT_COVETING_EXPRESSION",
+    "family": "ENVY",
+    "expression": "OBJECT_COVETING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "ENVY_ORDINARY_LIFE_ENVY_CONFLICT",
+    "family": "ENVY",
+    "expression": "ORDINARY_LIFE_ENVY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "ENVY_VISIBLE_INEQUALITY_WOUND",
+    "family": "ENVY",
+    "expression": "VISIBLE_INEQUALITY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EQUANIMITY_LOW_REACTIVITY_EXPRESSION",
+    "family": "EQUANIMITY",
+    "expression": "LOW_REACTIVITY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EQUANIMITY_SCRUTINIZED_COMPOSURE_WOUND",
+    "family": "EQUANIMITY",
+    "expression": "SCRUTINIZED_COMPOSURE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EQUANIMITY_SERENITY_AS_SEAL_CONFLICT",
+    "family": "EQUANIMITY",
+    "expression": "SERENITY_AS_SEAL",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "EXILE_COLONIZATION_EXPRESSION",
+    "family": "EXILE",
+    "expression": "COLONIZATION",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXILE_DIASPORA_DISTANCE_WOUND",
+    "family": "EXILE",
+    "expression": "DIASPORA_DISTANCE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXILE_FORCED_MIGRATION_WOUND",
+    "family": "EXILE",
+    "expression": "FORCED_MIGRATION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXILE_NOMADIC_CONTINUITY_EXPRESSION",
+    "family": "EXILE",
+    "expression": "NOMADIC_CONTINUITY",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXILE_TWO_HOME_CONFLICT",
+    "family": "EXILE",
+    "expression": "TWO_HOME",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EXPOSURE_DISPLAY_EXPOSURE_EXPRESSION",
+    "family": "EXPOSURE",
+    "expression": "DISPLAY_EXPOSURE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EXPOSURE_EXPOSURE_AS_EXISTENCE_CONFLICT",
+    "family": "EXPOSURE",
+    "expression": "EXPOSURE_AS_EXISTENCE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EXPOSURE_INVINCIBLE_WHILE_UNKNOWN_CONFLICT",
+    "family": "EXPOSURE",
+    "expression": "INVINCIBLE_WHILE_UNKNOWN",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EXPOSURE_PRIVACY_DEPRIVATION_WOUND",
+    "family": "EXPOSURE",
+    "expression": "PRIVACY_DEPRIVATION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EXPOSURE_SEEN_AND_BOUND_CONFLICT",
+    "family": "EXPOSURE",
+    "expression": "SEEN_AND_BOUND",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_CHEMICAL_EXPRESSION",
+    "family": "EXPRESSION",
+    "expression": "CHEMICAL",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_COMPELLED_PERFORMANCE_CONFLICT",
+    "family": "EXPRESSION",
+    "expression": "COMPELLED_PERFORMANCE",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_LANGUAGE_SUPPRESSION_WOUND",
+    "family": "EXPRESSION",
+    "expression": "LANGUAGE_SUPPRESSION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_SILENCE_EXPRESSION",
+    "family": "EXPRESSION",
+    "expression": "SILENCE",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_TACTILE_EXPRESSION",
+    "family": "EXPRESSION",
+    "expression": "TACTILE",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_UNSPEAKABLE_NEED_CONFLICT",
+    "family": "EXPRESSION",
+    "expression": "UNSPEAKABLE_NEED",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_VISUAL_EXPRESSION",
+    "family": "EXPRESSION",
+    "expression": "VISUAL",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_VOCAL_EXPRESSION",
+    "family": "EXPRESSION",
+    "expression": "VOCAL",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "EXPRESSION_WORLD_CHANGING_VOICE_CONFLICT",
+    "family": "EXPRESSION",
+    "expression": "WORLD_CHANGING_VOICE",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "FAIRNESS_JUSTICE_VERSUS_LOVE_CONFLICT",
+    "family": "FAIRNESS",
+    "expression": "JUSTICE_VERSUS_LOVE",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "FAIRNESS_LABOR_EXTRACTION_WOUND",
+    "family": "FAIRNESS",
+    "expression": "LABOR_EXTRACTION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "FAIRNESS_TURN_TAKING_EXPRESSION",
+    "family": "FAIRNESS",
+    "expression": "TURN_TAKING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FAIRNESS_UNEQUAL_LAW_WOUND",
+    "family": "FAIRNESS",
+    "expression": "UNEQUAL_LAW",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FAITH_FALSE_REVELATION_CONFLICT",
+    "family": "FAITH",
+    "expression": "FALSE_REVELATION",
+    "dominantFaction": [
+      "CONCORD",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "FAITH_INHERITED_CUE_EXPRESSION",
+    "family": "FAITH",
+    "expression": "INHERITED_CUE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FAITH_PERSECUTED_FAITH_WOUND",
+    "family": "FAITH",
+    "expression": "PERSECUTED_FAITH",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FAITH_SELF_AS_OBJECT_OF_FAITH_CONFLICT",
+    "family": "FAITH",
+    "expression": "SELF_AS_OBJECT_OF_FAITH",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FEAR_CHRONIC_DANGER_WOUND",
+    "family": "FEAR",
+    "expression": "CHRONIC_DANGER",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "FEAR_DEFENSIVE_DISPLAY_EXPRESSION",
+    "family": "FEAR",
+    "expression": "DEFENSIVE_DISPLAY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FEAR_FEAR_FED_CONFLICT",
+    "family": "FEAR",
+    "expression": "FEAR_FED",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "FEAR_INTERGENERATIONAL_WARNING_WOUND",
+    "family": "FEAR",
+    "expression": "INTERGENERATIONAL_WARNING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "FEAR_STATE_TERROR_WOUND",
+    "family": "FEAR",
+    "expression": "STATE_TERROR",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "FEAR_TERROR_INCARNATE_CONFLICT",
+    "family": "FEAR",
+    "expression": "TERROR_INCARNATE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "FORCE_BITE_OR_STING_EXPRESSION",
+    "family": "FORCE",
+    "expression": "BITE_OR_STING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FORCE_CATASTROPHIC_THRESHOLD_CONFLICT",
+    "family": "FORCE",
+    "expression": "CATASTROPHIC_THRESHOLD",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "FORCE_CHARGE_EXPRESSION",
+    "family": "FORCE",
+    "expression": "CHARGE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FORCE_CONSTRICT_EXPRESSION",
+    "family": "FORCE",
+    "expression": "CONSTRICT",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FORCE_CONTAINED_POWER_CONFLICT",
+    "family": "FORCE",
+    "expression": "CONTAINED_POWER",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "FORCE_LIVING_WEAPON_CONFLICT",
+    "family": "FORCE",
+    "expression": "LIVING_WEAPON",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "FORCE_PROTECTIVE_BRUTALITY_CONFLICT",
+    "family": "FORCE",
+    "expression": "PROTECTIVE_BRUTALITY",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "FORCE_STATE_FORCE_WOUND",
+    "family": "FORCE",
+    "expression": "STATE_FORCE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "FORCE_SWARM_EXPRESSION",
+    "family": "FORCE",
+    "expression": "SWARM",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FORGIVENESS_COMMUNITY_SPLIT_WOUND",
+    "family": "FORGIVENESS",
+    "expression": "COMMUNITY_SPLIT",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "FORGIVENESS_CONDITIONAL_RELEASE_CONFLICT",
+    "family": "FORGIVENESS",
+    "expression": "CONDITIONAL_RELEASE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "FORGIVENESS_RECONCILIATION_GROOMING_EXPRESSION",
+    "family": "FORGIVENESS",
+    "expression": "RECONCILIATION_GROOMING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "FORGIVENESS_UNACKNOWLEDGED_HARM_WOUND",
+    "family": "FORGIVENESS",
+    "expression": "UNACKNOWLEDGED_HARM",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "GRIEF_DISPLACEMENT_GRIEF_WOUND",
+    "family": "GRIEF",
+    "expression": "DISPLACEMENT_GRIEF",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "GRIEF_GHOST_BOND_CONFLICT",
+    "family": "GRIEF",
+    "expression": "GHOST_BOND",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "GRIEF_GUARD_REMAINS_EXPRESSION",
+    "family": "GRIEF",
+    "expression": "GUARD_REMAINS",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "GRIEF_MASS_LOSS_WOUND",
+    "family": "GRIEF",
+    "expression": "MASS_LOSS",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "GRIEF_MEMORY_BODY_CONFLICT",
+    "family": "GRIEF",
+    "expression": "MEMORY_BODY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "GRIEF_WORLD_MOURNER_CONFLICT",
+    "family": "GRIEF",
+    "expression": "WORLD_MOURNER",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "HIERARCHY_CASTE_FIXATION_WOUND",
+    "family": "HIERARCHY",
+    "expression": "CASTE_FIXATION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "HIERARCHY_COSMIC_ORDER_CONFLICT",
+    "family": "HIERARCHY",
+    "expression": "COSMIC_ORDER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "HIERARCHY_REPRODUCTIVE_CASTE_EXPRESSION",
+    "family": "HIERARCHY",
+    "expression": "REPRODUCTIVE_CASTE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "HOPE_BROKEN_PROMISE_WOUND",
+    "family": "HOPE",
+    "expression": "BROKEN_PROMISE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "HOPE_HOPE_BEARER_CONFLICT",
+    "family": "HOPE",
+    "expression": "HOPE_BEARER",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "HOPE_JUVENILE_INVESTMENT_EXPRESSION",
+    "family": "HOPE",
+    "expression": "JUVENILE_INVESTMENT",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "HOSPITALITY_CLEANING_STATION_EXPRESSION",
+    "family": "HOSPITALITY",
+    "expression": "CLEANING_STATION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "HOSPITALITY_GUEST_RIGHT_BINDING_CONFLICT",
+    "family": "HOSPITALITY",
+    "expression": "GUEST_RIGHT_BINDING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "HOSPITALITY_HOST_VERSUS_REALM_CONFLICT",
+    "family": "HOSPITALITY",
+    "expression": "HOST_VERSUS_REALM",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "HOSPITALITY_REFUGE_WOUND",
+    "family": "HOSPITALITY",
+    "expression": "REFUGE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "IMPULSE_DANGER_CONDITIONED_IMPULSE",
+    "family": "IMPULSE",
+    "expression": "DANGER_CONDITIONED_IMPULSE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "IMPULSE_EMOTION_MANIFEST_CONFLICT",
+    "family": "IMPULSE",
+    "expression": "EMOTION_MANIFEST",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "IMPULSE_FIRST_THOUGHT_MAGIC_CONFLICT",
+    "family": "IMPULSE",
+    "expression": "FIRST_THOUGHT_MAGIC",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "IMPULSE_STRIKE_FIRST_EXPRESSION",
+    "family": "IMPULSE",
+    "expression": "STRIKE_FIRST",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "INDIVIDUALITY_HOST_IDENTITY_CONFLICT",
+    "family": "INDIVIDUALITY",
+    "expression": "HOST_IDENTITY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "INDIVIDUALITY_STEREOTYPE_WOUND",
+    "family": "INDIVIDUALITY",
+    "expression": "STEREOTYPE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "INDIVIDUALITY_UNIQUE_MARKING_EXPRESSION",
+    "family": "INDIVIDUALITY",
+    "expression": "UNIQUE_MARKING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "INDIVIDUALITY_UNIQUE_MONSTER_CONFLICT",
+    "family": "INDIVIDUALITY",
+    "expression": "UNIQUE_MONSTER",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "INTIMACY_ARMOR_REMOVAL_CONFLICT",
+    "family": "INTIMACY",
+    "expression": "ARMOR_REMOVAL",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "INTIMACY_EMOTIONAL_DEPRIVATION_WOUND",
+    "family": "INTIMACY",
+    "expression": "EMOTIONAL_DEPRIVATION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "INTIMACY_GROOMING_INTIMACY_EXPRESSION",
+    "family": "INTIMACY",
+    "expression": "GROOMING_INTIMACY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "LAND_DOMAIN_BOUND_CONFLICT",
+    "family": "LAND",
+    "expression": "DOMAIN_BOUND",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "LAND_LAND_AS_BODY_CONFLICT",
+    "family": "LAND",
+    "expression": "LAND_AS_BODY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "LAND_NESTING_SITE_DEPENDENCE",
+    "family": "LAND",
+    "expression": "NESTING_SITE_DEPENDENCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "LAND_REMOVAL_WOUND",
+    "family": "LAND",
+    "expression": "REMOVAL",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "LAND_ROOTEDNESS_VERSUS_FREEDOM_CONFLICT",
+    "family": "LAND",
+    "expression": "ROOTEDNESS_VERSUS_FREEDOM",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "LAND_SPAWNING_SITE_DEPENDENCE",
+    "family": "LAND",
+    "expression": "SPAWNING_SITE_DEPENDENCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "LEGITIMACY_CHALLENGE_LEGITIMACY_EXPRESSION",
+    "family": "LEGITIMACY",
+    "expression": "CHALLENGE_LEGITIMACY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "LEGITIMACY_CONQUEST_LEGITIMACY_WOUND",
+    "family": "LEGITIMACY",
+    "expression": "CONQUEST_LEGITIMACY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "LEGITIMACY_DIVINE_MANDATE_CONFLICT",
+    "family": "LEGITIMACY",
+    "expression": "DIVINE_MANDATE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "LOYALTY_DEAD_MASTER_CONFLICT",
+    "family": "LOYALTY",
+    "expression": "DEAD_MASTER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "LOYALTY_FACTIONALIZATION_WOUND",
+    "family": "LOYALTY",
+    "expression": "FACTIONALIZATION",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "LOYALTY_GROUP_ALLEGIANCE_EXPRESSION",
+    "family": "LOYALTY",
+    "expression": "GROUP_ALLEGIANCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MEANING_CREATED_PURPOSE_VERSUS_MEANING_CONFLICT",
+    "family": "MEANING",
+    "expression": "CREATED_PURPOSE_VERSUS_MEANING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MEANING_ERASED_WORLDVIEW_WOUND",
+    "family": "MEANING",
+    "expression": "ERASED_WORLDVIEW",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MEANING_RITUAL_ACTION_EXPRESSION",
+    "family": "MEANING",
+    "expression": "RITUAL_ACTION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MEMORY_CACHE_MEMORY_EXPRESSION",
+    "family": "MEMORY",
+    "expression": "CACHE_MEMORY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MEMORY_HAUNTED_MEMORY_CONFLICT",
+    "family": "MEMORY",
+    "expression": "HAUNTED_MEMORY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MEMORY_RITUAL_RETURN_EXPRESSION",
+    "family": "MEMORY",
+    "expression": "RITUAL_RETURN",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MEMORY_SELECTIVE_MEMORY_WOUND",
+    "family": "MEMORY",
+    "expression": "SELECTIVE_MEMORY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MEMORY_SURVIVOR_MEMORY_WOUND",
+    "family": "MEMORY",
+    "expression": "SURVIVOR_MEMORY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MERCY_IMPUNITY_THROUGH_MERCY_WOUND",
+    "family": "MERCY",
+    "expression": "IMPUNITY_THROUGH_MERCY",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "MERCY_JUDGE_WHO_CANNOT_FORGIVE_CONFLICT",
+    "family": "MERCY",
+    "expression": "JUDGE_WHO_CANNOT_FORGIVE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MERCY_MERCY_DENIAL_WOUND",
+    "family": "MERCY",
+    "expression": "MERCY_DENIAL",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MERCY_SUBMISSION_RESPONSE_EXPRESSION",
+    "family": "MERCY",
+    "expression": "SUBMISSION_RESPONSE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MORTALITY_BRIEF_LIFE_EXPRESSION",
+    "family": "MORTALITY",
+    "expression": "BRIEF_LIFE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MORTALITY_IMMORTALITY_FATIGUE_CONFLICT",
+    "family": "MORTALITY",
+    "expression": "IMMORTALITY_FATIGUE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MORTALITY_LONG_LIFE_EXPRESSION",
+    "family": "MORTALITY",
+    "expression": "LONG_LIFE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MORTALITY_MASS_DEATH_WOUND",
+    "family": "MORTALITY",
+    "expression": "MASS_DEATH",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MORTALITY_MORTALITY_THEFT_CONFLICT",
+    "family": "MORTALITY",
+    "expression": "MORTALITY_THEFT",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MORTALITY_SEMELPAROUS_EXPRESSION",
+    "family": "MORTALITY",
+    "expression": "SEMELPAROUS",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "MORTALITY_UNDEAD_CONTINUATION_CONFLICT",
+    "family": "MORTALITY",
+    "expression": "UNDEAD_CONTINUATION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "MORTALITY_UNEQUAL_EXPOSURE_WOUND",
+    "family": "MORTALITY",
+    "expression": "UNEQUAL_EXPOSURE",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "NOVELTY_CREATION_ADDICTION_CONFLICT",
+    "family": "NOVELTY",
+    "expression": "CREATION_ADDICTION",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "NOVELTY_ENDLESS_REINVENTION_CONFLICT",
+    "family": "NOVELTY",
+    "expression": "ENDLESS_REINVENTION",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "NOVELTY_MIGRATION_OPPORTUNITY_WOUND",
+    "family": "NOVELTY",
+    "expression": "MIGRATION_OPPORTUNITY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "NOVELTY_OBJECT_PLAY_EXPRESSION",
+    "family": "NOVELTY",
+    "expression": "OBJECT_PLAY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "NOVELTY_STRATEGY_SWITCH_EXPRESSION",
+    "family": "NOVELTY",
+    "expression": "STRATEGY_SWITCH",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "PATIENCE_AMBUSH_PATIENCE_EXPRESSION",
+    "family": "PATIENCE",
+    "expression": "AMBUSH_PATIENCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PATIENCE_STALKING_PATIENCE_EXPRESSION",
+    "family": "PATIENCE",
+    "expression": "STALKING_PATIENCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PATIENCE_STONE_OR_SEED_CONFLICT",
+    "family": "PATIENCE",
+    "expression": "STONE_OR_SEED",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PATIENCE_WAITING_FOR_RETURN_WOUND",
+    "family": "PATIENCE",
+    "expression": "WAITING_FOR_RETURN",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERFECTION_ERROR_CORRECTION_EXPRESSION",
+    "family": "PERFECTION",
+    "expression": "ERROR_CORRECTION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERFECTION_EXEMPLARY_MINORITY_WOUND",
+    "family": "PERFECTION",
+    "expression": "EXEMPLARY_MINORITY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERFECTION_IDEAL_FORM_CONFLICT",
+    "family": "PERFECTION",
+    "expression": "IDEAL_FORM",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERFECTION_PERFECT_OBEDIENCE_CONFLICT",
+    "family": "PERFECTION",
+    "expression": "PERFECT_OBEDIENCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERFECTION_SYMMETRY_PREFERENCE_EXPRESSION",
+    "family": "PERFECTION",
+    "expression": "SYMMETRY_PREFERENCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERSEVERANCE_DROUGHT_OR_COLD_ENDURANCE_EXPRESSION",
+    "family": "PERSEVERANCE",
+    "expression": "DROUGHT_OR_COLD_ENDURANCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERSEVERANCE_LABOR_EXPLOITATION_WOUND",
+    "family": "PERSEVERANCE",
+    "expression": "LABOR_EXPLOITATION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "PERSEVERANCE_METHOD_SWITCHING_EXPRESSION",
+    "family": "PERSEVERANCE",
+    "expression": "METHOD_SWITCHING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERSEVERANCE_PERSISTENT_PURSUIT_EXPRESSION",
+    "family": "PERSEVERANCE",
+    "expression": "PERSISTENT_PURSUIT",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERSEVERANCE_SUFFERING_AS_PROOF_CONFLICT",
+    "family": "PERSEVERANCE",
+    "expression": "SUFFERING_AS_PROOF",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PERSEVERANCE_SURVIVAL_PERSISTENCE_WOUND",
+    "family": "PERSEVERANCE",
+    "expression": "SURVIVAL_PERSISTENCE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "PERSPECTIVE_GOD_S_EYE_CONFLICT",
+    "family": "PERSPECTIVE",
+    "expression": "GOD_S_EYE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "PERSPECTIVE_PERSISTENT_MISREADING_WOUND",
+    "family": "PERSPECTIVE",
+    "expression": "PERSISTENT_MISREADING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "PERSPECTIVE_VISUAL_VANTAGE_EXPRESSION",
+    "family": "PERSPECTIVE",
+    "expression": "VISUAL_VANTAGE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PLEASURE_BASKING_EXPRESSION",
+    "family": "PLEASURE",
+    "expression": "BASKING",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "PLEASURE_EXPLORATION_PLEASURE_EXPRESSION",
+    "family": "PLEASURE",
+    "expression": "EXPLORATION_PLEASURE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "PLEASURE_JOY_BRINGER_CONFLICT",
+    "family": "PLEASURE",
+    "expression": "JOY_BRINGER",
+    "dominantFaction": [
+      "RUIN",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "PLEASURE_PLAY_EXPRESSION",
+    "family": "PLEASURE",
+    "expression": "PLAY",
+    "dominantFaction": [
+      "CONCORD",
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "PLEASURE_PLEASURE_TABOO_CONFLICT",
+    "family": "PLEASURE",
+    "expression": "PLEASURE_TABOO",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "POSSESSION_CACHE_GUARDING_EXPRESSION",
+    "family": "POSSESSION",
+    "expression": "CACHE_GUARDING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "POSSESSION_CULTURAL_PROPERTY_WOUND",
+    "family": "POSSESSION",
+    "expression": "CULTURAL_PROPERTY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "POSSESSION_GUARDIAN_VERSUS_OWNER_CONFLICT",
+    "family": "POSSESSION",
+    "expression": "GUARDIAN_VERSUS_OWNER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "POSSESSION_HOARD_MASTER_CONFLICT",
+    "family": "POSSESSION",
+    "expression": "HOARD_MASTER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "POSSESSION_NEST_DECORATION_EXPRESSION",
+    "family": "POSSESSION",
+    "expression": "NEST_DECORATION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "POWER_CAPTURED_RESOURCE_WOUND",
+    "family": "POWER",
+    "expression": "CAPTURED_RESOURCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "POWER_COLONIAL_POWER_WOUND",
+    "family": "POWER",
+    "expression": "COLONIAL_POWER",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "POWER_PHYSICAL_POWER_EXPRESSION",
+    "family": "POWER",
+    "expression": "PHYSICAL_POWER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "POWER_REPRODUCTIVE_POWER_EXPRESSION",
+    "family": "POWER",
+    "expression": "REPRODUCTIVE_POWER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "POWER_SINGLE_WEAKNESS_CONFLICT",
+    "family": "POWER",
+    "expression": "SINGLE_WEAKNESS",
+    "dominantFaction": [
+      "CONCORD",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "PROTECTION_GUARDIAN_CURSE_CONFLICT",
+    "family": "PROTECTION",
+    "expression": "GUARDIAN_CURSE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PROTECTION_PROTECTOR_AS_PERPETRATOR_WOUND",
+    "family": "PROTECTION",
+    "expression": "PROTECTOR_AS_PERPETRATOR",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PROTECTION_THREAT_CREATION_CONFLICT",
+    "family": "PROTECTION",
+    "expression": "THREAT_CREATION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PROTECTION_WORLD_SHIELD_CONFLICT",
+    "family": "PROTECTION",
+    "expression": "WORLD_SHIELD",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PROTECTION_YOUNG_SHIELDING_EXPRESSION",
+    "family": "PROTECTION",
+    "expression": "YOUNG_SHIELDING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PURPOSE_DISPOSSESSION_PURPOSE_WOUND",
+    "family": "PURPOSE",
+    "expression": "DISPOSSESSION_PURPOSE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PURPOSE_MIGRATION_PURPOSE_EXPRESSION",
+    "family": "PURPOSE",
+    "expression": "MIGRATION_PURPOSE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "PURPOSE_SUCCESS_DISSOLUTION_CONFLICT",
+    "family": "PURPOSE",
+    "expression": "SUCCESS_DISSOLUTION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "REACTANCE_HANDLING_REACTANCE_EXPRESSION",
+    "family": "REACTANCE",
+    "expression": "HANDLING_REACTANCE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "REACTANCE_OCCUPATION_REACTANCE_WOUND",
+    "family": "REACTANCE",
+    "expression": "OCCUPATION_REACTANCE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "REACTANCE_REVERSE_COMPULSION_CONFLICT",
+    "family": "REACTANCE",
+    "expression": "REVERSE_COMPULSION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "RECIPROCITY_CLEANING_MUTUALISM_EXPRESSION",
+    "family": "RECIPROCITY",
+    "expression": "CLEANING_MUTUALISM",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "RECIPROCITY_EXTRACTIVE_EXCHANGE_WOUND",
+    "family": "RECIPROCITY",
+    "expression": "EXTRACTIVE_EXCHANGE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "RECIPROCITY_FOOD_SHARING_EXPRESSION",
+    "family": "RECIPROCITY",
+    "expression": "FOOD_SHARING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "RECIPROCITY_GENEROSITY_WITHOUT_RECEIVING_CONFLICT",
+    "family": "RECIPROCITY",
+    "expression": "GENEROSITY_WITHOUT_RECEIVING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "RECIPROCITY_GIFT_AS_BINDING_CONFLICT",
+    "family": "RECIPROCITY",
+    "expression": "GIFT_AS_BINDING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "RECOGNITION_COURTSHIP_DISPLAY_EXPRESSION",
+    "family": "RECOGNITION",
+    "expression": "COURTSHIP_DISPLAY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "RECOGNITION_CREDIT_THEFT_WOUND",
+    "family": "RECOGNITION",
+    "expression": "CREDIT_THEFT",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "RECOGNITION_MISRECOGNIZED_MONSTER_CONFLICT",
+    "family": "RECOGNITION",
+    "expression": "MISRECOGNIZED_MONSTER",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "REPAIR_DESTROYED_INFRASTRUCTURE_WOUND",
+    "family": "REPAIR",
+    "expression": "DESTROYED_INFRASTRUCTURE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "REPAIR_STRUCTURE_REPAIR_EXPRESSION",
+    "family": "REPAIR",
+    "expression": "STRUCTURE_REPAIR",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "REPAIR_UNREPAIRABLE_ORIGIN_CONFLICT",
+    "family": "REPAIR",
+    "expression": "UNREPAIRABLE_ORIGIN",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "REPUTATION_INHERITED_LEGEND_CONFLICT",
+    "family": "REPUTATION",
+    "expression": "INHERITED_LEGEND",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "REPUTATION_THREAT_MEMORY_EXPRESSION",
+    "family": "REPUTATION",
+    "expression": "THREAT_MEMORY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "RESTRAINT_ATTACK_INHIBITION_EXPRESSION",
+    "family": "RESTRAINT",
+    "expression": "ATTACK_INHIBITION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "RESTRAINT_CATASTROPHE_CONTAINED_CONFLICT",
+    "family": "RESTRAINT",
+    "expression": "CATASTROPHE_CONTAINED",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "RESTRAINT_PUNISHED_EXPRESSION_WOUND",
+    "family": "RESTRAINT",
+    "expression": "PUNISHED_EXPRESSION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "RESTRAINT_SCARCITY_RESTRAINT_WOUND",
+    "family": "RESTRAINT",
+    "expression": "SCARCITY_RESTRAINT",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "RISK_LEAP_OR_DIVE_EXPRESSION",
+    "family": "RISK",
+    "expression": "LEAP_OR_DIVE",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "RISK_OPEN_FORAGING_EXPRESSION",
+    "family": "RISK",
+    "expression": "OPEN_FORAGING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "RISK_PRECARITY_WOUND",
+    "family": "RISK",
+    "expression": "PRECARITY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "RISK_PROPHECY_CALCULATION_CONFLICT",
+    "family": "RISK",
+    "expression": "PROPHECY_CALCULATION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "RISK_SOCIAL_RISK_SHARING_EXPRESSION",
+    "family": "RISK",
+    "expression": "SOCIAL_RISK_SHARING",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "RISK_UNEQUAL_RISK_WOUND",
+    "family": "RISK",
+    "expression": "UNEQUAL_RISK",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "SCARCITY_CACHE_EXPRESSION",
+    "family": "SCARCITY",
+    "expression": "CACHE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "SCARCITY_LAND_LOSS_SCARCITY",
+    "family": "SCARCITY",
+    "expression": "LAND_LOSS_SCARCITY",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "SCARCITY_LAST_RESOURCE_CONFLICT",
+    "family": "SCARCITY",
+    "expression": "LAST_RESOURCE",
+    "dominantFaction": [
+      "CONCORD",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SCARCITY_MEMORY_OF_LACK_CONFLICT",
+    "family": "SCARCITY",
+    "expression": "MEMORY_OF_LACK",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SCARCITY_METABOLIC_SLOWING_EXPRESSION",
+    "family": "SCARCITY",
+    "expression": "METABOLIC_SLOWING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "SECRECY_MASK_WITHIN_MASK_CONFLICT",
+    "family": "SECRECY",
+    "expression": "MASK_WITHIN_MASK",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SECRECY_PERSECUTION_SECRECY_WOUND",
+    "family": "SECRECY",
+    "expression": "PERSECUTION_SECRECY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SECRECY_ROUTE_SECRECY_EXPRESSION",
+    "family": "SECRECY",
+    "expression": "ROUTE_SECRECY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SECRECY_SECRET_INSTITUTION_WOUND",
+    "family": "SECRECY",
+    "expression": "SECRET_INSTITUTION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SELF_KNOWLEDGE_EXTERNALLY_DEFINED_WOUND",
+    "family": "SELF_KNOWLEDGE",
+    "expression": "EXTERNALLY_DEFINED",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SELF_KNOWLEDGE_GASLIGHTING_WOUND",
+    "family": "SELF_KNOWLEDGE",
+    "expression": "GASLIGHTING",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SELF_KNOWLEDGE_MIRROR_RECOGNITION_EXPRESSION",
+    "family": "SELF_KNOWLEDGE",
+    "expression": "MIRROR_RECOGNITION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SELF_KNOWLEDGE_SPLIT_SOUL_CONFLICT",
+    "family": "SELF_KNOWLEDGE",
+    "expression": "SPLIT_SOUL",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SELF_KNOWLEDGE_STATE_AWARENESS_EXPRESSION",
+    "family": "SELF_KNOWLEDGE",
+    "expression": "STATE_AWARENESS",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "SELF_REGARD_FLAW_REVELATION_CONFLICT",
+    "family": "SELF_REGARD",
+    "expression": "FLAW_REVELATION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SELF_REGARD_INVULNERABILITY_DISPLAY_EXPRESSION",
+    "family": "SELF_REGARD",
+    "expression": "INVULNERABILITY_DISPLAY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "SELF_REGARD_OVERCOMPENSATION_WOUND",
+    "family": "SELF_REGARD",
+    "expression": "OVERCOMPENSATION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "SELF_REGARD_RANK_DISPLAY_EXPRESSION",
+    "family": "SELF_REGARD",
+    "expression": "RANK_DISPLAY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "SELF_REGARD_SHAME_BOUND_FORM_CONFLICT",
+    "family": "SELF_REGARD",
+    "expression": "SHAME_BOUND_FORM",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "SELF_REGARD_UNADVERTISED_ASSURANCE_EXPRESSION",
+    "family": "SELF_REGARD",
+    "expression": "UNADVERTISED_ASSURANCE",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STATUS_CASTE_HUMILIATION_WOUND",
+    "family": "STATUS",
+    "expression": "CASTE_HUMILIATION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "STATUS_FALLEN_DIVINITY_CONFLICT",
+    "family": "STATUS",
+    "expression": "FALLEN_DIVINITY",
+    "dominantFaction": [
+      "CONCORD",
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "STATUS_ORNAMENT_RANK_EXPRESSION",
+    "family": "STATUS",
+    "expression": "ORNAMENT_RANK",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STATUS_RACIALIZED_RANK_WOUND",
+    "family": "STATUS",
+    "expression": "RACIALIZED_RANK",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STATUS_VICTORY_RANK_EXPRESSION",
+    "family": "STATUS",
+    "expression": "VICTORY_RANK",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STEWARDSHIP_EXTRACTION_WOUND",
+    "family": "STEWARDSHIP",
+    "expression": "EXTRACTION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STEWARDSHIP_FUTURE_SIGHT_CONFLICT",
+    "family": "STEWARDSHIP",
+    "expression": "FUTURE_SIGHT",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STEWARDSHIP_GUARDIAN_OWNER_CONFLICT",
+    "family": "STEWARDSHIP",
+    "expression": "GUARDIAN_OWNER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STEWARDSHIP_HABITAT_ENGINEERING_EXPRESSION",
+    "family": "STEWARDSHIP",
+    "expression": "HABITAT_ENGINEERING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STEWARDSHIP_LIVING_SYSTEM_CONFLICT",
+    "family": "STEWARDSHIP",
+    "expression": "LIVING_SYSTEM",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STEWARDSHIP_REALM_KEEPER_CONFLICT",
+    "family": "STEWARDSHIP",
+    "expression": "REALM_KEEPER",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STEWARDSHIP_SEED_DISPERSAL_EXPRESSION",
+    "family": "STEWARDSHIP",
+    "expression": "SEED_DISPERSAL",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "STEWARDSHIP_WASTE_RECYCLING_EXPRESSION",
+    "family": "STEWARDSHIP",
+    "expression": "WASTE_RECYCLING",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "TRADITION_APPROPRIATION_WOUND",
+    "family": "TRADITION",
+    "expression": "APPROPRIATION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "TRADITION_FORAGING_TRADITION_EXPRESSION",
+    "family": "TRADITION",
+    "expression": "FORAGING_TRADITION",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "TRADITION_FOUNDER_SHADOW_CONFLICT",
+    "family": "TRADITION",
+    "expression": "FOUNDER_SHADOW",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "TRUST_ALARM_RELIABILITY_EXPRESSION",
+    "family": "TRUST",
+    "expression": "ALARM_RELIABILITY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "TRUST_COMPULSION_DOUBT_CONFLICT",
+    "family": "TRUST",
+    "expression": "COMPULSION_DOUBT",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "TRUST_FRAUD_AND_EXTRACTION_WOUND",
+    "family": "TRUST",
+    "expression": "FRAUD_AND_EXTRACTION",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "TRUST_TRUST_BY_PROXIMITY_EXPRESSION",
+    "family": "TRUST",
+    "expression": "TRUST_BY_PROXIMITY",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "TRUTH_CAMOUFLAGE_EXPRESSION",
+    "family": "TRUTH",
+    "expression": "CAMOUFLAGE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "TRUTH_GLAMOUR_DEPENDENCE_CONFLICT",
+    "family": "TRUTH",
+    "expression": "GLAMOUR_DEPENDENCE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "TRUTH_HONEST_SIGNAL_EXPRESSION",
+    "family": "TRUTH",
+    "expression": "HONEST_SIGNAL",
+    "dominantFaction": [
+      "CONCORD"
+    ]
+  },
+  {
+    "personalityId": "TRUTH_LIVING_LIE_CONFLICT",
+    "family": "TRUTH",
+    "expression": "LIVING_LIE",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "TRUTH_MIMICRY_EXPRESSION",
+    "family": "TRUTH",
+    "expression": "MIMICRY",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "TRUTH_OFFICIAL_DENIAL_WOUND",
+    "family": "TRUTH",
+    "expression": "OFFICIAL_DENIAL",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "TRUTH_PROPAGANDA_WOUND",
+    "family": "TRUTH",
+    "expression": "PROPAGANDA",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "VENGEANCE_BLOOD_FEUD_WOUND",
+    "family": "VENGEANCE",
+    "expression": "BLOOD_FEUD",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "VENGEANCE_DELAYED_RETALIATION_EXPRESSION",
+    "family": "VENGEANCE",
+    "expression": "DELAYED_RETALIATION",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  },
+  {
+    "personalityId": "VENGEANCE_MEMORY_PERFECT_CONFLICT",
+    "family": "VENGEANCE",
+    "expression": "MEMORY_PERFECT",
+    "dominantFaction": [
+      "SCHISM"
+    ]
+  },
+  {
+    "personalityId": "VENGEANCE_WRONG_TARGET_CONFLICT",
+    "family": "VENGEANCE",
+    "expression": "WRONG_TARGET",
+    "dominantFaction": [
+      "RUIN"
+    ]
+  }
+]

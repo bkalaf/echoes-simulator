@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "eidolon-simulator-readiness-v1",
+  "issues": [
+    {
+      "issueCode": "BREED_DIMENSION_COVERAGE",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "BREED_FACTION_PREFERENCE_COVERAGE",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "TERRAIN_ECOLOGY_COVERAGE",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "PET_POPULATION_PARTICIPATION",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "YEAR1_FOOD_SUITABILITY_SOURCE",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "MIGRATION_FORMULA_OWNER_REVIEW_REQUIRED",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "FOUNDING_CARDINALITY_CONFLICT",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "FOUNDING_MOTIVE_ELIGIBILITY",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "CULTURE_FOUNDER_SCOPE",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "CULTURE_TIE_FACTION_POLICY",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "DJT_EVENT_YEAR_450_VS_500",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "DJT_FIVE_YEAR_OUTBOUND_SCOPE",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "INNERWOOD_SECESSION_505_SELECTION",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "INNERWOOD_REBALANCE_525_SELECTION",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "CONCLAVE_PRE90_ALLOCATION",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "SENATE_25_VS_TWO_PER_STATE",
+      "severity": "BLOCKER",
+      "blocksCanonical": true
+    },
+    {
+      "issueCode": "ATROCITY_NUMBER_08_MISSING",
+      "severity": "WARNING",
+      "blocksCanonical": false
+    },
+    {
+      "issueCode": "ATROCITY_EFFECTS_NOT_YET_AUTHORED",
+      "severity": "WARNING",
+      "blocksCanonical": false
+    },
+    {
+      "issueCode": "GUIDE_CONJUNCTION_CAUSAL_DETAIL_DEFERRED",
+      "severity": "WARNING",
+      "blocksCanonical": false
+    }
+  ]
+}

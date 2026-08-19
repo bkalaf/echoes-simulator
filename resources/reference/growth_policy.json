@@ -1,0 +1,35 @@
+{
+  "rates": {
+    "LOW": {
+      "numerator": 1,
+      "denominator": 200
+    },
+    "MEDIUM": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "HIGH": {
+      "numerator": 3,
+      "denominator": 200
+    }
+  },
+  "matrix": {
+    "CONCORD": {
+      "CONCORD": "LOW",
+      "SCHISM": "MEDIUM",
+      "RUIN": "HIGH"
+    },
+    "SCHISM": {
+      "CONCORD": "HIGH",
+      "SCHISM": "LOW",
+      "RUIN": "MEDIUM"
+    },
+    "RUIN": {
+      "CONCORD": "MEDIUM",
+      "SCHISM": "HIGH",
+      "RUIN": "LOW"
+    }
+  },
+  "matrixRows": "settlementDominantFaction",
+  "matrixColumns": "sovereignFaction"
+}

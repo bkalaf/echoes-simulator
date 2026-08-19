@@ -1,0 +1,17 @@
+{
+  "CONCORD": [
+    "CONCORD",
+    "SCHISM",
+    "RUIN"
+  ],
+  "SCHISM": [
+    "SCHISM",
+    "RUIN",
+    "CONCORD"
+  ],
+  "RUIN": [
+    "RUIN",
+    "CONCORD",
+    "SCHISM"
+  ]
+}

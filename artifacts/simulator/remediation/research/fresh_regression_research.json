@@ -1,0 +1,224 @@
+{
+  "schemaVersion": "eidolon-breed-research-v3-partial-regression-checkpoint",
+  "status": "PARTIAL_RESEARCH_CHECKPOINT_NOT_CANONICAL",
+  "retrievalDate": "2026-08-19",
+  "method": "Fresh field-specific source review. August 18 values were used only to identify cases and were not copied as authority.",
+  "sources": [
+    {
+      "sourceId": "SRC_V3_PSU_DAIRY_GOAT",
+      "url": "https://extension.psu.edu/dairy-goat-production",
+      "title": "Dairy Goat Production",
+      "organization": "Penn State Extension",
+      "locator": "Feeding section; search result passage beginning Goats are efficient browsers",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Goats browse selectively and consume weeds, shrubs, and other nontraditional pasture plants."
+    },
+    {
+      "sourceId": "SRC_V3_UMN_SMALL_RUMINANT_GRAZING",
+      "url": "https://extension.umn.edu/small-farms/managing-barberpole-worms-sheep-and-goats",
+      "title": "Managing barberpole worms in sheep and goats",
+      "organization": "University of Minnesota Extension",
+      "locator": "Pasture-management comparison of goats and sheep",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Goats browse leaves, shrubs, and brush; sheep naturally graze grass."
+    },
+    {
+      "sourceId": "SRC_V3_PSU_SHEEP_GOAT_FEED",
+      "url": "https://extension.psu.edu/so-you-want-to-raise-sheep-or-goats",
+      "title": "So You Want to Raise Sheep or Goats?",
+      "organization": "Penn State Extension",
+      "locator": "Feeding and Nutrition section",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Sheep and goat rations may include grain sources such as corn, oats, wheat, barley, or spelt."
+    },
+    {
+      "sourceId": "SRC_V3_HILGERS_FLOWERHORN",
+      "url": "https://bonn.leibniz-lib.de/dateien/dokumente/hilgers_2018_0.pdf",
+      "title": "Alien attack: trophic interactions of flowerhorn cichlids with endemics of ancient Lake Matano",
+      "organization": "Zoological Research Museum Alexander Koenig and research partners",
+      "locator": "Abstract",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "The human-made hybrid established across Lake Matano's shoreline; no workshop habitat is described."
+    },
+    {
+      "sourceId": "SRC_V3_IUCN_MALAYAN_TAPIR",
+      "url": "https://portals.iucn.org/library/sites/library/files/documents/1997-053.pdf",
+      "title": "Status and Action Plan of the Malayan Tapir",
+      "organization": "IUCN/SSC Tapir Specialist Group",
+      "locator": "Malayan tapir chapter, natural history and habitat discussion",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Habitats include rainforest, multiple forest types, swamp, streams, and forest fringe; nearby cities and villages are proximity observations."
+    },
+    {
+      "sourceId": "SRC_V3_AFRICA_GEOGRAPHIC_AARDVARK",
+      "url": "https://africageographic.com/stories/aarvark-the-earth-pig-of-africa/",
+      "title": "Aardvark - the earth pig of Africa",
+      "organization": "Africa Geographic",
+      "locator": "The nosey ones and social-behavior paragraphs",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Aardvarks eat chiefly termites and ants, sometimes aardvark cucumber, use burrows, and are largely solitary."
+    },
+    {
+      "sourceId": "SRC_V3_QM_LUNGFISH_BREEDING",
+      "url": "https://www.museum.qld.gov.au/assets/media/project/qm/qm-website/collections-and-research/memoirs/nature-memoirs/nature-volume-21/mqm-n21-2-7-kemp.pdf",
+      "title": "The biology of the Australian lungfish, Neoceratodus forsteri: the reproduction and development of the species",
+      "organization": "Queensland Museum",
+      "locator": "PDF page 6, lines 551-568 in extracted text",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Australian lungfish do not build nests and do not appear to care for young."
+    },
+    {
+      "sourceId": "SRC_V3_CANT_BANDED_MONGOOSE",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1599779/",
+      "title": "Helpers benefit offspring in both the short and long-term in the cooperatively breeding banded mongoose",
+      "organization": "University of Cambridge research group; Proceedings of the Royal Society B",
+      "locator": "Materials and methods, wild population and communal-care description",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Older group members provision communal pups, attack approaching predators, and carry pups from danger."
+    },
+    {
+      "sourceId": "SRC_V3_CMS_WEST_AFRICAN_MANATEE",
+      "url": "https://www.cms.int/sites/default/files/document/cms_cop11_conf9-29_appendix_I__II_proposals_e.pdf",
+      "title": "CMS COP11 Appendix I and II proposals - West African manatee annex",
+      "organization": "Convention on Migratory Species",
+      "locator": "PDF page 69, habitat and threat annex",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "The species occupies rivers and adjacent wetlands; dams obstruct and injure manatees rather than constituting habitat."
+    },
+    {
+      "sourceId": "SRC_V3_FAO_IRAN",
+      "url": "https://www.fao.org/iran/our-office/iran-at-a-glance/",
+      "title": "Iran at a glance",
+      "organization": "Food and Agriculture Organization of the United Nations",
+      "locator": "Geography and population paragraphs",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Iran includes extensive mountains and deserts, and most residents live in urban areas; CITY alone is not representative."
+    },
+    {
+      "sourceId": "SRC_V3_ADW_ALPINE_IBEX",
+      "url": "https://animaldiversity.org/accounts/Capra_ibex/",
+      "title": "Capra ibex (ibex)",
+      "organization": "Animal Diversity Web, University of Michigan Museum of Zoology",
+      "locator": "Habitat and feeding sections",
+      "contextType": "PARAPHRASE",
+      "boundedContext": "Alpine ibex use high mountain habitat and rock cliffs; forest feeding does not establish canopy or arboreal habitat."
+    }
+  ],
+  "fieldResults": [
+    {
+      "breedId": "BRD_DOMESTICATED_GOAT",
+      "field": "traits",
+      "value": ["Browses selectively on shrubs, brush, weeds, and leaves rather than relying only on grass."],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_PSU_DAIRY_GOAT", "SRC_V3_UMN_SMALL_RUMINANT_GRAZING"],
+      "normalizationBridge": "The observed browsing behavior is a functional feeding differentiator; the generic livestock-only statement is rejected."
+    },
+    {
+      "breedId": "BRD_DOMESTICATED_GOAT",
+      "field": "foodSpecific",
+      "value": ["LEAVES", "WOODY_BIOMASS"],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_PSU_DAIRY_GOAT", "SRC_V3_UMN_SMALL_RUMINANT_GRAZING"],
+      "normalizationBridge": "Leaves map directly to LEAVES; shrubs and brush map to WOODY_BIOMASS. This does not independently reject GRASSES."
+    },
+    {
+      "breedId": "BRD_DOMESTICATED_SHEEP",
+      "field": "foodSpecific",
+      "value": ["GRASSES", "SEEDS_GRAINS"],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_PSU_SHEEP_GOAT_FEED", "SRC_V3_UMN_SMALL_RUMINANT_GRAZING"],
+      "normalizationBridge": "Pasture/grazing supports GRASSES; named grain feeds normalize to SEEDS_GRAINS."
+    },
+    {
+      "breedId": "BRD_FLOWERHORN_CICHLID",
+      "field": "terrainSpecific",
+      "value": ["LAKE"],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_HILGERS_FLOWERHORN"],
+      "normalizationBridge": "Lake Matano is a lake habitat; aquarium husbandry is not normalized to WORKSHOP."
+    },
+    {
+      "breedId": "BRD_HUMAN_IRANIAN",
+      "field": "terrainBroad",
+      "value": ["BUILT_ENVIRONMENT", "DESERT", "MOUNTAIN"],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_FAO_IRAN"],
+      "normalizationBridge": "Urban residence maps to BUILT_ENVIRONMENT; the country-level mountain and desert facts map directly to their broad tokens."
+    },
+    {
+      "breedId": "BRD_MALAYAN_TAPIR",
+      "field": "terrainSpecific",
+      "value": ["FOREST_EDGE", "RAIN_FOREST", "RIVER", "SWAMP"],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_IUCN_MALAYAN_TAPIR"],
+      "normalizationBridge": "The habitat descriptions map directly; CITY and VILLAGE are rejected because they occur only in proximity statements."
+    },
+    {
+      "breedId": "BRD_AARDVARK",
+      "field": "foodSpecific",
+      "value": ["FRUIT", "INSECTS"],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_AFRICA_GEOGRAPHIC_AARDVARK"],
+      "normalizationBridge": "Ants and termites normalize to INSECTS; aardvark cucumber normalizes to FRUIT. SEEDS_GRAINS is not supported."
+    },
+    {
+      "breedId": "BRD_AARDVARK",
+      "field": "operatingStyle",
+      "value": "SOLO",
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_AFRICA_GEOGRAPHIC_AARDVARK"],
+      "normalizationBridge": "The exact-species solitary baseline is directly relevant only to operating style; it is not cascaded into unrelated dimensions."
+    },
+    {
+      "breedId": "BRD_AUSTRALIAN_LUNGFISH",
+      "field": "traits",
+      "value": ["Lays eggs among aquatic vegetation without nest building or subsequent parental care."],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_QM_LUNGFISH_BREEDING"],
+      "normalizationBridge": "The source-specific reproductive behavior is retained as a biological trait, not converted into civic motivation or personality."
+    },
+    {
+      "breedId": "BRD_AUSTRALIAN_LUNGFISH",
+      "field": "motivation",
+      "value": null,
+      "disposition": "RESOLVED_NULL",
+      "evidenceRefs": ["SRC_V3_QM_LUNGFISH_BREEDING"],
+      "researchQuestion": "Does lack of nest building or parental care establish an allowed civic motivation value?",
+      "queriesAttempted": ["Australian lungfish parental care eggs no guarding Queensland Museum"],
+      "sourcesOpened": ["SRC_V3_QM_LUNGFISH_BREEDING"],
+      "factsFound": ["No nest is built and young do not appear to receive parental care."],
+      "nullRationale": "A reproductive-care strategy does not establish ALTRUISTIC, RECIPROCAL, or SELFISH civic motivation."
+    },
+    {
+      "breedId": "BRD_BANDED_MONGOOSE",
+      "field": "operatingStyle",
+      "value": "TEAMWORK",
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_CANT_BANDED_MONGOOSE"],
+      "normalizationBridge": "Communal care and coordinated defense directly support TEAMWORK; solitary behavior is rejected for this species."
+    },
+    {
+      "breedId": "BRD_AFRICAN_MANATEE",
+      "field": "terrainBroad",
+      "value": ["FRESHWATER", "WETLAND"],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_CMS_WEST_AFRICAN_MANATEE"],
+      "normalizationBridge": "Rivers normalize to FRESHWATER and adjacent wetlands to WETLAND; DAM is not an allowed habitat token."
+    },
+    {
+      "breedId": "BRD_ALPINE_IBEX",
+      "field": "terrainSpecific",
+      "value": ["ALPINE", "CLIFF"],
+      "disposition": "VERIFIED_VALUE",
+      "evidenceRefs": ["SRC_V3_ADW_ALPINE_IBEX"],
+      "normalizationBridge": "High mountain habitat maps to ALPINE and rock cliffs to CLIFF; no canopy or arboreal token is supported."
+    }
+  ],
+  "remainingScope": {
+    "fieldTasksOpened": 37008,
+    "policyNullTasks": 3679,
+    "freshTerminalFieldResultsInThisCheckpoint": 13,
+    "canonicalReady": false,
+    "reason": "This is an auditable regression checkpoint, not the required exhaustive 2,056-Breed V3 research corpus."
+  }
+}

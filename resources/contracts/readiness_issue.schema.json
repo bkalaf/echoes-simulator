@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReadinessIssue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "issueCode",
+    "severity",
+    "blocksCanonical",
+    "message"
+  ],
+  "properties": {
+    "issueCode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "enum": [
+        "PASS",
+        "WARNING",
+        "BLOCKER"
+      ]
+    },
+    "blocksCanonical": {
+      "type": "boolean"
+    },
+    "message": {
+      "type": "string"
+    },
+    "details": {
+      "type": [
+        "object",
+        "array",
+        "string",
+        "number",
+        "boolean",
+        "null"
+      ]
+    }
+  }
+}

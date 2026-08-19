@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "eidolon-simulator-remediation-verification-v1",
+  "verifiedAt": "2026-08-19",
+  "placement": {
+    "productRoot": "/home/bobby/echoes-simulator",
+    "standalone": true,
+    "monorepoModified": false,
+    "reason": "Newest explicit owner instruction and current SIMULATOR authority require a standalone external producer."
+  },
+  "gates": [
+    {
+      "command": "pnpm verify",
+      "status": "PASS",
+      "detail": "TypeScript renderer and Node typechecks passed; ambient Math.random guard passed; 32 unit tests passed; 5 integration tests passed; Node and renderer builds passed."
+    },
+    {
+      "command": "pnpm test:e2e",
+      "status": "PASS",
+      "detail": "The Electron application launched outside the restricted test sandbox, rendered the standalone shell, and passed Runs, Setup & Preflight, and World Browser navigation assertions."
+    },
+    {
+      "command": "pnpm package",
+      "status": "PASS",
+      "detail": "electron-builder produced dist/linux-unpacked after the required Electron download was allowed outside the restricted network sandbox."
+    },
+    {
+      "command": "pnpm preflight:real",
+      "status": "EXPECTED_BLOCKED",
+      "detail": "Structural input preflight passed. Canonical readiness correctly failed with MISSING_COMPLETE_V3_RESEARCH_PACK and BREED_RESEARCH_INCOMPLETE."
+    }
+  ],
+  "tests": {
+    "unit": { "files": 12, "passed": 32, "failed": 0 },
+    "integration": { "files": 4, "passed": 5, "failed": 0 },
+    "electronE2e": { "files": 1, "passed": 1, "failed": 0 }
+  },
+  "research": {
+    "breedRows": 2056,
+    "populationKinds": { "HUMAN": 631, "BEAST": 961, "MYTHOS": 181, "PET": 283 },
+    "fieldTasks": 37008,
+    "petPolicyNullTasks": 3679,
+    "freshTerminalRegressionResults": 13,
+    "remainingUnresolvedFieldTasksAfterApplyingPartialResults": 33316,
+    "canonicalV3PackGenerated": false,
+    "canonicalReady": false
+  },
+  "dimensionsAfterApplyingPartialCheckpoint": {
+    "motivation": { "activeVerifiedValues": 0, "terminalNulls": 284 },
+    "operatingStyle": { "activeVerifiedValues": 2, "terminalNulls": 283 },
+    "structureOrientation": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "administrationMode": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "ownershipMode": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "allocationMode": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "legitimacyBasis": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "authoritySource": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "loquacity": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "emotionalTemperature": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "outlookOrientation": { "activeVerifiedValues": 0, "terminalNulls": 283 },
+    "collaborativePosture": { "activeVerifiedValues": 0, "terminalNulls": 283 }
+  },
+  "canonicalRun": {
+    "executed": false,
+    "reason": "Research completeness gate failed; diagnostic policy was not substituted for the canonical run."
+  },
+  "simulationExport": {
+    "generated": false,
+    "reason": "No canonical run was authorized by preflight."
+  }
+}

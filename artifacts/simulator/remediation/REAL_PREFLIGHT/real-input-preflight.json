@@ -1,0 +1,326 @@
+{
+  "schemaVersion": "eidolon-simulator-real-preflight-v2",
+  "structuralStatus": "PASS",
+  "canonicalReady": false,
+  "inputFiles": [
+    {
+      "logicalKey": "sourceLeads",
+      "filename": "echoes_of_eidolon_breed_research_v2_semantic_remediated_2026-08-18(1).zip",
+      "bytes": 10681592,
+      "sha256": "0c9ed73354bbca9275054d1eade1f52c2088f35cfe702d9c9bb4ce482146b0c9",
+      "expectedHashMatch": true
+    },
+    {
+      "logicalKey": "legacyBreeds",
+      "filename": "full_breed_with_region_ids(1).csv",
+      "bytes": 764944,
+      "sha256": "7d542ebeebbdc3798a062af8a9e1553031932e6dc756f2fa29a824b3f2adca42",
+      "expectedHashMatch": true
+    },
+    {
+      "logicalKey": "assignments",
+      "filename": "region_species_group_assignments(1).csv",
+      "bytes": 26464,
+      "sha256": "43ee260b6a8c537e37d03ca5e8d27ec7a577b66089ea926a29579f2ac43f5b85",
+      "expectedHashMatch": true
+    },
+    {
+      "logicalKey": "sites",
+      "filename": "sites_naming_master(1).csv",
+      "bytes": 76952,
+      "sha256": "93a0fb42c6d22b598fa4d84c350fb7637c8106e2affc75435f555fb19867cc64",
+      "expectedHashMatch": true
+    },
+    {
+      "logicalKey": "pois",
+      "filename": "pois_by_site_naming(1).csv",
+      "bytes": 29078,
+      "sha256": "ddb4ded42860d17aea31e8bd192d1f504b9d0cc33664b6bc2e91fa4727882dc8",
+      "expectedHashMatch": true
+    },
+    {
+      "logicalKey": "rollup",
+      "filename": "site_poi_naming_rollup(1).csv",
+      "bytes": 22651,
+      "sha256": "55475133288bd293059df70d922e79a334ad2e0ec902553cef7c170b524e410b",
+      "expectedHashMatch": true
+    }
+  ],
+  "counts": {
+    "breeds": 2056,
+    "civicBreeds": 1773,
+    "pets": 283,
+    "sites": 175,
+    "pois": 92,
+    "poiSites": 61,
+    "rollupRows": 175,
+    "nonR10GroupAssignments": 72
+  },
+  "coverage": {
+    "traits": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "foodBroad": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "foodSpecific": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "terrainBroad": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "terrainSpecific": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "personalityId": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "motivation": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "operatingStyle": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "structureOrientation": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "administrationMode": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "ownershipMode": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "allocationMode": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "legitimacyBasis": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "authoritySource": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "loquacity": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "emotionalTemperature": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "outlookOrientation": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    },
+    "collaborativePosture": {
+      "resolved": 0,
+      "terminalNull": 0,
+      "invalidUnresearched": 1773,
+      "unresolved": 1773
+    }
+  },
+  "activeIssues": [
+    {
+      "issueCode": "MISSING_COMPLETE_V3_RESEARCH_PACK",
+      "severity": "BLOCKER",
+      "blocksCanonical": true,
+      "message": "No complete V3 Breed research pack was supplied; August 17 remains the starting authority and August 18 remains source leads only."
+    },
+    {
+      "issueCode": "BREED_RESEARCH_INCOMPLETE",
+      "severity": "BLOCKER",
+      "blocksCanonical": true,
+      "message": "One or more civic Breed fields are invalid or unresearched.",
+      "details": {
+        "traits": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "foodBroad": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "foodSpecific": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "terrainBroad": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "terrainSpecific": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "personalityId": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "motivation": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "operatingStyle": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "structureOrientation": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "administrationMode": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "ownershipMode": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "allocationMode": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "legitimacyBasis": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "authoritySource": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "loquacity": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "emotionalTemperature": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "outlookOrientation": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        },
+        "collaborativePosture": {
+          "resolved": 0,
+          "terminalNull": 0,
+          "invalidUnresearched": 1773,
+          "unresolved": 1773
+        }
+      }
+    }
+  ],
+  "resolvedOwnerDecisions": [
+    "PET_EXCLUDED",
+    "FOOD_DISABLED",
+    "OWNER_MIGRATION_V1",
+    "EVERY_BROAD_UNHAPPY_FOUND_OR_JOIN_V1",
+    "WEALTH_SOCIAL_TIER_MOTIVE_V1",
+    "GLOBAL_CULTURE_UNIQUENESS",
+    "DJT_YEAR_500",
+    "DJT_OUTBOUND_BOTH",
+    "ADJACENT_FACTION_SECESSION_505",
+    "REBALANCE_525_DISABLED",
+    "CONCLAVE_ONE_PER_CITY_PRE90",
+    "SENATE_TWO_PER_STATE"
+  ],
+  "initialPopulationTotal": "2000000",
+  "r10InitialSettlement": false,
+  "sourceRoles": {
+    "august17StartingAuthority": {
+      "filename": "echoes_of_eidolon_breed_research_2026-08-17.zip",
+      "sha256": "7d6b1651472a504ce861bf031f89a582df3a8ad06b3417a7d38436bcae7a9033",
+      "rows": 2056
+    },
+    "august18SourceLeads": {
+      "filename": "echoes_of_eidolon_breed_research_v2_semantic_remediated_2026-08-18(1).zip",
+      "sha256": "0c9ed73354bbca9275054d1eade1f52c2088f35cfe702d9c9bb4ce482146b0c9",
+      "semanticPrecedence": "SOURCE_LEADS_ONLY"
+    },
+    "legacyCsv": {
+      "filename": "full_breed_with_region_ids(1).csv",
+      "semanticPrecedence": "METADATA_ONLY"
+    },
+    "v3SemanticAuthority": null
+  }
+}

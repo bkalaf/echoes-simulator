@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SimulationEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "eventId",
+    "runId",
+    "worldKey",
+    "year",
+    "phase",
+    "sequence",
+    "eventType",
+    "entityRefs",
+    "payload"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "eidolon-simulator-event-v1"
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "worldKey": {
+      "enum": [
+        "CONCORD",
+        "SCHISM",
+        "RUIN"
+      ]
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2000
+    },
+    "phase": {
+      "enum": [
+        "STRUCTURAL_START",
+        "GROWTH",
+        "FOUNDER_TRANSFER",
+        "DJT_TRANSFER",
+        "STATE_MEMBERSHIP",
+        "MIGRATION",
+        "PROJECTION_CHANGE",
+        "WEALTH",
+        "SOCIAL",
+        "INSTITUTION",
+        "NAMING",
+        "CHECKPOINT"
+      ]
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "eventType": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entityRefs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "array",
+          "null"
+        ]
+      }
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}

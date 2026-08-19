@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "eidolon-simulator-packaging-result-v1",
+  "command": "pnpm package",
+  "status": "PASS",
+  "target": "linux-unpacked",
+  "path": "dist/linux-unpacked",
+  "executable": "@echoessimulator",
+  "executableBytes": 200830168,
+  "executableSha256": "eb3263aad96ce7c35df3db4516bb04c67bdc6c2f30ae8ebc0cb5649783c82a15"
+}

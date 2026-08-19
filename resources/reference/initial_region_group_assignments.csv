@@ -1,0 +1,73 @@
+regionId,regionName,groupId,groupName,speciesKind
+R01,Icewake,H02,Arctic & North American Indigenous,HUMAN
+R01,Icewake,B23,Waterbirds & Seabirds,BEAST
+R01,Icewake,B06,Cetaceans,BEAST
+R02,Timbersteppe,H06,Central Asian & Steppe,HUMAN
+R02,Timbersteppe,B05,Carnivorans,BEAST
+R02,Timbersteppe,B08,Even-Toed Ungulates,BEAST
+R03,Highsteppe,H24,Western & Northern European,HUMAN
+R03,Highsteppe,M10,Fae & Fairy Folk,MYTHOS
+R03,Highsteppe,M07,"Dwarves, Halflings & Little Folk",MYTHOS
+R04,Rivergrass,H08,East African & Nilotic,HUMAN
+R04,Rivergrass,B22,Turtles & Crocodilians,BEAST
+R04,Rivergrass,M24,Water Spirits & Aquatic Monsters,MYTHOS
+R05,Shadowspine,M11,"Ghosts, Wraiths & Specters",MYTHOS
+R05,Shadowspine,M17,"Liches, Mummies & Greater Undead",MYTHOS
+R05,Shadowspine,M03,Demons & Fiends,MYTHOS
+R06,Highcourt,H12,"Iranian, Kurdish & Eastern West Asian",HUMAN
+R06,Highcourt,M01,Angels & Celestials,MYTHOS
+R06,Highcourt,M05,Djinn & Genie-Kin,MYTHOS
+R07,Duskcanopy,H21,Southern & Eastern European,HUMAN
+R07,Duskcanopy,M23,Vampires & Blood-Drinkers,MYTHOS
+R07,Duskcanopy,M21,Shapeshifters & Werebeings,MYTHOS
+R08,Shadeleaf,H09,East Asian,HUMAN
+R08,Shadeleaf,B21,Songbirds,BEAST
+R08,Shadeleaf,M09,Elves,MYTHOS
+R09,Ironcrown,H10,Himalayan & Tibetan,HUMAN
+R09,Ironcrown,M12,Giants & Titans,MYTHOS
+R09,Ironcrown,M08,Elementals,MYTHOS
+R11,Sunscar,H01,Arabian Peninsula,HUMAN
+R11,Sunscar,H17,North African & Saharan,HUMAN
+R11,Sunscar,B07,"Elephants, Hyraxes & Afrotherians",BEAST
+R12,Reefward,M15,"Household, Land & Place Spirits",MYTHOS
+R12,Reefward,M18,Merfolk & Aquatic Peoples,MYTHOS
+R12,Reefward,B19,"Sharks, Rays & Jawless Fish",BEAST
+R13,Drymarsh,H13,Levantine & Mesopotamian,HUMAN
+R13,Drymarsh,M04,Divine & Heavenly Spirits,MYTHOS
+R13,Drymarsh,B01,Amphibians,BEAST
+R14,Manywater,H11,Horn of Africa & Red Sea,HUMAN
+R14,Manywater,B04,Bony Fish,BEAST
+R14,Manywater,B11,Mollusks & Other Invertebrates,BEAST
+R15,Forestfold,H20,South Asian,HUMAN
+R15,Forestfold,H04,Caucasian & Anatolian,HUMAN
+R15,Forestfold,B16,Primates,BEAST
+R16,Eastchain,H14,Mainland Southeast Asian,HUMAN
+R16,Eastchain,H15,Maritime Southeast Asian,HUMAN
+R16,Eastchain,M06,Dragons & Dragonkin,MYTHOS
+R17,Seawall,H23,West African,HUMAN
+R17,Seawall,H05,Central African & Great Lakes,HUMAN
+R17,Seawall,B15,"Pigeons, Gamebirds & Groundbirds",BEAST
+R18,Aerie Peaks,H22,Southern African,HUMAN
+R18,Aerie Peaks,B12,Odd-Toed Ungulates,BEAST
+R18,Aerie Peaks,B17,Raptors & Owls,BEAST
+R19,Caldera Heights,H18,Pacific & Oceanian,HUMAN
+R19,Caldera Heights,B14,Parrots & Cockatoos,BEAST
+R19,Caldera Heights,M20,"Ogres, Trolls & Oni",MYTHOS
+R20,Heartgrove,B03,Bats,BEAST
+R20,Heartgrove,B18,Rodents & Lagomorphs,BEAST
+R20,Heartgrove,M19,Nature & Plant Spirits,MYTHOS
+R21,Ringwood Isles,H07,"Diaspora, Creole & Legendary Human Civilizations",HUMAN
+R21,Ringwood Isles,M14,Golems,MYTHOS
+R21,Ringwood Isles,M13,Goblinoids & Orc-Kin,MYTHOS
+R22,The Chains,H03,Australian Indigenous,HUMAN
+R22,The Chains,B10,Marsupials & Monotremes,BEAST
+R22,The Chains,B13,Other Specialized Birds,BEAST
+R23,Highwater,H19,South American Indigenous,HUMAN
+R23,Highwater,B24,Xenarthrans & Other Mammals,BEAST
+R23,Highwater,M16,Hybrid & Legendary Monsters,MYTHOS
+R24,Edgewood,H16,Mesoamerican & Caribbean Indigenous,HUMAN
+R24,Edgewood,B09,Lizards,BEAST
+R24,Edgewood,M02,Constructs & Animated Objects,MYTHOS
+R25,Marshroot,B02,Arthropods,BEAST
+R25,Marshroot,B20,Snakes,BEAST
+R25,Marshroot,M22,Skeletons & Zombies,MYTHOS

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "eidolon-breed-classification-research-v1",
+  "runId": "echoes_of_eidolon_breed_research_2026-08-17",
+  "createdAt": "2026-08-17T20:33:52.049559+00:00",
+  "retrievalDate": "2026-08-17",
+  "mode": "READ_ONLY_RESEARCH_STAGING",
+  "zeroApplicationOrDatabaseWrites": true,
+  "authoritativeInputs": [
+    {
+      "file": "species-groups(1).json",
+      "recordCount": 84,
+      "sourceId": "SRC_INPUT_SPECIES_GROUPS"
+    },
+    {
+      "file": "full-breed(1).json",
+      "recordCount": 2056,
+      "sourceId": "SRC_INPUT_BREEDS"
+    },
+    {
+      "file": "full-species(1).json",
+      "recordCount": 1131,
+      "sourceId": "SRC_INPUT_SPECIES"
+    },
+    {
+      "file": "full-culture(2).json",
+      "recordCount": 125,
+      "sourceId": "SRC_INPUT_CULTURES"
+    }
+  ],
+  "liveAuthorityRefresh": {
+    "notionPageCount": 7,
+    "personalityExpressionCount": 369,
+    "personalityFamilyCount": 80,
+    "pages": [
+      {
+        "title": "WorldBuilding — Domain Types",
+        "url": "https://app.notion.com/p/3ba2380d0cae815f920acae8dac85e47"
+      },
+      {
+        "title": "Data Model & Domain Ownership — Current Contract",
+        "url": "https://app.notion.com/p/3ba2380d0cae81bda9fee2cd8248e79e"
+      },
+      {
+        "title": "Extraction-Safe Controlled Types — Current Lock",
+        "url": "https://app.notion.com/p/3bb2380d0cae81b78274c0d4257f545c"
+      },
+      {
+        "title": "Species Types",
+        "url": "https://app.notion.com/p/3b72380d0cae81c8bc62d3efd744a78f"
+      },
+      {
+        "title": "Breed Group Lookup — Canonical Internal Registry",
+        "url": "https://app.notion.com/p/3bc2380d0cae81949cbcc69dfefd7ea5"
+      },
+      {
+        "title": "Culture",
+        "url": "https://app.notion.com/p/3b32380d0cae804e94fbc4dbb9b1f90a"
+      },
+      {
+        "title": "Personality Expression",
+        "url": "https://app.notion.com/p/b9b8e806fbdf4df2974d4d92c2516396"
+      }
+    ]
+  },
+  "groupConceptSeparation": {
+    "speciesId": "Parent biological or Mythos Species identity.",
+    "speciesGroupId": "Staging classification selected from the supplied 84-record Species Group registry.",
+    "groupId": "Persisted compact BreedGroupId selected from the live static lookup.",
+    "coincidentValuePolicy": "Values may coincide only where independent registry ID, label, and kind validation agrees; equality is not treated as identity of authorities."
+  },
+  "researchPolicy": {
+    "uncertainty": "UNRESOLVED is a terminal staging disposition where reviewed evidence was incomplete, weak, ambiguous, tradition-variant, or claim-misaligned.",
+    "traits": "Only concise functional, behavioral, supernatural, or metaphysical claims that passed the conservative evidence gate were emitted; parent-Species facts were not treated as PET Breed differentiators.",
+    "personality": "Only existing live-registry IDs were used, after a population-specific outward, inward, or exact/explicitly-shared historical bridge."
+  },
+  "files": [
+    "manifest.json",
+    "breed_classifications.jsonl",
+    "trait_research.jsonl",
+    "personality_audit.jsonl",
+    "human_culture_classification_audit.jsonl",
+    "species_classification_audit.jsonl",
+    "species_group_classification_audit.jsonl",
+    "sources.jsonl",
+    "citations.jsonl",
+    "evidence.jsonl",
+    "conflicts.jsonl",
+    "rejected_evidence.jsonl",
+    "entity_research_status.jsonl",
+    "coverage.json",
+    "run_report.md",
+    "checksums.sha256"
+  ],
+  "counts": {
+    "breedClassifications": 2056,
+    "traitResearchRows": 338,
+    "personalityAuditRows": 2056,
+    "humanCultureAuditRows": 631,
+    "speciesClassificationAuditRows": 2056,
+    "speciesGroupClassificationAuditRows": 2056,
+    "sources": 23,
+    "citations": 14522,
+    "evidence": 7146,
+    "conflicts": 167,
+    "rejectedEvidence": 6019,
+    "entityStatusRows": 2056
+  },
+  "validation": {
+    "inputBreedCountEqualsOutputBreedCount": true,
+    "oneTerminalRowPerInputBreed": true,
+    "duplicateBreedIds": 0,
+    "allSpeciesIdsResolve": true,
+    "allSpeciesGroupIdsResolve": true,
+    "allNonNullHumanCultureIdsResolve": true,
+    "nonHumanCulturesFabricated": 0,
+    "allPersonalityIdsResolve": true,
+    "petPersonalityAlwaysPolicyNull": true,
+    "appearanceOnlyCanonicalTraits": 0,
+    "allActiveTraitsHaveEvidence": true,
+    "beastVerifiedPersonalitiesHaveOutwardBridge": true,
+    "mythosVerifiedPersonalitiesHaveInwardBridge": true,
+    "humanVerifiedPersonalitiesHaveExactSubjectWound": true,
+    "dominantFactionUsedFirst": false,
+    "inventedIds": 0,
+    "applicationOrDatabaseWrites": 0
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SimulationExportManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "runId",
+    "mode",
+    "policyVersion",
+    "inputHashes",
+    "files",
+    "readiness",
+    "populationEncoding"
+    ,"yearStart"
+    ,"yearEnd"
+    ,"worlds"
+    ,"seed"
+    ,"contentDigest"
+    ,"completionStatus"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "eidolon-simulator-export-v1"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "CANONICAL",
+        "DIAGNOSTIC"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "inputHashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "readiness": {
+      "type": "array",
+      "items": {
+        "$ref": "readiness_issue.schema.json"
+      }
+    },
+    "populationEncoding": {
+      "const": "decimal-string-bigint"
+    },
+    "yearStart": { "const": 0 },
+    "yearEnd": { "type": "integer", "minimum": 0, "maximum": 2000 },
+    "worlds": {
+      "const": ["CONCORD", "SCHISM", "RUIN"]
+    },
+    "seed": { "type": "string", "minLength": 1 },
+    "prngVersion": { "type": "string" },
+    "simulatorVersion": { "type": "string" },
+    "namingStatus": { "enum": ["COMPLETE", "PARTIAL", "WAITING"] },
+    "contentDigest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "completionStatus": { "enum": ["COMPLETE", "PARTIAL"] }
+    }
+  }

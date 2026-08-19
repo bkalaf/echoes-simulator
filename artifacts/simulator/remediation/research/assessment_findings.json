@@ -1,0 +1,125 @@
+{
+  "verdict": "REJECT",
+  "findings": [
+    {
+      "caseId": "DOMESTICATED_GOAT",
+      "status": "FAIL",
+      "affectedBreedIds": [
+        "BRD_DOMESTICATED_GOAT"
+      ],
+      "detail": "Only trait=[\"Is kept as livestock.\"] and foodSpecific=[\"GRASSES\"]; the livestock-only/GRASSES template must be reopened."
+    },
+    {
+      "caseId": "DOMESTICATED_SHEEP",
+      "status": "FAIL",
+      "affectedBreedIds": [
+        "BRD_DOMESTICATED_SHEEP"
+      ],
+      "detail": "Only trait=[\"Is kept as livestock.\"] and foodSpecific=[\"GRASSES\"]; grain/seed-feed evidence is not represented."
+    },
+    {
+      "caseId": "FLOWERHORN_WORKSHOP",
+      "status": "FAIL",
+      "affectedBreedIds": [
+        "BRD_FLOWERHORN_CICHLID"
+      ],
+      "detail": "terrainSpecific=[\"WORKSHOP\"]; aquarium husbandry does not establish WORKSHOP habitat."
+    },
+    {
+      "caseId": "IRANIAN_CITY",
+      "status": "FAIL",
+      "affectedBreedIds": [
+        "BRD_HUMAN_IRANIAN"
+      ],
+      "detail": "terrainSpecific=[\"CITY\"]; the prior cuisine/diaspora bridge is not habitat evidence."
+    },
+    {
+      "caseId": "MALAYAN_TAPIR_SETTLEMENT",
+      "status": "FAIL",
+      "affectedBreedIds": [
+        "BRD_MALAYAN_TAPIR"
+      ],
+      "detail": "terrainSpecific=[\"CITY\",\"FOREST_EDGE\",\"MARSH\",\"RAIN_FOREST\",\"RIVER\",\"SWAMP\",\"VILLAGE\"]; proximity to settlements cannot normalize to settlement habitat."
+    },
+    {
+      "caseId": "AARDVARK_DIMENSION_CASCADE",
+      "status": "FAIL",
+      "affectedBreedIds": [
+        "BRD_AARDVARK"
+      ],
+      "detail": "5 dimensions were authored from a personality/behavior bridge instead of field-specific evidence."
+    },
+    {
+      "caseId": "HUMAN_GENERIC_WOUND_TEMPLATE",
+      "status": "REOPENED",
+      "affectedBreedIds": [],
+      "detail": "0 exact generic-template matches; all Human personality assignments remain reopened for subject, actor/victim, scope, and locator review."
+    },
+    {
+      "caseId": "CITATION_CONTEXT",
+      "status": "FAIL",
+      "affectedBreedIds": [],
+      "detail": "35889/35889 citation rows have no bounded excerpt/context field."
+    },
+    {
+      "caseId": "PET_GENERIC_TRAITS",
+      "status": "FAIL",
+      "affectedBreedIds": [
+        "BRD_ALPACA",
+        "BRD_ANSER_SUBSP_DOMESTIC_GOOSE",
+        "BRD_CAMPBELL_S_DWARF_HAMSTER",
+        "BRD_DOMESTICATED_CAT",
+        "BRD_DOMESTICATED_CATTLE",
+        "BRD_DOMESTICATED_CATTLE_HOLSTEIN_FRIESIAN",
+        "BRD_DOMESTICATED_CHICKEN_RHODE_ISLAND_RED",
+        "BRD_DOMESTICATED_GOAT",
+        "BRD_DOMESTICATED_HORSE_APPALOOSA",
+        "BRD_DOMESTICATED_HORSE_ICELANDIC_HORSE",
+        "BRD_DOMESTICATED_HORSE_PERCHERON",
+        "BRD_DOMESTICATED_HORSE_TENNESSEE_WALKING_HORSE",
+        "BRD_DOMESTICATED_HORSE_THOROUGHBRED",
+        "BRD_DOMESTICATED_RABBIT_FLEMISH_GIANT",
+        "BRD_DOMESTICATED_SHEEP",
+        "BRD_FANCY_MOUSE",
+        "BRD_FANCY_RAT",
+        "BRD_FLOWERHORN_CICHLID",
+        "BRD_GOLDFISH",
+        "BRD_KOI_CARP",
+        "BRD_ORYCTOLAGUS_CUNICULUS_DOMESTICUS_DOMESTIC_RABBIT"
+      ],
+      "detail": "21 PET trait rows match a prohibited generic opening/template."
+    },
+    {
+      "caseId": "AFRICAN_MANATEE_DAMS",
+      "status": "REOPENED",
+      "affectedBreedIds": [
+        "BRD_AFRICAN_MANATEE"
+      ],
+      "detail": "Ecology is empty and dam-related claims were not freshly verified: terrainBroad=[]."
+    },
+    {
+      "caseId": "BANDED_MONGOOSE_SOCIALITY",
+      "status": "REOPENED",
+      "affectedBreedIds": [
+        "BRD_BANDED_MONGOOSE"
+      ],
+      "detail": "Prior group-defense trait exists, but its full evidence chain and independent dimensions require fresh verification."
+    },
+    {
+      "caseId": "AUSTRALIAN_LUNGFISH_PARENTAL_GUARDING",
+      "status": "FAIL",
+      "affectedBreedIds": [
+        "BRD_AUSTRALIAN_LUNGFISH"
+      ],
+      "detail": "A parental-care fact was converted to personality=CARE_SELECTIVE_NEGLECT_EXPRESSION and motivation=ALTRUISTIC; both are reopened."
+    },
+    {
+      "caseId": "ALPINE_IBEX_ARBOREAL",
+      "status": "PASS",
+      "affectedBreedIds": [
+        "BRD_ALPINE_IBEX"
+      ],
+      "detail": "terrainBroad=[\"GRASSLAND\",\"MOUNTAIN\"] terrainSpecific=[\"ALPINE\",\"CLIFF\",\"MEADOW\"]."
+    }
+  ]
+}

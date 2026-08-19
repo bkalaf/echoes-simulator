@@ -1,0 +1,50 @@
+{
+  "source": "Notion Economic Forms current authority",
+  "rows": [
+    {
+      "ownershipMode": "SINGLE_ENTITY",
+      "allocationMode": "PLANNED",
+      "economicForm": "COMMAND_DEMESNE"
+    },
+    {
+      "ownershipMode": "COMMON_USE",
+      "allocationMode": "PLANNED",
+      "economicForm": "COMMUNE_PLAN"
+    },
+    {
+      "ownershipMode": "COMMON_USE",
+      "allocationMode": "CUSTOMARY",
+      "economicForm": "FOLK_COMMONS"
+    },
+    {
+      "ownershipMode": "SHARED_TITLE",
+      "allocationMode": "CUSTOMARY",
+      "economicForm": "GUILD_COMPACT"
+    },
+    {
+      "ownershipMode": "SINGLE_ENTITY",
+      "allocationMode": "MARKET",
+      "economicForm": "MONOPOLY_ESTATE"
+    },
+    {
+      "ownershipMode": "COMMON_USE",
+      "allocationMode": "MARKET",
+      "economicForm": "OPEN_BAZAAR"
+    },
+    {
+      "ownershipMode": "SHARED_TITLE",
+      "allocationMode": "MARKET",
+      "economicForm": "SHAREHOLDER_BOURSE"
+    },
+    {
+      "ownershipMode": "SHARED_TITLE",
+      "allocationMode": "PLANNED",
+      "economicForm": "SYNDICATE_CARTEL"
+    },
+    {
+      "ownershipMode": "SINGLE_ENTITY",
+      "allocationMode": "CUSTOMARY",
+      "economicForm": "TRIBUTARY_DEMESNE"
+    }
+  ]
+}

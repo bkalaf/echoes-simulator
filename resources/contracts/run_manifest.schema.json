@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eidolon.local/simulator/schemas/run_manifest-v1.json",
+  "title": "SimulationRunManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "runId",
+    "mode",
+    "seed",
+    "policyVersion",
+    "createdAt",
+    "inputManifest",
+    "worlds",
+    "yearStart",
+    "yearEnd",
+    "status",
+    "readiness"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "eidolon-simulator-run-manifest-v1"
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "enum": [
+        "CANONICAL",
+        "DIAGNOSTIC"
+      ]
+    },
+    "seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policyVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "inputManifest": {
+      "type": "string",
+      "minLength": 1
+    },
+    "worlds": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "CONCORD",
+          "SCHISM",
+          "RUIN"
+        ]
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true
+    },
+    "yearStart": {
+      "const": 0
+    },
+    "yearEnd": {
+      "const": 2000
+    },
+    "status": {
+      "enum": [
+        "CREATED",
+        "VALIDATING_INPUTS",
+        "READY",
+        "RUNNING",
+        "PAUSED",
+        "WAITING_FOR_NAMING",
+        "FAILED",
+        "COMPLETE"
+      ]
+    },
+    "readiness": {
+      "type": "array",
+      "items": {
+        "$ref": "readiness_issue.schema.json"
+      }
+    }
+  }
+}

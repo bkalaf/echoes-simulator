@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "eidolon-breed-research-queue-v3",
+  "sourceRole": "AUGUST_17_STARTING_AUTHORITY",
+  "breedCount": 2056,
+  "populationKinds": {
+    "HUMAN": 631,
+    "BEAST": 961,
+    "MYTHOS": 181,
+    "PET": 283
+  },
+  "requiredFieldsPerBreed": 18,
+  "taskCount": 37008,
+  "dispositions": {
+    "UNRESOLVED": 33329,
+    "POLICY_NULL": 3679
+  },
+  "canonicalReady": false
+}

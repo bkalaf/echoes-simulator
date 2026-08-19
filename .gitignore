@@ -1,0 +1,12 @@
+node_modules/
+.pnpm-store/
+dist/
+dist-electron/
+release/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+exports/
+artifacts/implementation/final-verification/generated/
+*.zip
+ECHOES_OF_EIDOLON*

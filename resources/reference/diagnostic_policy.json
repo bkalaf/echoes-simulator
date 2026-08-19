@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "eidolon-simulator-diagnostic-policy-v1",
+  "label": "DIAGNOSTIC_ONLY_NOT_CANON",
+  "strategies": {
+    "populationParticipation": "BHM_ONLY_1773",
+    "petParticipation": "EXCLUDED_UNPLACED",
+    "migration": "DIAGNOSTIC_MIGRATION_V1",
+    "foundingCardinality": "ONE_PER_STATE_WAVE_V1",
+    "foundingMotive": "DIAGNOSTIC_FOUNDING_MOTIVE_V1",
+    "cultureFounderScope": "STATE_UNIQUE",
+    "cultureTie": "BREED_FACTION_POPULATION_THEN_SEEDED_RANDOM",
+    "djtNominalYear": 500,
+    "djtFiveYearOutboundScope": "DISPLACED_R10_AND_CONSOLIDATED_SOVEREIGN_BREED",
+    "secession505": "LOWEST_SITE_IDS_DISTINCT_STATES_WHEN_POSSIBLE",
+    "rebalance525": "NO_OP_MARKER",
+    "conclavePre90": "UNRESOLVED_NO_DETAILED_SEATS",
+    "senate": "TWO_PER_STATE_STAGGERED_10_YEAR_TERMS"
+  },
+  "migrationFormula": {
+    "basePercent": "1",
+    "propertyAdjustment": "mean of +1/-1 percentage point across 12 resolved synthetic property comparisons",
+    "factionAdjustment": {
+      "likeCityFaction": "0",
+      "unlikeCityFactionAndBreedPrefIncludesSovereign": "+2",
+      "unlikeCityFactionOtherwise": "+1"
+    },
+    "rateClampPercent": {
+      "min": "0",
+      "max": "5"
+    },
+    "wealthSuppression": {
+      "wealthiestWithOtherWithin25Percent": "multiply 0.75",
+      "soleWealthiestNoOtherWithin25Percent": "multiply 0.50"
+    }
+  }
+}
