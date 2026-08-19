@@ -1,18 +1,39 @@
 import { app, BrowserWindow, dialog, ipcMain } from "electron";
-import { copyFileSync, existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { Worker } from "node:worker_threads";
 import { join, resolve } from "node:path";
+import { createHash, randomUUID } from "node:crypto";
 import { parse as parseCsvSync } from "csv-parse/sync";
 import { WORKER_SCHEMA_VERSION } from "./ipc-contract.js";
+import { SimulatorStore } from "../src/persistence/sqlite-store.js";
+import type { RealPreflightReport } from "../src/core/inputs/preflight.js";
 
 let mainWindow: BrowserWindow | null = null;
 const projectRoot = resolve(import.meta.dirname, "../..");
 const runtimeResources = app.isPackaged ? join(process.resourcesPath, "simulator-resources") : join(projectRoot, "resources");
-const finalEvidence = app.isPackaged ? join(process.resourcesPath, "final-verification") : join(projectRoot, "artifacts/implementation/final-verification");
+const STARTING_RESEARCH_FILENAME = "echoes_of_eidolon_breed_research_2026-08-17.zip";
+const V3_RESEARCH_FILENAME = "ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip";
+let store: SimulatorStore | null = null;
 
-function readJsonIfPresent(filename: string): unknown {
-  const file = join(finalEvidence, filename);
-  return existsSync(file) ? JSON.parse(readFileSync(file, "utf8")) : null;
+function getStore(): SimulatorStore {
+  store ??= new SimulatorStore(join(app.getPath("userData"), "simulator.sqlite"));
+  return store;
+}
+
+function findRequiredFile(packDirectory: string, filename: string): string {
+  const candidates = [join(packDirectory, filename), join(packDirectory, "INPUTS", filename), join(packDirectory, "inputs", filename)];
+  const match = candidates.find(existsSync);
+  if (!match) throw new Error(`${filename} was not found in the selected input directory`);
+  return match;
+}
+
+function findOptionalFile(packDirectory: string, filename: string): string | undefined {
+  const candidates = [join(packDirectory, filename), join(packDirectory, "INPUTS", filename), join(packDirectory, "inputs", filename)];
+  return candidates.find(existsSync);
+}
+
+function digestJson(value: unknown): string {
+  return createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
 
 function runWorker(action: "RUN_DIAGNOSTIC" | "VALIDATE_REAL_INPUTS", payload: Record<string, unknown>): Promise<unknown> {
@@ -55,23 +76,32 @@ ipcMain.handle("simulator:get-runtime-info", () => ({ version: app.getVersion(),
 ipcMain.handle("simulator:get-operator-snapshot", () => {
   const sitesPath = join(runtimeResources, "inputs/sites_naming_master.csv");
   const sites = existsSync(sitesPath) ? parseCsvSync(readFileSync(sitesPath), { bom: true, columns: true, skip_empty_lines: true }) : [];
-  return { manifest: readJsonIfPresent("diagnostic-run-manifest.json"), preflight: readJsonIfPresent("real-input-preflight.json"), exportValidation: readJsonIfPresent("export-validation.json"), sites };
+  const latestPreflight = getStore().getLatestPreflight();
+  return { manifest: null, preflight: latestPreflight?.report ?? null, exportValidation: null, sites };
 });
 ipcMain.handle("simulator:select-input-directory", async () => {
   const result = await dialog.showOpenDialog({ properties: ["openDirectory"] });
   return result.canceled ? null : result.filePaths[0] ?? null;
 });
 ipcMain.handle("simulator:run-diagnostic", (_event, seed: string) => runWorker("RUN_DIAGNOSTIC", { seed, resourceDirectory: runtimeResources }));
-ipcMain.handle("simulator:validate-inputs", (_event, packDirectory: string) => runWorker("VALIDATE_REAL_INPUTS", { packDirectory, supplementalZip: join(projectRoot, "echoes_of_eidolon_breed_research_2026-08-17.zip") }));
-ipcMain.handle("simulator:export-diagnostic", async () => {
-  const source = join(finalEvidence, "EIDOLON_SIMULATION_DIAGNOSTIC_2026_08_18.zip");
-  if (!existsSync(source)) throw new Error("No verified diagnostic export is available");
-  const target = await dialog.showSaveDialog({ defaultPath: "EIDOLON_SIMULATION_DIAGNOSTIC_2026_08_18.zip", filters: [{ name: "ZIP archive", extensions: ["zip"] }] });
-  if (target.canceled || !target.filePath) return null;
-  copyFileSync(source, target.filePath);
-  return target.filePath;
+ipcMain.handle("simulator:validate-inputs", async (_event, packDirectory: string) => {
+  const startingResearchZip = findRequiredFile(packDirectory, STARTING_RESEARCH_FILENAME);
+  const v3ResearchZip = findOptionalFile(packDirectory, V3_RESEARCH_FILENAME);
+  const report = await runWorker("VALIDATE_REAL_INPUTS", { packDirectory, startingResearchZip, v3ResearchZip }) as RealPreflightReport;
+  getStore().savePreflight({
+    preflightId: `PREFLIGHT_${randomUUID()}`,
+    createdAt: new Date().toISOString(),
+    inputDirectory: resolve(packDirectory),
+    inputManifestIdentity: digestJson(report.inputFiles),
+    startingResearchHash: report.sourceRoles.august17StartingAuthority.sha256,
+    v3ResearchHash: report.sourceRoles.v3SemanticAuthority?.sha256 ?? null,
+    report,
+  });
+  return report;
 });
+ipcMain.handle("simulator:export-diagnostic", async () => { throw new Error("No persisted run export is available"); });
 
 app.whenReady().then(createWindow);
 app.on("window-all-closed", () => { if (process.platform !== "darwin") app.quit(); });
 app.on("activate", () => { if (BrowserWindow.getAllWindows().length === 0) void createWindow(); });
+app.on("before-quit", () => { store?.close(); store = null; });

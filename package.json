@@ -56,10 +56,6 @@
       {
         "from": "resources",
         "to": "simulator-resources"
-      },
-      {
-        "from": "artifacts/implementation/final-verification",
-        "to": "final-verification"
       }
     ],
     "linux": {

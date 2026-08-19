@@ -24,7 +24,9 @@ parentPort?.on("message", (candidate: unknown) => {
     }
     if (request.action === "VALIDATE_REAL_INPUTS") {
       if (typeof request.payload.packDirectory !== "string") throw new Error("packDirectory is required");
-      payload = preflightRealBundle(request.payload.packDirectory, typeof request.payload.supplementalZip === "string" ? request.payload.supplementalZip : undefined);
+      if (typeof request.payload.startingResearchZip !== "string") throw new Error("startingResearchZip is required");
+      const v3ResearchZip = typeof request.payload.v3ResearchZip === "string" ? request.payload.v3ResearchZip : undefined;
+      payload = preflightRealBundle(request.payload.packDirectory, request.payload.startingResearchZip, v3ResearchZip);
     }
     parentPort?.postMessage({ schemaVersion: WORKER_SCHEMA_VERSION, requestId: request.requestId, ok: true, payload });
   } catch (error) {

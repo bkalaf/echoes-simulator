@@ -28,6 +28,17 @@ export interface StoredEvent {
   payload: unknown;
 }
 
+export interface StoredPreflight {
+  preflightId: string;
+  createdAt: string;
+  inputDirectory: string;
+  inputManifestIdentity: string;
+  startingResearchHash: string;
+  v3ResearchHash: string | null;
+  runId?: string | null;
+  report: unknown;
+}
+
 export class SimulatorStore {
   private readonly database: DatabaseSync;
 
@@ -68,6 +79,17 @@ export class SimulatorStore {
         details_json TEXT NOT NULL,
         PRIMARY KEY(run_id, issue_code)
       );
+      CREATE TABLE IF NOT EXISTS preflight (
+        preflight_id TEXT PRIMARY KEY,
+        created_at TEXT NOT NULL,
+        input_directory TEXT NOT NULL,
+        input_manifest_identity TEXT NOT NULL,
+        starting_research_hash TEXT NOT NULL,
+        v3_research_hash TEXT,
+        run_id TEXT REFERENCES simulation_run(run_id),
+        report_json TEXT NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS preflight_latest ON preflight(created_at DESC, preflight_id DESC);
       CREATE TABLE IF NOT EXISTS simulation_event (
         event_id TEXT PRIMARY KEY,
         run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
@@ -136,6 +158,48 @@ export class SimulatorStore {
   listRuns(): StoredRun[] {
     const rows = this.database.prepare("SELECT run_id FROM simulation_run ORDER BY created_at, run_id").all() as { run_id: string }[];
     return rows.map((row) => this.getRun(row.run_id)!);
+  }
+
+  savePreflight(preflight: StoredPreflight): void {
+    this.database.prepare(`INSERT INTO preflight(
+      preflight_id, created_at, input_directory, input_manifest_identity,
+      starting_research_hash, v3_research_hash, run_id, report_json
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`)
+      .run(
+        preflight.preflightId,
+        preflight.createdAt,
+        preflight.inputDirectory,
+        preflight.inputManifestIdentity,
+        preflight.startingResearchHash,
+        preflight.v3ResearchHash,
+        preflight.runId ?? null,
+        canonicalJson(preflight.report),
+      );
+  }
+
+  getLatestPreflight(): StoredPreflight | null {
+    const row = this.database.prepare(`SELECT preflight_id, created_at, input_directory,
+      input_manifest_identity, starting_research_hash, v3_research_hash, run_id, report_json
+      FROM preflight ORDER BY created_at DESC, preflight_id DESC LIMIT 1`).get() as {
+        preflight_id: string;
+        created_at: string;
+        input_directory: string;
+        input_manifest_identity: string;
+        starting_research_hash: string;
+        v3_research_hash: string | null;
+        run_id: string | null;
+        report_json: string;
+      } | undefined;
+    return row ? {
+      preflightId: row.preflight_id,
+      createdAt: row.created_at,
+      inputDirectory: row.input_directory,
+      inputManifestIdentity: row.input_manifest_identity,
+      startingResearchHash: row.starting_research_hash,
+      v3ResearchHash: row.v3_research_hash,
+      runId: row.run_id,
+      report: JSON.parse(row.report_json),
+    } : null;
   }
 
   appendEvent(event: StoredEvent): void {

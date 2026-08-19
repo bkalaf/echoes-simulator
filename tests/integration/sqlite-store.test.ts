@@ -48,4 +48,32 @@ describe("SQLite persistence", () => {
     expect(store.getAcceptedNames(job.namingJobId)).toHaveLength(job.items.length);
     store.close();
   });
+
+  it("persists the newest live preflight across restart without leaking archived blockers", () => {
+    const directory = mkdtempSync(join(tmpdir(), "eidolon-simulator-preflight-"));
+    const filename = join(directory, "runtime.sqlite");
+    let store = new SimulatorStore(filename);
+    store.savePreflight({
+      preflightId: "PREFLIGHT_CURRENT",
+      createdAt: "2026-08-19T09:30:00.000Z",
+      inputDirectory: "/inputs/current",
+      inputManifestIdentity: "sha256:current",
+      startingResearchHash: "sha256:start",
+      v3ResearchHash: null,
+      report: {
+        schemaVersion: "eidolon-simulator-real-preflight-v2",
+        structuralStatus: "PASS",
+        canonicalReady: false,
+        activeIssues: [{ issueCode: "MISSING_COMPLETE_V3_RESEARCH_PACK", severity: "BLOCKER", blocksCanonical: true, message: "current" }],
+      },
+    });
+    store.close();
+
+    store = new SimulatorStore(filename);
+    const current = store.getLatestPreflight();
+    expect(current?.preflightId).toBe("PREFLIGHT_CURRENT");
+    expect(JSON.stringify(current)).toContain("MISSING_COMPLETE_V3_RESEARCH_PACK");
+    expect(JSON.stringify(current)).not.toContain("BREED_IDENTITY_CONFLICT");
+    store.close();
+  });
 });
