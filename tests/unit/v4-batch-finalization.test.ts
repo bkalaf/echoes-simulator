@@ -53,6 +53,28 @@ const input = {
   economicRows: [{ ownershipMode: "SHARED_TITLE", allocationMode: "CUSTOMARY", economicForm: "TEST_ECONOMY" }],
 };
 
+const humanManifest = {
+  batchId: "R01_B02", regionId: "R01", units: [
+    { unitType: "HUMAN_CULTURE" as const, unitId: "CLT_A", populationKind: "HUMAN" as const, initialRegion: "R01", groupIds: ["H01"], breedIds: ["BRD_H"] },
+  ],
+};
+
+const humanJournals = journals.map((row) => ({
+  ...row,
+  journalEntryId: row.journalEntryId.replace("JRN_", "JRN_H_"),
+  batchId: "R01_B02",
+  actualOpenedUrl: row.targetField === "personalityId" ? "https://example.org/culture/history" : "https://example.org/culture/homeland",
+  targetUnitId: "CLT_A",
+}));
+
+const humanDecision = [{
+  ...decisions[0]!, batchId: "R01_B02", researchUnitId: "CLT_A",
+  inferenceClassification: "EIDOLON_AUTHORED_INFERENCE" as const,
+  journalEntryIds: {
+    personalityId: "JRN_H_personalityId", terrainBroad: "JRN_H_terrainBroad", terrainSpecific: "JRN_H_terrainSpecific",
+  },
+}];
+
 describe("V4 Region batch finalization", () => {
   it("materializes exact research, evidence, inheritance, dimensions, and simulation readiness", () => {
     const built = buildV4BatchArtifacts(input);
@@ -76,5 +98,37 @@ describe("V4 Region batch finalization", () => {
   it("fails closed when any manifest unit or critical journal field is missing", () => {
     expect(() => buildV4BatchArtifacts({ ...input, decisions: [] })).toThrow(/coverage|missing/i);
     expect(() => buildV4BatchArtifacts({ ...input, journals: journals.slice(0, 2) })).toThrow(/journal|terrainSpecific/i);
+  });
+
+  it("preserves Human authored inference and per-field sources without treating it as direct psychology", () => {
+    const built = buildV4BatchArtifacts({
+      ...input, manifest: humanManifest, journals: humanJournals, decisions: humanDecision,
+      allCivicBreedIds: ["BRD_H"],
+    });
+    expect(built.sources).toHaveLength(2);
+    expect(built.citations.find((row) => row.citationId === "CIT_JRN_H_personalityId")?.claimAlignment).toBe("EIDOLON_AUTHORED_INFERENCE");
+    expect(built.citations.filter((row) => row.citationId !== "CIT_JRN_H_personalityId").every((row) => row.claimAlignment === "ACCEPTED_DIRECT_EVIDENCE")).toBe(true);
+  });
+
+  it("uses cumulative effective Breeds for the Region preview while keeping batch counts exact", () => {
+    const prior = buildV4BatchArtifacts(input).effectiveBreeds[0]!;
+    const built = buildV4BatchArtifacts({
+      ...input,
+      manifest: { ...manifest, units: [{ ...manifest.units[0]!, unitId: "SPC_B", breedIds: ["BRD_B"] }] },
+      journals: journals.map((row) => ({ ...row, targetUnitId: "SPC_B" })),
+      decisions: [{ ...decisions[0]!, researchUnitId: "SPC_B" }],
+      allCivicBreedIds: ["BRD_A", "BRD_B"], totalInitialPopulation: 10n,
+      regionEffectiveBreeds: [prior],
+    });
+    expect(built.report.counts.effectiveBreeds).toBe(1);
+    for (const preview of Object.values(built.report.regionPreview.worlds)) expect(preview.totalPopulation).toBe("10");
+  });
+
+  it("requires explicit authored inference classification for Human Culture decisions", () => {
+    expect(() => buildV4BatchArtifacts({
+      ...input, manifest: humanManifest, journals: humanJournals,
+      decisions: [{ ...humanDecision[0]!, inferenceClassification: "DIRECT_BEHAVIOR_MAPPING" }],
+      allCivicBreedIds: ["BRD_H"],
+    })).toThrow(/authored inference/i);
   });
 });

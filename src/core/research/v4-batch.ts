@@ -54,6 +54,7 @@ export interface BatchDecision {
   terrainBroad: string[];
   terrainSpecific: string[];
   journalEntryIds: Record<TargetField, string>;
+  inferenceClassification?: "DIRECT_BEHAVIOR_MAPPING" | "EIDOLON_AUTHORED_INFERENCE";
   status: "SIMULATION_READY";
 }
 
@@ -78,6 +79,7 @@ export interface V4BatchBuildInput {
   propertyMapping: PropertyMapping;
   politicalRows: MappingRow[];
   economicRows: MappingRow[];
+  regionEffectiveBreeds?: EffectiveBreedSemantics[];
 }
 
 interface PreviewWorld {
@@ -187,6 +189,12 @@ export function buildV4BatchArtifacts(input: V4BatchBuildInput): V4BatchArtifact
     if (decision.batchId !== manifest.batchId || decision.status !== "SIMULATION_READY") throw new Error(`Decision ${unit.unitId} is not simulation ready`);
     if (!profileById.has(decision.personalityId)) throw new Error(`Invalid Personality Expression ${decision.personalityId}`);
     if (!decision.personalityBridge.trim()) throw new Error(`Decision ${unit.unitId} lacks a personality normalization bridge`);
+    if (unit.unitType === "HUMAN_CULTURE" && decision.inferenceClassification !== "EIDOLON_AUTHORED_INFERENCE") {
+      throw new Error(`Human Culture ${unit.unitId} requires explicit authored inference classification`);
+    }
+    if (unit.unitType !== "HUMAN_CULTURE" && decision.inferenceClassification === "EIDOLON_AUTHORED_INFERENCE") {
+      throw new Error(`${unit.unitId} cannot use Human authored inference classification`);
+    }
     if (!decision.terrainBroad.length || decision.terrainBroad.some((value) => !TERRAIN_BROAD.has(value))) throw new Error(`Invalid terrainBroad for ${unit.unitId}`);
     if (!decision.terrainSpecific.length || decision.terrainSpecific.some((value) => !TERRAIN_SPECIFIC.has(value))) throw new Error(`Invalid terrainSpecific for ${unit.unitId}`);
     uniqueExact(`${unit.unitId} terrainBroad`, decision.terrainBroad);
@@ -209,7 +217,10 @@ export function buildV4BatchArtifacts(input: V4BatchBuildInput): V4BatchArtifact
   const citations = acceptedJournals.map((row): V4Citation => ({
     citationId: `CIT_${row.journalEntryId}`, sourceId: sourceIdByUrl.get(row.actualOpenedUrl)!, locator: row.locator,
     boundedContext: row.boundedContext, sourceFact: row.sourceFact,
-    subjectAlignment: subjectAlignment(unitById.get(row.targetUnitId)!), claimAlignment: "ACCEPTED_DIRECT_EVIDENCE",
+    subjectAlignment: subjectAlignment(unitById.get(row.targetUnitId)!),
+    claimAlignment: unitById.get(row.targetUnitId)!.unitType === "HUMAN_CULTURE" && row.targetField === "personalityId"
+      ? "EIDOLON_AUTHORED_INFERENCE"
+      : "ACCEPTED_DIRECT_EVIDENCE",
   }));
   const evidence = acceptedJournals.map((row): V4ResearchEvidence => {
     const decision = decisionByUnit.get(row.targetUnitId)!;
@@ -263,10 +274,15 @@ export function buildV4BatchArtifacts(input: V4BatchBuildInput): V4BatchArtifact
 
   uniqueExact("Global civic Breed identity", input.allCivicBreedIds);
   if (manifestBreedIds.some((breedId) => !input.allCivicBreedIds.includes(breedId))) throw new Error("Batch Breed is absent from global civic population");
+  const regionEffectiveBreeds = [...(input.regionEffectiveBreeds ?? []), ...effectiveBreeds];
+  uniqueExact("Region preview Breed identity", regionEffectiveBreeds.map((breed) => breed.breedId));
+  if (effectiveBreeds.some((breed) => !regionEffectiveBreeds.some((candidate) => candidate.breedId === breed.breedId))) {
+    throw new Error("Region preview omits a current batch Breed");
+  }
   const allocation = allocateEqualPopulation(input.allCivicBreedIds, input.totalInitialPopulation);
-  const cohorts = effectiveBreeds.map((breed) => ({ breedId: breed.breedId, population: allocation.get(breed.breedId)! }));
+  const cohorts = regionEffectiveBreeds.map((breed) => ({ breedId: breed.breedId, population: allocation.get(breed.breedId)! }));
   const totalPopulation = cohorts.reduce((sum, cohort) => sum + cohort.population, 0n);
-  const properties = new Map(effectiveBreeds.map((breed) => [breed.breedId, Object.fromEntries(Object.keys(input.propertyMapping).map((property) => [property, breed.dimensions[lowerFirst(property) as keyof typeof breed.dimensions].value]))]));
+  const properties = new Map(regionEffectiveBreeds.map((breed) => [breed.breedId, Object.fromEntries(Object.keys(input.propertyMapping).map((property) => [property, breed.dimensions[lowerFirst(property) as keyof typeof breed.dimensions].value]))]));
   const worlds = Object.fromEntries((["CONCORD", "SCHISM", "RUIN"] as WorldKey[]).map((world): [WorldKey, PreviewWorld] => {
     const projected = projectRawProperties(cohorts, properties, world, input.propertyMapping);
     const propertyCoverage = Object.fromEntries(Object.entries(projected.properties).map(([property, value]) => {

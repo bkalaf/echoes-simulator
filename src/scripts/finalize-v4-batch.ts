@@ -8,6 +8,7 @@ import {
   type BatchManifest,
   type EffectivePersonalityProfileInput,
 } from "../core/research/v4-batch.js";
+import type { EffectiveBreedSemantics } from "../core/research/v4-contract.js";
 
 const root = resolve(".");
 const batchId = process.argv[2];
@@ -48,9 +49,16 @@ const allCivicBreedIds = parseCsvFile(resolve(ownerPack, "INPUTS/full_breed_with
 const propertyMapping = JSON.parse(readFileSync(resolve(root, "resources/reference/property_faction_mapping.json"), "utf8"));
 const politicalRows = JSON.parse(readFileSync(resolve(root, "resources/reference/political_form_mapping.json"), "utf8")).rows;
 const economicRows = JSON.parse(readFileSync(resolve(root, "resources/reference/economic_form_mapping.json"), "utf8")).rows;
+const regionEffectiveBreeds = architecture.completedRegionBatches
+  .filter((completedBatchId) => completedBatchId !== batchId)
+  .filter((completedBatchId) => {
+    const completedManifest = JSON.parse(readFileSync(resolve(promptPack, "units", `${completedBatchId}.json`), "utf8")) as BatchManifest;
+    return completedManifest.regionId === manifest.regionId;
+  })
+  .flatMap((completedBatchId) => readJsonLines<EffectiveBreedSemantics>(resolve(root, "artifacts/research-v4/batches", completedBatchId, "effective_breed_preview.jsonl")));
 const built = buildV4BatchArtifacts({
   manifest, journals, decisions, effectiveProfiles, allCivicBreedIds, totalInitialPopulation: 2_000_000n,
-  propertyMapping, politicalRows, economicRows,
+  propertyMapping, politicalRows, economicRows, regionEffectiveBreeds,
 });
 
 mkdirSync(directory, { recursive: true });
