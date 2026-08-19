@@ -49,7 +49,8 @@
   "completedRegionBatches": [
     "R01_B01",
     "R01_B02",
-    "R02_B01"
+    "R02_B01",
+    "R02_B02"
   ],
   "completedAuditShards": []
 }
