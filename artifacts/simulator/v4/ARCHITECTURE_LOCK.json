@@ -48,7 +48,8 @@
   "personalityDimensionPolicy": "PERSONALITY_PROFILE_DIMENSIONS_V1",
   "completedRegionBatches": [
     "R01_B01",
-    "R01_B02"
+    "R01_B02",
+    "R02_B01"
   ],
   "completedAuditShards": []
 }

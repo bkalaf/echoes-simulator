@@ -54,6 +54,6 @@ describe("R01_B02 complete research gate", () => {
     const r01b01 = readJsonl("../R01_B01/effective_breed_preview.jsonl");
     expect(r01b01.length + effective.length).toBe(121);
     const architecture = JSON.parse(readFileSync(resolve("artifacts/simulator/v4/ARCHITECTURE_LOCK.json"), "utf8"));
-    expect(architecture.completedRegionBatches).toEqual(["R01_B01", "R01_B02"]);
+    expect(architecture.completedRegionBatches.slice(0, 2)).toEqual(["R01_B01", "R01_B02"]);
   });
 });
