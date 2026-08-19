@@ -1,0 +1,92 @@
+{
+  "traits": {
+    "resolved": 241,
+    "terminalNull": 1815,
+    "invalidUnresearched": 0
+  },
+  "foodBroad": {
+    "resolved": 545,
+    "terminalNull": 1511,
+    "invalidUnresearched": 0
+  },
+  "foodSpecific": {
+    "resolved": 545,
+    "terminalNull": 1511,
+    "invalidUnresearched": 0
+  },
+  "terrainBroad": {
+    "resolved": 392,
+    "terminalNull": 1664,
+    "invalidUnresearched": 0
+  },
+  "terrainSpecific": {
+    "resolved": 391,
+    "terminalNull": 1665,
+    "invalidUnresearched": 0
+  },
+  "personalityId": {
+    "resolved": 212,
+    "terminalNull": 1844,
+    "invalidUnresearched": 0
+  },
+  "motivation": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "operatingStyle": {
+    "resolved": 2,
+    "terminalNull": 2054,
+    "invalidUnresearched": 0
+  },
+  "structureOrientation": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "administrationMode": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "ownershipMode": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "allocationMode": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "legitimacyBasis": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "authoritySource": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "loquacity": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "emotionalTemperature": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "outlookOrientation": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  },
+  "collaborativePosture": {
+    "resolved": 0,
+    "terminalNull": 2056,
+    "invalidUnresearched": 0
+  }
+}

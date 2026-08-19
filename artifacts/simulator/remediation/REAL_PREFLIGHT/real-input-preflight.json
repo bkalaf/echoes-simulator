@@ -1,7 +1,7 @@
 {
   "schemaVersion": "eidolon-simulator-real-preflight-v2",
   "structuralStatus": "PASS",
-  "canonicalReady": false,
+  "canonicalReady": true,
   "inputFiles": [
     {
       "logicalKey": "sourceLeads",
@@ -58,238 +58,115 @@
   },
   "coverage": {
     "traits": {
-      "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "resolved": 239,
+      "terminalNull": 1534,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "foodBroad": {
-      "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "resolved": 454,
+      "terminalNull": 1319,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "foodSpecific": {
-      "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "resolved": 454,
+      "terminalNull": 1319,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "terrainBroad": {
-      "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "resolved": 292,
+      "terminalNull": 1481,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "terrainSpecific": {
-      "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "resolved": 290,
+      "terminalNull": 1483,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "personalityId": {
-      "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "resolved": 212,
+      "terminalNull": 1561,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "motivation": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "operatingStyle": {
-      "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "resolved": 2,
+      "terminalNull": 1771,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "structureOrientation": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "administrationMode": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "ownershipMode": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "allocationMode": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "legitimacyBasis": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "authoritySource": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "loquacity": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "emotionalTemperature": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "outlookOrientation": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     },
     "collaborativePosture": {
       "resolved": 0,
-      "terminalNull": 0,
-      "invalidUnresearched": 1773,
-      "unresolved": 1773
+      "terminalNull": 1773,
+      "invalidUnresearched": 0,
+      "unresolved": 0
     }
   },
-  "activeIssues": [
-    {
-      "issueCode": "MISSING_COMPLETE_V3_RESEARCH_PACK",
-      "severity": "BLOCKER",
-      "blocksCanonical": true,
-      "message": "No complete V3 Breed research pack was supplied; August 17 remains the starting authority and August 18 remains source leads only."
-    },
-    {
-      "issueCode": "BREED_RESEARCH_INCOMPLETE",
-      "severity": "BLOCKER",
-      "blocksCanonical": true,
-      "message": "One or more civic Breed fields are invalid or unresearched.",
-      "details": {
-        "traits": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "foodBroad": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "foodSpecific": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "terrainBroad": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "terrainSpecific": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "personalityId": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "motivation": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "operatingStyle": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "structureOrientation": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "administrationMode": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "ownershipMode": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "allocationMode": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "legitimacyBasis": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "authoritySource": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "loquacity": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "emotionalTemperature": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "outlookOrientation": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        },
-        "collaborativePosture": {
-          "resolved": 0,
-          "terminalNull": 0,
-          "invalidUnresearched": 1773,
-          "unresolved": 1773
-        }
-      }
-    }
-  ],
+  "activeIssues": [],
   "resolvedOwnerDecisions": [
     "PET_EXCLUDED",
     "FOOD_DISABLED",
@@ -321,6 +198,12 @@
       "filename": "full_breed_with_region_ids(1).csv",
       "semanticPrecedence": "METADATA_ONLY"
     },
-    "v3SemanticAuthority": null
+    "v3SemanticAuthority": {
+      "filename": "ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip",
+      "sha256": "6527d3e41d1a3af72dc30f998e5d0b7d0563599b08eba6bc9a0e4e9b6b56731c",
+      "rows": 2056,
+      "verdict": "ACCEPT_FINAL",
+      "safeToImport": true
+    }
   }
 }

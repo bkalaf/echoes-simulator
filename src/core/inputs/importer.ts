@@ -37,6 +37,7 @@ export function mergeBreedRows(remediated: GenericRow, legacy: GenericRow, optio
     merged[field] = value;
     provenance[field] = value === null ? "UNRESOLVED" : "LEGACY_METADATA";
   }
+  if (remediated.fieldDispositions !== undefined) merged.fieldDispositions = remediated.fieldDispositions;
   return { ...merged, provenance };
 }
 

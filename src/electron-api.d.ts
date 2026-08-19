@@ -7,6 +7,8 @@ declare global {
       getOperatorSnapshot(): Promise<unknown>;
       selectInputDirectory(): Promise<string | null>;
       validateInputs(packDirectory: string): Promise<unknown>;
+      runCanonical(seed: string): Promise<unknown>;
+      submitNamingResponse(responseText: string): Promise<unknown>;
       runDiagnostic(seed: string): Promise<unknown>;
       exportDiagnostic(): Promise<string | null>;
     };

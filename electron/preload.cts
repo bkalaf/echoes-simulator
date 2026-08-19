@@ -5,6 +5,8 @@ const api = Object.freeze({
   getOperatorSnapshot: (): Promise<unknown> => ipcRenderer.invoke("simulator:get-operator-snapshot"),
   selectInputDirectory: (): Promise<string | null> => ipcRenderer.invoke("simulator:select-input-directory"),
   validateInputs: (packDirectory: string): Promise<unknown> => ipcRenderer.invoke("simulator:validate-inputs", packDirectory),
+  runCanonical: (seed: string): Promise<unknown> => ipcRenderer.invoke("simulator:run-canonical", seed),
+  submitNamingResponse: (responseText: string): Promise<unknown> => ipcRenderer.invoke("simulator:submit-naming-response", responseText),
   runDiagnostic: (seed: string): Promise<unknown> => ipcRenderer.invoke("simulator:run-diagnostic", seed),
   exportDiagnostic: (): Promise<string | null> => ipcRenderer.invoke("simulator:export-diagnostic"),
 });

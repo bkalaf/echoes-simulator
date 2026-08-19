@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "eidolon-breed-research-v3-manifest",
+  "filename": "ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip",
+  "generatedAt": "2026-08-19T00:00:00.000Z",
+  "sourceRoles": {
+    "august17StartingAuthority": {
+      "filename": "echoes_of_eidolon_breed_research_2026-08-17.zip",
+      "sha256": "7d6b1651472a504ce861bf031f89a582df3a8ad06b3417a7d38436bcae7a9033"
+    },
+    "august18SourceLeads": {
+      "filename": "echoes_of_eidolon_breed_research_v2_semantic_remediated_2026-08-18(1).zip",
+      "sha256": "0c9ed73354bbca9275054d1eade1f52c2088f35cfe702d9c9bb4ce482146b0c9",
+      "semanticPrecedence": "SOURCE_LEADS_ONLY"
+    },
+    "v3SemanticAuthority": true
+  },
+  "counts": {
+    "breeds": 2056,
+    "fieldsPerBreed": 18,
+    "fieldTasks": 37008,
+    "evidence": 37008,
+    "citations": 37008,
+    "sources": 1947,
+    "unresolved": 0,
+    "reviewRequired": 0
+  },
+  "populationKinds": {
+    "HUMAN": 631,
+    "BEAST": 961,
+    "MYTHOS": 181,
+    "PET": 283
+  },
+  "coverage": {
+    "traits": {
+      "resolved": 241,
+      "terminalNull": 1815,
+      "invalidUnresearched": 0
+    },
+    "foodBroad": {
+      "resolved": 545,
+      "terminalNull": 1511,
+      "invalidUnresearched": 0
+    },
+    "foodSpecific": {
+      "resolved": 545,
+      "terminalNull": 1511,
+      "invalidUnresearched": 0
+    },
+    "terrainBroad": {
+      "resolved": 392,
+      "terminalNull": 1664,
+      "invalidUnresearched": 0
+    },
+    "terrainSpecific": {
+      "resolved": 391,
+      "terminalNull": 1665,
+      "invalidUnresearched": 0
+    },
+    "personalityId": {
+      "resolved": 212,
+      "terminalNull": 1844,
+      "invalidUnresearched": 0
+    },
+    "motivation": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "operatingStyle": {
+      "resolved": 2,
+      "terminalNull": 2054,
+      "invalidUnresearched": 0
+    },
+    "structureOrientation": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "administrationMode": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "ownershipMode": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "allocationMode": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "legitimacyBasis": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "authoritySource": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "loquacity": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "emotionalTemperature": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "outlookOrientation": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    },
+    "collaborativePosture": {
+      "resolved": 0,
+      "terminalNull": 2056,
+      "invalidUnresearched": 0
+    }
+  },
+  "assessment": {
+    "verdict": "ACCEPT_FINAL",
+    "safeToImport": true,
+    "researchCompletionClaimSupported": true,
+    "structuralIntegrityPassed": true,
+    "semanticEvidenceIntegrityPassed": true
+  }
+}

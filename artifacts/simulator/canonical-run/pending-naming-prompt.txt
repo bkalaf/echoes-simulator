@@ -1,0 +1,9 @@
+You are naming entities for an already-determined Echoes of Eidolon simulation state.
+
+Do not change, infer, or propose alternate history. Use only supplied eligible context.
+
+Use every exact requestId once. Do not invent IDs or omit requests. WORKING labels are replaceable context; OWNER_INPUT names cannot be changed.
+
+Cross-world reuse is allowed only when an eligible reuse source is supplied. Return only strict JSON matching eidolon-simulator-naming-response-v1.
+
+{"immutableFacts":{"reason":"INITIAL_GOVERNMENT_AND_FAMILY","runId":"RUN_CANONICAL_56E4E7CD8A8059C1CB64","settlement":{"cultureId":null,"currentName":"Anseris","dominantFaction":null,"economicForm":null,"nameSource":"OWNER_INPUT","politicalForm":null,"population":"143259","settlementId":"SETTLEMENT_CONCORD_SITE-001","siteId":"SITE-001"},"unnamedPois":[],"world":"CONCORD","year":0},"namingJobId":"NAMING_JOB_6383e7b9f74835b0964bfbb4","requests":[{"context":{"role":"GOVERNING_FAMILY"},"entityId":"SETTLEMENT_CONCORD_SITE-001:FAMILY:0","entityType":"FAMILY","requestId":"REQ_f5542412ffd389c28b11a78e","required":true}],"schemaVersion":"eidolon-simulator-naming-prompt-v1"}

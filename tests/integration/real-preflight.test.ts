@@ -22,4 +22,17 @@ describe("owner input bundle preflight", () => {
       v3SemanticAuthority: null,
     });
   }, 30_000);
+
+  it("accepts the complete V3 semantic authority with zero invalid or unresearched fields", () => {
+    const pack = resolve("ECHOES_OF_EIDOLON_SIMULATOR_BREED_RESEARCH_REMEDIATION_CODEX_PACK_2026-08-18");
+    const starting = resolve(pack, "echoes_of_eidolon_breed_research_2026-08-17.zip");
+    const v3 = resolve("ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip");
+    const report = preflightRealBundle(pack, starting, v3);
+
+    expect(report.canonicalReady).toBe(true);
+    expect(report.sourceRoles.v3SemanticAuthority).toMatchObject({ filename: "ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip", rows: 2056 });
+    expect(report.activeIssues.map((issue) => issue.issueCode)).not.toContain("MISSING_COMPLETE_V3_RESEARCH_PACK");
+    expect(report.activeIssues.map((issue) => issue.issueCode)).not.toContain("BREED_RESEARCH_INCOMPLETE");
+    expect(Object.values(report.coverage).every((count) => count.invalidUnresearched === 0)).toBe(true);
+  }, 30_000);
 });

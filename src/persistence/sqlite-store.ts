@@ -4,6 +4,7 @@ import { mkdirSync } from "node:fs";
 import { canonicalJson } from "../core/serialization/canonical-json.js";
 import type { NamingJob } from "../core/naming/naming.js";
 import type { CheckpointEnvelope } from "../core/contracts/domain.js";
+import type { Cohort } from "../core/engine/cohort-engine.js";
 
 export interface StoredRun {
   runId: string;
@@ -140,6 +141,54 @@ export class SimulatorStore {
         name TEXT NOT NULL,
         PRIMARY KEY(naming_job_id, request_id)
       );
+      CREATE TABLE IF NOT EXISTS cohort_state (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        world_key TEXT NOT NULL,
+        year INTEGER NOT NULL,
+        cohort_id TEXT NOT NULL,
+        settlement_id TEXT NOT NULL,
+        breed_id TEXT NOT NULL,
+        population TEXT NOT NULL,
+        wealth_score INTEGER NOT NULL,
+        provenance_json TEXT NOT NULL,
+        PRIMARY KEY(run_id, world_key, year, cohort_id)
+      );
+      CREATE INDEX IF NOT EXISTS cohort_by_settlement ON cohort_state(run_id, world_key, year, settlement_id);
+      CREATE TABLE IF NOT EXISTS run_projection (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        world_key TEXT NOT NULL,
+        year INTEGER NOT NULL,
+        projection_type TEXT NOT NULL,
+        entity_id TEXT NOT NULL,
+        data_json TEXT NOT NULL,
+        PRIMARY KEY(run_id, world_key, year, projection_type, entity_id)
+      );
+      CREATE TABLE IF NOT EXISTS state_membership (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        world_key TEXT NOT NULL,
+        year INTEGER NOT NULL,
+        state_id TEXT NOT NULL,
+        settlement_id TEXT NOT NULL,
+        status TEXT NOT NULL,
+        PRIMARY KEY(run_id, world_key, year, state_id, settlement_id)
+      );
+      CREATE TABLE IF NOT EXISTS institution_ledger (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        world_key TEXT NOT NULL,
+        year INTEGER NOT NULL,
+        institution_type TEXT NOT NULL,
+        ledger_id TEXT NOT NULL,
+        data_json TEXT NOT NULL,
+        PRIMARY KEY(run_id, world_key, year, institution_type, ledger_id)
+      );
+      CREATE TABLE IF NOT EXISTS export_metadata (
+        export_id TEXT PRIMARY KEY,
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        created_at TEXT NOT NULL,
+        filename TEXT NOT NULL,
+        sha256 TEXT NOT NULL,
+        manifest_json TEXT NOT NULL
+      );
     `);
   }
 
@@ -158,6 +207,61 @@ export class SimulatorStore {
   listRuns(): StoredRun[] {
     const rows = this.database.prepare("SELECT run_id FROM simulation_run ORDER BY created_at, run_id").all() as { run_id: string }[];
     return rows.map((row) => this.getRun(row.run_id)!);
+  }
+
+  latestRun(): StoredRun | null {
+    const row = this.database.prepare("SELECT run_id FROM simulation_run ORDER BY updated_at DESC, created_at DESC, run_id DESC LIMIT 1").get() as { run_id: string } | undefined;
+    return row ? this.getRun(row.run_id) : null;
+  }
+
+  setRunStatus(runId: string, status: string, currentYear: number): void {
+    this.database.prepare("UPDATE simulation_run SET status=?, current_year=?, updated_at=CURRENT_TIMESTAMP WHERE run_id=?").run(status, currentYear, runId);
+  }
+
+  saveCohorts(runId: string, year: number, cohorts: readonly Cohort[]): void {
+    const insert = this.database.prepare(`INSERT INTO cohort_state(
+      run_id, world_key, year, cohort_id, settlement_id, breed_id, population, wealth_score, provenance_json
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`);
+    this.database.exec("BEGIN IMMEDIATE");
+    try {
+      for (const cohort of cohorts) insert.run(runId, cohort.worldKey, year, cohort.cohortId, cohort.settlementId, cohort.breedId, cohort.population.toString(), cohort.wealthScore, canonicalJson({ createdYear: cohort.createdYear, originCohortId: cohort.originCohortId, createdByEventId: cohort.createdByEventId, outboundMigrationNotBeforeYear: cohort.outboundMigrationNotBeforeYear }));
+      this.database.exec("COMMIT");
+    } catch (error) {
+      this.database.exec("ROLLBACK");
+      throw error;
+    }
+  }
+
+  countCohorts(runId: string, worldKey?: string, year = 0): number {
+    const row = worldKey
+      ? this.database.prepare("SELECT COUNT(*) AS count FROM cohort_state WHERE run_id=? AND world_key=? AND year=?").get(runId, worldKey, year)
+      : this.database.prepare("SELECT COUNT(*) AS count FROM cohort_state WHERE run_id=? AND year=?").get(runId, year);
+    return Number((row as { count: number }).count);
+  }
+
+  cohortPopulation(runId: string, worldKey: string, year: number): bigint {
+    const rows = this.database.prepare("SELECT population FROM cohort_state WHERE run_id=? AND world_key=? AND year=?").all(runId, worldKey, year) as { population: string }[];
+    return rows.reduce((sum, row) => sum + BigInt(row.population), 0n);
+  }
+
+  saveProjection(runId: string, worldKey: string, year: number, projectionType: string, entityId: string, data: unknown): void {
+    this.database.prepare(`INSERT INTO run_projection(run_id, world_key, year, projection_type, entity_id, data_json)
+      VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(run_id, world_key, year, projection_type, entity_id) DO UPDATE SET data_json=excluded.data_json`)
+      .run(runId, worldKey, year, projectionType, entityId, canonicalJson(data));
+  }
+
+  getProjection(runId: string, worldKey: string, year: number, projectionType: string, entityId: string): unknown | null {
+    const row = this.database.prepare("SELECT data_json FROM run_projection WHERE run_id=? AND world_key=? AND year<=? AND projection_type=? AND entity_id=? ORDER BY year DESC LIMIT 1")
+      .get(runId, worldKey, year, projectionType, entityId) as { data_json: string } | undefined;
+    return row ? JSON.parse(row.data_json) : null;
+  }
+
+  listProjections(runId: string, worldKey: string, year: number, projectionType: string): unknown[] {
+    const rows = this.database.prepare(`SELECT p.data_json FROM run_projection p JOIN (
+      SELECT entity_id, MAX(year) AS max_year FROM run_projection WHERE run_id=? AND world_key=? AND year<=? AND projection_type=? GROUP BY entity_id
+    ) latest ON p.entity_id=latest.entity_id AND p.year=latest.max_year WHERE p.run_id=? AND p.world_key=? AND p.projection_type=? ORDER BY p.entity_id`)
+      .all(runId, worldKey, year, projectionType, runId, worldKey, projectionType) as { data_json: string }[];
+    return rows.map((row) => JSON.parse(row.data_json));
   }
 
   savePreflight(preflight: StoredPreflight): void {

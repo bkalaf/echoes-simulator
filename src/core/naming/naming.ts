@@ -9,7 +9,7 @@ export interface NamingContext {
   world: WorldKey;
   year: number;
   reason: string;
-  settlement: { settlementId: string; siteId: string; currentName: string | null; nameSource: "OWNER_INPUT" | "WORKING" | "UNNAMED"; dominantFaction: string; cultureId: string | null; politicalForm: string; economicForm: string; population: string };
+  settlement: { settlementId: string; siteId: string; currentName: string | null; nameSource: "OWNER_INPUT" | "WORKING" | "UNNAMED"; dominantFaction: string | null; cultureId: string | null; politicalForm: string | null; economicForm: string | null; population: string };
   unnamedPois: { poiId: string; workingLabel: string; poiType: string }[];
 }
 export interface NamingItem { requestId: string; entityType: EntityType; entityId: string; required: true; context: unknown; }
@@ -23,7 +23,7 @@ export function buildNamingJob(context: NamingContext): NamingJob {
   const items: NamingItem[] = [];
   if (context.settlement.nameSource !== "OWNER_INPUT") items.push({ requestId: stableId("REQ", { ...base, type: "SETTLEMENT" }), entityType: "SETTLEMENT", entityId: context.settlement.settlementId, required: true, context: context.settlement });
   for (const poi of [...context.unnamedPois].sort((a, b) => a.poiId.localeCompare(b.poiId))) items.push({ requestId: stableId("REQ", { ...base, type: "POI", id: poi.poiId }), entityType: "POI", entityId: poi.poiId, required: true, context: poi });
-  items.push({ requestId: stableId("REQ", { ...base, type: "GOVERNMENT" }), entityType: "GOVERNMENT", entityId: `${context.settlement.settlementId}:GOV:${context.year}`, required: true, context: { politicalForm: context.settlement.politicalForm, economicForm: context.settlement.economicForm } });
+  if (context.settlement.politicalForm !== null && context.settlement.economicForm !== null) items.push({ requestId: stableId("REQ", { ...base, type: "GOVERNMENT" }), entityType: "GOVERNMENT", entityId: `${context.settlement.settlementId}:GOV:${context.year}`, required: true, context: { politicalForm: context.settlement.politicalForm, economicForm: context.settlement.economicForm } });
   items.push({ requestId: stableId("REQ", { ...base, type: "FAMILY" }), entityType: "FAMILY", entityId: `${context.settlement.settlementId}:FAMILY:${context.year}`, required: true, context: { role: "GOVERNING_FAMILY" } });
   const namingJobId = stableId("NAMING_JOB", { ...base, items: items.map((item) => item.requestId) });
   const canonicalContext = { schemaVersion: "eidolon-simulator-naming-prompt-v1", namingJobId, immutableFacts: context, requests: items };

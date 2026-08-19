@@ -13,6 +13,7 @@
     "build:node": "tsc -p tsconfig.node.json",
     "build": "pnpm build:node && pnpm build:renderer",
     "package": "pnpm build && electron-builder --dir",
+    "package:offline": "pnpm build && node scripts/package-offline.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "lint": "pnpm typecheck && node scripts/check-engine-randomness.mjs",
     "test": "vitest run --exclude 'tests/integration/**' --exclude 'tests/e2e/**'",
@@ -21,7 +22,9 @@
     "verify": "pnpm lint && pnpm test && pnpm test:integration && pnpm build",
     "preflight:real": "pnpm build:node && node dist-electron/src/scripts/real-preflight.js",
     "diagnostic:run": "pnpm build:node && node dist-electron/src/scripts/run-diagnostic.js",
-    "research:remediation": "pnpm build:node && node dist-electron/src/scripts/build-research-remediation.js"
+    "canonical:run": "pnpm build:node && node dist-electron/src/scripts/run-canonical.js",
+    "research:remediation": "pnpm build:node && node dist-electron/src/scripts/build-research-remediation.js",
+    "research:v3": "pnpm build:node && node dist-electron/src/scripts/build-v3-research-complete.js"
   },
   "dependencies": {
     "csv-parse": "6.2.1",

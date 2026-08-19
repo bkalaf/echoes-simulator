@@ -1,0 +1,85 @@
+{
+  "verdict": "ACCEPT_FINAL",
+  "safeToImport": true,
+  "researchCompletionClaimSupported": true,
+  "structuralIntegrityPassed": true,
+  "semanticEvidenceIntegrityPassed": true,
+  "counts": {
+    "breeds": 2056,
+    "fieldTasks": 37008,
+    "terminal": 37008,
+    "unresolved": 0,
+    "reviewRequired": 0,
+    "evidence": 37008,
+    "citations": 37008,
+    "sources": 1947
+  },
+  "findings": [],
+  "mandatoryRegressions": [
+    {
+      "caseId": "DOMESTICATED_GOAT",
+      "status": "PASS",
+      "detail": "Goat browsing and non-grass food must be represented."
+    },
+    {
+      "caseId": "DOMESTICATED_SHEEP",
+      "status": "PASS",
+      "detail": "Sheep grain/seed feed must be represented."
+    },
+    {
+      "caseId": "FLOWERHORN_WORKSHOP",
+      "status": "PASS",
+      "detail": "Aquarium husbandry cannot establish WORKSHOP habitat."
+    },
+    {
+      "caseId": "IRANIAN_CITY",
+      "status": "PASS",
+      "detail": "CITY cannot be inferred from cuisine/diaspora evidence."
+    },
+    {
+      "caseId": "MALAYAN_TAPIR_SETTLEMENT",
+      "status": "PASS",
+      "detail": "Settlement proximity cannot become tapir habitat."
+    },
+    {
+      "caseId": "AARDVARK_DIMENSION_CASCADE",
+      "status": "PASS",
+      "detail": "Unsupported governance/economic dimensions remain null."
+    },
+    {
+      "caseId": "HUMAN_GENERIC_WOUND_TEMPLATE",
+      "status": "PASS",
+      "detail": "Generic Human wound templates are prohibited."
+    },
+    {
+      "caseId": "CITATION_CONTEXT",
+      "status": "PASS",
+      "detail": "Every citation has bounded context."
+    },
+    {
+      "caseId": "PET_GENERIC_TRAITS",
+      "status": "PASS",
+      "detail": "PET traits cannot use generic templates."
+    },
+    {
+      "caseId": "AFRICAN_MANATEE_DAMS",
+      "status": "PASS",
+      "detail": "Dams are threats/barriers, not habitat."
+    },
+    {
+      "caseId": "BANDED_MONGOOSE_SOCIALITY",
+      "status": "PASS",
+      "detail": "Banded mongoose cooperative care must be represented."
+    },
+    {
+      "caseId": "AUSTRALIAN_LUNGFISH_PARENTAL_GUARDING",
+      "status": "PASS",
+      "detail": "No parental-guarding personality inference is allowed."
+    },
+    {
+      "caseId": "ALPINE_IBEX_ARBOREAL",
+      "status": "PASS",
+      "detail": "Forest feeding cannot become arboreal habitat."
+    }
+  ]
+}
