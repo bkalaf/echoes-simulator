@@ -1,0 +1,25 @@
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { parse as parseCsvSync } from "csv-parse/sync";
+import { openValidatedZip, parseJsonLines } from "../core/inputs/importer.js";
+import { calculateYear0Readiness, type Year0Assignment, type Year0Identity, type Year0Site } from "../core/engine/year0-readiness.js";
+import type { EffectiveBreedSemantics } from "../core/research/v4-contract.js";
+
+const root = resolve(".");
+const ownerPack = resolve(root, "ECHOES_OF_EIDOLON_SIMULATOR_BREED_RESEARCH_REMEDIATION_CODEX_PACK_2026-08-18");
+const authority = openValidatedZip(resolve(root, "ECHOES_OF_EIDOLON_BREED_SEMANTICS_V4_SIMULATION_READY.zip"));
+const member = (name: string): Uint8Array => { const value = authority.entries[`${authority.prefix}${name}`]; if (!value) throw new Error(`V4 authority lacks ${name}`); return value; };
+const csv = <T>(filename: string): T[] => parseCsvSync(readFileSync(filename), { bom: true, columns: true, skip_empty_lines: true }) as T[];
+const identities = parseJsonLines(member("canonical_breed_identities.jsonl")) as unknown as Year0Identity[];
+const effectiveBreeds = parseJsonLines(member("effective_breed_semantics.jsonl")) as unknown as EffectiveBreedSemantics[];
+const assignments = csv<Year0Assignment>(resolve(ownerPack, "INPUTS/region_species_group_assignments(1).csv"));
+const foundingSites = csv<Year0Site>(resolve(root, "resources/reference/founding_sites.csv"));
+const propertyMapping = JSON.parse(readFileSync(resolve(root, "resources/reference/property_faction_mapping.json"), "utf8"));
+const politicalRows = JSON.parse(readFileSync(resolve(root, "resources/reference/political_form_mapping.json"), "utf8")).rows;
+const economicRows = JSON.parse(readFileSync(resolve(root, "resources/reference/economic_form_mapping.json"), "utf8")).rows;
+const report = calculateYear0Readiness({ seed: "EIDOLON_CANONICAL_YEAR0_V4", identities, effectiveBreeds, assignments, foundingSites, propertyMapping, politicalRows, economicRows });
+const outputDirectory = resolve(root, "artifacts/simulator/v4-readiness");
+mkdirSync(outputDirectory, { recursive: true });
+writeFileSync(resolve(outputDirectory, "year0-readiness.json"), `${JSON.stringify(report, null, 2)}\n`);
+process.stdout.write(`${JSON.stringify({ status: report.status, settlementWorlds: report.settlementWorlds, propertyChecks: report.propertyChecks, noResolvedPopulationIssues: report.noResolvedPopulationIssues, nullDominantFaction: report.nullDominantFaction, nullPoliticalForm: report.nullPoliticalForm, nullEconomicForm: report.nullEconomicForm, nullDominantBreed: report.nullDominantBreed }, null, 2)}\n`);
+if (report.status !== "PASS") process.exitCode = 1;

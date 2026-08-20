@@ -1,0 +1,53 @@
+{
+  "CONCORD": {
+    "sovereignName": "Darion Judax Thane",
+    "sovereignFaction": "CONCORD",
+    "breedId": "BRD_LION",
+    "initialFederalCapital": {
+      "regionId": "R02",
+      "siteId": "SITE-008",
+      "name": "Lupin-Ghar"
+    },
+    "djtSeizureTarget": {
+      "regionId": "R06",
+      "siteId": "SITE-036",
+      "name": "Ascendancy"
+    }
+  },
+  "SCHISM": {
+    "sovereignName": "Darym Judax Temur",
+    "sovereignFaction": "SCHISM",
+    "breedId": "BRD_HAMADRYAS_BABOON",
+    "initialFederalCapital": {
+      "regionId": "R15",
+      "siteId": "SITE-099",
+      "name": "Devanagri"
+    },
+    "djtSeizureTarget": {
+      "regionId": "R22",
+      "siteId": "SITE-148",
+      "name": "Tjuringa"
+    }
+  },
+  "RUIN": {
+    "sovereignName": "Dravik Judax Thrix",
+    "sovereignFaction": "RUIN",
+    "breedId": "BRD_PEACOCK_SPIDER",
+    "initialFederalCapital": {
+      "regionId": "R25",
+      "siteId": "SITE-169",
+      "name": "Serpentis"
+    },
+    "djtSeizureTarget": {
+      "regionId": "R11",
+      "siteId": "SITE-071",
+      "name": "Al-Mihraq"
+    }
+  },
+  "innerwood": {
+    "stateName": "Innerwood",
+    "regionId": "R10",
+    "siteId": "SITE-064",
+    "initialSettlementName": "NAMING_REQUIRED"
+  }
+}

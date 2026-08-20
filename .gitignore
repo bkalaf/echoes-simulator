@@ -10,3 +10,4 @@ exports/
 artifacts/implementation/final-verification/generated/
 *.zip
 ECHOES_OF_EIDOLON*
+!resources/canonical/breeds/ECHOES_OF_EIDOLON_BREED_SEMANTICS_V4_SIMULATION_READY.zip

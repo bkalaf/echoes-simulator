@@ -1,0 +1,116 @@
+{
+  "policyRef": "PERSONALITY_PROFILE_DIMENSIONS_V1",
+  "status": "PASS",
+  "counts": {
+    "families": 80,
+    "expressions": 369,
+    "effectiveProfiles": 369,
+    "overrides": 48
+  },
+  "missingFields": [],
+  "invalidEnums": [],
+  "duplicateProfileGroups": [
+    {
+      "families": [
+        "ACCOUNTABILITY",
+        "DUTY",
+        "TRADITION"
+      ],
+      "justification": "ACCOUNTABILITY shares this controlled-value shape with ACCOUNTABILITY, DUTY, TRADITION because the twelve simulator dimensions are coarse, while its distinct authored meaning remains answer for consequences and repair errors. This is reviewed semantic convergence, not copied identity. | DUTY shares this controlled-value shape with ACCOUNTABILITY, DUTY, TRADITION because the twelve simulator dimensions are coarse, while its distinct authored meaning remains fulfill assigned obligations despite personal cost. This is reviewed semantic convergence, not copied identity. | TRADITION shares this controlled-value shape with ACCOUNTABILITY, DUTY, TRADITION because the twelve simulator dimensions are coarse, while its distinct authored meaning remains carry inherited practices across generations. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "AMBIGUITY",
+        "CHANGE"
+      ],
+      "justification": "AMBIGUITY shares this controlled-value shape with AMBIGUITY, CHANGE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains remain effective while meanings and roles stay unfixed. This is reviewed semantic convergence, not copied identity. | CHANGE shares this controlled-value shape with AMBIGUITY, CHANGE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains adapt identity and method to altered conditions. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "ATTACHMENT",
+        "EMPATHY"
+      ],
+      "justification": "ATTACHMENT shares this controlled-value shape with ATTACHMENT, EMPATHY because the twelve simulator dimensions are coarse, while its distinct authored meaning remains protect durable bonds and chosen anchors. This is reviewed semantic convergence, not copied identity. | EMPATHY shares this controlled-value shape with ATTACHMENT, EMPATHY because the twelve simulator dimensions are coarse, while its distinct authored meaning remains respond to another's felt state as meaningful. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "AUTHENTICITY",
+        "DISSENT",
+        "INDIVIDUALITY"
+      ],
+      "justification": "AUTHENTICITY shares this controlled-value shape with AUTHENTICITY, DISSENT, INDIVIDUALITY because the twelve simulator dimensions are coarse, while its distinct authored meaning remains preserve a coherent self despite imposed roles. This is reviewed semantic convergence, not copied identity. | DISSENT shares this controlled-value shape with AUTHENTICITY, DISSENT, INDIVIDUALITY because the twelve simulator dimensions are coarse, while its distinct authored meaning remains contest imposed consensus and preserve minority judgment. This is reviewed semantic convergence, not copied identity. | INDIVIDUALITY shares this controlled-value shape with AUTHENTICITY, DISSENT, INDIVIDUALITY because the twelve simulator dimensions are coarse, while its distinct authored meaning remains protect unique identity against reduction to a type. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "CLOSURE",
+        "DISCIPLINE",
+        "RESTRAINT"
+      ],
+      "justification": "CLOSURE shares this controlled-value shape with CLOSURE, DISCIPLINE, RESTRAINT because the twelve simulator dimensions are coarse, while its distinct authored meaning remains settle uncertainty and complete open obligations. This is reviewed semantic convergence, not copied identity. | DISCIPLINE shares this controlled-value shape with CLOSURE, DISCIPLINE, RESTRAINT because the twelve simulator dimensions are coarse, while its distinct authored meaning remains sustain chosen practice against distraction. This is reviewed semantic convergence, not copied identity. | RESTRAINT shares this controlled-value shape with CLOSURE, DISCIPLINE, RESTRAINT because the twelve simulator dimensions are coarse, while its distinct authored meaning remains limit available force or appetite by deliberate choice. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "CONTROL",
+        "PERFECTION"
+      ],
+      "justification": "CONTROL shares this controlled-value shape with CONTROL, PERFECTION because the twelve simulator dimensions are coarse, while its distinct authored meaning remains shape conditions so outcomes remain governable. This is reviewed semantic convergence, not copied identity. | PERFECTION shares this controlled-value shape with CONTROL, PERFECTION because the twelve simulator dimensions are coarse, while its distinct authored meaning remains close the gap between actual and ideal form. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "DOUBT",
+        "PERSPECTIVE"
+      ],
+      "justification": "DOUBT shares this controlled-value shape with DOUBT, PERSPECTIVE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains withhold certainty until claims survive retesting. This is reviewed semantic convergence, not copied identity. | PERSPECTIVE shares this controlled-value shape with DOUBT, PERSPECTIVE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains reframe judgment by changing vantage and scale. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "ENVY",
+        "IMPULSE"
+      ],
+      "justification": "ENVY shares this controlled-value shape with ENVY, IMPULSE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains measure deprivation against visible advantage. This is reviewed semantic convergence, not copied identity. | IMPULSE shares this controlled-value shape with ENVY, IMPULSE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains let immediate drive outrun deliberation. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "EQUANIMITY",
+        "PATIENCE"
+      ],
+      "justification": "EQUANIMITY shares this controlled-value shape with EQUANIMITY, PATIENCE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains hold steady judgment under emotional pressure. This is reviewed semantic convergence, not copied identity. | PATIENCE shares this controlled-value shape with EQUANIMITY, PATIENCE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains wait deliberately for conditions to mature. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "HIERARCHY",
+        "LEGITIMACY"
+      ],
+      "justification": "HIERARCHY shares this controlled-value shape with HIERARCHY, LEGITIMACY because the twelve simulator dimensions are coarse, while its distinct authored meaning remains organize roles through stable unequal rank. This is reviewed semantic convergence, not copied identity. | LEGITIMACY shares this controlled-value shape with HIERARCHY, LEGITIMACY because the twelve simulator dimensions are coarse, while its distinct authored meaning remains distinguish accepted rule from naked coercion. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "PERSEVERANCE",
+        "PURPOSE"
+      ],
+      "justification": "PERSEVERANCE shares this controlled-value shape with PERSEVERANCE, PURPOSE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains continue purposeful effort through resistance. This is reviewed semantic convergence, not copied identity. | PURPOSE shares this controlled-value shape with PERSEVERANCE, PURPOSE because the twelve simulator dimensions are coarse, while its distinct authored meaning remains organize choices around a defining objective. This is reviewed semantic convergence, not copied identity."
+    },
+    {
+      "families": [
+        "REPAIR",
+        "STEWARDSHIP"
+      ],
+      "justification": "REPAIR shares this controlled-value shape with REPAIR, STEWARDSHIP because the twelve simulator dimensions are coarse, while its distinct authored meaning remains restore damaged relationships, systems, and structures. This is reviewed semantic convergence, not copied identity. | STEWARDSHIP shares this controlled-value shape with REPAIR, STEWARDSHIP because the twelve simulator dimensions are coarse, while its distinct authored meaning remains preserve a living system for future dependents. This is reviewed semantic convergence, not copied identity."
+    }
+  ],
+  "unjustifiedDuplicateProfileGroups": [],
+  "exactFactionArchetypeProfiles": [],
+  "expressionsMissingFamily": [],
+  "overridesWithoutSemanticRationale": [],
+  "schemaVersion": "eidolon-personality-dimension-policy-audit-v1",
+  "sourceRegistry": {
+    "path": "resources/personality/personality-expression-registry-v3.json",
+    "sha256": "f9a74e1563babc15d86121b5f43246e6d666b6a51736610629acca26d6b7fb38",
+    "rows": 369
+  },
+  "outputHashes": {
+    "familyProfilesSha256": "181975ea13eba8aca15207b6928e4f208535e764338cf41ca39876de69b0cd6e",
+    "expressionReviewsSha256": "9c34acabd00bdd9f0769b6f59751ca2baee7570ed267f70a581f34497ffb69f7",
+    "effectiveProfilesSha256": "1a76dd0891fd9257e934da7a22752fd5177afa2d1f5761365d41903c38fb8900"
+  }
+}

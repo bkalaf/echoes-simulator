@@ -1,0 +1,44 @@
+{
+  "baseMatrix": {
+    "CONCORD": {
+      "CONCORD": 3,
+      "RUIN": 2,
+      "SCHISM": 1
+    },
+    "SCHISM": {
+      "CONCORD": 2,
+      "RUIN": 1,
+      "SCHISM": 3
+    },
+    "RUIN": {
+      "CONCORD": 1,
+      "RUIN": 3,
+      "SCHISM": 2
+    }
+  },
+  "rows": "breedEffectiveFaction",
+  "columns": "controllingFaction",
+  "scopes": [
+    "SETTLEMENT",
+    "STATE",
+    "SOVEREIGN"
+  ],
+  "concentration": {
+    "TWO_OF_THREE": {
+      "twoScopeHolder": 2,
+      "zeroScopeHolder": -2,
+      "remainingOneScopeHolder": 1
+    },
+    "THREE_OF_THREE": {
+      "holder": 4,
+      "other": -2
+    },
+    "ONE_EACH": {
+      "all": -1
+    }
+  },
+  "migrationSuppression": {
+    "wealthiestWithOtherWithin25Percent": "-25%",
+    "wealthiestWithoutOtherWithin25Percent": "-50%"
+  }
+}

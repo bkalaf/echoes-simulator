@@ -1,0 +1,62 @@
+{
+  "AdministrationMode": {
+    "CONCORD": "CENTRALIZED",
+    "SCHISM": "DISTRIBUTED",
+    "RUIN": "DELEGATED"
+  },
+  "StructureOrientation": {
+    "CONCORD": "ORDERED",
+    "SCHISM": "NEUTRAL",
+    "RUIN": "CHAOS"
+  },
+  "OperatingStyle": {
+    "CONCORD": "TEAMWORK",
+    "SCHISM": "SITUATIONAL",
+    "RUIN": "SOLO"
+  },
+  "Motivation": {
+    "CONCORD": "ALTRUISTIC",
+    "SCHISM": "RECIPROCAL",
+    "RUIN": "SELFISH"
+  },
+  "AuthoritySource": {
+    "CONCORD": "APPOINTMENT",
+    "SCHISM": "ELECTION",
+    "RUIN": "DIVINE_MANDATE"
+  },
+  "LegitimacyBasis": {
+    "CONCORD": "CHARTERED",
+    "SCHISM": "ANCESTRAL",
+    "RUIN": "MARTIAL"
+  },
+  "AllocationMode": {
+    "CONCORD": "PLANNED",
+    "SCHISM": "CUSTOMARY",
+    "RUIN": "MARKET"
+  },
+  "OwnershipMode": {
+    "CONCORD": "SINGLE_ENTITY",
+    "SCHISM": "SHARED_TITLE",
+    "RUIN": "COMMON_USE"
+  },
+  "Loquacity": {
+    "CONCORD": "TALKATIVE",
+    "SCHISM": "LIGHT_BANTER",
+    "RUIN": "TO_THE_POINT"
+  },
+  "EmotionalTemperature": {
+    "CONCORD": "COMPOSED",
+    "SCHISM": "JOYFUL",
+    "RUIN": "IRRITABLE"
+  },
+  "OutlookOrientation": {
+    "CONCORD": "OPTIMISTIC",
+    "SCHISM": "NEUTRAL",
+    "RUIN": "PESSIMISTIC"
+  },
+  "CollaborativePosture": {
+    "CONCORD": "HELPFUL",
+    "SCHISM": "WITHHOLDING",
+    "RUIN": "JUST_ENOUGH"
+  }
+}

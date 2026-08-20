@@ -1,0 +1,4913 @@
+{
+  "schemaVersion": "eidolon-v4-year0-readiness-v1",
+  "status": "PASS",
+  "seed": "EIDOLON_CANONICAL_YEAR0_V4",
+  "worlds": 3,
+  "physicalSettlements": 24,
+  "settlementWorlds": 72,
+  "totalPopulationPerWorld": "2000000",
+  "propertyChecks": 864,
+  "noResolvedPopulationIssues": 0,
+  "nullDominantFaction": 0,
+  "nullPoliticalForm": 0,
+  "nullEconomicForm": 0,
+  "nullDominantBreed": 0,
+  "settlementWorldResults": [
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-001",
+      "siteId": "SITE-001",
+      "regionId": "R01",
+      "currentName": "Anseris",
+      "population": "136491",
+      "humanPopulation": "9024",
+      "cultureId": "CLT_HOPI",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_HOPI_HOPI",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "motivation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "loquacity": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-008",
+      "siteId": "SITE-008",
+      "regionId": "R02",
+      "currentName": "Lupin-Ghar",
+      "population": "151162",
+      "humanPopulation": "23688",
+      "cultureId": "CLT_OGHUZ_TURKIC",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "SYNDICATE_CARTEL",
+      "dominantBreed": "BRD_HUMAN_OGHUZ_TURKIC_TURKMEN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "motivation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "loquacity": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-015",
+      "siteId": "SITE-015",
+      "regionId": "R03",
+      "currentName": "High Torven",
+      "population": "62041",
+      "humanPopulation": "40608",
+      "cultureId": "CLT_ENGLISH_ANGLO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "POPULAR_FEDERATION",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_AMERICAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "motivation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "loquacity": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-022",
+      "siteId": "SITE-022",
+      "regionId": "R04",
+      "currentName": "Suro Mara",
+      "population": "76708",
+      "humanPopulation": "29328",
+      "cultureId": "CLT_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_COMMISSION",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_CHAGA",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "motivation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "loquacity": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-029",
+      "siteId": "SITE-029",
+      "regionId": "R05",
+      "currentName": "Crest Haven",
+      "population": "25944",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "TRIBUTARY_DEMESNE",
+      "dominantBreed": "BRD_LICH",
+      "dominantSpeciesKind": "MYTHOS",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "motivation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "loquacity": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-036",
+      "siteId": "SITE-036",
+      "regionId": "R06",
+      "currentName": "Ascendancy",
+      "population": "25949",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_PERSIAN_IRANIAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "DELEGATE_LEAGUE",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "motivation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "loquacity": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-043",
+      "siteId": "SITE-043",
+      "regionId": "R07",
+      "currentName": "Sanguin Bay",
+      "population": "72192",
+      "humanPopulation": "50760",
+      "cultureId": "CLT_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_VIENNESE",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "motivation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "loquacity": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-050",
+      "siteId": "SITE-050",
+      "regionId": "R08",
+      "currentName": "Luminthalas",
+      "population": "85731",
+      "humanPopulation": "25944",
+      "cultureId": "CLT_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_HAKKA",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "motivation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "loquacity": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-057",
+      "siteId": "SITE-057",
+      "regionId": "R09",
+      "currentName": "Dzongkhar",
+      "population": "47376",
+      "humanPopulation": "20304",
+      "cultureId": "CLT_NEPAL_BHUTAN_HIMALAYAN_NEWAR",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_NORTHEAST_INDIGENOUS",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "motivation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "loquacity": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-071",
+      "siteId": "SITE-071",
+      "regionId": "R11",
+      "currentName": "Al-Mihraq",
+      "population": "73325",
+      "humanPopulation": "49632",
+      "cultureId": "CLT_ITALIAN_CENTRAL_MEDITERRANEAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_SARDINIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "motivation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "loquacity": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-078",
+      "siteId": "SITE-078",
+      "regionId": "R12",
+      "currentName": "Thalassor",
+      "population": "38352",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_AUSTRALIAN_GHOSTSHARK",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "motivation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "loquacity": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-085",
+      "siteId": "SITE-085",
+      "regionId": "R13",
+      "currentName": "Celestial Quay",
+      "population": "92500",
+      "humanPopulation": "41736",
+      "cultureId": "CLT_ARABIAN_PENINSULA_ARAB",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_ARABIAN_PENINSULA_ARAB_BAHRANI_ARAB",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "motivation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "loquacity": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-092",
+      "siteId": "SITE-092",
+      "regionId": "R14",
+      "currentName": "Hydros",
+      "population": "133106",
+      "humanPopulation": "23688",
+      "cultureId": "CLT_SENEGAMBIAN_FULANI_WOLOF_SERER",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "MONOPOLY_ESTATE",
+      "dominantBreed": "BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_SONINKE_WOLOF",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "motivation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "loquacity": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-099",
+      "siteId": "SITE-099",
+      "regionId": "R15",
+      "currentName": "Devanagri",
+      "population": "107160",
+      "humanPopulation": "72192",
+      "cultureId": "CLT_RUSSIAN_EASTERN_EUROPEAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_DIRECTORATE",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_ARMENIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "motivation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "loquacity": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-106",
+      "siteId": "SITE-106",
+      "regionId": "R16",
+      "currentName": "Naga-Pura",
+      "population": "57528",
+      "humanPopulation": "49632",
+      "cultureId": "CLT_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MINANGKABAU",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "motivation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "loquacity": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-113",
+      "siteId": "SITE-113",
+      "regionId": "R17",
+      "currentName": "Sylvan Gate",
+      "population": "120696",
+      "humanPopulation": "76704",
+      "cultureId": "CLT_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_MYENE",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "motivation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "loquacity": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-120",
+      "siteId": "SITE-120",
+      "regionId": "R18",
+      "currentName": "Gryphon Reach",
+      "population": "98139",
+      "humanPopulation": "51888",
+      "cultureId": "CLT_ANGLOPHONE_ATLANTIC_CREOLE_MAROON",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_AFRO_VIRGIN_ISLANDER",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "motivation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "loquacity": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-127",
+      "siteId": "SITE-127",
+      "regionId": "R19",
+      "currentName": "Whakareva",
+      "population": "53017",
+      "humanPopulation": "33840",
+      "cultureId": "CLT_POLYNESIAN_ISLANDS",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_POLYNESIAN_ISLANDS_PITCAIRN_DESCENDED",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "motivation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "loquacity": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-134",
+      "siteId": "SITE-134",
+      "regionId": "R20",
+      "currentName": "Chiroptera",
+      "population": "95884",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "DELEGATE_LEAGUE",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_AFRICAN_PYGMY_SQUIRREL",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "motivation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "loquacity": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-141",
+      "siteId": "SITE-141",
+      "regionId": "R21",
+      "currentName": "Atlantia",
+      "population": "71064",
+      "humanPopulation": "56400",
+      "cultureId": "CLT_HISPANIC_AMERICAN_MESTIZO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_DOMINICAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "motivation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "loquacity": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-148",
+      "siteId": "SITE-148",
+      "regionId": "R22",
+      "currentName": "Tjuringa",
+      "population": "90241",
+      "humanPopulation": "9024",
+      "cultureId": "CLT_ABORIGINAL_AUSTRALIAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_DIRECTORATE",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_ABORIGINAL_AUSTRALIAN_ABORIGINAL_AUSTRALIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "motivation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "loquacity": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-155",
+      "siteId": "SITE-155",
+      "regionId": "R23",
+      "currentName": "Yupanqui",
+      "population": "74450",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "REPUBLIC",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_INDIGENOUS_SURINAMESE",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "motivation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "loquacity": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-162",
+      "siteId": "SITE-162",
+      "regionId": "R24",
+      "currentName": "Lacerta Shore",
+      "population": "63169",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_CARIBBEAN_INDIGENOUS_TAINO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_COMMISSION",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_CARIBBEAN_INDIGENOUS_TAINO_MISKITO",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "motivation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "loquacity": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "CONCORD",
+      "year": 0,
+      "settlementId": "SETTLEMENT_CONCORD_SITE-169",
+      "siteId": "SITE-169",
+      "regionId": "R25",
+      "currentName": "Serpentis",
+      "population": "147775",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "REPUBLIC",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_AFRICAN_MOUND_BUILDING_TERMITE",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "motivation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "loquacity": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-001",
+      "siteId": "SITE-001",
+      "regionId": "R01",
+      "currentName": "Anseris",
+      "population": "136491",
+      "humanPopulation": "9024",
+      "cultureId": "CLT_DINE_NAVAJO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_DINE_NAVAJO_DINE_NAVAJO",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "motivation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "loquacity": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-008",
+      "siteId": "SITE-008",
+      "regionId": "R02",
+      "currentName": "Lupin-Ghar",
+      "population": "151162",
+      "humanPopulation": "23688",
+      "cultureId": "CLT_OGHUZ_TURKIC",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "SYNDICATE_CARTEL",
+      "dominantBreed": "BRD_HUMAN_OGHUZ_TURKIC_AZERBAIJANI",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "motivation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "loquacity": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-015",
+      "siteId": "SITE-015",
+      "regionId": "R03",
+      "currentName": "High Torven",
+      "population": "62041",
+      "humanPopulation": "40608",
+      "cultureId": "CLT_ENGLISH_ANGLO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "POPULAR_FEDERATION",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_ENGLISH_ANGLO_ASCENSION_ISLANDER",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "motivation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "loquacity": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-022",
+      "siteId": "SITE-022",
+      "regionId": "R04",
+      "currentName": "Suro Mara",
+      "population": "76708",
+      "humanPopulation": "29328",
+      "cultureId": "CLT_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_COMMISSION",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_SUKUMA_NYAMWEZI",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "motivation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "loquacity": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-029",
+      "siteId": "SITE-029",
+      "regionId": "R05",
+      "currentName": "Crest Haven",
+      "population": "25944",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_GHOSTS_SPECTER",
+      "dominantSpeciesKind": "MYTHOS",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "motivation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "loquacity": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-036",
+      "siteId": "SITE-036",
+      "regionId": "R06",
+      "currentName": "Ascendancy",
+      "population": "25949",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_PERSIAN_IRANIAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "DELEGATE_LEAGUE",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "motivation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "loquacity": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-043",
+      "siteId": "SITE-043",
+      "regionId": "R07",
+      "currentName": "Sanguin Bay",
+      "population": "72192",
+      "humanPopulation": "50760",
+      "cultureId": "CLT_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_RHINELANDER",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "motivation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "loquacity": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-050",
+      "siteId": "SITE-050",
+      "regionId": "R08",
+      "currentName": "Luminthalas",
+      "population": "85731",
+      "humanPopulation": "25944",
+      "cultureId": "CLT_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_HOKLO_TAIWANESE",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "motivation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "loquacity": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-057",
+      "siteId": "SITE-057",
+      "regionId": "R09",
+      "currentName": "Dzongkhar",
+      "population": "47376",
+      "humanPopulation": "20304",
+      "cultureId": "CLT_NEPAL_BHUTAN_HIMALAYAN_NEWAR",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_KASHMIRI_HIMALAYAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "motivation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "loquacity": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-071",
+      "siteId": "SITE-071",
+      "regionId": "R11",
+      "currentName": "Al-Mihraq",
+      "population": "73325",
+      "humanPopulation": "49632",
+      "cultureId": "CLT_ITALIAN_CENTRAL_MEDITERRANEAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_VENETIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "motivation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "loquacity": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-078",
+      "siteId": "SITE-078",
+      "regionId": "R12",
+      "currentName": "Thalassor",
+      "population": "38352",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "MONOPOLY_ESTATE",
+      "dominantBreed": "BRD_LONGNOSE_CHIMAERA",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "motivation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "loquacity": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-085",
+      "siteId": "SITE-085",
+      "regionId": "R13",
+      "currentName": "Celestial Quay",
+      "population": "92500",
+      "humanPopulation": "41736",
+      "cultureId": "CLT_ARABIAN_PENINSULA_ARAB",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_ARABIAN_PENINSULA_ARAB_GULF_ARAB",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "motivation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "loquacity": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-092",
+      "siteId": "SITE-092",
+      "regionId": "R14",
+      "currentName": "Hydros",
+      "population": "133106",
+      "humanPopulation": "23688",
+      "cultureId": "CLT_SOMALI_CUSHITIC_HORN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "MONOPOLY_ESTATE",
+      "dominantBreed": "BRD_HUMAN_SOMALI_CUSHITIC_HORN_SOMALI_ISSA",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "motivation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "loquacity": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-099",
+      "siteId": "SITE-099",
+      "regionId": "R15",
+      "currentName": "Devanagri",
+      "population": "107160",
+      "humanPopulation": "72192",
+      "cultureId": "CLT_RUSSIAN_EASTERN_EUROPEAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_DIRECTORATE",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_SORBIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "motivation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "loquacity": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-106",
+      "siteId": "SITE-106",
+      "regionId": "R16",
+      "currentName": "Naga-Pura",
+      "population": "57528",
+      "humanPopulation": "49632",
+      "cultureId": "CLT_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_LUSO_TIMORESE",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "motivation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "loquacity": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-113",
+      "siteId": "SITE-113",
+      "regionId": "R17",
+      "currentName": "Sylvan Gate",
+      "population": "120696",
+      "humanPopulation": "76704",
+      "cultureId": "CLT_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_HUTU_TUTSI",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "motivation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "loquacity": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-120",
+      "siteId": "SITE-120",
+      "regionId": "R18",
+      "currentName": "Gryphon Reach",
+      "population": "98139",
+      "humanPopulation": "51888",
+      "cultureId": "CLT_ANGLOPHONE_ATLANTIC_CREOLE_MAROON",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_MONTSERRATIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "motivation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "loquacity": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-127",
+      "siteId": "SITE-127",
+      "regionId": "R19",
+      "currentName": "Whakareva",
+      "population": "53017",
+      "humanPopulation": "33840",
+      "cultureId": "CLT_POLYNESIAN_ISLANDS",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_POLYNESIAN_ISLANDS_PITCAIRN_DESCENDED",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "motivation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "loquacity": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-134",
+      "siteId": "SITE-134",
+      "regionId": "R20",
+      "currentName": "Chiroptera",
+      "population": "95884",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "DELEGATE_LEAGUE",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_ALPINE_MARMOT",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "motivation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "loquacity": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-141",
+      "siteId": "SITE-141",
+      "regionId": "R21",
+      "currentName": "Atlantia",
+      "population": "71064",
+      "humanPopulation": "56400",
+      "cultureId": "CLT_HISPANIC_AMERICAN_MESTIZO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_DOMINICAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "motivation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "loquacity": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-148",
+      "siteId": "SITE-148",
+      "regionId": "R22",
+      "currentName": "Tjuringa",
+      "population": "90241",
+      "humanPopulation": "9024",
+      "cultureId": "CLT_MOCHE",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_DIRECTORATE",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_MOCHE_COASTAL_PERUVIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "motivation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "loquacity": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-155",
+      "siteId": "SITE-155",
+      "regionId": "R23",
+      "currentName": "Yupanqui",
+      "population": "74450",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "REPUBLIC",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_AMAZONIAN_INDIGENOUS",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "motivation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "loquacity": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-162",
+      "siteId": "SITE-162",
+      "regionId": "R24",
+      "currentName": "Lacerta Shore",
+      "population": "63169",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_CARIBBEAN_INDIGENOUS_TAINO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_COMMISSION",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_CARIBBEAN_INDIGENOUS_TAINO_BRIBRI_CABECAR",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "motivation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "loquacity": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "SCHISM",
+      "year": 0,
+      "settlementId": "SETTLEMENT_SCHISM_SITE-169",
+      "siteId": "SITE-169",
+      "regionId": "R25",
+      "currentName": "Serpentis",
+      "population": "147775",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "REPUBLIC",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_AMERICAN_LOBSTER",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "motivation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "loquacity": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-001",
+      "siteId": "SITE-001",
+      "regionId": "R01",
+      "currentName": "Anseris",
+      "population": "136491",
+      "humanPopulation": "9024",
+      "cultureId": "CLT_DINE_NAVAJO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_DINE_NAVAJO_DINE_NAVAJO",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "motivation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "loquacity": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "136491",
+          "totalPopulation": "136491"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-008",
+      "siteId": "SITE-008",
+      "regionId": "R02",
+      "currentName": "Lupin-Ghar",
+      "population": "151162",
+      "humanPopulation": "23688",
+      "cultureId": "CLT_OGHUZ_TURKIC",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "SYNDICATE_CARTEL",
+      "dominantBreed": "BRD_HUMAN_OGHUZ_TURKIC_TURKMEN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "motivation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "loquacity": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "151162",
+          "totalPopulation": "151162"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-015",
+      "siteId": "SITE-015",
+      "regionId": "R03",
+      "currentName": "High Torven",
+      "population": "62041",
+      "humanPopulation": "40608",
+      "cultureId": "CLT_ENGLISH_ANGLO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "POPULAR_FEDERATION",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_AMERICAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "motivation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "loquacity": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "62041",
+          "totalPopulation": "62041"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-022",
+      "siteId": "SITE-022",
+      "regionId": "R04",
+      "currentName": "Suro Mara",
+      "population": "76708",
+      "humanPopulation": "29328",
+      "cultureId": "CLT_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_COMMISSION",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_SUKUMA_NYAMWEZI",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "motivation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "loquacity": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "76708",
+          "totalPopulation": "76708"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-029",
+      "siteId": "SITE-029",
+      "regionId": "R05",
+      "currentName": "Crest Haven",
+      "population": "25944",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_TOKOLOSHE",
+      "dominantSpeciesKind": "MYTHOS",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "motivation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "loquacity": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "25944",
+          "totalPopulation": "25944"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-036",
+      "siteId": "SITE-036",
+      "regionId": "R06",
+      "currentName": "Ascendancy",
+      "population": "25949",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_PERSIAN_IRANIAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "DELEGATE_LEAGUE",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "motivation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "loquacity": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "25949",
+          "totalPopulation": "25949"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-043",
+      "siteId": "SITE-043",
+      "regionId": "R07",
+      "currentName": "Sanguin Bay",
+      "population": "72192",
+      "humanPopulation": "50760",
+      "cultureId": "CLT_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_AUSTRIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "motivation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "loquacity": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "72192",
+          "totalPopulation": "72192"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-050",
+      "siteId": "SITE-050",
+      "regionId": "R08",
+      "currentName": "Luminthalas",
+      "population": "85731",
+      "humanPopulation": "25944",
+      "cultureId": "CLT_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_WU_CHINESE",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "motivation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "loquacity": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "85731",
+          "totalPopulation": "85731"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-057",
+      "siteId": "SITE-057",
+      "regionId": "R09",
+      "currentName": "Dzongkhar",
+      "population": "47376",
+      "humanPopulation": "20304",
+      "cultureId": "CLT_NEPAL_BHUTAN_HIMALAYAN_NEWAR",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_LHOTSHAMPA",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "motivation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "loquacity": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "47376",
+          "totalPopulation": "47376"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-071",
+      "siteId": "SITE-071",
+      "regionId": "R11",
+      "currentName": "Al-Mihraq",
+      "population": "73325",
+      "humanPopulation": "49632",
+      "cultureId": "CLT_ITALIAN_CENTRAL_MEDITERRANEAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_CORSICAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "motivation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "loquacity": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "73325",
+          "totalPopulation": "73325"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-078",
+      "siteId": "SITE-078",
+      "regionId": "R12",
+      "currentName": "Thalassor",
+      "population": "38352",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "MONOPOLY_ESTATE",
+      "dominantBreed": "BRD_AUSTRALIAN_GHOSTSHARK",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "motivation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "loquacity": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "38352",
+          "totalPopulation": "38352"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-085",
+      "siteId": "SITE-085",
+      "regionId": "R13",
+      "currentName": "Celestial Quay",
+      "population": "92500",
+      "humanPopulation": "41736",
+      "cultureId": "CLT_ARABIAN_PENINSULA_ARAB",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_ARABIAN_PENINSULA_ARAB_DHOFARI_ARAB",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "motivation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "loquacity": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "92500",
+          "totalPopulation": "92500"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-092",
+      "siteId": "SITE-092",
+      "regionId": "R14",
+      "currentName": "Hydros",
+      "population": "133106",
+      "humanPopulation": "23688",
+      "cultureId": "CLT_SOMALI_CUSHITIC_HORN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "MONOPOLY_ESTATE",
+      "dominantBreed": "BRD_HUMAN_SOMALI_CUSHITIC_HORN_SOMALI",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "motivation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "loquacity": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "133106",
+          "totalPopulation": "133106"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-099",
+      "siteId": "SITE-099",
+      "regionId": "R15",
+      "currentName": "Devanagri",
+      "population": "107160",
+      "humanPopulation": "72192",
+      "cultureId": "CLT_RUSSIAN_EASTERN_EUROPEAN",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_DIRECTORATE",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_UKRAINIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "motivation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "loquacity": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "107160",
+          "totalPopulation": "107160"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-106",
+      "siteId": "SITE-106",
+      "regionId": "R16",
+      "currentName": "Naga-Pura",
+      "population": "57528",
+      "humanPopulation": "49632",
+      "cultureId": "CLT_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_TAIWANESE_INDIGENOUS",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "motivation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "loquacity": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "57528",
+          "totalPopulation": "57528"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-113",
+      "siteId": "SITE-113",
+      "regionId": "R17",
+      "currentName": "Sylvan Gate",
+      "population": "120696",
+      "humanPopulation": "76704",
+      "cultureId": "CLT_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BETI_FANG",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "motivation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "loquacity": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "120696",
+          "totalPopulation": "120696"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-120",
+      "siteId": "SITE-120",
+      "regionId": "R18",
+      "currentName": "Gryphon Reach",
+      "population": "98139",
+      "humanPopulation": "51888",
+      "cultureId": "CLT_ANGLOPHONE_ATLANTIC_CREOLE_MAROON",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_MONTSERRATIAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "motivation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "loquacity": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "98139",
+          "totalPopulation": "98139"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-127",
+      "siteId": "SITE-127",
+      "regionId": "R19",
+      "currentName": "Whakareva",
+      "population": "53017",
+      "humanPopulation": "33840",
+      "cultureId": "CLT_POLYNESIAN_ISLANDS",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "FOLK_COMMONS",
+      "dominantBreed": "BRD_HUMAN_POLYNESIAN_ISLANDS_WALLISIAN_FUTUNAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "motivation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "loquacity": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "53017",
+          "totalPopulation": "53017"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-134",
+      "siteId": "SITE-134",
+      "regionId": "R20",
+      "currentName": "Chiroptera",
+      "population": "95884",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "DELEGATE_LEAGUE",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_AMERICAN_PIKA",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "motivation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "loquacity": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "95884",
+          "totalPopulation": "95884"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-141",
+      "siteId": "SITE-141",
+      "regionId": "R21",
+      "currentName": "Atlantia",
+      "population": "71064",
+      "humanPopulation": "56400",
+      "cultureId": "CLT_HISPANIC_AMERICAN_MESTIZO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "CHIEFTAIN_COUNCIL",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_HUMAN_MEXICAN",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "motivation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "loquacity": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "71064",
+          "totalPopulation": "71064"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-148",
+      "siteId": "SITE-148",
+      "regionId": "R22",
+      "currentName": "Tjuringa",
+      "population": "90241",
+      "humanPopulation": "9024",
+      "cultureId": "CLT_MOCHE",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_DIRECTORATE",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_MOCHE_MOCHE",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "motivation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "loquacity": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "90241",
+          "totalPopulation": "90241"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-155",
+      "siteId": "SITE-155",
+      "regionId": "R23",
+      "currentName": "Yupanqui",
+      "population": "74450",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "REPUBLIC",
+      "economicForm": "COMMAND_DEMESNE",
+      "dominantBreed": "BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_MARAJOARA",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "motivation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "loquacity": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "74450",
+          "totalPopulation": "74450"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-162",
+      "siteId": "SITE-162",
+      "regionId": "R24",
+      "currentName": "Lacerta Shore",
+      "population": "63169",
+      "humanPopulation": "15792",
+      "cultureId": "CLT_CARIBBEAN_INDIGENOUS_TAINO",
+      "cultureState": "CALCULATED",
+      "dominantFaction": "CONCORD",
+      "politicalForm": "APPOINTED_COMMISSION",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_CARIBBEAN_INDIGENOUS_TAINO_GUNA_EMBERA",
+      "dominantSpeciesKind": "HUMAN",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "motivation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "loquacity": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "63169",
+          "totalPopulation": "63169"
+        }
+      },
+      "criticalFailures": []
+    },
+    {
+      "world": "RUIN",
+      "year": 0,
+      "settlementId": "SETTLEMENT_RUIN_SITE-169",
+      "siteId": "SITE-169",
+      "regionId": "R25",
+      "currentName": "Serpentis",
+      "population": "147775",
+      "humanPopulation": "0",
+      "cultureId": null,
+      "cultureState": "NO_HUMAN_FOUNDING_CULTURE",
+      "dominantFaction": "SCHISM",
+      "politicalForm": "REPUBLIC",
+      "economicForm": "GUILD_COMPACT",
+      "dominantBreed": "BRD_AMERICAN_COCKROACH",
+      "dominantSpeciesKind": "BEAST",
+      "propertyCoverage": {
+        "administrationMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "structureOrientation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "operatingStyle": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "motivation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "authoritySource": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "legitimacyBasis": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "allocationMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "ownershipMode": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "loquacity": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "emotionalTemperature": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "outlookOrientation": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        },
+        "collaborativePosture": {
+          "resolvedPopulation": "147775",
+          "totalPopulation": "147775"
+        }
+      },
+      "criticalFailures": []
+    }
+  ]
+}

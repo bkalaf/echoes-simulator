@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "eidolon-simulator-shared-events-v1",
+  "jitterChoices": [
+    -2,
+    -1,
+    0,
+    1,
+    2
+  ],
+  "events": [
+    {
+      "eventKey": "FOUNDING",
+      "nominalYear": 0,
+      "jitter": false,
+      "kind": "FOUNDING",
+      "label": "Founding"
+    },
+    {
+      "eventKey": "FOUNDING_WAVE_2",
+      "nominalYear": 1,
+      "jitter": false,
+      "kind": "FOUNDING_WAVE",
+      "label": "Second cities founded in each state"
+    },
+    {
+      "eventKey": "ATROCITY_01",
+      "nominalYear": 50,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "First Atrocity"
+    },
+    {
+      "eventKey": "FOUNDING_WAVE_3",
+      "nominalYear": 75,
+      "jitter": true,
+      "kind": "FOUNDING_WAVE",
+      "label": "Third cities founded in each state"
+    },
+    {
+      "eventKey": "CONCLAVE_72_REFORM",
+      "nominalYear": 90,
+      "jitter": true,
+      "kind": "INSTITUTION",
+      "label": "Conclave seat limit becomes 72"
+    },
+    {
+      "eventKey": "ATROCITY_02",
+      "nominalYear": 100,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Second Atrocity"
+    },
+    {
+      "eventKey": "FOUNDING_WAVE_4",
+      "nominalYear": 125,
+      "jitter": true,
+      "kind": "FOUNDING_WAVE",
+      "label": "Fourth cities founded in each state"
+    },
+    {
+      "eventKey": "ATROCITY_03",
+      "nominalYear": 150,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Third Atrocity"
+    },
+    {
+      "eventKey": "FOUNDING_WAVE_5",
+      "nominalYear": 175,
+      "jitter": true,
+      "kind": "FOUNDING_WAVE",
+      "label": "Fifth cities founded in each state"
+    },
+    {
+      "eventKey": "ATROCITY_04",
+      "nominalYear": 200,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Fourth Atrocity"
+    },
+    {
+      "eventKey": "JUSTICE_DEPARTMENT_FOUNDED",
+      "nominalYear": 225,
+      "jitter": true,
+      "kind": "INSTITUTION",
+      "label": "Justice Department founded"
+    },
+    {
+      "eventKey": "ATROCITY_05",
+      "nominalYear": 250,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Fifth Atrocity"
+    },
+    {
+      "eventKey": "SENATE_FOUNDED",
+      "nominalYear": 275,
+      "jitter": true,
+      "kind": "INSTITUTION",
+      "label": "Senate founded"
+    },
+    {
+      "eventKey": "ATROCITY_06",
+      "nominalYear": 300,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Sixth Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_07",
+      "nominalYear": 350,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Seventh Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_09",
+      "nominalYear": 400,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Ninth Atrocity",
+      "warning": "ATROCITY_NUMBER_08_MISSING"
+    },
+    {
+      "eventKey": "DJT_SEIZURE_INNERWOOD",
+      "nominalYear": 500,
+      "jitter": true,
+      "kind": "STRUCTURAL",
+      "label": "DJT seizes new federal capital; displaced population founds Innerwood",
+      "blocker": "DJT_EVENT_YEAR_450_VS_500"
+    },
+    {
+      "eventKey": "INNERWOOD_SECESSION_505",
+      "nominalYear": 505,
+      "jitter": true,
+      "kind": "STATE_MEMBERSHIP",
+      "label": "Two cities secede to Innerwood",
+      "blocker": "INNERWOOD_SECESSION_505_SELECTION"
+    },
+    {
+      "eventKey": "INNERWOOD_REBALANCE_525",
+      "nominalYear": 525,
+      "jitter": true,
+      "kind": "STATE_MEMBERSHIP",
+      "label": "Additional secessions rebalance states",
+      "blocker": "INNERWOOD_REBALANCE_525_SELECTION"
+    },
+    {
+      "eventKey": "ATROCITY_10",
+      "nominalYear": 550,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Tenth Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_11",
+      "nominalYear": 600,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Eleventh Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_12",
+      "nominalYear": 650,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Twelfth Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_13",
+      "nominalYear": 700,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Thirteenth Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_14",
+      "nominalYear": 750,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Fourteenth Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_15",
+      "nominalYear": 800,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Fifteenth Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_16",
+      "nominalYear": 850,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Sixteenth Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_17",
+      "nominalYear": 900,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Seventeenth Atrocity"
+    },
+    {
+      "eventKey": "ATROCITY_18",
+      "nominalYear": 950,
+      "jitter": true,
+      "kind": "ATROCITY",
+      "label": "Eighteenth Atrocity"
+    },
+    {
+      "eventKey": "GUIDES_DEPART",
+      "nominalYear": 1000,
+      "jitter": true,
+      "kind": "HISTORICAL",
+      "label": "Departure of the Guides"
+    },
+    {
+      "eventKey": "CONJUNCTION_ERA_BOUNDARY",
+      "nominalYear": 2000,
+      "jitter": false,
+      "kind": "BOUNDARY",
+      "label": "End of history; Conjunction era begins"
+    }
+  ]
+}

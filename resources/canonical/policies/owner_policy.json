@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "eidolon-simulator-owner-policy-v1",
+  "effectiveDate": "2026-08-18",
+  "source": "OWNER_DECISIONS_REQUIRED.md with direct owner instruction",
+  "supersedesDiagnosticStrategies": [
+    "BHM_ONLY_1773",
+    "YEAR1_FOOD_UNKNOWN",
+    "ONE_PER_STATE_WAVE_V1",
+    "DIAGNOSTIC_FOUNDING_MOTIVE_V1",
+    "STATE_UNIQUE",
+    "DJT_NOMINAL_500_DIAGNOSTIC",
+    "DIAGNOSTIC_TWO_PER_STATE_V1"
+  ],
+  "strategies": {
+    "populationParticipation": "CIVIC_BHM_ONLY_PETS_EXCLUDED_V1",
+    "foodSuitability": "DISABLED_V1",
+    "breedFactionPreference": "RAW_PROPERTY_FACTION_POINTS_V1",
+    "migration": "OWNER_MIGRATION_1_PERCENT_MEAN_PROPERTY_V1",
+    "foundingCardinality": "EVERY_BROAD_UNHAPPY_FOUND_OR_JOIN_V1",
+    "foundingMotive": "WEALTH_SOCIAL_TIER_V1",
+    "cultureFounderScope": "GLOBAL_UNIQUE",
+    "cultureTie": "HUMAN_BREED_FACTION_POPULATION_THEN_SEEDED_RANDOM_V1",
+    "djtNominalYear": 500,
+    "djtFiveYearOutboundScope": "DISPLACED_R10_AND_CONSOLIDATED_SOVEREIGN_BREED",
+    "secession505": "ADJACENT_CITY_FACTION_DIFFERS_FROM_STATE_UP_TO_TWO_V1",
+    "rebalance525": "DISABLED_INITIAL_VERSION",
+    "conclavePre90": "ONE_SEAT_PER_CITY_V1",
+    "senate": "TWO_PER_STATE_STAGGERED_10_YEAR_TERMS_50_AFTER_INNERWOOD",
+    "atrocityEffects": "MARKERS_ONLY_NO_MECHANICAL_EFFECT",
+    "guideCausality": "OUT_OF_SCOPE"
+  },
+  "migrationFormula": {
+    "basePercent": "1",
+    "propertyAdjustment": "arithmetic mean of +1 for LIKE and -1 for UNLIKE over the twelve raw properties",
+    "factionAdjustment": {
+      "likeCityFaction": "0",
+      "unlikeCityFactionAndSameSovereignFaction": "+2",
+      "unlikeCityFactionAndDifferentSovereignFaction": "+1"
+    },
+    "rateClampPercent": { "min": "0", "max": "5" }
+  },
+  "foundingMotiveDefinition": {
+    "HAPPY": ["HIGH"],
+    "UNHAPPY": ["LOW"],
+    "MIXED": ["HIGH", "LOW"],
+    "MID": "not selected solely by the founding motive"
+  },
+  "canonicalDataStillRequired": [
+    "complete civic Breed raw property dimensions",
+    "complete civic Breed terrain broad and specific values"
+  ]
+}
