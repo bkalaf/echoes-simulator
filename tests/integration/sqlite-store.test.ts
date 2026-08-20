@@ -23,7 +23,7 @@ describe("SQLite persistence", () => {
     const filename = join(directory, "run.sqlite");
     const job = buildNamingJob({
       runId: "RUN_RESTART", world: "SCHISM", year: 75, reason: "FOUNDING_WAVE",
-      settlement: { settlementId: "SETTLEMENT_NEW", siteId: "SITE-025", currentName: null, nameSource: "UNNAMED", dominantFaction: "SCHISM", cultureId: "CLT_TEST", politicalForm: "COUNCIL", economicForm: "MARKET", population: "123" },
+      settlement: { settlementId: "SETTLEMENT_NEW", siteId: "SITE-025", currentName: null, nameSource: "UNNAMED", dominantFaction: "SCHISM", cultureId: "CLT_TEST", cultureState: "CALCULATED", politicalForm: "COUNCIL", economicForm: "MARKET", dominantBreed: "BRD_TEST", population: "123" },
       unnamedPois: [],
     });
     let store = new SimulatorStore(filename);

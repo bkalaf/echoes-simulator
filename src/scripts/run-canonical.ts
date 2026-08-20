@@ -13,9 +13,7 @@ try {
   const result = bootstrapCanonicalRun({
     store,
     seed: process.argv[2] ?? "EIDOLON_CANONICAL_OWNER_RUN_V1",
-    packDirectory: resolve(root, "ECHOES_OF_EIDOLON_SIMULATOR_BREED_RESEARCH_REMEDIATION_CODEX_PACK_2026-08-18"),
-    semanticResearchZip: resolve(root, "ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip"),
-    resourceDirectory: resolve(root, "resources"),
+    canonicalDirectory: resolve(root, "resources/canonical"),
   });
   writeFileSync(resolve(output, "canonical-run-result.json"), `${canonicalJson(result)}\n`);
   writeFileSync(resolve(output, "pending-naming-job.json"), `${JSON.stringify(result.namingJob, null, 2)}\n`);

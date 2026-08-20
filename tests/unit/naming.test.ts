@@ -4,7 +4,7 @@ import { buildNamingJob, validateNamingResponse } from "../../src/core/naming/na
 describe("blocking naming workflow", () => {
   const context = {
     runId: "RUN_1", world: "CONCORD" as const, year: 0, reason: "INITIAL_SETUP",
-    settlement: { settlementId: "SETTLEMENT_1", siteId: "SITE-001", currentName: "Anseris", nameSource: "OWNER_INPUT" as const, dominantFaction: "CONCORD", cultureId: "CLT_TEST", politicalForm: "REPUBLIC", economicForm: "OPEN_BAZAAR", population: "100" },
+    settlement: { settlementId: "SETTLEMENT_1", siteId: "SITE-001", currentName: "Anseris", nameSource: "OWNER_INPUT" as const, dominantFaction: "CONCORD", cultureId: "CLT_TEST", cultureState: "CALCULATED" as const, politicalForm: "REPUBLIC", economicForm: "OPEN_BAZAAR", dominantBreed: "BRD_TEST", population: "100" },
     unnamedPois: [{ poiId: "POI-1", workingLabel: "Working River", poiType: "RIVER" }],
   };
 
@@ -23,5 +23,11 @@ describe("blocking naming workflow", () => {
     const decisions = job.items.map((item) => ({ requestId: item.requestId, entityType: item.entityType, decision: "NEW", name: `${item.entityType} Name`, ...(item.entityType === "GOVERNMENT" ? { scopeDescription: "Local", sizeDescription: "Small", structureDescription: "Council" } : {}), ...(item.entityType === "FAMILY" ? { roleLabel: "GOVERNING_FAMILY" } : {}) }));
     expect(validateNamingResponse(job, { schemaVersion: "eidolon-simulator-naming-response-v1", namingJobId: job.namingJobId, decisions }).accepted).toBe(true);
     expect(validateNamingResponse(job, { schemaVersion: "eidolon-simulator-naming-response-v1", namingJobId: job.namingJobId, decisions: [...decisions, { requestId: "EXTRA", entityType: "POI", decision: "NEW", name: "Bad" }] }).accepted).toBe(false);
+  });
+
+  it("forbids naming before faction, forms, dominant Breed, and Culture state are calculated", () => {
+    expect(() => buildNamingJob({ ...context, settlement: { ...context.settlement, dominantBreed: null } })).toThrow(/calculated faction/i);
+    expect(() => buildNamingJob({ ...context, settlement: { ...context.settlement, cultureId: null, cultureState: undefined } })).toThrow(/Culture/i);
+    expect(() => buildNamingJob({ ...context, settlement: { ...context.settlement, cultureId: null, cultureState: "NO_HUMAN_FOUNDING_CULTURE" } })).not.toThrow();
   });
 });

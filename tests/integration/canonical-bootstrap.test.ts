@@ -8,13 +8,10 @@ import { SimulatorStore } from "../../src/persistence/sqlite-store.js";
 describe("canonical persisted runner", () => {
   it("initializes the complete civic cohort state and stops only at a real naming barrier", () => {
     const store = new SimulatorStore(join(mkdtempSync(join(tmpdir(), "eidolon-canonical-")), "simulator.sqlite"));
-    const packDirectory = resolve("ECHOES_OF_EIDOLON_SIMULATOR_BREED_RESEARCH_REMEDIATION_CODEX_PACK_2026-08-18");
     const result = bootstrapCanonicalRun({
       store,
       seed: "CANONICAL_INTEGRATION_SEED",
-      packDirectory,
-      semanticResearchZip: resolve("ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip"),
-      resourceDirectory: resolve("resources"),
+      canonicalDirectory: resolve("resources/canonical"),
     });
 
     expect(result.status).toBe("WAITING_FOR_NAMING");
@@ -24,7 +21,8 @@ describe("canonical persisted runner", () => {
     expect(store.cohortPopulation(result.runId, "CONCORD", 0)).toBe(2_000_000n);
     expect(store.getRun(result.runId)?.status).toBe("WAITING_FOR_NAMING");
     expect(store.getPendingNamingJob(result.runId)?.items.length).toBeGreaterThan(0);
-    expect(result.runtimeIssues.every((issue) => issue.issueCode === "NO_RESOLVED_POPULATION_FOR_PROPERTY")).toBe(true);
+    expect(result.runtimeIssues).toEqual([]);
+    expect(result.namingJob.context.settlement).toMatchObject({ dominantFaction: expect.any(String), politicalForm: expect.any(String), economicForm: expect.any(String), dominantBreed: expect.any(String), cultureId: expect.any(String) });
     store.close();
   }, 30_000);
 });

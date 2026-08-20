@@ -245,6 +245,12 @@ export class SimulatorStore {
     this.database.prepare("UPDATE simulation_run SET status=?, current_year=?, updated_at=CURRENT_TIMESTAMP WHERE run_id=?").run(status, currentYear, runId);
   }
 
+  retireCanonicalRunsExcept(policyVersion: string): number {
+    const retired = this.database.prepare("UPDATE simulation_run SET status='RETIRED_DATA_AUTHORITY', updated_at=CURRENT_TIMESTAMP WHERE mode='CANONICAL' AND policy_version<>? AND status<>'RETIRED_DATA_AUTHORITY'").run(policyVersion);
+    this.database.prepare("UPDATE naming_job SET status='RETIRED' WHERE status='PENDING' AND run_id IN (SELECT run_id FROM simulation_run WHERE status='RETIRED_DATA_AUTHORITY')").run();
+    return Number(retired.changes);
+  }
+
   saveCohorts(runId: string, year: number, cohorts: readonly Cohort[]): void {
     const insert = this.database.prepare(`INSERT INTO cohort_state(
       run_id, world_key, year, cohort_id, settlement_id, breed_id, population, wealth_score, provenance_json

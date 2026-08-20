@@ -1,8 +1,8 @@
 {
   "schemaVersion": "eidolon-simulator-naming-job-v1",
-  "namingJobId": "NAMING_JOB_6383e7b9f74835b0964bfbb4",
+  "namingJobId": "NAMING_JOB_a36d5b852ccf4862cac4cab0",
   "context": {
-    "runId": "RUN_CANONICAL_56E4E7CD8A8059C1CB64",
+    "runId": "RUN_CANONICAL_0158295947F8_FE313B687EFD",
     "world": "CONCORD",
     "year": 0,
     "reason": "INITIAL_GOVERNMENT_AND_FAMILY",
@@ -11,17 +11,33 @@
       "siteId": "SITE-001",
       "currentName": "Anseris",
       "nameSource": "OWNER_INPUT",
-      "dominantFaction": null,
-      "cultureId": null,
-      "politicalForm": null,
-      "economicForm": null,
-      "population": "143259"
+      "dominantFaction": "SCHISM",
+      "cultureId": "CLT_HOPI",
+      "cultureState": "CALCULATED",
+      "politicalForm": "ESTATES_DIET",
+      "economicForm": "COMMUNE_PLAN",
+      "dominantBreed": "BRD_HUMAN_HOPI_HOPI_PUEBLO",
+      "population": "136491"
     },
     "unnamedPois": []
   },
   "items": [
     {
-      "requestId": "REQ_f5542412ffd389c28b11a78e",
+      "requestId": "REQ_6406eaf998c919e1ca30277a",
+      "entityType": "GOVERNMENT",
+      "entityId": "SETTLEMENT_CONCORD_SITE-001:GOV:0",
+      "required": true,
+      "context": {
+        "dominantFaction": "SCHISM",
+        "politicalForm": "ESTATES_DIET",
+        "economicForm": "COMMUNE_PLAN",
+        "dominantBreed": "BRD_HUMAN_HOPI_HOPI_PUEBLO",
+        "cultureId": "CLT_HOPI",
+        "cultureState": "CALCULATED"
+      }
+    },
+    {
+      "requestId": "REQ_3ae930643d7335387e415a5b",
       "entityType": "FAMILY",
       "entityId": "SETTLEMENT_CONCORD_SITE-001:FAMILY:0",
       "required": true,
@@ -30,6 +46,6 @@
       }
     }
   ],
-  "promptText": "You are naming entities for an already-determined Echoes of Eidolon simulation state.\n\nDo not change, infer, or propose alternate history. Use only supplied eligible context.\n\nUse every exact requestId once. Do not invent IDs or omit requests. WORKING labels are replaceable context; OWNER_INPUT names cannot be changed.\n\nCross-world reuse is allowed only when an eligible reuse source is supplied. Return only strict JSON matching eidolon-simulator-naming-response-v1.\n\n{\"immutableFacts\":{\"reason\":\"INITIAL_GOVERNMENT_AND_FAMILY\",\"runId\":\"RUN_CANONICAL_56E4E7CD8A8059C1CB64\",\"settlement\":{\"cultureId\":null,\"currentName\":\"Anseris\",\"dominantFaction\":null,\"economicForm\":null,\"nameSource\":\"OWNER_INPUT\",\"politicalForm\":null,\"population\":\"143259\",\"settlementId\":\"SETTLEMENT_CONCORD_SITE-001\",\"siteId\":\"SITE-001\"},\"unnamedPois\":[],\"world\":\"CONCORD\",\"year\":0},\"namingJobId\":\"NAMING_JOB_6383e7b9f74835b0964bfbb4\",\"requests\":[{\"context\":{\"role\":\"GOVERNING_FAMILY\"},\"entityId\":\"SETTLEMENT_CONCORD_SITE-001:FAMILY:0\",\"entityType\":\"FAMILY\",\"requestId\":\"REQ_f5542412ffd389c28b11a78e\",\"required\":true}],\"schemaVersion\":\"eidolon-simulator-naming-prompt-v1\"}",
-  "promptSha256": "06411ef20b7a27daaabff6db89eb1f737175bbe96b54ccaa68362c9a0cde5590"
+  "promptText": "You are naming entities for an already-determined Echoes of Eidolon simulation state.\n\nDo not change, infer, or propose alternate history. Use only supplied eligible context.\n\nUse every exact requestId once. Do not invent IDs or omit requests. WORKING labels are replaceable context; OWNER_INPUT names cannot be changed.\n\nCross-world reuse is allowed only when an eligible reuse source is supplied. Return only strict JSON matching eidolon-simulator-naming-response-v1.\n\n{\"immutableFacts\":{\"reason\":\"INITIAL_GOVERNMENT_AND_FAMILY\",\"runId\":\"RUN_CANONICAL_0158295947F8_FE313B687EFD\",\"settlement\":{\"cultureId\":\"CLT_HOPI\",\"cultureState\":\"CALCULATED\",\"currentName\":\"Anseris\",\"dominantBreed\":\"BRD_HUMAN_HOPI_HOPI_PUEBLO\",\"dominantFaction\":\"SCHISM\",\"economicForm\":\"COMMUNE_PLAN\",\"nameSource\":\"OWNER_INPUT\",\"politicalForm\":\"ESTATES_DIET\",\"population\":\"136491\",\"settlementId\":\"SETTLEMENT_CONCORD_SITE-001\",\"siteId\":\"SITE-001\"},\"unnamedPois\":[],\"world\":\"CONCORD\",\"year\":0},\"namingJobId\":\"NAMING_JOB_a36d5b852ccf4862cac4cab0\",\"requests\":[{\"context\":{\"cultureId\":\"CLT_HOPI\",\"cultureState\":\"CALCULATED\",\"dominantBreed\":\"BRD_HUMAN_HOPI_HOPI_PUEBLO\",\"dominantFaction\":\"SCHISM\",\"economicForm\":\"COMMUNE_PLAN\",\"politicalForm\":\"ESTATES_DIET\"},\"entityId\":\"SETTLEMENT_CONCORD_SITE-001:GOV:0\",\"entityType\":\"GOVERNMENT\",\"requestId\":\"REQ_6406eaf998c919e1ca30277a\",\"required\":true},{\"context\":{\"role\":\"GOVERNING_FAMILY\"},\"entityId\":\"SETTLEMENT_CONCORD_SITE-001:FAMILY:0\",\"entityType\":\"FAMILY\",\"requestId\":\"REQ_3ae930643d7335387e415a5b\",\"required\":true}],\"schemaVersion\":\"eidolon-simulator-naming-prompt-v1\"}",
+  "promptSha256": "c8649586165499e86ac6b31cc03107b8c03753b11de48982dede9288c34bbeaf"
 }

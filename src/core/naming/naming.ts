@@ -9,7 +9,7 @@ export interface NamingContext {
   world: WorldKey;
   year: number;
   reason: string;
-  settlement: { settlementId: string; siteId: string; currentName: string | null; nameSource: "OWNER_INPUT" | "WORKING" | "UNNAMED"; dominantFaction: string | null; cultureId: string | null; politicalForm: string | null; economicForm: string | null; population: string };
+  settlement: { settlementId: string; siteId: string; currentName: string | null; nameSource: "OWNER_INPUT" | "WORKING" | "UNNAMED"; dominantFaction: string | null; cultureId: string | null; cultureState?: "CALCULATED" | "NO_HUMAN_FOUNDING_CULTURE"; politicalForm: string | null; economicForm: string | null; dominantBreed: string | null; population: string };
   unnamedPois: { poiId: string; workingLabel: string; poiType: string }[];
 }
 export interface NamingItem { requestId: string; entityType: EntityType; entityId: string; required: true; context: unknown; }
@@ -19,11 +19,13 @@ const digest = (value: string) => createHash("sha256").update(value, "utf8").dig
 const stableId = (prefix: string, value: unknown) => `${prefix}_${digest(canonicalJson(value)).slice(0, 24)}`;
 
 export function buildNamingJob(context: NamingContext): NamingJob {
+  if (!context.settlement.dominantFaction || !context.settlement.politicalForm || !context.settlement.economicForm || !context.settlement.dominantBreed) throw new Error("Naming context requires calculated faction, forms, and dominant Breed");
+  if (!context.settlement.cultureId && context.settlement.cultureState !== "NO_HUMAN_FOUNDING_CULTURE") throw new Error("Naming context requires calculated Culture or explicit NO_HUMAN_FOUNDING_CULTURE");
   const base = { runId: context.runId, world: context.world, year: context.year, reason: context.reason, settlementId: context.settlement.settlementId };
   const items: NamingItem[] = [];
   if (context.settlement.nameSource !== "OWNER_INPUT") items.push({ requestId: stableId("REQ", { ...base, type: "SETTLEMENT" }), entityType: "SETTLEMENT", entityId: context.settlement.settlementId, required: true, context: context.settlement });
   for (const poi of [...context.unnamedPois].sort((a, b) => a.poiId.localeCompare(b.poiId))) items.push({ requestId: stableId("REQ", { ...base, type: "POI", id: poi.poiId }), entityType: "POI", entityId: poi.poiId, required: true, context: poi });
-  if (context.settlement.politicalForm !== null && context.settlement.economicForm !== null) items.push({ requestId: stableId("REQ", { ...base, type: "GOVERNMENT" }), entityType: "GOVERNMENT", entityId: `${context.settlement.settlementId}:GOV:${context.year}`, required: true, context: { politicalForm: context.settlement.politicalForm, economicForm: context.settlement.economicForm } });
+  items.push({ requestId: stableId("REQ", { ...base, type: "GOVERNMENT" }), entityType: "GOVERNMENT", entityId: `${context.settlement.settlementId}:GOV:${context.year}`, required: true, context: { dominantFaction: context.settlement.dominantFaction, politicalForm: context.settlement.politicalForm, economicForm: context.settlement.economicForm, dominantBreed: context.settlement.dominantBreed, cultureId: context.settlement.cultureId, cultureState: context.settlement.cultureState } });
   items.push({ requestId: stableId("REQ", { ...base, type: "FAMILY" }), entityType: "FAMILY", entityId: `${context.settlement.settlementId}:FAMILY:${context.year}`, required: true, context: { role: "GOVERNING_FAMILY" } });
   const namingJobId = stableId("NAMING_JOB", { ...base, items: items.map((item) => item.requestId) });
   const canonicalContext = { schemaVersion: "eidolon-simulator-naming-prompt-v1", namingJobId, immutableFacts: context, requests: items };

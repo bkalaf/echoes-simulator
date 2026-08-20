@@ -1,7 +1,6 @@
 import { parentPort } from "node:worker_threads";
 import { parseWorkerRequest, WORKER_SCHEMA_VERSION } from "./ipc-contract.js";
 import { runDiagnosticHistory } from "../src/core/engine/diagnostic-runner.js";
-import { preflightRealBundle } from "../src/core/inputs/preflight.js";
 
 parentPort?.on("message", (candidate: unknown) => {
   try {
@@ -10,12 +9,6 @@ parentPort?.on("message", (candidate: unknown) => {
     if (request.action === "RUN_DIAGNOSTIC") {
       const seed = typeof request.payload.seed === "string" ? request.payload.seed : "EIDOLON_DESKTOP_DIAGNOSTIC_V1";
       payload = runDiagnosticHistory(seed, String(request.payload.resourceDirectory));
-    }
-    if (request.action === "VALIDATE_REAL_INPUTS") {
-      if (typeof request.payload.packDirectory !== "string") throw new Error("packDirectory is required");
-      if (typeof request.payload.startingResearchZip !== "string") throw new Error("startingResearchZip is required");
-      const v3ResearchZip = typeof request.payload.v3ResearchZip === "string" ? request.payload.v3ResearchZip : undefined;
-      payload = preflightRealBundle(request.payload.packDirectory, request.payload.startingResearchZip, v3ResearchZip);
     }
     parentPort?.postMessage({ schemaVersion: WORKER_SCHEMA_VERSION, requestId: request.requestId, ok: true, payload });
   } catch (error) {
