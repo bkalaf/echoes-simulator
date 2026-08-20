@@ -57,6 +57,6 @@ describe("R20_B02 complete research gate", () => {
     const architecture = JSON.parse(readFileSync(resolve("artifacts/simulator/v4/ARCHITECTURE_LOCK.json"), "utf8"));
     expect(architecture.completedRegionBatches.slice(21, 23)).toEqual(["R20_B01","R20_B02"]);
     expect(architecture.completedRegionBatches.length).toBeGreaterThanOrEqual(23);
-    expect(architecture.status).toBe("ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS");
+    expect(architecture.status).toBe("ARCHITECTURE_LOCKED_REGION_RESEARCH_COMPLETE");
   });
 });

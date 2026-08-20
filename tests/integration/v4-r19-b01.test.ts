@@ -45,6 +45,6 @@ describe("R19_B01 complete research gate", () => {
     expect(decisions.get("SPC_OGRUS_OGRE")).toMatchObject({ personalityId: "AMBIGUITY_UNFIXED_FORM_CONFLICT" });
     expect(decisions.get("SPC_OGRUS_TROLL")).toMatchObject({ personalityId: "BOUNDARIES_DOMAIN_BOUND_CONFLICT" });
     const architecture = JSON.parse(readFileSync(resolve("artifacts/simulator/v4/ARCHITECTURE_LOCK.json"), "utf8"));
-    expect(architecture.completedRegionBatches.slice(19, 21)).toEqual(["R18_B01","R19_B01"]); expect(architecture.completedRegionBatches.length).toBeGreaterThanOrEqual(21); expect(architecture.status).toBe("ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS");
+    expect(architecture.completedRegionBatches.slice(19, 21)).toEqual(["R18_B01","R19_B01"]); expect(architecture.completedRegionBatches.length).toBeGreaterThanOrEqual(21); expect(architecture.status).toBe("ARCHITECTURE_LOCKED_REGION_RESEARCH_COMPLETE");
   });
 });

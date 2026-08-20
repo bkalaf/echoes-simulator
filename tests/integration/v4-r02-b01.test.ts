@@ -61,6 +61,6 @@ describe("R02_B01 complete research gate", () => {
     expect(citations.every((row) => row.subjectAlignment === "EXACT_SPECIES" && row.claimAlignment === "ACCEPTED_DIRECT_EVIDENCE")).toBe(true);
     const architecture = JSON.parse(readFileSync(resolve("artifacts/simulator/v4/ARCHITECTURE_LOCK.json"), "utf8"));
     expect(architecture.completedRegionBatches.slice(0, 3)).toEqual(["R01_B01", "R01_B02", "R02_B01"]);
-    expect(architecture.status).toBe("ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS");
+    expect(architecture.status).toBe("ARCHITECTURE_LOCKED_REGION_RESEARCH_COMPLETE");
   });
 });

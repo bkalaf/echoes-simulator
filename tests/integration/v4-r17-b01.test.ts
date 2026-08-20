@@ -104,6 +104,6 @@ describe("R17_B01 complete research gate", () => {
       "R06_B01", "R07_B01", "R08_B01", "R09_B01", "R11_B01", "R12_B01", "R13_B01",
       "R14_B01", "R14_B02", "R15_B01", "R16_B01", "R17_B01",
     ]);
-    expect(architecture.status).toBe("ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS");
+    expect(architecture.status).toBe("ARCHITECTURE_LOCKED_REGION_RESEARCH_COMPLETE");
   });
 });

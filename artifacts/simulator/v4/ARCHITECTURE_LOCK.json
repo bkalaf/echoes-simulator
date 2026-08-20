@@ -1,6 +1,6 @@
 {
   "schemaVersion": "eidolon-research-v4-architecture-lock-v1",
-  "status": "ARCHITECTURE_LOCKED_RESEARCH_IN_PROGRESS",
+  "status": "ARCHITECTURE_LOCKED_REGION_RESEARCH_COMPLETE",
   "promptPack": {
     "files": 91,
     "integrity": "PASS"
@@ -74,7 +74,8 @@
     "R22_B01",
     "R23_B01",
     "R24_B01",
-    "R25_B01"
+    "R25_B01",
+    "R25_B02"
   ],
   "completedAuditShards": []
 }
