@@ -22,6 +22,8 @@ test("clean startup auto-loads V4 and a diagnostic persists across restart", asy
     await expect(page.getByRole("button", { name: "RUN CANONICAL" })).toBeEnabled();
     await expect(page.getByRole("button", { name: "Setup & Preflight" })).toHaveCount(0);
     await expect(page.getByText("SELECT & VALIDATE", { exact: true })).toHaveCount(0);
+    mkdirSync(resolve("artifacts/simulator/live-ui"), { recursive: true });
+    await page.screenshot({ path: resolve("artifacts/simulator/live-ui/v4-ready-clean-startup.png"), fullPage: true });
     await page.getByRole("button", { name: "RUN DIAGNOSTIC" }).click();
     await expect(page.getByText("DIAGNOSTIC_COMPLETE", { exact: true })).toBeVisible({ timeout: 30_000 });
   } finally { await application.close(); }
