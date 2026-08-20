@@ -42,7 +42,7 @@ describe("SQLite persistence", () => {
     store.recordRejectedNamingAttempt(job.namingJobId, "ATTEMPT_BAD", "{}", ["missing decisions"]);
     const decisions = job.items.map((item) => ({ requestId: item.requestId, entityType: item.entityType, entityId: item.entityId, name: `${item.entityType} Name` }));
     store.acceptNamingResponse(job.namingJobId, "ATTEMPT_GOOD", "{valid}", decisions);
-    expect(store.getRun("RUN_RESTART")?.status).toBe("READY");
+    expect(store.getRun("RUN_RESTART")?.status).toBe("RUNNING");
     expect(store.getAcceptedNames(job.namingJobId)).toHaveLength(job.items.length);
     expect(() => store.acceptNamingResponse(job.namingJobId, "ATTEMPT_DUPLICATE", "{valid}", decisions)).toThrow(/already accepted/i);
     expect(store.getAcceptedNames(job.namingJobId)).toHaveLength(job.items.length);

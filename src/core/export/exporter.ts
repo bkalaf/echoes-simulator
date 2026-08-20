@@ -17,6 +17,11 @@ interface ExportWorld {
   wealthSummaries?: unknown[];
   populationCheckpoints?: unknown[];
   populationDeltas?: unknown[];
+  cohorts?: unknown[];
+  propertyProjections?: unknown[];
+  migrations?: unknown[];
+  founding?: unknown[];
+  djt?: unknown[];
   conclaveSeats?: unknown[];
   conclaveSnapshots?: unknown[];
   senateSeats?: unknown[];
@@ -105,6 +110,11 @@ export function buildExportZip(run: ExportRunData): { bytes: Uint8Array; sha256:
     payload.set(`${base}/wealth_summaries.jsonl`, jsonl(data.wealthSummaries ?? []));
     payload.set(`${base}/population/checkpoints/checkpoints.jsonl`, jsonl(data.populationCheckpoints ?? []));
     payload.set(`${base}/population/deltas.jsonl`, jsonl(data.populationDeltas ?? []));
+    payload.set(`${base}/population/cohorts.jsonl`, jsonl(data.cohorts ?? []));
+    payload.set(`${base}/property_projections.jsonl`, jsonl(data.propertyProjections ?? []));
+    payload.set(`${base}/migration.jsonl`, jsonl(data.migrations ?? []));
+    payload.set(`${base}/founding.jsonl`, jsonl(data.founding ?? []));
+    payload.set(`${base}/djt_innerwood.jsonl`, jsonl(data.djt ?? []));
     payload.set(`${base}/institutions/conclave_seats.jsonl`, jsonl(data.conclaveSeats ?? []));
     payload.set(`${base}/institutions/conclave_snapshots.jsonl`, jsonl(data.conclaveSnapshots ?? []));
     payload.set(`${base}/institutions/senate_seats.jsonl`, jsonl(data.senateSeats ?? []));

@@ -190,6 +190,16 @@ export class SimulatorStore {
         data_json TEXT NOT NULL,
         PRIMARY KEY(run_id, world_key, year, institution_type, ledger_id)
       );
+      CREATE TABLE IF NOT EXISTS history_ledger (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        world_key TEXT NOT NULL,
+        year INTEGER NOT NULL,
+        history_type TEXT NOT NULL,
+        entry_id TEXT NOT NULL,
+        data_json TEXT NOT NULL,
+        PRIMARY KEY(run_id, world_key, year, history_type, entry_id)
+      );
+      CREATE INDEX IF NOT EXISTS history_ledger_replay ON history_ledger(run_id, world_key, year, history_type);
       CREATE TABLE IF NOT EXISTS export_metadata (
         export_id TEXT PRIMARY KEY,
         run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
@@ -257,12 +267,24 @@ export class SimulatorStore {
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`);
     this.database.exec("BEGIN IMMEDIATE");
     try {
+      for (const worldKey of new Set(cohorts.map((cohort) => cohort.worldKey))) this.database.prepare("DELETE FROM cohort_state WHERE run_id=? AND world_key=? AND year=?").run(runId, worldKey, year);
       for (const cohort of cohorts) insert.run(runId, cohort.worldKey, year, cohort.cohortId, cohort.settlementId, cohort.breedId, cohort.population.toString(), cohort.wealthScore, canonicalJson({ createdYear: cohort.createdYear, originCohortId: cohort.originCohortId, createdByEventId: cohort.createdByEventId, outboundMigrationNotBeforeYear: cohort.outboundMigrationNotBeforeYear }));
       this.database.exec("COMMIT");
     } catch (error) {
       this.database.exec("ROLLBACK");
       throw error;
     }
+  }
+
+  loadCohorts(runId: string, worldKey: string, year: number): Cohort[] {
+    const rows = this.database.prepare(`SELECT cohort_id, settlement_id, breed_id, population, wealth_score, provenance_json
+      FROM cohort_state WHERE run_id=? AND world_key=? AND year=? ORDER BY cohort_id`).all(runId, worldKey, year) as {
+        cohort_id: string; settlement_id: string; breed_id: string; population: string; wealth_score: number; provenance_json: string;
+      }[];
+    return rows.map((row) => {
+      const provenance = JSON.parse(row.provenance_json) as Pick<Cohort, "createdYear" | "originCohortId" | "createdByEventId" | "outboundMigrationNotBeforeYear">;
+      return { cohortId: row.cohort_id, worldKey: worldKey as Cohort["worldKey"], settlementId: row.settlement_id, breedId: row.breed_id, population: BigInt(row.population), wealthScore: row.wealth_score, ...provenance };
+    });
   }
 
   countCohorts(runId: string, worldKey?: string, year = 0): number {
@@ -295,6 +317,27 @@ export class SimulatorStore {
     ) latest ON p.entity_id=latest.entity_id AND p.year=latest.max_year WHERE p.run_id=? AND p.world_key=? AND p.projection_type=? ORDER BY p.entity_id`)
       .all(runId, worldKey, year, projectionType, runId, worldKey, projectionType) as { data_json: string }[];
     return rows.map((row) => JSON.parse(row.data_json));
+  }
+
+  saveHistoryRows(runId: string, rows: readonly { worldKey: string; year: number; historyType: string; entryId: string; data: unknown }[]): void {
+    if (rows.length === 0) return;
+    const insert = this.database.prepare(`INSERT INTO history_ledger(run_id, world_key, year, history_type, entry_id, data_json)
+      VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(run_id, world_key, year, history_type, entry_id) DO UPDATE SET data_json=excluded.data_json`);
+    this.database.exec("BEGIN IMMEDIATE");
+    try {
+      for (const row of rows) insert.run(runId, row.worldKey, row.year, row.historyType, row.entryId, canonicalJson(row.data));
+      this.database.exec("COMMIT");
+    } catch (error) {
+      this.database.exec("ROLLBACK");
+      throw error;
+    }
+  }
+
+  listHistoryRows(runId: string, historyType?: string): { worldKey: string; year: number; historyType: string; entryId: string; data: unknown }[] {
+    const rows = (historyType
+      ? this.database.prepare("SELECT world_key, year, history_type, entry_id, data_json FROM history_ledger WHERE run_id=? AND history_type=? ORDER BY year, world_key, entry_id").all(runId, historyType)
+      : this.database.prepare("SELECT world_key, year, history_type, entry_id, data_json FROM history_ledger WHERE run_id=? ORDER BY year, world_key, history_type, entry_id").all(runId)) as { world_key: string; year: number; history_type: string; entry_id: string; data_json: string }[];
+    return rows.map((row) => ({ worldKey: row.world_key, year: row.year, historyType: row.history_type, entryId: row.entry_id, data: JSON.parse(row.data_json) }));
   }
 
   savePreflight(preflight: StoredPreflight): void {
@@ -365,8 +408,22 @@ export class SimulatorStore {
     return Number((this.database.prepare("SELECT COUNT(*) AS count FROM simulation_event WHERE run_id = ?").get(runId) as { count: number }).count);
   }
 
+  listEvents(runId: string, worldKey?: string): StoredEvent[] {
+    const rows = (worldKey
+      ? this.database.prepare("SELECT event_id, run_id, world_key, year, phase_order, sequence, event_type, entity_type, entity_id, payload_json FROM simulation_event WHERE run_id=? AND world_key=? ORDER BY year, phase_order, sequence").all(runId, worldKey)
+      : this.database.prepare("SELECT event_id, run_id, world_key, year, phase_order, sequence, event_type, entity_type, entity_id, payload_json FROM simulation_event WHERE run_id=? ORDER BY world_key, year, phase_order, sequence").all(runId)) as { event_id: string; run_id: string; world_key: string; year: number; phase_order: number; sequence: number; event_type: string; entity_type: string; entity_id: string; payload_json: string }[];
+    return rows.map((row) => ({ eventId: row.event_id, runId: row.run_id, worldKey: row.world_key, year: row.year, phaseOrder: row.phase_order, sequence: row.sequence, eventType: row.event_type, entityType: row.entity_type, entityId: row.entity_id, payload: JSON.parse(row.payload_json) }));
+  }
+
   checkpointCount(runId: string): number {
     return Number((this.database.prepare("SELECT COUNT(*) AS count FROM checkpoint WHERE run_id = ?").get(runId) as { count: number }).count);
+  }
+
+  listCheckpoints(runId: string, worldKey?: string): CheckpointEnvelope[] {
+    const rows = (worldKey
+      ? this.database.prepare("SELECT year FROM checkpoint WHERE run_id=? AND world_key=? ORDER BY year").all(runId, worldKey)
+      : this.database.prepare("SELECT world_key, year FROM checkpoint WHERE run_id=? ORDER BY world_key, year").all(runId)) as { world_key?: string; year: number }[];
+    return rows.map((row) => this.loadCheckpoint(runId, (worldKey ?? row.world_key) as CheckpointEnvelope["worldKey"], row.year)!).filter(Boolean);
   }
 
   saveCheckpoint(checkpoint: CheckpointEnvelope): void {
@@ -385,17 +442,29 @@ export class SimulatorStore {
   }
 
   persistNamingBarrier(job: NamingJob, checkpoint: CheckpointEnvelope): void {
-    if (job.context.runId !== checkpoint.runId || job.context.world !== checkpoint.worldKey || job.context.year !== checkpoint.year) throw new Error("Naming job and checkpoint identity mismatch");
+    this.persistNamingBarriers([job], [checkpoint]);
+  }
+
+  persistNamingBarriers(jobs: readonly NamingJob[], checkpoints: readonly CheckpointEnvelope[]): void {
+    if (jobs.length === 0) throw new Error("Naming barrier requires at least one job");
+    const runId = jobs[0]!.context.runId;
+    const year = jobs[0]!.context.year;
+    if (jobs.some((job) => job.context.runId !== runId || job.context.year !== year)) throw new Error("Naming jobs do not share a run/year barrier");
+    const checkpointByWorld = new Map(checkpoints.map((checkpoint) => [checkpoint.worldKey, checkpoint]));
+    for (const job of jobs) {
+      const checkpoint = checkpointByWorld.get(job.context.world);
+      if (!checkpoint || checkpoint.runId !== runId || checkpoint.year !== year) throw new Error("Naming job and checkpoint identity mismatch");
+    }
     this.database.exec("BEGIN IMMEDIATE");
     try {
-      const run = this.getRun(job.context.runId);
-      if (!run || run.status !== "RUNNING") throw new Error(`Run ${job.context.runId} is not RUNNING`);
-      this.saveCheckpoint(checkpoint);
-      this.database.prepare(`INSERT INTO naming_job(naming_job_id, run_id, year, status, prompt_sha256, prompt_text, context_json)
-        VALUES (?, ?, ?, 'PENDING', ?, ?, ?)`)
-        .run(job.namingJobId, job.context.runId, job.context.year, job.promptSha256, job.promptText, canonicalJson(job));
+      const run = this.getRun(runId);
+      if (!run || run.status !== "RUNNING") throw new Error(`Run ${runId} is not RUNNING`);
+      for (const checkpoint of checkpoints) this.saveCheckpoint(checkpoint);
+      const insert = this.database.prepare(`INSERT INTO naming_job(naming_job_id, run_id, year, status, prompt_sha256, prompt_text, context_json)
+        VALUES (?, ?, ?, 'PENDING', ?, ?, ?)`);
+      for (const job of [...jobs].sort((left, right) => left.namingJobId.localeCompare(right.namingJobId))) insert.run(job.namingJobId, runId, year, job.promptSha256, job.promptText, canonicalJson(job));
       this.database.prepare("UPDATE simulation_run SET status='WAITING_FOR_NAMING', current_year=?, updated_at=CURRENT_TIMESTAMP WHERE run_id=?")
-        .run(job.context.year, job.context.runId);
+        .run(year, runId);
       this.database.exec("COMMIT");
     } catch (error) {
       this.database.exec("ROLLBACK");
@@ -411,6 +480,15 @@ export class SimulatorStore {
   getAnyPendingNamingJob(): NamingJob | null {
     const row = this.database.prepare("SELECT context_json FROM naming_job WHERE status = 'PENDING' ORDER BY year, naming_job_id LIMIT 1").get() as { context_json: string } | undefined;
     return row ? JSON.parse(row.context_json) as NamingJob : null;
+  }
+
+  pendingNamingJobCount(runId: string): number {
+    return Number((this.database.prepare("SELECT COUNT(*) AS count FROM naming_job WHERE run_id=? AND status='PENDING'").get(runId) as { count: number }).count);
+  }
+
+  listNamingJobs(runId: string): { job: NamingJob; status: string }[] {
+    const rows = this.database.prepare("SELECT context_json, status FROM naming_job WHERE run_id=? ORDER BY year, naming_job_id").all(runId) as { context_json: string; status: string }[];
+    return rows.map((row) => ({ job: JSON.parse(row.context_json) as NamingJob, status: row.status }));
   }
 
   recordRejectedNamingAttempt(namingJobId: string, attemptId: string, responseText: string, errors: readonly string[]): void {
@@ -439,7 +517,8 @@ export class SimulatorStore {
       const insertName = this.database.prepare("INSERT INTO accepted_name(naming_job_id, request_id, entity_type, entity_id, name) VALUES (?, ?, ?, ?, ?)");
       for (const decision of [...decisions].sort((a, b) => a.requestId.localeCompare(b.requestId))) insertName.run(namingJobId, decision.requestId, decision.entityType, decision.entityId, decision.name.trim());
       this.database.prepare("UPDATE naming_job SET status='ACCEPTED' WHERE naming_job_id=?").run(namingJobId);
-      this.database.prepare("UPDATE simulation_run SET status='READY', updated_at=CURRENT_TIMESTAMP WHERE run_id=? AND status='WAITING_FOR_NAMING'").run(row.run_id);
+      const pending = Number((this.database.prepare("SELECT COUNT(*) AS count FROM naming_job WHERE run_id=? AND status='PENDING'").get(row.run_id) as { count: number }).count);
+      this.database.prepare("UPDATE simulation_run SET status=?, updated_at=CURRENT_TIMESTAMP WHERE run_id=? AND status='WAITING_FOR_NAMING'").run(pending === 0 ? "RUNNING" : "WAITING_FOR_NAMING", row.run_id);
       this.database.exec("COMMIT");
     } catch (error) {
       this.database.exec("ROLLBACK");
@@ -450,6 +529,18 @@ export class SimulatorStore {
   getAcceptedNames(namingJobId: string): { requestId: string; entityType: string; entityId: string; name: string }[] {
     const rows = this.database.prepare("SELECT request_id, entity_type, entity_id, name FROM accepted_name WHERE naming_job_id=? ORDER BY request_id").all(namingJobId) as { request_id: string; entity_type: string; entity_id: string; name: string }[];
     return rows.map((row) => ({ requestId: row.request_id, entityType: row.entity_type, entityId: row.entity_id, name: row.name }));
+  }
+
+  listAcceptedNamesForRun(runId: string): { requestId: string; entityType: string; entityId: string; name: string }[] {
+    const rows = this.database.prepare(`SELECT n.request_id, n.entity_type, n.entity_id, n.name
+      FROM accepted_name n JOIN naming_job j ON j.naming_job_id=n.naming_job_id
+      WHERE j.run_id=? ORDER BY j.year, n.request_id`).all(runId) as { request_id: string; entity_type: string; entity_id: string; name: string }[];
+    return rows.map((row) => ({ requestId: row.request_id, entityType: row.entity_type, entityId: row.entity_id, name: row.name }));
+  }
+
+  saveExportMetadata(metadata: { exportId: string; runId: string; createdAt: string; filename: string; sha256: string; manifest: unknown }): void {
+    this.database.prepare("INSERT INTO export_metadata(export_id, run_id, created_at, filename, sha256, manifest_json) VALUES (?, ?, ?, ?, ?, ?)")
+      .run(metadata.exportId, metadata.runId, metadata.createdAt, metadata.filename, metadata.sha256, canonicalJson(metadata.manifest));
   }
 
   close(): void { this.database.close(); }

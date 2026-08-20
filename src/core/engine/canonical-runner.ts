@@ -10,7 +10,8 @@ import { buildNamingJob } from "../naming/naming.js";
 import type { SimulatorStore } from "../../persistence/sqlite-store.js";
 import { initializeCivicCohorts, type Cohort } from "./cohort-engine.js";
 import { calculateYear0Readiness, type Year0Assignment, type Year0Identity, type Year0Site } from "./year0-readiness.js";
-import type { EffectiveBreedSemantics } from "../research/v4-contract.js";
+import { RAW_DIMENSIONS, type EffectiveBreedSemantics } from "../research/v4-contract.js";
+import { projectRawProperties } from "./local-mechanics.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
 const POLICY_VERSION = "eidolon-simulator-owner-policy-v1@2026-08-18";
@@ -50,12 +51,17 @@ export function bootstrapCanonicalRun(input: BootstrapInput): CanonicalBootstrap
   input.store.createRun({ runId, mode: "CANONICAL", status: "RUNNING", seed: input.seed, seedHash, policyVersion: POLICY_VERSION });
   input.store.selectRun(runId);
   const worlds = {} as CanonicalBootstrapResult["worlds"];
+  const mapping = Object.fromEntries(Object.entries(propertyMapping as Record<string, Record<string, string>>).map(([property, values]) => [`${property[0]!.toLowerCase()}${property.slice(1)}`, values]));
+  const breedProperties = new Map(effectiveBreeds.map((row) => [row.breedId, Object.fromEntries(RAW_DIMENSIONS.map((field) => [field, row.dimensions[field].value]))]));
 
   for (const world of WORLDS) {
     const cohorts = initializeCivicCohorts(world, identities, assignments, foundingSites, 2_000_000n);
     input.store.saveCohorts(runId, 0, cohorts);
     const settlements = readiness.settlementWorldResults.filter((row) => row.world === world).map((row, index) => {
-      const data = { ...row, stateId: `STATE_${world}_${row.regionId}`, name: row.currentName, nameSource: "OWNER_INPUT", foundedYear: 0, runtimeIssues: [] };
+      const residents = cohorts.filter((cohort) => cohort.settlementId === row.settlementId);
+      const projection = projectRawProperties(residents, breedProperties, world, mapping);
+      const propertyWinners = Object.fromEntries(Object.entries(projection.properties).map(([property, value]) => [property, value.winner!]));
+      const data = { ...row, stateId: `STATE_${world}_${row.regionId}`, name: row.currentName, nameSource: "OWNER_INPUT", foundedYear: 0, propertyWinners, politicalLatch: ["administrationMode", "legitimacyBasis", "authoritySource"], economicLatch: ["ownershipMode", "allocationMode"], runtimeIssues: [] };
       input.store.saveProjection(runId, world, 0, "SETTLEMENT", row.settlementId, data);
       input.store.appendEvent({ eventId: stableEventId(runId, world, 0, "INITIAL_SETTLEMENT_CREATED", row.settlementId, index), runId, worldKey: world, year: 0, phaseOrder: 10, sequence: index, eventType: "INITIAL_SETTLEMENT_CREATED", entityType: "SETTLEMENT", entityId: row.settlementId, payload: data });
       return data;

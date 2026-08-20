@@ -9,7 +9,8 @@ declare global {
       submitNamingResponse(responseText: string): Promise<unknown>;
       runDiagnostic(seed: string): Promise<unknown>;
       selectRun(runId: string): Promise<unknown>;
-      exportDiagnostic(): Promise<string | null>;
+      getRunView(runId: string, world: string, year: number): Promise<unknown>;
+      exportRun(): Promise<unknown>;
     };
   }
 }
