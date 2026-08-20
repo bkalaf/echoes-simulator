@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "eidolon-research-v4-batch-report-v1",
+  "batchId": "R23_B01",
+  "regionId": "R23",
+  "status": "PASS",
+  "counts": {
+    "manifestUnits": 57,
+    "manifestBreeds": 66,
+    "resultUnits": 57,
+    "effectiveBreeds": 66,
+    "journalEntries": 171,
+    "sources": 59,
+    "citations": 171,
+    "evidence": 171,
+    "inheritanceEdges": 66,
+    "dimensionValuesExpected": 792,
+    "dimensionValuesMaterialized": 792
+  },
+  "missingUnits": [],
+  "missingBreeds": [],
+  "criticalNulls": 0,
+  "unresolvedCriticalFields": 0,
+  "invalidPersonalityIds": 0,
+  "invalidTerrainValues": 0,
+  "twelveDimensionMaterializationPercent": 100,
+  "regionPreview": {
+    "status": "PASS",
+    "worlds": {
+      "CONCORD": {
+        "totalPopulation": "74450",
+        "dominantBreed": "BRD_ADLET",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "REPUBLIC",
+        "economicForm": "COMMAND_DEMESNE",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "motivation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "loquacity": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          }
+        }
+      },
+      "SCHISM": {
+        "totalPopulation": "74450",
+        "dominantBreed": "BRD_ADLET",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "REPUBLIC",
+        "economicForm": "COMMAND_DEMESNE",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "motivation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "loquacity": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          }
+        }
+      },
+      "RUIN": {
+        "totalPopulation": "74450",
+        "dominantBreed": "BRD_ADLET",
+        "dominantFaction": "SCHISM",
+        "politicalForm": "REPUBLIC",
+        "economicForm": "COMMAND_DEMESNE",
+        "noResolvedPopulationIssues": [],
+        "propertyCoverage": {
+          "administrationMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "structureOrientation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "operatingStyle": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "motivation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "authoritySource": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "legitimacyBasis": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "allocationMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "ownershipMode": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "loquacity": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "emotionalTemperature": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "outlookOrientation": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          },
+          "collaborativePosture": {
+            "resolvedPopulation": "74450",
+            "totalPopulation": "74450"
+          }
+        }
+      }
+    }
+  }
+}
