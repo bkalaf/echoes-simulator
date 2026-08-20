@@ -27,7 +27,8 @@
     "research:v3": "pnpm build:node && node dist-electron/src/scripts/build-v3-research-complete.js",
     "research:v4:init": "pnpm build:node && node dist-electron/src/scripts/initialize-v4.js",
     "research:v4:personality-policy": "pnpm build:node && node dist-electron/src/scripts/author-personality-dimension-policy.js",
-    "research:v4:batch": "pnpm build:node && node dist-electron/src/scripts/finalize-v4-batch.js"
+    "research:v4:batch": "pnpm build:node && node dist-electron/src/scripts/finalize-v4-batch.js",
+    "research:v4:audit": "pnpm build:node && node dist-electron/src/scripts/run-v4-audit.js"
   },
   "dependencies": {
     "csv-parse": "6.2.1",
