@@ -1,0 +1,92 @@
+{
+  "personalityId": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "terrainBroad": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 0,
+    "invalidUnresolved": 0
+  },
+  "terrainSpecific": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 0,
+    "invalidUnresolved": 0
+  },
+  "motivation": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "operatingStyle": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "structureOrientation": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "administrationMode": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "ownershipMode": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "allocationMode": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "legitimacyBasis": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "authoritySource": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "loquacity": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "emotionalTemperature": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "outlookOrientation": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  },
+  "collaborativePosture": {
+    "civicResolved": 1773,
+    "civicRequired": 1773,
+    "petPolicyNull": 283,
+    "invalidUnresolved": 0
+  }
+}

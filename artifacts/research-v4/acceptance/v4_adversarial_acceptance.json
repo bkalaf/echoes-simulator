@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "eidolon-v4-adversarial-acceptance-v1",
+  "verdict": "ACCEPT_SIMULATION_READY",
+  "safeToImport": true,
+  "researchCompletionClaimSupported": true,
+  "structuralIntegrityPassed": true,
+  "semanticEvidenceIntegrityPassed": true,
+  "archive": {
+    "filename": "/home/bobby/echoes-simulator/ECHOES_OF_EIDOLON_BREED_SEMANTICS_V4_SIMULATION_READY.zip",
+    "sha256": "a7f8378adba7a7d8980dcfc81eb493e4da5514e7cad0c1ee22fc8d638b95ad23",
+    "internalChecksumsVerified": true
+  },
+  "counts": {
+    "breeds": 2056,
+    "civicBreeds": 1773,
+    "pets": 283,
+    "units": 1219,
+    "auditedUnits": 1219,
+    "effectiveCivicBreeds": 1773,
+    "evidence": 3657,
+    "citations": 3657,
+    "sources": 1254,
+    "findings": 0
+  },
+  "regressionResults": [
+    {
+      "caseId": "FLOWERHORN_WORKSHOP",
+      "pass": true,
+      "detail": "PET Flowerhorn husbandry does not create WORKSHOP civic habitat."
+    },
+    {
+      "caseId": "IRANIAN_CITY",
+      "pass": true,
+      "detail": "Iranian CITY is not inferred from non-habitat evidence."
+    },
+    {
+      "caseId": "MALAYAN_TAPIR_SETTLEMENT",
+      "pass": true,
+      "detail": "Tapir settlement proximity is not habitat."
+    },
+    {
+      "caseId": "AFRICAN_MANATEE_DAMS",
+      "pass": true,
+      "detail": "Dams are not manatee habitat."
+    },
+    {
+      "caseId": "AUSTRALIAN_LUNGFISH_PARENTAL_GUARDING",
+      "pass": true,
+      "detail": "Unsupported parental guarding is not mapped."
+    },
+    {
+      "caseId": "ALPINE_IBEX_ARBOREAL",
+      "pass": true,
+      "detail": "Ibex does not receive arboreal terrain."
+    },
+    {
+      "caseId": "HUMAN_GENERIC_WOUND_TEMPLATE",
+      "pass": true,
+      "detail": "Generic Human wound templates are absent."
+    },
+    {
+      "caseId": "POLICY_NOT_EMPIRICAL_GOVERNMENT",
+      "pass": true,
+      "detail": "Animal/Mythos dimensions are explicitly owner-policy results, not empirical government claims."
+    }
+  ],
+  "findings": []
+}

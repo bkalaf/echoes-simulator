@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "pureMaterialization": true,
+  "evidenceCreatedByConsolidation": 0,
+  "zipReopenedAndVerified": true,
+  "counts": {
+    "breeds": 2056,
+    "civicBreeds": 1773,
+    "pets": 283,
+    "researchUnits": 1219,
+    "regionBatches": 29,
+    "auditShards": 7,
+    "sources": 1254,
+    "citations": 3657,
+    "evidence": 3657,
+    "inheritanceEdges": 1773,
+    "effectiveCivicBreeds": 1773
+  }
+}
