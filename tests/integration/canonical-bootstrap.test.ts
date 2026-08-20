@@ -13,7 +13,7 @@ describe("canonical persisted runner", () => {
       store,
       seed: "CANONICAL_INTEGRATION_SEED",
       packDirectory,
-      v3ResearchZip: resolve("ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip"),
+      semanticResearchZip: resolve("ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip"),
       resourceDirectory: resolve("resources"),
     });
 

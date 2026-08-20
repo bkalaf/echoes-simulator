@@ -19,7 +19,7 @@ interface BootstrapInput {
   store: SimulatorStore;
   seed: string;
   packDirectory: string;
-  v3ResearchZip: string;
+  semanticResearchZip: string;
   resourceDirectory: string;
 }
 
@@ -54,7 +54,7 @@ function csv(filename: string): Record<string, string>[] {
 function researchRows(filename: string): GenericRow[] {
   const archive = openValidatedZip(filename);
   const member = archive.entries[`${archive.prefix}breed_classifications.jsonl`];
-  if (!member) throw new Error("V3 semantic authority is missing breed_classifications.jsonl");
+  if (!member) throw new Error("Semantic authority is missing breed_classifications.jsonl");
   return parseJsonLines(member);
 }
 
@@ -67,16 +67,16 @@ function serializeCohort(cohort: Cohort): Record<string, unknown> {
 }
 
 export function bootstrapCanonicalRun(input: BootstrapInput): CanonicalBootstrapResult {
-  const v3 = researchRows(input.v3ResearchZip);
-  if (v3.length !== 2056) throw new Error("Canonical run requires the complete 2,056-Breed V3 authority");
-  const civic = v3.filter((row) => row.populationKind !== "PET");
+  const semantics = researchRows(input.semanticResearchZip);
+  if (semantics.length !== 2056) throw new Error("Canonical run requires a complete 2,056-Breed semantic authority");
+  const civic = semantics.filter((row) => row.populationKind !== "PET");
   if (civic.length !== 1773) throw new Error("Canonical run requires exactly 1,773 civic Breeds");
   const assignments = csv(join(input.packDirectory, "INPUTS/region_species_group_assignments(1).csv"));
   const foundingSites = csv(join(input.resourceDirectory, "reference/founding_sites.csv")).filter((row) => row.regionId !== "R10");
   if (foundingSites.length !== 24) throw new Error("Canonical initial state requires exactly 24 Settlements and no R10 Settlement");
   const propertyMappingRaw = JSON.parse(readFileSync(join(input.resourceDirectory, "reference/property_faction_mapping.json"), "utf8")) as Record<string, Record<WorldKey, string>>;
   const propertyMapping = Object.fromEntries(Object.entries(propertyMappingRaw).map(([key, values]) => [camelProperty(key), values]));
-  const researched = new Map(v3.map((row) => [String(row.breedId), Object.fromEntries(Object.keys(propertyMapping).map((field) => [field, {
+  const researched = new Map(semantics.map((row) => [String(row.breedId), Object.fromEntries(Object.keys(propertyMapping).map((field) => [field, {
     value: row[field] === undefined ? null : row[field] as string | null,
     disposition: String((row.fieldDispositions as Record<string, string> | undefined)?.[field] ?? "UNRESOLVED") as "VERIFIED_VALUE" | "INHERITED_VERIFIED_VALUE" | "POLICY_DEFAULT" | "POLICY_NULL" | "RESOLVED_NULL" | "UNRESOLVED" | "REVIEW_REQUIRED",
   }]))]));

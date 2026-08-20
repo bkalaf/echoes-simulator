@@ -8,6 +8,8 @@ const api = Object.freeze({
   runCanonical: (seed: string): Promise<unknown> => ipcRenderer.invoke("simulator:run-canonical", seed),
   submitNamingResponse: (responseText: string): Promise<unknown> => ipcRenderer.invoke("simulator:submit-naming-response", responseText),
   runDiagnostic: (seed: string): Promise<unknown> => ipcRenderer.invoke("simulator:run-diagnostic", seed),
+  selectRun: (runId: string): Promise<unknown> => ipcRenderer.invoke("simulator:select-run", runId),
+  revalidateInputs: (): Promise<unknown> => ipcRenderer.invoke("simulator:revalidate-inputs"),
   exportDiagnostic: (): Promise<string | null> => ipcRenderer.invoke("simulator:export-diagnostic"),
 });
 

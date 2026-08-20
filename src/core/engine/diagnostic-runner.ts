@@ -16,8 +16,8 @@ const CLASS_PRIORITY: Record<string, number> = { METROPOLIS: 5, CITY: 4, TOWN: 3
 export interface DiagnosticSettlement {
   settlementId: string; siteId: string; regionId: string; stateId: string; foundedYear: number; name: string; dominantFaction: Faction; population: bigint;
 }
-interface DiagnosticEvent { eventId: string; worldKey: WorldKey; year: number; eventType: string; entityId: string; payload: unknown; }
-interface DiagnosticWorld {
+export interface DiagnosticEvent { eventId: string; worldKey: WorldKey; year: number; eventType: string; entityId: string; payload: unknown; }
+export interface DiagnosticWorld {
   worldKey: WorldKey; finalYear: 2000; initialSettlementCount: 24; stateCount: number; finalPopulation: bigint; totalPopulation: bigint;
   federalCapitalSiteId: string; settlements: DiagnosticSettlement[]; events: DiagnosticEvent[]; annual: { year: number; totalPopulation: bigint; settlementCount: number; stateCount: number }[];
   states: { stateId: string; memberSettlementIds: string[] }[]; conclaveSeats: unknown[]; senateSeats: unknown[]; names: unknown[]; families: unknown[];

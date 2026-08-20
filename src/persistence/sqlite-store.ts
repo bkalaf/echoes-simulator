@@ -14,6 +14,7 @@ export interface StoredRun {
   seedHash: string;
   policyVersion: string;
   currentYear?: number;
+  createdAt?: string;
 }
 
 export interface StoredEvent {
@@ -36,6 +37,10 @@ export interface StoredPreflight {
   inputManifestIdentity: string;
   startingResearchHash: string;
   v3ResearchHash: string | null;
+  semanticAuthorityVersion?: string | null;
+  semanticAuthorityFilename?: string | null;
+  semanticAuthoritySha256?: string | null;
+  semanticAuthorityVerdict?: string | null;
   runId?: string | null;
   report: unknown;
 }
@@ -87,6 +92,10 @@ export class SimulatorStore {
         input_manifest_identity TEXT NOT NULL,
         starting_research_hash TEXT NOT NULL,
         v3_research_hash TEXT,
+        semantic_authority_version TEXT,
+        semantic_authority_filename TEXT,
+        semantic_authority_sha256 TEXT,
+        semantic_authority_verdict TEXT,
         run_id TEXT REFERENCES simulation_run(run_id),
         report_json TEXT NOT NULL
       );
@@ -189,7 +198,15 @@ export class SimulatorStore {
         sha256 TEXT NOT NULL,
         manifest_json TEXT NOT NULL
       );
+      CREATE TABLE IF NOT EXISTS operator_selection (
+        singleton INTEGER PRIMARY KEY CHECK(singleton = 1),
+        selected_run_id TEXT REFERENCES simulation_run(run_id)
+      );
     `);
+    const preflightColumns = new Set((this.database.prepare("PRAGMA table_info(preflight)").all() as { name: string }[]).map((column) => column.name));
+    for (const column of ["semantic_authority_version", "semantic_authority_filename", "semantic_authority_sha256", "semantic_authority_verdict"]) {
+      if (!preflightColumns.has(column)) this.database.exec(`ALTER TABLE preflight ADD COLUMN ${column} TEXT`);
+    }
   }
 
   createRun(run: StoredRun): void {
@@ -198,10 +215,10 @@ export class SimulatorStore {
   }
 
   getRun(runId: string): StoredRun | null {
-    const row = this.database.prepare("SELECT run_id, mode, status, seed, seed_hash, policy_version, current_year FROM simulation_run WHERE run_id = ?").get(runId) as {
-      run_id: string; mode: StoredRun["mode"]; status: string; seed: string; seed_hash: string; policy_version: string; current_year: number;
+    const row = this.database.prepare("SELECT run_id, mode, status, seed, seed_hash, policy_version, current_year, created_at FROM simulation_run WHERE run_id = ?").get(runId) as {
+      run_id: string; mode: StoredRun["mode"]; status: string; seed: string; seed_hash: string; policy_version: string; current_year: number; created_at: string;
     } | undefined;
-    return row ? { runId: row.run_id, mode: row.mode, status: row.status, seed: row.seed, seedHash: row.seed_hash, policyVersion: row.policy_version, currentYear: row.current_year } : null;
+    return row ? { runId: row.run_id, mode: row.mode, status: row.status, seed: row.seed, seedHash: row.seed_hash, policyVersion: row.policy_version, currentYear: row.current_year, createdAt: row.created_at } : null;
   }
 
   listRuns(): StoredRun[] {
@@ -212,6 +229,16 @@ export class SimulatorStore {
   latestRun(): StoredRun | null {
     const row = this.database.prepare("SELECT run_id FROM simulation_run ORDER BY updated_at DESC, created_at DESC, run_id DESC LIMIT 1").get() as { run_id: string } | undefined;
     return row ? this.getRun(row.run_id) : null;
+  }
+
+  selectRun(runId: string): void {
+    if (!this.getRun(runId)) throw new Error(`Unknown run ${runId}`);
+    this.database.prepare("INSERT INTO operator_selection(singleton, selected_run_id) VALUES (1, ?) ON CONFLICT(singleton) DO UPDATE SET selected_run_id=excluded.selected_run_id").run(runId);
+  }
+
+  selectedRun(): StoredRun | null {
+    const row = this.database.prepare("SELECT selected_run_id FROM operator_selection WHERE singleton=1").get() as { selected_run_id: string | null } | undefined;
+    return row?.selected_run_id ? this.getRun(row.selected_run_id) : this.latestRun();
   }
 
   setRunStatus(runId: string, status: string, currentYear: number): void {
@@ -267,8 +294,10 @@ export class SimulatorStore {
   savePreflight(preflight: StoredPreflight): void {
     this.database.prepare(`INSERT INTO preflight(
       preflight_id, created_at, input_directory, input_manifest_identity,
-      starting_research_hash, v3_research_hash, run_id, report_json
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`)
+      starting_research_hash, v3_research_hash, semantic_authority_version,
+      semantic_authority_filename, semantic_authority_sha256, semantic_authority_verdict,
+      run_id, report_json
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
       .run(
         preflight.preflightId,
         preflight.createdAt,
@@ -276,6 +305,10 @@ export class SimulatorStore {
         preflight.inputManifestIdentity,
         preflight.startingResearchHash,
         preflight.v3ResearchHash,
+        preflight.semanticAuthorityVersion ?? null,
+        preflight.semanticAuthorityFilename ?? null,
+        preflight.semanticAuthoritySha256 ?? null,
+        preflight.semanticAuthorityVerdict ?? null,
         preflight.runId ?? null,
         canonicalJson(preflight.report),
       );
@@ -283,7 +316,9 @@ export class SimulatorStore {
 
   getLatestPreflight(): StoredPreflight | null {
     const row = this.database.prepare(`SELECT preflight_id, created_at, input_directory,
-      input_manifest_identity, starting_research_hash, v3_research_hash, run_id, report_json
+      input_manifest_identity, starting_research_hash, v3_research_hash,
+      semantic_authority_version, semantic_authority_filename, semantic_authority_sha256, semantic_authority_verdict,
+      run_id, report_json
       FROM preflight ORDER BY created_at DESC, preflight_id DESC LIMIT 1`).get() as {
         preflight_id: string;
         created_at: string;
@@ -291,6 +326,10 @@ export class SimulatorStore {
         input_manifest_identity: string;
         starting_research_hash: string;
         v3_research_hash: string | null;
+        semantic_authority_version: string | null;
+        semantic_authority_filename: string | null;
+        semantic_authority_sha256: string | null;
+        semantic_authority_verdict: string | null;
         run_id: string | null;
         report_json: string;
       } | undefined;
@@ -301,6 +340,10 @@ export class SimulatorStore {
       inputManifestIdentity: row.input_manifest_identity,
       startingResearchHash: row.starting_research_hash,
       v3ResearchHash: row.v3_research_hash,
+      semanticAuthorityVersion: row.semantic_authority_version,
+      semanticAuthorityFilename: row.semantic_authority_filename,
+      semanticAuthoritySha256: row.semantic_authority_sha256,
+      semanticAuthorityVerdict: row.semantic_authority_verdict,
       runId: row.run_id,
       report: JSON.parse(row.report_json),
     } : null;
@@ -314,6 +357,10 @@ export class SimulatorStore {
 
   eventCount(runId: string): number {
     return Number((this.database.prepare("SELECT COUNT(*) AS count FROM simulation_event WHERE run_id = ?").get(runId) as { count: number }).count);
+  }
+
+  checkpointCount(runId: string): number {
+    return Number((this.database.prepare("SELECT COUNT(*) AS count FROM checkpoint WHERE run_id = ?").get(runId) as { count: number }).count);
   }
 
   saveCheckpoint(checkpoint: CheckpointEnvelope): void {
@@ -352,6 +399,11 @@ export class SimulatorStore {
 
   getPendingNamingJob(runId: string): NamingJob | null {
     const row = this.database.prepare("SELECT context_json FROM naming_job WHERE run_id = ? AND status = 'PENDING' ORDER BY year, naming_job_id LIMIT 1").get(runId) as { context_json: string } | undefined;
+    return row ? JSON.parse(row.context_json) as NamingJob : null;
+  }
+
+  getAnyPendingNamingJob(): NamingJob | null {
+    const row = this.database.prepare("SELECT context_json FROM naming_job WHERE status = 'PENDING' ORDER BY year, naming_job_id LIMIT 1").get() as { context_json: string } | undefined;
     return row ? JSON.parse(row.context_json) as NamingJob : null;
   }
 

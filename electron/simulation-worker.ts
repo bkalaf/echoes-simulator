@@ -9,18 +9,7 @@ parentPort?.on("message", (candidate: unknown) => {
     let payload: unknown = { acceptedAction: request.action };
     if (request.action === "RUN_DIAGNOSTIC") {
       const seed = typeof request.payload.seed === "string" ? request.payload.seed : "EIDOLON_DESKTOP_DIAGNOSTIC_V1";
-      const result = runDiagnosticHistory(seed, String(request.payload.resourceDirectory));
-      payload = {
-        runId: result.runId,
-        mode: result.mode,
-        finalYear: result.finalYear,
-        djtYear: result.djtYear,
-        checkpointCount: result.checkpointCount,
-        namingJobCount: result.namingJobCount,
-        contentDigest: result.contentDigest,
-        audit: result.audit,
-        worlds: Object.fromEntries(Object.entries(result.worlds).map(([key, world]) => [key, { finalPopulation: world.finalPopulation.toString(), settlements: world.settlements.length, states: world.stateCount, federalCapitalSiteId: world.federalCapitalSiteId, events: world.events.length }])),
-      };
+      payload = runDiagnosticHistory(seed, String(request.payload.resourceDirectory));
     }
     if (request.action === "VALIDATE_REAL_INPUTS") {
       if (typeof request.payload.packDirectory !== "string") throw new Error("packDirectory is required");

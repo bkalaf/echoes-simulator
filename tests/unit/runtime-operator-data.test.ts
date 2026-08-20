@@ -29,4 +29,11 @@ describe("operator runtime data boundaries", () => {
     expect(renderer).toMatch(/const report = await window\.eidolonSimulator\.validateInputs/);
     expect(renderer).toMatch(/setSnapshot\([\s\S]*preflight: report/);
   });
+
+  it("uses version-neutral semantic-authority wording in the renderer", () => {
+    const renderer = readFileSync("src/main.tsx", "utf8");
+
+    expect(renderer).not.toContain("V3 semantic authority");
+    expect(renderer).not.toContain("persisted V3 authority");
+  });
 });

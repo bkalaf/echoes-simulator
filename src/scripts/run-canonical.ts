@@ -14,7 +14,7 @@ try {
     store,
     seed: process.argv[2] ?? "EIDOLON_CANONICAL_OWNER_RUN_V1",
     packDirectory: resolve(root, "ECHOES_OF_EIDOLON_SIMULATOR_BREED_RESEARCH_REMEDIATION_CODEX_PACK_2026-08-18"),
-    v3ResearchZip: resolve(root, "ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip"),
+    semanticResearchZip: resolve(root, "ECHOES_OF_EIDOLON_BREED_RESEARCH_V3_RESEARCH_COMPLETE.zip"),
     resourceDirectory: resolve(root, "resources"),
   });
   writeFileSync(resolve(output, "canonical-run-result.json"), `${canonicalJson(result)}\n`);

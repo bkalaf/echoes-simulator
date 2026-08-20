@@ -10,6 +10,8 @@ declare global {
       runCanonical(seed: string): Promise<unknown>;
       submitNamingResponse(responseText: string): Promise<unknown>;
       runDiagnostic(seed: string): Promise<unknown>;
+      selectRun(runId: string): Promise<unknown>;
+      revalidateInputs(): Promise<unknown>;
       exportDiagnostic(): Promise<string | null>;
     };
   }
