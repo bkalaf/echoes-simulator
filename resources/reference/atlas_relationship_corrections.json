@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "echoes-atlas-relationship-corrections-v1",
+  "authority": "OWNER_CORRECTION_2026-08-26",
+  "poiAssociations": [
+    {
+      "poiId": "POI-080",
+      "siteId": "SITE-036",
+      "regionId": "R06",
+      "regionName": "Highcourt",
+      "settlementCanonicalName": "Ascendancy",
+      "reason": "Highcourt Isle is the ISL-NW-001 physical feature supporting Ascendancy; the former SITE-032/R05 row was a nearest-site assignment that contradicted the canonical Highcourt floating-island authority."
+    }
+  ]
+}

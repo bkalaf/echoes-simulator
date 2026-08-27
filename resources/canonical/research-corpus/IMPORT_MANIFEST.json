@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "eidolon-research-corpus-import-manifest-v1",
+  "corpusVersion": "EIDOLON_CHAT_CLASSIFICATION_0001_6039_D8A4C62CB65E04BA",
+  "sourcePackage": "EIDOLON_CHAT_CLASSIFICATION_ALL_RESPONSES_0001-6039_REMEDIATED_2026-08-26.zip",
+  "sourcePackageSha256": "d8a4c62cb65e04ba198d9e72f160f32f7ae2191f828ddec7694e6060fb3b211e",
+  "expectedRecordCounts": {
+    "TAXONOMY": 2628,
+    "SPECIES": 1138,
+    "CULTURE": 127,
+    "SPECIES_GROUP": 84,
+    "BREED": 2062
+  },
+  "observedRecordCounts": {
+    "TAXONOMY": 2628,
+    "SPECIES": 1138,
+    "CULTURE": 127,
+    "SPECIES_GROUP": 84,
+    "BREED": 2062
+  },
+  "expectedRecordCount": 6039,
+  "observedRecordCount": 6039,
+  "ledgerRecordCount": 6039,
+  "importTimestamp": "2026-08-27T03:34:31.994Z",
+  "applicationVersion": "0.1.0",
+  "applicationSchemaVersion": "eidolon-research-corpus-import-v1",
+  "overallImportStatus": "COMPLETED_WITH_WARNINGS",
+  "ordinalCoverageStart": 1,
+  "ordinalCoverageEnd": 6039,
+  "missingOrdinals": [],
+  "duplicateOrdinals": [],
+  "duplicateRecordIds": [],
+  "duplicatePayloads": [],
+  "multipleFinalCandidates": [],
+  "reviewCounts": {
+    "PASS": 6039
+  },
+  "dispositionCounts": {
+    "IMPORTED": 30,
+    "IMPORTED_WITH_WARNINGS": 6009
+  },
+  "severityCounts": {
+    "INFO": 1449,
+    "WARNING": 11170,
+    "BLOCKER": 0
+  },
+  "canonicalMaterialized": 6039,
+  "canonicalTableRowChangeCounts": {
+    "TAXONOMY": 2628,
+    "SPECIES": 1138,
+    "CULTURE": 127,
+    "SPECIES_GROUP": 84,
+    "BREED": 2062
+  },
+  "canonicalFieldChangeCounts": {
+    "TAXONOMY": 97269,
+    "SPECIES": 42131,
+    "CULTURE": 4699,
+    "SPECIES_GROUP": 3108,
+    "BREED": 71093
+  },
+  "currentRunCanonicalFieldChanges": 352,
+  "databaseMigrations": [],
+  "schemaMigrations": [
+    "eidolon-research-corpus-import-v1 bundled JSONL research layer"
+  ],
+  "domainTypeChanges": [
+    "text on Taxonomy, Species, Culture, Species Group, and Breed research records",
+    "BehaviorScore and six primitive behavior fields",
+    "Aggressive",
+    "SocialEffort",
+    "IntellectualEffort",
+    "ledger/disposition/finding/reconciliation/change-audit contracts"
+  ],
+  "artifactHashes": {
+    "CANONICAL_CHANGE_AUDIT.jsonl": "bc8501a6557f806c5015146006cbc8910325276d56d6fd81b13241617713f990",
+    "IMPORT_FINDINGS.json": "ea1320660c9650aefb7f486a20c3853f62472660f9bb842d96a7189ea0f6a379",
+    "IMPORT_HISTORY.jsonl": "868c9e456347faed1338d15b5756bfcfe72cd0c1e1a690aef22453fd7ac03ed0",
+    "IMPORT_LEDGER.jsonl": "0fc1a1e4777aa66543ab7e4a8e574c4822fec5f98bb444f8bd321e4ad512c0d2",
+    "IMPORT_RECONCILIATION.jsonl": "1dec6776b6c7ca022c8a04cfcd23696c81efce697db1df43458367a879064e46",
+    "IMPORT_REPORT.md": "71c302698d609fac6641daaf5688559a1db6033e5a7d468d062afb0e1969cea1",
+    "SOURCE_PACKAGE_INVENTORY.json": "21b3cb4676e8ecc66c80dcfb6d91ed438c2684237f418b1433a0811b74f9046b",
+    "source/EIDOLON_CHAT_CLASSIFICATION_ALL_RESPONSES_0001-6039_REMEDIATED_2026-08-26.zip": "d8a4c62cb65e04ba198d9e72f160f32f7ae2191f828ddec7694e6060fb3b211e"
+  }
+}

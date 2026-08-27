@@ -15,6 +15,7 @@ const preflight = preflightRealBundle(packDirectory);
 const diagnostic = runDiagnosticHistory(seed);
 const schemas = Object.fromEntries([
   "export_manifest.schema.json",
+  "naming_batch_response.schema.json",
   "naming_response.schema.json",
   "readiness_issue.schema.json",
   "run_manifest.schema.json",

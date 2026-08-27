@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "eidolon-breed-dimension-balance-policy-v1",
+  "policyRef": "BREED_DIMENSION_BALANCE_V1",
+  "effectiveDate": "2026-08-26",
+  "authority": "OWNER_AUTHORIZED",
+  "scope": {
+    "includedPopulationKinds": [
+      "HUMAN",
+      "BEAST",
+      "MYTHOS"
+    ],
+    "excludedPopulationKinds": [
+      "PET"
+    ],
+    "fields": [
+      "motivation",
+      "operatingStyle",
+      "structureOrientation",
+      "administrationMode",
+      "ownershipMode",
+      "allocationMode",
+      "legitimacyBasis",
+      "authoritySource",
+      "loquacity",
+      "emotionalTemperature",
+      "outlookOrientation",
+      "collaborativePosture"
+    ]
+  },
+  "target": {
+    "kind": "EXACT_THREE_WAY_SPLIT",
+    "civicBreedCount": 1779,
+    "perControlledValue": 593
+  },
+  "strategy": "MINIMUM_CHANGE_STABLE_HASH",
+  "stableHashInput": "BREED_DIMENSION_BALANCE_V1\\0<field>\\0<breedId>\\0<beforeValue>",
+  "provenance": {
+    "unchangedDisposition": "OWNER_POLICY_VALUE",
+    "unchangedPolicyRef": "PERSONALITY_PROFILE_DIMENSIONS_V1",
+    "changedDisposition": "OWNER_BALANCED_VALUE",
+    "changedPolicyRef": "BREED_DIMENSION_BALANCE_V1"
+  }
+}

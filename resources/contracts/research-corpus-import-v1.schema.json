@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoesofeidolon.local/contracts/research-corpus-import-v1.schema.json",
+  "title": "Echoes of Eidolon non-blocking research corpus import",
+  "type": "object",
+  "required": ["corpusVersion", "ordinal", "recordType", "recordId", "sourceFilename", "sourceSha256", "rawPayload", "reviewVerdict", "importDisposition", "canonicalMaterialized", "issueCount"],
+  "properties": {
+    "recordType": { "enum": ["TAXONOMY", "SPECIES", "CULTURE", "SPECIES_GROUP", "BREED"] },
+    "reviewVerdict": { "enum": ["PASS", "FAIL", "MISSING_REVIEW", "MULTIPLE_REVIEWS"] },
+    "importDisposition": { "enum": ["IMPORTED", "IMPORTED_WITH_WARNINGS", "DEFERRED_RELATIONSHIP", "QUARANTINED_CANONICAL_CONFLICT", "QUARANTINED_SCHEMA_ERROR", "QUARANTINED_INVALID_ENUM", "QUARANTINED_MISSING_DEPENDENCY", "QUARANTINED_REVIEW_FAILURE"] },
+    "rawPayload": { "type": "object" },
+    "canonicalPayload": { "type": ["object", "null"] },
+    "canonicalMaterialized": { "type": "boolean" },
+    "issueCount": { "type": "integer", "minimum": 0 }
+  }
+}

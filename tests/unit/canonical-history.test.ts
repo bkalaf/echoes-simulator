@@ -73,6 +73,7 @@ function fixture(): CanonicalHistoryInput {
     nameStatus: index === 0 ? "CANONICAL" : "NAMING_REQUIRED",
     classification: "CITY",
     attractivenessTier: String(5 - index),
+    unnamedPois: index === 1 && regionId === "R01" ? [{ poiId: "POI-001", workingLabel: "Working River", poiType: "RIVER" }] : [],
   })));
   return {
     runId: "RUN_CANONICAL_HISTORY_TEST",
@@ -146,5 +147,7 @@ describe("canonical Breed/cohort history", () => {
     expect(result.namingJobs[0]!.context.settlement.politicalForm).toBeTruthy();
     expect(result.namingJobs[0]!.context.settlement.economicForm).toBeTruthy();
     expect(result.namingJobs[0]!.context.settlement.dominantBreed).toBeTruthy();
+    expect(result.namingJobs.filter((job) => job.items.some((item) => item.entityType === "POI"))).toHaveLength(3);
+    expect(result.namingJobs.filter((job) => job.items.some((item) => item.entityId === "POI-001")).map((job) => job.context.world).sort()).toEqual(["CONCORD", "RUIN", "SCHISM"]);
   });
 });

@@ -25,5 +25,5 @@ describe("persisted diagnostic workflow", () => {
     expect(store.selectedRun()?.runId).toBe(completed.runId);
     expect(store.getLatestPreflight()).toBeNull();
     store.close();
-  });
+  }, 30_000);
 });

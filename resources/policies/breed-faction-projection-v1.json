@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "eidolon-breed-faction-projection-policy-v1",
+  "policyRef": "BREED_FACTION_PROJECTION_V1",
+  "effectiveDate": "2026-08-26",
+  "authority": "OWNER_AUTHORIZED",
+  "mappingSource": "reference/property_faction_mapping.json",
+  "inputs": [
+    "motivation",
+    "operatingStyle",
+    "structureOrientation",
+    "administrationMode",
+    "ownershipMode",
+    "allocationMode",
+    "legitimacyBasis",
+    "authoritySource",
+    "loquacity",
+    "emotionalTemperature",
+    "outlookOrientation",
+    "collaborativePosture"
+  ],
+  "pointsPerAttribute": 1,
+  "pointsPerCivicBreed": 12,
+  "factionObjectKeys": ["CONCORD", "SCHISM", "RUIN"],
+  "dominantFaction": {
+    "type": "WorldKey[]",
+    "inclusionRule": "score >= maximumScore - 1",
+    "tolerance": 1,
+    "ordering": ["CONCORD", "SCHISM", "RUIN"]
+  },
+  "petPolicy": {
+    "disposition": "POLICY_NULL",
+    "factionObject": { "CONCORD": 0, "SCHISM": 0, "RUIN": 0 },
+    "dominantFaction": []
+  }
+}

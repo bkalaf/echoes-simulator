@@ -19,4 +19,14 @@ describe("operator runtime data boundaries", () => {
     expect(packageJson).toContain('"from": "resources"');
     expect(readFileSync("resources/canonical/canonical_bundle_manifest.json", "utf8")).toContain('"buildReady": true');
   });
+
+  it("exposes Breed Detail and a POI-only Atlas without weakening the preload boundary", () => {
+    const renderer = readFileSync("src/main.tsx", "utf8");
+    const preload = readFileSync("electron/preload.cts", "utf8");
+    expect(renderer).toContain('"Breed Detail"');
+    expect(renderer).toContain('"Atlas"');
+    expect(preload).toContain("getBreedCatalog");
+    expect(preload).toContain("getBreedPopulation");
+    expect(preload).toContain("getAtlasData");
+  });
 });

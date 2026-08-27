@@ -115,7 +115,7 @@ function selectDominantBreed(seed: string, world: WorldKey, settlementId: string
 
 export function calculateYear0Readiness(input: Year0ReadinessInput): Year0ReadinessReport {
   const civic = input.identities.filter((row) => row.populationKind !== "PET");
-  if (civic.length !== 1773 || input.effectiveBreeds.length !== 1773) throw new Error("Year 0 requires exactly 1,773 civic identities and effective semantics");
+  if (civic.length !== 1779 || input.effectiveBreeds.length !== 1779) throw new Error("Year 0 requires exactly 1,779 civic identities and effective semantics");
   const sites = input.foundingSites.filter((row) => row.regionId !== "R10").sort((left, right) => left.regionId.localeCompare(right.regionId));
   if (sites.length !== 24 || new Set(sites.map((row) => row.regionId)).size !== 24) throw new Error("Year 0 requires one founding Settlement in every non-R10 Region");
   const mapping = Object.fromEntries(Object.entries(input.propertyMapping).map(([property, values]) => [camelProperty(property), values]));

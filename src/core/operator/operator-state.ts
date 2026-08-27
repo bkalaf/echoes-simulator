@@ -29,6 +29,7 @@ export interface OperatorSnapshot {
   selectedRunId: string | null;
   pendingNamingJob?: unknown | null;
   hasActiveRun?: boolean;
+  v5Run?: boolean;
 }
 
 export interface OperatorViewModel {
@@ -45,7 +46,7 @@ export interface OperatorViewModel {
 }
 
 function stateForRun(run: OperatorRun | null, pendingNaming: boolean): ProductState {
-  if (pendingNaming || (run?.mode === "CANONICAL" && run.status === "WAITING_FOR_NAMING")) return "WAITING_FOR_NAMING";
+  if (pendingNaming || run?.status === "WAITING_FOR_NAMING") return "WAITING_FOR_NAMING";
   if (!run || run.status === "RETIRED_DATA_AUTHORITY") return "READY";
   if (run.status === "FAILED") return "FAILED";
   if (run.mode === "DIAGNOSTIC") return run.status === "COMPLETE" ? "DIAGNOSTIC_COMPLETE" : "DIAGNOSTIC_RUNNING";
@@ -58,10 +59,10 @@ export function deriveOperatorViewModel(snapshot: OperatorSnapshot): OperatorVie
   const diagnosticDisabledReasons = active ? ["Another run is active."] : [];
   const canonicalDisabledReasons: string[] = [];
   if (snapshot.canonicalData.status !== "READY") canonicalDisabledReasons.push(`BUNDLED_CANONICAL_DATA_INVALID: ${snapshot.canonicalData.errorDetail ?? "The packaged canonical bundle failed its runtime integrity assertion."}`);
-  if (active) canonicalDisabledReasons.push(runState === "WAITING_FOR_NAMING" ? "Complete the pending naming job first." : "Another run is active.");
+  if (active) canonicalDisabledReasons.push(runState === "WAITING_FOR_NAMING" ? "Complete the pending naming batches first." : "Another run is active.");
 
   let primaryNotice: OperatorViewModel["primaryNotice"];
-  if (runState === "WAITING_FOR_NAMING") primaryNotice = { severity: "WARNING", title: "Run paused for required naming.", detail: "Import the exact naming response to resume from the persisted checkpoint." };
+  if (runState === "WAITING_FOR_NAMING") primaryNotice = { severity: "WARNING", title: "Run paused for required naming.", detail: "Import each exact world/year batch response to resume from the persisted checkpoint. Compatible individual responses remain supported." };
   else if (snapshot.canonicalData.status !== "READY") primaryNotice = { severity: "ERROR", title: "Bundled canonical data is invalid.", detail: `BUNDLED_CANONICAL_DATA_INVALID · ${snapshot.canonicalData.errorDetail ?? "This is an internal build/package defect."}` };
   else if (runState === "DIAGNOSTIC_RUNNING") primaryNotice = { severity: "INFO", title: "Diagnostic run is executing.", detail: "Diagnostic state is persisted independently from canonical history." };
   else if (runState === "CANONICAL_RUNNING") primaryNotice = { severity: "INFO", title: "Canonical simulation is executing.", detail: "The V4 canonical engine is persisting history and checkpoints." };
@@ -73,7 +74,7 @@ export function deriveOperatorViewModel(snapshot: OperatorSnapshot): OperatorVie
     canRunDiagnostic: diagnosticDisabledReasons.length === 0,
     canRunCanonical: canonicalDisabledReasons.length === 0,
     canSubmitNaming: runState === "WAITING_FOR_NAMING",
-    canExport: Boolean(snapshot.manifest?.mode === "CANONICAL" && snapshot.manifest.status === "COMPLETE"),
+    canExport: Boolean(snapshot.manifest?.status === "COMPLETE" && (snapshot.manifest.mode === "CANONICAL" || snapshot.v5Run)),
     primaryNotice, canonicalDisabledReasons, diagnosticDisabledReasons,
     semanticAuthorityLabel: snapshot.canonicalData.status === "READY" ? `${snapshot.canonicalData.semanticAuthorityVersion} · SIMULATION READY` : "invalid bundled authority",
   };

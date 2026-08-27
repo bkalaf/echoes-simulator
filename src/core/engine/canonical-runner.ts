@@ -7,14 +7,15 @@ import { createReplayCheckpoint } from "../checkpoints/checkpoint.js";
 import { stableEventId } from "../events/event-store.js";
 import { openValidatedZip, parseJsonLines } from "../inputs/importer.js";
 import { buildNamingJob } from "../naming/naming.js";
+import { loadUnnamedPoisBySite } from "../naming/poi-context.js";
 import type { SimulatorStore } from "../../persistence/sqlite-store.js";
 import { initializeCivicCohorts, type Cohort } from "./cohort-engine.js";
 import { calculateYear0Readiness, type Year0Assignment, type Year0Identity, type Year0Site } from "./year0-readiness.js";
 import { RAW_DIMENSIONS, type EffectiveBreedSemantics } from "../research/v4-contract.js";
 import { projectRawProperties } from "./local-mechanics.js";
+import { CANONICAL_POLICY_VERSION } from "./canonical-authority.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
-const POLICY_VERSION = "eidolon-simulator-owner-policy-v1@2026-08-18";
 const ENGINE_VERSION = "canonical-cohort-engine-v4";
 
 interface BootstrapInput { store: SimulatorStore; seed: string; canonicalDirectory: string; }
@@ -48,7 +49,7 @@ export function bootstrapCanonicalRun(input: BootstrapInput): CanonicalBootstrap
 
   const seedHash = createHash("sha256").update(input.seed).digest("hex");
   const runId = `RUN_CANONICAL_${seedHash.slice(0, 12).toUpperCase()}_${randomUUID().replaceAll("-", "").slice(0, 12).toUpperCase()}`;
-  input.store.createRun({ runId, mode: "CANONICAL", status: "RUNNING", seed: input.seed, seedHash, policyVersion: POLICY_VERSION });
+  input.store.createRun({ runId, mode: "CANONICAL", status: "RUNNING", seed: input.seed, seedHash, policyVersion: CANONICAL_POLICY_VERSION });
   input.store.selectRun(runId);
   const worlds = {} as CanonicalBootstrapResult["worlds"];
   const mapping = Object.fromEntries(Object.entries(propertyMapping as Record<string, Record<string, string>>).map(([property, values]) => [`${property[0]!.toLowerCase()}${property.slice(1)}`, values]));
@@ -66,13 +67,14 @@ export function bootstrapCanonicalRun(input: BootstrapInput): CanonicalBootstrap
       input.store.appendEvent({ eventId: stableEventId(runId, world, 0, "INITIAL_SETTLEMENT_CREATED", row.settlementId, index), runId, worldKey: world, year: 0, phaseOrder: 10, sequence: index, eventType: "INITIAL_SETTLEMENT_CREATED", entityType: "SETTLEMENT", entityId: row.settlementId, payload: data });
       return data;
     });
-    const checkpoint = createReplayCheckpoint({ runId, worldKey: world, state: { year: 0, settlements, cohorts: cohorts.map(serializeCohort), runtimeIssues: [] }, engineVersion: ENGINE_VERSION, policyVersion: POLICY_VERSION });
+    const checkpoint = createReplayCheckpoint({ runId, worldKey: world, state: { year: 0, settlements, cohorts: cohorts.map(serializeCohort), runtimeIssues: [] }, engineVersion: ENGINE_VERSION, policyVersion: CANONICAL_POLICY_VERSION });
     input.store.saveCheckpoint(checkpoint);
     worlds[world] = { cohorts: cohorts.length, settlements: settlements.length, population: cohorts.reduce((sum, cohort) => sum + cohort.population, 0n).toString() };
   }
 
   const first = readiness.settlementWorldResults.find((row) => row.world === "CONCORD" && row.regionId === "R01");
   if (!first) throw new Error("Canonical readiness did not include the first naming context");
+  const unnamedPoisBySite = loadUnnamedPoisBySite(input.canonicalDirectory);
   const namingJob = buildNamingJob({
     runId, world: first.world, year: 0, reason: "INITIAL_GOVERNMENT_AND_FAMILY",
     settlement: {
@@ -80,7 +82,7 @@ export function bootstrapCanonicalRun(input: BootstrapInput): CanonicalBootstrap
       dominantFaction: first.dominantFaction, cultureId: first.cultureId, cultureState: first.cultureState,
       politicalForm: first.politicalForm, economicForm: first.economicForm, dominantBreed: first.dominantBreed, population: first.population,
     },
-    unnamedPois: [],
+    unnamedPois: unnamedPoisBySite.get(first.siteId) ?? [],
   });
   const checkpoint = input.store.loadCheckpoint(runId, "CONCORD", 0);
   if (!checkpoint) throw new Error("Canonical checkpoint was not persisted");

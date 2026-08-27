@@ -20,6 +20,8 @@ const economicRows = JSON.parse(readFileSync(resolve(root, "resources/reference/
 const report = calculateYear0Readiness({ seed: "EIDOLON_CANONICAL_YEAR0_V4", identities, effectiveBreeds, assignments, foundingSites, propertyMapping, politicalRows, economicRows });
 const outputDirectory = resolve(root, "artifacts/simulator/v4-readiness");
 mkdirSync(outputDirectory, { recursive: true });
-writeFileSync(resolve(outputDirectory, "year0-readiness.json"), `${JSON.stringify(report, null, 2)}\n`);
+const reportBytes = `${JSON.stringify(report, null, 2)}\n`;
+writeFileSync(resolve(outputDirectory, "year0-readiness.json"), reportBytes);
+writeFileSync(resolve(root, "resources/canonical/integrity/year0_readiness.json"), reportBytes);
 process.stdout.write(`${JSON.stringify({ status: report.status, settlementWorlds: report.settlementWorlds, propertyChecks: report.propertyChecks, noResolvedPopulationIssues: report.noResolvedPopulationIssues, nullDominantFaction: report.nullDominantFaction, nullPoliticalForm: report.nullPoliticalForm, nullEconomicForm: report.nullEconomicForm, nullDominantBreed: report.nullDominantBreed }, null, 2)}\n`);
 if (report.status !== "PASS") process.exitCode = 1;

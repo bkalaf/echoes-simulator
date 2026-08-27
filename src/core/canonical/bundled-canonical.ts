@@ -17,7 +17,8 @@ export function loadBundledCanonical(resourceDirectory: string): CanonicalBundle
     if (!existsSync(manifestPath)) throw new Error("canonical_bundle_manifest.json is missing");
     const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as Record<string, unknown> & { requiredFiles?: Record<string, string> };
     if (manifest.schemaVersion !== "eidolon-canonical-bundle-manifest-v1" || manifest.buildReady !== true) throw new Error("canonical manifest is not build-ready");
-    if (manifest.breedSemanticVersion !== "V4" || manifest.breedSemanticVerdict !== "ACCEPT_SIMULATION_READY" || manifest.year0ReadinessStatus !== "PASS" || manifest.personalityPolicyVersion !== "PERSONALITY_PROFILE_DIMENSIONS_V1") throw new Error("canonical authority, policy, or year-0 readiness version is stale");
+    if (manifest.breedSemanticVersion !== "V4" || manifest.breedSemanticVerdict !== "ACCEPT_SIMULATION_READY" || manifest.year0ReadinessStatus !== "PASS" || manifest.personalityPolicyVersion !== "PERSONALITY_PROFILE_DIMENSIONS_V1" || manifest.breedDimensionPolicyVersion !== "BREED_DIMENSION_BALANCE_V1" || manifest.breedFactionPolicyVersion !== "BREED_FACTION_PROJECTION_V1") throw new Error("canonical authority, policy, or year-0 readiness version is stale");
+    if (typeof manifest.researchCorpusImportVersion !== "string" || !["COMPLETED", "COMPLETED_WITH_WARNINGS", "COMPLETED_WITH_BLOCKERS"].includes(String(manifest.researchCorpusImportStatus)) || manifest.researchCorpusManifest !== "research-corpus/IMPORT_MANIFEST.json") throw new Error("record-by-record research corpus import is absent or incomplete");
     for (const [name, hash] of Object.entries(manifest.requiredFiles ?? {})) {
       const filename = resolve(directory, name);
       if (!existsSync(filename)) throw new Error(`${name} is missing`);

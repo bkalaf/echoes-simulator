@@ -2,7 +2,10 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { strFromU8 } from "fflate";
 import { openValidatedZip, parseJsonLines, sha256, type GenericRow } from "../core/inputs/importer.js";
-import { PERSONALITY_DIMENSION_POLICY, RAW_DIMENSIONS } from "../core/research/v4-contract.js";
+import { canonicalJson } from "../core/serialization/canonical-json.js";
+import { rebalanceBreedDimensions } from "../core/research/breed-dimension-balance.js";
+import { applyBreedFactionProjection, BREED_FACTION_PROJECTION_POLICY, projectBreedFaction } from "../core/research/breed-faction-projection.js";
+import { BREED_DIMENSION_BALANCE_POLICY, PERSONALITY_DIMENSION_POLICY, RAW_DIMENSIONS, type EffectiveBreedSemantics } from "../core/research/v4-contract.js";
 
 const root = resolve(".");
 const filename = resolve(root, process.argv[2] ?? "ECHOES_OF_EIDOLON_BREED_SEMANTICS_V4_SIMULATION_READY.zip");
@@ -38,21 +41,29 @@ const profiles = rows("personality/personality_expression_effective_profiles.jso
 const effective = rows("effective_breed_semantics.jsonl");
 const pets = rows("pet_policy_semantics.jsonl");
 const coverage = JSON.parse(strFromU8(member("critical_coverage.json"))) as Record<string, GenericRow>;
+const balancePolicy = JSON.parse(strFromU8(member("policies/breed_dimension_balance_policy.json"))) as GenericRow;
+const balanceReport = JSON.parse(strFromU8(member("breed_dimension_balance_report.json"))) as GenericRow;
+const balanceChanges = rows("breed_dimension_balance_changes.jsonl");
+const factionPolicy = JSON.parse(strFromU8(member("policies/breed_faction_projection_policy.json"))) as GenericRow;
+const factionReport = JSON.parse(strFromU8(member("breed_faction_projection_report.json"))) as GenericRow;
 
-if (manifest.schemaVersion !== "eidolon-breed-semantics-v4-manifest" || manifest.status !== "SIMULATION_READY" || manifest.semanticAuthorityVersion !== "V4") add("MANIFEST_AUTHORITY", "Manifest does not declare the V4 simulation-ready authority contract.");
-if (identities.length !== 2056) add("BREED_COUNT", `Expected 2,056 identities, found ${identities.length}.`);
+if (manifest.schemaVersion !== "eidolon-breed-semantics-v4-manifest" || manifest.status !== "SIMULATION_READY" || manifest.semanticAuthorityVersion !== "V4" || manifest.breedDimensionPolicyRef !== BREED_DIMENSION_BALANCE_POLICY || manifest.breedFactionPolicyRef !== BREED_FACTION_PROJECTION_POLICY) add("MANIFEST_AUTHORITY", "Manifest does not declare the balanced, faction-projected V4 simulation-ready authority contract.");
+if (balancePolicy.schemaVersion !== "eidolon-breed-dimension-balance-policy-v1" || balancePolicy.policyRef !== BREED_DIMENSION_BALANCE_POLICY || (balancePolicy.target as GenericRow)?.perControlledValue !== 593) add("BALANCE_POLICY", "Breed dimension balance policy is absent, stale, or has the wrong target.");
+if (factionPolicy.schemaVersion !== "eidolon-breed-faction-projection-policy-v1" || factionPolicy.policyRef !== BREED_FACTION_PROJECTION_POLICY || factionPolicy.pointsPerAttribute !== 1 || (factionPolicy.dominantFaction as GenericRow)?.tolerance !== 1) add("FACTION_POLICY", "Breed faction projection policy is absent, stale, or malformed.");
+if (identities.length !== 2062) add("BREED_COUNT", `Expected 2,062 identities, found ${identities.length}.`);
 if (new Set(identities.map((row) => String(row.breedId))).size !== identities.length) add("DUPLICATE_BREED", "Canonical Breed identity is duplicated.");
 const civic = identities.filter((row) => row.populationKind !== "PET");
-if (civic.length !== 1773 || pets.length !== 283) add("POPULATION_KIND_COUNTS", `Expected 1,773 civic and 283 PET rows; found ${civic.length} and ${pets.length}.`);
-for (const [kind, count] of Object.entries({ HUMAN: 631, BEAST: 961, MYTHOS: 181, PET: 283 })) if (identities.filter((row) => row.populationKind === kind).length !== count) add("POPULATION_KIND_COUNT", `${kind} identity count differs from ${count}.`);
-if (units.length !== 1219 || unitResults.length !== 1219) add("RESEARCH_UNIT_COUNT", `Expected 1,219 units/results, found ${units.length}/${unitResults.length}.`);
-if (evidence.length !== 3657 || citations.length !== 3657 || journals.filter((row) => row.accepted === true).length !== 3657) add("EVIDENCE_CHAIN_COUNT", "Every research unit must have three accepted evidence chains.");
-if (effective.length !== 1773 || edges.length !== 1773) add("EFFECTIVE_COVERAGE_COUNT", "Effective civic semantics and inheritance edges must each cover 1,773 Breeds.");
+if (civic.length !== 1779 || pets.length !== 283) add("POPULATION_KIND_COUNTS", `Expected 1,779 civic and 283 PET rows; found ${civic.length} and ${pets.length}.`);
+for (const [kind, count] of Object.entries({ HUMAN: 631, BEAST: 967, MYTHOS: 181, PET: 283 })) if (identities.filter((row) => row.populationKind === kind).length !== count) add("POPULATION_KIND_COUNT", `${kind} identity count differs from ${count}.`);
+if (units.length !== 1225 || unitResults.length !== 1225) add("RESEARCH_UNIT_COUNT", `Expected 1,225 units/results, found ${units.length}/${unitResults.length}.`);
+if (evidence.length !== 3675 || citations.length !== 3675 || journals.filter((row) => row.accepted === true).length !== 3675) add("EVIDENCE_CHAIN_COUNT", "Every research unit must have three accepted evidence chains.");
+if (effective.length !== 1779 || edges.length !== 1779) add("EFFECTIVE_COVERAGE_COUNT", "Effective civic semantics and inheritance edges must each cover 1,779 Breeds.");
 exact("civic breed", civic.map((row) => String(row.breedId)), effective.map((row) => String(row.breedId)));
 exact("inheritance breed", civic.map((row) => String(row.breedId)), edges.map((row) => String(row.breedId)));
 exact("research unit", units.map((row) => String(row.unitId)), unitResults.map((row) => String(row.researchUnitId)));
 
 const profileIds = new Set(profiles.map((row) => String(row.personalityId)));
+const profileById = new Map(profiles.map((row) => [String(row.personalityId), row]));
 if (profiles.length !== 369) add("PERSONALITY_PROFILE_COUNT", `Expected 369 effective Personality profiles, found ${profiles.length}.`);
 const resultByUnit = new Map(unitResults.map((row) => [String(row.researchUnitId), row]));
 const unitById = new Map(units.map((row) => [String(row.unitId), row]));
@@ -65,7 +76,15 @@ for (const row of effective) {
   if (!profileIds.has(String(row.personalityId)) || !strings(row.terrainBroad).length || !strings(row.terrainSpecific).length) add("CIVIC_CRITICAL_NULL", "Personality or terrain is absent/invalid.", { breedId });
   for (const field of RAW_DIMENSIONS) {
     const value = dimensions?.[field];
-    if (!String(value?.value ?? "") || value?.disposition !== "OWNER_POLICY_VALUE" || value?.policyRef !== PERSONALITY_DIMENSION_POLICY) add("DIMENSION_POLICY_INTEGRITY", `${field} is not a complete owner-policy value.`, { breedId });
+    const personalityValue = value?.disposition === "OWNER_POLICY_VALUE" && value?.policyRef === PERSONALITY_DIMENSION_POLICY;
+    const balancedValue = value?.disposition === "OWNER_BALANCED_VALUE" && value?.policyRef === BREED_DIMENSION_BALANCE_POLICY;
+    if (!String(value?.value ?? "") || (!personalityValue && !balancedValue)) add("DIMENSION_POLICY_INTEGRITY", `${field} is not a complete owner-policy or owner-balanced value.`, { breedId });
+  }
+  try {
+    const expected = projectBreedFaction(dimensions as unknown as Record<string, { value: string }>, Object.fromEntries(RAW_DIMENSIONS.map((field) => [`${field[0]!.toUpperCase()}${field.slice(1)}`, (balanceReport.byField as Record<string, GenericRow>)?.[field]?.values])) as Record<string, Record<"CONCORD" | "SCHISM" | "RUIN", string>>);
+    if (canonicalJson(expected.factionObject) !== canonicalJson(row.factionObject) || canonicalJson(expected.dominantFaction) !== canonicalJson(row.dominantFaction)) add("FACTION_PROJECTION_INTEGRITY", "Persisted factionObject/dominantFaction does not reproduce from all twelve controlled attributes.", { breedId });
+  } catch (error) {
+    add("FACTION_PROJECTION_INTEGRITY", error instanceof Error ? error.message : String(error), { breedId });
   }
   const unit = unitById.get(String(row.researchUnitId)); const result = resultByUnit.get(String(row.researchUnitId));
   if (!unit || !result || !strings(unit.breedIds).includes(breedId) || result.personalityId !== row.personalityId) add("INHERITANCE_ALIGNMENT", "Effective Breed does not resolve through its exact research unit.", { breedId });
@@ -74,8 +93,38 @@ for (const row of pets) {
   const breedId = String(row.breedId); const dimensions = row.dimensions as Record<string, GenericRow> | undefined;
   if (row.personalityId !== null || row.personalityDisposition !== "POLICY_NULL" || row.civicSimulation !== false) add("PET_POLICY", "PET Personality/civic policy is not explicit null/excluded.", { breedId });
   for (const field of RAW_DIMENSIONS) if (dimensions?.[field]?.value !== null || dimensions?.[field]?.disposition !== "POLICY_NULL") add("PET_POLICY", `${field} is not explicit POLICY_NULL.`, { breedId });
+  if (canonicalJson(row.factionObject) !== canonicalJson({ CONCORD: 0, SCHISM: 0, RUIN: 0 }) || canonicalJson(row.dominantFaction) !== canonicalJson([]) || row.factionDisposition !== "POLICY_NULL" || row.factionPolicyRef !== BREED_FACTION_PROJECTION_POLICY) add("PET_FACTION_POLICY", "PET faction projection is not explicit zero/empty POLICY_NULL.", { breedId });
 }
-for (const [field, row] of Object.entries(coverage)) if (Number(row.civicResolved) !== 1773 || Number(row.invalidUnresolved) !== 0) add("CRITICAL_COVERAGE", `${field} does not report 1,773/1,773 resolved with zero invalid/unresolved.`);
+for (const [field, row] of Object.entries(coverage)) if (Number(row.civicResolved) !== 1779 || Number(row.invalidUnresolved) !== 0) add("CRITICAL_COVERAGE", `${field} does not report 1,779/1,779 resolved with zero invalid/unresolved.`);
+
+const reportByField = balanceReport.byField as Record<string, GenericRow> | undefined;
+const balanceMapping = Object.fromEntries(RAW_DIMENSIONS.map((field) => {
+  const key = `${field[0]!.toUpperCase()}${field.slice(1)}`;
+  return [key, reportByField?.[field]?.values];
+})) as Record<string, Record<"CONCORD" | "SCHISM" | "RUIN", string>>;
+const sourceFromProfiles = effective.map((row) => {
+  const profile = profileById.get(String(row.personalityId));
+  const dimensions = profile?.dimensions as Record<string, string> | undefined;
+  return {
+    ...row,
+    dimensions: Object.fromEntries(RAW_DIMENSIONS.map((field) => [field, {
+      value: String(dimensions?.[field] ?? ""),
+      disposition: "OWNER_POLICY_VALUE",
+      policyRef: PERSONALITY_DIMENSION_POLICY,
+    }])),
+  } as unknown as EffectiveBreedSemantics;
+});
+try {
+  const expectedBalance = rebalanceBreedDimensions(sourceFromProfiles, balanceMapping);
+  const expectedFactionProjection = applyBreedFactionProjection(expectedBalance.rows, balanceMapping);
+  if (canonicalJson(expectedFactionProjection.rows) !== canonicalJson(effective)) add("BALANCE_MATERIALIZATION", "Effective Breed semantics do not exactly reproduce from the Personality profiles, balance policy, and faction projection policy.");
+  if (canonicalJson(expectedBalance.report) !== canonicalJson(balanceReport)) add("BALANCE_REPORT", "Recorded Breed balance report does not reproduce exactly.");
+  if (canonicalJson(expectedBalance.changes) !== canonicalJson(balanceChanges)) add("BALANCE_CHANGE_AUDIT", "Recorded Breed balance changes do not reproduce exactly.");
+  if (canonicalJson(expectedFactionProjection.report) !== canonicalJson(factionReport)) add("FACTION_PROJECTION_REPORT", "Recorded Breed faction projection report does not reproduce exactly.");
+  if (expectedBalance.report.targetPerValue !== 593 || Object.values(expectedBalance.report.byField).some((field) => Object.values(field.after).some((count) => count !== 593))) add("BALANCE_DISTRIBUTION", "One or more civic Breed dimensions is not exactly 593/593/593.");
+} catch (error) {
+  add("BALANCE_REPRODUCTION", error instanceof Error ? error.message : String(error));
+}
 
 for (const row of citations) {
   const source = sourceById.get(String(row.sourceId));
@@ -107,7 +156,7 @@ for (let number = 1; number <= 7; number += 1) {
   if (audit.status !== "PASS" || Number((audit.counts as GenericRow).failingUnits) !== 0 || audit.researchArtifactsUnmodified !== true) add("AUDIT_SHARD", `AUDIT_0${number} is not an independent PASS.`);
   auditUnits.push(...(audit.units as GenericRow[]));
 }
-if (auditUnits.length !== 1219 || auditUnits.some((row) => row.status !== "PASS")) add("AUDIT_UNIT_COVERAGE", "All 1,219 research units must have independent PASS findings.");
+if (auditUnits.length !== 1225 || auditUnits.some((row) => row.status !== "PASS")) add("AUDIT_UNIT_COVERAGE", "All 1,225 research units must have independent PASS findings.");
 exact("audited unit", units.map((row) => String(row.unitId)), auditUnits.map((row) => String(row.researchUnitId)));
 
 const effectiveByBreed = new Map(effective.map((row) => [String(row.breedId), row]));
@@ -120,7 +169,7 @@ const regressionResults = [
   { caseId: "AUSTRALIAN_LUNGFISH_PARENTAL_GUARDING", pass: !/PARENT|GUARD/i.test(String(effectiveByBreed.get("BRD_AUSTRALIAN_LUNGFISH")?.personalityId)), detail: "Unsupported parental guarding is not mapped." },
   { caseId: "ALPINE_IBEX_ARBOREAL", pass: !strings(effectiveByBreed.get("BRD_ALPINE_IBEX")?.terrainSpecific).some((token) => /CANOPY|TREE|ARBOR/i.test(token)), detail: "Ibex does not receive arboreal terrain." },
   { caseId: "HUMAN_GENERIC_WOUND_TEMPLATE", pass: !evidence.some((row) => row.targetField === "personalityId" && /^CLT_/.test(String(row.researchUnitId)) && /historical episode at (?:the )?cited locator/i.test(String(row.normalizationBridge))), detail: "Generic Human wound templates are absent." },
-  { caseId: "POLICY_NOT_EMPIRICAL_GOVERNMENT", pass: effective.every((row) => RAW_DIMENSIONS.every((field) => (row.dimensions as Record<string, GenericRow>)[field]?.disposition === "OWNER_POLICY_VALUE")), detail: "Animal/Mythos dimensions are explicitly owner-policy results, not empirical government claims." },
+  { caseId: "POLICY_NOT_EMPIRICAL_GOVERNMENT", pass: effective.every((row) => RAW_DIMENSIONS.every((field) => ["OWNER_POLICY_VALUE", "OWNER_BALANCED_VALUE"].includes(String((row.dimensions as Record<string, GenericRow>)[field]?.disposition)))), detail: "Animal/Mythos dimensions are explicitly owner-policy results, not empirical government claims." },
 ];
 for (const regression of regressionResults) if (!regression.pass) add(`REGRESSION_${regression.caseId}`, regression.detail);
 

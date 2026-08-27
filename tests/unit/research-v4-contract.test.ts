@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  BREED_DIMENSION_BALANCE_POLICY,
   PERSONALITY_DIMENSION_POLICY,
   reconcileResearchUnitIndex,
   validateBatchCompleteness,
@@ -19,6 +20,12 @@ describe("V4 research architecture anti-shortcut gates", () => {
     expect(() => validateEffectiveBreedSemantics({ ...base, personalityId: null }, new Set(["P_VALID"]))).toThrow(/personalityId/i);
     expect(() => validateEffectiveBreedSemantics({ ...base, personalityId: "P_UNKNOWN" }, new Set(["P_VALID"]))).toThrow(/Personality Expression/i);
     expect(() => validateEffectiveBreedSemantics({ ...base, dimensions: { ...completeDimensions, motivation: { value: "TOKEN", disposition: "OWNER_POLICY_VALUE", policyRef: null } } }, new Set(["P_VALID"]))).toThrow(/policyRef/i);
+  });
+
+  it("accepts explicit owner-balanced overrides and rejects crossed provenance pairs", () => {
+    const base = { schemaVersion: "eidolon-effective-breed-semantics-v4", breedId: "BRD_TEST", populationKind: "BEAST", researchUnitId: "SPC_TEST", personalityId: "P_VALID", terrainBroad: ["FOREST"], terrainSpecific: ["WOODLAND"], dimensions: completeDimensions };
+    expect(() => validateEffectiveBreedSemantics({ ...base, dimensions: { ...completeDimensions, motivation: { value: "TOKEN", disposition: "OWNER_BALANCED_VALUE", policyRef: BREED_DIMENSION_BALANCE_POLICY } } }, new Set(["P_VALID"]))).not.toThrow();
+    expect(() => validateEffectiveBreedSemantics({ ...base, dimensions: { ...completeDimensions, motivation: { value: "TOKEN", disposition: "OWNER_BALANCED_VALUE", policyRef: PERSONALITY_DIMENSION_POLICY } } }, new Set(["P_VALID"]))).toThrow(/policyRef/i);
   });
 
   it("rejects consolidation-generated evidence and generic fallback sources", () => {

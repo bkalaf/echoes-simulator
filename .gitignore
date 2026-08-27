@@ -11,3 +11,4 @@ artifacts/implementation/final-verification/generated/
 *.zip
 ECHOES_OF_EIDOLON*
 !resources/canonical/breeds/ECHOES_OF_EIDOLON_BREED_SEMANTICS_V4_SIMULATION_READY.zip
+!resources/canonical/research-corpus/source/EIDOLON_CHAT_CLASSIFICATION_ALL_RESPONSES_0001-6039_REMEDIATED_2026-08-26.zip

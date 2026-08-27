@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "eidolon-simulator-ui-asset-provenance-v1",
+  "sourceFilename": "codex-clipboard-023ae324-0853-40a7-b510-40dfbd4c755c.png",
+  "sourceSha256": "389302b9fc7cef943d065e37b23325cab8dd907a871e55b271b6cfd31625f239",
+  "sourceDimensions": "8192x4096",
+  "derivativeFilename": "master-atlas.webp",
+  "derivativeSha256": "091b96b1463f3b741efa3eabf454eee525df6b600adaacdbf80fbe933cbcf9a3",
+  "derivativeDimensions": "4096x2048",
+  "derivativePurpose": "POI-only operator Atlas background"
+}

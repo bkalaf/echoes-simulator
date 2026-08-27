@@ -1,4 +1,5 @@
 export const PERSONALITY_DIMENSION_POLICY = "PERSONALITY_PROFILE_DIMENSIONS_V1" as const;
+export const BREED_DIMENSION_BALANCE_POLICY = "BREED_DIMENSION_BALANCE_V1" as const;
 export const RAW_DIMENSIONS = [
   "motivation", "operatingStyle", "structureOrientation", "administrationMode", "ownershipMode", "allocationMode",
   "legitimacyBasis", "authoritySource", "loquacity", "emotionalTemperature", "outlookOrientation", "collaborativePosture",
@@ -21,9 +22,15 @@ export interface V4Citation { citationId: string; sourceId: string; locator: str
 export interface V4ResearchEvidence { evidenceId: string; researchUnitId: string; targetField: "personalityId" | "terrainBroad" | "terrainSpecific"; batchId: string; journalEntryId: string; researchedAt: string; sourceOpened: true; sourceUrl: string; sourceTitle: string; locator: string; boundedContext: string; sourceFact: string; normalizationBridge: string; generatedBy: "BATCH_RESEARCH"; }
 export interface V4UnitResult { researchUnitId: string; personalityId: string; terrainBroad: string[]; terrainSpecific: string[]; evidenceRefs: string[]; status: "SIMULATION_READY"; }
 export interface V4InheritanceEdge { researchUnitId: string; breedId: string; inheritanceRule: "EXACT_CULTURE" | "EXACT_SPECIES" | "EXACT_TRADITION"; unitEvidenceRefs: string[]; }
-export interface PolicyDimensionValue { value: string; disposition: "OWNER_POLICY_VALUE"; policyRef: typeof PERSONALITY_DIMENSION_POLICY; }
+export type PolicyDimensionValue =
+  | { value: string; disposition: "OWNER_POLICY_VALUE"; policyRef: typeof PERSONALITY_DIMENSION_POLICY }
+  | { value: string; disposition: "OWNER_BALANCED_VALUE"; policyRef: typeof BREED_DIMENSION_BALANCE_POLICY };
 export interface PersonalityPolicyProfile { family: string; baseDimensions: Record<typeof RAW_DIMENSIONS[number], string>; fieldRationales: Record<typeof RAW_DIMENSIONS[number], string>; duplicateProfileJustification?: string; }
 export interface EffectiveBreedSemantics { schemaVersion: "eidolon-effective-breed-semantics-v4"; breedId: string; populationKind: "HUMAN" | "BEAST" | "MYTHOS"; researchUnitId: string; personalityId: string; terrainBroad: string[]; terrainSpecific: string[]; dimensions: Record<typeof RAW_DIMENSIONS[number], PolicyDimensionValue>; }
+export interface CanonicalEffectiveBreedSemantics extends EffectiveBreedSemantics {
+  factionObject: Record<"CONCORD" | "SCHISM" | "RUIN", number>;
+  dominantFaction: ("CONCORD" | "SCHISM" | "RUIN")[];
+}
 export interface V4AuditFinding { findingId: string; shardId: string; severity: "CRITICAL" | "HIGH" | "MEDIUM" | "LOW"; researchUnitId: string; field: string; status: "OPEN" | "REMEDIATED" | "PASS"; message: string; }
 
 function exactSet(label: string, expected: readonly string[], actual: readonly string[]): void {
@@ -42,8 +49,9 @@ export function validateEffectiveBreedSemantics(candidate: Record<string, unknow
   for (const field of RAW_DIMENSIONS) {
     const value = dimensions?.[field];
     if (!value || typeof value.value !== "string" || !value.value) throw new Error(`Civic raw dimension ${field} cannot be null`);
-    if (value.disposition !== "OWNER_POLICY_VALUE") throw new Error(`${field} must use OWNER_POLICY_VALUE`);
-    if (value.policyRef !== PERSONALITY_DIMENSION_POLICY) throw new Error(`${field} is missing policyRef ${PERSONALITY_DIMENSION_POLICY}`);
+    const personalityValue = value.disposition === "OWNER_POLICY_VALUE" && value.policyRef === PERSONALITY_DIMENSION_POLICY;
+    const balancedValue = value.disposition === "OWNER_BALANCED_VALUE" && value.policyRef === BREED_DIMENSION_BALANCE_POLICY;
+    if (!personalityValue && !balancedValue) throw new Error(`${field} has an invalid disposition/policyRef pair`);
   }
 }
 

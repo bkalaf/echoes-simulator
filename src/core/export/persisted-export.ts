@@ -4,6 +4,8 @@ import type { WorldKey } from "../contracts/domain.js";
 import { resolveSharedCalendar } from "../events/calendar.js";
 import type { SimulatorStore } from "../../persistence/sqlite-store.js";
 import { buildExportZip, verifyExportZip } from "./exporter.js";
+import { loadBundledCanonicalV5 } from "../v5/canonical-adapter.js";
+import { adaptV5ToV4ReadExport, buildReadModelV1 } from "../v5/read-model.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
 const json = <T>(filename: string): T => JSON.parse(readFileSync(filename, "utf8")) as T;
@@ -16,7 +18,7 @@ function checkpointSummary(checkpoint: ReturnType<SimulatorStore["listCheckpoint
 export function buildPersistedCanonicalExport(store: SimulatorStore, runId: string, canonicalDirectory: string): ReturnType<typeof buildExportZip> {
   const run = store.getRun(runId);
   if (!run || run.mode !== "CANONICAL" || run.status !== "COMPLETE" || run.currentYear !== 2_000) throw new Error("Only a completed persisted V4 canonical run can be exported");
-  const manifest = json<{ bundleVersion: string; breedSemanticVersion: string; breedSemanticSha256: string; ownerPolicyVersion: string; personalityPolicyVersion: string; requiredFiles: Record<string, string> }>(resolve(canonicalDirectory, "canonical_bundle_manifest.json"));
+  const manifest = json<{ bundleVersion: string; breedSemanticVersion: string; breedSemanticSha256: string; ownerPolicyVersion: string; personalityPolicyVersion: string; breedDimensionPolicyVersion: string; breedFactionPolicyVersion: string; requiredFiles: Record<string, string> }>(resolve(canonicalDirectory, "canonical_bundle_manifest.json"));
   const skeleton = json<{ events: Parameters<typeof resolveSharedCalendar>[1] }>(resolve(canonicalDirectory, "reference/shared_event_skeleton.json"));
   const sharedEvents = resolveSharedCalendar(run.seed, skeleton.events);
   const allHistory = store.listHistoryRows(runId);
@@ -45,7 +47,62 @@ export function buildPersistedCanonicalExport(store: SimulatorStore, runId: stri
       names, renames: [], namingJobs: namingJobs.filter((row) => row.job.context.world === world), families: names.filter((row) => row.entityType === "FAMILY"),
     }];
   })) as unknown as Parameters<typeof buildExportZip>[0]["worlds"];
-  const result = buildExportZip({ runId, mode: "CANONICAL", seed: run.seed, policyVersion: run.policyVersion, finalYear: 2_000, readiness: [], inputHashes: manifest.requiredFiles, sourceVersions: { canonicalBundle: manifest.bundleVersion, breedSemantics: manifest.breedSemanticVersion, breedSemanticSha256: manifest.breedSemanticSha256, ownerPolicy: manifest.ownerPolicyVersion, personalityPolicy: manifest.personalityPolicyVersion }, sharedEvents, worlds });
+  const result = buildExportZip({ runId, mode: "CANONICAL", seed: run.seed, policyVersion: run.policyVersion, finalYear: 2_000, readiness: [], inputHashes: manifest.requiredFiles, sourceVersions: { canonicalBundle: manifest.bundleVersion, breedSemantics: manifest.breedSemanticVersion, breedSemanticSha256: manifest.breedSemanticSha256, ownerPolicy: manifest.ownerPolicyVersion, personalityPolicy: manifest.personalityPolicyVersion, breedDimensionPolicy: manifest.breedDimensionPolicyVersion, breedFactionPolicy: manifest.breedFactionPolicyVersion }, sharedEvents, worlds });
+  verifyExportZip(result.bytes);
+  return result;
+}
+
+export function buildPersistedV5Export(store: SimulatorStore, runId: string, canonicalDirectory: string): ReturnType<typeof buildExportZip> {
+  const run = store.getRun(runId);
+  const manifest = store.loadV5RunManifest(runId);
+  if (!run || !manifest || run.status !== "COMPLETE") throw new Error("Only a completed persisted V5 run can be exported");
+  const canonical = loadBundledCanonicalV5(canonicalDirectory);
+  if (canonical.canonicalBundleHash !== manifest.canonicalBundleHash) throw new Error("V5 export canonical bundle does not match the immutable run manifest");
+  const labels = store.loadV5Labels(runId);
+  const worlds = Object.fromEntries(WORLDS.map((world) => {
+    const checkpoint = store.loadLatestV5Checkpoint(runId, world, run.currentYear ?? manifest.targetYear);
+    if (!checkpoint || checkpoint.state.year !== run.currentYear) throw new Error(`V5 export lacks final ${world} checkpoint`);
+    const state = checkpoint.state;
+    const compatible = adaptV5ToV4ReadExport(state, canonical, manifest.mechanicsVariables);
+    const read = buildReadModelV1(state, canonical, manifest.mechanicsVariables, labels);
+    const events = store.listV5CausalEvents(runId, world, state.year);
+    const checkpoints = store.listV5CheckpointMetadata(runId, world, state.year);
+    return [world, {
+      totalPopulation: BigInt(read.totalPopulation),
+      events,
+      settlements: compatible.settlements.map((settlement) => ({ ...settlement, name: read.settlements.find((row) => row.settlementId === settlement.settlementId)?.label ?? settlement.settlementId })),
+      annual: checkpoints,
+      annualStates: [],
+      states: read.states,
+      stateMembershipEvents: events.filter((event) => event.eventType === "StateMembershipChanged" || event.eventType === "StateSeceded"),
+      governmentEpochs: events.filter((event) => event.eventType === "GovernmentTransition"),
+      economicEpochs: [],
+      socialSummaries: events.filter((event) => event.eventType === "TierMobilityTransfer"),
+      wealthSummaries: compatible.cohorts.map((cohort) => ({ cohortId: cohort.cohortId, breedId: cohort.breedId, settlementId: cohort.settlementId, wealth: cohort.wealthScore, population: cohort.population, tiers: cohort.tiers })),
+      populationCheckpoints: checkpoints,
+      populationDeltas: events.filter((event) => ["NaturalDemographyCompleted", "MigrationTransfer", "FoundingTransfer", "WarEpisode"].includes(event.eventType)),
+      cohorts: compatible.cohorts,
+      propertyProjections: read.settlements.map((settlement) => ({ settlementId: settlement.settlementId, year: state.year, dominantFaction: settlement.dominantFaction })),
+      migrations: events.filter((event) => event.eventType === "MigrationTransfer"),
+      founding: events.filter((event) => event.eventType === "SettlementFounded"),
+      djt: events.filter((event) => event.eventType === "DJT"),
+      conclaveSeats: [], conclaveSnapshots: [], senateSeats: [],
+      names: Object.entries(labels).map(([entityId, name]) => ({ entityId, name })),
+      renames: [], namingJobs: store.listV5NamingRequests(runId), families: state.families,
+    }];
+  })) as unknown as Parameters<typeof buildExportZip>[0]["worlds"];
+  const result = buildExportZip({
+    runId,
+    mode: manifest.mode,
+    seed: run.seed,
+    policyVersion: manifest.mechanicsVersion,
+    finalYear: run.currentYear ?? manifest.targetYear,
+    readiness: manifest.mode === "DIAGNOSTIC" ? [{ issueCode: "DIAGNOSTIC_V5", severity: "WARNING", blocksCanonical: false, message: "Diagnostic candidate policies; not canonical history." }] : [],
+    inputHashes: { canonicalBundleHash: manifest.canonicalBundleHash, mechanicsVariablesHash: manifest.mechanicsVariablesHash, causalOwnerInputsHash: manifest.causalOwnerInputsHash },
+    sourceVersions: { mechanics: manifest.mechanicsVersion, causalDerivations: manifest.causalDerivationVersion, scheduler: manifest.schedulerVersion, keyedRandom: manifest.keyedRandomVersion, readModel: manifest.readModelVersion },
+    sharedEvents: [...canonical.canonicalEvents],
+    worlds,
+  });
   verifyExportZip(result.bytes);
   return result;
 }

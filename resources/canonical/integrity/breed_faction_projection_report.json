@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "eidolon-breed-faction-projection-report-v1",
+  "policyRef": "BREED_FACTION_PROJECTION_V1",
+  "totalCivicBreeds": 1779,
+  "attributesPerBreed": 12,
+  "pointsPerAttribute": 1,
+  "pointsPerBreed": 12,
+  "dominantFactionTolerance": 1,
+  "factionPointTotals": {
+    "CONCORD": 7116,
+    "SCHISM": 7116,
+    "RUIN": 7116
+  },
+  "dominantFactionMembershipCounts": {
+    "CONCORD": 841,
+    "SCHISM": 906,
+    "RUIN": 823
+  },
+  "dominantFactionCombinationCounts": {
+    "CONCORD": 443,
+    "CONCORD+RUIN": 194,
+    "CONCORD+SCHISM": 145,
+    "CONCORD+SCHISM+RUIN": 59,
+    "RUIN": 236,
+    "SCHISM": 368,
+    "SCHISM+RUIN": 334
+  },
+  "factionScoreDistribution": {
+    "CONCORD": {
+      "0": 17,
+      "1": 115,
+      "2": 339,
+      "3": 401,
+      "4": 240,
+      "5": 191,
+      "6": 220,
+      "7": 182,
+      "8": 55,
+      "9": 19
+    },
+    "SCHISM": {
+      "0": 29,
+      "1": 113,
+      "2": 255,
+      "3": 344,
+      "4": 338,
+      "5": 305,
+      "6": 234,
+      "7": 116,
+      "8": 38,
+      "9": 6,
+      "10": 1
+    },
+    "RUIN": {
+      "0": 5,
+      "1": 64,
+      "2": 227,
+      "3": 406,
+      "4": 461,
+      "5": 343,
+      "6": 163,
+      "7": 70,
+      "8": 14,
+      "9": 19,
+      "10": 7
+    }
+  },
+  "multipleDominantFactionBreeds": 732
+}

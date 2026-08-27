@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eidolon.local/simulator/schemas/naming-batch-response-v1.json",
+  "title": "NamingBatchResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "namingBatchId", "jobs"],
+  "properties": {
+    "schemaVersion": { "const": "eidolon-simulator-naming-batch-response-v1" },
+    "namingBatchId": { "type": "string", "minLength": 1 },
+    "jobs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["namingJobId", "decisions"],
+        "properties": {
+          "namingJobId": { "type": "string", "minLength": 1 },
+          "decisions": { "type": "array", "items": { "$ref": "#/$defs/decision" } }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requestId", "entityType", "decision", "name"],
+      "properties": {
+        "requestId": { "type": "string", "minLength": 1 },
+        "entityType": { "enum": ["SETTLEMENT", "POI", "GOVERNMENT", "FAMILY"] },
+        "decision": { "enum": ["NEW", "REUSE"] },
+        "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "reuseSourceAcceptedNameId": { "type": ["string", "null"] },
+        "pronunciation": { "type": ["string", "null"], "maxLength": 300 },
+        "rationale": { "type": ["string", "null"], "maxLength": 1000 },
+        "scopeDescription": { "type": ["string", "null"], "maxLength": 2000 },
+        "sizeDescription": { "type": ["string", "null"], "maxLength": 1000 },
+        "structureDescription": { "type": ["string", "null"], "maxLength": 4000 },
+        "roleLabel": { "type": ["string", "null"], "maxLength": 300 },
+        "dynastyName": { "type": ["string", "null"], "maxLength": 200 },
+        "notes": { "type": ["string", "null"], "maxLength": 2000 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "decision": { "const": "REUSE" } } },
+          "then": { "required": ["reuseSourceAcceptedNameId"], "properties": { "reuseSourceAcceptedNameId": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "entityType": { "const": "GOVERNMENT" } } },
+          "then": { "required": ["scopeDescription", "sizeDescription", "structureDescription"] }
+        },
+        {
+          "if": { "properties": { "entityType": { "const": "FAMILY" } } },
+          "then": { "required": ["roleLabel"] }
+        }
+      ]
+    }
+  }
+}
