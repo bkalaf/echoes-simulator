@@ -1,4 +1,4 @@
-import { mkdtempSync } from "node:fs";
+import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { _electron as electron, expect, test, type ElectronApplication } from "@playwright/test";
@@ -8,6 +8,28 @@ async function launch(userData: string, environment: Record<string, string> = {}
     args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-seccomp-filter-sandbox", "--disable-gpu-sandbox", "--no-zygote", `--user-data-dir=${userData}`, "."],
     env: { ...process.env, ELECTRON_DISABLE_SANDBOX: "1", ...environment },
   });
+}
+
+function writeNamingGeographyFixture(directory: string): string {
+  const worlds = ["CONCORD", "SCHISM", "RUIN"] as const;
+  const patterns = ["AAA", "AAB", "ABA", "BAA", "ABC", "INCOMPLETE"] as const;
+  const routes = ["ROUTE_CORRIDOR_R01_R03", "ROUTE_CORRIDOR_R01_R04", "ROUTE_CORRIDOR_R01_R05", "ROUTE_CORRIDOR_R01_R06", "ROUTE_CORRIDOR_R01_R08", "ROUTE_CORRIDOR_R02_R04"];
+  const labels = (pattern: typeof patterns[number]) => pattern === "AAA" ? ["Shared", " shared ", "SHARED"] : pattern === "AAB" ? ["Pair", "PAIR", "Odd"] : pattern === "ABA" ? ["Pair", "Odd", "PAIR"] : pattern === "BAA" ? ["Odd", "Pair", "PAIR"] : pattern === "ABC" ? ["One", "Two", "Three"] : [null, "Pending", "Pending"];
+  const rows = (["SETTLEMENT", "POI", "ROUTE"] as const).flatMap((entityType) => patterns.map((pattern, index) => {
+    const physicalIdentity = entityType === "SETTLEMENT" ? `SITE-00${index + 1}` : entityType === "POI" ? `POI-00${index + 1}` : routes[index]!;
+    const oddWorld = pattern === "AAB" ? "RUIN" : pattern === "ABA" ? "SCHISM" : pattern === "BAA" ? "CONCORD" : null;
+    const values = labels(pattern);
+    return {
+      entityType, physicalIdentity, secondaryReference: entityType === "ROUTE" ? "R01 ↔ R03" : "test-only physical identity", continentGroup: "Northwestern", pattern,
+      comparisonAuditStatus: "COMPARISON_AWARE",
+      atlasTarget: entityType === "SETTLEMENT" ? { kind: "SITE", ids: [physicalIdentity] } : entityType === "POI" ? { kind: "POI", ids: [physicalIdentity] } : { kind: "ROUTE", ids: ["R01", "R03"] },
+      cells: Object.fromEntries(worlds.map((world, worldIndex) => [world, { worldKey: world, entityId: `${entityType}_${world}_${physicalIdentity}`, label: values[worldIndex], display: values[worldIndex] ?? "PENDING", status: values[worldIndex] ? "ACCEPTED" : "PENDING", source: values[worldIndex] ? "OWNER_INPUT" : null, cssClass: pattern === "ABC" ? "name-divergence-all" : oddWorld === world ? "name-divergence-odd" : pattern === "INCOMPLETE" ? "name-incomplete" : null }]))
+    };
+  }));
+  rows.push({ entityType: "ROUTE", physicalIdentity: "ROUTE_CORRIDOR_R03_R06", secondaryReference: "R03 ↔ R06", continentGroup: "Northwestern", pattern: "INCOMPLETE", comparisonAuditStatus: "UNCOORDINATED", atlasTarget: { kind: "ROUTE", ids: ["R03", "R06"] }, cells: Object.fromEntries(worlds.map((world) => [world, { worldKey: world, entityId: `WORLD_ROUTE_${world}_ROUTE_CORRIDOR_R03_R06`, label: null, display: "NOT READY FOR NAMING", status: "MODE_UNRESOLVED", source: null, cssClass: "name-incomplete" }])) } as never);
+  const path = join(directory, "naming-geography-fixture.json");
+  writeFileSync(path, JSON.stringify({ schemaVersion: "echoes-naming-geography-v1", year: 2000, rows, summaries: { Northwestern: { AAA: 3, AAB_FAMILY: 9, ABC: 3, INCOMPLETE: 4 } } }), "utf8");
+  return path;
 }
 
 test("clean startup is V5-first and legacy V4 diagnostics persist behind Diagnostics", async () => {
@@ -131,13 +153,25 @@ test("Breed Detail search and the POI-only master Atlas render through desktop I
 });
 
 test("V5 operator views render persisted economics, comparisons, routes, people, families, and chambers", async () => {
-  test.setTimeout(180_000);
+  test.setTimeout(420_000);
   const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-v5-views-"));
   const application = await launch(userData);
   try {
     const page = await application.firstWindow();
     await page.getByRole("button", { name: "RUN V5 TO YEAR 25" }).click();
-    await expect(page.getByText(/V5_DIAGNOSTIC_.*COMPLETE.*year 25/)).toBeVisible({ timeout: 120_000 });
+    await page.getByRole("button", { name: "Naming Queue" }).click();
+    await expect(page.getByText(/V5_DIAGNOSTIC_.*WAITING_FOR_NAMING.*year 25/).first()).toBeVisible({ timeout: 360_000 });
+    await expect(page.getByLabel("Naming batch prompt")).toContainText("Treat these entities as alternate-world counterparts.");
+    await expect(page.getByLabel("Naming batch prompt")).toContainText("Do not attempt to satisfy the simulator's 65/25/10 diagnostic target.");
+    const v5Response = await page.evaluate(async () => {
+      const simulator = (window as unknown as { eidolonSimulator: { getOperatorSnapshot(): Promise<{ pendingV5NamingBatches: { batchId: string; runId: string; items: { requestId: string; entityType: string; entityId: string; nameEffectiveFromYear?: number; createdYear: number }[] }[] }> } }).eidolonSimulator;
+      const batch = (await simulator.getOperatorSnapshot()).pendingV5NamingBatches[0]!;
+      return JSON.stringify({ schemaVersion: "echoes-v5-naming-batch-response-v2", batchId: batch.batchId, runId: batch.runId, decisions: batch.items.map((item, index) => ({ requestId: item.requestId, entityType: item.entityType, entityId: item.entityId, label: `Isolated E2E LLM Name ${index + 1}`, nameEffectiveFromYear: item.nameEffectiveFromYear ?? item.createdYear })) });
+    });
+    await page.getByLabel("Naming response JSON").fill(v5Response);
+    await page.getByRole("button", { name: "VALIDATE & ACCEPT" }).click();
+    await expect(page.getByRole("status")).toContainText("Naming response accepted and persisted.", { timeout: 30_000 });
+    await expect(page.getByText("ACCEPTED FROM LLM", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Settlement Detail" }).click();
     await expect(page.getByLabel("Select Settlement")).toBeVisible();
     await expect(page.getByText("No resolved denominator", { exact: true })).toHaveCount(0);
@@ -174,8 +208,38 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
     await expect(page.getByText("FAMILY / LEGACY DETAIL", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Conclave" }).click();
     await expect(page.getByLabel("CONCLAVE chamber")).toBeVisible();
+    await expect(page.getByText("NO CANONICAL CONCLAVE OFFICE AUTHORITY", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Senate" }).click();
     await expect(page.getByLabel("SENATE chamber")).toBeVisible();
+    await expect(page.getByText("NO CANONICAL SENATE OFFICE AUTHORITY", { exact: true })).toBeVisible();
+  } finally { await application.close(); }
+});
+
+test("Naming Geography fixtures classify and style all three physical entity tables and highlight Route endpoints", async () => {
+  const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-naming-geography-"));
+  const fixturePath = writeNamingGeographyFixture(userData);
+  const application = await launch(userData, { NODE_ENV: "test", EIDOLON_V5_NAMING_GEOGRAPHY_FIXTURE: fixturePath });
+  try {
+    const page = await application.firstWindow();
+    await page.getByRole("button", { name: "Naming Geography" }).click();
+    await expect(page.getByText("SETTLEMENTS", { exact: true })).toBeVisible();
+    await expect(page.getByText("POIs", { exact: true })).toBeVisible();
+    await expect(page.getByText("NAMED ROUTES", { exact: true })).toBeVisible();
+    await expect(page.getByText("Northwestern", { exact: true }).first()).toBeVisible();
+    for (const tableName of ["SETTLEMENTS", "POIs", "NAMED ROUTES"]) {
+      const table = page.locator("section.naming-table").filter({ hasText: tableName });
+      await expect(table.locator(".name-divergence-all")).toHaveCount(3);
+      await expect(table.locator(".name-divergence-odd")).toHaveCount(3);
+      await expect(table.getByText("COMPARISON_AWARE", { exact: true }).first()).toBeVisible();
+    }
+    await expect(page.locator("td", { hasText: "NOT READY FOR NAMING" }).first()).toBeVisible();
+    await page.getByLabel("POI canaries only").check();
+    const poiTable = page.locator("section.naming-table").filter({ hasText: "POIs" });
+    await expect(poiTable.getByRole("heading", { name: "4 physical identities" })).toBeVisible();
+    const routeTable = page.locator("section.naming-table").filter({ hasText: "NAMED ROUTES" });
+    await routeTable.getByRole("button", { name: "SHOW ON ATLAS" }).first().click();
+    await expect(page.getByText("SELECTED ROUTE", { exact: true })).toBeVisible();
+    await expect(page.locator(".region-endpoint.selected")).toHaveCount(2);
   } finally { await application.close(); }
 });
 

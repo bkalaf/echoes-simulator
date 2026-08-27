@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "echoes-v5-storage-reconciliation-v1",
+  "baselineDatabaseBytes": 2579591168,
+  "candidateDatabaseBytesAfterClose": 2585317376,
+  "grossDatabaseGrowthBytes": 5726208,
+  "accountedStabilizationPageBytes": 9875456,
+  "diagnosticTableAndIndexBytes": 389120,
+  "namingTableAndIndexBytes": 9486336,
+  "diagnosticPayloadBytes": 287812,
+  "diagnosticRows": 107,
+  "maximumDiagnosticPayloadBytes": 23041,
+  "unexplainedGrowthBytes": 0,
+  "causalEventCount": 1593500,
+  "checkpointCount": 1203,
+  "status": "PASS",
+  "note": "The durable main-database growth is smaller than the explicitly accounted naming and bounded-diagnostic page allocation. WAL and SHM bytes are reported separately and are not durable size regression."
+}

@@ -1,17 +1,22 @@
 import { DatabaseSync } from "node:sqlite";
 import { createHash } from "node:crypto";
 import { dirname } from "node:path";
-import { mkdirSync } from "node:fs";
+import { existsSync, mkdirSync } from "node:fs";
 import { gzipSync, gunzipSync } from "node:zlib";
 import { canonicalJson } from "../core/serialization/canonical-json.js";
 import type { NamingJob } from "../core/naming/naming.js";
 import type { CheckpointEnvelope } from "../core/contracts/domain.js";
 import type { Cohort } from "../core/engine/cohort-engine.js";
-import type { CausalEventV5, NamingRequestV5, WorldStateV5 } from "../core/v5/types.js";
+import type { AcceptedLabelLedgerEntryV5, CausalEventV5, NamingRequestV5, WorldStateV5 } from "../core/v5/types.js";
+import type { PersistedNamingBatchV5 } from "../core/v5/naming.js";
+import { validateAcceptedLabelProvenanceV5 } from "../core/v5/naming.js";
 import type { V5RunManifest } from "../core/v5/persistence.js";
 import { V5_EMPTY_EVENT_HISTORY_HASH, extendV5EventHistoryHashFromCanonicalJson, restoreWorldStateV5, v5CheckpointHash } from "../core/v5/persistence.js";
 import type { EditableV5Configuration } from "../core/v5/configuration.js";
 import { defaultEditableV5Configuration, restoreDiagnosticConfigV1, restoreMechanicsVariablesV1, restoreOperationalConfigV1 } from "../core/v5/configuration.js";
+import { inspectLegacyV5NamingTrust } from "./v5-legacy-trust.js";
+import { mergeBoundedDiagnosticObservations, type BoundedDiagnosticObservationV5 } from "../core/v5/diagnostics.js";
+import type { DivergenceTraceV5 } from "../core/v5/divergence-diagnostics.js";
 
 export interface StoredRun {
   runId: string;
@@ -67,6 +72,10 @@ export class SimulatorStore {
 
   constructor(readonly filename: string) {
     mkdirSync(dirname(filename), { recursive: true });
+    if (existsSync(filename)) {
+      const trust = inspectLegacyV5NamingTrust(filename);
+      if (trust.requiresFreshTrustedDatabase) throw new Error(`LEGACY_UNTRUSTED_NAMING: open ${filename} read-only for diagnostics and create a fresh V5 database for trusted naming`);
+    }
     this.database = new DatabaseSync(filename);
     this.database.exec("PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON;");
     this.migrate();
@@ -294,6 +303,66 @@ export class SimulatorStore {
         request_json TEXT NOT NULL,
         PRIMARY KEY(run_id, request_id)
       );
+      CREATE TABLE IF NOT EXISTS v5_label_ledger (
+        ledger_entry_id TEXT PRIMARY KEY,
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        world_key TEXT,
+        entity_type TEXT NOT NULL,
+        entity_id TEXT NOT NULL,
+        label TEXT NOT NULL,
+        source TEXT NOT NULL CHECK(source IN ('CANONICAL_EXISTING','OWNER_INPUT','LLM_NAMING_RESPONSE','AUTOMATIC_REUSE','TEST_FIXTURE')),
+        source_request_id TEXT,
+        source_authority_ref TEXT,
+        source_batch_id TEXT,
+        source_response_attempt_id TEXT,
+        name_effective_from_year INTEGER NOT NULL,
+        acceptance_year INTEGER NOT NULL,
+        reused_from_entity_id TEXT,
+        reused_from_ledger_entry_id TEXT,
+        naming_comparison_group_id TEXT,
+        comparison_authority_ref TEXT,
+        entry_json TEXT NOT NULL,
+        UNIQUE(run_id, entity_id, name_effective_from_year)
+      );
+      CREATE INDEX IF NOT EXISTS v5_label_ledger_effective ON v5_label_ledger(run_id, entity_id, name_effective_from_year, acceptance_year);
+      CREATE TABLE IF NOT EXISTS v5_naming_batch_audit (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        batch_id TEXT NOT NULL,
+        behavior TEXT NOT NULL CHECK(behavior IN ('BLOCKING','BATCHED')),
+        year INTEGER NOT NULL,
+        prompt_sha256 TEXT NOT NULL,
+        batch_json TEXT NOT NULL,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY(run_id, batch_id)
+      );
+      CREATE TABLE IF NOT EXISTS v5_naming_response_attempt (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        batch_id TEXT NOT NULL,
+        attempt_id TEXT NOT NULL,
+        accepted INTEGER NOT NULL CHECK(accepted IN (0,1)),
+        response_text TEXT NOT NULL,
+        errors_json TEXT NOT NULL,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY(run_id, attempt_id),
+        FOREIGN KEY(run_id, batch_id) REFERENCES v5_naming_batch_audit(run_id, batch_id)
+      );
+      CREATE TABLE IF NOT EXISTS v5_diagnostic_summary (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        world_key TEXT NOT NULL,
+        domain TEXT NOT NULL,
+        through_year INTEGER NOT NULL,
+        payload_json TEXT NOT NULL,
+        payload_bytes INTEGER NOT NULL,
+        PRIMARY KEY(run_id, world_key, domain)
+      );
+      CREATE TABLE IF NOT EXISTS v5_divergence_trace (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        comparison_id TEXT NOT NULL,
+        category TEXT NOT NULL,
+        trace_json TEXT NOT NULL,
+        payload_bytes INTEGER NOT NULL,
+        PRIMARY KEY(run_id, comparison_id)
+      );
       CREATE TABLE IF NOT EXISTS v5_configuration (
         singleton INTEGER PRIMARY KEY CHECK(singleton = 1),
         mechanics_json TEXT NOT NULL,
@@ -421,12 +490,12 @@ export class SimulatorStore {
     return (this.database.prepare("SELECT COUNT(*) AS count FROM v5_checkpoint WHERE run_id=?").get(runId) as { count: number }).count;
   }
 
-  saveV5Labels(runId: string, acceptedYear: number, labels: Readonly<Record<string, string>>): void {
-    const insert = this.database.prepare(`INSERT INTO v5_label_input(run_id, entity_id, label, accepted_year) VALUES (?, ?, ?, ?)
-      ON CONFLICT(run_id, entity_id) DO UPDATE SET label=excluded.label, accepted_year=excluded.accepted_year`);
-    this.database.exec("BEGIN IMMEDIATE");
-    try { for (const [entityId, label] of Object.entries(labels).sort(([a], [b]) => a.localeCompare(b))) { if (!label.trim()) throw new Error(`Empty V5 label for ${entityId}`); insert.run(runId, entityId, label.trim(), acceptedYear); } this.database.exec("COMMIT"); }
-    catch (error) { this.database.exec("ROLLBACK"); throw error; }
+  recordV5AcceptedLabel(entry: AcceptedLabelLedgerEntryV5, runMode: "PRODUCTION" | "REMEDIATION" | "TEST" = "PRODUCTION"): void {
+    validateAcceptedLabelProvenanceV5(entry, runMode);
+    const request = entry.sourceRequestId ? this.database.prepare("SELECT request_json FROM v5_naming_request WHERE run_id=? AND request_id=?").get(entry.runId, entry.sourceRequestId) as { request_json: string } | undefined : undefined;
+    if (entry.source === "LLM_NAMING_RESPONSE" && !request) throw new Error(`LLM naming source request ${entry.sourceRequestId} is not persisted`);
+    this.database.prepare(`INSERT INTO v5_label_ledger(ledger_entry_id,run_id,world_key,entity_type,entity_id,label,source,source_request_id,source_authority_ref,source_batch_id,source_response_attempt_id,name_effective_from_year,acceptance_year,reused_from_entity_id,reused_from_ledger_entry_id,naming_comparison_group_id,comparison_authority_ref,entry_json)
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(entry.ledgerEntryId, entry.runId, entry.worldKey, entry.entityType, entry.entityId, entry.label, entry.source, entry.sourceRequestId, entry.sourceAuthorityRef, entry.sourceBatchId, entry.sourceResponseAttemptId, entry.nameEffectiveFromYear, entry.acceptanceYear, entry.reusedFromEntityId, entry.reusedFromLedgerEntryId, entry.namingComparisonGroupId, entry.comparisonAuthorityRef, canonicalJson(entry));
   }
 
   saveV5NamingRequests(runId: string, requests: readonly NamingRequestV5[]): void {
@@ -434,7 +503,26 @@ export class SimulatorStore {
     const insert = this.database.prepare(`INSERT INTO v5_naming_request(run_id, request_id, request_json) VALUES (?, ?, ?)
       ON CONFLICT(run_id, request_id) DO UPDATE SET request_json=excluded.request_json`);
     this.database.exec("BEGIN IMMEDIATE");
-    try { for (const request of [...requests].sort((a, b) => a.requestId.localeCompare(b.requestId))) insert.run(runId, request.requestId, canonicalJson(request)); this.database.exec("COMMIT"); }
+    try {
+      for (const request of [...requests].sort((a, b) => a.requestId.localeCompare(b.requestId))) {
+        insert.run(runId, request.requestId, canonicalJson(request));
+        if (request.acceptedLabel) {
+          const authority = typeof request.context?.canonicalNamingAuthorityRef === "string" ? request.context.canonicalNamingAuthorityRef : null;
+          if (!authority) throw new Error(`Accepted request ${request.requestId} lacks explicit canonical naming authority`);
+          const entry: AcceptedLabelLedgerEntryV5 = {
+            ledgerEntryId: `V5_LABEL_${createHash("sha256").update(`${runId}\0${request.entityId}\0${request.nameEffectiveFromYear ?? request.createdYear}`).digest("hex")}`,
+            runId, worldKey: request.worldKey ?? null, entityType: request.entityType, entityId: request.entityId, label: request.acceptedLabel,
+            source: "CANONICAL_EXISTING", sourceRequestId: null, sourceAuthorityRef: authority, sourceBatchId: null, sourceResponseAttemptId: null,
+            nameEffectiveFromYear: request.nameEffectiveFromYear ?? request.createdYear, acceptanceYear: request.createdYear,
+            reusedFromEntityId: null, reusedFromLedgerEntryId: null, namingComparisonGroupId: request.namingComparisonGroupId ?? null, comparisonAuthorityRef: request.comparisonAuthorityRef ?? null,
+          };
+          validateAcceptedLabelProvenanceV5(entry, "PRODUCTION");
+          this.database.prepare(`INSERT OR IGNORE INTO v5_label_ledger(ledger_entry_id,run_id,world_key,entity_type,entity_id,label,source,source_request_id,source_authority_ref,source_batch_id,source_response_attempt_id,name_effective_from_year,acceptance_year,reused_from_entity_id,reused_from_ledger_entry_id,naming_comparison_group_id,comparison_authority_ref,entry_json) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
+            .run(entry.ledgerEntryId, entry.runId, entry.worldKey, entry.entityType, entry.entityId, entry.label, entry.source, entry.sourceRequestId, entry.sourceAuthorityRef, entry.sourceBatchId, entry.sourceResponseAttemptId, entry.nameEffectiveFromYear, entry.acceptanceYear, entry.reusedFromEntityId, entry.reusedFromLedgerEntryId, entry.namingComparisonGroupId, entry.comparisonAuthorityRef, canonicalJson(entry));
+        }
+      }
+      this.database.exec("COMMIT");
+    }
     catch (error) { this.database.exec("ROLLBACK"); throw error; }
   }
 
@@ -442,12 +530,93 @@ export class SimulatorStore {
     return (this.database.prepare("SELECT request_json FROM v5_naming_request WHERE run_id=? ORDER BY request_id").all(runId) as { request_json: string }[]).map((row) => JSON.parse(row.request_json) as NamingRequestV5);
   }
 
-  loadV5Labels(runId: string): Record<string, string> {
-    const rows = this.database.prepare("SELECT entity_id, label FROM v5_label_input WHERE run_id=? ORDER BY entity_id").all(runId) as { entity_id: string; label: string }[];
+  loadV5Labels(runId: string, effectiveYear = Number.MAX_SAFE_INTEGER): Record<string, string> {
+    const rows = this.database.prepare(`SELECT entity_id, label FROM v5_label_ledger WHERE run_id=? AND source!='TEST_FIXTURE'
+      AND name_effective_from_year<=? AND (entity_id, name_effective_from_year) IN (SELECT entity_id, MAX(name_effective_from_year) FROM v5_label_ledger WHERE run_id=? AND source!='TEST_FIXTURE' AND name_effective_from_year<=? GROUP BY entity_id) ORDER BY entity_id`).all(runId, effectiveYear, runId, effectiveYear) as { entity_id: string; label: string }[];
     return Object.fromEntries(rows.map((row) => [row.entity_id, row.label]));
   }
 
-  acceptV5NamingRequests(runId: string, decisions: readonly { requestId: string; entityId: string; label: string }[], acceptedYear: number, behavior: "BLOCKING" | "BATCHED" = "BLOCKING"): void {
+  loadV5TrustedLabelLedger(runId: string, effectiveYear = Number.MAX_SAFE_INTEGER): AcceptedLabelLedgerEntryV5[] {
+    return (this.database.prepare("SELECT entry_json FROM v5_label_ledger WHERE run_id=? AND source!='TEST_FIXTURE' AND name_effective_from_year<=? ORDER BY entity_type,entity_id,name_effective_from_year").all(runId, effectiveYear) as { entry_json: string }[]).map((row) => JSON.parse(row.entry_json) as AcceptedLabelLedgerEntryV5);
+  }
+
+  saveV5NamingBatchAudit(batch: PersistedNamingBatchV5): void {
+    this.database.prepare("INSERT OR IGNORE INTO v5_naming_batch_audit(run_id,batch_id,behavior,year,prompt_sha256,batch_json) VALUES (?,?,?,?,?,?)")
+      .run(batch.runId, batch.batchId, batch.behavior, batch.year, batch.promptSha256, canonicalJson(batch));
+  }
+
+  saveV5NamingResponseAttempt(input: { runId: string; batchId: string; attemptId: string; accepted: boolean; response: unknown; errors: readonly string[] }): void {
+    this.database.prepare("INSERT INTO v5_naming_response_attempt(run_id,batch_id,attempt_id,accepted,response_text,errors_json) VALUES (?,?,?,?,?,?)")
+      .run(input.runId, input.batchId, input.attemptId, input.accepted ? 1 : 0, canonicalJson(input.response), canonicalJson(input.errors));
+  }
+
+  mergeV5DiagnosticObservations(runId: string, observations: readonly BoundedDiagnosticObservationV5[]): void {
+    if (observations.length === 0) return;
+    const load = this.database.prepare("SELECT payload_json FROM v5_diagnostic_summary WHERE run_id=? AND world_key=? AND domain=?");
+    const upsert = this.database.prepare(`INSERT INTO v5_diagnostic_summary(run_id,world_key,domain,through_year,payload_json,payload_bytes) VALUES (?,?,?,?,?,?)
+      ON CONFLICT(run_id,world_key,domain) DO UPDATE SET through_year=excluded.through_year,payload_json=excluded.payload_json,payload_bytes=excluded.payload_bytes`);
+    this.database.exec("BEGIN IMMEDIATE");
+    try {
+      for (const observation of observations) {
+        const row = load.get(runId, observation.worldKey, observation.domain) as { payload_json: string } | undefined;
+        const merged = mergeBoundedDiagnosticObservations(row ? JSON.parse(row.payload_json) as BoundedDiagnosticObservationV5 : null, observation);
+        const payload = canonicalJson(merged);
+        upsert.run(runId, merged.worldKey, merged.domain, merged.year, payload, Buffer.byteLength(payload));
+      }
+      this.database.exec("COMMIT");
+    } catch (error) { this.database.exec("ROLLBACK"); throw error; }
+  }
+
+  listV5DiagnosticSummaries(runId: string): BoundedDiagnosticObservationV5[] {
+    return (this.database.prepare("SELECT payload_json FROM v5_diagnostic_summary WHERE run_id=? ORDER BY world_key,domain").all(runId) as { payload_json: string }[]).map((row) => JSON.parse(row.payload_json) as BoundedDiagnosticObservationV5);
+  }
+
+  saveV5DivergenceTraces(runId: string, traces: readonly DivergenceTraceV5[]): void {
+    if (traces.length === 0) return;
+    const upsert = this.database.prepare(`INSERT INTO v5_divergence_trace(run_id,comparison_id,category,trace_json,payload_bytes) VALUES (?,?,?,?,?)
+      ON CONFLICT(run_id,comparison_id) DO UPDATE SET category=excluded.category,trace_json=excluded.trace_json,payload_bytes=excluded.payload_bytes`);
+    this.database.exec("BEGIN IMMEDIATE");
+    try {
+      for (const trace of traces) { const payload = canonicalJson(trace); upsert.run(runId, trace.comparisonId, trace.category, payload, Buffer.byteLength(payload)); }
+      this.database.exec("COMMIT");
+    } catch (error) { this.database.exec("ROLLBACK"); throw error; }
+  }
+
+  listV5DivergenceTraces(runId: string): DivergenceTraceV5[] {
+    return (this.database.prepare("SELECT trace_json FROM v5_divergence_trace WHERE run_id=? ORDER BY comparison_id").all(runId) as { trace_json: string }[]).map((row) => JSON.parse(row.trace_json) as DivergenceTraceV5);
+  }
+
+  v5DiagnosticStorageStats(runId: string): { rowCount: number; payloadBytes: number; maximumPayloadBytes: number; summaryRows: number; divergenceTraceRows: number } {
+    const row = this.database.prepare("SELECT COUNT(*) count,COALESCE(SUM(payload_bytes),0) payload_bytes,COALESCE(MAX(payload_bytes),0) maximum_payload_bytes FROM v5_diagnostic_summary WHERE run_id=?").get(runId) as { count: number; payload_bytes: number; maximum_payload_bytes: number };
+    const traces = this.database.prepare("SELECT COUNT(*) count,COALESCE(SUM(payload_bytes),0) payload_bytes,COALESCE(MAX(payload_bytes),0) maximum_payload_bytes FROM v5_divergence_trace WHERE run_id=?").get(runId) as { count: number; payload_bytes: number; maximum_payload_bytes: number };
+    return { rowCount: row.count + traces.count, payloadBytes: row.payload_bytes + traces.payload_bytes, maximumPayloadBytes: Math.max(row.maximum_payload_bytes, traces.maximum_payload_bytes), summaryRows: row.count, divergenceTraceRows: traces.count };
+  }
+
+  v5StoragePayloadAccounting(runId: string): { causalEventPayloadBytes: number; checkpointPayloadBytes: number; diagnosticPayloadBytes: number; diagnosticSummaryPayloadBytes: number; divergenceTracePayloadBytes: number; namingAuditPayloadBytes: number } {
+    const events = this.database.prepare("SELECT COALESCE(SUM(LENGTH(event_json)),0) bytes FROM v5_causal_event WHERE run_id=?").get(runId) as { bytes: number };
+    const checkpoints = this.database.prepare("SELECT COALESCE(SUM(LENGTH(state_gzip)),0) bytes FROM v5_checkpoint WHERE run_id=?").get(runId) as { bytes: number };
+    const diagnostics = this.database.prepare("SELECT COALESCE(SUM(payload_bytes),0) bytes FROM v5_diagnostic_summary WHERE run_id=?").get(runId) as { bytes: number };
+    const traces = this.database.prepare("SELECT COALESCE(SUM(payload_bytes),0) bytes FROM v5_divergence_trace WHERE run_id=?").get(runId) as { bytes: number };
+    const naming = this.database.prepare("SELECT COALESCE(SUM(LENGTH(batch_json)),0) bytes FROM v5_naming_batch_audit WHERE run_id=?").get(runId) as { bytes: number };
+    return { causalEventPayloadBytes: events.bytes, checkpointPayloadBytes: checkpoints.bytes, diagnosticPayloadBytes: diagnostics.bytes + traces.bytes, diagnosticSummaryPayloadBytes: diagnostics.bytes, divergenceTracePayloadBytes: traces.bytes, namingAuditPayloadBytes: naming.bytes };
+  }
+
+  v5StoragePageAccounting(): { causalTableBytes: number; causalIndexBytes: number; checkpointTableBytes: number; checkpointIndexBytes: number; diagnosticTableBytes: number; diagnosticIndexBytes: number; namingTableBytes: number; namingIndexBytes: number; otherAllocatedPageBytes: number; totalAllocatedPageBytes: number } {
+    const rows = this.database.prepare("SELECT name,SUM(pgsize) bytes FROM dbstat GROUP BY name").all() as { name: string; bytes: number }[];
+    const result = { causalTableBytes: 0, causalIndexBytes: 0, checkpointTableBytes: 0, checkpointIndexBytes: 0, diagnosticTableBytes: 0, diagnosticIndexBytes: 0, namingTableBytes: 0, namingIndexBytes: 0, otherAllocatedPageBytes: 0, totalAllocatedPageBytes: 0 };
+    for (const row of rows) {
+      result.totalAllocatedPageBytes += row.bytes;
+      const index = row.name.startsWith("sqlite_autoindex_") || row.name.endsWith("_replay") || row.name.endsWith("_year");
+      if (row.name.includes("v5_causal_event")) result[index ? "causalIndexBytes" : "causalTableBytes"] += row.bytes;
+      else if (row.name.includes("v5_checkpoint")) result[index ? "checkpointIndexBytes" : "checkpointTableBytes"] += row.bytes;
+      else if (row.name.includes("v5_diagnostic_summary") || row.name.includes("v5_divergence_trace")) result[index ? "diagnosticIndexBytes" : "diagnosticTableBytes"] += row.bytes;
+      else if (row.name.includes("v5_naming_") || row.name.includes("v5_label_ledger")) result[index ? "namingIndexBytes" : "namingTableBytes"] += row.bytes;
+      else result.otherAllocatedPageBytes += row.bytes;
+    }
+    return result;
+  }
+
+  acceptV5NamingRequests(runId: string, decisions: readonly { requestId: string; entityId: string; label: string; nameEffectiveFromYear: number }[], acceptanceYear: number, behavior: "BLOCKING" | "BATCHED", provenance: { batchId: string; responseAttemptId: string }): void {
     if (decisions.length === 0) throw new Error("V5 naming response is empty");
     this.database.exec("BEGIN IMMEDIATE");
     try {
@@ -459,15 +628,19 @@ export class SimulatorStore {
         const required = [...pending.values()].filter((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null);
         if (decisions.length !== required.length || required.some((request) => !requiredIds.has(request.requestId))) throw new Error("V5 naming response must exactly cover the current blocking batch");
       }
+      if (behavior === "BATCHED" && [...pending.values()].some((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null)) throw new Error("BATCHED naming cannot be accepted while any BLOCKING request remains");
+      const auditedBatch = this.database.prepare("SELECT batch_json FROM v5_naming_batch_audit WHERE run_id=? AND batch_id=?").get(runId, provenance.batchId) as { batch_json: string } | undefined;
+      if (!auditedBatch) throw new Error(`Naming batch ${provenance.batchId} lacks immutable audit`);
       const updateRequest = this.database.prepare("UPDATE v5_naming_request SET request_json=? WHERE run_id=? AND request_id=?");
-      const upsertLabel = this.database.prepare(`INSERT INTO v5_label_input(run_id, entity_id, label, accepted_year) VALUES (?, ?, ?, ?)
-        ON CONFLICT(run_id, entity_id) DO UPDATE SET label=excluded.label, accepted_year=excluded.accepted_year`);
+      const insertLabel = this.database.prepare(`INSERT INTO v5_label_ledger(ledger_entry_id,run_id,world_key,entity_type,entity_id,label,source,source_request_id,source_authority_ref,source_batch_id,source_response_attempt_id,name_effective_from_year,acceptance_year,reused_from_entity_id,reused_from_ledger_entry_id,naming_comparison_group_id,comparison_authority_ref,entry_json) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`);
       for (const decision of [...decisions].sort((a, b) => a.requestId.localeCompare(b.requestId))) {
         const request = pending.get(decision.requestId);
-        if (!request || request.behavior !== behavior || request.acceptedLabel !== null || request.entityId !== decision.entityId || !decision.label.trim()) throw new Error(`Invalid V5 naming decision ${decision.requestId}`);
+        if (!request || request.behavior !== behavior || request.acceptedLabel !== null || request.entityId !== decision.entityId || !decision.label.trim() || decision.nameEffectiveFromYear !== (request.nameEffectiveFromYear ?? request.createdYear)) throw new Error(`Invalid V5 naming decision ${decision.requestId}`);
         const accepted = { ...request, acceptedLabel: decision.label.trim() };
         updateRequest.run(canonicalJson(accepted), runId, request.requestId);
-        upsertLabel.run(runId, request.entityId, accepted.acceptedLabel, acceptedYear);
+        const entry: AcceptedLabelLedgerEntryV5 = { ledgerEntryId: `V5_LABEL_${createHash("sha256").update(`${runId}\0${request.entityId}\0${decision.nameEffectiveFromYear}`).digest("hex")}`, runId, worldKey: request.worldKey ?? null, entityType: request.entityType, entityId: request.entityId, label: accepted.acceptedLabel, source: "LLM_NAMING_RESPONSE", sourceRequestId: request.requestId, sourceAuthorityRef: null, sourceBatchId: provenance.batchId, sourceResponseAttemptId: provenance.responseAttemptId, nameEffectiveFromYear: decision.nameEffectiveFromYear, acceptanceYear, reusedFromEntityId: null, reusedFromLedgerEntryId: null, namingComparisonGroupId: request.namingComparisonGroupId ?? null, comparisonAuthorityRef: request.comparisonAuthorityRef ?? null };
+        validateAcceptedLabelProvenanceV5(entry, "PRODUCTION");
+        insertLabel.run(entry.ledgerEntryId, entry.runId, entry.worldKey, entry.entityType, entry.entityId, entry.label, entry.source, entry.sourceRequestId, entry.sourceAuthorityRef, entry.sourceBatchId, entry.sourceResponseAttemptId, entry.nameEffectiveFromYear, entry.acceptanceYear, entry.reusedFromEntityId, entry.reusedFromLedgerEntryId, entry.namingComparisonGroupId, entry.comparisonAuthorityRef, canonicalJson(entry));
       }
       if (behavior === "BLOCKING") this.database.prepare("UPDATE simulation_run SET status='RUNNING', updated_at=CURRENT_TIMESTAMP WHERE run_id=? AND status='WAITING_FOR_NAMING'").run(runId);
       this.database.exec("COMMIT");

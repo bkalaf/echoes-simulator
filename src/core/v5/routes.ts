@@ -33,7 +33,7 @@ export interface RouteCoverageReadModelV1 {
     tradeDesignation: boolean;
     resolutionAuthority: string;
     worlds: Partial<Record<import("./types.js").WorldKey, {
-      routeId: string; active: boolean; name: string | null; nameStatus: "ACCEPTED" | "PENDING" | "INACTIVE" | "NO_NAME_REQUIRED"; establishedYear: number | null;
+      routeId: string; active: boolean; name: string | null; nameStatus: "ACCEPTED" | "PENDING" | "INACTIVE" | "NO_NAME_REQUIRED" | "NOT_READY"; establishedYear: number | null;
       primaryMode: string; infrastructureClass: string; tradeDesignation: boolean; preferredNamingAnchor: string | null; endpointSettlements: Record<string, unknown> | null;
       worldSovereignFaction: string | null; formalCrownAllegianceAuthority: unknown; nameProvenance: string | null;
     }>>;
@@ -57,8 +57,9 @@ export function buildRouteCoverageReadModel(canonical: CanonicalDataV5, states: 
       const request = (requests[world] ?? []).find((candidate) => candidate.entityId === routeId);
       const name = labels[world]?.[routeId] ?? request?.acceptedLabel ?? null;
       const noName = corridor.portalCapability && corridor.primaryMode === "NONE";
+      const notReady = corridor.primaryMode === "UNRESOLVED";
       return [world, {
-        routeId, active: Boolean(route), name, nameStatus: !route ? "INACTIVE" as const : noName ? "NO_NAME_REQUIRED" as const : name ? "ACCEPTED" as const : "PENDING" as const,
+        routeId, active: Boolean(route), name: notReady || noName ? null : name, nameStatus: !route ? "INACTIVE" as const : notReady ? "NOT_READY" as const : noName ? "NO_NAME_REQUIRED" as const : name ? "ACCEPTED" as const : "PENDING" as const,
         establishedYear: route?.establishedYear ?? null, primaryMode: route?.primaryMode ?? corridor.primaryMode, infrastructureClass: route?.infrastructureClass ?? corridor.infrastructureClass,
         tradeDesignation: route?.tradeDesignation ?? corridor.tradeDesignation, preferredNamingAnchor: typeof request?.context?.preferredNamingAnchor === "string" ? request.context.preferredNamingAnchor : null,
         endpointSettlements: request?.context?.endpointSettlements && typeof request.context.endpointSettlements === "object" ? request.context.endpointSettlements as Record<string, unknown> : null,
@@ -95,10 +96,11 @@ export function reconcileWorldRoutes(state: WorldStateV5, canonical: CanonicalDa
     additions.push({ routeId, corridorId: corridor.corridorId, primaryMode: corridor.primaryMode, infrastructureClass: corridor.infrastructureClass, tradeDesignation: corridor.tradeDesignation, establishedYear: state.year });
     const eventId = `EVT_${state.worldKey}_${state.year}_ROUTE_ESTABLISHED_${corridor.corridorId}`;
     events.push({ schemaVersion: "echoes-causal-event-v5", eventId, worldKey: state.worldKey, year: state.year, phase: "ROUTE_INFRASTRUCTURE", sequence: events.length, eventType: "RouteEstablished", entityType: "WORLD_ROUTE", entityId: routeId, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { corridorId: corridor.corridorId, regionAId: corridor.regionAId, regionBId: corridor.regionBId, primaryMode: corridor.primaryMode, infrastructureClass: corridor.infrastructureClass, tradeDesignation: corridor.tradeDesignation, populationCreated: "0" } });
-    if (!(corridor.portalCapability && corridor.primaryMode === "NONE")) {
+    if (corridor.primaryMode !== "UNRESOLVED" && !(corridor.portalCapability && corridor.primaryMode === "NONE")) {
       const endpointA = collectEndpoint(corridor.regionAId);
       const endpointB = collectEndpoint(corridor.regionBId);
-      namingRequests.push({ requestId: `NAME_REQUEST_${routeId}_${state.year}`, entityType: "WORLD_ROUTE", entityId: routeId, behavior: "BATCHED", createdYear: state.year, acceptedLabel: null, context: {
+      namingRequests.push({ requestId: `NAME_REQUEST_${routeId}_${state.year}`, entityType: "WORLD_ROUTE", entityId: routeId, behavior: "BATCHED", createdYear: state.year, nameEffectiveFromYear: state.year, worldKey: state.worldKey,
+        namingComparisonGroupId: `WORLD_ROUTE:${corridor.corridorId}`, comparisonAuthorityRef: `CANONICAL_ROUTE_CORRIDOR_ID:${corridor.corridorId}`, comparisonGroupingVersion: "echoes-naming-comparison-groups-v1", acceptedLabel: null, context: {
         routeId, corridorId: corridor.corridorId, world: state.worldKey, regionA: corridor.regionAId, regionB: corridor.regionBId, primaryMode: corridor.primaryMode, infrastructureClass: corridor.infrastructureClass,
         tradeDesignation: corridor.tradeDesignation, establishedYear: state.year, endpointSettlements: { [corridor.regionAId]: endpointA, [corridor.regionBId]: endpointB },
         worldSovereignFaction: canonical.sovereigns[state.worldKey].sovereignFaction, formalCrownAllegianceAuthority: null, preferredNamingAnchor: preferredAnchor([...endpointA, ...endpointB]),

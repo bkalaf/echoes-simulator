@@ -45,7 +45,14 @@ export function restoreMechanicsVariablesV1(value: unknown): MechanicsVariablesV
 }
 
 export function restoreOperationalConfigV1(value: unknown): OperationalConfigV1 {
-  const restored = object(value, "OperationalConfigV1") as unknown as OperationalConfigV1;
+  const row = object(value, "OperationalConfigV1");
+  const restored = {
+    ...row,
+    interactiveNamingEnabled: row.interactiveNamingEnabled ?? false,
+    namingBatchFlushIntervalYears: row.namingBatchFlushIntervalYears ?? 25,
+    namingBatchMaximum: row.namingBatchMaximum ?? row.namingBatchSize ?? 50,
+    namingBatchSize: row.namingBatchMaximum ?? row.namingBatchSize ?? 50,
+  } as unknown as OperationalConfigV1;
   validateOperationalConfigV1(restored);
   return restored;
 }
@@ -80,7 +87,7 @@ export function validateMechanicsVariablesV1(value: MechanicsVariablesV1): void 
 export function validateOperationalConfigV1(value: OperationalConfigV1): void {
   if (value.schemaVersion !== "echoes-operational-config-v1") throw new Error("Unsupported OperationalConfigV1 schema");
   assertIntegerTree(value, "operational");
-  if (value.checkpointIntervalYears <= 0 || value.workerCount <= 0 || value.namingBatchSize <= 0) throw new Error("Operational intervals, workers, and naming batch size must be positive");
+  if (value.checkpointIntervalYears <= 0 || value.workerCount <= 0 || value.namingBatchSize <= 0 || value.namingBatchFlushIntervalYears <= 0 || value.namingBatchMaximum <= 0) throw new Error("Operational intervals, workers, and naming batch sizes must be positive");
 }
 
 export function validateDiagnosticConfigV1(value: DiagnosticConfigV1): void {

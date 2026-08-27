@@ -309,12 +309,41 @@ export interface CausalEventV5 {
 export type V5Phase = "SCHEDULED_CANONICAL" | "TEMPORAL" | "ACTIVE_WAR" | "DEMOGRAPHY" | "INDUSTRY" | "PROSPERITY" | "SOCIAL_MOBILITY" | "VOLUNTARY_MIGRATION" | "ROUTE_INFRASTRUCTURE" | "FAMILY" | "ORGANIZATION" | "STATE_FACTION" | "UNREST" | "LEGITIMACY" | "GOVERNMENT" | "TRIGGERED" | "OFFICE_SELECTION" | "LATE_BORDER" | "AUDIT";
 
 export type NamingBehavior = "BLOCKING" | "BATCHED" | "AUTOMATIC_REUSE" | "NO_NAME_REQUIRED";
+export type AcceptedLabelSourceV5 = "CANONICAL_EXISTING" | "OWNER_INPUT" | "LLM_NAMING_RESPONSE" | "AUTOMATIC_REUSE" | "TEST_FIXTURE";
+export type TrustedAcceptedLabelSourceV5 = Exclude<AcceptedLabelSourceV5, "TEST_FIXTURE">;
+export type NamingComparisonAuditStatusV5 = "COMPARISON_AWARE" | "UNCOORDINATED" | "LEGACY_UNTRUSTED";
+
+export interface AcceptedLabelLedgerEntryV5 {
+  ledgerEntryId: string;
+  runId: string;
+  worldKey: WorldKey | null;
+  entityType: string;
+  entityId: string;
+  label: string;
+  source: AcceptedLabelSourceV5;
+  sourceRequestId: string | null;
+  sourceAuthorityRef: string | null;
+  sourceBatchId: string | null;
+  sourceResponseAttemptId: string | null;
+  nameEffectiveFromYear: number;
+  acceptanceYear: number;
+  reusedFromEntityId: string | null;
+  reusedFromLedgerEntryId: string | null;
+  namingComparisonGroupId: string | null;
+  comparisonAuthorityRef: string | null;
+}
+
 export interface NamingRequestV5 {
   requestId: string;
   entityType: string;
   entityId: string;
   behavior: NamingBehavior;
   createdYear: number;
+  nameEffectiveFromYear?: number;
+  worldKey?: WorldKey | null;
+  namingComparisonGroupId?: string | null;
+  comparisonAuthorityRef?: string | null;
+  comparisonGroupingVersion?: "echoes-naming-comparison-groups-v1";
   acceptedLabel: string | null;
   context?: Record<string, unknown>;
 }

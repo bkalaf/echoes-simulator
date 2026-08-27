@@ -1,0 +1,1609 @@
+Create one original, historically plausible name for every pending entity ID from its immutable creation-time context. Do not select from word buckets, combine morphemes, use simulator templates, or construct local fallbacks. Labels are non-causal.
+
+Treat these entities as alternate-world counterparts.
+
+Preserve the same accepted name when the supplied eligible naming context is materially equivalent across worlds.
+
+Introduce a different world-specific name only when differences in the supplied historical, geographic, cultural, political, factional, sovereign, ownership, settlement, or route context plausibly justify naming divergence.
+
+Do not invent divergence merely for variety. Do not force AAA/AAB/ABC proportions. Do not attempt to satisfy the simulator's 65/25/10 diagnostic target. Generate original names with the LLM; the simulator must not construct them.
+
+Comparison groups (world order CONCORD, SCHISM, RUIN; accepted members are reference-only):
+[
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-001",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-001",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-001_0",
+        "entityId": "WORLD_POI_CONCORD_POI-001",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 28.960942,
+            "longitude": -102.70767
+          },
+          "hostFeatureId": "WATERFALL-NW-01",
+          "physicalPoiId": "POI-001",
+          "poiType": "WATERFALL",
+          "regionId": "R05",
+          "regionName": "Shadowspine",
+          "siteId": "SITE-035",
+          "workingLabel": "Visible Major Waterfall",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-001_0",
+        "entityId": "WORLD_POI_SCHISM_POI-001",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 28.960942,
+            "longitude": -102.70767
+          },
+          "hostFeatureId": "WATERFALL-NW-01",
+          "physicalPoiId": "POI-001",
+          "poiType": "WATERFALL",
+          "regionId": "R05",
+          "regionName": "Shadowspine",
+          "siteId": "SITE-035",
+          "workingLabel": "Visible Major Waterfall",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-001_0",
+        "entityId": "WORLD_POI_RUIN_POI-001",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 28.960942,
+            "longitude": -102.70767
+          },
+          "hostFeatureId": "WATERFALL-NW-01",
+          "physicalPoiId": "POI-001",
+          "poiType": "WATERFALL",
+          "regionId": "R05",
+          "regionName": "Shadowspine",
+          "siteId": "SITE-035",
+          "workingLabel": "Visible Major Waterfall",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-002",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-002",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-002_0",
+        "entityId": "WORLD_POI_CONCORD_POI-002",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 20.375,
+            "longitude": -91.03125
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-002",
+          "poiType": "SHADOW_FOREST",
+          "regionId": "R07",
+          "regionName": "Duskcanopy",
+          "siteId": "SITE-044",
+          "workingLabel": "Shadow Forest Heart",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-002_0",
+        "entityId": "WORLD_POI_SCHISM_POI-002",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 20.375,
+            "longitude": -91.03125
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-002",
+          "poiType": "SHADOW_FOREST",
+          "regionId": "R07",
+          "regionName": "Duskcanopy",
+          "siteId": "SITE-044",
+          "workingLabel": "Shadow Forest Heart",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-002_0",
+        "entityId": "WORLD_POI_RUIN_POI-002",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 20.375,
+            "longitude": -91.03125
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-002",
+          "poiType": "SHADOW_FOREST",
+          "regionId": "R07",
+          "regionName": "Duskcanopy",
+          "siteId": "SITE-044",
+          "workingLabel": "Shadow Forest Heart",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-003",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-003",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-003_0",
+        "entityId": "WORLD_POI_CONCORD_POI-003",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 43.125,
+            "longitude": -126.96875
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-003",
+          "poiType": "HEATHERLANDS",
+          "regionId": "R03",
+          "regionName": "Highsteppe",
+          "siteId": "SITE-017",
+          "workingLabel": "Rainbow Heatherland Heart",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-003_0",
+        "entityId": "WORLD_POI_SCHISM_POI-003",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 43.125,
+            "longitude": -126.96875
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-003",
+          "poiType": "HEATHERLANDS",
+          "regionId": "R03",
+          "regionName": "Highsteppe",
+          "siteId": "SITE-017",
+          "workingLabel": "Rainbow Heatherland Heart",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-003_0",
+        "entityId": "WORLD_POI_RUIN_POI-003",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 43.125,
+            "longitude": -126.96875
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-003",
+          "poiType": "HEATHERLANDS",
+          "regionId": "R03",
+          "regionName": "Highsteppe",
+          "siteId": "SITE-017",
+          "workingLabel": "Rainbow Heatherland Heart",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-004",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-004",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-004_0",
+        "entityId": "WORLD_POI_CONCORD_POI-004",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 43.122886,
+            "longitude": 121.880496
+          },
+          "hostFeatureId": "REEF-EA-01",
+          "physicalPoiId": "POI-004",
+          "poiType": "REEF",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-079",
+          "workingLabel": "Eastern Great Reef",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-004_0",
+        "entityId": "WORLD_POI_SCHISM_POI-004",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 43.122886,
+            "longitude": 121.880496
+          },
+          "hostFeatureId": "REEF-EA-01",
+          "physicalPoiId": "POI-004",
+          "poiType": "REEF",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-079",
+          "workingLabel": "Eastern Great Reef",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-004_0",
+        "entityId": "WORLD_POI_RUIN_POI-004",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 43.122886,
+            "longitude": 121.880496
+          },
+          "hostFeatureId": "REEF-EA-01",
+          "physicalPoiId": "POI-004",
+          "poiType": "REEF",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-079",
+          "workingLabel": "Eastern Great Reef",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-005",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-005",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-005_0",
+        "entityId": "WORLD_POI_CONCORD_POI-005",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -52.559188,
+            "longitude": 74.983089
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-005",
+          "poiType": "VOLCANIC_ISLAND_CHAIN",
+          "regionId": "R21",
+          "regionName": "Ringwood Isles",
+          "siteId": "SITE-145",
+          "workingLabel": "Visible Volcanic Island Chain",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-005_0",
+        "entityId": "WORLD_POI_SCHISM_POI-005",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -52.559188,
+            "longitude": 74.983089
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-005",
+          "poiType": "VOLCANIC_ISLAND_CHAIN",
+          "regionId": "R21",
+          "regionName": "Ringwood Isles",
+          "siteId": "SITE-145",
+          "workingLabel": "Visible Volcanic Island Chain",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-005_0",
+        "entityId": "WORLD_POI_RUIN_POI-005",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -52.559188,
+            "longitude": 74.983089
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-005",
+          "poiType": "VOLCANIC_ISLAND_CHAIN",
+          "regionId": "R21",
+          "regionName": "Ringwood Isles",
+          "siteId": "SITE-145",
+          "workingLabel": "Visible Volcanic Island Chain",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-006",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-006",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-006_0",
+        "entityId": "WORLD_POI_CONCORD_POI-006",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 25.062007,
+            "longitude": -69.40248
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-006",
+          "poiType": "GREAT_PIT",
+          "regionId": "R05",
+          "regionName": "Shadowspine",
+          "siteId": "SITE-029",
+          "workingLabel": "Great Pit",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-006_0",
+        "entityId": "WORLD_POI_SCHISM_POI-006",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 25.062007,
+            "longitude": -69.40248
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-006",
+          "poiType": "GREAT_PIT",
+          "regionId": "R05",
+          "regionName": "Shadowspine",
+          "siteId": "SITE-029",
+          "workingLabel": "Great Pit",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-006_0",
+        "entityId": "WORLD_POI_RUIN_POI-006",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Northwestern",
+          "coordinates": {
+            "latitude": 25.062007,
+            "longitude": -69.40248
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-006",
+          "poiType": "GREAT_PIT",
+          "regionId": "R05",
+          "regionName": "Shadowspine",
+          "siteId": "SITE-029",
+          "workingLabel": "Great Pit",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-007",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-007",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-007_0",
+        "entityId": "WORLD_POI_CONCORD_POI-007",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 26.076663,
+            "longitude": 102.074408
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-007",
+          "poiType": "WORLD_TREE",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-081",
+          "workingLabel": "World Tree",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-007_0",
+        "entityId": "WORLD_POI_SCHISM_POI-007",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 26.076663,
+            "longitude": 102.074408
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-007",
+          "poiType": "WORLD_TREE",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-081",
+          "workingLabel": "World Tree",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-007_0",
+        "entityId": "WORLD_POI_RUIN_POI-007",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 26.076663,
+            "longitude": 102.074408
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-007",
+          "poiType": "WORLD_TREE",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-081",
+          "workingLabel": "World Tree",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-008",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-008",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-008_0",
+        "entityId": "WORLD_POI_CONCORD_POI-008",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 46.369786,
+            "longitude": -3.449831
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-008",
+          "poiType": "HEAVENFALL",
+          "regionId": "R15",
+          "regionName": "Forestfold",
+          "siteId": "SITE-104",
+          "workingLabel": "Heavenfall",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-008_0",
+        "entityId": "WORLD_POI_SCHISM_POI-008",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 46.369786,
+            "longitude": -3.449831
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-008",
+          "poiType": "HEAVENFALL",
+          "regionId": "R15",
+          "regionName": "Forestfold",
+          "siteId": "SITE-104",
+          "workingLabel": "Heavenfall",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-008_0",
+        "entityId": "WORLD_POI_RUIN_POI-008",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 46.369786,
+            "longitude": -3.449831
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-008",
+          "poiType": "HEAVENFALL",
+          "regionId": "R15",
+          "regionName": "Forestfold",
+          "siteId": "SITE-104",
+          "workingLabel": "Heavenfall",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-009",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-009",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-009_0",
+        "entityId": "WORLD_POI_CONCORD_POI-009",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -17.553551,
+            "longitude": 8.726043
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-009",
+          "poiType": "HELL_DOOR",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-127",
+          "workingLabel": "Hell Door",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-009_0",
+        "entityId": "WORLD_POI_SCHISM_POI-009",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -17.553551,
+            "longitude": 8.726043
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-009",
+          "poiType": "HELL_DOOR",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-127",
+          "workingLabel": "Hell Door",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-009_0",
+        "entityId": "WORLD_POI_RUIN_POI-009",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -17.553551,
+            "longitude": 8.726043
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-009",
+          "poiType": "HELL_DOOR",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-127",
+          "workingLabel": "Hell Door",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-010",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-010",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-010_0",
+        "entityId": "WORLD_POI_CONCORD_POI-010",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 10.856821,
+            "longitude": 146.719278
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-010",
+          "poiType": "MAELSTROM",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-084",
+          "workingLabel": "Eastern Maelstrom",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-010_0",
+        "entityId": "WORLD_POI_SCHISM_POI-010",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 10.856821,
+            "longitude": 146.719278
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-010",
+          "poiType": "MAELSTROM",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-084",
+          "workingLabel": "Eastern Maelstrom",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-010_0",
+        "entityId": "WORLD_POI_RUIN_POI-010",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 10.856821,
+            "longitude": 146.719278
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-010",
+          "poiType": "MAELSTROM",
+          "regionId": "R12",
+          "regionName": "Reefward",
+          "siteId": "SITE-084",
+          "workingLabel": "Eastern Maelstrom",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-011",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-011",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-011_0",
+        "entityId": "WORLD_POI_CONCORD_POI-011",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -52.05186,
+            "longitude": -2.435175
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-011",
+          "poiType": "WHIRLPOOL",
+          "regionId": "R25",
+          "regionName": "Marshroot",
+          "siteId": "SITE-172",
+          "workingLabel": "Ocean Whirlpool",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-011_0",
+        "entityId": "WORLD_POI_SCHISM_POI-011",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -52.05186,
+            "longitude": -2.435175
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-011",
+          "poiType": "WHIRLPOOL",
+          "regionId": "R25",
+          "regionName": "Marshroot",
+          "siteId": "SITE-172",
+          "workingLabel": "Ocean Whirlpool",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-011_0",
+        "entityId": "WORLD_POI_RUIN_POI-011",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -52.05186,
+            "longitude": -2.435175
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-011",
+          "poiType": "WHIRLPOOL",
+          "regionId": "R25",
+          "regionName": "Marshroot",
+          "siteId": "SITE-172",
+          "workingLabel": "Ocean Whirlpool",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-012",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-012",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-012_0",
+        "entityId": "WORLD_POI_CONCORD_POI-012",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 17.959414,
+            "longitude": 47.282976
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-012",
+          "poiType": "FLOATING_ISLAND_GROUP",
+          "regionId": "R10",
+          "regionName": "Innerwood",
+          "siteId": "SITE-067",
+          "workingLabel": "Floating Island Group",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-012_0",
+        "entityId": "WORLD_POI_SCHISM_POI-012",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 17.959414,
+            "longitude": 47.282976
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-012",
+          "poiType": "FLOATING_ISLAND_GROUP",
+          "regionId": "R10",
+          "regionName": "Innerwood",
+          "siteId": "SITE-067",
+          "workingLabel": "Floating Island Group",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-012_0",
+        "entityId": "WORLD_POI_RUIN_POI-012",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 17.959414,
+            "longitude": 47.282976
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-012",
+          "poiType": "FLOATING_ISLAND_GROUP",
+          "regionId": "R10",
+          "regionName": "Innerwood",
+          "siteId": "SITE-067",
+          "workingLabel": "Floating Island Group",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-013",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-013",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-013_0",
+        "entityId": "WORLD_POI_CONCORD_POI-013",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 19.988726,
+            "longitude": 50.326945
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-013",
+          "poiType": "GEYSER",
+          "regionId": "R09",
+          "regionName": "Forestcrown",
+          "siteId": "SITE-061",
+          "workingLabel": "Visible Geyser",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-013_0",
+        "entityId": "WORLD_POI_SCHISM_POI-013",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 19.988726,
+            "longitude": 50.326945
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-013",
+          "poiType": "GEYSER",
+          "regionId": "R09",
+          "regionName": "Forestcrown",
+          "siteId": "SITE-061",
+          "workingLabel": "Visible Geyser",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-013_0",
+        "entityId": "WORLD_POI_RUIN_POI-013",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Eastern",
+          "coordinates": {
+            "latitude": 19.988726,
+            "longitude": 50.326945
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-013",
+          "poiType": "GEYSER",
+          "regionId": "R09",
+          "regionName": "Forestcrown",
+          "siteId": "SITE-061",
+          "workingLabel": "Visible Geyser",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-014",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-014",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-014_0",
+        "entityId": "WORLD_POI_CONCORD_POI-014",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -18.568207,
+            "longitude": -11.56708
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-014",
+          "poiType": "CALDERA",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-128",
+          "workingLabel": "Volcanic Caldera",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-014_0",
+        "entityId": "WORLD_POI_SCHISM_POI-014",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -18.568207,
+            "longitude": -11.56708
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-014",
+          "poiType": "CALDERA",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-128",
+          "workingLabel": "Volcanic Caldera",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-014_0",
+        "entityId": "WORLD_POI_RUIN_POI-014",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -18.568207,
+            "longitude": -11.56708
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-014",
+          "poiType": "CALDERA",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-128",
+          "workingLabel": "Volcanic Caldera",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-015",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-015",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-015_0",
+        "entityId": "WORLD_POI_CONCORD_POI-015",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -11.465614,
+            "longitude": -5.479143
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-015",
+          "poiType": "HOT_SPRING",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-132",
+          "workingLabel": "Hot Spring Field",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-015_0",
+        "entityId": "WORLD_POI_SCHISM_POI-015",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -11.465614,
+            "longitude": -5.479143
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-015",
+          "poiType": "HOT_SPRING",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-132",
+          "workingLabel": "Hot Spring Field",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-015_0",
+        "entityId": "WORLD_POI_RUIN_POI-015",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -11.465614,
+            "longitude": -5.479143
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-015",
+          "poiType": "HOT_SPRING",
+          "regionId": "R19",
+          "regionName": "Caldera Heights",
+          "siteId": "SITE-132",
+          "workingLabel": "Hot Spring Field",
+          "world": "RUIN"
+        }
+      }
+    ]
+  },
+  {
+    "namingComparisonGroupId": "PHYSICAL_POI:POI-016",
+    "comparisonAuthorityRef": "CANONICAL_PHYSICAL_POI_ID:POI-016",
+    "members": [
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-016_0",
+        "entityId": "WORLD_POI_CONCORD_POI-016",
+        "worldKey": "CONCORD",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -50.022548,
+            "longitude": 87.869222
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-016",
+          "poiType": "UNDERWATER_LANDMARK",
+          "regionId": "R21",
+          "regionName": "Ringwood Isles",
+          "siteId": "SITE-145",
+          "workingLabel": "Abyssal Underwater Landmark",
+          "world": "CONCORD"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-016_0",
+        "entityId": "WORLD_POI_SCHISM_POI-016",
+        "worldKey": "SCHISM",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -50.022548,
+            "longitude": 87.869222
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-016",
+          "poiType": "UNDERWATER_LANDMARK",
+          "regionId": "R21",
+          "regionName": "Ringwood Isles",
+          "siteId": "SITE-145",
+          "workingLabel": "Abyssal Underwater Landmark",
+          "world": "SCHISM"
+        }
+      },
+      {
+        "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-016_0",
+        "entityId": "WORLD_POI_RUIN_POI-016",
+        "worldKey": "RUIN",
+        "status": "PENDING",
+        "acceptedLabel": null,
+        "context": {
+          "canonicalNameStatus": "WORKING",
+          "canonicalNamingAuthorityRef": null,
+          "continent": "Southwestern",
+          "coordinates": {
+            "latitude": -50.022548,
+            "longitude": 87.869222
+          },
+          "hostFeatureId": null,
+          "physicalPoiId": "POI-016",
+          "poiType": "UNDERWATER_LANDMARK",
+          "regionId": "R21",
+          "regionName": "Ringwood Isles",
+          "siteId": "SITE-145",
+          "workingLabel": "Abyssal Underwater Landmark",
+          "world": "RUIN"
+        }
+      }
+    ]
+  }
+]
+
+Ungrouped requests:
+[]
+
+Return only this exact JSON shape with an explicit independent decision for every pending entity ID:
+{
+  "schemaVersion": "echoes-v5-naming-batch-response-v2",
+  "batchId": "V5_NAMING_V5_DIAGNOSTIC_3141fc0709c8ff0a_1787826015905_BATCHED_0_0_5240975e91059d0d",
+  "runId": "V5_DIAGNOSTIC_3141fc0709c8ff0a_1787826015905",
+  "decisions": [
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-001_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-001",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-001_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-001",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-001_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-001",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-002_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-002",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-002_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-002",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-002_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-002",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-003_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-003",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-003_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-003",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-003_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-003",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-004_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-004",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-004_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-004",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-004_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-004",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-005_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-005",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-005_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-005",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-005_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-005",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-006_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-006",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-006_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-006",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-006_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-006",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-007_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-007",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-007_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-007",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-007_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-007",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-008_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-008",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-008_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-008",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-008_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-008",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-009_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-009",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-009_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-009",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-009_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-009",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-010_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-010",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-010_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-010",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-010_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-010",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-011_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-011",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-011_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-011",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-011_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-011",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-012_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-012",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-012_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-012",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-012_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-012",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-013_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-013",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-013_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-013",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-013_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-013",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-014_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-014",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-014_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-014",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-014_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-014",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-015_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-015",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-015_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-015",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-015_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-015",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_CONCORD_POI-016_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_CONCORD_POI-016",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_SCHISM_POI-016_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_SCHISM_POI-016",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    },
+    {
+      "requestId": "NAME_REQUEST_WORLD_POI_RUIN_POI-016_0",
+      "entityType": "WORLD_POI",
+      "entityId": "WORLD_POI_RUIN_POI-016",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 0
+    }
+  ]
+}

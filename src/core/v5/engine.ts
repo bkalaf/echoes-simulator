@@ -16,6 +16,7 @@ import { fillMandatoryOfficeVacancies, institutionControlVector, institutionEffe
 import { reviewSettlementSocialMobility } from "./social.js";
 import { deriveFamilyInteractionSignals, reviewFamilies, reviewFamilyFormation, reviewFamilyRelations, reviewOrganizationFormation, reviewOrganizationLifecycle } from "./society.js";
 import type { CausalEventV5, NamingRequestV5, WorldStateV5 } from "./types.js";
+import type { BoundedDiagnosticObservationV5 } from "./diagnostics.js";
 
 export type ScheduledTransactionV5 =
   | { type: "EFFECTS"; transactionId: string; year: number; effects: readonly CausalEffect[] }
@@ -86,9 +87,9 @@ function validateState(state: WorldStateV5): void {
   const relationPairs = state.personRelations.map((relation) => relation.personAId.localeCompare(relation.personBId) <= 0 ? `${relation.personAId}\0${relation.personBId}\0${relation.relationType}` : `${relation.personBId}\0${relation.personAId}\0${relation.relationType}`); if (new Set(relationPairs).size !== relationPairs.length) throw new Error("Duplicate PersonRelation authority");
 }
 
-export interface AdvanceYearResult { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[]; structuralReviewRan: boolean; }
+export interface AdvanceYearResult { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[]; structuralReviewRan: boolean; diagnosticObservations: BoundedDiagnosticObservationV5[]; }
 export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContext): AdvanceYearResult {
-  let state: WorldStateV5 = { ...prior, year: prior.year + 1 }; let events: CausalEventV5[] = []; let namingRequests: NamingRequestV5[] = [];
+  let state: WorldStateV5 = { ...prior, year: prior.year + 1 }; let events: CausalEventV5[] = []; let namingRequests: NamingRequestV5[] = []; const diagnosticObservations: BoundedDiagnosticObservationV5[] = [];
   const scheduled = applyScheduled(state, context); state = scheduled.state; events.push(...scheduled.events); namingRequests.push(...scheduled.namingRequests);
   if (scheduled.events.some((event) => event.eventType === "SettlementFounded" || event.eventType === "StateMembershipChanged")) { const routeReview = reconcileWorldRoutes(state, context.canonical, context.ownerInputs, context.mechanics); state = routeReview.state; events.push(...routeReview.events); namingRequests.push(...routeReview.namingRequests); }
   const temporal = temporalEvents(state); state = temporal.state; events.push(...temporal.events);
@@ -108,15 +109,15 @@ export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContex
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     for (const settlement of [...state.settlements].sort((a, b) => a.settlementId.localeCompare(b.settlementId))) { const mobility = reviewSettlementSocialMobility(state, settlement, metrics.localOpportunity[settlement.settlementId]!, accessBySettlement[settlement.settlementId]!, inequality(state, settlement.settlementId), economicStrain(state, settlement.settlementId), context.mechanics); state = mobility.state; events.push(...mobility.events); }
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
-    const migration = reviewVoluntaryMigration(state, metrics, context.canonical, context.ownerInputs, context.mechanics); state = migration.state; events.push(...migration.events); namingRequests.push(...migration.namingRequests);
+    const migration = reviewVoluntaryMigration(state, metrics, context.canonical, context.ownerInputs, context.mechanics); state = migration.state; events.push(...migration.events); namingRequests.push(...migration.namingRequests); diagnosticObservations.push(migration.diagnostics);
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     accessBySettlement = Object.fromEntries(state.settlements.map((settlement) => [settlement.settlementId, institutionalAccessWithMetrics(state, settlement.settlementId, context.canonical, metrics, institutionVectors[settlement.stateId] ?? state.states.find((row) => row.stateId === settlement.stateId)!.factionAffinity)]));
-    const familyFormation = reviewFamilyFormation(state, context.canonical, context.ownerInputs, context.mechanics, accessBySettlement, metrics); state = familyFormation.state; events.push(...familyFormation.events); namingRequests.push(...familyFormation.namingRequests);
+    const familyFormation = reviewFamilyFormation(state, context.canonical, context.ownerInputs, context.mechanics, accessBySettlement, metrics); state = familyFormation.state; events.push(...familyFormation.events); namingRequests.push(...familyFormation.namingRequests); diagnosticObservations.push(familyFormation.diagnostics);
     state = reviewFamilies(state, context.canonical, context.mechanics, metrics);
     const familyRelations = reviewFamilyRelations(state, deriveFamilyInteractionSignals(state), context.mechanics, context.normalizedSeed); state = familyRelations.state; events.push(...familyRelations.events);
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     accessBySettlement = Object.fromEntries(state.settlements.map((settlement) => [settlement.settlementId, institutionalAccessWithMetrics(state, settlement.settlementId, context.canonical, metrics, institutionVectors[settlement.stateId] ?? state.states.find((row) => row.stateId === settlement.stateId)!.factionAffinity)]));
-    const organizationInputs = organizationFormationInputs(state, context.canonical, context.mechanics, accessBySettlement, institutionEffectivenessByState, metrics); const formation = reviewOrganizationFormation(state, organizationInputs.proposals, context.mechanics, context.normalizedSeed); state = formation.state; events.push(...formation.events); namingRequests.push(...formation.namingRequests);
+    const organizationInputs = organizationFormationInputs(state, context.canonical, context.mechanics, accessBySettlement, institutionEffectivenessByState, metrics); const formation = reviewOrganizationFormation(state, organizationInputs.proposals, context.mechanics, context.normalizedSeed); state = formation.state; events.push(...formation.events); namingRequests.push(...formation.namingRequests); diagnosticObservations.push(...formation.diagnostics);
     const postFormationMetrics = deriveMetrics(state, context.canonical, context.mechanics);
     const refreshedOrgInputs = organizationFormationInputs(state, context.canonical, context.mechanics, accessBySettlement, institutionEffectivenessByState, postFormationMetrics); const lifecycle = reviewOrganizationLifecycle(state, refreshedOrgInputs.contextsByOrganization, context.mechanics); state = lifecycle.state; events.push(...lifecycle.events);
     const borderReconcile = reconcileBorderRelations(state, context.canonical); state = borderReconcile.state; events.push(...borderReconcile.events);
@@ -147,8 +148,7 @@ export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContex
   state.timedConditions = state.timedConditions.filter((condition) => condition.endYear === null || condition.endYear >= state.year);
   validateState(state);
   events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_CAUSAL_AUDIT`, worldKey: state.worldKey, year: state.year, phase: "AUDIT", sequence: 0, eventType: "CausalInvariantAuditPassed", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { population: state.cohorts.reduce((sum, cell) => sum + cell.tiers.HIGH.population + cell.tiers.MID.population + cell.tiers.LOW.population, 0n).toString(), structuralReviewRan } });
-  namingRequests = namingRequests.map((request) => request.entityType === "POLITICAL_PERSON" && request.behavior === "AUTOMATIC_REUSE" ? { ...request, behavior: context.operational.routineOfficeholderNaming } : request);
-  return { state, events: resequence(events), namingRequests: namingRequests.sort((a, b) => a.entityType.localeCompare(b.entityType) || a.entityId.localeCompare(b.entityId)), structuralReviewRan };
+  return { state, events: resequence(events), namingRequests: namingRequests.sort((a, b) => a.entityType.localeCompare(b.entityType) || a.entityId.localeCompare(b.entityId)), structuralReviewRan, diagnosticObservations };
 }
 
 export interface RunWorldOptions { stopAtBlockingNaming?: boolean; onAtomicYear?: (result: AdvanceYearResult) => void; }

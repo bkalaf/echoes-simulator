@@ -2,12 +2,12 @@
 
 Verdict: **ACCEPT_SIMULATION_READY**
 
-- Breed identities: 2056
-- Civic/PET: 1773 / 283
-- Audited units: 1219
-- Active evidence chains: 3657
+- Breed identities: 2062
+- Civic/PET: 1779 / 283
+- Audited units: 1225
+- Active evidence chains: 3675
 - Critical findings: 0
-- V4 ZIP SHA-256: `a7f8378adba7a7d8980dcfc81eb493e4da5514e7cad0c1ee22fc8d638b95ad23`
+- V4 ZIP SHA-256: `6e259468580bf4c5e4a99e6be9e20a3144e1c639fc5a7d05d754f152bc59f7bf`
 
 - FLOWERHORN_WORKSHOP: PASS — PET Flowerhorn husbandry does not create WORKSHOP civic habitat.
 - IRANIAN_CITY: PASS — Iranian CITY is not inferred from non-habitat evidence.

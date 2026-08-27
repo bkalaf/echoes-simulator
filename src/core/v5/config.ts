@@ -209,12 +209,15 @@ export interface OperationalConfigV1 {
   workerCount: number;
   cacheMode: "OFF" | "EXACT_DEPENDENCY_HASH";
   namingBatchSize: number;
-  routineOfficeholderNaming: "BATCHED" | "AUTOMATIC_REUSE";
+  interactiveNamingEnabled: boolean;
+  namingBatchFlushIntervalYears: number;
+  namingBatchMaximum: number;
 }
 
 export const DEFAULT_OPERATIONAL_CONFIG_V1: OperationalConfigV1 = {
   schemaVersion: "echoes-operational-config-v1", checkpointIntervalYears: 5, compression: "GZIP_JSON_V1", auditDetailRetention: "FULL",
-  expandedTransferArchive: true, workerCount: 1, cacheMode: "OFF", namingBatchSize: 100, routineOfficeholderNaming: "AUTOMATIC_REUSE",
+  expandedTransferArchive: true, workerCount: 1, cacheMode: "OFF", namingBatchSize: 50,
+  interactiveNamingEnabled: false, namingBatchFlushIntervalYears: 25, namingBatchMaximum: 50,
 };
 
 export interface DiagnosticConfigV1 {
@@ -412,6 +415,10 @@ export interface SiteAuthorityV5 {
   siteId: string;
   regionId: string;
   regionName: string;
+  continent?: string | null;
+  currentName?: string | null;
+  nameStatus?: string;
+  namingAuthorityRef?: string | null;
   latitude: number;
   longitude: number;
   terrainBroad: readonly string[];
@@ -431,6 +438,9 @@ export interface PhysicalPoiAuthorityV5 {
   siteId: string;
   regionId: string;
   regionName: string;
+  continent?: string | null;
+  canonicalLabel?: string | null;
+  namingAuthorityRef?: string | null;
   latitude: number;
   longitude: number;
   hostFeatureId: string | null;
@@ -474,5 +484,6 @@ export interface CanonicalDataV5 {
   groupRegionAssignments: Record<WorldKey, Record<string, string>>;
   initialSettlements: readonly { worldKey: WorldKey; settlementId: string; siteId: string; stateId: string; governmentFormId: string; populationWeight?: bigint }[];
   canonicalLabels: Record<string, string>;
+  canonicalLabelAuthority?: Record<string, string>;
   canonicalEvents: readonly { eventId: string; year: number; eventType: string; payload: Record<string, unknown> }[];
 }

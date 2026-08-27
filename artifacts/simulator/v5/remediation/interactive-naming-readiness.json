@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "echoes-v5-interactive-naming-readiness-v1",
+  "targetWorkflow": "NEW V5 DIAGNOSTIC / target=2000 / INTERACTIVE_LLM_NAMING",
+  "readyForOwnerInteractiveRun": true,
+  "routeCorridorsTotal": 38,
+  "routeCorridorsResolved": 0,
+  "routeCorridorsUnresolved": 38,
+  "routeCorridorsPortalOnly": 0,
+  "routeCorridorsCurrentlyNameable": 0,
+  "routeCorridorsNotReadyForNaming": 38,
+  "ownerPolicyBlockers": 5,
+  "ownerPolicyBlockerIds": [
+    "CLASS_POLICY_APPROVAL_HASH",
+    "TERRAIN_COMPATIBILITY_POLICY_APPROVAL_HASH",
+    "CONFLICT_EPISODE_PROFILE_APPROVAL_HASH",
+    "SKIRMISH_PROFILE_APPROVAL_HASH",
+    "PEACE_EXHAUSTION_POLICY_APPROVAL_HASH"
+  ],
+  "canonicalNamingGaps": {
+    "sites": 150,
+    "physicalPois": 92,
+    "total": 242
+  },
+  "unresolvedDjtYearAuthority": 1,
+  "interactiveDefaults": {
+    "namingBatchFlushIntervalYears": 25,
+    "namingBatchMaximum": 50
+  },
+  "cleanBenchmarkNamingWorkload": {
+    "pendingBlocking": {
+      "STATE": 3
+    },
+    "pendingBatched": {
+      "FAMILY": 19,
+      "ORGANIZATION": 67,
+      "PHYSICAL_POI": 276,
+      "POLITICAL_PERSON": 9665
+    },
+    "acceptedLabels": 0
+  },
+  "routeBehavior": "Unresolved routes remain visible but create no naming request; unrelated naming work may proceed.",
+  "finalNamedHistoricalRunPerformed": false
+}

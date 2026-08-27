@@ -1,8 +1,308 @@
 {
   "status": "PASS",
-  "pureMaterialization": true,
+  "pureMaterialization": false,
+  "ownerPolicyTransformations": [
+    "BREED_DIMENSION_BALANCE_V1",
+    "BREED_FACTION_PROJECTION_V1"
+  ],
   "evidenceCreatedByConsolidation": 0,
   "zipReopenedAndVerified": true,
+  "balance": {
+    "schemaVersion": "eidolon-breed-dimension-balance-report-v1",
+    "policyRef": "BREED_DIMENSION_BALANCE_V1",
+    "strategy": "MINIMUM_CHANGE_STABLE_HASH",
+    "totalCivicBreeds": 1779,
+    "targetPerValue": 593,
+    "totalChangedAssignments": 4421,
+    "changedBreeds": 1656,
+    "byField": {
+      "motivation": {
+        "values": {
+          "CONCORD": "ALTRUISTIC",
+          "SCHISM": "RECIPROCAL",
+          "RUIN": "SELFISH"
+        },
+        "before": {
+          "ALTRUISTIC": 827,
+          "RECIPROCAL": 485,
+          "SELFISH": 467
+        },
+        "after": {
+          "ALTRUISTIC": 593,
+          "RECIPROCAL": 593,
+          "SELFISH": 593
+        },
+        "changedAssignments": 234
+      },
+      "operatingStyle": {
+        "values": {
+          "CONCORD": "TEAMWORK",
+          "SCHISM": "SITUATIONAL",
+          "RUIN": "SOLO"
+        },
+        "before": {
+          "TEAMWORK": 793,
+          "SITUATIONAL": 581,
+          "SOLO": 405
+        },
+        "after": {
+          "TEAMWORK": 593,
+          "SITUATIONAL": 593,
+          "SOLO": 593
+        },
+        "changedAssignments": 200
+      },
+      "structureOrientation": {
+        "values": {
+          "CONCORD": "ORDERED",
+          "SCHISM": "NEUTRAL",
+          "RUIN": "CHAOS"
+        },
+        "before": {
+          "ORDERED": 984,
+          "NEUTRAL": 602,
+          "CHAOS": 193
+        },
+        "after": {
+          "ORDERED": 593,
+          "NEUTRAL": 593,
+          "CHAOS": 593
+        },
+        "changedAssignments": 400
+      },
+      "administrationMode": {
+        "values": {
+          "CONCORD": "CENTRALIZED",
+          "SCHISM": "DISTRIBUTED",
+          "RUIN": "DELEGATED"
+        },
+        "before": {
+          "CENTRALIZED": 411,
+          "DISTRIBUTED": 841,
+          "DELEGATED": 527
+        },
+        "after": {
+          "CENTRALIZED": 593,
+          "DISTRIBUTED": 593,
+          "DELEGATED": 593
+        },
+        "changedAssignments": 248
+      },
+      "ownershipMode": {
+        "values": {
+          "CONCORD": "SINGLE_ENTITY",
+          "SCHISM": "SHARED_TITLE",
+          "RUIN": "COMMON_USE"
+        },
+        "before": {
+          "SINGLE_ENTITY": 607,
+          "SHARED_TITLE": 413,
+          "COMMON_USE": 759
+        },
+        "after": {
+          "SINGLE_ENTITY": 593,
+          "SHARED_TITLE": 593,
+          "COMMON_USE": 593
+        },
+        "changedAssignments": 180
+      },
+      "allocationMode": {
+        "values": {
+          "CONCORD": "PLANNED",
+          "SCHISM": "CUSTOMARY",
+          "RUIN": "MARKET"
+        },
+        "before": {
+          "PLANNED": 687,
+          "CUSTOMARY": 772,
+          "MARKET": 320
+        },
+        "after": {
+          "PLANNED": 593,
+          "CUSTOMARY": 593,
+          "MARKET": 593
+        },
+        "changedAssignments": 273
+      },
+      "legitimacyBasis": {
+        "values": {
+          "CONCORD": "CHARTERED",
+          "SCHISM": "ANCESTRAL",
+          "RUIN": "MARTIAL"
+        },
+        "before": {
+          "CHARTERED": 708,
+          "ANCESTRAL": 991,
+          "MARTIAL": 80
+        },
+        "after": {
+          "CHARTERED": 593,
+          "ANCESTRAL": 593,
+          "MARTIAL": 593
+        },
+        "changedAssignments": 513
+      },
+      "authoritySource": {
+        "values": {
+          "CONCORD": "APPOINTMENT",
+          "SCHISM": "ELECTION",
+          "RUIN": "DIVINE_MANDATE"
+        },
+        "before": {
+          "APPOINTMENT": 640,
+          "ELECTION": 1068,
+          "DIVINE_MANDATE": 71
+        },
+        "after": {
+          "APPOINTMENT": 593,
+          "ELECTION": 593,
+          "DIVINE_MANDATE": 593
+        },
+        "changedAssignments": 522
+      },
+      "loquacity": {
+        "values": {
+          "CONCORD": "TALKATIVE",
+          "SCHISM": "LIGHT_BANTER",
+          "RUIN": "TO_THE_POINT"
+        },
+        "before": {
+          "TALKATIVE": 518,
+          "LIGHT_BANTER": 976,
+          "TO_THE_POINT": 285
+        },
+        "after": {
+          "TALKATIVE": 593,
+          "LIGHT_BANTER": 593,
+          "TO_THE_POINT": 593
+        },
+        "changedAssignments": 383
+      },
+      "emotionalTemperature": {
+        "values": {
+          "CONCORD": "COMPOSED",
+          "SCHISM": "JOYFUL",
+          "RUIN": "IRRITABLE"
+        },
+        "before": {
+          "COMPOSED": 465,
+          "JOYFUL": 1260,
+          "IRRITABLE": 54
+        },
+        "after": {
+          "COMPOSED": 593,
+          "JOYFUL": 593,
+          "IRRITABLE": 593
+        },
+        "changedAssignments": 667
+      },
+      "outlookOrientation": {
+        "values": {
+          "CONCORD": "OPTIMISTIC",
+          "SCHISM": "NEUTRAL",
+          "RUIN": "PESSIMISTIC"
+        },
+        "before": {
+          "OPTIMISTIC": 498,
+          "NEUTRAL": 1204,
+          "PESSIMISTIC": 77
+        },
+        "after": {
+          "OPTIMISTIC": 593,
+          "NEUTRAL": 593,
+          "PESSIMISTIC": 593
+        },
+        "changedAssignments": 611
+      },
+      "collaborativePosture": {
+        "values": {
+          "CONCORD": "HELPFUL",
+          "SCHISM": "WITHHOLDING",
+          "RUIN": "JUST_ENOUGH"
+        },
+        "before": {
+          "HELPFUL": 783,
+          "WITHHOLDING": 447,
+          "JUST_ENOUGH": 549
+        },
+        "after": {
+          "HELPFUL": 593,
+          "WITHHOLDING": 593,
+          "JUST_ENOUGH": 593
+        },
+        "changedAssignments": 190
+      }
+    }
+  },
+  "factionProjection": {
+    "schemaVersion": "eidolon-breed-faction-projection-report-v1",
+    "policyRef": "BREED_FACTION_PROJECTION_V1",
+    "totalCivicBreeds": 1779,
+    "attributesPerBreed": 12,
+    "pointsPerAttribute": 1,
+    "pointsPerBreed": 12,
+    "dominantFactionTolerance": 1,
+    "factionPointTotals": {
+      "CONCORD": 7116,
+      "SCHISM": 7116,
+      "RUIN": 7116
+    },
+    "dominantFactionMembershipCounts": {
+      "CONCORD": 841,
+      "SCHISM": 906,
+      "RUIN": 823
+    },
+    "dominantFactionCombinationCounts": {
+      "CONCORD": 443,
+      "CONCORD+RUIN": 194,
+      "CONCORD+SCHISM": 145,
+      "CONCORD+SCHISM+RUIN": 59,
+      "RUIN": 236,
+      "SCHISM": 368,
+      "SCHISM+RUIN": 334
+    },
+    "factionScoreDistribution": {
+      "CONCORD": {
+        "0": 17,
+        "1": 115,
+        "2": 339,
+        "3": 401,
+        "4": 240,
+        "5": 191,
+        "6": 220,
+        "7": 182,
+        "8": 55,
+        "9": 19
+      },
+      "SCHISM": {
+        "0": 29,
+        "1": 113,
+        "2": 255,
+        "3": 344,
+        "4": 338,
+        "5": 305,
+        "6": 234,
+        "7": 116,
+        "8": 38,
+        "9": 6,
+        "10": 1
+      },
+      "RUIN": {
+        "0": 5,
+        "1": 64,
+        "2": 227,
+        "3": 406,
+        "4": 461,
+        "5": 343,
+        "6": 163,
+        "7": 70,
+        "8": 14,
+        "9": 19,
+        "10": 7
+      }
+    },
+    "multipleDominantFactionBreeds": 732
+  },
   "counts": {
     "breeds": 2056,
     "civicBreeds": 1773,
@@ -14,6 +314,10 @@
     "citations": 3657,
     "evidence": 3657,
     "inheritanceEdges": 1773,
-    "effectiveCivicBreeds": 1773
+    "effectiveCivicBreeds": 1773,
+    "ownerBalancedAssignments": 4419,
+    "ownerBalancedBreeds": 1652,
+    "factionProjectedCivicBreeds": 1773,
+    "factionPolicyNullPets": 283
   }
 }

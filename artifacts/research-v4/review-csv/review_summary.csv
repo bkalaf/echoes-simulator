@@ -1,0 +1,11 @@
+﻿category,metric,value,reviewMeaning
+IDENTITY,allBreeds,2056,All canonical Breed identities
+IDENTITY,civicBreeds,1773,Included in civic simulation
+IDENTITY,petBreeds,283,Excluded by PET policy
+CRITICAL,civicRowsWithCriticalBlanks,0,"Blank among Personality, terrain, or twelve dimensions"
+OPTIONAL_GAP,traitsResearchedBreeds,0,V4 declares traits OUT_OF_SCOPE_OPTIONAL for all Breeds
+OPTIONAL_GAP,foodBroadResearchedBreeds,0,V4 declares foodBroad OUT_OF_SCOPE_OPTIONAL for all Breeds
+OPTIONAL_GAP,foodSpecificResearchedBreeds,0,V4 declares foodSpecific OUT_OF_SCOPE_OPTIONAL for all Breeds
+EVIDENCE,evidenceRows,3657,Personality and terrain evidence records
+EVIDENCE,sourceRows,1254,Distinct source records
+AUDIT,auditFieldRows,3657,Independent field-level audit records

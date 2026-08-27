@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import ts from "typescript";
 import { canonicalJson } from "../core/serialization/canonical-json.js";
@@ -10,7 +10,7 @@ import { auditCausalRegistry, DURABLE_WRITER_REGISTRY_V1, V5_CLOSURE_INVARIANTS 
 function sourceFiles(directory: string): string[] {
   return readdirSync(directory).flatMap((name) => {
     const target = resolve(directory, name);
-    return statSync(target).isDirectory() ? sourceFiles(target) : name.endsWith(".ts") ? [target] : [];
+    return statSync(target).isDirectory() ? sourceFiles(target) : /\.(ts|tsx|cts|mts)$/.test(name) ? [target] : [];
   }).sort();
 }
 
@@ -33,6 +33,26 @@ for (const file of sourceFiles(directory)) {
   visit(source);
 }
 
+const namingAuditRoots = [resolve("src/core/v5"), resolve("electron"), resolve("src/persistence"), resolve("src/scripts")];
+const namingAuditFiles = namingAuditRoots.flatMap(sourceFiles);
+const namingWriterInventory = [
+  { writer: "SimulatorStore.saveV5NamingRequests/canonical materialization", allowedProvenance: ["CANONICAL_EXISTING"], validationPath: "explicit canonicalNamingAuthorityRef + validateAcceptedLabelProvenanceV5" },
+  { writer: "SimulatorStore.recordV5AcceptedLabel", allowedProvenance: ["CANONICAL_EXISTING", "OWNER_INPUT", "AUTOMATIC_REUSE", "TEST_FIXTURE"], validationPath: "validateAcceptedLabelProvenanceV5; TEST_FIXTURE restricted to explicit test artifact" },
+  { writer: "SimulatorStore.acceptV5NamingRequests", allowedProvenance: ["LLM_NAMING_RESPONSE"], validationPath: "immutable batch audit + exact response coverage + effective-year equality + persisted response attempt" },
+] as const;
+for (const file of namingAuditFiles) {
+  const text = readFileSync(file, "utf8");
+  const relative = file.replace(`${resolve(".")}/`, "");
+  if (relative === "src/scripts/audit-v5-architecture.ts") continue;
+  if (/Diagnostic \$\{|Diagnostic (STATE|SETTLEMENT|FAMILY|ORGANIZATION|POLITICAL_PERSON|WORLD_ROUTE|WORLD_POI)/.test(text)) failures.push(`SYNTHETIC_DIAGNOSTIC_LABEL:${relative}`);
+  if (/ROUTINE_OFFICEHOLDER[^\n]{0,100}AUTOMATIC_REUSE/.test(text)) failures.push(`GENERIC_ROUTINE_REUSE:${relative}`);
+  if (/function\s+(generate|synthesize|construct)[A-Za-z0-9_]*Name|\b(syllable|phoneme|markov|wordBucket|adjectiveNoun)\b/i.test(text)) failures.push(`LOCAL_NAME_SYNTHESIS_SYMBOL:${relative}`);
+  if (text.includes("INSERT INTO v5_label_ledger") && !relative.endsWith("src/persistence/sqlite-store.ts")) failures.push(`UNREGISTERED_LABEL_LEDGER_WRITER:${relative}`);
+  if (text.includes("UPDATE v5_naming_request SET request_json") && !relative.endsWith("src/persistence/sqlite-store.ts")) failures.push(`UNREGISTERED_ACCEPTED_LABEL_WRITER:${relative}`);
+}
+const persistenceText = readFileSync(resolve("src/persistence/sqlite-store.ts"), "utf8");
+for (const required of ["validateAcceptedLabelProvenanceV5(entry", "source: \"LLM_NAMING_RESPONSE\"", "BATCHED naming cannot be accepted while any BLOCKING request remains", "nameEffectiveFromYear"]) if (!persistenceText.includes(required)) failures.push(`MISSING_NAMING_VALIDATION:${required}`);
+
 const registeredNamespaces = new Set<string>(V5_RANDOM_NAMESPACES);
 for (const namespace of usedNamespaces) if (!registeredNamespaces.has(namespace)) failures.push(`UNREGISTERED_RANDOM_NAMESPACE:${namespace}`);
 const registry = auditCausalRegistry();
@@ -51,7 +71,11 @@ const report = {
   literalRandomNamespacesObserved: [...usedNamespaces].sort(),
   registry,
   durableWriterCount: DURABLE_WRITER_REGISTRY_V1.length,
+  namingIntegrity: { filesInspected: namingAuditFiles.length, localNameSynthesisPaths: failures.filter((failure) => failure.startsWith("LOCAL_NAME_SYNTHESIS") || failure.startsWith("SYNTHETIC_DIAGNOSTIC_LABEL")), writerInventory: namingWriterInventory },
   failures,
 };
+const artifactDirectory = resolve("artifacts/simulator/v5/remediation");
+mkdirSync(artifactDirectory, { recursive: true });
+writeFileSync(resolve(artifactDirectory, "naming-pipeline-audit.json"), `${canonicalJson(report)}\n`, "utf8");
 process.stdout.write(`${canonicalJson(report)}\n`);
 if (!report.pass) process.exitCode = 1;

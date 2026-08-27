@@ -16,7 +16,7 @@ import { deriveFamilyInteractionSignals, organizationControlConcentration, revie
 import type { CohortCell, SettlementV5, WorldStateV5 } from "../../src/core/v5/types.js";
 import { KEYED_RANDOM_VERSION_V1, keyedDrawBps, normalizeSeed } from "../../src/core/v5/random.js";
 import { auditCausalRegistry } from "../../src/core/v5/registry.js";
-import { applyAcceptedLabels, buildNamingBatches } from "../../src/core/v5/naming.js";
+import { buildNamingBatches } from "../../src/core/v5/naming.js";
 import { buildReadModelV1 } from "../../src/core/v5/read-model.js";
 import { buildScheduledTransactionsV5, DJT_POLICY_KEY_V5 } from "../../src/core/v5/schedule.js";
 import { continueV5History, runV5History } from "../../src/core/v5/runner.js";
@@ -101,8 +101,8 @@ describe("V5 fixed point, identity, and faction authority", () => {
     const state = boot(); const before = causalStateHash(state); const read = buildReadModelV1(state, canonical, mechanics, { S1: "Different Label" });
     expect(read.settlements.find((row) => row.settlementId === "S1")?.label).toBe("Different Label"); expect(causalStateHash(state)).toBe(before);
     const requests = [{ requestId: "2", entityType: "FAMILY", entityId: "F2", behavior: "BATCHED" as const, createdYear: 5, acceptedLabel: null }, { requestId: "1", entityType: "STATE", entityId: "S1", behavior: "BLOCKING" as const, createdYear: 5, acceptedLabel: null }];
-    expect(buildNamingBatches(requests, 10).map((batch) => batch.behavior)).toEqual(["BLOCKING", "BATCHED"]);
-    expect(applyAcceptedLabels(requests, { F2: "House Two" })[0]?.acceptedLabel).toBe("House Two"); expect(causalStateHash(state)).toBe(before);
+    expect(buildNamingBatches(requests, 10).map((batch) => batch.behavior)).toEqual(["BLOCKING"]);
+    expect(requests[0]?.acceptedLabel).toBeNull(); expect(causalStateHash(state)).toBe(before);
   });
 
   it("keeps operational and diagnostic changes outside actual causal execution", () => {
@@ -279,6 +279,18 @@ describe("V5 topology, cadence, and durable lifecycles", () => {
 });
 
 describe("V5 annual scheduler", () => {
+  it("pauses for batched interactive naming without changing causal state or event history", () => {
+    const allWorldCanonical = { ...canonical, physicalPois: [{ poiId: "POI_FIXTURE", poiType: "LANDMARK", workingLabel: "context only", nameStatus: "WORKING", siteId: "SITE_1", regionId: "R01", regionName: "One", latitude: 0, longitude: 0, hostFeatureId: null }], initialSettlements: (["CONCORD", "SCHISM", "RUIN"] as const).flatMap((worldKey) => canonical.initialSettlements.map((row) => ({ ...row, worldKey, settlementId: `${row.settlementId}_${worldKey}`, stateId: `${row.stateId}_${worldKey}` }))) };
+    const operational = { ...DEFAULT_OPERATIONAL_CONFIG_V1, interactiveNamingEnabled: true, namingBatchFlushIntervalYears: 5 };
+    const uninterrupted = runV5History({ canonical: allWorldCanonical, ownerInputs: owner, mechanics, operational, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, normalizedSeed: seed, mode: "DIAGNOSTIC", throughYear: 5, stopAtBlockingNaming: false, interactiveNamingEnabled: false });
+    const interactive = runV5History({ canonical: allWorldCanonical, ownerInputs: owner, mechanics, operational, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, normalizedSeed: seed, mode: "DIAGNOSTIC", throughYear: 5, stopAtBlockingNaming: true, interactiveNamingEnabled: true });
+    expect(interactive).toMatchObject({ status: "WAITING_FOR_NAMING", completedYear: 5 });
+    for (const world of ["CONCORD", "SCHISM", "RUIN"] as const) {
+      expect(causalStateHash(interactive.states[world])).toBe(causalStateHash(uninterrupted.states[world]));
+      expect(causalEventHash(interactive.events[world])).toBe(causalEventHash(uninterrupted.events[world]));
+    }
+  });
+
   it("runs structural mechanics only on the five-year cadence and replays identically", () => {
     const context: V5EngineContext = { canonical, ownerInputs: owner, mechanics, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, normalizedSeed: seed, scheduledTransactions: [] };
     const initial = boot(); const year1a = advanceWorldOneYear(initial, context); const year1b = advanceWorldOneYear(initial, context);

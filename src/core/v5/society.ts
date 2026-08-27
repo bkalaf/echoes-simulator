@@ -6,6 +6,7 @@ import { blend, clamp, divideRoundedAway, factionCompatibility, normalizeFaction
 import { classDistribution, deriveMetrics, industryMean, localFamilyWealth, settlementHighProsperity, settlementOwnershipConcentration, settlementPopulation } from "./derivations.js";
 import { keyedDrawBps, type KeyedRandomIdentity } from "./random.js";
 import type { CausalEventV5, ControllerType, FamilyRelationType, FamilyRelationV5, FamilyV5, NamingRequestV5, OrganizationType, OrganizationV5, OwnershipStakeV5, Score1000, SectorId, TimedConditionV5, WorldStateV5 } from "./types.js";
+import { boundedHistogram, type BoundedDiagnosticObservationV5 } from "./diagnostics.js";
 
 function digest(value: unknown): string { return createHash("sha256").update(canonicalJson(value), "utf8").digest("hex").slice(0, 20); }
 function identity(normalizedSeed: string, randomNamespace: KeyedRandomIdentity["randomNamespace"], comparisonEntityId: string, year: number, candidateOrDecisionKey: string): KeyedRandomIdentity { return { normalizedSeed, randomNamespace, comparisonEntityId, year, candidateOrDecisionKey }; }
@@ -92,7 +93,7 @@ export function reviewFamilyFormation(
   variables: MechanicsVariablesV1,
   accessBySettlement: Readonly<Record<string, Score1000>>,
   suppliedMetrics?: ReturnType<typeof deriveMetrics>,
-): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[] } {
+): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[]; diagnostics: BoundedDiagnosticObservationV5 } {
   const metrics = suppliedMetrics ?? deriveMetrics(state, canonical, variables);
   const prior = new Map(state.timedConditions.filter((condition) => condition.type === "FAMILY_PROMOTION_CANDIDATE").map((condition) => [condition.key, condition]));
   const conditions = state.timedConditions.filter((condition) => condition.type !== "FAMILY_PROMOTION_CANDIDATE");
@@ -100,16 +101,25 @@ export function reviewFamilyFormation(
   let politicalPeople = [...state.politicalPeople];
   const events: CausalEventV5[] = [];
   const namingRequests: NamingRequestV5[] = [];
+  const counters: Record<string, number> = { pressureEvaluations: 0, aboveThreshold: 0, candidatesCreated: 0, candidatesSecondReview: 0, candidatesResetOrExpired: 0, familiesPromoted: 0, eventRequiredFamiliesCreated: 0, failedInsufficientPopulation: 0, failedNoNobilityPopulation: 0, failedMatchingFamilyAlreadyActive: 0, failedPressureBelowThreshold: 0, failedPersistence: 0 };
+  const pressures: number[] = [];
   for (const personId of historicallyRelevantUntrackedPeople(state)) {
     const person = politicalPeople.find((row) => row.personId === personId)!;
     const pressure = familyFormationPressure(state, person.originSettlementId, owner, metrics, accessBySettlement[person.originSettlementId] ?? 500);
-    if (pressure < variables.familyFormationThreshold) continue;
+    counters.pressureEvaluations! += 1; pressures.push(pressure);
+    const population = settlementPopulation(state, person.originSettlementId);
+    if (population === 0n) counters.failedInsufficientPopulation! += 1;
+    let nobility = 0n; for (const cell of state.cohorts.filter((row) => row.settlementId === person.originSettlementId)) { const classes = classDistribution(cell, owner); nobility += classes.HIGH.NOBILITY + classes.MID.NOBILITY + classes.LOW.NOBILITY; }
+    if (nobility === 0n) counters.failedNoNobilityPopulation! += 1;
+    if (pressure < variables.familyFormationThreshold) { counters.failedPressureBelowThreshold! += 1; continue; }
+    counters.aboveThreshold! += 1;
     const key = `${person.personId}/${person.originSettlementId}`;
     const count = (prior.get(key)?.qualifyingReviewCount ?? 0) + 1;
     if (count < variables.familyFormationRequiredReviews) {
       conditions.push({ conditionId: `COND_${digest(["FAMILY_PROMOTION", key])}`, type: "FAMILY_PROMOTION_CANDIDATE", targetType: "SETTLEMENT", targetId: person.originSettlementId, magnitude: pressure, startYear: prior.get(key)?.startYear ?? state.year, endYear: null, sourceEventId: `EVT_${state.worldKey}_${state.year}_FAMILY_PROMOTION_CANDIDATE_${person.personId}`, key, qualifyingReviewCount: count });
-      continue;
+      counters.candidatesCreated! += 1; continue;
     }
+    counters.candidatesSecondReview! += 1;
     const familyId = `FAMILY_${digest([state.worldKey, "EMERGENT", person.personId])}`;
     const breed = canonical.breeds.find((row) => row.breedId === person.breedId);
     if (!breed) throw new Error(`Family promotion person ${person.personId} has unknown Breed ${person.breedId}`);
@@ -130,9 +140,12 @@ export function reviewFamilyFormation(
     politicalPeople = politicalPeople.map((row) => row.personId === person.personId ? { ...row, familyId } : row);
     const eventId = `EVT_${state.worldKey}_${state.year}_FAMILY_PROMOTED_${familyId}`;
     events.push({ schemaVersion: "echoes-causal-event-v5", eventId, worldKey: state.worldKey, year: state.year, phase: "FAMILY", sequence: events.length, eventType: "FamilyPromoted", entityType: "FAMILY", entityId: familyId, causeEventIds: [prior.get(key)?.sourceEventId ?? `EVT_${state.worldKey}_${state.year}_FAMILY_PROMOTION_CANDIDATE_${person.personId}`], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { founderPersonId: person.personId, founderBreedId: person.breedId, homeSettlementId: person.originSettlementId, pressure, qualifyingReviews: count } });
-    namingRequests.push({ requestId: `NAME_${familyId}`, entityType: "FAMILY", entityId: familyId, behavior: "BATCHED", createdYear: state.year, acceptedLabel: null });
+    counters.familiesPromoted! += 1;
+    namingRequests.push({ requestId: `NAME_${familyId}`, entityType: "FAMILY", entityId: familyId, behavior: "BATCHED", createdYear: state.year, nameEffectiveFromYear: state.year, worldKey: state.worldKey, namingComparisonGroupId: null, comparisonAuthorityRef: null, acceptedLabel: null, context: { world: state.worldKey, creationYear: state.year, causalReason: "EMERGENT_PROMOTION", familyId, founderPersonId: person.personId, founderBreedId: person.breedId, homeSettlementId: person.originSettlementId, pressure } });
   }
-  return { state: { ...state, families: families.sort((a, b) => a.familyId.localeCompare(b.familyId)), politicalPeople, timedConditions: conditions }, events, namingRequests };
+  counters.candidatesResetOrExpired = [...prior.keys()].filter((key) => !conditions.some((condition) => condition.key === key) && !events.some((event) => event.causeEventIds.includes(prior.get(key)!.sourceEventId))).length;
+  counters.failedPersistence = counters.candidatesResetOrExpired;
+  return { state: { ...state, families: families.sort((a, b) => a.familyId.localeCompare(b.familyId)), politicalPeople, timedConditions: conditions }, events, namingRequests, diagnostics: { domain: "FAMILY_FORMATION", worldKey: state.worldKey, year: state.year, counters, histograms: { pressure: boundedHistogram(pressures) } } };
 }
 
 export interface FamilyInteractionSignal { signalId: string; familyAId: string; familyBId: string; relation: FamilyRelationType; magnitude: Score1000; sourceEventId: string; kind: "SHARED_CONTROL" | "TRANSITION_COALITION" | "MARRIAGE" | "SUCCESSION_SUPPORT" | "WAR_ALIGNMENT" | "OFFICE_DEFEAT" | "OWNERSHIP_DISPLACEMENT" | "BETRAYAL"; }
@@ -269,34 +282,45 @@ function controllerCandidates(state: WorldStateV5, settlementId: string, type: O
 }
 
 export interface OrganizationFormationProposal { key: string; type: OrganizationType; context: OrganizationFormationContext; pressure: Score1000; }
-export function reviewOrganizationFormation(state: WorldStateV5, proposals: readonly OrganizationFormationProposal[], variables: MechanicsVariablesV1, normalizedSeed: string): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[] } {
+export function reviewOrganizationFormation(state: WorldStateV5, proposals: readonly OrganizationFormationProposal[], variables: MechanicsVariablesV1, normalizedSeed: string): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[]; diagnostics: BoundedDiagnosticObservationV5[] } {
   let organizations = [...state.organizations]; let stakes = [...state.ownershipStakes]; const events: CausalEventV5[] = []; const namingRequests: NamingRequestV5[] = [];
   const priorCandidates = new Map(state.timedConditions.filter((condition) => condition.type === "ORGANIZATION_FORMATION_CANDIDATE").map((condition) => [condition.key, condition]));
   const retainedConditions = state.timedConditions.filter((condition) => condition.type !== "ORGANIZATION_FORMATION_CANDIDATE" && !(condition.type === "ORGANIZATION_FORMATION_COOLDOWN" && condition.endYear !== null && condition.endYear < state.year));
   const chosen = new Map<string, OrganizationFormationProposal>();
+  const byType = (type: OrganizationType): { counters: Record<string, number>; pressures: number[]; chances: number[]; components: Record<string, number[]> } => ({ counters: { pressureEvaluations: proposals.filter((proposal) => proposal.type === type).length, thresholdCrossings: 0, formationCandidateConditions: 0, candidatesSecondReview: 0, formationDraws: 0, successfulFormationDraws: 0, failedDraws: 0, blockedCooldown: 0, blockedSectorCap: 0, blockedNoEligibleController: 0, blockedOther: 0, organizationsCreated: 0 }, pressures: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.pressure), chances: [], components: { sectorStrength: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.sectorStrength), capitalAvailability: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.capitalAvailability), tradeAccess: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.tradeAccess), sectorRentScore: proposals.filter((proposal) => proposal.type === type).map((proposal) => sectorRentScore(proposal.context.sectorStrength, proposal.context.concentration)), enforcementStrength: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.enforcement), politicalExclusion: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.politicalExclusion), unrest: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.unrest), localFamilyNetworkStrength: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.familyNetwork) } });
+  const diagnostics = { CORPORATION: byType("CORPORATION"), CRIME_ORGANIZATION: byType("CRIME_ORGANIZATION") };
   for (const proposal of proposals) { const group = `${proposal.context.settlementId}/${proposal.type}`; const current = chosen.get(group); if (!current || proposal.pressure > current.pressure || (proposal.pressure === current.pressure && proposal.context.sectorId.localeCompare(current.context.sectorId) < 0)) chosen.set(group, proposal); }
   for (const proposal of chosen.values()) {
     const threshold = proposal.type === "CORPORATION" ? variables.corporationFormationThreshold : variables.crimeFormationThreshold;
     const activeCount = organizations.filter((organization) => organization.status !== "DISSOLVED" && organization.type === proposal.type && organization.sectorId === proposal.context.sectorId && organization.homeSettlementId === proposal.context.settlementId).length;
     const cooldown = retainedConditions.some((condition) => condition.type === "ORGANIZATION_FORMATION_COOLDOWN" && condition.key === `${proposal.context.settlementId}/${proposal.type}` && (condition.endYear === null || condition.endYear >= state.year));
-    if (proposal.pressure < threshold || activeCount >= variables.maxActiveOrganizationsPerTypeSectorSettlement || cooldown) continue;
+    const diagnostic = diagnostics[proposal.type];
+    if (proposal.pressure < threshold) { diagnostic.counters.blockedOther! += 1; continue; }
+    diagnostic.counters.thresholdCrossings! += 1;
+    if (activeCount >= variables.maxActiveOrganizationsPerTypeSectorSettlement) { diagnostic.counters.blockedSectorCap! += 1; continue; }
+    if (cooldown) { diagnostic.counters.blockedCooldown! += 1; continue; }
     const count = (priorCandidates.get(proposal.key)?.qualifyingReviewCount ?? 0) + 1;
-    if (count < variables.organizationFormationRequiredReviews) { retainedConditions.push({ conditionId: `COND_${digest(proposal.key)}`, type: "ORGANIZATION_FORMATION_CANDIDATE", targetType: "SETTLEMENT", targetId: proposal.context.settlementId, magnitude: proposal.pressure, startYear: priorCandidates.get(proposal.key)?.startYear ?? state.year, endYear: null, sourceEventId: `EVT_${state.worldKey}_${state.year}_ORG_CANDIDATE`, key: proposal.key, qualifyingReviewCount: count }); continue; }
+    if (count < variables.organizationFormationRequiredReviews) { retainedConditions.push({ conditionId: `COND_${digest(proposal.key)}`, type: "ORGANIZATION_FORMATION_CANDIDATE", targetType: "SETTLEMENT", targetId: proposal.context.settlementId, magnitude: proposal.pressure, startYear: priorCandidates.get(proposal.key)?.startYear ?? state.year, endYear: null, sourceEventId: `EVT_${state.worldKey}_${state.year}_ORG_CANDIDATE`, key: proposal.key, qualifyingReviewCount: count }); diagnostic.counters.formationCandidateConditions! += 1; continue; }
+    diagnostic.counters.candidatesSecondReview! += 1;
     const chance = thresholdChance(proposal.pressure, threshold, variables.organizationFormationMaximumChanceBps); const namespace = proposal.type === "CORPORATION" ? "ORGANIZATION_FORMATION_CORPORATION" : "ORGANIZATION_FORMATION_CRIME"; const random = identity(normalizedSeed, namespace, `${proposal.context.settlementId}/${proposal.type}`, state.year, proposal.context.sectorId); const draw = keyedDrawBps(random);
+    diagnostic.chances.push(chance); diagnostic.counters.formationDraws! += 1;
     retainedConditions.push({ conditionId: `COOLDOWN_${digest([proposal.context.settlementId, proposal.type, state.year])}`, type: "ORGANIZATION_FORMATION_COOLDOWN", targetType: "SETTLEMENT", targetId: proposal.context.settlementId, magnitude: 0, startYear: state.year, endYear: state.year + variables.organizationFormationCooldownYears, sourceEventId: `EVT_${state.worldKey}_${state.year}_ORG_DECISION`, key: `${proposal.context.settlementId}/${proposal.type}`, qualifyingReviewCount: 0 });
-    if (draw >= chance) continue;
+    if (draw >= chance) { diagnostic.counters.failedDraws! += 1; continue; }
+    diagnostic.counters.successfulFormationDraws! += 1;
     const controller = controllerCandidates({ ...state, organizations, ownershipStakes: stakes }, proposal.context.settlementId, proposal.type)[0]!;
     const organizationId = `ORGANIZATION_${state.worldKey}_${digest([proposal.context.settlementId, proposal.type, proposal.context.sectorId, state.year])}`;
     const organization: OrganizationV5 = { organizationId, type: proposal.type, sectorId: proposal.context.sectorId, homeSettlementId: proposal.context.settlementId, founderControllerType: controller.controllerType, founderControllerId: controller.controllerId, wealth: variables.organizationInitialWealth, influence: variables.organizationInitialInfluence, status: "ACTIVE", belowSurvivalReviewCount: 0, formationYear: state.year, dissolutionYear: null };
     organizations.push(organization);
+    diagnostic.counters.organizationsCreated! += 1;
     if (proposal.type === "CORPORATION") {
       if (controller.controllerType === "DIFFUSE") stakes.push({ stakeId: `STAKE_${organizationId}_DIFFUSE`, organizationId, controllerType: "DIFFUSE", controllerId: `DIFFUSE_${organizationId}`, ownershipShareBps: 10_000, controlShareBps: 10_000, startYear: state.year, endYear: null, sourceEventId: `EVT_${organizationId}_FORMED` });
       else stakes.push({ stakeId: `STAKE_${organizationId}_FOUNDER`, organizationId, controllerType: controller.controllerType, controllerId: controller.controllerId, ownershipShareBps: 7000, controlShareBps: 10_000, startYear: state.year, endYear: null, sourceEventId: `EVT_${organizationId}_FORMED` }, { stakeId: `STAKE_${organizationId}_DIFFUSE`, organizationId, controllerType: "DIFFUSE", controllerId: `DIFFUSE_${organizationId}`, ownershipShareBps: 3000, controlShareBps: 0, startYear: state.year, endYear: null, sourceEventId: `EVT_${organizationId}_FORMED` });
     } else stakes.push({ stakeId: `STAKE_${organizationId}_FOUNDER`, organizationId, controllerType: controller.controllerType, controllerId: controller.controllerId, ownershipShareBps: 10_000, controlShareBps: 10_000, startYear: state.year, endYear: null, sourceEventId: `EVT_${organizationId}_FORMED` });
     events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${organizationId}_FORMED`, worldKey: state.worldKey, year: state.year, phase: "ORGANIZATION", sequence: events.length, eventType: "OrganizationFormed", entityType: "ORGANIZATION", entityId: organizationId, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: canonicalJson(random), mutations: [], payload: { type: proposal.type, sectorId: proposal.context.sectorId, pressure: proposal.pressure, chanceBps: chance, drawBps: draw, controllerType: controller.controllerType, controllerId: controller.controllerId } });
-    namingRequests.push({ requestId: `NAME_${organizationId}`, entityType: "ORGANIZATION", entityId: organizationId, behavior: "BATCHED", createdYear: state.year, acceptedLabel: null });
+    namingRequests.push({ requestId: `NAME_${organizationId}`, entityType: "ORGANIZATION", entityId: organizationId, behavior: "BATCHED", createdYear: state.year, nameEffectiveFromYear: state.year, worldKey: state.worldKey, namingComparisonGroupId: null, comparisonAuthorityRef: null, acceptedLabel: null, context: { world: state.worldKey, creationYear: state.year, causalReason: "ORGANIZATION_FORMED", organizationId, organizationType: proposal.type, sectorId: proposal.context.sectorId, homeSettlementId: proposal.context.settlementId, founderControllerType: controller.controllerType, founderControllerId: controller.controllerId, pressure: proposal.pressure } });
   }
-  return { state: { ...state, organizations: organizations.sort((a, b) => a.organizationId.localeCompare(b.organizationId)), ownershipStakes: stakes, timedConditions: retainedConditions }, events, namingRequests };
+  const observations = (["CORPORATION", "CRIME_ORGANIZATION"] as const).map((type) => ({ domain: type === "CORPORATION" ? "ORGANIZATION_CORPORATION" as const : "ORGANIZATION_CRIME" as const, worldKey: state.worldKey, year: state.year, counters: diagnostics[type].counters, histograms: { pressure: boundedHistogram(diagnostics[type].pressures), formationChance: boundedHistogram(diagnostics[type].chances), ...Object.fromEntries(Object.entries(diagnostics[type].components).map(([key, values]) => [key, boundedHistogram(values)])) }, absentComponents: type === "CORPORATION" ? ["CorporateLegalCompatibility", "SettlementPopulationScale"] : [] }));
+  return { state: { ...state, organizations: organizations.sort((a, b) => a.organizationId.localeCompare(b.organizationId)), ownershipStakes: stakes, timedConditions: retainedConditions }, events, namingRequests, diagnostics: observations };
 }
 
 export function reviewOrganizationLifecycle(state: WorldStateV5, contexts: Readonly<Record<string, OrganizationFormationContext>>, variables: MechanicsVariablesV1): { state: WorldStateV5; events: CausalEventV5[] } {

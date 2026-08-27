@@ -7,19 +7,19 @@
   "semanticEvidenceIntegrityPassed": true,
   "archive": {
     "filename": "/home/bobby/echoes-simulator/ECHOES_OF_EIDOLON_BREED_SEMANTICS_V4_SIMULATION_READY.zip",
-    "sha256": "a7f8378adba7a7d8980dcfc81eb493e4da5514e7cad0c1ee22fc8d638b95ad23",
+    "sha256": "6e259468580bf4c5e4a99e6be9e20a3144e1c639fc5a7d05d754f152bc59f7bf",
     "internalChecksumsVerified": true
   },
   "counts": {
-    "breeds": 2056,
-    "civicBreeds": 1773,
+    "breeds": 2062,
+    "civicBreeds": 1779,
     "pets": 283,
-    "units": 1219,
-    "auditedUnits": 1219,
-    "effectiveCivicBreeds": 1773,
-    "evidence": 3657,
-    "citations": 3657,
-    "sources": 1254,
+    "units": 1225,
+    "auditedUnits": 1225,
+    "effectiveCivicBreeds": 1779,
+    "evidence": 3675,
+    "citations": 3675,
+    "sources": 1260,
     "findings": 0
   },
   "regressionResults": [

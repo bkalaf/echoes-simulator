@@ -2,6 +2,7 @@ import type { CanonicalDataV5, CausalOwnerInputsV1, DiagnosticConfigV1, Mechanic
 import { bootstrapWorldV5 } from "./bootstrap.js";
 import { advanceWorldOneYear, type ScheduledTransactionV5, type V5EngineContext } from "./engine.js";
 import type { CausalEventV5, NamingRequestV5, WorldKey, WorldStateV5 } from "./types.js";
+import type { BoundedDiagnosticObservationV5 } from "./diagnostics.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
 
@@ -16,6 +17,8 @@ export interface V5HistoryRunInput {
   throughYear: number;
   scheduledTransactions?: Partial<Record<WorldKey, readonly ScheduledTransactionV5[]>>;
   stopAtBlockingNaming?: boolean;
+  interactiveNamingEnabled?: boolean;
+  pendingBatchedNamingAtStart?: boolean;
   retainHistory?: boolean;
   onBootstrap?: (snapshot: V5AtomicYearSnapshot) => void;
   onAtomicYear?: (snapshot: V5AtomicYearSnapshot) => void;
@@ -26,11 +29,13 @@ export interface V5AtomicYearSnapshot {
   states: Readonly<Record<WorldKey, WorldStateV5>>;
   yearEvents: Readonly<Record<WorldKey, readonly CausalEventV5[]>>;
   yearNamingRequests: Readonly<Record<WorldKey, readonly NamingRequestV5[]>>;
+  yearDiagnosticObservations: Readonly<Record<WorldKey, readonly BoundedDiagnosticObservationV5[]>>;
   checkpointDue: boolean;
 }
 
 export interface V5HistoryRunResult {
   status: "COMPLETE" | "WAITING_FOR_NAMING";
+  pauseReason: "BLOCKING_NAMING" | "BATCHED_NAMING_FLUSH" | null;
   completedYear: number;
   states: Record<WorldKey, WorldStateV5>;
   events: Record<WorldKey, CausalEventV5[]>;
@@ -55,7 +60,7 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
   for (const worldKey of WORLDS) {
     const bootstrap = bootstrapWorldV5({ worldKey, canonical: input.canonical, ownerInputs: input.ownerInputs, variables: input.mechanics, normalizedSeed: input.normalizedSeed, mode: input.mode });
     states[worldKey] = bootstrap.state;
-    const operationalNamingRequests = bootstrap.namingRequests.map((request) => request.entityType === "POLITICAL_PERSON" && request.behavior === "AUTOMATIC_REUSE" ? { ...request, behavior: input.operational.routineOfficeholderNaming } : request);
+    const operationalNamingRequests = bootstrap.namingRequests;
     const bootstrapEvents = [...bootstrap.events].sort((a, b) => a.eventId.localeCompare(b.eventId)).map((event, sequence) => ({ ...event, sequence }));
     bootstrapYearEvents[worldKey].push(...bootstrapEvents);
     bootstrapNamingRequests[worldKey].push(...operationalNamingRequests);
@@ -67,11 +72,14 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
     states: structuredClone(states),
     yearEvents: bootstrapYearEvents,
     yearNamingRequests: bootstrapNamingRequests,
+    yearDiagnosticObservations: { CONCORD: [], SCHISM: [], RUIN: [] },
     checkpointDue: true,
   });
+  let batchedSinceFlush = bootstrapNamingRequests.CONCORD.concat(bootstrapNamingRequests.SCHISM, bootstrapNamingRequests.RUIN).some((request) => request.behavior === "BATCHED" && request.acceptedLabel === null);
   for (let year = 1; year <= input.throughYear; year += 1) {
     const yearEvents = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, CausalEventV5[]>;
     const yearNamingRequests = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, NamingRequestV5[]>;
+    const yearDiagnosticObservations = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, BoundedDiagnosticObservationV5[]>;
     for (const worldKey of WORLDS) {
       const context: V5EngineContext = {
         canonical: input.canonical,
@@ -86,15 +94,19 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
       states[worldKey] = advanced.state;
       yearEvents[worldKey].push(...advanced.events);
       yearNamingRequests[worldKey].push(...advanced.namingRequests);
+      yearDiagnosticObservations[worldKey].push(...advanced.diagnosticObservations);
       eventCounts[worldKey] += advanced.events.length;
       if (input.retainHistory !== false) { events[worldKey].push(...advanced.events); namingRequests[worldKey].push(...advanced.namingRequests); }
     }
     const blocking = WORLDS.some((worldKey) => yearNamingRequests[worldKey].some((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null));
-    const checkpointDue = year % input.operational.checkpointIntervalYears === 0 || year === input.throughYear || blocking;
-    input.onAtomicYear?.({ year, states: structuredClone(states), yearEvents, yearNamingRequests, checkpointDue });
-    if ((input.stopAtBlockingNaming ?? true) && blocking) return { status: "WAITING_FOR_NAMING", completedYear: year, states, events, namingRequests, eventCounts };
+    batchedSinceFlush ||= WORLDS.some((worldKey) => yearNamingRequests[worldKey].some((request) => request.behavior === "BATCHED" && request.acceptedLabel === null));
+    const interactiveFlushDue = Boolean(input.interactiveNamingEnabled && batchedSinceFlush && year % input.operational.namingBatchFlushIntervalYears === 0);
+    const checkpointDue = year % input.operational.checkpointIntervalYears === 0 || year === input.throughYear || blocking || interactiveFlushDue;
+    input.onAtomicYear?.({ year, states: structuredClone(states), yearEvents, yearNamingRequests, yearDiagnosticObservations, checkpointDue });
+    if ((input.stopAtBlockingNaming ?? true) && blocking) return { status: "WAITING_FOR_NAMING", pauseReason: "BLOCKING_NAMING", completedYear: year, states, events, namingRequests, eventCounts };
+    if (interactiveFlushDue) return { status: "WAITING_FOR_NAMING", pauseReason: "BATCHED_NAMING_FLUSH", completedYear: year, states, events, namingRequests, eventCounts };
   }
-  return { status: "COMPLETE", completedYear: input.throughYear, states, events, namingRequests, eventCounts };
+  return { status: "COMPLETE", pauseReason: null, completedYear: input.throughYear, states, events, namingRequests, eventCounts };
 }
 
 export function continueV5History(input: V5HistoryContinuationInput): V5HistoryRunResult {
@@ -106,9 +118,11 @@ export function continueV5History(input: V5HistoryContinuationInput): V5HistoryR
   const events = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, CausalEventV5[]>;
   const namingRequests = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, NamingRequestV5[]>;
   const eventCounts = Object.fromEntries(WORLDS.map((world) => [world, input.initialEventCounts?.[world] ?? 0])) as Record<WorldKey, number>;
+  let batchedSinceFlush = input.pendingBatchedNamingAtStart ?? false;
   for (let year = startYear + 1; year <= input.throughYear; year += 1) {
     const yearEvents = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, CausalEventV5[]>;
     const yearNamingRequests = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, NamingRequestV5[]>;
+    const yearDiagnosticObservations = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, BoundedDiagnosticObservationV5[]>;
     for (const worldKey of WORLDS) {
       const advanced = advanceWorldOneYear(states[worldKey], {
         canonical: input.canonical,
@@ -122,13 +136,17 @@ export function continueV5History(input: V5HistoryContinuationInput): V5HistoryR
       states[worldKey] = advanced.state;
       yearEvents[worldKey].push(...advanced.events);
       yearNamingRequests[worldKey].push(...advanced.namingRequests);
+      yearDiagnosticObservations[worldKey].push(...advanced.diagnosticObservations);
       eventCounts[worldKey] += advanced.events.length;
       if (input.retainHistory !== false) { events[worldKey].push(...advanced.events); namingRequests[worldKey].push(...advanced.namingRequests); }
     }
     const blocking = WORLDS.some((world) => yearNamingRequests[world].some((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null));
-    const checkpointDue = year % input.operational.checkpointIntervalYears === 0 || year === input.throughYear || blocking;
-    input.onAtomicYear?.({ year, states: structuredClone(states), yearEvents, yearNamingRequests, checkpointDue });
-    if ((input.stopAtBlockingNaming ?? true) && blocking) return { status: "WAITING_FOR_NAMING", completedYear: year, states, events, namingRequests, eventCounts };
+    batchedSinceFlush ||= WORLDS.some((worldKey) => yearNamingRequests[worldKey].some((request) => request.behavior === "BATCHED" && request.acceptedLabel === null));
+    const interactiveFlushDue = Boolean(input.interactiveNamingEnabled && batchedSinceFlush && year % input.operational.namingBatchFlushIntervalYears === 0);
+    const checkpointDue = year % input.operational.checkpointIntervalYears === 0 || year === input.throughYear || blocking || interactiveFlushDue;
+    input.onAtomicYear?.({ year, states: structuredClone(states), yearEvents, yearNamingRequests, yearDiagnosticObservations, checkpointDue });
+    if ((input.stopAtBlockingNaming ?? true) && blocking) return { status: "WAITING_FOR_NAMING", pauseReason: "BLOCKING_NAMING", completedYear: year, states, events, namingRequests, eventCounts };
+    if (interactiveFlushDue) return { status: "WAITING_FOR_NAMING", pauseReason: "BATCHED_NAMING_FLUSH", completedYear: year, states, events, namingRequests, eventCounts };
   }
-  return { status: "COMPLETE", completedYear: input.throughYear, states, events, namingRequests, eventCounts };
+  return { status: "COMPLETE", pauseReason: null, completedYear: input.throughYear, states, events, namingRequests, eventCounts };
 }

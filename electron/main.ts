@@ -7,6 +7,7 @@ import { randomUUID } from "node:crypto";
 import { parse as parseCsvSync } from "csv-parse/sync";
 import { WORKER_SCHEMA_VERSION } from "./ipc-contract.js";
 import { SimulatorStore } from "../src/persistence/sqlite-store.js";
+import { inspectLegacyV5NamingTrust, type LegacyV5NamingTrustInspection } from "../src/persistence/v5-legacy-trust.js";
 import { bootstrapCanonicalRun } from "../src/core/engine/canonical-runner.js";
 import type { DiagnosticResult } from "../src/core/engine/diagnostic-runner.js";
 import { persistDiagnosticResult } from "../src/core/operator/diagnostic-service.js";
@@ -29,6 +30,7 @@ import { buildPersistedNamingBatchesV5 } from "../src/core/v5/naming.js";
 import { buildRouteCoverageReadModel } from "../src/core/v5/routes.js";
 import { buildPoiCoverage } from "../src/core/atlas/coverage.js";
 import { canonicalPolicyReadiness, diagnosticCandidateOwnerInputsV1 } from "../src/core/v5/config.js";
+import { buildNamingGeographyReadModel } from "../src/core/v5/naming-geography.js";
 
 let mainWindow: BrowserWindow | null = null;
 const projectRoot = resolve(import.meta.dirname, "../..");
@@ -41,10 +43,13 @@ let activeV5Resume: { runId: string; promise: Promise<unknown> } | null = null;
 let poiContextCache: { canonicalDirectory: string; bySite: ReturnType<typeof loadUnnamedPoisBySite> } | null = null;
 let breedCatalogPromise: ReturnType<typeof loadBreedCatalog> | null = null;
 let atlasPoiCache: ReturnType<typeof loadAtlasPois> | null = null;
+let legacyNamingTrust: LegacyV5NamingTrustInspection | null = null;
 
 function getStore(): SimulatorStore {
   if (!store) {
-    store = new SimulatorStore(join(app.getPath("userData"), "simulator.sqlite"));
+    const primary = join(app.getPath("userData"), "simulator.sqlite");
+    legacyNamingTrust = inspectLegacyV5NamingTrust(primary);
+    store = new SimulatorStore(legacyNamingTrust.requiresFreshTrustedDatabase ? join(app.getPath("userData"), "simulator-v5-trusted.sqlite") : primary);
     store.retireCanonicalRunsExcept(CANONICAL_POLICY_VERSION);
   }
   return store;
@@ -61,7 +66,7 @@ function v5SettlementProjection(runId: string, state: WorldStateV5): Record<stri
   const manifest = getStore().loadV5RunManifest(runId);
   if (!manifest) return [];
   const canonical = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-  const read = buildReadModelV1(state, canonical, manifest.mechanicsVariables, getStore().loadV5Labels(runId));
+  const read = buildReadModelV1(state, canonical, manifest.mechanicsVariables, getStore().loadV5Labels(runId, state.year));
   return read.settlements.map((settlement) => {
     const durable = state.settlements.find((candidate) => candidate.settlementId === settlement.settlementId)!;
     const politicalState = state.states.find((candidate) => candidate.stateId === settlement.stateId);
@@ -84,7 +89,7 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
   }
   const selectedRun = getStore().selectedRun();
   const selectedV5Manifest = selectedRun ? getStore().loadV5RunManifest(selectedRun.runId) : null;
-  const pendingV5NamingBatches = selectedRun && selectedV5Manifest ? buildPersistedNamingBatchesV5(selectedRun.runId, getStore().listV5NamingRequests(selectedRun.runId), selectedV5Manifest.operationalConfig.namingBatchSize) : [];
+  const pendingV5NamingBatches = selectedRun && selectedV5Manifest ? buildPersistedNamingBatchesV5(selectedRun.runId, getStore().listV5NamingRequests(selectedRun.runId), selectedV5Manifest.operationalConfig.namingBatchMaximum) : [];
   const pendingV5NamingBatch = pendingV5NamingBatches[0] ?? null;
   const persistedYear = selectedRun?.mode === "CANONICAL"
     ? Math.max(selectedRun.currentYear ?? 0, getStore().latestCompleteCheckpointYear(selectedRun.runId, ["CONCORD", "SCHISM", "RUIN"]) ?? 0)
@@ -111,6 +116,16 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
     const candidateOwnerInputs = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonicalV5.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
     return canonicalPolicyReadiness(candidateOwnerInputs, canonicalV5.governments.map((government) => government.governmentFormId));
   })() : { ready: false, missing: ["CANONICAL_BUNDLE"] };
+  const namingReadiness = canonicalData.status === "READY" ? (() => {
+    const canonicalV5 = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
+    return { routeCorridorsNotReady: canonicalV5.routeCorridors.filter((corridor) => corridor.primaryMode === "UNRESOLVED").length, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: canonicalV5.sites.filter((site) => site.nameStatus !== "CANONICAL").length + canonicalV5.physicalPois.filter((poi) => poi.nameStatus !== "CANONICAL").length, unresolvedDjtYearAuthority: 1 };
+  })() : { routeCorridorsNotReady: 0, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: 0, unresolvedDjtYearAuthority: 1 };
+  const namingQueueSummary = selectedRun && selectedV5Manifest ? (() => {
+    const requests = getStore().listV5NamingRequests(selectedRun.runId); const ledger = getStore().loadV5TrustedLabelLedger(selectedRun.runId);
+    const entityTypes = ["SETTLEMENT","STATE","WORLD_POI","WORLD_ROUTE","FAMILY","ORGANIZATION","POLITICAL_PERSON","INSTITUTION"];
+    const countByType = (rows: readonly { entityType: string }[]) => Object.fromEntries(entityTypes.map((entityType) => [entityType, rows.filter((row) => row.entityType === entityType).length]));
+    return { pendingBlocking: countByType(requests.filter((request) => request.behavior === "BLOCKING" && !request.acceptedLabel)), pendingBatched: countByType(requests.filter((request) => request.behavior === "BATCHED" && !request.acceptedLabel)), acceptedFromLlm: countByType(ledger.filter((entry) => entry.source === "LLM_NAMING_RESPONSE")), canonicalOrReused: countByType(ledger.filter((entry) => entry.source === "CANONICAL_EXISTING" || entry.source === "AUTOMATIC_REUSE")), notReadyForNaming: { WORLD_ROUTE: namingReadiness.routeCorridorsNotReady * 3 } };
+  })() : null;
   const startedAt = selectedRun?.createdAt ? Date.parse(selectedRun.createdAt) : NaN;
   const nextProcessingYear = Math.min(selectedV5Manifest?.targetYear ?? persistedYear, persistedYear + 1);
   const progress = selectedV5Manifest ? {
@@ -123,7 +138,7 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
     lastCompletedCheckpoint: Math.max(...V5_WORLDS.map((world) => getStore().listV5CheckpointYears(selectedRun!.runId, world).at(-1) ?? 0)),
     nextCheckpoint: Math.min(selectedV5Manifest.targetYear, persistedYear + selectedV5Manifest.operationalConfig.checkpointIntervalYears),
   } : null;
-  return { canonicalData, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, progress, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
+  return { canonicalData, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
 }
 
 function runWorker(action: "RUN_DIAGNOSTIC" | "RUN_V5_DIAGNOSTIC" | "RESUME_V5" | "RESUME_CANONICAL" | "GET_BREED_POPULATION", payload: Record<string, unknown>): Promise<unknown> {
@@ -205,12 +220,24 @@ ipcMain.handle("simulator:run-diagnostic", async (_event, seed: string) => {
   const result = await runWorker("RUN_DIAGNOSTIC", { seed, resourceDirectory: runtimeResources }) as DiagnosticResult;
   return persistDiagnosticResult(getStore(), result);
 });
-ipcMain.handle("simulator:run-v5-diagnostic", async (_event, seed: string, throughYear = 25) => {
+ipcMain.handle("simulator:run-v5-diagnostic", async (_event, seed: string, throughYear = 25, interactiveNaming = true) => {
   const hasActiveRun = getStore().listRuns().some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING"].includes(run.status));
   if (hasActiveRun) throw new Error("Another simulation run is active");
   const targetYear = Math.trunc(throughYear);
   if (!Number.isFinite(targetYear) || targetYear < 1 || targetYear > 2000) throw new Error("V5 target year must be an integer from 1 through 2000");
-  return runWorker("RUN_V5_DIAGNOSTIC", { seed, throughYear: targetYear, resourceDirectory: runtimeResources, databasePath: getStore().filename });
+  const configuration = getStore().loadV5Configuration();
+  getStore().saveV5Configuration({ ...configuration, operational: { ...configuration.operational, interactiveNamingEnabled: Boolean(interactiveNaming) } });
+  return runWorker("RUN_V5_DIAGNOSTIC", { seed, throughYear: targetYear, namingMode: interactiveNaming ? "INTERACTIVE_LLM_NAMING" : undefined, resourceDirectory: runtimeResources, databasePath: getStore().filename });
+});
+ipcMain.handle("simulator:get-naming-geography", (_event, requestedYear?: number) => {
+  const isolatedFixturePath = process.env.NODE_ENV === "test" ? process.env.EIDOLON_V5_NAMING_GEOGRAPHY_FIXTURE : undefined;
+  if (isolatedFixturePath && existsSync(isolatedFixturePath)) return JSON.parse(readFileSync(isolatedFixturePath, "utf8"));
+  const run = getStore().selectedRun();
+  if (!run || !getStore().loadV5RunManifest(run.runId)) return null;
+  const year = Math.max(0, Math.min(Number.isFinite(requestedYear) ? Math.trunc(requestedYear!) : run.currentYear ?? 0, run.currentYear ?? 0));
+  const canonical = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
+  const states = Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run.runId, world, year)?.state; return state ? [[world, state]] : []; })) as Partial<Record<WorldKeyV5, WorldStateV5>>;
+  return buildNamingGeographyReadModel(canonical, states, getStore().loadV5TrustedLabelLedger(run.runId, year), getStore().listV5NamingRequests(run.runId), year);
 });
 ipcMain.handle("simulator:select-run", (_event, runId: string) => { getStore().selectRun(runId); return snapshotForOperator(); });
 ipcMain.handle("simulator:get-run-view", (_event, runId: string, world: string, year: number) => {
@@ -222,7 +249,7 @@ ipcMain.handle("simulator:get-run-view", (_event, runId: string, world: string, 
     if (!V5_WORLDS.includes(world as WorldKeyV5)) throw new Error(`Unknown V5 world ${world}`);
     const checkpoint = getStore().loadLatestV5Checkpoint(runId, world, effectiveYear);
     const checkpointYear = checkpoint?.state.year ?? 0;
-    const labels = getStore().loadV5Labels(runId);
+    const labels = getStore().loadV5Labels(runId, checkpointYear);
     const canonical = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
     const personFactionById = Object.fromEntries((checkpoint?.state.politicalPeople ?? []).map((person) => {
       const family = checkpoint?.state.families.find((candidate) => candidate.familyId === person.familyId);
@@ -281,6 +308,7 @@ ipcMain.handle("simulator:get-atlas-data", (_event, requestedYear?: number) => {
   if (canonicalData.status !== "READY") throw new Error(`BUNDLED_CANONICAL_DATA_INVALID: ${canonicalData.errorDetail}`);
   atlasPoiCache ??= loadAtlasPois(canonicalData.directory);
   const run = getStore().selectedRun();
+  const year = Math.min(requestedYear ?? run?.currentYear ?? 0, run?.currentYear ?? 0);
   const namesByPoi = new Map<string, Partial<Record<"CONCORD" | "SCHISM" | "RUIN", string>>>();
   if (run) for (const { job, status } of getStore().listNamingJobs(run.runId)) {
     if (status !== "ACCEPTED") continue;
@@ -292,7 +320,7 @@ ipcMain.handle("simulator:get-atlas-data", (_event, requestedYear?: number) => {
     }
   }
   if (run && getStore().loadV5RunManifest(run.runId)) {
-    const labels = getStore().loadV5Labels(run.runId);
+    const labels = getStore().loadV5Labels(run.runId, year);
     for (const poi of atlasPoiCache) for (const world of V5_WORLDS) {
       const label = labels[`WORLD_POI_${world}_${poi.poiId}`];
       if (!label) continue;
@@ -304,10 +332,9 @@ ipcMain.handle("simulator:get-atlas-data", (_event, requestedYear?: number) => {
   const imagePath = join(runtimeResources, "ui/master-atlas.webp");
   if (!existsSync(imagePath)) throw new Error("Bundled master Atlas image is missing");
   const v5Manifest = run ? getStore().loadV5RunManifest(run.runId) : null;
-  const year = Math.min(requestedYear ?? run?.currentYear ?? 0, run?.currentYear ?? 0);
   const states = (v5Manifest ? Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run!.runId, world, year)?.state; return state ? [[world, state]] : []; })) : {}) as Partial<Record<WorldKeyV5, WorldStateV5>>;
   const canonicalV5 = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-  const labels = run && v5Manifest ? getStore().loadV5Labels(run.runId) : {};
+  const labels = run && v5Manifest ? getStore().loadV5Labels(run.runId, year) : {};
   const requests = run && v5Manifest ? getStore().listV5NamingRequests(run.runId) : [];
   const routeCoverage = buildRouteCoverageReadModel(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_ROUTE_${world}_`))])));
   const poiCoverage = buildPoiCoverage(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_POI_${world}_`))])));
@@ -343,11 +370,11 @@ ipcMain.handle("simulator:submit-naming-response", (_event, responseText: string
     try { parsed = JSON.parse(responseText); } catch { return { accepted: false, errors: ["Naming response is not valid JSON"] }; }
     const accepted = acceptPersistedV5NamingBatch({ store: getStore(), runId: selected.runId, response: parsed });
     if (!accepted.accepted) return accepted;
-    if (accepted.behavior === "BLOCKING") {
+    if ((accepted.pendingBlocking ?? 0) === 0 && (accepted.pendingBatched ?? 0) === 0 && (accepted.behavior === "BLOCKING" || selected.status === "WAITING_FOR_NAMING")) {
       startV5Resume(selected.runId);
       return { ...accepted, status: "RUNNING", resumeStarted: true };
     }
-    return { ...accepted, status: selected.status, resumeStarted: false };
+    return { ...accepted, status: "WAITING_FOR_NAMING", resumeStarted: false };
   }
   const firstJob = getStore().getAnyPendingNamingJob();
   if (!firstJob) throw new Error("No pending naming job exists");
@@ -389,6 +416,14 @@ ipcMain.handle("simulator:submit-naming-response", (_event, responseText: string
   if (getStore().getPendingNamingJob(job.context.runId)) return { accepted: true, errors: [], status: "WAITING_FOR_NAMING", currentYear: job.context.year };
   startCanonicalResume(job.context.runId);
   return { accepted: true, errors: [], status: "RUNNING", currentYear: job.context.year, resumeStarted: true };
+});
+ipcMain.handle("simulator:export-naming-prompt", async (_event, promptText: string, batchId: string) => {
+  if (!promptText.trim()) throw new Error("No naming prompt is available to export");
+  const safeBatchId = batchId.replace(/[^A-Za-z0-9_.-]/g, "_");
+  const result = await dialog.showSaveDialog(mainWindow!, { defaultPath: `${safeBatchId || "v5-naming-batch"}.txt`, filters: [{ name: "Text", extensions: ["txt"] }] });
+  if (result.canceled || !result.filePath) return null;
+  writeFileSync(result.filePath, promptText, "utf8");
+  return { path: result.filePath };
 });
 ipcMain.handle("simulator:export-run", async () => {
   const run = getStore().selectedRun();

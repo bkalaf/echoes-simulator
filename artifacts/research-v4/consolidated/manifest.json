@@ -2,116 +2,122 @@
   "schemaVersion": "eidolon-breed-semantics-v4-manifest",
   "status": "SIMULATION_READY",
   "semanticAuthorityVersion": "V4",
-  "generatedAt": "2026-08-19T00:00:00.000Z",
+  "generatedAt": "2026-08-26T00:00:00.000Z",
   "filename": "ECHOES_OF_EIDOLON_BREED_SEMANTICS_V4_SIMULATION_READY.zip",
   "personalityPolicyRef": "PERSONALITY_PROFILE_DIMENSIONS_V1",
+  "breedDimensionPolicyRef": "BREED_DIMENSION_BALANCE_V1",
+  "breedFactionPolicyRef": "BREED_FACTION_PROJECTION_V1",
   "counts": {
-    "breeds": 2056,
-    "civicBreeds": 1773,
+    "breeds": 2062,
+    "civicBreeds": 1779,
     "pets": 283,
-    "researchUnits": 1219,
-    "regionBatches": 29,
+    "researchUnits": 1225,
+    "regionBatches": 31,
     "auditShards": 7,
-    "sources": 1254,
-    "citations": 3657,
-    "evidence": 3657,
-    "inheritanceEdges": 1773,
-    "effectiveCivicBreeds": 1773
+    "sources": 1260,
+    "citations": 3675,
+    "evidence": 3675,
+    "inheritanceEdges": 1779,
+    "effectiveCivicBreeds": 1779,
+    "ownerBalancedAssignments": 4421,
+    "ownerBalancedBreeds": 1656,
+    "factionProjectedCivicBreeds": 1779,
+    "factionPolicyNullPets": 283
   },
   "populationKinds": {
     "HUMAN": 631,
-    "BEAST": 961,
+    "BEAST": 967,
     "MYTHOS": 181,
     "PET": 283
   },
   "criticalCoverage": {
     "personalityId": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "terrainBroad": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 0,
       "invalidUnresolved": 0
     },
     "terrainSpecific": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 0,
       "invalidUnresolved": 0
     },
     "motivation": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "operatingStyle": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "structureOrientation": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "administrationMode": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "ownershipMode": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "allocationMode": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "legitimacyBasis": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "authoritySource": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "loquacity": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "emotionalTemperature": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "outlookOrientation": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     },
     "collaborativePosture": {
-      "civicResolved": 1773,
-      "civicRequired": 1773,
+      "civicResolved": 1779,
+      "civicRequired": 1779,
       "petPolicyNull": 283,
       "invalidUnresolved": 0
     }
@@ -124,5 +130,27 @@
     "identityFilename": "full_breed_with_region_ids(1).csv",
     "identitySha256": "7d542ebeebbdc3798a062af8a9e1553031932e6dc756f2fa29a824b3f2adca42",
     "regionResearchArtifactSha256": "3d40da5876176754aeecd155a27d374aaaa3ae7e7c95a3268022526d35872944"
+  },
+  "identityRemediation": {
+    "version": "BREED_DEPENDENCY_REMEDIATION_2026_08_26",
+    "correctedBreedIds": [
+      "BRD_DOMESTICATED_GOOSE_AFRICAN_GOOSE",
+      "BRD_DOMESTICATED_GOOSE_CHINESE_GOOSE"
+    ],
+    "correction": "Corrected the two Swan-goose-derived domestic Breeds from SPC_ANSER_ANSER to SPC_ANSER_CYGNOIDES.",
+    "generatedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "identityAdditions": {
+    "version": "OWNER_REQUESTED_ANIMAL_ADDITIONS_2026_08_26",
+    "breedIds": [
+      "BRD_RED_HANDFISH",
+      "BRD_SPOTTED_HANDFISH",
+      "BRD_ZIEBELLS_HANDFISH",
+      "BRD_VOGELKOP_SUPERB_BIRD_OF_PARADISE",
+      "BRD_LESSER_BIRD_OF_PARADISE",
+      "BRD_RED_BIRD_OF_PARADISE"
+    ],
+    "rationale": "Added requested missing animals with two closely related evidence-backed Breeds per request so the owner-authorized exact three-way civic dimension balance remains divisible and intact.",
+    "generatedAt": "2026-08-26T00:00:00.000Z"
   }
 }

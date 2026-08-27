@@ -21,6 +21,8 @@ interface SiteRow extends Record<string, string> {
   regionName: string;
   siteId: string;
   currentSiteName: string;
+  nameStatus: string;
+  continent: string;
   attractivenessTier: string;
   broadTerrain: string;
   specificTerrain: string;
@@ -66,6 +68,7 @@ interface PoiRow extends Record<string, string> {
   siteId: string;
   regionId: string;
   regionName: string;
+  continent: string;
   poiLatitude: string;
   poiLongitude: string;
   poiHostFeatureId: string;
@@ -196,6 +199,10 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
     siteId: row.siteId,
     regionId: row.regionId,
     regionName: row.regionName,
+    continent: row.continent || null,
+    currentName: row.currentSiteName || null,
+    nameStatus: row.nameStatus || "UNRESOLVED",
+    namingAuthorityRef: row.nameStatus === "CANONICAL" && row.currentSiteName ? `CANONICAL_ATLAS_SITE_NAMING:${row.siteId}` : null,
     latitude: Number(row.latitude),
     longitude: Number(row.longitude),
     terrainBroad: splitTerrain(row.broadTerrain),
@@ -266,7 +273,10 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
     .map((row) => ({ ...row })).sort((a, b) => a.economicForm.localeCompare(b.economicForm));
   const physicalPois = (parseCsvFile(resolve(canonicalDirectory, "atlas/pois_by_site_naming.csv")) as PoiRow[]).map((row) => ({
     poiId: row.poiId, poiType: row.poiType, workingLabel: row.poiCurrentName || row.poiWorkingLabel || "", nameStatus: row.poiNameStatus || "WORKING",
-    siteId: row.siteId, regionId: row.regionId, regionName: row.regionName, latitude: Number(row.poiLatitude), longitude: Number(row.poiLongitude), hostFeatureId: row.poiHostFeatureId || null,
+    siteId: row.siteId, regionId: row.regionId, regionName: row.regionName, continent: row.continent || null,
+    canonicalLabel: row.poiNameStatus === "CANONICAL" && row.poiCurrentName ? row.poiCurrentName : null,
+    namingAuthorityRef: row.poiNameStatus === "CANONICAL" && row.poiCurrentName ? `CANONICAL_ATLAS_POI_NAMING:${row.poiId}` : null,
+    latitude: Number(row.poiLatitude), longitude: Number(row.poiLongitude), hostFeatureId: row.poiHostFeatureId || null,
   })).sort((a, b) => a.poiId.localeCompare(b.poiId));
   const governments = buildDiagnosticGovernmentPrototypes(politicalRows, propertyMapping);
   const sovereignRows = JSON.parse(readFileSync(resolve(canonicalDirectory, "reference/sovereign_and_djt.json"), "utf8")) as Record<WorldKey, SovereignRow>;
@@ -275,7 +285,9 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
     breedId: sovereignRows[world].breedId,
     seizureTargetSiteId: sovereignRows[world].djtSeizureTarget.siteId,
   }])) as CanonicalDataV5["sovereigns"];
-  const canonicalLabels = Object.fromEntries(siteRows.filter((row) => row.currentSiteName && row.currentSiteName !== "NAMING_REQUIRED").map((row) => [row.siteId, row.currentSiteName]));
+  const canonicalSiteRows = siteRows.filter((row) => row.nameStatus === "CANONICAL" && row.currentSiteName && row.currentSiteName !== "NAMING_REQUIRED");
+  const canonicalLabels = Object.fromEntries(canonicalSiteRows.map((row) => [row.siteId, row.currentSiteName]));
+  const canonicalLabelAuthority = Object.fromEntries(canonicalSiteRows.map((row) => [row.siteId, `CANONICAL_ATLAS_SITE_NAMING:${row.siteId}`]));
   const sharedEvents = (JSON.parse(readFileSync(resolve(canonicalDirectory, "reference/shared_event_skeleton.json"), "utf8")) as { events: SharedEventRow[] }).events;
   const canonicalEvents = sharedEvents.map((event) => ({
     eventId: event.eventKey,
@@ -298,6 +310,7 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
     groupRegionAssignments,
     initialSettlements,
     canonicalLabels,
+    canonicalLabelAuthority,
     canonicalEvents,
   };
 }

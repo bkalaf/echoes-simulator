@@ -18,7 +18,7 @@ parentPort?.on("message", (candidate: unknown) => {
     if (request.action === "RUN_V5_DIAGNOSTIC") {
       const store = new SimulatorStore(String(request.payload.databasePath));
       try {
-        payload = runPersistedV5Diagnostic({ store, normalizedSeed: typeof request.payload.seed === "string" ? request.payload.seed : "EIDOLON_V5_DIAGNOSTIC", resourceDirectory: String(request.payload.resourceDirectory), throughYear: Number(request.payload.throughYear ?? 25) });
+        payload = runPersistedV5Diagnostic({ store, normalizedSeed: typeof request.payload.seed === "string" ? request.payload.seed : "EIDOLON_V5_DIAGNOSTIC", resourceDirectory: String(request.payload.resourceDirectory), throughYear: Number(request.payload.throughYear ?? 25), namingMode: request.payload.namingMode === "INTERACTIVE_LLM_NAMING" ? "INTERACTIVE_LLM_NAMING" : undefined });
       } finally { store.close(); }
     }
     if (request.action === "RESUME_V5") {

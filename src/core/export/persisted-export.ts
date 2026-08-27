@@ -58,7 +58,7 @@ export function buildPersistedV5Export(store: SimulatorStore, runId: string, can
   if (!run || !manifest || run.status !== "COMPLETE") throw new Error("Only a completed persisted V5 run can be exported");
   const canonical = loadBundledCanonicalV5(canonicalDirectory);
   if (canonical.canonicalBundleHash !== manifest.canonicalBundleHash) throw new Error("V5 export canonical bundle does not match the immutable run manifest");
-  const labels = store.loadV5Labels(runId);
+  const labels = store.loadV5Labels(runId, run.currentYear ?? manifest.targetYear);
   const worlds = Object.fromEntries(WORLDS.map((world) => {
     const checkpoint = store.loadLatestV5Checkpoint(runId, world, run.currentYear ?? manifest.targetYear);
     if (!checkpoint || checkpoint.state.year !== run.currentYear) throw new Error(`V5 export lacks final ${world} checkpoint`);

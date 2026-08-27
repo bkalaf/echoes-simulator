@@ -5,6 +5,7 @@ import { clamp, divideRoundedAway, largestRemainder, weightedMean } from "./fixe
 import { breedFactionVector } from "./faction.js";
 import { cellPopulation, sectorTerrainFit, settlementPopulation, shortestDirectedRegionHops, terrainCompatibility } from "./derivations.js";
 import type { CausalEventV5, CohortCell, DerivedMetricsV1, NamingRequestV5, Score1000, SectorId, SettlementV5, SocialTier, TimedConditionV5, WorldStateV5 } from "./types.js";
+import { boundedHistogram, type BoundedDiagnosticObservationV5 } from "./diagnostics.js";
 
 export interface MigrationTransferV5 {
   transferId: string;
@@ -92,10 +93,11 @@ export interface MigrationReviewResult {
   transfers: MigrationTransferV5[];
   namingRequests: NamingRequestV5[];
   destinationScoringCount: number;
+  diagnostics: BoundedDiagnosticObservationV5;
 }
 
 export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMetricsV1, canonical: CanonicalDataV5, owner: CausalOwnerInputsV1, variables: MechanicsVariablesV1): MigrationReviewResult {
-  if (state.year % variables.migrationReviewIntervalYears !== 0) return { state, events: [], transfers: [], namingRequests: [], destinationScoringCount: 0 };
+  if (state.year % variables.migrationReviewIntervalYears !== 0) return { state, events: [], transfers: [], namingRequests: [], destinationScoringCount: 0, diagnostics: { domain: "FOUNDING", worldKey: state.worldKey, year: state.year, counters: {}, histograms: {} } };
   const settlementById = new Map(state.settlements.map((settlement) => [settlement.settlementId, settlement]));
   const siteById = new Map(canonical.sites.map((site) => [site.siteId, site]));
   const breedById = new Map(canonical.breeds.map((breed) => [breed.breedId, breed]));
@@ -104,6 +106,8 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
   const foundingProposals: FoundingProposal[] = [];
   const hopsByRegion = new Map<string, Map<string, number>>();
   let destinationScoringCount = 0;
+  const diagnosticCounters: Record<string, number> = { positiveMigrationOutflowOpportunities: 0, noQualifyingOccupiedDestination: 0, foundingCandidateEvaluations: 0, eligibleUnoccupiedSites: 0, candidatesCreated: 0, candidatesSecondReview: 0, settlementFounded: 0, rejectedQualifyingDestinationAppeared: 0, rejectedRouteReachability: 0, rejectedTerrainCompatibility: 0, rejectedMinimumPopulation: 0, rejectedPersistenceFailure: 0, rejectedSiteConflict: 0, rejectedNoEligibleSite: 0 };
+  const foundingScores: number[] = [];
   for (const cell of [...state.cohorts].sort((a, b) => `${a.settlementId}\0${a.breedId}`.localeCompare(`${b.settlementId}\0${b.breedId}`))) {
     const origin = settlementById.get(cell.settlementId)!;
     const breed = breedById.get(cell.breedId)!;
@@ -116,6 +120,7 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
       const push = migrationPush(compatibility, economicDisadvantage, origin.unrest, variables);
       const desired = desiredMigrationOutflow(cell.tiers[tier].population, push, variables);
       if (desired === 0n) continue;
+      diagnosticCounters.positiveMigrationOutflowOpportunities! += 1;
       const destinations = state.settlements.filter((destination) => destination.settlementId !== origin.settlementId && hops.has(destination.regionId) && hops.get(destination.regionId)! <= variables.migrationMaximumHops).sort((a, b) => a.settlementId.localeCompare(b.settlementId));
       const qualified = destinations.map((destination) => {
         destinationScoringCount += 1;
@@ -130,12 +135,19 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
         qualified.forEach((row, index) => { if (amounts[index]! > 0n) proposals.push({ attractiveness: row.score, transfer: { transferId: `MIG_${state.year}_${origin.settlementId}_${cell.breedId}_${tier}_${row.destination.settlementId}`, breedId: cell.breedId, tier, originSettlementId: origin.settlementId, destinationSettlementId: row.destination.settlementId, population: amounts[index]!, prosperity: cell.tiers[tier].prosperity, cause: "VOLUNTARY" } }); });
         continue;
       }
-      const sites = canonical.sites.filter((site) => !occupiedSites.has(site.siteId) && !site.prohibitedFounding && hops.has(site.regionId) && hops.get(site.regionId)! <= variables.migrationMaximumHops).map((site) => {
+      diagnosticCounters.noQualifyingOccupiedDestination! += 1; diagnosticCounters.foundingCandidateEvaluations! += 1;
+      const reachableSites = canonical.sites.filter((site) => !occupiedSites.has(site.siteId) && !site.prohibitedFounding && hops.has(site.regionId) && hops.get(site.regionId)! <= variables.migrationMaximumHops);
+      if (reachableSites.length === 0) diagnosticCounters.rejectedRouteReachability! += 1;
+      const sites = reachableSites.map((site) => {
         const terrain = terrainCompatibility(breed.terrainBroad, breed.terrainSpecific, site.terrainBroad, site.terrainSpecific, owner);
         const score = foundingSiteScore(terrain, site.quality ?? variables.foundingSiteQualityFallback, foundingDistanceCloseness(hops.get(site.regionId)!, variables.migrationMaximumHops), variables);
         return { site, terrain, score };
       }).filter((row) => row.terrain >= variables.foundingTerrainCompatibilityMinimum).sort((a, b) => b.score - a.score || a.site.siteId.localeCompare(b.site.siteId));
-      if (desired >= variables.foundingMinimumPopulation && sites[0]) foundingProposals.push({ proposalId: `FOUNDING_PROPOSAL_${origin.settlementId}_${cell.breedId}_${tier}_${sites[0].site.siteId}`, sourceSettlementId: origin.settlementId, breedId: cell.breedId, tier, site: sites[0].site, population: desired, prosperity: cell.tiers[tier].prosperity, score: sites[0].score });
+      diagnosticCounters.eligibleUnoccupiedSites! += sites.length;
+      if (reachableSites.length > 0 && sites.length === 0) diagnosticCounters.rejectedTerrainCompatibility! += 1;
+      if (desired < variables.foundingMinimumPopulation) diagnosticCounters.rejectedMinimumPopulation! += 1;
+      else if (sites[0]) { foundingScores.push(sites[0].score); foundingProposals.push({ proposalId: `FOUNDING_PROPOSAL_${origin.settlementId}_${cell.breedId}_${tier}_${sites[0].site.siteId}`, sourceSettlementId: origin.settlementId, breedId: cell.breedId, tier, site: sites[0].site, population: desired, prosperity: cell.tiers[tier].prosperity, score: sites[0].score }); }
+      else diagnosticCounters.rejectedNoEligibleSite! += 1;
     }
   }
   const conditions = state.timedConditions.filter((condition) => condition.type !== "FOUNDING_CANDIDATE");
@@ -144,8 +156,8 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
   for (const proposal of foundingProposals) {
     const prior = priorCandidates.get(proposal.proposalId);
     const count = (prior?.qualifyingReviewCount ?? 0) + 1;
-    if (count >= variables.foundingRequiredReviews) matured.push(proposal);
-    else conditions.push({ conditionId: `COND_${stableDigest(proposal.proposalId)}`, type: "FOUNDING_CANDIDATE", targetType: "COHORT_CELL", targetId: `${proposal.sourceSettlementId}/${proposal.breedId}/${proposal.tier}`, magnitude: proposal.score, startYear: prior?.startYear ?? state.year, endYear: null, sourceEventId: `EVT_${state.worldKey}_${state.year}_FOUNDING_CANDIDATE`, key: proposal.proposalId, qualifyingReviewCount: count });
+    if (count >= variables.foundingRequiredReviews) { matured.push(proposal); diagnosticCounters.candidatesSecondReview! += 1; }
+    else { conditions.push({ conditionId: `COND_${stableDigest(proposal.proposalId)}`, type: "FOUNDING_CANDIDATE", targetType: "COHORT_CELL", targetId: `${proposal.sourceSettlementId}/${proposal.breedId}/${proposal.tier}`, magnitude: proposal.score, startYear: prior?.startYear ?? state.year, endYear: null, sourceEventId: `EVT_${state.worldKey}_${state.year}_FOUNDING_CANDIDATE`, key: proposal.proposalId, qualifyingReviewCount: count }); diagnosticCounters.candidatesCreated! += 1; }
   }
   const siteWinners = new Map<string, FoundingProposal>();
   for (const proposal of matured.sort((a, b) => b.score - a.score || (a.population === b.population ? a.proposalId.localeCompare(b.proposalId) : a.population > b.population ? -1 : 1))) if (!siteWinners.has(proposal.site.siteId)) siteWinners.set(proposal.site.siteId, proposal);
@@ -154,6 +166,7 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
   const events: CausalEventV5[] = [];
   const namingRequests: NamingRequestV5[] = [];
   for (const proposal of siteWinners.values()) {
+    diagnosticCounters.settlementFounded! += 1;
     const source = settlementById.get(proposal.sourceSettlementId)!;
     const settlementId = `SETTLEMENT_${state.worldKey}_${proposal.site.siteId}_${stableDigest([proposal.proposalId, state.year])}`;
     const initialSectors = Object.fromEntries(["LAND_AND_FOOD", "EXTRACTION", "MANUFACTURE", "TRADE_AND_TRANSPORT", "KNOWLEDGE_AND_SERVICES"].map((sector) => [sector, weightedMean([variables.industryInitialFallback, 5000], [sectorTerrainFit(proposal.site, sector), 5000])])) as Record<SectorId, Score1000>;
@@ -161,11 +174,13 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
     working = { ...working, settlements: [...working.settlements, settlement].sort((a, b) => a.settlementId.localeCompare(b.settlementId)) };
     transfers.push({ transferId: `FOUNDING_TRANSFER_${stableDigest(proposal)}`, breedId: proposal.breedId, tier: proposal.tier, originSettlementId: proposal.sourceSettlementId, destinationSettlementId: settlementId, population: proposal.population, prosperity: proposal.prosperity, cause: "FOUNDING" });
     events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_SETTLEMENT_FOUNDED_${settlementId}`, worldKey: state.worldKey, year: state.year, phase: "VOLUNTARY_MIGRATION", sequence: events.length, eventType: "SettlementFounded", entityType: "SETTLEMENT", entityId: settlementId, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { siteId: proposal.site.siteId, stateId: source.stateId, foundingCause: "EMERGENT_MIGRATION", sourceSettlementId: proposal.sourceSettlementId } });
-    namingRequests.push({ requestId: `NAME_${settlementId}`, entityType: "SETTLEMENT", entityId: settlementId, behavior: "BLOCKING", createdYear: state.year, acceptedLabel: null });
+    namingRequests.push({ requestId: `NAME_${settlementId}`, entityType: "SETTLEMENT", entityId: settlementId, behavior: "BLOCKING", createdYear: state.year, nameEffectiveFromYear: state.year, worldKey: state.worldKey, namingComparisonGroupId: `SETTLEMENT_SITE:${proposal.site.siteId}`, comparisonAuthorityRef: `CANONICAL_SITE_ID:${proposal.site.siteId}`, comparisonGroupingVersion: "echoes-naming-comparison-groups-v1", acceptedLabel: null, context: { world: state.worldKey, creationYear: state.year, causalReason: "EMERGENT_FOUNDING", settlementId, siteId: proposal.site.siteId, regionId: proposal.site.regionId, regionName: proposal.site.regionName, continent: proposal.site.continent ?? null, stateId: source.stateId } });
   }
   working = applyMigrationTransfers(working, transfers);
   transfers.forEach((transfer, sequence) => events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_${transfer.transferId}`, worldKey: state.worldKey, year: state.year, phase: "VOLUNTARY_MIGRATION", sequence: events.length + sequence, eventType: transfer.cause === "FOUNDING" ? "FoundingTransfer" : "MigrationTransfer", entityType: "COHORT_CELL", entityId: `${transfer.destinationSettlementId}/${transfer.breedId}`, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { ...transfer, population: transfer.population.toString() } }));
-  return { state: working, events, transfers, namingRequests, destinationScoringCount };
+  diagnosticCounters.rejectedPersistenceFailure = [...priorCandidates.keys()].filter((key) => !foundingProposals.some((proposal) => proposal.proposalId === key)).length;
+  diagnosticCounters.rejectedSiteConflict = matured.length - siteWinners.size;
+  return { state: working, events, transfers, namingRequests, destinationScoringCount, diagnostics: { domain: "FOUNDING", worldKey: state.worldKey, year: state.year, counters: diagnosticCounters, histograms: { foundingSiteScore: boundedHistogram(foundingScores) } } };
 }
 
 function importCompatibility(a: import("./types.js").FactionVector, b: import("./types.js").FactionVector): number {
@@ -197,5 +212,7 @@ export function executeCanonicalFounding(state: WorldStateV5, canonical: Canonic
   const transfers = input.transfers.map((transfer) => ({ ...transfer, destinationSettlementId: settlementId, cause: "FOUNDING" as const }));
   const next = applyMigrationTransfers({ ...state, settlements: [...state.settlements, settlement].sort((a, b) => a.settlementId.localeCompare(b.settlementId)) }, transfers);
   const events: CausalEventV5[] = [{ schemaVersion: "echoes-causal-event-v5", eventId: input.eventId, worldKey: state.worldKey, year: state.year, phase: "SCHEDULED_CANONICAL", sequence: 0, eventType: "SettlementFounded", entityType: "SETTLEMENT", entityId: settlementId, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { siteId: site.siteId, stateId: input.stateId, foundingCause: "CANONICAL" } }, ...transfers.map((transfer, index) => ({ schemaVersion: "echoes-causal-event-v5" as const, eventId: `${input.eventId}_TRANSFER_${index}`, worldKey: state.worldKey, year: state.year, phase: "SCHEDULED_CANONICAL" as const, sequence: index + 1, eventType: "FoundingTransfer", entityType: "COHORT_CELL", entityId: `${settlementId}/${transfer.breedId}`, causeEventIds: [input.eventId], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { ...transfer, population: transfer.population.toString() } }))];
-  return { state: next, events, namingRequest: { requestId: `NAME_${settlementId}`, entityType: "SETTLEMENT", entityId: settlementId, behavior: "BLOCKING", createdYear: state.year, acceptedLabel: canonical.canonicalLabels[site.siteId] ?? null } };
+  const canonicalLabel = canonical.canonicalLabels[site.siteId] ?? null;
+  const canonicalAuthority = canonical.canonicalLabelAuthority?.[site.siteId] ?? null;
+  return { state: next, events, namingRequest: { requestId: `NAME_${settlementId}`, entityType: "SETTLEMENT", entityId: settlementId, behavior: "BLOCKING", createdYear: state.year, nameEffectiveFromYear: state.year, worldKey: state.worldKey, namingComparisonGroupId: `SETTLEMENT_SITE:${site.siteId}`, comparisonAuthorityRef: `CANONICAL_SITE_ID:${site.siteId}`, comparisonGroupingVersion: "echoes-naming-comparison-groups-v1", acceptedLabel: canonicalAuthority ? canonicalLabel : null, context: { world: state.worldKey, creationYear: state.year, causalReason: "CANONICAL_FOUNDING_FIXTURE", settlementId, siteId: site.siteId, regionId: site.regionId, regionName: site.regionName, continent: site.continent ?? null, stateId: input.stateId, canonicalNamingAuthorityRef: canonicalAuthority, djtYearAuthorityStatus: "UNRESOLVED_OWNER_AUTHORITY" } } };
 }

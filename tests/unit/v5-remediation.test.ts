@@ -52,7 +52,7 @@ describe("V5 materialization remediation", () => {
     expect(coverage).toMatchObject({ directedEdgeCount: 76, corridorCount: 38, bidirectionalPairs: 38, oneDirectionPairs: 0 });
     expect(coverage.rows.every((route) => route.primaryMode === "UNRESOLVED" && route.infrastructureClass === "UNRESOLVED" && !route.portalCapability && !route.tradeDesignation)).toBe(true);
     expect(WORLDS.map((world) => coverage.rows.filter((route) => route.worlds[world]?.active).length)).toEqual([35, 35, 35]);
-    expect(coverage.rows.filter((route) => route.worlds.CONCORD?.active).every((route) => route.worlds.CONCORD?.endpointSettlements !== null)).toBe(true);
+    expect(coverage.rows.filter((route) => route.worlds.CONCORD?.active).every((route) => route.worlds.CONCORD?.nameStatus === "NOT_READY" && route.worlds.CONCORD?.endpointSettlements === null)).toBe(true);
     expect(DEFAULT_NAMING_BEHAVIOR_V5.PORTAL_LINK).toBe("NO_NAME_REQUIRED");
 
     const corridorId = coverage.rows[0]!.corridorId;
@@ -65,8 +65,8 @@ describe("V5 materialization remediation", () => {
         RUIN: { [`WORLD_ROUTE_RUIN_${corridorId}`]: "Ruin Owner Route" },
       },
     );
-    expect(named.rows[0]!.worlds.CONCORD).toMatchObject({ name: "Concord Owner Route", nameStatus: "ACCEPTED" });
-    expect(named.rows.filter((row) => new Set(WORLDS.map((world) => row.worlds[world]?.name ?? null)).size > 1)).toHaveLength(1);
+    expect(named.rows[0]!.worlds.CONCORD).toMatchObject({ name: null, nameStatus: "NOT_READY" });
+    expect(named.rows.filter((row) => new Set(WORLDS.map((world) => row.worlds[world]?.name ?? null)).size > 1)).toHaveLength(0);
   });
 
   it("centralizes the required faction colors and removes V4 from the normal Runs body", () => {

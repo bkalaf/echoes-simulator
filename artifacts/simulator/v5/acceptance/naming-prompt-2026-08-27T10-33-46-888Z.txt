@@ -1,0 +1,88 @@
+Create one original, historically plausible name for every pending entity ID from its immutable creation-time context. Do not select from word buckets, combine morphemes, use simulator templates, or construct local fallbacks. Labels are non-causal.
+
+Treat these entities as alternate-world counterparts.
+
+Preserve the same accepted name when the supplied eligible naming context is materially equivalent across worlds.
+
+Introduce a different world-specific name only when differences in the supplied historical, geographic, cultural, political, factional, sovereign, ownership, settlement, or route context plausibly justify naming divergence.
+
+Do not invent divergence merely for variety. Do not force AAA/AAB/ABC proportions. Do not attempt to satisfy the simulator's 65/25/10 diagnostic target. Generate original names with the LLM; the simulator must not construct them.
+
+Comparison groups (world order CONCORD, SCHISM, RUIN; accepted members are reference-only):
+[]
+
+Ungrouped requests:
+[
+  {
+    "requestId": "NAME_STATE_CONCORD_R10",
+    "entityType": "STATE",
+    "entityId": "STATE_CONCORD_R10",
+    "worldKey": "CONCORD",
+    "nameEffectiveFromYear": 500,
+    "context": {
+      "causalReason": "DJT_STATE_CREATED",
+      "creationYear": 500,
+      "djtYearAuthorityStatus": "UNRESOLVED_OWNER_AUTHORITY",
+      "stateId": "STATE_CONCORD_R10",
+      "world": "CONCORD"
+    }
+  },
+  {
+    "requestId": "NAME_STATE_RUIN_R10",
+    "entityType": "STATE",
+    "entityId": "STATE_RUIN_R10",
+    "worldKey": "RUIN",
+    "nameEffectiveFromYear": 500,
+    "context": {
+      "causalReason": "DJT_STATE_CREATED",
+      "creationYear": 500,
+      "djtYearAuthorityStatus": "UNRESOLVED_OWNER_AUTHORITY",
+      "stateId": "STATE_RUIN_R10",
+      "world": "RUIN"
+    }
+  },
+  {
+    "requestId": "NAME_STATE_SCHISM_R10",
+    "entityType": "STATE",
+    "entityId": "STATE_SCHISM_R10",
+    "worldKey": "SCHISM",
+    "nameEffectiveFromYear": 500,
+    "context": {
+      "causalReason": "DJT_STATE_CREATED",
+      "creationYear": 500,
+      "djtYearAuthorityStatus": "UNRESOLVED_OWNER_AUTHORITY",
+      "stateId": "STATE_SCHISM_R10",
+      "world": "SCHISM"
+    }
+  }
+]
+
+Return only this exact JSON shape with an explicit independent decision for every pending entity ID:
+{
+  "schemaVersion": "echoes-v5-naming-batch-response-v2",
+  "batchId": "V5_NAMING_V5_DIAGNOSTIC_3141fc0709c8ff0a_1787826827382_BLOCKING_500_0_a6329406a5804c2d",
+  "runId": "V5_DIAGNOSTIC_3141fc0709c8ff0a_1787826827382",
+  "decisions": [
+    {
+      "requestId": "NAME_STATE_CONCORD_R10",
+      "entityType": "STATE",
+      "entityId": "STATE_CONCORD_R10",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 500
+    },
+    {
+      "requestId": "NAME_STATE_RUIN_R10",
+      "entityType": "STATE",
+      "entityId": "STATE_RUIN_R10",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 500
+    },
+    {
+      "requestId": "NAME_STATE_SCHISM_R10",
+      "entityType": "STATE",
+      "entityId": "STATE_SCHISM_R10",
+      "label": "REPLACE_WITH_ACCEPTED_LABEL",
+      "nameEffectiveFromYear": 500
+    }
+  ]
+}
