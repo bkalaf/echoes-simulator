@@ -10,6 +10,7 @@ import { buildDiagnosticDjtPolicyV5, buildScheduledTransactionsV5, DJT_POLICY_KE
 import { recoverExportedV2NamingBatchV5, validateNamingBatchResponseV5 } from "./naming.js";
 import type { CausalEventV5, WorldKey } from "./types.js";
 import { updateDivergenceTracesV5, type DivergenceTraceV5 } from "./divergence-diagnostics.js";
+import { acceptDerogatoryDecisionResponseV5, V5_EMPTY_DEROGATORY_DECISION_STREAM_HASH, type DerogatoryDecisionResponseV5 } from "./derogatory-decisions.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
 const DIVERGENCE_EVENT_TYPES = [
@@ -24,18 +25,19 @@ export interface PersistedV5DiagnosticInput {
   normalizedSeed: string;
   throughYear?: number;
   namingMode?: "INTERACTIVE_LLM_NAMING" | "UNATTENDED_CAUSAL_BENCHMARK";
+  causalOwnerInputs?: ReturnType<typeof diagnosticCandidateOwnerInputsV1>;
 }
 
 export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
   runId: string;
-  status: "COMPLETE" | "WAITING_FOR_NAMING";
+  status: "COMPLETE" | "WAITING_FOR_NAMING" | "WAITING_FOR_POLICY_AUTHORITY" | "WAITING_FOR_DEROGATORY_DECISIONS";
   currentYear: number;
   causalRunHash: string;
   divergence: ReturnType<typeof buildDivergenceReport>;
 } {
   const canonical = loadBundledCanonicalV5(join(input.resourceDirectory, "canonical"));
   const configuration = input.store.loadV5Configuration();
-  const baseOwnerInputs = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
+  const baseOwnerInputs = input.causalOwnerInputs ?? diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
   const djtPolicy = buildDiagnosticDjtPolicyV5(canonical);
   const ownerInputs = { ...baseOwnerInputs, canonicalPolicies: djtPolicy ? { ...baseOwnerInputs.canonicalPolicies, [DJT_POLICY_KEY_V5]: djtPolicy } : baseOwnerInputs.canonicalPolicies };
   const scheduledTransactions = buildScheduledTransactionsV5(canonical, ownerInputs, input.normalizedSeed);
@@ -66,7 +68,8 @@ export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
   };
   try {
     const interactive = input.namingMode === "INTERACTIVE_LLM_NAMING";
-    const result = runV5History({ canonical, ownerInputs, mechanics: configuration.mechanics, operational: configuration.operational, diagnostic: configuration.diagnostic, normalizedSeed: input.normalizedSeed, mode: "DIAGNOSTIC", throughYear: targetYear, scheduledTransactions, stopAtBlockingNaming: input.namingMode !== "UNATTENDED_CAUSAL_BENCHMARK", interactiveNamingEnabled: interactive, retainHistory: false, onBootstrap: persistSnapshot, onAtomicYear: persistSnapshot });
+    const pauseCheckpoint = (states: Readonly<Record<WorldKey, Parameters<typeof input.store.saveV5Checkpoint>[1]>>): void => { for (const world of WORLDS) input.store.saveV5Checkpoint(runId, states[world], historyHashes[world]); };
+    const result = runV5History({ canonical, ownerInputs, mechanics: configuration.mechanics, operational: configuration.operational, diagnostic: configuration.diagnostic, normalizedSeed: input.normalizedSeed, mode: "DIAGNOSTIC", throughYear: targetYear, scheduledTransactions, stopAtBlockingNaming: input.namingMode !== "UNATTENDED_CAUSAL_BENCHMARK", interactiveNamingEnabled: interactive, retainHistory: false, onBootstrap: persistSnapshot, onAtomicYear: persistSnapshot, onPauseCheckpoint: pauseCheckpoint, onPolicyBlocker: (blocker) => input.store.saveV5PolicyBlocker(runId, blocker), onDerogatoryDecisionBarrier: (batch) => input.store.saveV5DerogatoryDecisionBatch(runId, batch) });
     input.store.setRunStatus(runId, result.status, result.completedYear);
     const divergenceEvents = Object.fromEntries(WORLDS.map((world) => [world, input.store.listV5CausalEventsByTypes(runId, world, DIVERGENCE_EVENT_TYPES, result.completedYear)])) as Record<WorldKey, CausalEventV5[]>;
     const divergence = buildDivergenceReport(result.states, divergenceEvents, configuration.diagnostic, { canonical, mechanics: configuration.mechanics });
@@ -78,7 +81,7 @@ export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
   }
 }
 
-export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDirectory: string; runId: string }): { runId: string; status: "COMPLETE" | "WAITING_FOR_NAMING"; currentYear: number; divergence: ReturnType<typeof buildDivergenceReport> } {
+export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDirectory: string; runId: string }): { runId: string; status: "COMPLETE" | "WAITING_FOR_NAMING" | "WAITING_FOR_POLICY_AUTHORITY" | "WAITING_FOR_DEROGATORY_DECISIONS"; currentYear: number; divergence: ReturnType<typeof buildDivergenceReport> } {
   let manifest = input.store.loadV5RunManifest(input.runId);
   const run = input.store.getRun(input.runId);
   if (!manifest || !run) throw new Error(`Unknown V5 run ${input.runId}`);
@@ -92,6 +95,7 @@ export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDir
   if (WORLDS.some((world) => !checkpoints[world])) throw new Error("V5 continuation requires complete world checkpoints");
   const states = Object.fromEntries(WORLDS.map((world) => [world, checkpoints[world]!.state])) as Record<WorldKey, Parameters<typeof continueV5History>[0]["initialStates"][WorldKey]>;
   if (!WORLDS.every((world) => states[world].year === states.CONCORD.year)) throw new Error("V5 continuation checkpoints are not atomic across worlds");
+  if ((run.currentYear ?? states.CONCORD.year) !== states.CONCORD.year) throw new Error(`V5_PAUSE_CHECKPOINT_MISMATCH run=${run.currentYear ?? "null"} checkpoint=${states.CONCORD.year}`);
   const scheduledTransactions = buildScheduledTransactionsV5(canonical, manifest.causalOwnerInputs, manifest.normalizedSeed);
   const historySummaries = Object.fromEntries(WORLDS.map((world) => [world, input.store.summarizeV5CausalEventHistory(input.runId, world, states[world].year)])) as Record<WorldKey, { eventHistoryHash: string; eventCount: number }>;
   let divergenceTraces = new Map(input.store.listV5DivergenceTraces(input.runId).map((trace) => [trace.comparisonId, trace]));
@@ -120,11 +124,32 @@ export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDir
     input.store.setRunStatus(input.runId, "RUNNING", snapshot.year);
   };
   input.store.setRunStatus(input.runId, "RUNNING", states.CONCORD.year);
-  const result = continueV5History({ canonical, ownerInputs: manifest.causalOwnerInputs, mechanics: manifest.mechanicsVariables, operational: manifest.operationalConfig, diagnostic: manifest.diagnosticConfig, normalizedSeed: manifest.normalizedSeed, mode: manifest.mode, throughYear: manifest.targetYear, scheduledTransactions, initialStates: states, initialEventCounts: Object.fromEntries(WORLDS.map((world) => [world, historySummaries[world].eventCount])), stopAtBlockingNaming: true, interactiveNamingEnabled: manifest.operationalConfig.interactiveNamingEnabled, pendingBatchedNamingAtStart: input.store.listV5NamingRequests(input.runId).some((request) => request.behavior === "BATCHED" && request.acceptedLabel === null), retainHistory: false, onAtomicYear: persistSnapshot });
+  const acceptedDerogatoryDecisionBatches = input.store.listV5AcceptedDerogatoryDecisionBatches(input.runId);
+  const pauseCheckpoint = (pauseStates: Readonly<Record<WorldKey, Parameters<typeof input.store.saveV5Checkpoint>[1]>>): void => { for (const world of WORLDS) input.store.saveV5Checkpoint(input.runId, pauseStates[world], historySummaries[world].eventHistoryHash); };
+  const result = continueV5History({ canonical, ownerInputs: manifest.causalOwnerInputs, mechanics: manifest.mechanicsVariables, operational: manifest.operationalConfig, diagnostic: manifest.diagnosticConfig, normalizedSeed: manifest.normalizedSeed, mode: manifest.mode, throughYear: manifest.targetYear, scheduledTransactions, initialStates: states, initialEventCounts: Object.fromEntries(WORLDS.map((world) => [world, historySummaries[world].eventCount])), stopAtBlockingNaming: true, interactiveNamingEnabled: manifest.operationalConfig.interactiveNamingEnabled, pendingBatchedNamingAtStart: input.store.listV5NamingRequests(input.runId).some((request) => request.behavior === "BATCHED" && request.acceptedLabel === null), retainHistory: false, onAtomicYear: persistSnapshot, onPauseCheckpoint: pauseCheckpoint, acceptedDerogatoryDecisionBatches, priorDerogatoryDecisionStreamHash: acceptedDerogatoryDecisionBatches.at(-1)?.decisionStreamHash, onPolicyBlocker: (blocker) => input.store.saveV5PolicyBlocker(input.runId, blocker), onDerogatoryDecisionBarrier: (batch) => input.store.saveV5DerogatoryDecisionBatch(input.runId, batch) });
   input.store.setRunStatus(input.runId, result.status, result.completedYear);
   const divergenceEvents = Object.fromEntries(WORLDS.map((world) => [world, input.store.listV5CausalEventsByTypes(input.runId, world, DIVERGENCE_EVENT_TYPES, result.completedYear)])) as Record<WorldKey, CausalEventV5[]>;
   const divergence = buildDivergenceReport(result.states, divergenceEvents, manifest.diagnosticConfig, { canonical, mechanics: manifest.mechanicsVariables, labels: Object.fromEntries(WORLDS.map((world) => [world, manifest.labels])) });
   return { runId: input.runId, status: result.status, currentYear: result.completedYear, divergence };
+}
+
+export function acceptPersistedV5DerogatoryDecisionBatch(input: { store: SimulatorStore; runId: string; response: DerogatoryDecisionResponseV5 | unknown }): { accepted: boolean; errors: string[]; acceptedDecisions?: number; decisionStreamHash?: string } {
+  const run = input.store.getRun(input.runId); const manifest = input.store.loadV5RunManifest(input.runId);
+  if (!run || !manifest) throw new Error(`Unknown V5 run ${input.runId}`);
+  if (run.status !== "WAITING_FOR_DEROGATORY_DECISIONS") throw new Error(`V5 run ${input.runId} is not waiting for Derogatory Group decisions`);
+  const response = input.response as Partial<DerogatoryDecisionResponseV5>; const batchId = typeof response.batchId === "string" ? response.batchId : "";
+  const batch = input.store.loadV5DerogatoryDecisionBatch(input.runId, batchId); if (!batch) return { accepted: false, errors: [`Unknown Derogatory decision batch ${batchId}`] };
+  const acceptedPrior = input.store.listV5AcceptedDerogatoryDecisionBatches(input.runId); const priorDecisionStreamHash = acceptedPrior.at(-1)?.decisionStreamHash ?? V5_EMPTY_DEROGATORY_DECISION_STREAM_HASH;
+  const attemptId = `V5_DEROGATORY_ATTEMPT_${createHash("sha256").update(`${input.runId}\0${batchId}\0${Date.now()}\0${JSON.stringify(input.response)}`).digest("hex")}`;
+  try {
+    const accepted = acceptDerogatoryDecisionResponseV5(batch, input.response as DerogatoryDecisionResponseV5, priorDecisionStreamHash);
+    input.store.saveV5DerogatoryDecisionAttempt({ runId: input.runId, batchId, attemptId, accepted: true, response: input.response, errors: [] });
+    input.store.saveV5AcceptedDerogatoryDecisionBatch(input.runId, accepted);
+    input.store.setRunStatus(input.runId, "PAUSED", run.currentYear ?? batch.barrierYear);
+    return { accepted: true, errors: [], acceptedDecisions: accepted.acceptedSelections.length, decisionStreamHash: accepted.decisionStreamHash };
+  } catch (error) {
+    const errors = [error instanceof Error ? error.message : String(error)]; input.store.saveV5DerogatoryDecisionAttempt({ runId: input.runId, batchId, attemptId, accepted: false, response: input.response, errors }); return { accepted: false, errors };
+  }
 }
 
 export function acceptPersistedV5NamingBatch(input: { store: SimulatorStore; runId: string; response: unknown }): { accepted: boolean; errors: string[]; acceptedDecisions?: number; currentYear?: number; behavior?: "BLOCKING" | "BATCHED"; pendingBlocking?: number; pendingBatched?: number; acceptanceMode?: "CURRENT_NAMING" | "LEGACY_NAMING_ONLY" } {

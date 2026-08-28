@@ -10,6 +10,7 @@ declare global {
       resumeCanonical(runId: string): Promise<unknown>;
       resumeV5(runId: string): Promise<unknown>;
       submitNamingResponse(responseText: string): Promise<unknown>;
+      submitDerogatoryDecisionResponse(responseText: string): Promise<unknown>;
       exportNamingPrompt(promptText: string, batchId: string): Promise<unknown>;
       runDiagnostic(seed: string): Promise<unknown>;
       runV5Diagnostic(seed: string, throughYear?: number, interactiveNaming?: boolean): Promise<unknown>;

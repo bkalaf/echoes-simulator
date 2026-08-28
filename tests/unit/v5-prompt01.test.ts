@@ -46,7 +46,7 @@ describe("Prompt 01 complete Breed accessibility and continent authority", () =>
   }, 15_000);
 
   it("searches every required canonical identity dimension", () => {
-    const row = { breedId: "BRD_ID", name: "Name", populationKind: "MYTHOS", speciesId: "SPC_ID", speciesName: "Species", scientificName: "Genus species", groupId: "G01", cultureId: "C01", factionObject: { CONCORD: 1, SCHISM: 0, RUIN: 0 }, dominantFaction: ["CONCORD" as const] };
+    const row = { breedId: "BRD_ID", name: "Name", populationKind: "MYTHOS", speciesId: "SPC_ID", speciesName: "Species", scientificName: "Genus species", groupId: "G01", cultureId: "C01", factionObject: { CONCORD: 1, SCHISM: 0, RUIN: 0 }, dominantFaction: ["CONCORD" as const], primaryDeity: null, provisionalDeity: null, deityClassificationStatus: "CLASSIFIED" as const };
     for (const query of ["name", "genus", "brd_id", "spc_id", "species", "g01", "c01", "mythos"]) expect(filterBreedCatalog([row], query)).toEqual([row]);
   });
 
@@ -126,7 +126,7 @@ describe("Prompt 01 non-causal Route classification overlay", () => {
   });
 });
 
-it("uses the repository version naming convention for the Prompt 01 causal boundary", () => {
-  expect(V5_SCHEDULER_VERSION).toBe("echoes-scheduler-v5.3.0");
-  expect(V5_MECHANICS_VERSION).toBe("echoes-mechanics-v5.3.0");
+it("preserves Prompt 01 behavior under the next repository causal identity", () => {
+  expect(V5_SCHEDULER_VERSION).toBe("echoes-scheduler-v5.4.0");
+  expect(V5_MECHANICS_VERSION).toBe("echoes-mechanics-v5.4.0");
 });

@@ -246,7 +246,7 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
     expect(await stateOptions.count()).toBeGreaterThan(1);
     await page.getByLabel("Select State").selectOption({ index: 2 });
     await expect(page.getByText("Actual government", { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: "Cities" }).click();
+    await page.getByRole("button", { name: "Cities", exact: true }).click();
     await expect(page.getByLabel("Cross-world Cities comparison")).toBeVisible();
     await expect(page.locator(".city-world.faction-fill-concord, .city-world.faction-fill-schism, .city-world.faction-fill-ruin").first()).toBeVisible();
     expect(await page.evaluate(() => {
@@ -284,6 +284,24 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
     await page.getByRole("button", { name: "Senate" }).click();
     await expect(page.getByLabel("SENATE chamber")).toBeVisible();
     await expect(page.getByText("NO CANONICAL SENATE OFFICE AUTHORITY", { exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Resources / Industry" }).click();
+    await expect(page.getByRole("heading", { name: "RESOURCE GEOGRAPHY", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "SETTLEMENT INDUSTRIES", exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Conflict", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "DIPLOMATIC RELATIONS", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "SECURITY FORCES", exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Derogatory Groups", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "ACTIVE AND HISTORICAL TARGET SELECTIONS", exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Atrocities", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "ATROCITY OCCURRENCES", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "FORCED DISPLACEMENT", exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Enclaves", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "PRIVATE OPERATOR ENCLAVES", exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Parameters / Event Triggers", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "WITNESS ATROCITY STRUCTURAL SLOTS", exact: true })).toBeVisible();
+    await expect(page.getByText("ATROCITY_WITNESS_17", { exact: true })).toBeVisible();
+    await expect(page.getByText("ATROCITY_WITNESS_16_A", { exact: true })).toBeVisible();
+    await expect(page.getByText("ATROCITY_WITNESS_16_B", { exact: true })).toBeVisible();
   } finally { await application.close(); }
 });
 

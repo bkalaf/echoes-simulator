@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "echoes-v5.4-preimplementation-dirty-worktree-v1",
+  "capturedBeforeV54Edits": true,
+  "head": "2e4416103944d0390cca87fbe39a895ea5234e39",
+  "branch": "main",
+  "gitVisiblePaths": [
+    {
+      "path": "src/persistence/sqlite-store.ts",
+      "status": "MODIFIED",
+      "sha256": "cc95bcd8963a5e84d92e4bbf33f8101eaec7396f4c80265e3b5031ab14b0fc46"
+    },
+    {
+      "path": "src/scripts/validate-v5-migration-long-horizon.ts",
+      "status": "MODIFIED",
+      "sha256": "c9e0365d6f10d840bb3151e765d2685c91051f6766af3af7aa6ae31a190fd894"
+    }
+  ],
+  "preservationRule": "Preserve the entire pre-V5.4 dirty working tree, including overlapping hunks; do not reset, stash, commit, push, or create a PR."
+}

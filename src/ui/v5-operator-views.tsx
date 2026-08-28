@@ -18,6 +18,10 @@ export interface OfficeTermSelectionEvidenceView { selectionEventId: string; app
 export interface V5OperatorRunView {
   world: World; effectiveYear: number; settlements: SettlementView[]; states?: StateView[]; people?: PersonView[]; families?: FamilyView[]; organizations?: OrganizationView[]; institutions?: InstitutionView[]; offices?: OfficeView[]; officeTerms?: OfficeTermView[]; ownershipStakes?: OwnershipView[]; personRelations?: PersonRelationView[]; familyRelations?: FamilyRelationView[]; events: EventView[]; labels?: Record<string, string>; personFactionById?: Record<string, Faction>; familyHistory?: { year: number; familyId: string; wealth: number; influence: number; prestige: number; status: string }[];
   officeTermSelectionEvidence?: Record<string, OfficeTermSelectionEvidenceView>;
+  resourceNodes?: Record<string, unknown>[]; worldResourceStates?: Record<string, unknown>[]; industries?: Record<string, unknown>[]; securityForces?: Record<string, unknown>[];
+  diplomaticRelations?: Record<string, unknown>[]; diplomaticAgreements?: Record<string, unknown>[]; conflictEpisodes?: Record<string, unknown>[]; settlementControlTerms?: Record<string, unknown>[];
+  populationSlices?: Array<Record<string, unknown> & { population?: string; membershipSignature?: string[] }>; derogatoryTargetSelections?: Record<string, unknown>[]; localAtrocityResponses?: Record<string, unknown>[]; forcedDisplacements?: Record<string, unknown>[]; enclaves?: Record<string, unknown>[];
+  atrocityOccurrenceSlots?: Record<string, unknown>[]; policyBlockers?: Record<string, unknown>[]; derogatoryDecisionBatches?: Record<string, unknown>[];
 }
 
 const WORLDS: readonly World[] = ["CONCORD", "SCHISM", "RUIN"];

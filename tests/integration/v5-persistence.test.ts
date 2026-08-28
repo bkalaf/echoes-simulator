@@ -5,13 +5,15 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { SimulatorStore } from "../../src/persistence/sqlite-store.js";
-import { V5_EMPTY_EVENT_HISTORY_HASH, buildV5RunManifest, extendV5EventHistoryHash, labelInputHash, v5EventHistoryHash } from "../../src/core/v5/persistence.js";
+import { V5_EMPTY_EVENT_HISTORY_HASH, buildV5RunManifest, extendV5EventHistoryHash, labelInputHash, projectWorldStateV54ReadOnly, v5EventHistoryHash } from "../../src/core/v5/persistence.js";
 import { DEFAULT_DIAGNOSTIC_CONFIG_V1, DEFAULT_MECHANICS_VARIABLES_V1, DEFAULT_OPERATIONAL_CONFIG_V1, diagnosticCandidateOwnerInputsV1 } from "../../src/core/v5/config.js";
 import { normalizeSeed } from "../../src/core/v5/random.js";
 import type { CausalEventV5, WorldStateV5 } from "../../src/core/v5/types.js";
 import { buildBlockingNamingBatchV5, buildPersistedNamingBatchesV5, validateNamingBatchResponseV5 } from "../../src/core/v5/naming.js";
 import { inspectLegacyV5NamingTrust } from "../../src/persistence/v5-legacy-trust.js";
 import { acceptPersistedV5NamingBatch, resumePersistedV5Run } from "../../src/core/v5/service.js";
+import { acceptDerogatoryDecisionResponseV5, buildDerogatoryDecisionBatchV5, V5_EMPTY_DEROGATORY_DECISION_STREAM_HASH } from "../../src/core/v5/derogatory-decisions.js";
+import { CANDIDATE_DEROGATORY_MEMBERSHIP_SLICING_POLICY_V1, type CausalPolicyBlockerV5 } from "../../src/core/v5/historical-policies.js";
 
 const state: WorldStateV5 = {
   schemaVersion: "echoes-world-state-v5", worldKey: "CONCORD", year: 5,
@@ -52,6 +54,7 @@ describe("V5 persistence and replay boundaries", () => {
     store.saveV5RunManifest(manifest); store.appendV5CausalEvents("RUN_V5", [event]); const saved = store.saveV5Checkpoint("RUN_V5", state, v5EventHistoryHash([event]));
     store.recordV5AcceptedLabel({ ledgerEntryId: "LEDGER_S1", runId: "RUN_V5", worldKey: "CONCORD", entityType: "SETTLEMENT", entityId: "S1", label: "Accepted Name", source: "OWNER_INPUT", sourceRequestId: null, sourceAuthorityRef: "OWNER_AUDIT:TEST:S1", sourceBatchId: null, sourceResponseAttemptId: null, nameEffectiveFromYear: 5, acceptanceYear: 5, reusedFromEntityId: null, reusedFromLedgerEntryId: null, namingComparisonGroupId: "SETTLEMENT_SITE:SITE1", comparisonAuthorityRef: "CANONICAL_SITE_ID:SITE1" }, "TEST");
     expect(store.loadV5RunManifest("RUN_V5")?.causalRunHash).toBe(manifest.causalRunHash);
+    expect(store.loadV5RunManifest("RUN_V5")?.causalOwnerInputs.historicalDynamismPolicies?.CIVIC_INSTITUTION_SECURITY?.institutionFormationMinimumPopulation).toBe(25_000n);
     expect(store.listV5CausalEvents("RUN_V5", "CONCORD")).toEqual([event]);
     expect(store.loadLatestV5Checkpoint("RUN_V5", "CONCORD")?.state.cohorts[0]?.tiers.HIGH.population).toBe(4n);
     expect(store.loadLatestV5Checkpoint("RUN_V5", "CONCORD")?.stateHash).toBe(saved.stateHash);
@@ -62,6 +65,31 @@ describe("V5 persistence and replay boundaries", () => {
     expect(store.loadV5Labels("RUN_V5", 5)).toEqual({ S1: "Accepted Name" });
     expect(labelInputHash({ S1: "Accepted Name" })).not.toBe(labelInputHash({ S1: "Changed Name" }));
     store.close();
+  });
+
+  it("persists complete point-of-use blockers and immutable 63-decision authority", () => {
+    const filename = join(mkdtempSync(join(tmpdir(), "echoes-v54-authority-")), "run.sqlite");
+    const store = new SimulatorStore(filename);
+    const runId = "RUN_V54_AUTHORITY";
+    store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_DEROGATORY_DECISIONS", seed: "seed", seedHash: "hash", policyVersion: "echoes-mechanics-v5.4.0", currentYear: 14 });
+    const blocker: CausalPolicyBlockerV5 = { schemaVersion: "echoes-v5-causal-policy-blocker-v1", policyKey: "RESOURCE_INDUSTRY", policySha256: "a".repeat(64), policyDocument: { humanReadableName: "Complete candidate values", value: 42 }, humanReadablePolicy: "Complete candidate values", causalOperation: "PLACE_PHYSICAL_RESOURCE_GEOGRAPHY", worldKey: "CONCORD", year: 1, entityType: "WORLD", entityId: "CONCORD", requiredApproval: "Approve the exact hash" };
+    store.saveV5PolicyBlocker(runId, blocker);
+    expect(store.listV5PolicyBlockers(runId)).toEqual([blocker]);
+    const worlds = { CONCORD: { ...state, worldKey: "CONCORD" as const, year: 14 }, SCHISM: { ...state, worldKey: "SCHISM" as const, year: 14 }, RUIN: { ...state, worldKey: "RUIN" as const, year: 14 } };
+    const batch = buildDerogatoryDecisionBatchV5(worlds, 15, CANDIDATE_DEROGATORY_MEMBERSHIP_SLICING_POLICY_V1);
+    store.saveV5DerogatoryDecisionBatch(runId, batch);
+    const response = { schemaVersion: "echoes-derogatory-decision-response-v1" as const, batchId: batch.batchId, contextSha256: batch.contextSha256, promptSha256: batch.promptSha256, provider: "fixture", model: "fixture", authorityRef: "ISOLATED_TEST", decisions: batch.requests.map((request) => ({ decisionId: request.decisionId, action: "SELECT" as const, selectedGroupId: "humans" as const })) };
+    const accepted = acceptDerogatoryDecisionResponseV5(batch, response, V5_EMPTY_DEROGATORY_DECISION_STREAM_HASH);
+    store.saveV5DerogatoryDecisionAttempt({ runId, batchId: batch.batchId, attemptId: "ATTEMPT_1", accepted: true, response, errors: [] });
+    store.saveV5AcceptedDerogatoryDecisionBatch(runId, accepted);
+    expect(store.loadV5DerogatoryDecisionBatch(runId, batch.batchId)).toEqual(batch);
+    expect(store.listV5AcceptedDerogatoryDecisionBatches(runId)).toEqual([accepted]);
+    store.close();
+    const raw = new DatabaseSync(filename);
+    expect(() => raw.prepare("UPDATE v5_policy_blocker SET policy_key='X' WHERE run_id=?").run(runId)).toThrow(/immutable/);
+    expect(() => raw.prepare("UPDATE v5_derogatory_decision_attempt SET accepted=0 WHERE run_id=?").run(runId)).toThrow(/immutable/);
+    expect(() => raw.prepare("DELETE FROM v5_derogatory_decision_stream WHERE run_id=?").run(runId)).toThrow(/immutable/);
+    raw.close();
   });
 
   it("keeps operational and diagnostic settings outside causal identity", () => {
@@ -251,7 +279,7 @@ describe("V5 persistence and replay boundaries", () => {
     const before = { causalRunHash: legacy.causalRunHash, mechanicsVersion: legacy.mechanicsVersion, schedulerVersion: legacy.schedulerVersion, causalDerivationVersion: legacy.causalDerivationVersion, events: store.listV5CausalEvents(runId, "CONCORD"), checkpoint };
     expect(acceptPersistedV5NamingBatch({ store, runId, response })).toMatchObject({ accepted: true, acceptanceMode: "LEGACY_NAMING_ONLY", acceptedDecisions: 1 });
     const after = store.loadV5RunManifest(runId)!;
-    expect({ causalRunHash: after.causalRunHash, mechanicsVersion: after.mechanicsVersion, schedulerVersion: after.schedulerVersion, causalDerivationVersion: after.causalDerivationVersion, events: store.listV5CausalEvents(runId, "CONCORD"), checkpoint: store.loadLatestV5Checkpoint(runId, "CONCORD") }).toEqual({ ...before, checkpoint: { state, stateHash: checkpoint.stateHash, eventHistoryHash: checkpoint.eventHistoryHash } });
+    expect({ causalRunHash: after.causalRunHash, mechanicsVersion: after.mechanicsVersion, schedulerVersion: after.schedulerVersion, causalDerivationVersion: after.causalDerivationVersion, events: store.listV5CausalEvents(runId, "CONCORD"), checkpoint: store.loadLatestV5Checkpoint(runId, "CONCORD") }).toEqual({ ...before, checkpoint: { state: projectWorldStateV54ReadOnly(state), stateHash: checkpoint.stateHash, eventHistoryHash: checkpoint.eventHistoryHash } });
     expect(after.labels).toEqual({ S1: "Owner Legacy Label" });
     store.close();
   });

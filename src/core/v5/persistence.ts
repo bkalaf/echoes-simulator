@@ -84,12 +84,32 @@ export function buildNonCausalLabelManifestUpdateV5(manifest: V5RunManifest, lab
 }
 
 export function restoreWorldStateV5(value: unknown): WorldStateV5 {
-  const state = structuredClone(value) as Omit<WorldStateV5, "cohorts"> & { cohorts: { settlementId: string; breedId: string; tiers: Record<"HIGH" | "MID" | "LOW", { population: bigint | string; prosperity: number }> }[] };
+  const state = structuredClone(value) as Omit<WorldStateV5, "cohorts" | "populationSlices" | "securityForces" | "conflictEpisodes"> & {
+    cohorts: { settlementId: string; breedId: string; tiers: Record<"HIGH" | "MID" | "LOW", { population: bigint | string; prosperity: number }> }[];
+    populationSlices?: Array<Omit<NonNullable<WorldStateV5["populationSlices"]>[number], "population"> & { population: bigint | string }>;
+    securityForces?: Array<Omit<NonNullable<WorldStateV5["securityForces"]>[number], "personnel"> & { personnel: bigint | string }>;
+    conflictEpisodes?: Array<Omit<NonNullable<WorldStateV5["conflictEpisodes"]>[number], "casualties" | "displaced"> & { casualties: bigint | string; displaced: bigint | string }>;
+  };
   return { ...state, worldRoutes: state.worldRoutes ?? [], cohorts: state.cohorts.map((cell) => ({ ...cell, tiers: {
     HIGH: { ...cell.tiers.HIGH, population: BigInt(cell.tiers.HIGH.population) },
     MID: { ...cell.tiers.MID, population: BigInt(cell.tiers.MID.population) },
     LOW: { ...cell.tiers.LOW, population: BigInt(cell.tiers.LOW.population) },
-  } })) } as WorldStateV5;
+  } })),
+  populationSlices: state.populationSlices?.map((slice) => ({ ...slice, population: BigInt(slice.population) })),
+  securityForces: state.securityForces?.map((force) => ({ ...force, personnel: BigInt(force.personnel) })),
+  conflictEpisodes: state.conflictEpisodes?.map((episode) => ({ ...episode, casualties: BigInt(episode.casualties), displaced: BigInt(episode.displaced) })),
+  } as WorldStateV5;
+}
+
+/** Read-model compatibility only. Never persist this projection over a pre-V5.4 checkpoint. */
+export function projectWorldStateV54ReadOnly(state: WorldStateV5): WorldStateV5 {
+  return {
+    ...state,
+    resourceNodes: state.resourceNodes ?? [], worldResourceStates: state.worldResourceStates ?? [], industries: state.industries ?? [], securityForces: state.securityForces ?? [],
+    diplomaticRelations: state.diplomaticRelations ?? [], diplomaticAgreements: state.diplomaticAgreements ?? [], conflictEpisodes: state.conflictEpisodes ?? [],
+    settlementControlTerms: state.settlementControlTerms ?? [], populationSlices: state.populationSlices ?? [], derogatoryTargetSelections: state.derogatoryTargetSelections ?? [],
+    localAtrocityResponses: state.localAtrocityResponses ?? [], forcedDisplacements: state.forcedDisplacements ?? [], enclaves: state.enclaves ?? [],
+  };
 }
 
 export function v5CheckpointHash(state: WorldStateV5): string { return hash(state); }

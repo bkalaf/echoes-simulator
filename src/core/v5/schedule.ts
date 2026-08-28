@@ -60,6 +60,18 @@ export function buildScheduledTransactionsV5(
     kind: event.eventType,
     label: event.label ?? (typeof event.payload.label === "string" ? event.payload.label : event.eventId),
   })));
+  for (const definition of ownerInputs.atrocityShockDefinitions ?? []) for (const world of WORLDS.filter((candidate) => !definition.worldKeys || definition.worldKeys.includes(candidate))) schedule[world].push({
+    type: "ATROCITY",
+    transactionId: `TX_${world}_${definition.occurrenceId}_${definition.triggerYear}`,
+    year: definition.triggerYear,
+    definition,
+  });
+  for (const scheduled of ownerInputs.scheduledHistoricalConflictActions ?? []) schedule[scheduled.worldKey].push({
+    type: "HISTORICAL_CONFLICT_ACTION",
+    transactionId: `TX_${scheduled.worldKey}_${scheduled.action.actionId}`,
+    year: scheduled.action.year,
+    action: scheduled.action,
+  });
   const foundingWaves = calendar.filter((event) => /^FOUNDING_WAVE_[2-5]$/.test(event.eventKey)).sort((left, right) => left.resolvedYear - right.resolvedYear || left.eventKey.localeCompare(right.eventKey));
   if (foundingWaves.length !== 0 && foundingWaves.length !== 4) throw new Error(`V5 requires all four canonical founding waves when founding authority is present; found ${foundingWaves.length}`);
 

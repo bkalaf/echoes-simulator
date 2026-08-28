@@ -19,10 +19,18 @@ import { reviewSettlementSocialMobility } from "./social.js";
 import { deriveFamilyInteractionSignals, reviewFamilies, reviewFamilyFormation, reviewFamilyRelations, reviewOrganizationFormation, reviewOrganizationLifecycle } from "./society.js";
 import type { CausalEventV5, NamingRequestV5, WorldStateV5 } from "./types.js";
 import type { BoundedDiagnosticObservationV5 } from "./diagnostics.js";
+import { establishResourceGeographyV5, reconcileDiplomacyAndConflictV5, updateCivicInstitutionsAndSecurityV5, updateIndustriesAndGuildsV5 } from "./historical-dynamism.js";
+import { applyEnclaveDemographyV5, applyPublicSliceGrowthModifiersV5, causalPopulationTotalsV5, ensurePopulationSlicesV5, reconcilePublicPopulationSlicesV5, validatePopulationPartitionV5 } from "./population-slices.js";
+import { executeAtrocityOccurrenceV5, type AtrocityShockDefinitionV5 } from "./atrocities.js";
+import { executeHistoricalConflictActionV5, type HistoricalConflictActionV5 } from "./conflict-actions.js";
+import { recomputeEnclaveSupportBurdensV5 } from "./enclaves.js";
+import { requireHistoricalPolicyV5 } from "./historical-policies.js";
 
 export type ScheduledTransactionV5 =
   | { type: "EFFECTS"; transactionId: string; year: number; effects: readonly CausalEffect[] }
   | { type: "SHOCK"; transactionId: string; year: number; definition: ShockDefinitionV5 }
+  | { type: "ATROCITY"; transactionId: string; year: number; definition: AtrocityShockDefinitionV5 }
+  | { type: "HISTORICAL_CONFLICT_ACTION"; transactionId: string; year: number; action: HistoricalConflictActionV5 }
   | ({ type: "CANONICAL_FOUNDING" } & CanonicalFoundingTransactionInputV5)
   | { type: "DJT"; transactionId: string; year: number; policy: DjtPolicyV5 };
 
@@ -34,9 +42,10 @@ export interface V5EngineContext {
   diagnostic: DiagnosticConfigV1;
   normalizedSeed: string;
   scheduledTransactions: readonly ScheduledTransactionV5[];
+  mode?: "CANONICAL" | "DIAGNOSTIC";
 }
 
-const PHASE_ORDER = ["SCHEDULED_CANONICAL", "TEMPORAL", "ACTIVE_WAR", "DEMOGRAPHY", "INDUSTRY", "PROSPERITY", "SOCIAL_MOBILITY", "VOLUNTARY_MIGRATION", "ROUTE_INFRASTRUCTURE", "FAMILY", "ORGANIZATION", "STATE_FACTION", "UNREST", "LEGITIMACY", "GOVERNMENT", "TRIGGERED", "OFFICE_SELECTION", "LATE_BORDER", "AUDIT"] as const;
+const PHASE_ORDER: readonly import("./types.js").V5Phase[] = ["SCHEDULED_CANONICAL", "TEMPORAL", "RESOURCE_GEOGRAPHY", "INSTITUTION_CAPACITY", "SECURITY", "DIPLOMACY", "ACTIVE_WAR", "TARGETING_RESPONSE", "DEMOGRAPHY", "INDUSTRY", "PROSPERITY", "SOCIAL_MOBILITY", "VOLUNTARY_MIGRATION", "ROUTE_INFRASTRUCTURE", "FAMILY", "ORGANIZATION", "STATE_FACTION", "UNREST", "LEGITIMACY", "GOVERNMENT", "TRIGGERED", "OFFICE_SELECTION", "LATE_BORDER", "AUDIT"];
 
 function resequence(events: readonly CausalEventV5[]): CausalEventV5[] {
   return [...events].sort((a, b) => PHASE_ORDER.indexOf(a.phase) - PHASE_ORDER.indexOf(b.phase) || a.eventId.localeCompare(b.eventId)).map((event, sequence) => ({ ...event, sequence }));
@@ -72,7 +81,9 @@ function applyScheduled(state: WorldStateV5, context: V5EngineContext): { state:
     } else if (transaction.type === "SHOCK") {
       const applied = applyShockDefinition(working, transaction.definition); working = applied.state;
       events.push({ schemaVersion: "echoes-causal-event-v5", eventId: transaction.transactionId, worldKey: state.worldKey, year: state.year, phase: "SCHEDULED_CANONICAL", sequence: events.length, eventType: "CanonicalShock", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { shockId: transaction.definition.shockId, resolvedTargets: applied.resolvedTargets, effectIds: transaction.definition.effects.map((effect) => effect.effectId), accounting: applied.accounting.map((row) => ({ ...row, populationBefore: row.populationBefore.toString(), populationAfter: row.populationAfter.toString(), deaths: row.deaths.toString(), transferred: row.transferred.toString() })) } });
-    } else { const djt = executeDjtV5(working, context.canonical, context.mechanics, transaction.policy); working = djt.state; events.push(...djt.events); namingRequests.push(...djt.namingRequests); }
+    } else if (transaction.type === "ATROCITY") { const resolved = executeAtrocityOccurrenceV5({ state: working, canonical: context.canonical, ownerInputs: context.ownerInputs, mode: context.mode ?? "DIAGNOSTIC", definition: transaction.definition }); working = resolved.state; events.push(resolved.event); }
+    else if (transaction.type === "HISTORICAL_CONFLICT_ACTION") { const resolved = executeHistoricalConflictActionV5({ state: working, canonical: context.canonical, ownerInputs: context.ownerInputs, mode: context.mode ?? "DIAGNOSTIC", action: transaction.action }); working = resolved.state; events.push(resolved.event); }
+    else { const djt = executeDjtV5(working, context.canonical, context.mechanics, transaction.policy); working = djt.state; events.push(...djt.events); namingRequests.push(...djt.namingRequests); }
   }
   const foundingByWave = new Map<string, CanonicalFoundingTransactionInputV5[]>();
   for (const transaction of transactions.filter((candidate): candidate is Extract<ScheduledTransactionV5, { type: "CANONICAL_FOUNDING" }> => candidate.type === "CANONICAL_FOUNDING")) {
@@ -102,32 +113,51 @@ function validateState(state: WorldStateV5): void {
 
 export interface AdvanceYearResult { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[]; structuralReviewRan: boolean; migrationReviewRan: boolean; diagnosticObservations: BoundedDiagnosticObservationV5[]; }
 export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContext): AdvanceYearResult {
-  let state: WorldStateV5 = { ...prior, year: prior.year + 1 }; let events: CausalEventV5[] = []; let namingRequests: NamingRequestV5[] = []; const diagnosticObservations: BoundedDiagnosticObservationV5[] = [];
+  let state: WorldStateV5 = { ...structuredClone(prior), year: prior.year + 1 }; let events: CausalEventV5[] = []; let namingRequests: NamingRequestV5[] = []; const diagnosticObservations: BoundedDiagnosticObservationV5[] = [];
+  const historicalContext = { canonical: context.canonical, ownerInputs: context.ownerInputs, mode: context.mode ?? "DIAGNOSTIC" } as const;
+  state = ensurePopulationSlicesV5(state, context.canonical);
   const scheduled = applyScheduled(state, context); state = scheduled.state; events.push(...scheduled.events); namingRequests.push(...scheduled.namingRequests);
+  state = reconcilePublicPopulationSlicesV5(state, context.canonical);
   if (scheduled.events.some((event) => event.eventType === "SettlementFounded" || event.eventType === "StateMembershipChanged")) { const routeReview = reconcileWorldRoutes(state, context.canonical, context.ownerInputs, context.mechanics); state = routeReview.state; events.push(...routeReview.events); namingRequests.push(...routeReview.namingRequests); }
   const temporal = temporalEvents(state); state = temporal.state; events.push(...temporal.events);
+  const resources = establishResourceGeographyV5(state, historicalContext); state = resources.state; events.push(...resources.events);
+  const civic = updateCivicInstitutionsAndSecurityV5(state, historicalContext); state = civic.state; events.push(...civic.events);
+  const diplomacy = reconcileDiplomacyAndConflictV5(state, historicalContext); state = diplomacy.state; events.push(...diplomacy.events);
   const activeWarAtYearStart = state.activeConflicts.some((conflict) => conflict.endedYear === null && conflict.activeFromYear <= state.year && conflict.declaredYear < state.year);
   let institutionEffectivenessByState = activeWarAtYearStart ? Object.fromEntries(state.states.map((row) => [row.stateId, institutionEffectiveness(state, row.stateId, context.mechanics)])) : {};
   const war = applyActiveWarEpisodes(state, context.canonical, context.ownerInputs, context.mechanics, context.normalizedSeed, institutionEffectivenessByState); state = war.state; events.push(...war.events);
-  const demographic = applyNaturalDemography(state, context.canonical, context.mechanics, settlementDominantFactionMap(state, context.canonical)); state = demographic.state; events.push(...demographic.events);
+  state = reconcilePublicPopulationSlicesV5(state, context.canonical);
+  const preDemography = state; const dominantAtDemography = settlementDominantFactionMap(state, context.canonical);
+  const demographic = applyNaturalDemography(state, context.canonical, context.mechanics, dominantAtDemography); state = demographic.state; events.push(...demographic.events);
+  state = applyPublicSliceGrowthModifiersV5(preDemography, reconcilePublicPopulationSlicesV5(state, context.canonical));
+  const enclaveDemography = applyEnclaveDemographyV5(state, context.canonical, context.mechanics, dominantAtDemography); state = enclaveDemography.state;
+  if ((state.enclaves ?? []).some((enclave) => enclave.status === "ACTIVE")) {
+    const enclavePolicy = requireHistoricalPolicyV5({ mode: context.mode ?? "DIAGNOSTIC", policies: context.ownerInputs.historicalDynamismPolicies, approvedHashes: context.ownerInputs.historicalDynamismApprovedPolicyHashes, diagnosticCandidateOptIns: context.ownerInputs.diagnosticHistoricalPolicyOptIns, policyKey: "PERSECUTION_DISPLACEMENT_ENCLAVE", causalOperation: "UPDATE_ENCLAVE_SUPPORT_BURDEN", worldKey: state.worldKey, year: state.year, entityType: "WORLD", entityId: state.worldKey });
+    state = recomputeEnclaveSupportBurdensV5(state, enclavePolicy);
+  }
+  if (enclaveDemography.growth > 0n) events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_ENCLAVE_DEMOGRAPHY`, worldKey: state.worldKey, year: state.year, phase: "DEMOGRAPHY", sequence: 0, eventType: "EnclaveDemographyCompleted", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { growth: enclaveDemography.growth.toString() } });
   const structuralReviewRan = state.year % context.mechanics.structuralReviewIntervalYears === 0;
   const migrationReviewRan = state.year % context.mechanics.migrationReviewIntervalYears === 0;
   if (migrationReviewRan && !structuralReviewRan) {
     const migration = reviewVoluntaryMigration(state, deriveMetrics(state, context.canonical, context.mechanics), context.canonical, context.ownerInputs, context.mechanics);
     state = migration.state; events.push(...migration.events); namingRequests.push(...migration.namingRequests); diagnosticObservations.push(...migration.diagnostics);
+    state = reconcilePublicPopulationSlicesV5(state, context.canonical);
   }
   if (structuralReviewRan) {
     institutionEffectivenessByState = Object.fromEntries(state.states.map((row) => [row.stateId, institutionEffectiveness(state, row.stateId, context.mechanics)]));
     let metrics = deriveMetrics(state, context.canonical, context.mechanics);
     state = updateIndustry(state, context.canonical, context.mechanics, metrics);
+    const v54Industry = updateIndustriesAndGuildsV5(state, historicalContext); state = v54Industry.state; events.push(...v54Industry.events); namingRequests.push(...v54Industry.namingRequests);
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     const institutionVectors = Object.fromEntries(state.states.map((row) => [row.stateId, institutionControlVector(state, row.stateId, context.canonical)]));
     let accessBySettlement = Object.fromEntries(state.settlements.map((settlement) => [settlement.settlementId, institutionalAccessWithMetrics(state, settlement.settlementId, context.canonical, metrics, institutionVectors[settlement.stateId]!) ]));
     state = updateProsperity(state, context.canonical, context.mechanics, accessBySettlement, institutionVectors, metrics);
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     for (const settlement of [...state.settlements].sort((a, b) => a.settlementId.localeCompare(b.settlementId))) { const mobility = reviewSettlementSocialMobility(state, settlement, metrics.localOpportunity[settlement.settlementId]!, accessBySettlement[settlement.settlementId]!, inequality(state, settlement.settlementId), economicStrain(state, settlement.settlementId), context.mechanics); state = mobility.state; events.push(...mobility.events); }
+    state = reconcilePublicPopulationSlicesV5(state, context.canonical);
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     if (migrationReviewRan) { const migration = reviewVoluntaryMigration(state, metrics, context.canonical, context.ownerInputs, context.mechanics); state = migration.state; events.push(...migration.events); namingRequests.push(...migration.namingRequests); diagnosticObservations.push(...migration.diagnostics); }
+    state = reconcilePublicPopulationSlicesV5(state, context.canonical);
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     accessBySettlement = Object.fromEntries(state.settlements.map((settlement) => [settlement.settlementId, institutionalAccessWithMetrics(state, settlement.settlementId, context.canonical, metrics, institutionVectors[settlement.stateId] ?? state.states.find((row) => row.stateId === settlement.stateId)!.factionAffinity)]));
     const familyFormation = reviewFamilyFormation(state, context.canonical, context.ownerInputs, context.mechanics, accessBySettlement, metrics); state = familyFormation.state; events.push(...familyFormation.events); namingRequests.push(...familyFormation.namingRequests); diagnosticObservations.push(familyFormation.diagnostics);
@@ -166,8 +196,10 @@ export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContex
   const vacancies = fillMandatoryOfficeVacancies(state, context.canonical, context.ownerInputs, context.mechanics, context.normalizedSeed, `EVT_${state.worldKey}_${state.year}_VACANCIES`); state = vacancies.state; events.push(...vacancies.events); namingRequests.push(...vacancies.namingRequests);
   if (structuralReviewRan) { const border = reviewBordersLate(state, context.canonical, context.ownerInputs, context.mechanics, context.normalizedSeed); state = border.state; events.push(...border.events); }
   state.timedConditions = state.timedConditions.filter((condition) => condition.endYear === null || condition.endYear >= state.year);
+  validatePopulationPartitionV5(state);
   validateState(state);
-  events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_CAUSAL_AUDIT`, worldKey: state.worldKey, year: state.year, phase: "AUDIT", sequence: 0, eventType: "CausalInvariantAuditPassed", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { population: state.cohorts.reduce((sum, cell) => sum + cell.tiers.HIGH.population + cell.tiers.MID.population + cell.tiers.LOW.population, 0n).toString(), structuralReviewRan, migrationReviewRan } });
+  const populationTotals = causalPopulationTotalsV5(state);
+  events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_CAUSAL_AUDIT`, worldKey: state.worldKey, year: state.year, phase: "AUDIT", sequence: 0, eventType: "CausalInvariantAuditPassed", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { population: populationTotals.publicPopulation.toString(), enclavePopulation: populationTotals.enclavePopulation.toString(), causalTotalPopulation: populationTotals.causalTotalPopulation.toString(), structuralReviewRan, migrationReviewRan } });
   return { state, events: resequence(events), namingRequests: namingRequests.sort((a, b) => a.entityType.localeCompare(b.entityType) || a.entityId.localeCompare(b.entityId)), structuralReviewRan, migrationReviewRan, diagnosticObservations };
 }
 

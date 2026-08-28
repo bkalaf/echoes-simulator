@@ -1,5 +1,5 @@
 import type { CanonicalDataV5, CausalOwnerInputsV1, MechanicsVariablesV1 } from "./config.js";
-import { V5_CAUSAL_DERIVATION_VERSION, V5_MECHANICS_VERSION, assertCanonicalV5Ready } from "./config.js";
+import { V5_CAUSAL_DERIVATION_VERSION, V5_MECHANICS_VERSION } from "./config.js";
 import { dominantFaction } from "./faction.js";
 import { allocateYearZeroCohorts } from "./population.js";
 import { deriveMetrics } from "./derivations.js";
@@ -7,6 +7,7 @@ import { fillMandatoryOfficeVacancies, instantiateGovernmentInstitutions, target
 import { reconcileBorderRelations } from "./conflict.js";
 import { reconcileWorldRoutes } from "./routes.js";
 import { reconcileChamberAuthorityV5 } from "./chambers.js";
+import { ensurePopulationSlicesV5, validatePopulationPartitionV5 } from "./population-slices.js";
 import type { CausalEventV5, NamingRequestV5, SettlementV5, StateV5, WorldKey, WorldStateV5 } from "./types.js";
 
 const EMPTY_SECTORS = { LAND_AND_FOOD: 500, EXTRACTION: 500, MANUFACTURE: 500, TRADE_AND_TRANSPORT: 500, KNOWLEDGE_AND_SERVICES: 500 } as const;
@@ -21,8 +22,6 @@ export interface BootstrapWorldInput {
 }
 
 export function bootstrapWorldV5(input: BootstrapWorldInput): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[] } {
-  if (input.mode === "CANONICAL") assertCanonicalV5Ready(input.ownerInputs, input.canonical);
-  else if (!input.ownerInputs.diagnosticCandidatePoliciesAccepted && (!input.ownerInputs.classPolicy || !input.ownerInputs.terrainCompatibilityPolicy || !input.ownerInputs.conflictEpisodeProfile)) throw new Error("Diagnostic V5 requires explicit candidate-policy opt-in or approved policies");
   const initial = input.canonical.initialSettlements.filter((row) => row.worldKey === input.worldKey).sort((a, b) => a.settlementId.localeCompare(b.settlementId));
   const siteById = new Map(input.canonical.sites.map((site) => [site.siteId, site]));
   const settlements: SettlementV5[] = initial.map((row) => {
@@ -32,8 +31,10 @@ export function bootstrapWorldV5(input: BootstrapWorldInput): { state: WorldStat
   const stateGovernments = new Map<string, string>();
   for (const row of initial) { const prior = stateGovernments.get(row.stateId); if (prior && prior !== row.governmentFormId) throw new Error(`Conflicting year-0 government for ${row.stateId}`); stateGovernments.set(row.stateId, row.governmentFormId); }
   const states: StateV5[] = [...stateGovernments].sort(([a], [b]) => a.localeCompare(b)).map(([stateId, actualGovernment]) => ({ stateId, actualGovernment, factionAffinity: { CONCORD: 334, SCHISM: 333, RUIN: 333 }, dominantFaction: "CONCORD", legitimacy: 500, qualifyingGovernmentReviewCount: 0, lastGovernmentTransitionYear: 0, routineTransitionCooldownUntilYear: 0 }));
-  let state: WorldStateV5 = { schemaVersion: "echoes-world-state-v5", worldKey: input.worldKey, year: 0, cohorts: [], settlements, states, families: [], politicalPeople: [], personRelations: [], organizations: [], institutions: [], offices: [], officeTerms: [], ownershipStakes: [], familyRelations: [], borderRelations: [], timedConditions: [], activeConflicts: [], worldRoutes: [] };
+  let state: WorldStateV5 = { schemaVersion: "echoes-world-state-v5", worldKey: input.worldKey, year: 0, cohorts: [], settlements, states, families: [], politicalPeople: [], personRelations: [], organizations: [], institutions: [], offices: [], officeTerms: [], ownershipStakes: [], familyRelations: [], borderRelations: [], timedConditions: [], activeConflicts: [], worldRoutes: [], resourceNodes: [], worldResourceStates: [], industries: [], securityForces: [], diplomaticRelations: [], diplomaticAgreements: [], conflictEpisodes: [], settlementControlTerms: [], populationSlices: [], derogatoryTargetSelections: [], localAtrocityResponses: [], forcedDisplacements: [], enclaves: [] };
   state.cohorts = allocateYearZeroCohorts({ worldKey: input.worldKey, settlements, canonical: input.canonical, variables: input.variables });
+  state = ensurePopulationSlicesV5(state, input.canonical);
+  validatePopulationPartitionV5(state);
   const initialMetrics = deriveMetrics(state, input.canonical, input.variables);
   state.states = state.states.map((row) => ({ ...row, factionAffinity: initialMetrics.statePopulationFactionVectors[row.stateId]!, dominantFaction: dominantFaction(initialMetrics.statePopulationFactionVectors[row.stateId]!) }));
   for (const politicalState of [...state.states]) {

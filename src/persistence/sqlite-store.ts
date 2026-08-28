@@ -11,12 +11,14 @@ import type { AcceptedLabelLedgerEntryV5, CausalEventV5, NamingRequestV5, WorldS
 import type { NamingBatchAuthorityStatusV5, PersistedNamingBatchV5 } from "../core/v5/naming.js";
 import { buildPersistedNamingBatchesV5, namingRequestSetDigestV5, parseExportedV2BatchIdV5, validateAcceptedLabelProvenanceV5 } from "../core/v5/naming.js";
 import type { V5RunManifest } from "../core/v5/persistence.js";
-import { V5_EMPTY_EVENT_HISTORY_HASH, extendV5EventHistoryHashFromCanonicalJson, restoreWorldStateV5, v5CheckpointHash } from "../core/v5/persistence.js";
+import { V5_EMPTY_EVENT_HISTORY_HASH, extendV5EventHistoryHashFromCanonicalJson, projectWorldStateV54ReadOnly, restoreWorldStateV5, v5CheckpointHash } from "../core/v5/persistence.js";
 import type { EditableV5Configuration } from "../core/v5/configuration.js";
 import { defaultEditableV5Configuration, restoreDiagnosticConfigV1, restoreMechanicsVariablesV1, restoreOperationalConfigV1 } from "../core/v5/configuration.js";
 import { inspectLegacyV5NamingTrust } from "./v5-legacy-trust.js";
 import { mergeBoundedDiagnosticObservations, type BoundedDiagnosticObservationV5 } from "../core/v5/diagnostics.js";
 import type { DivergenceTraceV5 } from "../core/v5/divergence-diagnostics.js";
+import type { CausalPolicyBlockerV5 } from "../core/v5/historical-policies.js";
+import type { AcceptedDerogatoryDecisionBatchV5, DerogatoryDecisionBatchV5, DerogatoryDecisionResponseV5 } from "../core/v5/derogatory-decisions.js";
 
 export interface StoredRun {
   runId: string;
@@ -372,6 +374,62 @@ export class SimulatorStore {
         payload_bytes INTEGER NOT NULL,
         PRIMARY KEY(run_id, comparison_id)
       );
+      CREATE TABLE IF NOT EXISTS v5_policy_blocker (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        blocker_id TEXT NOT NULL,
+        policy_key TEXT NOT NULL,
+        year INTEGER NOT NULL,
+        blocker_json TEXT NOT NULL,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY(run_id, blocker_id)
+      );
+      CREATE TABLE IF NOT EXISTS v5_derogatory_decision_batch (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        batch_id TEXT NOT NULL,
+        review_year INTEGER NOT NULL,
+        barrier_year INTEGER NOT NULL,
+        context_sha256 TEXT NOT NULL,
+        prompt_sha256 TEXT NOT NULL,
+        batch_json TEXT NOT NULL,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY(run_id, batch_id),
+        UNIQUE(run_id, review_year)
+      );
+      CREATE TABLE IF NOT EXISTS v5_derogatory_decision_attempt (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        batch_id TEXT NOT NULL,
+        attempt_id TEXT NOT NULL,
+        accepted INTEGER NOT NULL CHECK(accepted IN (0,1)),
+        response_json TEXT NOT NULL,
+        errors_json TEXT NOT NULL,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY(run_id, attempt_id),
+        FOREIGN KEY(run_id, batch_id) REFERENCES v5_derogatory_decision_batch(run_id, batch_id)
+      );
+      CREATE TABLE IF NOT EXISTS v5_derogatory_accepted_decision (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        batch_id TEXT NOT NULL,
+        decision_id TEXT NOT NULL,
+        world_key TEXT NOT NULL,
+        scope TEXT NOT NULL,
+        action TEXT NOT NULL CHECK(action IN ('SELECT','KEEP','REPLACE')),
+        prior_group_id TEXT,
+        selected_group_id TEXT NOT NULL,
+        decision_json TEXT NOT NULL,
+        PRIMARY KEY(run_id, decision_id),
+        FOREIGN KEY(run_id, batch_id) REFERENCES v5_derogatory_decision_batch(run_id, batch_id)
+      );
+      CREATE TABLE IF NOT EXISTS v5_derogatory_decision_stream (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        batch_id TEXT NOT NULL,
+        review_year INTEGER NOT NULL,
+        prior_stream_hash TEXT NOT NULL,
+        stream_hash TEXT NOT NULL,
+        accepted_batch_json TEXT NOT NULL,
+        PRIMARY KEY(run_id, batch_id),
+        UNIQUE(run_id, review_year),
+        FOREIGN KEY(run_id, batch_id) REFERENCES v5_derogatory_decision_batch(run_id, batch_id)
+      );
       CREATE TABLE IF NOT EXISTS v5_configuration (
         singleton INTEGER PRIMARY KEY CHECK(singleton = 1),
         mechanics_json TEXT NOT NULL,
@@ -450,6 +508,26 @@ export class SimulatorStore {
       BEGIN SELECT RAISE(ABORT, 'V5 naming batch audit is immutable'); END;
       CREATE TRIGGER IF NOT EXISTS v5_naming_batch_audit_immutable_delete BEFORE DELETE ON v5_naming_batch_audit
       BEGIN SELECT RAISE(ABORT, 'V5 naming batch audit is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_policy_blocker_immutable_update BEFORE UPDATE ON v5_policy_blocker
+      BEGIN SELECT RAISE(ABORT, 'V5 policy blocker is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_policy_blocker_immutable_delete BEFORE DELETE ON v5_policy_blocker
+      BEGIN SELECT RAISE(ABORT, 'V5 policy blocker is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_derogatory_batch_immutable_update BEFORE UPDATE ON v5_derogatory_decision_batch
+      BEGIN SELECT RAISE(ABORT, 'V5 Derogatory decision batch is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_derogatory_batch_immutable_delete BEFORE DELETE ON v5_derogatory_decision_batch
+      BEGIN SELECT RAISE(ABORT, 'V5 Derogatory decision batch is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_derogatory_attempt_immutable_update BEFORE UPDATE ON v5_derogatory_decision_attempt
+      BEGIN SELECT RAISE(ABORT, 'V5 Derogatory decision attempt is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_derogatory_attempt_immutable_delete BEFORE DELETE ON v5_derogatory_decision_attempt
+      BEGIN SELECT RAISE(ABORT, 'V5 Derogatory decision attempt is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_derogatory_decision_immutable_update BEFORE UPDATE ON v5_derogatory_accepted_decision
+      BEGIN SELECT RAISE(ABORT, 'V5 accepted Derogatory decision is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_derogatory_decision_immutable_delete BEFORE DELETE ON v5_derogatory_accepted_decision
+      BEGIN SELECT RAISE(ABORT, 'V5 accepted Derogatory decision is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_derogatory_stream_immutable_update BEFORE UPDATE ON v5_derogatory_decision_stream
+      BEGIN SELECT RAISE(ABORT, 'V5 Derogatory decision stream is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_derogatory_stream_immutable_delete BEFORE DELETE ON v5_derogatory_decision_stream
+      BEGIN SELECT RAISE(ABORT, 'V5 Derogatory decision stream is immutable'); END;
     `);
   }
 
@@ -466,7 +544,19 @@ export class SimulatorStore {
     const row = this.database.prepare("SELECT manifest_json FROM v5_run_manifest WHERE run_id=?").get(runId) as { manifest_json: string } | undefined;
     if (!row) return null;
     const parsed = JSON.parse(row.manifest_json) as V5RunManifest & { mechanicsVariables: V5RunManifest["mechanicsVariables"] & { initialPopulation: string; initialTierWeights: string[]; foundingMinimumPopulation: string; secessionMinimumPopulation: string; conflictStatePopulationReference: string }; diagnosticConfig: V5RunManifest["diagnosticConfig"] & { endingPopulationGoal: string; foundingNotabilityThreshold: string } };
-    return { ...parsed, mechanicsVariables: { ...parsed.mechanicsVariables, initialPopulation: BigInt(parsed.mechanicsVariables.initialPopulation), initialTierWeights: parsed.mechanicsVariables.initialTierWeights.map(BigInt) as unknown as readonly [bigint, bigint, bigint], foundingMinimumPopulation: BigInt(parsed.mechanicsVariables.foundingMinimumPopulation), secessionMinimumPopulation: BigInt(parsed.mechanicsVariables.secessionMinimumPopulation), conflictStatePopulationReference: BigInt(parsed.mechanicsVariables.conflictStatePopulationReference) }, diagnosticConfig: { ...parsed.diagnosticConfig, endingPopulationGoal: BigInt(parsed.diagnosticConfig.endingPopulationGoal), foundingNotabilityThreshold: BigInt(parsed.diagnosticConfig.foundingNotabilityThreshold) } };
+    const historicalPolicies = parsed.causalOwnerInputs.historicalDynamismPolicies;
+    const civicPolicy = historicalPolicies?.CIVIC_INSTITUTION_SECURITY;
+    const causalOwnerInputs = civicPolicy ? {
+      ...parsed.causalOwnerInputs,
+      historicalDynamismPolicies: {
+        ...historicalPolicies,
+        CIVIC_INSTITUTION_SECURITY: {
+          ...civicPolicy,
+          institutionFormationMinimumPopulation: BigInt(civicPolicy.institutionFormationMinimumPopulation),
+        },
+      },
+    } : parsed.causalOwnerInputs;
+    return { ...parsed, causalOwnerInputs, mechanicsVariables: { ...parsed.mechanicsVariables, initialPopulation: BigInt(parsed.mechanicsVariables.initialPopulation), initialTierWeights: parsed.mechanicsVariables.initialTierWeights.map(BigInt) as unknown as readonly [bigint, bigint, bigint], foundingMinimumPopulation: BigInt(parsed.mechanicsVariables.foundingMinimumPopulation), secessionMinimumPopulation: BigInt(parsed.mechanicsVariables.secessionMinimumPopulation), conflictStatePopulationReference: BigInt(parsed.mechanicsVariables.conflictStatePopulationReference) }, diagnosticConfig: { ...parsed.diagnosticConfig, endingPopulationGoal: BigInt(parsed.diagnosticConfig.endingPopulationGoal), foundingNotabilityThreshold: BigInt(parsed.diagnosticConfig.foundingNotabilityThreshold) } };
   }
 
   appendV5CausalEvents(runId: string, events: readonly CausalEventV5[]): void {
@@ -507,6 +597,17 @@ export class SimulatorStore {
     return { eventHistoryHash, eventCount };
   }
 
+  summarizeV5CausalEventHistoryRange(runId: string, worldKey: string, afterYear: number, throughYear = Number.MAX_SAFE_INTEGER): { eventHistoryHash: string; eventCount: number } {
+    const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year>? AND year<=? ORDER BY year, sequence")
+      .iterate(runId, worldKey, afterYear, throughYear) as Iterable<{ event_json: string }>;
+    let eventHistoryHash = V5_EMPTY_EVENT_HISTORY_HASH;
+    let eventCount = 0;
+    eventHistoryHash = extendV5EventHistoryHashFromCanonicalJson(eventHistoryHash, (function* (): Iterable<string> {
+      for (const row of rows) { eventCount += 1; yield row.event_json; }
+    })());
+    return { eventHistoryHash, eventCount };
+  }
+
   v5EventCount(runId: string): number {
     return (this.database.prepare("SELECT COUNT(*) AS count FROM v5_causal_event WHERE run_id=?").get(runId) as { count: number }).count;
   }
@@ -526,7 +627,7 @@ export class SimulatorStore {
     if (!row) return null;
     const state = restoreWorldStateV5(JSON.parse(gunzipSync(row.state_gzip).toString("utf8")));
     if (v5CheckpointHash(state) !== row.state_hash) throw new Error(`V5 checkpoint state hash mismatch for ${runId}/${worldKey}`);
-    return { state, stateHash: row.state_hash, eventHistoryHash: row.event_history_hash };
+    return { state: projectWorldStateV54ReadOnly(state), stateHash: row.state_hash, eventHistoryHash: row.event_history_hash };
   }
 
   listV5CheckpointYears(runId: string, worldKey: string): number[] {
@@ -692,6 +793,54 @@ export class SimulatorStore {
   saveV5NamingResponseAttempt(input: { runId: string; batchId: string; attemptId: string; accepted: boolean; response: unknown; errors: readonly string[] }): void {
     this.database.prepare("INSERT INTO v5_naming_response_attempt(run_id,batch_id,attempt_id,accepted,response_text,errors_json) VALUES (?,?,?,?,?,?)")
       .run(input.runId, input.batchId, input.attemptId, input.accepted ? 1 : 0, canonicalJson(input.response), canonicalJson(input.errors));
+  }
+
+  saveV5PolicyBlocker(runId: string, blocker: CausalPolicyBlockerV5): string {
+    const blockerJson = canonicalJson(blocker); const blockerId = `V5_POLICY_BLOCKER_${createHash("sha256").update(blockerJson).digest("hex")}`;
+    const prior = this.database.prepare("SELECT blocker_json FROM v5_policy_blocker WHERE run_id=? AND blocker_id=?").get(runId, blockerId) as { blocker_json: string } | undefined;
+    if (prior && prior.blocker_json !== blockerJson) throw new Error(`Policy blocker ${blockerId} conflicts with immutable persisted authority`);
+    if (!prior) this.database.prepare("INSERT INTO v5_policy_blocker(run_id,blocker_id,policy_key,year,blocker_json) VALUES (?,?,?,?,?)").run(runId, blockerId, blocker.policyKey, blocker.year, blockerJson);
+    return blockerId;
+  }
+
+  listV5PolicyBlockers(runId: string): CausalPolicyBlockerV5[] {
+    return (this.database.prepare("SELECT blocker_json FROM v5_policy_blocker WHERE run_id=? ORDER BY year,blocker_id").all(runId) as { blocker_json: string }[]).map((row) => JSON.parse(row.blocker_json) as CausalPolicyBlockerV5);
+  }
+
+  saveV5DerogatoryDecisionBatch(runId: string, batch: DerogatoryDecisionBatchV5): void {
+    const batchJson = canonicalJson(batch); const prior = this.loadV5DerogatoryDecisionBatch(runId, batch.batchId);
+    if (prior) { if (canonicalJson(prior) !== batchJson) throw new Error(`Derogatory decision batch ${batch.batchId} conflicts with immutable persisted authority`); return; }
+    this.database.prepare("INSERT INTO v5_derogatory_decision_batch(run_id,batch_id,review_year,barrier_year,context_sha256,prompt_sha256,batch_json) VALUES (?,?,?,?,?,?,?)").run(runId, batch.batchId, batch.reviewYear, batch.barrierYear, batch.contextSha256, batch.promptSha256, batchJson);
+  }
+
+  loadV5DerogatoryDecisionBatch(runId: string, batchId: string): DerogatoryDecisionBatchV5 | null {
+    const row = this.database.prepare("SELECT batch_json FROM v5_derogatory_decision_batch WHERE run_id=? AND batch_id=?").get(runId, batchId) as { batch_json: string } | undefined;
+    return row ? JSON.parse(row.batch_json) as DerogatoryDecisionBatchV5 : null;
+  }
+
+  listV5DerogatoryDecisionBatches(runId: string): DerogatoryDecisionBatchV5[] {
+    return (this.database.prepare("SELECT batch_json FROM v5_derogatory_decision_batch WHERE run_id=? ORDER BY review_year").all(runId) as { batch_json: string }[]).map((row) => JSON.parse(row.batch_json) as DerogatoryDecisionBatchV5);
+  }
+
+  saveV5DerogatoryDecisionAttempt(input: { runId: string; batchId: string; attemptId: string; accepted: boolean; response: DerogatoryDecisionResponseV5 | unknown; errors: readonly string[] }): void {
+    this.database.prepare("INSERT INTO v5_derogatory_decision_attempt(run_id,batch_id,attempt_id,accepted,response_json,errors_json) VALUES (?,?,?,?,?,?)").run(input.runId, input.batchId, input.attemptId, input.accepted ? 1 : 0, canonicalJson(input.response), canonicalJson(input.errors));
+  }
+
+  saveV5AcceptedDerogatoryDecisionBatch(runId: string, accepted: AcceptedDerogatoryDecisionBatchV5): void {
+    this.saveV5DerogatoryDecisionBatch(runId, accepted.batch);
+    const existing = this.database.prepare("SELECT accepted_batch_json FROM v5_derogatory_decision_stream WHERE run_id=? AND batch_id=?").get(runId, accepted.batch.batchId) as { accepted_batch_json: string } | undefined;
+    const acceptedJson = canonicalJson(accepted); if (existing) { if (existing.accepted_batch_json !== acceptedJson) throw new Error("Accepted Derogatory decision batch conflicts with immutable stream"); return; }
+    this.database.exec("BEGIN IMMEDIATE");
+    try {
+      const insert = this.database.prepare("INSERT INTO v5_derogatory_accepted_decision(run_id,batch_id,decision_id,world_key,scope,action,prior_group_id,selected_group_id,decision_json) VALUES (?,?,?,?,?,?,?,?,?)");
+      for (const decision of accepted.acceptedSelections) insert.run(runId, accepted.batch.batchId, decision.decisionId, decision.worldKey, decision.scope, decision.action, decision.priorGroupId, decision.selectedGroupId, canonicalJson(decision));
+      this.database.prepare("INSERT INTO v5_derogatory_decision_stream(run_id,batch_id,review_year,prior_stream_hash,stream_hash,accepted_batch_json) VALUES (?,?,?,?,?,?)").run(runId, accepted.batch.batchId, accepted.batch.reviewYear, accepted.priorDecisionStreamHash, accepted.decisionStreamHash, acceptedJson);
+      this.database.exec("COMMIT");
+    } catch (error) { this.database.exec("ROLLBACK"); throw error; }
+  }
+
+  listV5AcceptedDerogatoryDecisionBatches(runId: string): AcceptedDerogatoryDecisionBatchV5[] {
+    return (this.database.prepare("SELECT accepted_batch_json FROM v5_derogatory_decision_stream WHERE run_id=? ORDER BY review_year").all(runId) as { accepted_batch_json: string }[]).map((row) => JSON.parse(row.accepted_batch_json) as AcceptedDerogatoryDecisionBatchV5);
   }
 
   mergeV5DiagnosticObservations(runId: string, observations: readonly BoundedDiagnosticObservationV5[]): void {

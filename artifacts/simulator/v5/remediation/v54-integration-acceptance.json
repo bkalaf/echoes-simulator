@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "echoes-v5.4-prompt03-integration-acceptance-v1",
+  "pass": false,
+  "failureType": "ACCEPTANCE_HARNESS_RUNTIME_BOUND_EXCEEDED",
+  "failureMessage": "The bounded year-285 persisted run completed, but the monolithic uninterrupted/replay comparison did not complete within two hours and exposed no phase telemetry. The process was terminated with exit code 130 at the owner's direction. This is a failed acceptance, not an accepted long-running result.",
+  "targetYear": 285,
+  "runId": "V5_DIAGNOSTIC_5ac08f1c19151ddf_1787941391989",
+  "fixtureAuthority": "ISOLATED_ACCEPTANCE_ONLY_NOT_HISTORICAL_AUTHORITY",
+  "persistedExecution": {
+    "status": "COMPLETE",
+    "currentYear": 285,
+    "createdAt": "2026-08-28 18:23:11",
+    "completedAt": "2026-08-28 19:15:02"
+  },
+  "comparisonExecution": {
+    "status": "TERMINATED",
+    "exitCode": 130,
+    "phaseTelemetryAvailable": false,
+    "stateEqualityProven": false,
+    "eventHistoryEqualityProven": false,
+    "decisionStreamEqualityProven": false,
+    "populationPartitionEqualityProven": false
+  },
+  "requiredRemediation": [
+    "Replace monolithic full-history reruns with resumable checkpoint-segment verification.",
+    "Emit phase and year progress during every acceptance stage.",
+    "Apply an explicit wall-clock budget and fail fast when it is exceeded.",
+    "Do not block the operator product on acceptance replay work."
+  ]
+}

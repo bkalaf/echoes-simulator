@@ -13,6 +13,43 @@ export type GovernmentFormId = string;
 export type SectorId = "LAND_AND_FOOD" | "EXTRACTION" | "MANUFACTURE" | "TRADE_AND_TRANSPORT" | "KNOWLEDGE_AND_SERVICES";
 export const V5_SECTORS: readonly SectorId[] = ["LAND_AND_FOOD", "EXTRACTION", "MANUFACTURE", "TRADE_AND_TRANSPORT", "KNOWLEDGE_AND_SERVICES"];
 
+export const V5_RESOURCE_TYPES = [
+  "WOOD", "STONE", "MARBLE", "IRON_ORE", "COPPER_ORE", "TIN_ORE", "COAL", "PRECIOUS_METAL", "GEMS", "CLAY", "SALT", "SAND",
+  "FRESH_WATER", "FISHERY", "FARMLAND", "GRAZING_LAND", "HORSES", "PACK_ANIMALS", "FIBER", "SILK", "LEATHER", "INK_INPUT", "PAPER_INPUT", "MAGIC",
+] as const;
+export type ResourceTypeV5 = (typeof V5_RESOURCE_TYPES)[number];
+
+export const V5_INDUSTRY_TYPES = [
+  "AGRICULTURE", "ANIMAL_HUSBANDRY", "FISHING", "FORESTRY", "MINING", "QUARRYING", "METALWORKING", "CONSTRUCTION", "TEXTILES", "GARMENTS",
+  "LEATHERWORK", "PAPERMAKING", "PRINTING", "INKMAKING", "FOOD_PROCESSING", "BREWING", "TAVERNS_INNS", "TRANSPORT", "SHIPPING", "TOURISM", "BANKING",
+  "MONEY_LENDING", "PRECIOUS_GOODS", "MAGICAL_SERVICES", "ENTERTAINMENT", "PERFORMING_ARTS", "HEALTH_CARE", "EDUCATION", "LEGAL_SERVICES", "ADMINISTRATION",
+  "SECURITY", "MERCENARY_SERVICES", "SEX_TRADE", "SLAVE_LABOR", "INDENTURED_LABOR", "GLADIATORIAL_ENTERTAINMENT", "FIGHTING_PITS", "ORGANIZED_CRIME",
+  "PROTECTION_RACKETS", "SMUGGLING",
+] as const;
+export type IndustryTypeV5 = (typeof V5_INDUSTRY_TYPES)[number];
+
+export const V5_CIVIC_INSTITUTION_TYPES = ["BUREAUCRACY", "FAITH", "EDUCATION", "HEALTH_CARE", "NEWSPAPER_PRESS", "PROPAGANDA", "LAW", "COURTS", "PRISON", "BANKING", "GUILD", "MILITARY_SECURITY"] as const;
+export type CivicInstitutionTypeV5 = (typeof V5_CIVIC_INSTITUTION_TYPES)[number];
+
+export const V5_SECURITY_FORCE_TYPES = ["CITY_WATCH", "STATE_GUARD", "FAMILY_GUARD", "CORPORATE_SECURITY", "RELIGIOUS_GUARD", "MERCENARIES", "CRIMINAL_ENFORCERS"] as const;
+export type SecurityForceTypeV5 = (typeof V5_SECURITY_FORCE_TYPES)[number];
+
+export const V5_DEROGATORY_GROUP_IDS = [
+  "homosexual", "bisexual", "transgender", "black-skinned", "white-skinned", "birds", "reptiles", "amphibians", "fish", "demons", "angels", "woodland mythos",
+  "unborn", "soulless", "beasts", "mythos", "humans", "cave dwellers", "tree dwellers", "cold blooded", "carnivores", "herbivores", "multi-litters", "egg layers",
+  "undead", "elves", "dwarves", "insects",
+] as const;
+export type DerogatoryGroupIdV5 = (typeof V5_DEROGATORY_GROUP_IDS)[number];
+
+export const V5_DEROGATORY_TARGETING_SCOPES = [
+  "SOVEREIGN_SCAPEGOAT", "SOVEREIGN_FOCUS_OF_IRE", "SOVEREIGN_ANTI_INSURGENCY", "SOVEREIGN_CRUELTY_FOCUS",
+  "FIRST_PILLAR_SCAPEGOAT", "FIRST_PILLAR_FOCUS_OF_IRE", "FIRST_PILLAR_TROUBLEMAKER", "FIRST_PILLAR_ANTI_SOVEREIGN_FOCUS", "FIRST_PILLAR_CRUELTY_FOCUS",
+  "SECOND_PILLAR_SCAPEGOAT", "SECOND_PILLAR_FOCUS_OF_IRE", "SECOND_PILLAR_TROUBLEMAKER", "SECOND_PILLAR_ANTI_SOVEREIGN_FOCUS", "SECOND_PILLAR_CRUELTY_FOCUS",
+  "SOVEREIGN_OPPOSITION_SCAPEGOAT", "SOVEREIGN_OPPOSITION_FOCUS_OF_IRE", "SOVEREIGN_OPPOSITION_TROUBLEMAKER", "SOVEREIGN_OPPOSITION_CRUELTY_FOCUS",
+  "SOVEREIGN_OPPOSITION_INTERNAL_CONFLICT_SCAPEGOAT", "SOVEREIGN_OPPOSITION_INTERNAL_CONFLICT_TROUBLEMAKER", "SOVEREIGN_OPPOSITION_INTERNAL_CRUELTY_FOCUS",
+] as const;
+export type DerogatoryTargetingScopeV5 = (typeof V5_DEROGATORY_TARGETING_SCOPES)[number];
+
 export interface TierState {
   population: PopulationInt;
   prosperity: Score1000;
@@ -98,7 +135,7 @@ export interface PersonRelationV5 {
   sourceEventId: string;
 }
 
-export type OrganizationType = "CORPORATION" | "CRIME_ORGANIZATION";
+export type OrganizationType = "CORPORATION" | "CRIME_ORGANIZATION" | "GUILD";
 export type OrganizationStatus = "ACTIVE" | "DECLINING" | "DISSOLVED";
 export interface OrganizationV5 {
   organizationId: string;
@@ -119,6 +156,8 @@ export interface InstitutionV5 {
   institutionId: string;
   stateId: string;
   institutionType: string;
+  jurisdictionSettlementId?: string | null;
+  capacity?: Score1000;
   foundedYear: number;
   dissolvedYear: number | null;
 }
@@ -205,7 +244,7 @@ export interface BorderRelationV5 {
   cooldownUntilYear: number | null;
 }
 
-export type TimedConditionType = "RECENT_MIGRATION" | "GOVERNMENT_CRISIS" | "FAMILY_PROMOTION_CANDIDATE" | "ORGANIZATION_FORMATION_CANDIDATE" | "ORGANIZATION_FORMATION_COOLDOWN" | "FAMILY_RELATION_CANDIDATE" | "FOUNDING_CANDIDATE" | "SECESSION_CANDIDATE" | "QUARANTINE" | "RESTRICTION" | "REPRESSION" | "SCANDAL" | "TRAUMA" | "OUTCOME";
+export type TimedConditionType = "RECENT_MIGRATION" | "GOVERNMENT_CRISIS" | "FAMILY_PROMOTION_CANDIDATE" | "ORGANIZATION_FORMATION_CANDIDATE" | "ORGANIZATION_FORMATION_COOLDOWN" | "GUILD_FORMATION_CANDIDATE" | "FAMILY_RELATION_CANDIDATE" | "FOUNDING_CANDIDATE" | "SECESSION_CANDIDATE" | "QUARANTINE" | "RESTRICTION" | "REPRESSION" | "SCANDAL" | "TRAUMA" | "OUTCOME";
 export interface TimedConditionV5 {
   conditionId: string;
   type: TimedConditionType;
@@ -229,6 +268,220 @@ export interface ActiveConflictV5 {
   endedYear: number | null;
 }
 
+export type ResourceAvailabilityV5 = "AVAILABLE" | "DISRUPTED" | "OCCUPIED" | "DENIED" | "DEPLETED" | "DESTROYED";
+export interface ResourceNodeV5 {
+  resourceNodeId: string;
+  resourceType: ResourceTypeV5;
+  siteId: string;
+  regionId: string;
+  quality: Score1000;
+  capacityClass: "MINOR" | "MODERATE" | "MAJOR";
+  renewable: boolean;
+  accessDifficulty: Score1000;
+  placementAuthorityRef: string;
+}
+
+export interface WorldResourceStateV5 {
+  worldResourceStateId: string;
+  resourceNodeId: string;
+  controllerType: ControllerType;
+  controllerId: string;
+  discoveryYear: number;
+  availability: ResourceAvailabilityV5;
+  seizedByEventId: string | null;
+}
+
+export interface IndustryStateV5 {
+  industryStateId: string;
+  settlementId: string;
+  industryType: IndustryTypeV5;
+  strength: Score1000;
+  employment: Score1000;
+  dependency: Score1000;
+  coercion: Score1000;
+  disruptedUntilYear: number | null;
+  supportingResourceNodeIds: string[];
+  supportingInstitutionIds: string[];
+  sourcePolicyRef: string;
+}
+
+export interface SecurityForceV5 {
+  securityForceId: string;
+  forceType: SecurityForceTypeV5;
+  controllerType: ControllerType;
+  controllerId: string;
+  jurisdictionType: "SETTLEMENT" | "STATE" | "ORGANIZATION" | "ROUTE";
+  jurisdictionId: string;
+  organizationId: string;
+  personnel: bigint;
+  seniorOfficerPersonIds: string[];
+  loyalty: FactionVector;
+  training: Score1000;
+  equipment: Score1000;
+  morale: Score1000;
+  cohesion: Score1000;
+  commandQuality: Score1000;
+  suppressionCapacity: Score1000;
+  combatCapacity: Score1000;
+  status: "ACTIVE" | "DEGRADED" | "DEFECTED" | "FRAGMENTED" | "DISSOLVED";
+  foundedYear: number;
+  recoveryUntilYear: number | null;
+}
+
+export type DiplomaticActionV5 = "NEGOTIATION" | "TREATY" | "NON_AGGRESSION" | "ALLIANCE" | "TRADE_AGREEMENT" | "EMBARGO" | "SANCTIONS" | "ULTIMATUM" | "RESOURCE_AGREEMENT" | "BORDER_SETTLEMENT" | "CEASEFIRE" | "PEACE";
+export interface DiplomaticRelationV5 {
+  diplomaticRelationId: string;
+  stateAId: string;
+  stateBId: string;
+  trust: Score1000;
+  hostility: Score1000;
+  tradeDependence: Score1000;
+  territorialDispute: Score1000;
+  resourceCompetition: Score1000;
+  ideologicalConflict: Score1000;
+  recentViolence: Score1000;
+  diplomaticEngagement: Score1000;
+  warExhaustion: Score1000;
+  lastReviewedYear: number;
+}
+
+export interface DiplomaticAgreementV5 {
+  agreementId: string;
+  action: DiplomaticActionV5;
+  stateAId: string;
+  stateBId: string;
+  startYear: number;
+  endYear: number | null;
+  sourceEventId: string;
+  terms: Record<string, string | number | boolean | null>;
+}
+
+export type ConflictStageV5 = "TENSION" | "DISPUTE" | "BORDER_INCIDENT" | "SKIRMISH" | "SUSTAINED_SKIRMISH" | "WAR" | "SIEGE" | "OCCUPATION" | "CEASEFIRE" | "PEACE";
+export interface ConflictEpisodeV5 {
+  conflictEpisodeId: string;
+  relationId: string;
+  participantStateIds: string[];
+  stage: ConflictStageV5;
+  startYear: number;
+  endYear: number | null;
+  causeCodes: string[];
+  causeEventIds: string[];
+  affectedSettlementIds: string[];
+  affectedResourceNodeIds: string[];
+  casualties: bigint;
+  displaced: bigint;
+  outcome: string | null;
+}
+
+export interface SettlementControlTermV5 {
+  settlementControlTermId: string;
+  settlementId: string;
+  controllerStateId: string;
+  legalStateId: string;
+  controlType: "LEGAL" | "OCCUPATION" | "CONQUEST";
+  startYear: number;
+  endYear: number | null;
+  sourceEventId: string;
+}
+
+export type PopulationLocationTypeV5 = "PUBLIC_SETTLEMENT" | "ENCLAVE";
+export interface TargetedPopulationSliceV5 {
+  populationSliceId: string;
+  locationType: PopulationLocationTypeV5;
+  locationId: string;
+  breedId: string;
+  tier: SocialTier;
+  population: bigint;
+  membershipSignature: DerogatoryGroupIdV5[];
+  factionOpinion: FactionVector;
+  growthModifierPpm: number;
+  growthModifierUntilYear: number | null;
+  confiscationScore: Score1000;
+  restrictionKeys: string[];
+  provenanceRefs: string[];
+}
+
+export interface DerogatoryGroupV5 {
+  groupId: DerogatoryGroupIdV5;
+  predicateStatus: "READY" | "NOT_READY";
+  predicateAuthorityRef: string | null;
+  predicateDescription: string;
+}
+
+export interface DerogatoryTargetSelectionV5 {
+  selectionId: string;
+  worldKey: WorldKey;
+  scope: DerogatoryTargetingScopeV5;
+  reviewYear: number;
+  action: "SELECT" | "KEEP" | "REPLACE";
+  priorGroupId: DerogatoryGroupIdV5 | null;
+  selectedGroupId: DerogatoryGroupIdV5;
+  effectiveFromYear: number;
+  effectiveUntilYear: number | null;
+  decisionBatchId: string;
+  responseSha256: string;
+  provenanceRef: string;
+}
+
+export const V5_ATROCITY_OCCURRENCE_IDS = [
+  "ATROCITY_WITNESS_17", "ATROCITY_WITNESS_16_A", "ATROCITY_WITNESS_16_B", "ATROCITY_WITNESS_15", "ATROCITY_WITNESS_14", "ATROCITY_WITNESS_13",
+  "ATROCITY_WITNESS_12", "ATROCITY_WITNESS_11", "ATROCITY_WITNESS_10", "ATROCITY_WITNESS_09", "ATROCITY_WITNESS_08", "ATROCITY_WITNESS_07",
+  "ATROCITY_WITNESS_06", "ATROCITY_WITNESS_05", "ATROCITY_WITNESS_04", "ATROCITY_WITNESS_03", "ATROCITY_WITNESS_02", "ATROCITY_WITNESS_01",
+] as const;
+export type AtrocityOccurrenceIdV5 = (typeof V5_ATROCITY_OCCURRENCE_IDS)[number];
+export interface AtrocityOccurrenceSlotV5 {
+  occurrenceId: AtrocityOccurrenceIdV5;
+  witness: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17;
+  witnessOccurrence: "ONLY" | "A" | "B";
+  status: "NOT_CONFIGURED" | "CONFIGURED";
+  triggerYear: number | null;
+  targetScope: DerogatoryTargetingScopeV5 | null;
+  shockDefinitionId: string | null;
+  authorityRef: string;
+}
+
+export type LocalAtrocityResponseTypeV5 = "SUPPORT_REPRESSION" | "CURFEW" | "SEGREGATION_GHETTOIZATION" | "PROPERTY_SEIZURE" | "IMPRISONMENT" | "EXPULSION" | "NEUTRAL_COMPLIANCE" | "PROTEST" | "REFUSAL" | "SANCTUARY" | "NEW_IDENTITY_PAPERS" | "PROPERTY_PROTECTION" | "RESETTLEMENT" | "SECURITY_PROTECTION" | "SECESSION_PRESSURE";
+export interface LocalAtrocityResponseV5 {
+  responseId: string;
+  occurrenceId: AtrocityOccurrenceIdV5;
+  settlementId: string;
+  stateId: string;
+  targetGroupId: DerogatoryGroupIdV5;
+  responseType: LocalAtrocityResponseTypeV5;
+  intensity: Score1000;
+  sourceEventId: string;
+}
+
+export interface ForcedDisplacementRecordV5 {
+  displacementId: string;
+  sourceEventId: string;
+  sourceLocationType: PopulationLocationTypeV5;
+  sourceLocationId: string;
+  destinationLocationType: PopulationLocationTypeV5;
+  destinationLocationId: string;
+  populationSliceId: string;
+  population: bigint;
+  year: number;
+  cause: "CONFLICT" | "ATROCITY" | "EXILE" | "PERSECUTION" | "RESOURCE_DENIAL";
+}
+
+export type EnclaveFoundingCauseV5 = "ATROCITY_REFUGE" | "EXILE_REFUGE" | "PERSECUTION_REFUGE" | "FORCED_DISPLACEMENT_REFUGE";
+export type EnclaveFormV5 = "CAVERN" | "UNDERWATER" | "FLOATING_UNDERSIDE" | "HIDDEN_SUBSTRUCTURE" | "OTHER_OWNER_AUTHORIZED";
+export type EnclaveSecrecyStateV5 = "HIDDEN" | "RUMORED" | "EXPOSED" | "INTEGRATED";
+export type EnclaveStatusV5 = "ACTIVE" | "EVACUATED" | "DESTROYED" | "DISSOLVED";
+export interface EnclaveV5 {
+  enclaveId: string;
+  hostSettlementId: string;
+  targetGroupId: DerogatoryGroupIdV5;
+  foundedYear: number;
+  foundedByEventId: string;
+  foundingCause: EnclaveFoundingCauseV5;
+  enclaveForm: EnclaveFormV5;
+  secrecyState: EnclaveSecrecyStateV5;
+  status: EnclaveStatusV5;
+  supportBurden: Score1000;
+}
+
 export interface WorldStateV5 {
   schemaVersion: "echoes-world-state-v5";
   worldKey: WorldKey;
@@ -249,6 +502,19 @@ export interface WorldStateV5 {
   timedConditions: TimedConditionV5[];
   activeConflicts: ActiveConflictV5[];
   worldRoutes: WorldRouteV5[];
+  resourceNodes?: ResourceNodeV5[];
+  worldResourceStates?: WorldResourceStateV5[];
+  industries?: IndustryStateV5[];
+  securityForces?: SecurityForceV5[];
+  diplomaticRelations?: DiplomaticRelationV5[];
+  diplomaticAgreements?: DiplomaticAgreementV5[];
+  conflictEpisodes?: ConflictEpisodeV5[];
+  settlementControlTerms?: SettlementControlTermV5[];
+  populationSlices?: TargetedPopulationSliceV5[];
+  derogatoryTargetSelections?: DerogatoryTargetSelectionV5[];
+  localAtrocityResponses?: LocalAtrocityResponseV5[];
+  forcedDisplacements?: ForcedDisplacementRecordV5[];
+  enclaves?: EnclaveV5[];
 }
 
 export type SocialClass = "NOBILITY" | "INTELLECTUAL" | "WORKER" | "WANDERER";
@@ -306,7 +572,7 @@ export interface CausalEventV5 {
   payload: Record<string, unknown>;
 }
 
-export type V5Phase = "SCHEDULED_CANONICAL" | "TEMPORAL" | "ACTIVE_WAR" | "DEMOGRAPHY" | "INDUSTRY" | "PROSPERITY" | "SOCIAL_MOBILITY" | "VOLUNTARY_MIGRATION" | "ROUTE_INFRASTRUCTURE" | "FAMILY" | "ORGANIZATION" | "STATE_FACTION" | "UNREST" | "LEGITIMACY" | "GOVERNMENT" | "TRIGGERED" | "OFFICE_SELECTION" | "LATE_BORDER" | "AUDIT";
+export type V5Phase = "SCHEDULED_CANONICAL" | "TEMPORAL" | "RESOURCE_GEOGRAPHY" | "INSTITUTION_CAPACITY" | "SECURITY" | "DIPLOMACY" | "ACTIVE_WAR" | "TARGETING_RESPONSE" | "DEMOGRAPHY" | "INDUSTRY" | "PROSPERITY" | "SOCIAL_MOBILITY" | "VOLUNTARY_MIGRATION" | "ROUTE_INFRASTRUCTURE" | "FAMILY" | "ORGANIZATION" | "STATE_FACTION" | "UNREST" | "LEGITIMACY" | "GOVERNMENT" | "TRIGGERED" | "OFFICE_SELECTION" | "LATE_BORDER" | "AUDIT";
 
 export type NamingBehavior = "BLOCKING" | "BATCHED" | "AUTOMATIC_REUSE" | "NO_NAME_REQUIRED";
 export type AcceptedLabelSourceV5 = "CANONICAL_EXISTING" | "OWNER_INPUT" | "LLM_NAMING_RESPONSE" | "AUTOMATIC_REUSE" | "TEST_FIXTURE";

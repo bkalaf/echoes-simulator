@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 import { performance } from "node:perf_hooks";
 import { DatabaseSync } from "node:sqlite";
 import { canonicalJson } from "../core/serialization/canonical-json.js";
@@ -414,19 +414,28 @@ if (WORLDS.some((world) => controlStates[world].size !== MILESTONES.length)) {
   writeFileSync(CONTROL_CACHE_PATH, `${canonicalJson({ identity: controlCacheIdentity, worlds: Object.fromEntries(WORLDS.map((world) => [world, Object.fromEntries(MILESTONES.map((year) => [year, controlStates[world].get(year)!]))])) })}\n`, "utf8");
 }
 
-process.stderr.write(`MIGRATION_LONG_HORIZON selected ${selectedCandidate.candidateId} persisted unattended run through year 2000\n`);
+const reuseCompletedDatabaseArgument = process.argv.find((argument) => argument.startsWith("--reuse-completed-database="));
+const reuseCompletedDatabasePath = reuseCompletedDatabaseArgument ? resolve(reuseCompletedDatabaseArgument.slice("--reuse-completed-database=".length)) : null;
+process.stderr.write(reuseCompletedDatabasePath
+  ? `MIGRATION_LONG_HORIZON bounded replay against completed temporary database ${reuseCompletedDatabasePath}\n`
+  : `MIGRATION_LONG_HORIZON selected ${selectedCandidate.candidateId} persisted unattended run through year 2000\n`);
 const accumulators = Object.fromEntries(WORLDS.map((world) => [world, emptyAccumulator()])) as Record<WorldKey, WorldAccumulator>;
 const priorStates: Partial<Record<WorldKey, WorldStateV5>> = {};
 mkdirSync(resolve("outputs"), { recursive: true });
-const tempDirectory = mkdtempSync(resolve("outputs/echoes-v5-migration-long-"));
-const databasePath = resolve(tempDirectory, "selected-2000.sqlite");
+const tempDirectory = reuseCompletedDatabasePath ? dirname(reuseCompletedDatabasePath) : mkdtempSync(resolve("outputs/echoes-v5-migration-long-"));
+const databasePath = reuseCompletedDatabasePath ?? resolve(tempDirectory, "selected-2000.sqlite");
 const store = new SimulatorStore(databasePath);
 const runId = `V5_MIGRATION_LONG_${createHash("sha256").update(`${OWNER_SEED}\0${selectedCandidate.candidateId}`).digest("hex").slice(0, 16)}`;
 const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 2000, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: OWNER_SEED, mechanics: selectedMechanics, causalOwnerInputs: ownerInputs, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
-store.saveV5Configuration({ mechanics: selectedMechanics, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
-store.createRun({ runId, mode: "DIAGNOSTIC", status: "RUNNING", seed: OWNER_SEED, seedHash: createHash("sha256").update(OWNER_SEED).digest("hex"), policyVersion: V5_MECHANICS_VERSION, currentYear: 0 });
-store.saveV5RunManifest(manifest);
-store.selectRun(runId);
+if (reuseCompletedDatabasePath) {
+  const existingRun = store.getRun(runId);
+  if (!existingRun || existingRun.status !== "COMPLETE" || existingRun.currentYear !== 2000) throw new Error("Reusable temporary migration benchmark is not a completed year-2000 run");
+} else {
+  store.saveV5Configuration({ mechanics: selectedMechanics, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+  store.createRun({ runId, mode: "DIAGNOSTIC", status: "RUNNING", seed: OWNER_SEED, seedHash: createHash("sha256").update(OWNER_SEED).digest("hex"), policyVersion: V5_MECHANICS_VERSION, currentYear: 0 });
+  store.saveV5RunManifest(manifest);
+  store.selectRun(runId);
+}
 const persist = (snapshot: V5AtomicYearSnapshot): void => {
   updateAccumulator(accumulators, priorStates, snapshot, djtYear);
   for (const world of WORLDS) {
@@ -439,41 +448,98 @@ const persist = (snapshot: V5AtomicYearSnapshot): void => {
   if (snapshot.year > 0 && snapshot.year % 100 === 0) process.stderr.write(`MIGRATION_LONG_HORIZON selected year ${snapshot.year}/2000\n`);
 };
 
-let selectedResult: ReturnType<typeof runV5History>;
 let storageEvidence: Record<string, unknown>;
 let replayEvidence: Record<WorldKey, unknown>;
 try {
-  selectedResult = runV5History({
-    canonical, ownerInputs, mechanics: selectedMechanics,
-    operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1,
-    normalizedSeed: OWNER_SEED, mode: "DIAGNOSTIC", throughYear: 2000, scheduledTransactions,
-    stopAtBlockingNaming: false, interactiveNamingEnabled: false, retainHistory: false,
-    onBootstrap: persist, onAtomicYear: persist,
-  });
-  store.setRunStatus(runId, selectedResult.status, selectedResult.completedYear);
   const checkpointYear = 1000;
-  const checkpointStates = Object.fromEntries(WORLDS.map((world) => [world, store.loadLatestV5Checkpoint(runId, world, checkpointYear)!.state])) as Record<WorldKey, WorldStateV5>;
-  const eventCountsAtCheckpoint = Object.fromEntries(WORLDS.map((world) => [world, store.summarizeV5CausalEventHistory(runId, world, checkpointYear).eventCount]));
-  const replayHashes = Object.fromEntries(WORLDS.map((world) => [world, V5_EMPTY_EVENT_HISTORY_HASH])) as Record<WorldKey, string>;
-  process.stderr.write("MIGRATION_LONG_HORIZON checkpoint continuation year 1000 to 2000\n");
-  const resumed = continueV5History({
-    canonical, ownerInputs, mechanics: selectedMechanics,
-    operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1,
-    normalizedSeed: OWNER_SEED, mode: "DIAGNOSTIC", throughYear: 2000, scheduledTransactions,
-    initialStates: checkpointStates, initialEventCounts: eventCountsAtCheckpoint,
-    stopAtBlockingNaming: false, interactiveNamingEnabled: false, retainHistory: false,
-    onAtomicYear: (snapshot) => {
-      for (const world of WORLDS) replayHashes[world] = extendV5EventHistoryHash(replayHashes[world], snapshot.yearEvents[world]);
-      if (snapshot.year % 100 === 0) process.stderr.write(`MIGRATION_LONG_HORIZON replay year ${snapshot.year}/2000\n`);
-    },
-  });
-  replayEvidence = Object.fromEntries(WORLDS.map((world) => {
-    const persistedTail = store.listV5CausalEvents(runId, world, 2000).filter((event) => event.year > checkpointYear);
-    const persistedTailHash = extendV5EventHistoryHash(V5_EMPTY_EVENT_HISTORY_HASH, persistedTail);
-    const stateEquivalent = causalStateHash(resumed.states[world]) === causalStateHash(selectedResult.states[world]);
-    const eventTailEquivalent = replayHashes[world] === persistedTailHash;
-    return [world, { checkpointYear, resumedStateHash: causalStateHash(resumed.states[world]), uninterruptedStateHash: causalStateHash(selectedResult.states[world]), resumedTailEventHash: replayHashes[world], uninterruptedTailEventHash: persistedTailHash, stateEquivalent, eventTailEquivalent, equivalent: stateEquivalent && eventTailEquivalent }];
-  })) as Record<WorldKey, unknown>;
+  if (reuseCompletedDatabasePath) {
+    const bootstrapStates = Object.fromEntries(WORLDS.map((world) => [world, store.loadLatestV5Checkpoint(runId, world, 0)!.state])) as Record<WorldKey, WorldStateV5>;
+    const bootstrapEvents = Object.fromEntries(WORLDS.map((world) => [world, store.listV5CausalEvents(runId, world, 0)])) as Record<WorldKey, CausalEventV5[]>;
+    updateAccumulator(accumulators, priorStates, {
+      year: 0,
+      states: bootstrapStates,
+      yearEvents: bootstrapEvents,
+      yearNamingRequests: { CONCORD: [], SCHISM: [], RUIN: [] },
+      yearDiagnosticObservations: { CONCORD: [], SCHISM: [], RUIN: [] },
+      checkpointDue: true,
+    }, djtYear);
+    const bootstrapEventCounts = Object.fromEntries(WORLDS.map((world) => [world, bootstrapEvents[world].length]));
+    process.stderr.write("MIGRATION_LONG_HORIZON replay bootstrap to checkpoint year 1000\n");
+    const replayToCheckpoint = continueV5History({
+      canonical, ownerInputs, mechanics: selectedMechanics,
+      operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1,
+      normalizedSeed: OWNER_SEED, mode: "DIAGNOSTIC", throughYear: checkpointYear, scheduledTransactions,
+      initialStates: bootstrapStates, initialEventCounts: bootstrapEventCounts,
+      stopAtBlockingNaming: false, interactiveNamingEnabled: false, retainHistory: false,
+      onAtomicYear: (snapshot) => {
+        updateAccumulator(accumulators, priorStates, snapshot, djtYear);
+        if (snapshot.year % 100 === 0) process.stderr.write(`MIGRATION_LONG_HORIZON replay-prefix year ${snapshot.year}/1000\n`);
+      },
+    });
+    const checkpointStates = Object.fromEntries(WORLDS.map((world) => [world, store.loadLatestV5Checkpoint(runId, world, checkpointYear)!.state])) as Record<WorldKey, WorldStateV5>;
+    const checkpointBoundaryEquivalent = Object.fromEntries(WORLDS.map((world) => [world, causalStateHash(replayToCheckpoint.states[world]) === causalStateHash(checkpointStates[world])])) as Record<WorldKey, boolean>;
+    for (const world of WORLDS) priorStates[world] = structuredClone(checkpointStates[world]);
+    const eventCountsAtCheckpoint = Object.fromEntries(WORLDS.map((world) => [world, store.summarizeV5CausalEventHistory(runId, world, checkpointYear).eventCount]));
+    process.stderr.write("MIGRATION_LONG_HORIZON checkpoint continuation year 1000 to 2000\n");
+    const resumed = continueV5History({
+      canonical, ownerInputs, mechanics: selectedMechanics,
+      operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1,
+      normalizedSeed: OWNER_SEED, mode: "DIAGNOSTIC", throughYear: 2000, scheduledTransactions,
+      initialStates: checkpointStates, initialEventCounts: eventCountsAtCheckpoint,
+      stopAtBlockingNaming: false, interactiveNamingEnabled: false, retainHistory: false,
+      onAtomicYear: (snapshot) => {
+        updateAccumulator(accumulators, priorStates, snapshot, djtYear);
+        if (snapshot.year % 100 === 0) process.stderr.write(`MIGRATION_LONG_HORIZON replay year ${snapshot.year}/2000\n`);
+      },
+    });
+    replayEvidence = Object.fromEntries(WORLDS.map((world) => {
+      const persistedState = store.loadLatestV5Checkpoint(runId, world, 2000)!.state;
+      const persistedHistory = store.summarizeV5CausalEventHistory(runId, world, 2000);
+      const stateEquivalent = causalStateHash(resumed.states[world]) === causalStateHash(persistedState);
+      const eventHistoryEquivalent = accumulators[world].eventHistoryHash === persistedHistory.eventHistoryHash;
+      return [world, {
+        checkpointYear,
+        prefixStateEquivalentAtCheckpoint: checkpointBoundaryEquivalent[world],
+        resumedStateHash: causalStateHash(resumed.states[world]),
+        uninterruptedStateHash: causalStateHash(persistedState),
+        resumedEventHistoryHash: accumulators[world].eventHistoryHash,
+        uninterruptedEventHistoryHash: persistedHistory.eventHistoryHash,
+        stateEquivalent,
+        eventHistoryEquivalent,
+        equivalent: checkpointBoundaryEquivalent[world] && stateEquivalent && eventHistoryEquivalent,
+      }];
+    })) as Record<WorldKey, unknown>;
+  } else {
+    const selectedResult = runV5History({
+      canonical, ownerInputs, mechanics: selectedMechanics,
+      operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1,
+      normalizedSeed: OWNER_SEED, mode: "DIAGNOSTIC", throughYear: 2000, scheduledTransactions,
+      stopAtBlockingNaming: false, interactiveNamingEnabled: false, retainHistory: false,
+      onBootstrap: persist, onAtomicYear: persist,
+    });
+    store.setRunStatus(runId, selectedResult.status, selectedResult.completedYear);
+    const checkpointStates = Object.fromEntries(WORLDS.map((world) => [world, store.loadLatestV5Checkpoint(runId, world, checkpointYear)!.state])) as Record<WorldKey, WorldStateV5>;
+    const eventCountsAtCheckpoint = Object.fromEntries(WORLDS.map((world) => [world, store.summarizeV5CausalEventHistory(runId, world, checkpointYear).eventCount]));
+    const replayHashes = Object.fromEntries(WORLDS.map((world) => [world, V5_EMPTY_EVENT_HISTORY_HASH])) as Record<WorldKey, string>;
+    process.stderr.write("MIGRATION_LONG_HORIZON checkpoint continuation year 1000 to 2000\n");
+    const resumed = continueV5History({
+      canonical, ownerInputs, mechanics: selectedMechanics,
+      operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1,
+      normalizedSeed: OWNER_SEED, mode: "DIAGNOSTIC", throughYear: 2000, scheduledTransactions,
+      initialStates: checkpointStates, initialEventCounts: eventCountsAtCheckpoint,
+      stopAtBlockingNaming: false, interactiveNamingEnabled: false, retainHistory: false,
+      onAtomicYear: (snapshot) => {
+        for (const world of WORLDS) replayHashes[world] = extendV5EventHistoryHash(replayHashes[world], snapshot.yearEvents[world]);
+        if (snapshot.year % 100 === 0) process.stderr.write(`MIGRATION_LONG_HORIZON replay year ${snapshot.year}/2000\n`);
+      },
+    });
+    replayEvidence = Object.fromEntries(WORLDS.map((world) => {
+      const persistedTailHash = store.summarizeV5CausalEventHistoryRange(runId, world, checkpointYear, 2000).eventHistoryHash;
+      const stateEquivalent = causalStateHash(resumed.states[world]) === causalStateHash(selectedResult.states[world]);
+      const eventTailEquivalent = replayHashes[world] === persistedTailHash;
+      return [world, { checkpointYear, resumedStateHash: causalStateHash(resumed.states[world]), uninterruptedStateHash: causalStateHash(selectedResult.states[world]), resumedTailEventHash: replayHashes[world], uninterruptedTailEventHash: persistedTailHash, stateEquivalent, eventTailEquivalent, equivalent: stateEquivalent && eventTailEquivalent }];
+    })) as Record<WorldKey, unknown>;
+  }
   const summaries = store.listV5DiagnosticSummaries(runId);
   const trustedLabels = store.loadV5TrustedLabelLedger(runId);
   const acceptedLabelsBySource = Object.fromEntries(
@@ -501,7 +567,6 @@ try {
   };
 } finally {
   store.close();
-  rmSync(tempDirectory, { recursive: true, force: true });
 }
 
 const worlds = Object.fromEntries(WORLDS.map((world) => [world, {
@@ -581,5 +646,7 @@ const tableRows = MILESTONES.flatMap((year) => WORLDS.map((world) => {
 const markdown = `# Prompt-00 migration materiality and long-horizon comparison\n\n- Complete lattice: 54 one-field candidates plus the unchanged baseline.\n- Passing one-field candidates: ${passingCandidates.map((candidate) => `\`${candidate.candidateId}\``).join(", ")}.\n- Pairwise and three-field combinations: not run because a one-field candidate passed.\n- Selected candidate: \`${selectedCandidate.candidateId}\`.\n- Historically material: **${historicallyMaterial ? "YES" : "NO"}**. No arbitrary required migration percentage was introduced.\n\n| Candidate | World | Year | Cumulative moved | % current population | % cumulative population exposure | Unique pairs | Breeds/tiers | Settlements changed >=1%/>=5%/>=10% | Transfer median/p90 | Annual median/p90 | Natural 6th/7th |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n${tableRows.join("\n")}\n\n## Recommendation\n\n${report.recommendation.action === "RETAIN_THRESHOLD_200" ? "Retain `migrationPushThreshold = 200`. It is the sole passing one-field candidate and therefore the least-invasive passing configuration under the approved ranking." : `Promote \`${selectedCandidate.candidateId}\` and rerun Prompt-00 acceptance.`}\n\nDetailed source/destination extrema, safety ceilings, counterfactual composition evidence, replay hashes, and bounded-storage measurements are in \`${JSON_OUTPUT_PATH}\`.\n`;
 writeFileSync(MARKDOWN_OUTPUT_PATH, markdown, "utf8");
 rmSync(CONTROL_CACHE_PATH, { force: true });
+rmSync(LABEL_SOURCE_EVIDENCE_PATH, { force: true });
+rmSync(tempDirectory, { recursive: true, force: true });
 process.stdout.write(`${canonicalJson({ jsonOutputPath: JSON_OUTPUT_PATH, markdownOutputPath: MARKDOWN_OUTPUT_PATH, selectedCandidateId: selectedCandidate.candidateId, passingCandidateIds: passingCandidates.map((candidate) => candidate.candidateId), historicallyMaterial, replayPass, pass: assertionsPass, elapsedMilliseconds: report.elapsedMilliseconds })}\n`);
 if (!assertionsPass) process.exitCode = 1;

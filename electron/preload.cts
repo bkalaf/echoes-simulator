@@ -8,6 +8,7 @@ const api = Object.freeze({
   resumeCanonical: (runId: string): Promise<unknown> => ipcRenderer.invoke("simulator:resume-canonical", runId),
   resumeV5: (runId: string): Promise<unknown> => ipcRenderer.invoke("simulator:resume-v5", runId),
   submitNamingResponse: (responseText: string): Promise<unknown> => ipcRenderer.invoke("simulator:submit-naming-response", responseText),
+  submitDerogatoryDecisionResponse: (responseText: string): Promise<unknown> => ipcRenderer.invoke("simulator:submit-derogatory-decision-response", responseText),
   exportNamingPrompt: (promptText: string, batchId: string): Promise<unknown> => ipcRenderer.invoke("simulator:export-naming-prompt", promptText, batchId),
   runDiagnostic: (seed: string): Promise<unknown> => ipcRenderer.invoke("simulator:run-diagnostic", seed),
   runV5Diagnostic: (seed: string, throughYear = 25, interactiveNaming = true): Promise<unknown> => ipcRenderer.invoke("simulator:run-v5-diagnostic", seed, throughYear, interactiveNaming),

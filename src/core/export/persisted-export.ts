@@ -6,6 +6,7 @@ import type { SimulatorStore } from "../../persistence/sqlite-store.js";
 import { buildExportZip, verifyExportZip } from "./exporter.js";
 import { loadBundledCanonicalV5 } from "../v5/canonical-adapter.js";
 import { adaptV5ToV4ReadExport, buildReadModelV1 } from "../v5/read-model.js";
+import { assertNoSecretEnclaveLeakV54, buildPrivateHistoricalExportV54, buildPublicHistoricalExportV54 } from "../v5/historical-export.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
 const json = <T>(filename: string): T => JSON.parse(readFileSync(filename, "utf8")) as T;
@@ -67,6 +68,9 @@ export function buildPersistedV5Export(store: SimulatorStore, runId: string, can
     const read = buildReadModelV1(state, canonical, manifest.mechanicsVariables, labels);
     const events = store.listV5CausalEvents(runId, world, state.year);
     const checkpoints = store.listV5CheckpointMetadata(runId, world, state.year);
+    const privateHistoricalV54 = buildPrivateHistoricalExportV54(state, events);
+    const publicHistoricalV54 = buildPublicHistoricalExportV54(state, events);
+    assertNoSecretEnclaveLeakV54(state, publicHistoricalV54);
     return [world, {
       totalPopulation: BigInt(read.totalPopulation),
       events,
@@ -88,7 +92,7 @@ export function buildPersistedV5Export(store: SimulatorStore, runId: string, can
       djt: events.filter((event) => event.eventType === "DJT"),
       conclaveSeats: [], conclaveSnapshots: [], senateSeats: [],
       names: Object.entries(labels).map(([entityId, name]) => ({ entityId, name })),
-      renames: [], namingJobs: store.listV5NamingRequests(runId), families: state.families,
+      renames: [], namingJobs: store.listV5NamingRequests(runId), families: state.families, privateHistoricalV54, publicHistoricalV54,
     }];
   })) as unknown as Parameters<typeof buildExportZip>[0]["worlds"];
   const result = buildExportZip({

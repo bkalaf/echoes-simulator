@@ -25,7 +25,7 @@ import { editableV5ConfigurationJson, parseEditableV5Configuration } from "../sr
 import { loadBundledCanonicalV5 } from "../src/core/v5/canonical-adapter.js";
 import { buildReadModelV1 } from "../src/core/v5/read-model.js";
 import type { WorldKey as WorldKeyV5, WorldStateV5 } from "../src/core/v5/types.js";
-import { acceptPersistedV5NamingBatch } from "../src/core/v5/service.js";
+import { acceptPersistedV5DerogatoryDecisionBatch, acceptPersistedV5NamingBatch } from "../src/core/v5/service.js";
 import { buildRouteCoverageReadModel } from "../src/core/v5/routes.js";
 import { buildPoiCoverage } from "../src/core/atlas/coverage.js";
 import { canonicalPolicyReadiness, diagnosticCandidateOwnerInputsV1 } from "../src/core/v5/config.js";
@@ -99,7 +99,7 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
   const pendingNamingJob = selectedV5Manifest ? null : ((selectedRun && selectedRun.status !== "RETIRED_DATA_AUTHORITY" ? getStore().getPendingNamingJob(selectedRun.runId) : null) ?? (!selectedRun ? getStore().getAnyPendingNamingJob() : null));
   const pendingNamingJobs = pendingNamingJob ? getStore().listPendingNamingJobs(pendingNamingJob.context.runId) : [];
   const pendingNamingBatches = buildNamingBatches(pendingNamingJobs);
-  const hasActiveRun = runs.some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING"].includes(run.status));
+  const hasActiveRun = runs.some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING", "WAITING_FOR_POLICY_AUTHORITY", "WAITING_FOR_DEROGATORY_DECISIONS"].includes(run.status));
   const v5Configuration = editableV5ConfigurationJson(getStore().loadV5Configuration());
   const v5States = selectedV5Manifest ? Object.fromEntries(V5_WORLDS.map((world) => [world, getStore().loadLatestV5Checkpoint(selectedRun!.runId, world, persistedYear)?.state ?? null])) as Record<WorldKeyV5, WorldStateV5 | null> : null;
   const settlementProjections = selectedRun ? selectedV5Manifest
@@ -141,7 +141,11 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
     lastCompletedCheckpoint: Math.max(...V5_WORLDS.map((world) => getStore().listV5CheckpointYears(selectedRun!.runId, world).at(-1) ?? 0)),
     nextCheckpoint: Math.min(selectedV5Manifest.targetYear, persistedYear + selectedV5Manifest.operationalConfig.checkpointIntervalYears),
   } : null;
-  return { canonicalData, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
+  const v5DerogatoryDecisionBatches = selectedRun && selectedV5Manifest ? getStore().listV5DerogatoryDecisionBatches(selectedRun.runId) : [];
+  const acceptedV5DerogatoryBatchIds = new Set(selectedRun && selectedV5Manifest ? getStore().listV5AcceptedDerogatoryDecisionBatches(selectedRun.runId).map((row) => row.batch.batchId) : []);
+  const pendingV5DerogatoryDecisionBatch = v5DerogatoryDecisionBatches.find((row) => !acceptedV5DerogatoryBatchIds.has(row.batchId)) ?? null;
+  const v5PolicyBlockers = selectedRun && selectedV5Manifest ? getStore().listV5PolicyBlockers(selectedRun.runId) : [];
+  return { canonicalData, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, pendingV5DerogatoryDecisionBatch, v5PolicyBlockers, atrocityOccurrenceSlots: selectedV5Manifest?.causalOwnerInputs.atrocityOccurrenceSlots ?? [], settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
 }
 
 function runWorker(action: "RUN_DIAGNOSTIC" | "RUN_V5_DIAGNOSTIC" | "RESUME_V5" | "RESUME_CANONICAL" | "GET_BREED_POPULATION", payload: Record<string, unknown>): Promise<unknown> {
@@ -211,7 +215,7 @@ async function createWindow(): Promise<void> {
 ipcMain.handle("simulator:get-runtime-info", () => ({ version: app.getVersion(), userDataPath: app.getPath("userData") }));
 ipcMain.handle("simulator:get-operator-snapshot", snapshotForOperator);
 ipcMain.handle("simulator:save-v5-configuration", (_event, input: { mechanicsJson: string; operationalJson: string; diagnosticJson: string }) => {
-  const hasActiveRun = getStore().listRuns().some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING"].includes(run.status));
+  const hasActiveRun = getStore().listRuns().some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING", "WAITING_FOR_POLICY_AUTHORITY", "WAITING_FOR_DEROGATORY_DECISIONS"].includes(run.status));
   if (hasActiveRun) throw new Error("Simulation Variables are read-only while a run is active");
   const configuration = parseEditableV5Configuration(input);
   getStore().saveV5Configuration(configuration);
@@ -224,7 +228,7 @@ ipcMain.handle("simulator:run-diagnostic", async (_event, seed: string) => {
   return persistDiagnosticResult(getStore(), result);
 });
 ipcMain.handle("simulator:run-v5-diagnostic", async (_event, seed: string, throughYear = 25, interactiveNaming = true) => {
-  const hasActiveRun = getStore().listRuns().some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING"].includes(run.status));
+  const hasActiveRun = getStore().listRuns().some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING", "WAITING_FOR_POLICY_AUTHORITY", "WAITING_FOR_DEROGATORY_DECISIONS"].includes(run.status));
   if (hasActiveRun) throw new Error("Another simulation run is active");
   const targetYear = Math.trunc(throughYear);
   if (!Number.isFinite(targetYear) || targetYear < 1 || targetYear > 2000) throw new Error("V5 target year must be an integer from 1 through 2000");
@@ -290,6 +294,22 @@ ipcMain.handle("simulator:get-run-view", (_event, runId: string, world: string, 
       personRelations: checkpoint?.state.personRelations ?? [],
       familyRelations: checkpoint?.state.familyRelations ?? [],
       worldRoutes: checkpoint?.state.worldRoutes ?? [],
+      resourceNodes: checkpoint?.state.resourceNodes ?? [],
+      worldResourceStates: checkpoint?.state.worldResourceStates ?? [],
+      industries: checkpoint?.state.industries ?? [],
+      securityForces: checkpoint?.state.securityForces ?? [],
+      diplomaticRelations: checkpoint?.state.diplomaticRelations ?? [],
+      diplomaticAgreements: checkpoint?.state.diplomaticAgreements ?? [],
+      conflictEpisodes: checkpoint?.state.conflictEpisodes ?? [],
+      settlementControlTerms: checkpoint?.state.settlementControlTerms ?? [],
+      populationSlices: checkpoint?.state.populationSlices ?? [],
+      derogatoryTargetSelections: checkpoint?.state.derogatoryTargetSelections ?? [],
+      localAtrocityResponses: checkpoint?.state.localAtrocityResponses ?? [],
+      forcedDisplacements: checkpoint?.state.forcedDisplacements ?? [],
+      enclaves: checkpoint?.state.enclaves ?? [],
+      atrocityOccurrenceSlots: v5Manifest.causalOwnerInputs.atrocityOccurrenceSlots ?? [],
+      policyBlockers: getStore().listV5PolicyBlockers(runId),
+      derogatoryDecisionBatches: getStore().listV5DerogatoryDecisionBatches(runId),
       labels,
       personFactionById,
       familyHistory,
@@ -429,6 +449,13 @@ ipcMain.handle("simulator:submit-naming-response", (_event, responseText: string
   if (getStore().getPendingNamingJob(job.context.runId)) return { accepted: true, errors: [], status: "WAITING_FOR_NAMING", currentYear: job.context.year };
   startCanonicalResume(job.context.runId);
   return { accepted: true, errors: [], status: "RUNNING", currentYear: job.context.year, resumeStarted: true };
+});
+ipcMain.handle("simulator:submit-derogatory-decision-response", (_event, responseText: string) => {
+  const selected = getStore().selectedRun(); if (!selected || !getStore().loadV5RunManifest(selected.runId)) throw new Error("No V5 run is selected");
+  let parsed: unknown; try { parsed = JSON.parse(responseText); } catch { return { accepted: false, errors: ["Derogatory decision response is not valid JSON"] }; }
+  const accepted = acceptPersistedV5DerogatoryDecisionBatch({ store: getStore(), runId: selected.runId, response: parsed });
+  if (accepted.accepted) { startV5Resume(selected.runId); return { ...accepted, status: "RUNNING", resumeStarted: true }; }
+  return accepted;
 });
 ipcMain.handle("simulator:export-naming-prompt", async (_event, promptText: string, batchId: string) => {
   if (!promptText.trim()) throw new Error("No naming prompt is available to export");

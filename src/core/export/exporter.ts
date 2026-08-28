@@ -29,6 +29,8 @@ interface ExportWorld {
   renames?: unknown[];
   namingJobs?: unknown[];
   families?: unknown[];
+  privateHistoricalV54?: unknown;
+  publicHistoricalV54?: unknown;
 }
 export interface ExportRunData {
   runId: string; mode: "CANONICAL" | "DIAGNOSTIC"; seed: string; policyVersion: string; finalYear: number;
@@ -122,6 +124,8 @@ export function buildExportZip(run: ExportRunData): { bytes: Uint8Array; sha256:
     payload.set(`${base}/naming/renames.jsonl`, jsonl(data.renames ?? []));
     payload.set(`${base}/naming/jobs.jsonl`, jsonl(data.namingJobs ?? []));
     payload.set(`${base}/families.jsonl`, jsonl(data.families ?? []));
+    if (data.privateHistoricalV54) payload.set(`${base}/history/private_operator_v5_4.json`, json(data.privateHistoricalV54));
+    if (data.publicHistoricalV54) payload.set(`${base}/history/public_v5_4.json`, json(data.publicHistoricalV54));
   }
   const fileHashes = [...payload].sort(([a], [b]) => a.localeCompare(b)).map(([path, bytes]) => ({ path: path.slice(root.length + 1), sha256: hash(bytes) }));
   const contentDigest = hash(fileHashes.map((file) => `${file.path}\0${file.sha256}\n`).join(""));

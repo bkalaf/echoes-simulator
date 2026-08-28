@@ -1,13 +1,17 @@
 import { createHash } from "node:crypto";
 import { canonicalJson } from "../serialization/canonical-json.js";
-import type { BasisPoints, GovernmentFormId, Score1000, SocialClass, SocialTier, WorldKey } from "./types.js";
+import type { AtrocityOccurrenceSlotV5, BasisPoints, GovernmentFormId, Score1000, SocialClass, SocialTier, WorldKey } from "./types.js";
 import type { ShockDefinitionV5 } from "./effects.js";
+import type { AtrocityShockDefinitionV5 } from "./atrocities.js";
+import type { HistoricalConflictActionV5 } from "./conflict-actions.js";
+import { CANDIDATE_HISTORICAL_DYNAMISM_POLICIES_V1, V5_HISTORICAL_POLICY_KEYS, type HistoricalDynamismPolicySetV1, type HistoricalPolicyKeyV5 } from "./historical-policies.js";
+import { createAtrocityOccurrenceSlotsV5 } from "./atrocity-slots.js";
 
-export const V5_MECHANICS_VERSION = "echoes-mechanics-v5.3.0";
+export const V5_MECHANICS_VERSION = "echoes-mechanics-v5.4.0";
 export const V5_CAUSAL_DERIVATION_VERSION = "echoes-derived-metrics-v1.1.0";
-export const V5_SCHEDULER_VERSION = "echoes-scheduler-v5.3.0";
+export const V5_SCHEDULER_VERSION = "echoes-scheduler-v5.4.0";
 export const V5_DURABLE_SCHEMA_VERSION = "echoes-world-state-v5";
-export const V5_READ_MODEL_VERSION = "echoes-read-model-v1.1.0";
+export const V5_READ_MODEL_VERSION = "echoes-read-model-v1.2.0";
 
 export interface MechanicsVariablesV1 {
   schemaVersion: "echoes-mechanics-variables-v1";
@@ -326,6 +330,12 @@ export interface CausalOwnerInputsV1 {
     peaceExhaustionPolicy: string | null;
   };
   diagnosticCandidatePoliciesAccepted: boolean;
+  historicalDynamismPolicies?: Partial<HistoricalDynamismPolicySetV1>;
+  historicalDynamismApprovedPolicyHashes?: Partial<Record<HistoricalPolicyKeyV5, string | null>>;
+  diagnosticHistoricalPolicyOptIns?: readonly HistoricalPolicyKeyV5[];
+  atrocityOccurrenceSlots?: readonly AtrocityOccurrenceSlotV5[];
+  atrocityShockDefinitions?: readonly AtrocityShockDefinitionV5[];
+  scheduledHistoricalConflictActions?: readonly { worldKey: WorldKey; action: HistoricalConflictActionV5 }[];
 }
 
 export function diagnosticCandidateOwnerInputsV1(governmentMappings: Record<GovernmentFormId, unknown> = {}): CausalOwnerInputsV1 {
@@ -341,6 +351,12 @@ export function diagnosticCandidateOwnerInputsV1(governmentMappings: Record<Gove
     canonicalPolicies: {},
     approvedPolicyHashes: { classPolicy: null, terrainCompatibilityPolicy: null, conflictEpisodeProfile: null, skirmishProfile: null, peaceExhaustionPolicy: null },
     diagnosticCandidatePoliciesAccepted: true,
+    historicalDynamismPolicies: CANDIDATE_HISTORICAL_DYNAMISM_POLICIES_V1,
+    historicalDynamismApprovedPolicyHashes: Object.fromEntries(V5_HISTORICAL_POLICY_KEYS.map((key) => [key, null])),
+    diagnosticHistoricalPolicyOptIns: [...V5_HISTORICAL_POLICY_KEYS],
+    atrocityOccurrenceSlots: createAtrocityOccurrenceSlotsV5(),
+    atrocityShockDefinitions: [],
+    scheduledHistoricalConflictActions: [],
   };
 }
 

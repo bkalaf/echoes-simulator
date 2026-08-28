@@ -3,7 +3,7 @@ import { z } from "zod";
 export const WORLD_KEYS = ["CONCORD", "SCHISM", "RUIN"] as const;
 export type WorldKey = (typeof WORLD_KEYS)[number];
 export type Faction = WorldKey;
-export const RUN_STATUSES = ["CREATED", "VALIDATING_INPUTS", "READY", "RUNNING", "PAUSED", "WAITING_FOR_NAMING", "FAILED", "COMPLETE"] as const;
+export const RUN_STATUSES = ["CREATED", "VALIDATING_INPUTS", "READY", "RUNNING", "PAUSED", "WAITING_FOR_NAMING", "WAITING_FOR_POLICY_AUTHORITY", "WAITING_FOR_DEROGATORY_DECISIONS", "FAILED", "COMPLETE"] as const;
 export type RunStatus = (typeof RUN_STATUSES)[number];
 export type SimulationMode = "CANONICAL" | "DIAGNOSTIC";
 export type ReadinessSeverity = "PASS" | "WARNING" | "BLOCKER";
