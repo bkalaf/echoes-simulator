@@ -2,6 +2,7 @@ import { createReadStream, existsSync, readFileSync } from "node:fs";
 import { createInterface } from "node:readline";
 import { resolve } from "node:path";
 import { openValidatedZip, parseJsonLines } from "../inputs/importer.js";
+import { loadBreedDeityAffinity, type BreedDeityAffinityStatus } from "./breed-deity-affinity.js";
 
 export interface BreedCatalogEntry {
   breedId: string;
@@ -14,6 +15,9 @@ export interface BreedCatalogEntry {
   cultureId: string | null;
   factionObject: Record<"CONCORD" | "SCHISM" | "RUIN", number>;
   dominantFaction: ("CONCORD" | "SCHISM" | "RUIN")[];
+  primaryDeity: string | null;
+  provisionalDeity: string | null;
+  deityClassificationStatus: BreedDeityAffinityStatus;
 }
 
 type SpeciesIdentity = { name: string | null; scientificName: string | null };
@@ -41,7 +45,7 @@ async function loadSpeciesIdentities(canonicalDirectory: string): Promise<Map<st
 }
 
 export async function loadBreedCatalog(canonicalDirectory: string): Promise<BreedCatalogEntry[]> {
-  const manifest = JSON.parse(readFileSync(resolve(canonicalDirectory, "canonical_bundle_manifest.json"), "utf8")) as { breedSemanticFilename: string };
+  const manifest = JSON.parse(readFileSync(resolve(canonicalDirectory, "canonical_bundle_manifest.json"), "utf8")) as { breedSemanticFilename: string; breedSemanticSha256?: string | null };
   const archive = openValidatedZip(resolve(canonicalDirectory, "breeds", manifest.breedSemanticFilename));
   const bytes = archive.entries[`${archive.prefix}canonical_breed_identities.jsonl`];
   if (!bytes) throw new Error("Canonical Breed catalog is missing canonical_breed_identities.jsonl");
@@ -51,12 +55,15 @@ export async function loadBreedCatalog(canonicalDirectory: string): Promise<Bree
   if (!civicBytes || !petBytes) throw new Error("Canonical Breed catalog is missing persisted faction projections");
   const factionByBreed = new Map([...parseJsonLines(civicBytes), ...parseJsonLines(petBytes)].map((row) => [String(row.breedId), row as unknown as BreedFactionProjection]));
   if (factionByBreed.size !== breeds.length) throw new Error("Canonical Breed faction projection coverage is incomplete");
+  const deityByBreed = loadBreedDeityAffinity(canonicalDirectory, breeds.map((breed) => breed.breedId), manifest.breedSemanticSha256);
   const species = await loadSpeciesIdentities(canonicalDirectory);
   return breeds.map((breed) => {
     const speciesId = breed.speciesId ?? null;
     const speciesIdentity = speciesId ? species.get(speciesId) : undefined;
     const faction = factionByBreed.get(breed.breedId);
+    const deity = deityByBreed.get(breed.breedId);
     if (!faction) throw new Error(`Canonical Breed faction projection is missing ${breed.breedId}`);
+    if (!deity) throw new Error(`Breed deity affinity is missing ${breed.breedId}`);
     return {
       breedId: breed.breedId,
       name: breed.name,
@@ -68,6 +75,9 @@ export async function loadBreedCatalog(canonicalDirectory: string): Promise<Bree
       cultureId: breed.cultureId ?? null,
       factionObject: faction.factionObject,
       dominantFaction: faction.dominantFaction,
+      primaryDeity: deity.status === "CLASSIFIED" ? deity.deityName : null,
+      provisionalDeity: deity.status === "REVIEW_REQUIRED" ? deity.deityName : null,
+      deityClassificationStatus: deity.status,
     };
   }).sort((left, right) => left.name.localeCompare(right.name) || left.breedId.localeCompare(right.breedId));
 }
