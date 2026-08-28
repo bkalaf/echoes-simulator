@@ -6,6 +6,7 @@ export type BreedCatalogEntry = {
   breedId: string; name: string; populationKind: string; speciesId: string | null; speciesName: string | null;
   scientificName: string | null; groupId: string | null; cultureId: string | null;
   factionObject: Record<World, number>; dominantFaction: World[];
+  primaryDeity: string | null; provisionalDeity: string | null; deityClassificationStatus: "CLASSIFIED" | "REVIEW_REQUIRED";
 };
 type Point = { year: number; population: string };
 type City = { settlementId: string; siteId: string; name: string; population: string };
@@ -18,7 +19,7 @@ export type BreedPopulationView = {
 export function filterBreedCatalog(catalog: readonly BreedCatalogEntry[], query: string): BreedCatalogEntry[] {
   const needle = query.trim().toLocaleLowerCase();
   if (!needle) return [...catalog];
-  return catalog.filter((breed) => [breed.name, breed.breedId, breed.speciesName, breed.scientificName, breed.speciesId, breed.groupId, breed.cultureId, breed.populationKind]
+  return catalog.filter((breed) => [breed.name, breed.breedId, breed.speciesName, breed.scientificName, breed.speciesId, breed.groupId, breed.cultureId, breed.populationKind, breed.primaryDeity, breed.provisionalDeity]
     .some((value) => value?.toLocaleLowerCase().includes(needle)));
 }
 
@@ -64,9 +65,10 @@ export function BreedDetail({ catalog, query, selectedBreedId, population, loadi
   const selected = catalog.find((breed) => breed.breedId === selectedBreedId) ?? null;
   const matches = useMemo(() => filterBreedCatalog(catalog, query), [catalog, query]);
   const selectable = useMemo(() => selectableBreedCatalog(catalog, query, selectedBreedId), [catalog, query, selectedBreedId]);
+  const deity = selected?.primaryDeity ?? selected?.provisionalDeity ?? null;
   return <>
-    <section className="breed-finder"><label>SEARCH BREEDS<input aria-label="Search Breeds" value={query} onChange={(event) => onQuery(event.target.value)} placeholder="Name, scientific name, common name, ID…"/></label><label>BREED<select aria-label="Select Breed" value={selectedBreedId ?? ""} onChange={(event) => onSelect(event.target.value)}><option value="" disabled>Select a Breed</option>{selectable.map((breed) => <option value={breed.breedId} key={breed.breedId}>{breed.name} · {breed.scientificName ?? breed.speciesName ?? breed.breedId}</option>)}</select></label><small>{matches.length} match(es){selectable.length > matches.length ? " + current selection" : ""} · {catalog.length.toLocaleString()} canonical Breeds</small></section>
-    {selected && <section className="breed-identity"><div><p className="eyebrow">CANONICAL BREED</p><h2>{selected.name}</h2><em>{selected.scientificName ?? selected.speciesName ?? "No scientific name recorded"}</em></div><dl><div><dt>Breed ID</dt><dd>{selected.breedId}</dd></div><div><dt>Species</dt><dd>{selected.speciesName ?? selected.speciesId ?? "—"}</dd></div><div><dt>Population kind</dt><dd>{selected.populationKind}</dd></div><div><dt>Culture / Group</dt><dd>{selected.cultureId ?? "—"} · {selected.groupId ?? "—"}</dd></div><div><dt>Faction points</dt><dd>Concord {selected.factionObject.CONCORD} · Schism {selected.factionObject.SCHISM} · Ruin {selected.factionObject.RUIN}</dd></div><div><dt>Dominant faction</dt><dd>{selected.dominantFaction.length ? selected.dominantFaction.join(" / ") : "Not civically classified"}</dd></div></dl></section>}
+    <section className="breed-finder"><label>SEARCH BREEDS<input aria-label="Search Breeds" value={query} onChange={(event) => onQuery(event.target.value)} placeholder="Name, scientific name, deity, common name, ID…"/></label><label>BREED<select aria-label="Select Breed" value={selectedBreedId ?? ""} onChange={(event) => onSelect(event.target.value)}><option value="" disabled>Select a Breed</option>{selectable.map((breed) => <option value={breed.breedId} key={breed.breedId}>{breed.name} · {breed.scientificName ?? breed.speciesName ?? breed.breedId}</option>)}</select></label><small>{matches.length} match(es){selectable.length > matches.length ? " + current selection" : ""} · {catalog.length.toLocaleString()} canonical Breeds</small></section>
+    {selected && <section className="breed-identity"><div><p className="eyebrow">CANONICAL BREED</p><h2>{selected.name}</h2><em>{selected.scientificName ?? selected.speciesName ?? "No scientific name recorded"}</em></div><dl><div><dt>Breed ID</dt><dd>{selected.breedId}</dd></div><div><dt>Species</dt><dd>{selected.speciesName ?? selected.speciesId ?? "—"}</dd></div><div><dt>Population kind</dt><dd>{selected.populationKind}</dd></div><div><dt>Culture / Group</dt><dd>{selected.cultureId ?? "—"} · {selected.groupId ?? "—"}</dd></div><div><dt>Primary deity</dt><dd>{deity ?? "—"}{selected.deityClassificationStatus === "REVIEW_REQUIRED" ? " · REVIEW REQUIRED" : ""}</dd></div><div><dt>Faction points</dt><dd>Concord {selected.factionObject.CONCORD} · Schism {selected.factionObject.SCHISM} · Ruin {selected.factionObject.RUIN}</dd></div><div><dt>Dominant faction</dt><dd>{selected.dominantFaction.length ? selected.dominantFaction.join(" / ") : "Not civically classified"}</dd></div></dl></section>}
     {loading && <section className="panel vertical"><h2>Building compact historical Breed index…</h2><p>The simulation remains untouched. Existing compressed checkpoints are being summarized off the UI thread once.</p></section>}
     {!loading && population && <><TrendChart series={population.series}/><div className="breed-city-grid">{WORLDS.map((world) => <CityBars key={world} world={world} {...population.cities[world]}/>)}</div></>}
     {!loading && selected && !population && <section className="panel vertical"><h2>No canonical run population is available</h2><p>Select a persisted canonical run to view historical Breed populations.</p></section>}
