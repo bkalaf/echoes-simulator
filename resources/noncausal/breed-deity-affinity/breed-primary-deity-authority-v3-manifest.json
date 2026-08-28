@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "echoes-breed-deity-affinity-v3-manifest",
+  "authorityId": "BREED_PRIMARY_DEITY_V3_MANUAL_SEMANTIC",
+  "authorityVersion": 3,
+  "authorityStatus": "NON_CAUSAL_OWNER_CANDIDATE",
+  "breedSemanticVersion": "V4",
+  "breedSemanticSha256": "6e259468580bf4c5e4a99e6be9e20a3144e1c639fc5a7d05d754f152bc59f7bf",
+  "breedCount": 2062,
+  "classifiedCount": 1770,
+  "reviewRequiredCount": 292,
+  "recoveredMissingCount": 6,
+  "classificationMethod": "MANUAL_LLM_SEMANTIC_WITH_HUMAN_ANTI_ESSENTIALISM_REMEDIATION",
+  "runtimeAuthority": "breed-primary-deity-authority-v3.json",
+  "causal": false,
+  "notes": [
+    "All 2,062 canonical V4 Breed IDs are covered exactly once.",
+    "REVIEW_REQUIRED affinities remain provisional and are not promoted to primary deity authority.",
+    "The runtime authority is indexed by Breed ID ascending to remain compact; the loader validates the active V4 Breed semantic SHA-256 and exact Breed count.",
+    "This authority is excluded from causal state, scheduler/mechanics inputs, canonicalBundleHash, and causalRunHash."
+  ]
+}
