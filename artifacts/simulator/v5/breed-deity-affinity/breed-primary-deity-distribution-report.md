@@ -1,0 +1,3450 @@
+# Breed Primary Deity Distribution Report
+
+This is a non-causal primary-affinity classification. It does not assert exclusive worship and does not modify simulation mechanics.
+
+## Totals
+
+- Total Breeds: **2062**
+- Classified: **1709**
+- Review required: **353**
+- Completed batches: **207** (206 × 10, final remainder 2)
+
+Highest-frequency deity: **Miren** (329).
+Lowest-frequency deity: **Lunessa** (1).
+Zero-assignment deities: **none**.
+
+## By Primary Deity
+
+| Deity | Pantheon | Domain | Accepted assignments |
+|---|---|---|---:|
+| Miren, the Open Hand | NINEFOLD_HEART | COMPASSION | 329 |
+| Darel, the Unshaken | NINEFOLD_HEART | COURAGE | 60 |
+| Savael, the Long Breath | NINEFOLD_HEART | PATIENCE | 35 |
+| Elian, the Returning Light | NINEFOLD_HEART | HOPE | 10 |
+| Namiya, the Unclosed Door | NINEFOLD_HEART | FORGIVENESS | 2 |
+| Oren, the Clear Voice | NINEFOLD_HEART | HONESTY | 49 |
+| Tavai, Who Listens Twice | NINEFOLD_HEART | EMPATHY | 165 |
+| Varek, the Last Standing | NINEFOLD_HEART | RESOLVE | 90 |
+| Selen, the Laughing Flame | NINEFOLD_HEART | JOY | 112 |
+| Solkar, the First Warmth | NINEFOLD_WILD | SUN_AND_DAYLIGHT | 3 |
+| Lunessa, the Many-Faced | NINEFOLD_WILD | THE_MOONS_AND_THEIR_PHASES | 1 |
+| Vespera, the Thousand-Eyed | NINEFOLD_WILD | STARS_AND_NAVIGATION | 22 |
+| Voltar, the Sudden Current | NINEFOLD_WILD | STORMS_AND_LIGHTNING | 17 |
+| Marea, the Deep Singer | NINEFOLD_WILD | OCEAN_AND_TIDES | 27 |
+| Rillan, the Returning River | NINEFOLD_WILD | RIVERS_RAIN_AND_FRESH_WATER | 85 |
+| Damor, the World-Builder | NINEFOLD_WILD | WETLANDS_FOREST_RENEWAL_AND_HABITAT | 153 |
+| Sterna, the Long Journey | NINEFOLD_WILD | SEASONS_AND_MIGRATION | 26 |
+| Scarabos, the Buried Seed | NINEFOLD_WILD | DECAY_SOIL_AND_RENEWAL | 5 |
+| Sahrem, the First Hunger | NINEFOLD_VEIL | FIRE_AND_HEAT | 35 |
+| Neressa, the Yielding Deep | NINEFOLD_VEIL | WATER_AND_FLOW | 19 |
+| Kharad, the Foundation | NINEFOLD_VEIL | EARTH_AND_STONE | 210 |
+| Aveli, the Unheld | NINEFOLD_VEIL | AIR_AND_BREATH | 36 |
+| Iskarn, the Still World | NINEFOLD_VEIL | ICE_PRESERVATION_AND_STILLNESS | 9 |
+| Myrra, Behind the Eyes | NINEFOLD_VEIL | DREAMING_AND_POSSIBILITY | 107 |
+| Orun-IX, the Measured Hand | NINEFOLD_VEIL | TIME_SEQUENCE_AND_CAUSALITY | 70 |
+| Vhalen, the Last Shadow | NINEFOLD_VEIL | SHADOW_ABSENCE_AND_ENDINGS | 16 |
+| Asteriel, the Turning Eye | NINEFOLD_VEIL | AETHER_LIGHT_AND_COSMIC_ORDER | 16 |
+
+## By Pantheon
+
+- NINEFOLD_HEART: 852
+- NINEFOLD_WILD: 339
+- NINEFOLD_VEIL: 518
+
+## By Population Kind
+
+| PopulationKind | Total | Classified | Review required | Heart | Wild | Veil |
+|---|---:|---:|---:|---:|---:|---:|
+| BEAST | 967 | 830 | 137 | 500 | 158 | 172 |
+| HUMAN | 631 | 506 | 125 | 165 | 101 | 240 |
+| MYTHOS | 181 | 160 | 21 | 61 | 25 | 74 |
+| PET | 283 | 213 | 70 | 126 | 55 | 32 |
+
+## Cross-Pantheon
+
+- Human → Human: 165
+- Human → Beast: 101
+- Human → Mythos: 240
+- Beast → Human: 500
+- Beast → Beast: 158
+- Beast → Mythos: 172
+- Pet → Human: 126
+- Pet → Beast: 55
+- Pet → Mythos: 32
+- Mythos → Human: 61
+- Mythos → Beast: 25
+- Mythos → Mythos: 74
+
+## By Breed Group
+
+| Group | Name | Total | Classified | Review required | Accepted deity counts |
+|---|---|---:|---:|---:|---|
+| B01 | Amphibians | 39 | 36 | 3 | Miren=7; Savael=2; Oren=6; Varek=5; Selen=3; Rillan=4; Damor=1; Neressa=1; Kharad=6; Iskarn=1 |
+| B02 | Arthropods | 105 | 94 | 11 | Miren=15; Darel=6; Savael=5; Elian=1; Oren=13; Tavai=4; Varek=7; Selen=7; Solkar=1; Vespera=2; Voltar=5; Rillan=4; Damor=4; Scarabos=2; Sahrem=1; Neressa=3; Kharad=3; Iskarn=1; Myrra=4; Orun-IX=2; Vhalen=1; Asteriel=3 |
+| B03 | Bats | 16 | 13 | 3 | Miren=6; Savael=1; Selen=3; Damor=1; Sahrem=2 |
+| B04 | Bony Fish | 79 | 61 | 18 | Miren=7; Oren=3; Varek=1; Selen=1; Lunessa=1; Voltar=1; Marea=13; Rillan=13; Damor=2; Sahrem=2; Neressa=1; Kharad=15; Aveli=1 |
+| B05 | Carnivorans | 68 | 56 | 12 | Miren=6; Darel=5; Savael=6; Oren=2; Tavai=6; Varek=8; Selen=2; Vespera=1; Scarabos=1; Kharad=16; Myrra=2; Orun-IX=1 |
+| B06 | Cetaceans | 28 | 24 | 4 | Miren=1; Darel=3; Tavai=8; Selen=4; Vespera=5; Marea=2; Orun-IX=1 |
+| B07 | Elephants, Hyraxes & Afrotherians | 21 | 16 | 5 | Miren=2; Elian=1; Tavai=1; Varek=1; Selen=2; Rillan=1; Damor=4; Aveli=2; Iskarn=2 |
+| B08 | Even-Toed Ungulates | 45 | 34 | 11 | Miren=9; Darel=2; Tavai=3; Varek=3; Selen=2; Vespera=4; Rillan=1; Sterna=1; Neressa=1; Kharad=8 |
+| B09 | Lizards | 35 | 30 | 5 | Miren=1; Darel=8; Savael=1; Elian=1; Oren=1; Varek=7; Marea=1; Rillan=1; Kharad=8; Vhalen=1 |
+| B10 | Marsupials & Monotremes | 34 | 29 | 5 | Miren=2; Darel=1; Oren=1; Tavai=2; Varek=9; Selen=1; Damor=7; Sahrem=1; Kharad=5 |
+| B11 | Mollusks & Other Invertebrates | 21 | 19 | 2 | Oren=2; Selen=8; Marea=1; Scarabos=1; Sahrem=1; Kharad=3; Iskarn=2; Asteriel=1 |
+| B12 | Odd-Toed Ungulates | 15 | 13 | 2 | Miren=3; Tavai=1; Varek=2; Damor=4; Kharad=3 |
+| B13 | Other Specialized Birds | 38 | 32 | 6 | Miren=2; Oren=3; Tavai=6; Varek=6; Selen=7; Vespera=1; Rillan=1; Damor=2; Sahrem=1; Kharad=2; Orun-IX=1 |
+| B14 | Parrots & Cockatoos | 12 | 12 | 0 | Miren=4; Tavai=2; Selen=2; Myrra=3; Orun-IX=1 |
+| B15 | Pigeons, Gamebirds & Groundbirds | 39 | 37 | 2 | Miren=26; Tavai=4; Selen=3; Damor=4 |
+| B16 | Primates | 31 | 23 | 8 | Miren=3; Darel=1; Tavai=6; Varek=1; Selen=6; Rillan=1; Kharad=4; Asteriel=1 |
+| B17 | Raptors & Owls | 26 | 23 | 3 | Miren=12; Savael=1; Tavai=1; Varek=4; Kharad=1; Myrra=4 |
+| B18 | Rodents & Lagomorphs | 64 | 55 | 9 | Miren=14; Savael=1; Tavai=2; Varek=10; Damor=14; Kharad=12; Myrra=2 |
+| B19 | Sharks, Rays & Jawless Fish | 22 | 17 | 5 | Miren=1; Savael=2; Oren=2; Vespera=1; Marea=4; Rillan=2; Sahrem=1; Kharad=3; Orun-IX=1 |
+| B20 | Snakes | 24 | 21 | 3 | Miren=1; Darel=3; Savael=6; Varek=2; Selen=1; Voltar=4; Marea=1; Sterna=2; Sahrem=1 |
+| B21 | Songbirds | 51 | 45 | 6 | Miren=6; Darel=1; Oren=1; Tavai=3; Varek=1; Selen=16; Voltar=1; Rillan=1; Damor=4; Kharad=5; Myrra=4; Orun-IX=2 |
+| B22 | Turtles & Crocodilians | 35 | 28 | 7 | Darel=4; Savael=2; Oren=1; Varek=6; Selen=1; Vespera=3; Marea=1; Rillan=2; Damor=4; Sahrem=1; Kharad=3 |
+| B23 | Waterbirds & Seabirds | 85 | 79 | 6 | Miren=8; Darel=5; Savael=4; Oren=2; Tavai=13; Varek=11; Selen=26; Vespera=3; Rillan=2; Sterna=1; Kharad=1; Orun-IX=3 |
+| B24 | Xenarthrans & Other Mammals | 34 | 33 | 1 | Darel=7; Savael=4; Selen=2; Voltar=1; Rillan=2; Damor=7; Kharad=2; Aveli=3; Myrra=5 |
+| H01 | Arabian Peninsula | 26 | 24 | 2 | Miren=18; Tavai=1; Orun-IX=4; Asteriel=1 |
+| H02 | Arctic & North American Indigenous | 8 | 7 | 1 | Miren=1; Elian=1; Oren=2; Sterna=2; Kharad=1 |
+| H03 | Australian Indigenous | 8 | 8 | 0 | Miren=1; Damor=5; Kharad=2 |
+| H04 | Caucasian & Anatolian | 37 | 35 | 2 | Kharad=33; Orun-IX=2 |
+| H05 | Central African & Great Lakes | 34 | 24 | 10 | Miren=13; Tavai=1; Damor=4; Orun-IX=5; Asteriel=1 |
+| H06 | Central Asian & Steppe | 21 | 19 | 2 | Miren=3; Sterna=14; Orun-IX=1; Asteriel=1 |
+| H07 | Diaspora, Creole & Legendary Human Civilizations | 50 | 49 | 1 | Miren=3; Elian=2; Tavai=3; Damor=1; Sterna=3; Kharad=1; Myrra=35; Orun-IX=1 |
+| H08 | East African & Nilotic | 26 | 22 | 4 | Miren=6; Damor=13; Orun-IX=2; Asteriel=1 |
+| H09 | East Asian | 23 | 14 | 9 | Miren=2; Tavai=5; Kharad=1; Orun-IX=6 |
+| H10 | Himalayan & Tibetan | 18 | 12 | 6 | Miren=4; Kharad=3; Orun-IX=4; Asteriel=1 |
+| H11 | Horn of Africa & Red Sea | 21 | 17 | 4 | Darel=6; Damor=2; Kharad=3; Myrra=6 |
+| H12 | Iranian, Kurdish & Eastern West Asian | 14 | 13 | 1 | Miren=6; Elian=3; Damor=1; Orun-IX=3 |
+| H13 | Levantine & Mesopotamian | 37 | 26 | 11 | Miren=7; Damor=3; Kharad=8; Orun-IX=7; Asteriel=1 |
+| H14 | Mainland Southeast Asian | 22 | 21 | 1 | Damor=3; Sahrem=3; Kharad=15 |
+| H15 | Maritime Southeast Asian | 22 | 14 | 8 | Miren=8; Damor=1; Orun-IX=5 |
+| H16 | Mesoamerican & Caribbean Indigenous | 14 | 14 | 0 | Miren=1; Tavai=3; Damor=9; Orun-IX=1 |
+| H17 | North African & Saharan | 18 | 11 | 7 | Miren=5; Sterna=2; Kharad=1; Orun-IX=2; Asteriel=1 |
+| H18 | Pacific & Oceanian | 30 | 22 | 8 | Miren=8; Damor=7; Kharad=5; Orun-IX=2 |
+| H19 | South American Indigenous | 14 | 14 | 0 | Miren=9; Damor=5 |
+| H20 | South Asian | 27 | 17 | 10 | Miren=4; Damor=9; Orun-IX=4 |
+| H21 | Southern & Eastern European | 45 | 43 | 2 | Miren=2; Tavai=9; Selen=1; Myrra=29; Orun-IX=2 |
+| H22 | Southern African | 46 | 37 | 9 | Miren=10; Aveli=23; Orun-IX=3; Asteriel=1 |
+| H23 | West African | 34 | 20 | 14 | Miren=7; Darel=3; Selen=1; Sahrem=7; Orun-IX=1; Asteriel=1 |
+| H24 | Western & Northern European | 36 | 23 | 13 | Miren=6; Damor=17 |
+| M01 | Angels & Celestials | 6 | 4 | 2 | Miren=1; Darel=1; Varek=1; Sahrem=1 |
+| M02 | Constructs & Animated Objects | 7 | 7 | 0 | Oren=3; Varek=1; Damor=2; Orun-IX=1 |
+| M03 | Demons & Fiends | 9 | 6 | 3 | Darel=1; Oren=3; Selen=2 |
+| M04 | Divine & Heavenly Spirits | 6 | 6 | 0 | Miren=1; Tavai=1; Selen=1; Damor=1; Vhalen=1; Asteriel=1 |
+| M05 | Djinn & Genie-Kin | 3 | 3 | 0 | Miren=1; Oren=1; Damor=1 |
+| M06 | Dragons & Dragonkin | 7 | 5 | 2 | Myrra=5 |
+| M07 | Dwarves, Halflings & Little Folk | 12 | 12 | 0 | Miren=2; Solkar=1; Damor=2; Kharad=6; Orun-IX=1 |
+| M08 | Elementals | 15 | 10 | 5 | Varek=1; Voltar=1; Sahrem=1; Neressa=1; Kharad=3; Aveli=2; Iskarn=1 |
+| M09 | Elves | 5 | 3 | 2 | Miren=3 |
+| M10 | Fae & Fairy Folk | 7 | 7 | 0 | Miren=4; Sahrem=1; Kharad=2 |
+| M11 | Ghosts, Wraiths & Specters | 8 | 7 | 1 | Oren=1; Vhalen=6 |
+| M12 | Giants & Titans | 9 | 8 | 1 | Varek=1; Selen=1; Voltar=1; Sahrem=1; Kharad=4 |
+| M13 | Goblinoids & Orc-Kin | 4 | 3 | 1 | Darel=1; Selen=1; Sahrem=1 |
+| M14 | Golems | 9 | 9 | 0 | Miren=9 |
+| M15 | Household, Land & Place Spirits | 7 | 7 | 0 | Miren=2; Damor=3; Kharad=2 |
+| M16 | Hybrid & Legendary Monsters | 18 | 18 | 0 | Miren=2; Darel=1; Oren=1; Varek=1; Selen=3; Voltar=3; Marea=1; Damor=1; Sahrem=1; Kharad=2; Aveli=1; Asteriel=1 |
+| M17 | Liches, Mummies & Greater Undead | 6 | 6 | 0 | Darel=1; Elian=1; Selen=1; Orun-IX=1; Vhalen=2 |
+| M18 | Merfolk & Aquatic Peoples | 5 | 5 | 0 | Solkar=1; Marea=2; Sterna=1; Vhalen=1 |
+| M19 | Nature & Plant Spirits | 5 | 5 | 0 | Miren=1; Neressa=1; Kharad=3 |
+| M20 | Ogres, Trolls & Oni | 5 | 5 | 0 | Sahrem=2; Kharad=1; Aveli=1; Myrra=1 |
+| M21 | Shapeshifters & Werebeings | 13 | 10 | 3 | Miren=2; Kharad=1; Myrra=6; Vhalen=1 |
+| M22 | Skeletons & Zombies | 2 | 2 | 0 | Aveli=1; Vhalen=1 |
+| M23 | Vampires & Blood-Drinkers | 6 | 5 | 1 | Miren=1; Sahrem=3; Vhalen=1 |
+| M24 | Water Spirits & Aquatic Monsters | 7 | 7 | 0 | Oren=1; Selen=1; Marea=1; Rillan=3; Vhalen=1 |
+| P01 | Dogs | 51 | 51 | 0 | Miren=2; Tavai=46; Selen=1; Kharad=1; Iskarn=1 |
+| P02 | Cats | 31 | 30 | 1 | Miren=27; Neressa=3 |
+| P03 | Horses & Equid Hybrids | 25 | 7 | 18 | Tavai=1; Selen=1; Neressa=2; Kharad=1; Aveli=1; Myrra=1 |
+| P04 | Cattle, Yak & Buffalo | 15 | 8 | 7 | Damor=4; Sahrem=3; Neressa=1 |
+| P05 | Sheep & Goats | 18 | 9 | 9 | Tavai=9 |
+| P06 | Camels, Llamas & Alpacas | 9 | 8 | 1 | Miren=6; Varek=1; Neressa=1 |
+| P07 | Pigs | 7 | 2 | 5 | Miren=1; Scarabos=1 |
+| P08 | Rabbits, Rodents & Ferrets | 42 | 21 | 21 | Miren=2; Namiya=2; Tavai=12; Selen=1; Neressa=1; Kharad=2; Iskarn=1 |
+| P09 | Chickens, Ducks & Geese | 26 | 26 | 0 | Miren=1; Tavai=12; Rillan=13 |
+| P10 | Pigeons & Companion Birds | 18 | 15 | 3 | Vespera=2; Rillan=3; Damor=1; Neressa=2; Kharad=6; Aveli=1 |
+| P11 | Aquarium Fish | 36 | 33 | 3 | Miren=1; Rillan=31; Neressa=1 |
+| P12 | Reptiles & Amphibians | 5 | 3 | 2 | Kharad=3 |
+
+## Unusually Strong Clusters
+
+Audit rule: count ≥ 5, within-group share ≥ 25%, and lift ≥ 2× corpus-wide deity share. Clusters are reported without rebalancing.
+
+- M11 (Ghosts, Wraiths & Specters): Vhalen 6, 85.714% of classified group, 91.554× lift.
+- H06 (Central Asian & Steppe): Sterna 14, 73.684% of classified group, 48.433× lift.
+- H22 (Southern African): Aveli 23, 62.162% of classified group, 29.51× lift.
+- P11 (Aquarium Fish): Rillan 31, 93.939% of classified group, 18.887× lift.
+- H23 (West African): Sahrem 7, 35% of classified group, 17.09× lift.
+- M06 (Dragons & Dragonkin): Myrra 5, 100% of classified group, 15.972× lift.
+- B20 (Snakes): Savael 6, 28.571% of classified group, 13.951× lift.
+- H07 (Diaspora, Creole & Legendary Human Civilizations): Myrra 35, 71.429% of classified group, 11.409× lift.
+- H21 (Southern & Eastern European): Myrra 29, 67.442% of classified group, 10.772× lift.
+- H09 (East Asian): Orun-IX 6, 42.857% of classified group, 10.463× lift.
+- P05 (Sheep & Goats): Tavai 9, 100% of classified group, 10.358× lift.
+- P09 (Chickens, Ducks & Geese): Rillan 13, 50% of classified group, 10.053× lift.
+- H11 (Horn of Africa & Red Sea): Darel 6, 35.294% of classified group, 10.053× lift.
+- M21 (Shapeshifters & Werebeings): Myrra 6, 60% of classified group, 9.583× lift.
+- P01 (Dogs): Tavai 46, 90.196% of classified group, 9.342× lift.
+- H15 (Maritime Southeast Asian): Orun-IX 5, 35.714% of classified group, 8.719× lift.
+- H24 (Western & Northern European): Damor 17, 73.913% of classified group, 8.256× lift.
+- H04 (Caucasian & Anatolian): Kharad 33, 94.286% of classified group, 7.673× lift.
+- B09 (Lizards): Darel 8, 26.667% of classified group, 7.596× lift.
+- H16 (Mesoamerican & Caribbean Indigenous): Damor 9, 64.286% of classified group, 7.181× lift.
+- H03 (Australian Indigenous): Damor 5, 62.5% of classified group, 6.981× lift.
+- H08 (East African & Nilotic): Damor 13, 59.091% of classified group, 6.6× lift.
+- H13 (Levantine & Mesopotamian): Orun-IX 7, 26.923% of classified group, 6.573× lift.
+- B11 (Mollusks & Other Invertebrates): Selen 8, 42.105% of classified group, 6.425× lift.
+- P08 (Rabbits, Rodents & Ferrets): Tavai 12, 57.143% of classified group, 5.919× lift.
+- H20 (South Asian): Damor 9, 52.941% of classified group, 5.913× lift.
+- B10 (Marsupials & Monotremes): Varek 9, 31.034% of classified group, 5.893× lift.
+- H14 (Mainland Southeast Asian): Kharad 15, 71.429% of classified group, 5.813× lift.
+- H11 (Horn of Africa & Red Sea): Myrra 6, 35.294% of classified group, 5.637× lift.
+- B21 (Songbirds): Selen 16, 35.556% of classified group, 5.425× lift.
+- M14 (Golems): Miren 9, 100% of classified group, 5.195× lift.
+- B23 (Waterbirds & Seabirds): Selen 26, 32.911% of classified group, 5.022× lift.
+- P09 (Chickens, Ducks & Geese): Tavai 12, 46.154% of classified group, 4.78× lift.
+- P02 (Cats): Miren 27, 90% of classified group, 4.675× lift.
+- M07 (Dwarves, Halflings & Little Folk): Kharad 6, 50% of classified group, 4.069× lift.
+- H19 (South American Indigenous): Damor 5, 35.714% of classified group, 3.989× lift.
+- B16 (Primates): Selen 6, 26.087% of classified group, 3.981× lift.
+- H01 (Arabian Peninsula): Miren 18, 75% of classified group, 3.896× lift.
+- P06 (Camels, Llamas & Alpacas): Miren 6, 75% of classified group, 3.896× lift.
+- H09 (East Asian): Tavai 5, 35.714% of classified group, 3.699× lift.
+- B15 (Pigeons, Gamebirds & Groundbirds): Miren 26, 70.27% of classified group, 3.65× lift.
+- H18 (Pacific & Oceanian): Damor 7, 31.818% of classified group, 3.554× lift.
+- B06 (Cetaceans): Tavai 8, 33.333% of classified group, 3.453× lift.
+- H19 (South American Indigenous): Miren 9, 64.286% of classified group, 3.339× lift.
+- P10 (Pigeons & Companion Birds): Kharad 6, 40% of classified group, 3.255× lift.
+- H15 (Maritime Southeast Asian): Miren 8, 57.143% of classified group, 2.968× lift.
+- B18 (Rodents & Lagomorphs): Damor 14, 25.455% of classified group, 2.843× lift.
+- H05 (Central African & Great Lakes): Miren 13, 54.167% of classified group, 2.814× lift.
+- B17 (Raptors & Owls): Miren 12, 52.174% of classified group, 2.71× lift.
+- B16 (Primates): Tavai 6, 26.087% of classified group, 2.702× lift.
+- H13 (Levantine & Mesopotamian): Kharad 8, 30.769% of classified group, 2.504× lift.
+- B03 (Bats): Miren 6, 46.154% of classified group, 2.397× lift.
+- H12 (Iranian, Kurdish & Eastern West Asian): Miren 6, 46.154% of classified group, 2.397× lift.
+- H17 (North African & Saharan): Miren 5, 45.455% of classified group, 2.361× lift.
+- B05 (Carnivorans): Kharad 16, 28.571% of classified group, 2.325× lift.
+- B09 (Lizards): Kharad 8, 26.667% of classified group, 2.17× lift.
+
+## Low Confidence (1703)
+
+- BRD_AARDVARK Aardvark: Damor; strong direct evidence spans 3 substantial axes; Damor leads Scarabos by 24.450 points.
+- BRD_AARDWOLF Aardwolf: Varek; weak direct evidence spans 1 substantial axes; Varek leads Savael by 7.850 points.
+- BRD_ADARO Adaro: Marea; strong direct evidence spans 3 substantial axes; Marea leads Voltar by 6.150 points.
+- BRD_ADLET Adlet: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Kharad by 10.450 points.
+- BRD_AFRICAN_BRUSH_TAILED_PORCUPINE African brush-tailed porcupine: Miren; weak direct evidence spans 1 substantial axes; Miren leads Kharad by 13.450 points.
+- BRD_AFRICAN_CIVET African civet: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 16.350 points.
+- BRD_AFRICAN_FOREST_ELEPHANT African forest elephant: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 18.550 points.
+- BRD_AFRICAN_GREY_PARROT African grey parrot: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Miren by 16.000 points.
+- BRD_AFRICAN_MANATEE African manatee: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Neressa by 8.450 points.
+- BRD_AFRICAN_MOUND_BUILDING_TERMITE African mound-building termite: Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Kharad by 17.150 points.
+- BRD_AFRICAN_PIED_WAGTAIL African pied wagtail: Miren; weak direct evidence spans 1 substantial axes; Miren leads Rillan by 3.500 points.
+- BRD_AFRICAN_PYGMY_SQUIRREL African pygmy squirrel: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_AFRICAN_SAVANNA_ELEPHANT African savanna elephant: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 3.650 points.
+- BRD_AFRICAN_SPURRED_TORTOISE African spurred tortoise: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 16.100 points.
+- BRD_AFRICAN_WILD_ASS African wild ass: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 16.450 points.
+- BRD_AFRICAN_WILD_DOG African wild dog: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 23.350 points.
+- BRD_ALBERT_S_LYREBIRD Albert's lyrebird: Selen; strong direct evidence spans 3 substantial axes; Selen leads Myrra by 30.050 points.
+- BRD_ALFALFA_LEAFCUTTER_BEE Alfalfa leafcutter bee: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 21.250 points.
+- BRD_ALLIGATOR_SNAPPING_TURTLE Alligator snapping turtle: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Savael by 5.100 points.
+- BRD_ALPACA Alpaca: Varek; weak direct evidence spans 1 substantial axes; Varek leads Scarabos by 3.143 points.
+- BRD_ALPINE_IBEX Alpine ibex: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Sahrem by 4.700 points.
+- BRD_ALPINE_MARMOT Alpine marmot: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.550 points.
+- BRD_ALPINE_MUSK_DEER Alpine musk deer: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 17.900 points.
+- BRD_ALUX Alux: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 10.000 points.
+- BRD_AMAZON_MILK_FROG Amazon milk frog: Selen; weak direct evidence spans 1 substantial axes; Selen leads Neressa by 12.100 points.
+- BRD_AMERICAN_ALLIGATOR American alligator: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Rillan by 16.300 points.
+- BRD_AMERICAN_BISON American bison: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.550 points.
+- BRD_AMERICAN_COCKROACH American cockroach: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Tavai by 3.150 points.
+- BRD_AMERICAN_CROW American crow: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Elian by 24.200 points.
+- BRD_AMERICAN_EEL American eel: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 7.800 points.
+- BRD_AMERICAN_HOG_NOSED_SKUNK American hog-nosed skunk: Varek; weak direct evidence spans 1 substantial axes; Varek leads Savael by 6.800 points.
+- BRD_AMERICAN_KESTREL American kestrel: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 13.050 points.
+- BRD_AMERICAN_LOBSTER American lobster: Selen; weak direct evidence spans 1 substantial axes; Selen leads Kharad by 5.450 points.
+- BRD_ANDEAN_CONDOR Andean condor: Miren; weak direct evidence spans 1 substantial axes; Miren leads Aveli by 14.100 points.
+- BRD_ANDEAN_FLAMINGO Andean flamingo: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 16.550 points.
+- BRD_ANEMONE_HERMIT_CRAB Anemone hermit crab: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 11.200 points.
+- BRD_ANGELS_ANGEL Angels (Angel): Miren; weak direct evidence spans 1 substantial axes; Miren leads Varek by 3.800 points.
+- BRD_ANGELS_OPHANIM Angels (Ophanim): Varek; weak direct evidence spans 1 substantial axes; Varek leads Miren by 6.450 points.
+- BRD_ANGELS_SERAPH Angels (Seraph): Sahrem; moderate direct evidence spans 2 substantial axes; Sahrem leads Varek by 2.850 points.
+- BRD_ANHINGA Anhinga: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 11.500 points.
+- BRD_ANIMATED_STATUE Animated Statue: Oren; weak direct evidence spans 1 substantial axes; Oren leads Myrra by 14.550 points.
+- BRD_ANSER_SUBSP_DOMESTIC_GOOSE Anser subsp. (Domestic goose): Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Damor by 20.500 points.
+- BRD_ANTARCTIC_FUR_SEAL Antarctic fur seal: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 21.400 points.
+- BRD_APSARA Apsara: Selen; strong direct evidence spans 3 substantial axes; Selen leads Rillan by 19.500 points.
+- BRD_AQUATIC_CAECILIAN Aquatic caecilian: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 21.300 points.
+- BRD_ARACHNE Arachne: Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Orun-IX by 3.900 points.
+- BRD_ARCTIC_CHAR Arctic char: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 3.150 points.
+- BRD_ARCTIC_FOX Arctic fox: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 9.750 points.
+- BRD_ARCTIC_TERN Arctic tern: Selen; weak direct evidence spans 1 substantial axes; Selen leads Sterna by 13.550 points.
+- BRD_ARCTICTIS_BINTURONG_BINTURONG Arctictis binturong (Binturong): Selen; weak direct evidence spans 1 substantial axes; Selen leads Vespera by 10.450 points.
+- BRD_ARDEA_HERODIAS_GREAT_BLUE_HERON Ardea herodias (Great blue heron): Savael; weak direct evidence spans 1 substantial axes; Savael leads Rillan by 13.900 points.
+- BRD_ARGALI Argali: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 2.600 points.
+- BRD_ARGENTINE_BLACK_AND_WHITE_TEGU Argentine black-and-white tegu: Varek; weak direct evidence spans 1 substantial axes; Varek leads Iskarn by 11.450 points.
+- BRD_ARIZONA_BARK_SCORPION Arizona bark scorpion: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Kharad by 8.300 points.
+- BRD_ARMORED_RAT Armored rat: Savael; weak direct evidence spans 1 substantial axes; Savael leads Rillan by 17.600 points.
+- BRD_ARMY_ANT Army ant: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 17.800 points.
+- BRD_ARRAU_TURTLE Arrau turtle: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Kharad by 2.300 points.
+- BRD_ASIAN_BLACK_BEAR Asian black bear: Kharad; weak partial evidence spans 1 substantial axes; Kharad leads Rillan by 2.850 points.
+- BRD_ASIAN_ELEPHANT Asian elephant: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 8.100 points.
+- BRD_ASIAN_JUMPING_WORM Asian jumping worm: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Damor by 2.100 points.
+- BRD_ASURA Asura: Darel; weak direct evidence spans 1 substantial axes; Darel leads Varek by 2.000 points.
+- BRD_ATLANTIC_CANARY Atlantic canary: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 3.750 points.
+- BRD_ATLANTIC_HAGFISH Atlantic hagfish: Oren; weak direct evidence spans 1 substantial axes; Oren leads Elian by 20.550 points.
+- BRD_ATLANTIC_MUDSKIPPER Atlantic mudskipper: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Neressa by 23.800 points.
+- BRD_ATLANTIC_PUFFIN Atlantic puffin: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 13.050 points.
+- BRD_ATLANTIC_SAND_FIDDLER_CRAB Atlantic sand fiddler crab: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vespera by 2.450 points.
+- BRD_ATLAS_MOTH Atlas moth: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Scarabos by 2.400 points.
+- BRD_AUSTRALIAN_BRUSH_TURKEY Australian brush-turkey: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.450 points.
+- BRD_AUSTRALIAN_GHOSTSHARK Australian ghostshark: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Marea by 12.600 points.
+- BRD_AUSTRALIAN_LUNGFISH Australian lungfish: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Aveli by 11.500 points.
+- BRD_AUSTRALIAN_PELICAN Australian pelican: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Rillan by 9.050 points.
+- BRD_AXOLOTL_BEAST Axolotl (sapient Beast population): Neressa; weak direct evidence spans 1 substantial axes; Neressa leads Lunessa by 9.900 points.
+- BRD_AZIZA Aziza: Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 2.400 points.
+- BRD_BACTRIAN_CAMEL Bactrian camel: Miren; weak partial evidence spans 1 substantial axes; Miren leads Rillan by 4.500 points.
+- BRD_BACTRIAN_CAMEL_BACTRIAN_PACK_CAMEL Bactrian camel (Bactrian Pack Camel): Miren; weak direct evidence spans 0 substantial axes; Miren leads Neressa by 3.429 points.
+- BRD_BAIRD_S_BEAKED_WHALE Baird's beaked whale: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 8.750 points.
+- BRD_BAIRD_S_TAPIR Baird's tapir: Damor; weak direct evidence spans 1 substantial axes; Damor leads Rillan by 17.950 points.
+- BRD_BALI_MYNA Bali myna: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 5.250 points.
+- BRD_BALL_PYTHON Ball python: Kharad; weak partial evidence spans 1 substantial axes; Kharad leads Rillan by 3.286 points.
+- BRD_BALTIMORE_ORIOLE Baltimore oriole: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 8.450 points.
+- BRD_BANDED_RUBBER_FROG Banded rubber frog: Miren; weak direct evidence spans 1 substantial axes; Miren leads Neressa by 5.650 points.
+- BRD_BANDED_SEA_KRAIT Banded sea krait: Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Marea by 9.900 points.
+- BRD_BANNER_TAILED_KANGAROO_RAT Banner-tailed kangaroo rat: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 10.950 points.
+- BRD_BANSHEE Banshee: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Miren by 26.150 points.
+- BRD_BAR_HEADED_GOOSE Bar-headed goose: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Rillan by 9.800 points.
+- BRD_BARE_TAILED_WOOLLY_OPOSSUM Bare-tailed woolly opossum: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 13.950 points.
+- BRD_BARE_THROATED_TIGER_HERON Bare-throated tiger heron: Savael; weak direct evidence spans 1 substantial axes; Savael leads Miren by 21.300 points.
+- BRD_BARN_OWL Barn owl: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 5.700 points.
+- BRD_BARN_SWALLOW Barn swallow: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 15.350 points.
+- BRD_BASKING_SHARK Basking shark: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Marea by 3.850 points.
+- BRD_BATELEUR Bateleur: Miren; weak direct evidence spans 1 substantial axes; Miren leads Aveli by 14.350 points.
+- BRD_BEARDED_VULTURE Bearded vulture: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Kharad by 11.550 points.
+- BRD_BEAUTIFUL_SUNBIRD Beautiful sunbird: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 22.800 points.
+- BRD_BEE_HUMMINGBIRD Bee hummingbird: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 19.450 points.
+- BRD_BELUGA_WHALE Beluga whale: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 7.400 points.
+- BRD_BIGHORN_SHEEP Bighorn sheep: Miren; strong direct evidence spans 3 substantial axes; Miren leads Tavai by 8.600 points.
+- BRD_BLACK_AND_RUFOUS_GIANT_SENGI Black-and-rufous giant sengi: Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 12.600 points.
+- BRD_BLACK_BACKED_JACKAL Black-backed jackal: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 16.200 points.
+- BRD_BLACK_BROWED_ALBATROSS Black-browed albatross: Darel; weak direct evidence spans 1 substantial axes; Darel leads Elian by 22.500 points.
+- BRD_BLACK_GHOST_KNIFEFISH Black ghost knifefish: Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Voltar by 7.250 points.
+- BRD_BLACK_KITE Black kite: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Rillan by 14.550 points.
+- BRD_BLACK_MAMBA Black mamba: Selen; weak direct evidence spans 1 substantial axes; Selen leads Kharad by 2.450 points.
+- BRD_BLACK_PACU Black pacu: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Rillan by 15.600 points.
+- BRD_BLACK_RHINOCEROS Black rhinoceros: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 14.700 points.
+- BRD_BLACK_SKIMMER Black skimmer: Selen; weak direct evidence spans 1 substantial axes; Selen leads Neressa by 18.850 points.
+- BRD_BLACK_SWAN Black swan: Miren; weak direct evidence spans 1 substantial axes; Miren leads Rillan by 16.900 points.
+- BRD_BLACK_TAILED_JACKRABBIT Black-tailed jackrabbit: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 13.800 points.
+- BRD_BLACK_TAILED_PRAIRIE_DOG Black-tailed prairie dog: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 3.500 points.
+- BRD_BLACKSMITH_LAPWING Blacksmith lapwing: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Darel by 10.950 points.
+- BRD_BLACKTIP_REEF_SHARK Blacktip reef shark: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Marea by 10.950 points.
+- BRD_BLADDER_CICADA Bladder cicada: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 20.250 points.
+- BRD_BLAKISTON_S_FISH_OWL Blakiston's fish owl: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 14.700 points.
+- BRD_BLUE_ANOLE Blue anole: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Vespera by 13.800 points.
+- BRD_BLUE_FOOTED_BOOBY Blue-footed booby: Selen; strong direct evidence spans 3 substantial axes; Selen leads Marea by 30.950 points.
+- BRD_BLUE_JAY Blue jay: Myrra; moderate direct evidence spans 2 substantial axes; Myrra leads Vespera by 3.850 points.
+- BRD_BLUE_MORPHO Blue morpho: Solkar; weak direct evidence spans 1 substantial axes; Solkar leads Selen by 7.800 points.
+- BRD_BLUE_PETREL Blue petrel: Miren; weak direct evidence spans 1 substantial axes; Miren leads Kharad by 20.900 points.
+- BRD_BLUE_TAILED_DAMSELFLY Blue-tailed damselfly: Oren; weak direct evidence spans 1 substantial axes; Oren leads Elian by 20.550 points.
+- BRD_BLUE_WHALE Blue whale: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 7.550 points.
+- BRD_BLUEFIN_NOTHO Bluefin notho: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 13.500 points.
+- BRD_BLUESTREAK_CLEANER_WRASSE Bluestreak cleaner wrasse: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 17.800 points.
+- BRD_BOA_CONSTRICTOR Boa constrictor: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Savael by 4.000 points.
+- BRD_BOAT_BILLED_HERON Boat-billed heron: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 16.050 points.
+- BRD_BOLAS_SPIDER Bolas spider: Oren; weak direct evidence spans 1 substantial axes; Oren leads Elian by 20.550 points.
+- BRD_BOMBARDIER_BEETLE Bombardier beetle: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 9.750 points.
+- BRD_BONOBO Bonobo: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Tavai by 14.900 points.
+- BRD_BOOTED_RACKET_TAIL Booted racket-tail: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 21.800 points.
+- BRD_BOTTA_S_POCKET_GOPHER Botta's pocket gopher: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.150 points.
+- BRD_BOWHEAD_WHALE Bowhead whale: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 15.350 points.
+- BRD_BRAHMINY_BLIND_SNAKE Brahminy blind snake: Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 8.100 points.
+- BRD_BRAZILIAN_PORCUPINE Brazilian porcupine: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 15.500 points.
+- BRD_BROADCLUB_CUTTLEFISH Broadclub cuttlefish: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 19.650 points.
+- BRD_BROWN_HYENA Brown hyena: Miren; strong direct evidence spans 3 substantial axes; Miren leads Tavai by 8.050 points.
+- BRD_BROWN_LONG_EARED_BAT Brown long-eared bat: Savael; weak direct evidence spans 1 substantial axes; Savael leads Miren by 23.500 points.
+- BRD_BROWN_PELICAN Brown pelican: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 9.150 points.
+- BRD_BROWN_RAT Brown rat: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Vespera by 17.750 points.
+- BRD_BROWN_THROATED_THREE_TOED_SLOTH Brown-throated three-toed sloth: Savael; weak direct evidence spans 1 substantial axes; Savael leads Iskarn by 8.800 points.
+- BRD_BROWNIE Brownie: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 21.750 points.
+- BRD_BUBALUS_BUBALIS_WATER_BUFFALO Bubalus bubalis (Water buffalo): Neressa; moderate direct evidence spans 2 substantial axes; Neressa leads Rillan by 9.215 points.
+- BRD_BUDGERIGAR Budgerigar: Rillan; weak direct evidence spans 0 substantial axes; Rillan leads Miren by 8.928 points.
+- BRD_BUDGERIGAR_AMERICAN_BUDGERIGAR Budgerigar (American Budgerigar): Rillan; weak indirect evidence spans 0 substantial axes; Rillan leads Miren by 4.857 points.
+- BRD_BUDGERIGAR_ENGLISH_BUDGERIGAR Budgerigar (English Budgerigar): Rillan; weak indirect evidence spans 0 substantial axes; Rillan leads Miren by 4.857 points.
+- BRD_BUGBEAR Bugbear: Darel; weak direct evidence spans 1 substantial axes; Darel leads Miren by 16.650 points.
+- BRD_BULLET_ANT Bullet ant: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.450 points.
+- BRD_BUMPHEAD_PARROTFISH Bumphead parrotfish: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Scarabos by 20.850 points.
+- BRD_BURMESE_PYTHON Burmese python: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 17.200 points.
+- BRD_BURROWING_OWL Burrowing owl: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 11.650 points.
+- BRD_BUTEO_JAMAICENSIS_RED_TAILED_HAWK Buteo jamaicensis (Red-tailed hawk): Miren; weak direct evidence spans 1 substantial axes; Miren leads Aveli by 16.200 points.
+- BRD_CALIFORNIA_CONDOR California condor: Miren; weak direct evidence spans 1 substantial axes; Miren leads Kharad by 15.800 points.
+- BRD_CALIFORNIA_KINGSNAKE California kingsnake: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Kharad by 7.300 points.
+- BRD_CALIFORNIA_SEA_LION California sea lion: Oren; weak direct evidence spans 1 substantial axes; Oren leads Myrra by 10.900 points.
+- BRD_CAMBION Cambion: Oren; weak direct evidence spans 1 substantial axes; Oren leads Sahrem by 21.500 points.
+- BRD_CAMPBELL_S_DWARF_HAMSTER Campbell's dwarf hamster: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Iskarn by 4.785 points.
+- BRD_CANADA_LYNX Canada lynx: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.350 points.
+- BRD_CANE_TOAD Cane toad: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 2.900 points.
+- BRD_CANIS_LUPUS_DOMESTIC_DOG Canis lupus (Domestic dog): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 11.786 points.
+- BRD_CAPE_BUFFALO Cape buffalo: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 7.450 points.
+- BRD_CAPE_GOLDEN_MOLE Cape golden mole: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 4.200 points.
+- BRD_CAPE_MOLE_RAT Cape mole-rat: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 23.850 points.
+- BRD_CAPYBARA Capybara: Miren; strong direct evidence spans 3 substantial axes; Miren leads Tavai by 16.600 points.
+- BRD_CARACAL Caracal: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 13.650 points.
+- BRD_CARIBBEAN_HERMIT_CRAB Caribbean hermit crab: Miren; weak partial evidence spans 1 substantial axes; Miren leads Kharad by 2.550 points.
+- BRD_CARIBBEAN_REEF_SQUID Caribbean reef squid: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 16.800 points.
+- BRD_CARIBBEAN_SPINY_LOBSTER Caribbean spiny lobster: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 13.600 points.
+- BRD_CEBUS_CAPUCINUS_WHITE_FACED_CAPUCHIN Cebus capucinus (White-faced capuchin): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Tavai by 9.800 points.
+- BRD_CENTAUR Centaur: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Sahrem by 10.250 points.
+- BRD_CENTRAL_AMERICAN_AGOUTI Central American agouti: Damor; weak direct evidence spans 1 substantial axes; Damor leads Scarabos by 13.600 points.
+- BRD_CENTRAL_BEARDED_DRAGON Central bearded dragon: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Solkar by 9.929 points.
+- BRD_CHACOAN_PECCARY Chacoan peccary: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Neressa by 4.750 points.
+- BRD_CHANNEL_BILLED_CUCKOO Channel-billed cuckoo: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Sterna by 7.550 points.
+- BRD_CHANNEL_CATFISH Channel catfish: Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Neressa by 3.150 points.
+- BRD_CHARADRIUS_VOCIFERUS_TERNOMINATUS_KILLDEER Charadrius vociferus ternominatus (Killdeer): Darel; weak direct evidence spans 1 substantial axes; Darel leads Miren by 22.250 points.
+- BRD_CHECKERED_ELEPHANT_SHREW Checkered elephant shrew: Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 8.100 points.
+- BRD_CHEETAH Cheetah: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Savael by 19.750 points.
+- BRD_CHENOO Chenoo: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Iskarn by 4.100 points.
+- BRD_CHESTNUT_BELLIED_SANDGROUSE Chestnut-bellied sandgrouse: Miren; strong direct evidence spans 3 substantial axes; Miren leads Damor by 28.750 points.
+- BRD_CHILEAN_TINAMOU Chilean tinamou: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 14.050 points.
+- BRD_CHINESE_ALLIGATOR Chinese alligator: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 5.550 points.
+- BRD_CHINESE_GIANT_SALAMANDER Chinese giant salamander: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 14.000 points.
+- BRD_CHINESE_HAMSTER Chinese hamster: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vespera by 10.643 points.
+- BRD_CHINESE_SOFTSHELL_TURTLE Chinese softshell turtle: Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 12.100 points.
+- BRD_CLOUDED_LEOPARD Clouded leopard: Savael; moderate direct evidence spans 2 substantial axes; Savael leads Varek by 5.900 points.
+- BRD_COBIA Cobia: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 15.150 points.
+- BRD_COCKATIEL_LUTINO_COCKATIEL Cockatiel (Lutino Cockatiel): Damor; weak indirect evidence spans 0 substantial axes; Damor leads Rillan by 2.000 points.
+- BRD_COCONUT_CRAB Coconut crab: Neressa; strong direct evidence spans 3 substantial axes; Neressa leads Lunessa by 12.250 points.
+- BRD_COCONUT_OCTOPUS Coconut octopus: Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Miren by 2.100 points.
+- BRD_COLLARED_PECCARY Collared peccary: Miren; strong direct evidence spans 3 substantial axes; Miren leads Tavai by 13.000 points.
+- BRD_COLLARED_PIKA Collared pika: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Damor by 6.850 points.
+- BRD_COMMERSON_S_DOLPHIN Commerson's dolphin: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 22.950 points.
+- BRD_COMMON_BOTTLENOSE_DOLPHIN Common bottlenose dolphin: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Marea by 11.150 points.
+- BRD_COMMON_BRUSHTAIL_POSSUM Common brushtail possum: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 22.200 points.
+- BRD_COMMON_CHAFFINCH Common chaffinch: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 26.200 points.
+- BRD_COMMON_CHIMPANZEE Common chimpanzee: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 2.350 points.
+- BRD_COMMON_CUCKOO Common cuckoo: Oren; weak direct evidence spans 1 substantial axes; Oren leads Elian by 21.750 points.
+- BRD_COMMON_CUTTLEFISH Common cuttlefish: Oren; weak direct evidence spans 1 substantial axes; Oren leads Marea by 19.250 points.
+- BRD_COMMON_DIVING_PETREL Common diving petrel: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 9.600 points.
+- BRD_COMMON_EARTHWORM Common earthworm: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Damor by 5.200 points.
+- BRD_COMMON_EASTERN_FIREFLY Common eastern firefly: Oren; weak direct evidence spans 1 substantial axes; Oren leads Selen by 20.350 points.
+- BRD_COMMON_EIDER Common eider: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 19.750 points.
+- BRD_COMMON_FLYING_DRAGON Common flying dragon: Darel; weak direct evidence spans 1 substantial axes; Darel leads Aveli by 16.900 points.
+- BRD_COMMON_FRUIT_FLY Common fruit fly: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 4.100 points.
+- BRD_COMMON_GARTER_SNAKE Common garter snake: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 3.600 points.
+- BRD_COMMON_GLOW_WORM Common glow-worm: Oren; weak direct evidence spans 1 substantial axes; Oren leads Elian by 22.350 points.
+- BRD_COMMON_GREEN_DARNER Common green darner: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 4.600 points.
+- BRD_COMMON_HIPPOPOTAMUS Common hippopotamus: Neressa; moderate direct evidence spans 2 substantial axes; Neressa leads Rillan by 6.150 points.
+- BRD_COMMON_KINGFISHER Common kingfisher: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 3.450 points.
+- BRD_COMMON_LOON Common loon: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Rillan by 13.550 points.
+- BRD_COMMON_MERGANSER Common merganser: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Rillan by 18.750 points.
+- BRD_COMMON_MINKE_WHALE Common minke whale: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 8.000 points.
+- BRD_COMMON_MURRE Common murre: Darel; moderate direct evidence spans 2 substantial axes; Darel leads Aveli by 23.200 points.
+- BRD_COMMON_MYNA Common myna: Myrra; moderate direct evidence spans 2 substantial axes; Myrra leads Tavai by 28.050 points.
+- BRD_COMMON_OSTRICH Common ostrich: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 18.350 points.
+- BRD_COMMON_PHEASANT Common pheasant: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 29.600 points.
+- BRD_COMMON_PIPISTRELLE Common pipistrelle: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_COMMON_RAVEN Common raven: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Aveli by 2.750 points.
+- BRD_COMMON_SANDPIPER Common sandpiper: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Varek by 4.500 points.
+- BRD_COMMON_SHREW Common shrew: Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Kharad by 17.050 points.
+- BRD_COMMON_SKATE Common skate: Savael; weak direct evidence spans 1 substantial axes; Savael leads Marea by 17.900 points.
+- BRD_COMMON_SNAPPING_TURTLE Common snapping turtle: Savael; weak direct evidence spans 1 substantial axes; Savael leads Neressa by 20.500 points.
+- BRD_COMMON_SNIPE Common snipe: Selen; weak direct evidence spans 1 substantial axes; Selen leads Darel by 22.250 points.
+- BRD_COMMON_SPINY_RAT Common spiny rat: Damor; weak direct evidence spans 1 substantial axes; Damor leads Scarabos by 15.250 points.
+- BRD_COMMON_SPOTTED_CUSCUS Common spotted cuscus: Oren; weak direct evidence spans 1 substantial axes; Oren leads Neressa by 19.100 points.
+- BRD_COMMON_STARLING Common starling: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Tavai by 13.900 points.
+- BRD_COMMON_THRESHER_SHARK Common thresher shark: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Neressa by 9.100 points.
+- BRD_COMMON_TOAD Common toad: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 12.200 points.
+- BRD_COMMON_WALLAROO Common wallaroo: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 17.500 points.
+- BRD_COMMON_WARTHOG Common warthog: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.550 points.
+- BRD_COMMON_WOMBAT Common wombat: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Kharad by 14.000 points.
+- BRD_CONGO_PEAFOWL Congo peafowl: Miren; weak direct evidence spans 1 substantial axes; Miren leads Rillan by 6.300 points.
+- BRD_COYPU Coypu: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 5.400 points.
+- BRD_CRESTED_PORCUPINE Crested porcupine: Miren; weak direct evidence spans 1 substantial axes; Miren leads Kharad by 6.550 points.
+- BRD_CUBAN_SOLENODON Cuban solenodon: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Voltar by 11.450 points.
+- BRD_CURUPIRA Curupira: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 15.700 points.
+- BRD_CUVIER_S_BEAKED_WHALE Cuvier's beaked whale: Darel; weak direct evidence spans 1 substantial axes; Darel leads Aveli by 17.250 points.
+- BRD_CYCLOPS Cyclops: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Damor by 3.250 points.
+- BRD_CYNOCEPHALUS Cynocephalus: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 20.500 points.
+- BRD_DAEVA Daeva: Oren; weak direct evidence spans 1 substantial axes; Oren leads Kharad by 17.550 points.
+- BRD_DALL_S_PORPOISE Dall's porpoise: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 4.950 points.
+- BRD_DALMATIAN_PELICAN Dalmatian pelican: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 2.600 points.
+- BRD_DAMARALAND_MOLE_RAT Damaraland mole-rat: Miren; strong direct evidence spans 3 substantial axes; Miren leads Tavai by 7.500 points.
+- BRD_DEAD_LEAF_MANTIS Dead leaf mantis: Oren; weak direct evidence spans 1 substantial axes; Oren leads Selen by 20.050 points.
+- BRD_DEATH_KNIGHT Death Knight: Selen; weak direct evidence spans 1 substantial axes; Selen leads Vhalen by 15.250 points.
+- BRD_DEATH_S_HEAD_HAWKMOTH Death's-head hawkmoth: Oren; weak direct evidence spans 1 substantial axes; Oren leads Vhalen by 20.150 points.
+- BRD_DEATHSTALKER_SCORPION Deathstalker scorpion: Savael; weak direct evidence spans 1 substantial axes; Savael leads Vhalen by 22.100 points.
+- BRD_DECAY_SPIRIT Decay spirit: Neressa; weak direct evidence spans 1 substantial axes; Neressa leads Scarabos by 10.750 points.
+- BRD_DEMOISELLE_CRANE Demoiselle crane: Selen; weak direct evidence spans 1 substantial axes; Selen leads Neressa by 25.000 points.
+- BRD_DESERT_LOCUST Desert locust: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Rillan by 2.200 points.
+- BRD_DESERT_TORTOISE Desert tortoise: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 8.850 points.
+- BRD_DEVA Deva: Asteriel; moderate direct evidence spans 2 substantial axes; Asteriel leads Elian by 11.100 points.
+- BRD_DHAMPIR Dhampir: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.050 points.
+- BRD_DHOLE Dhole: Tavai; strong direct evidence spans 3 substantial axes; Tavai leads Miren by 35.750 points.
+- BRD_DIAMONDBACK_TERRAPIN Diamondback terrapin: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Marea by 17.750 points.
+- BRD_DINGO Dingo: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 15.450 points.
+- BRD_DIPODOMYS_MERRIAMI_MERRIAM_S_KANGAROO_RAT Dipodomys merriami (Merriam's kangaroo rat): Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 8.850 points.
+- BRD_DISCUS_BLUE_DIAMOND_DISCUS Discus (Blue Diamond Discus): Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Neressa by 8.928 points.
+- BRD_DISCUS_PIGEON_BLOOD_DISCUS Discus (Pigeon Blood Discus): Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Neressa by 8.928 points.
+- BRD_DIVING_BELL_SPIDER Diving bell spider: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 9.800 points.
+- BRD_DIWATA Diwata: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 17.150 points.
+- BRD_DJINN Djinn: Oren; weak direct evidence spans 1 substantial axes; Oren leads Sahrem by 11.450 points.
+- BRD_DOG_DAY_CICADA Dog-day cicada: Neressa; moderate direct evidence spans 2 substantial axes; Neressa leads Lunessa by 2.750 points.
+- BRD_DOMESTICATED_ALPACA_HUACAYA_ALPACA Domesticated alpaca (Huacaya Alpaca): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Tavai by 2.357 points.
+- BRD_DOMESTICATED_ALPACA_SURI_ALPACA Domesticated alpaca (Suri Alpaca): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Tavai by 2.357 points.
+- BRD_DOMESTICATED_CANARY_BORDER_FANCY_CANARY Domesticated canary (Border Fancy Canary): Neressa; weak direct evidence spans 0 substantial axes; Neressa leads Asteriel by 3.000 points.
+- BRD_DOMESTICATED_CANARY_GLOSTER_CANARY Domesticated canary (Gloster Canary): Neressa; weak direct evidence spans 0 substantial axes; Neressa leads Miren by 4.357 points.
+- BRD_DOMESTICATED_CAT Domesticated cat: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Sahrem by 8.429 points.
+- BRD_DOMESTICATED_CAT_ABYSSINIAN Domesticated cat (Abyssinian): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_AMERICAN_SHORTHAIR Domesticated cat (American Shorthair): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_BENGAL Domesticated cat (Bengal): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_BIRMAN Domesticated cat (Birman): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_BOMBAY Domesticated cat (Bombay): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_BRITISH_SHORTHAIR Domesticated cat (British Shorthair): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_BURMESE Domesticated cat (Burmese): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Kharad by 4.357 points.
+- BRD_DOMESTICATED_CAT_CORNISH_REX Domesticated cat (Cornish Rex): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_DEVON_REX Domesticated cat (Devon Rex): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_EGYPTIAN_MAU Domesticated cat (Egyptian Mau): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_EXOTIC_SHORTHAIR Domesticated cat (Exotic Shorthair): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_HIMALAYAN Domesticated cat (Himalayan): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_JAPANESE_BOBTAIL Domesticated cat (Japanese Bobtail): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_LAPERM Domesticated cat (LaPerm): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_MAINE_COON Domesticated cat (Maine Coon): Neressa; moderate direct evidence spans 2 substantial axes; Neressa leads Miren by 2.357 points.
+- BRD_DOMESTICATED_CAT_MANX Domesticated cat (Manx): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_NORWEGIAN_FOREST_CAT Domesticated cat (Norwegian Forest Cat): Neressa; moderate direct evidence spans 2 substantial axes; Neressa leads Miren by 2.357 points.
+- BRD_DOMESTICATED_CAT_OCICAT Domesticated cat (Ocicat): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_ORIENTAL_SHORTHAIR Domesticated cat (Oriental Shorthair): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_PERSIAN Domesticated cat (Persian): Neressa; moderate direct evidence spans 2 substantial axes; Neressa leads Miren by 2.357 points.
+- BRD_DOMESTICATED_CAT_RAGDOLL Domesticated cat (Ragdoll): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_RUSSIAN_BLUE Domesticated cat (Russian Blue): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_SCOTTISH_FOLD Domesticated cat (Scottish Fold): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_SELKIRK_REX Domesticated cat (Selkirk Rex): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_SIAMESE Domesticated cat (Siamese): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_SINGAPURA Domesticated cat (Singapura): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_SPHYNX Domesticated cat (Sphynx): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_TURKISH_ANGORA Domesticated cat (Turkish Angora): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CAT_TURKISH_VAN Domesticated cat (Turkish Van): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Iskarn by 5.429 points.
+- BRD_DOMESTICATED_CATTLE_BRAHMAN Domesticated cattle (Brahman): Sahrem; weak direct evidence spans 0 substantial axes; Sahrem leads Neressa by 2.357 points.
+- BRD_DOMESTICATED_CATTLE_DEXTER Domesticated cattle (Dexter): Damor; weak direct evidence spans 0 substantial axes; Damor leads Miren by 2.785 points.
+- BRD_DOMESTICATED_CATTLE_GUERNSEY Domesticated cattle (Guernsey): Damor; weak direct evidence spans 0 substantial axes; Damor leads Miren by 2.785 points.
+- BRD_DOMESTICATED_CATTLE_HEREFORD Domesticated cattle (Hereford): Damor; weak direct evidence spans 0 substantial axes; Damor leads Miren by 2.785 points.
+- BRD_DOMESTICATED_CATTLE_HOLSTEIN_FRIESIAN Domesticated cattle (Holstein Friesian): Damor; weak direct evidence spans 0 substantial axes; Damor leads Miren by 2.785 points.
+- BRD_DOMESTICATED_CATTLE_JERSEY Domesticated cattle (Jersey): Sahrem; weak direct evidence spans 0 substantial axes; Sahrem leads Damor by 3.143 points.
+- BRD_DOMESTICATED_CATTLE_WATUSI Domesticated cattle (Watusi): Sahrem; weak direct evidence spans 0 substantial axes; Sahrem leads Damor by 3.143 points.
+- BRD_DOMESTICATED_CHICKEN Domesticated chicken: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Tavai by 12.071 points.
+- BRD_DOMESTICATED_CHICKEN_ARAUCANA Domesticated chicken (Araucana): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_AYAM_CEMANI Domesticated chicken (Ayam Cemani): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_BARRED_PLYMOUTH_ROCK Domesticated chicken (Barred Plymouth Rock): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_BRAHMA Domesticated chicken (Brahma): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_BUFF_ORPINGTON Domesticated chicken (Buff Orpington): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_COCHIN Domesticated chicken (Cochin): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_NAKED_NECK Domesticated chicken (Naked Neck): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Sahrem by 2.429 points.
+- BRD_DOMESTICATED_CHICKEN_POLISH Domesticated chicken (Polish): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_RHODE_ISLAND_RED Domesticated chicken (Rhode Island Red): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_SEBRIGHT Domesticated chicken (Sebright): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_SILKIE Domesticated chicken (Silkie): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_CHICKEN_WHITE_LEGHORN Domesticated chicken (White Leghorn): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Damor by 4.143 points.
+- BRD_DOMESTICATED_DOG_AFGHAN_HOUND Domesticated dog (Afghan Hound): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_AKITA Domesticated dog (Akita): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_ALASKAN_MALAMUTE Domesticated dog (Alaskan Malamute): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_AMERICAN_STAFFORDSHIRE_TERRIER Domesticated dog (American Staffordshire Terrier): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_AUSTRALIAN_SHEPHERD Domesticated dog (Australian Shepherd): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BASENJI Domesticated dog (Basenji): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BASSET_HOUND Domesticated dog (Basset Hound): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BEAGLE Domesticated dog (Beagle): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BELGIAN_MALINOIS Domesticated dog (Belgian Malinois): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BERNESE_MOUNTAIN_DOG Domesticated dog (Bernese Mountain Dog): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BLOODHOUND Domesticated dog (Bloodhound): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BORDER_COLLIE Domesticated dog (Border Collie): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BORZOI Domesticated dog (Borzoi): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BOXER Domesticated dog (Boxer): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_BULL_TERRIER Domesticated dog (Bull Terrier): Selen; moderate direct evidence spans 2 substantial axes; Selen leads Tavai by 7.214 points.
+- BRD_DOMESTICATED_DOG_CANE_CORSO Domesticated dog (Cane Corso): Miren; weak direct evidence spans 0 substantial axes; Miren leads Tavai by 2.357 points.
+- BRD_DOMESTICATED_DOG_CAVALIER_KING_CHARLES_SPANIEL Domesticated dog (Cavalier King Charles Spaniel): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_CHIHUAHUA Domesticated dog (Chihuahua): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_CHINESE_CRESTED Domesticated dog (Chinese Crested): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_CHOW_CHOW Domesticated dog (Chow Chow): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_DACHSHUND Domesticated dog (Dachshund): Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Tavai by 10.214 points.
+- BRD_DOMESTICATED_DOG_DALMATIAN Domesticated dog (Dalmatian): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_DOBERMAN_PINSCHER Domesticated dog (Doberman Pinscher): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_ENGLISH_BULLDOG Domesticated dog (English Bulldog): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_ENGLISH_MASTIFF Domesticated dog (English Mastiff): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_FRENCH_BULLDOG Domesticated dog (French Bulldog): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_GERMAN_SHEPHERD_DOG Domesticated dog (German Shepherd Dog): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_GOLDEN_RETRIEVER Domesticated dog (Golden Retriever): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 11.071 points.
+- BRD_DOMESTICATED_DOG_GREAT_DANE Domesticated dog (Great Dane): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_GREAT_PYRENEES Domesticated dog (Great Pyrenees): Miren; weak direct evidence spans 0 substantial axes; Miren leads Tavai by 2.357 points.
+- BRD_DOMESTICATED_DOG_GREYHOUND Domesticated dog (Greyhound): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_IRISH_WOLFHOUND Domesticated dog (Irish Wolfhound): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_JACK_RUSSELL_TERRIER Domesticated dog (Jack Russell Terrier): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_LABRADOR_RETRIEVER Domesticated dog (Labrador Retriever): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 11.071 points.
+- BRD_DOMESTICATED_DOG_MINIATURE_POODLE Domesticated dog (Miniature Poodle): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_MINIATURE_SCHNAUZER Domesticated dog (Miniature Schnauzer): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_NEWFOUNDLAND Domesticated dog (Newfoundland): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_PAPILLON Domesticated dog (Papillon): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_PEMBROKE_WELSH_CORGI Domesticated dog (Pembroke Welsh Corgi): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_PUG Domesticated dog (Pug): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_ROTTWEILER Domesticated dog (Rottweiler): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_SAINT_BERNARD Domesticated dog (Saint Bernard): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Darel by 2.715 points.
+- BRD_DOMESTICATED_DOG_SALUKI Domesticated dog (Saluki): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_SAMOYED Domesticated dog (Samoyed): Iskarn; moderate direct evidence spans 2 substantial axes; Iskarn leads Tavai by 2.428 points.
+- BRD_DOMESTICATED_DOG_SHIBA_INU Domesticated dog (Shiba Inu): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_SHIH_TZU Domesticated dog (Shih Tzu): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_SIBERIAN_HUSKY Domesticated dog (Siberian Husky): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_STANDARD_POODLE Domesticated dog (Standard Poodle): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_WHIPPET Domesticated dog (Whippet): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DOG_YORKSHIRE_TERRIER Domesticated dog (Yorkshire Terrier): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_DUCK Domesticated duck: Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 5.715 points.
+- BRD_DOMESTICATED_DUCK_CALL_DUCK Domesticated duck (Call Duck): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 5.715 points.
+- BRD_DOMESTICATED_DUCK_CAYUGA Domesticated duck (Cayuga): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 5.715 points.
+- BRD_DOMESTICATED_DUCK_CRESTED_DUCK Domesticated duck (Crested Duck): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 5.715 points.
+- BRD_DOMESTICATED_DUCK_INDIAN_RUNNER Domesticated duck (Indian Runner): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 5.715 points.
+- BRD_DOMESTICATED_DUCK_KHAKI_CAMPBELL Domesticated duck (Khaki Campbell): Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Damor by 11.857 points.
+- BRD_DOMESTICATED_DUCK_PEKIN Domesticated duck (Pekin): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 5.715 points.
+- BRD_DOMESTICATED_GOOSE_AFRICAN_GOOSE Domesticated goose (African Goose): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Neressa by 16.358 points.
+- BRD_DOMESTICATED_GOOSE_CHINESE_GOOSE Domesticated goose (Chinese Goose): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Neressa by 16.358 points.
+- BRD_DOMESTICATED_GOOSE_EMBDEN Domesticated goose (Embden): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 10.928 points.
+- BRD_DOMESTICATED_GOOSE_SEBASTOPOL Domesticated goose (Sebastopol): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Neressa by 8.071 points.
+- BRD_DOMESTICATED_GOOSE_TOULOUSE Domesticated goose (Toulouse): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 10.928 points.
+- BRD_DOMESTICATED_GUINEA_PIG Domesticated guinea pig: Miren; weak direct evidence spans 0 substantial axes; Miren leads Damor by 4.215 points.
+- BRD_DOMESTICATED_GUINEA_PIG_CORONET Domesticated guinea pig (Coronet): Namiya; weak direct evidence spans 0 substantial axes; Namiya leads Neressa by 2.071 points.
+- BRD_DOMESTICATED_GUINEA_PIG_PERUVIAN Domesticated guinea pig (Peruvian): Namiya; weak direct evidence spans 0 substantial axes; Namiya leads Miren by 2.428 points.
+- BRD_DOMESTICATED_GUINEA_PIG_SILKIE Domesticated guinea pig (Silkie): Neressa; weak direct evidence spans 1 substantial axes; Neressa leads Namiya by 5.572 points.
+- BRD_DOMESTICATED_HORSE Domesticated horse: Neressa; weak direct evidence spans 1 substantial axes; Neressa leads Damor by 5.143 points.
+- BRD_DOMESTICATED_HORSE_GYPSY_VANNER Domesticated horse (Gypsy Vanner): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Neressa by 3.428 points.
+- BRD_DOMESTICATED_HORSE_NORWEGIAN_FJORD Domesticated horse (Norwegian Fjord): Selen; weak direct evidence spans 0 substantial axes; Selen leads Neressa by 2.357 points.
+- BRD_DOMESTICATED_HORSE_SHETLAND_PONY Domesticated horse (Shetland Pony): Neressa; moderate direct evidence spans 2 substantial axes; Neressa leads Damor by 10.357 points.
+- BRD_DOMESTICATED_HORSE_WELSH_PONY Domesticated horse (Welsh Pony): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 3.500 points.
+- BRD_DOMESTICATED_LLAMA_CCARA_LLAMA Domesticated llama (Ccara Llama): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Damor by 3.214 points.
+- BRD_DOMESTICATED_LLAMA_TAPADA_LLAMA Domesticated llama (Tapada Llama): Miren; weak indirect evidence spans 0 substantial axes; Miren leads Damor by 3.214 points.
+- BRD_DOMESTICATED_PIG_VIETNAMESE_POT_BELLIED Domesticated pig (Vietnamese Pot-bellied): Miren; weak direct evidence spans 0 substantial axes; Miren leads Damor by 4.286 points.
+- BRD_DOMESTICATED_PIGEON Domesticated pigeon: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vespera by 3.785 points.
+- BRD_DOMESTICATED_PIGEON_CARRIER_PIGEON Domesticated pigeon (Carrier Pigeon): Vespera; strong direct evidence spans 4 substantial axes; Vespera leads Kharad by 7.357 points.
+- BRD_DOMESTICATED_PIGEON_ENGLISH_POUTER Domesticated pigeon (English Pouter): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Selen by 7.286 points.
+- BRD_DOMESTICATED_PIGEON_FANTAIL Domesticated pigeon (Fantail): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Selen by 7.286 points.
+- BRD_DOMESTICATED_PIGEON_FRILLBACK Domesticated pigeon (Frillback): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Aveli by 8.786 points.
+- BRD_DOMESTICATED_PIGEON_JACOBIN Domesticated pigeon (Jacobin): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vespera by 9.072 points.
+- BRD_DOMESTICATED_PIGEON_KING_PIGEON Domesticated pigeon (King Pigeon): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 8.929 points.
+- BRD_DOMESTICATED_PIGEON_ORIENTAL_ROLLER Domesticated pigeon (Oriental Roller): Aveli; moderate direct evidence spans 2 substantial axes; Aveli leads Kharad by 2.286 points.
+- BRD_DOMESTICATED_PIGEON_RACING_HOMER Domesticated pigeon (Racing Homer): Vespera; strong direct evidence spans 3 substantial axes; Vespera leads Kharad by 7.143 points.
+- BRD_DOMESTICATED_RABBIT_CALIFORNIAN Domesticated rabbit (Californian): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_DUTCH_RABBIT Domesticated rabbit (Dutch Rabbit): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_ENGLISH_ANGORA Domesticated rabbit (English Angora): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_FLEMISH_GIANT Domesticated rabbit (Flemish Giant): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_FRENCH_LOP Domesticated rabbit (French Lop): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_HARLEQUIN_RABBIT Domesticated rabbit (Harlequin Rabbit): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_HOLLAND_LOP Domesticated rabbit (Holland Lop): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_LIONHEAD Domesticated rabbit (Lionhead): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_MINI_REX Domesticated rabbit (Mini Rex): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_RABBIT_NETHERLAND_DWARF Domesticated rabbit (Netherland Dwarf): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 3.286 points.
+- BRD_DOMESTICATED_SHEEP Domesticated sheep: Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 5.500 points.
+- BRD_DOMESTICATED_SHEEP_BARBADOS_BLACKBELLY Domesticated sheep (Barbados Blackbelly): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 5.500 points.
+- BRD_DOMESTICATED_SHEEP_DORPER Domesticated sheep (Dorper): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 5.500 points.
+- BRD_DOMESTICATED_SHEEP_JACOB Domesticated sheep (Jacob): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 5.500 points.
+- BRD_DOMESTICATED_SHEEP_LINCOLN_LONGWOOL Domesticated sheep (Lincoln Longwool): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 5.500 points.
+- BRD_DOMESTICATED_SHEEP_MERINO Domesticated sheep (Merino): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Rillan by 4.572 points.
+- BRD_DOMESTICATED_SHEEP_SUFFOLK Domesticated sheep (Suffolk): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 5.500 points.
+- BRD_DOMESTICATED_SHEEP_TEXEL Domesticated sheep (Texel): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 5.500 points.
+- BRD_DOMESTICATED_SHEEP_VALAIS_BLACKNOSE Domesticated sheep (Valais Blacknose): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 5.500 points.
+- BRD_DOMOVOI Domovoi: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 18.850 points.
+- BRD_DOPPELGANGER Doppelgänger: Myrra; weak indirect evidence spans 1 substantial axes; Myrra leads Oren by 8.900 points.
+- BRD_DORCAS_GAZELLE Dorcas gazelle: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 9.450 points.
+- BRD_DRACAENA Dracaena: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 3.800 points.
+- BRD_DRAGONKIN_LINDWORMKIN Dragonkin (Lindwormkin): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 5.400 points.
+- BRD_DRAGONKIN_WESTERN Dragonkin (Western): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 5.400 points.
+- BRD_DRAGONKIN_WYVERNKIN Dragonkin (Wyvernkin): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 5.400 points.
+- BRD_DRAUGR Draugr: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Miren by 16.200 points.
+- BRD_DROMEDARY_CAMEL Dromedary camel: Neressa; weak direct evidence spans 0 substantial axes; Neressa leads Miren by 5.285 points.
+- BRD_DRYADS_DRYAD Dryads (Dryad): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 16.850 points.
+- BRD_DRYADS_HAMADRYAD Dryads (Hamadryad): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 10.550 points.
+- BRD_DUCK_BILLED_PLATYPUS Duck-billed platypus: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 7.450 points.
+- BRD_DUGONG Dugong: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_DWARF Dwarf: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 4.150 points.
+- BRD_DWARF_CASSOWARY Dwarf cassowary: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 17.200 points.
+- BRD_DWARF_CROCODILE Dwarf crocodile: Darel; weak direct evidence spans 1 substantial axes; Darel leads Kharad by 20.650 points.
+- BRD_DWARF_SIREN Dwarf siren: Iskarn; weak direct evidence spans 1 substantial axes; Iskarn leads Miren by 17.850 points.
+- BRD_DWARVES_DUERGAR Dwarves (Duergar): Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 3.750 points.
+- BRD_DWARVES_HILL_DWARF Dwarves (Hill Dwarf): Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Orun-IX by 9.750 points.
+- BRD_DWARVES_MOUNTAIN_DWARF Dwarves (Mountain Dwarf): Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Orun-IX by 4.850 points.
+- BRD_EASTERN_BARRED_BANDICOOT Eastern barred bandicoot: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.300 points.
+- BRD_EASTERN_CORAL_SNAKE Eastern coral snake: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 12.550 points.
+- BRD_EASTERN_GLASS_LIZARD Eastern glass lizard: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 14.100 points.
+- BRD_EASTERN_GRAY_SQUIRREL Eastern gray squirrel: Damor; weak direct evidence spans 1 substantial axes; Damor leads Scarabos by 9.600 points.
+- BRD_EASTERN_LONG_NECKED_TURTLE Eastern long-necked turtle: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 15.450 points.
+- BRD_EASTERN_LUBBER_GRASSHOPPER Eastern lubber grasshopper: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 11.100 points.
+- BRD_EASTERN_MOLE Eastern mole: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 9.000 points.
+- BRD_EASTERN_QUOLL Eastern quoll: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.750 points.
+- BRD_EASTERN_RAT_SNAKE Eastern rat snake: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Sahrem by 9.900 points.
+- BRD_EASTERN_RED_BACKED_SALAMANDER Eastern red-backed salamander: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 20.950 points.
+- BRD_EASTERN_TIGER_SWALLOWTAIL Eastern tiger swallowtail: Oren; weak direct evidence spans 1 substantial axes; Oren leads Selen by 13.350 points.
+- BRD_EASTERN_TUBE_NOSED_BAT Eastern tube-nosed bat: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 23.300 points.
+- BRD_ECLECTUS_PARROT Eclectus parrot: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.200 points.
+- BRD_EDIBLE_DORMOUSE Edible dormouse: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 6.500 points.
+- BRD_EGYPTIAN_FRUIT_BAT Egyptian fruit bat: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.950 points.
+- BRD_EGYPTIAN_MONGOOSE Egyptian mongoose: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 4.450 points.
+- BRD_EGYPTIAN_VULTURE Egyptian vulture: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Kharad by 13.100 points.
+- BRD_ELECTRIC_CATFISH Electric catfish: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Rillan by 5.750 points.
+- BRD_ELEGANT_CRESTED_TINAMOU Elegant crested tinamou: Miren; strong direct evidence spans 3 substantial axes; Miren leads Darel by 20.200 points.
+- BRD_ELEMENTALS_EARTH Elementals (Earth): Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Orun-IX by 19.650 points.
+- BRD_ELEMENTALS_FIRE Elementals (Fire): Sahrem; strong direct evidence spans 4 substantial axes; Sahrem leads Kharad by 26.650 points.
+- BRD_ELEMENTALS_ICE Elementals (Ice): Iskarn; moderate direct evidence spans 2 substantial axes; Iskarn leads Neressa by 11.450 points.
+- BRD_ELEMENTALS_LIGHTNING Elementals (Lightning): Voltar; strong direct evidence spans 3 substantial axes; Voltar leads Kharad by 19.650 points.
+- BRD_ELEMENTALS_METAL Elementals (Metal): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Neressa by 2.700 points.
+- BRD_ELEMENTALS_SAND Elementals (Sand): Varek; weak direct evidence spans 1 substantial axes; Varek leads Selen by 2.400 points.
+- BRD_ELEMENTALS_SMOKE Elementals (Smoke): Aveli; strong direct evidence spans 3 substantial axes; Aveli leads Sahrem by 3.450 points.
+- BRD_ELEMENTALS_WATER Elementals (Water): Neressa; strong direct evidence spans 3 substantial axes; Neressa leads Rillan by 9.800 points.
+- BRD_ELEPHANT_TRUNK_SNAKE Elephant trunk snake: Savael; moderate direct evidence spans 2 substantial axes; Savael leads Rillan by 26.200 points.
+- BRD_ELK Elk: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 3.500 points.
+- BRD_ELVES_DARK Elves (Dark): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 5.950 points.
+- BRD_ELVES_SNOW Elves (Snow): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 7.150 points.
+- BRD_ELVES_WOOD Elves (Wood): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 5.950 points.
+- BRD_EMERALD_COCKROACH_WASP Emerald cockroach wasp: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 2.850 points.
+- BRD_EMERALD_TREE_BOA Emerald tree boa: Savael; weak direct evidence spans 1 substantial axes; Savael leads Sahrem by 26.200 points.
+- BRD_EMPEROR_DRAGONFLY Emperor dragonfly: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Aveli by 9.650 points.
+- BRD_EMPEROR_GOOSE Emperor goose: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 4.400 points.
+- BRD_EMPEROR_NEWT Emperor newt: Miren; weak direct evidence spans 1 substantial axes; Miren leads Rillan by 8.200 points.
+- BRD_EMPEROR_PENGUIN Emperor penguin: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 10.200 points.
+- BRD_EMPEROR_SCORPION Emperor scorpion: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Damor by 21.950 points.
+- BRD_EMPEROR_TAMARIN Emperor tamarin: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Tavai by 28.250 points.
+- BRD_EMPUSA Empusa: Oren; weak direct evidence spans 1 substantial axes; Oren leads Kharad by 16.200 points.
+- BRD_EMU Emu: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 10.150 points.
+- BRD_ENSATINA_SALAMANDER Ensatina salamander: Oren; weak direct evidence spans 1 substantial axes; Oren leads Darel by 15.450 points.
+- BRD_EQUUS_HEMIONUS_PERSIAN_ONAGER Equus hemionus (Persian onager): Varek; weak direct evidence spans 1 substantial axes; Varek leads Iskarn by 6.950 points.
+- BRD_EQUUS_KIANG_KIANG Equus kiang (Kiang): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 8.400 points.
+- BRD_EQUUS_ZEBRA_MOUNTAIN_ZEBRA Equus zebra (Mountain zebra): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 4.450 points.
+- BRD_ERINYS Erinys: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Orun-IX by 3.000 points.
+- BRD_ETHIOPIAN_WOLF Ethiopian wolf: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 10.750 points.
+- BRD_ETRUSCAN_SHREW Etruscan shrew: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Darel by 18.950 points.
+- BRD_ETTIN Ettin: Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Kharad by 2.000 points.
+- BRD_EURASIAN_BEAVER Eurasian beaver: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 14.200 points.
+- BRD_EURASIAN_BITTERN Eurasian bittern: Oren; weak direct evidence spans 1 substantial axes; Oren leads Rillan by 20.350 points.
+- BRD_EURASIAN_COOT Eurasian coot: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 5.850 points.
+- BRD_EURASIAN_CURLEW Eurasian curlew: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 19.950 points.
+- BRD_EURASIAN_EAGLE_OWL Eurasian eagle-owl: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 20.450 points.
+- BRD_EURASIAN_GOLDEN_ORIOLE Eurasian golden oriole: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 18.400 points.
+- BRD_EURASIAN_SKYLARK Eurasian skylark: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 25.450 points.
+- BRD_EURASIAN_WATER_SHREW Eurasian water shrew: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Neressa by 7.550 points.
+- BRD_EUROPEAN_BEE_EATER European bee-eater: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 2.000 points.
+- BRD_EUROPEAN_EEL European eel: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Marea by 14.900 points.
+- BRD_EUROPEAN_GREEN_CRAB European green crab: Neressa; weak direct evidence spans 1 substantial axes; Neressa leads Lunessa by 5.700 points.
+- BRD_EUROPEAN_HAMSTER European hamster: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 6.150 points.
+- BRD_EUROPEAN_HARE European hare: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 16.600 points.
+- BRD_EUROPEAN_HEDGEHOG European hedgehog: Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Iskarn by 18.700 points.
+- BRD_EUROPEAN_MANTIS European mantis: Savael; weak direct evidence spans 1 substantial axes; Savael leads Orun-IX by 30.650 points.
+- BRD_EUROPEAN_MOLE European mole: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 6.300 points.
+- BRD_EUROPEAN_MOLE_CRICKET European mole cricket: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 9.250 points.
+- BRD_EUROPEAN_NIGHTJAR European nightjar: Selen; weak direct evidence spans 1 substantial axes; Selen leads Aveli by 14.200 points.
+- BRD_EUROPEAN_PAPER_WASP European paper wasp: Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Orun-IX by 16.500 points.
+- BRD_EUROPEAN_POND_TURTLE European pond turtle: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 13.800 points.
+- BRD_EUROPEAN_RABBIT European rabbit: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 2.900 points.
+- BRD_EUROPEAN_ROBIN European robin: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Selen by 6.000 points.
+- BRD_EUROPEAN_WILDCAT European wildcat: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 20.300 points.
+- BRD_EYELASH_VIPER Eyelash viper: Savael; strong direct evidence spans 3 substantial axes; Savael leads Rillan by 32.950 points.
+- BRD_FAIRY_FOLK_FAIRY Fairy Folk (Fairy): Miren; moderate direct evidence spans 2 substantial axes; Miren leads Kharad by 26.350 points.
+- BRD_FAIRY_FOLK_PIXIE Fairy Folk (Pixie): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 24.600 points.
+- BRD_FAIRY_FOLK_SPRITE Fairy Folk (Sprite): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 25.800 points.
+- BRD_FALSE_GHARIAL False gharial: Savael; weak direct evidence spans 1 substantial axes; Savael leads Rillan by 22.250 points.
+- BRD_FALSE_KILLER_WHALE False killer whale: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 16.450 points.
+- BRD_FANCY_RAT Fancy rat: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Kharad by 4.642 points.
+- BRD_FAT_TAILED_GERBIL Fat-tailed gerbil: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 14.800 points.
+- BRD_FEATHER_TAIL_CENTIPEDE Feather-tail centipede: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 15.650 points.
+- BRD_FEMME_FATALE_FIREFLY Femme-fatale firefly: Oren; weak direct evidence spans 1 substantial axes; Oren leads Selen by 19.250 points.
+- BRD_FENNEC_FOX Fennec fox: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 18.500 points.
+- BRD_FIELD_VOLE Field vole: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 9.300 points.
+- BRD_FIJI_CRESTED_IGUANA Fiji crested iguana: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_FIRE_GIANT Fire Giant: Sahrem; strong direct evidence spans 4 substantial axes; Sahrem leads Voltar by 15.300 points.
+- BRD_FIRE_SALAMANDER Fire salamander: Selen; weak direct evidence spans 1 substantial axes; Selen leads Kharad by 8.200 points.
+- BRD_FISHING_CAT Fishing cat: Savael; weak direct evidence spans 1 substantial axes; Savael leads Rillan by 21.200 points.
+- BRD_FLAMBOYANT_CUTTLEFISH Flamboyant cuttlefish: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 17.700 points.
+- BRD_FLEISCHMANN_S_GLASS_FROG Fleischmann's glass frog: Oren; strong direct evidence spans 3 substantial axes; Oren leads Rillan by 30.100 points.
+- BRD_FLIGHTLESS_CORMORANT Flightless cormorant: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Damor by 24.450 points.
+- BRD_FLOWERHORN_CICHLID Flowerhorn Cichlid: Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Neressa by 3.428 points.
+- BRD_FOSSA Fossa: Darel; moderate direct evidence spans 2 substantial axes; Darel leads Miren by 29.200 points.
+- BRD_FOUR_TOED_HEDGEHOG Four-toed hedgehog: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 7.850 points.
+- BRD_FOURWING_FLYINGFISH Fourwing flyingfish: Aveli; strong direct evidence spans 3 substantial axes; Aveli leads Marea by 6.000 points.
+- BRD_FRESHWATER_ANGELFISH_KOI_ANGELFISH Freshwater angelfish (Koi Angelfish): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Miren by 17.857 points.
+- BRD_FRESHWATER_ANGELFISH_VEIL_ANGELFISH Freshwater angelfish (Veil Angelfish): Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Neressa by 3.357 points.
+- BRD_FRESHWATER_CROCODILE Freshwater crocodile: Varek; weak direct evidence spans 1 substantial axes; Varek leads Rillan by 10.250 points.
+- BRD_FRILLED_LIZARD Frilled lizard: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 10.750 points.
+- BRD_FRINGED_JUMPING_SPIDER Fringed jumping spider: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Miren by 18.450 points.
+- BRD_FROST_GIANT Frost Giant: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Iskarn by 26.200 points.
+- BRD_GALAPAGOS_GIANT_TORTOISE Galápagos giant tortoise: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 15.650 points.
+- BRD_GAMBIAN_EPAULETTED_FRUIT_BAT Gambian epauletted fruit bat: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 24.200 points.
+- BRD_GANG_GANG_COCKATOO Gang-gang cockatoo: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 5.900 points.
+- BRD_GANGES_RIVER_DOLPHIN Ganges river dolphin: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Varek by 8.700 points.
+- BRD_GARDEN_DORMOUSE Garden dormouse: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 7.350 points.
+- BRD_GARGOYLE Gargoyle: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Scarabos by 19.750 points.
+- BRD_GARGOYLE_TWO_HEADED Gargoyle (Two-headed): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 18.900 points.
+- BRD_GARIBALDI_DAMSELFISH Garibaldi damselfish: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 17.500 points.
+- BRD_GARUDA Garuda: Miren; strong direct evidence spans 3 substantial axes; Miren leads Damor by 26.100 points.
+- BRD_GAUR Gaur: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_GELADA Gelada: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 14.600 points.
+- BRD_GENTOO_PENGUIN Gentoo penguin: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 14.850 points.
+- BRD_GEOFFROY_S_SPIDER_MONKEY Geoffroy's spider monkey: Darel; weak direct evidence spans 0 substantial axes; Darel leads Miren by 2.150 points.
+- BRD_GEOMYS_BURSARIUS_BURSARIUS_PLAINS_POCKET_GOPHER Geomys bursarius bursarius (Plains pocket gopher): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 6.800 points.
+- BRD_GERENUK Gerenuk: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 8.800 points.
+- BRD_GHARIAL Gharial: Varek; weak direct evidence spans 1 substantial axes; Varek leads Miren by 15.950 points.
+- BRD_GHOST_BAT Ghost bat: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Kharad by 7.200 points.
+- BRD_GHOST_GLASS_FROG Ghost glass frog: Oren; weak direct evidence spans 1 substantial axes; Oren leads Rillan by 11.200 points.
+- BRD_GHOSTS_GHOST Ghosts (Ghost): Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Varek by 12.550 points.
+- BRD_GHOSTS_POLTERGEIST Ghosts (Poltergeist): Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Miren by 13.100 points.
+- BRD_GHOSTS_SPECTER Ghosts (Specter): Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Varek by 12.550 points.
+- BRD_GHOSTS_WRAITH Ghosts (Wraith): Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Varek by 12.550 points.
+- BRD_GHOUL Ghoul: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Darel by 9.800 points.
+- BRD_GIANT_AFRICAN_LAND_SNAIL Giant African land snail: Iskarn; weak direct evidence spans 1 substantial axes; Iskarn leads Scarabos by 22.750 points.
+- BRD_GIANT_ANTEATER Giant anteater: Darel; moderate direct evidence spans 2 substantial axes; Darel leads Selen by 21.400 points.
+- BRD_GIANT_ARMADILLO Giant armadillo: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 5.650 points.
+- BRD_GIANT_AUSTRALIAN_CUTTLEFISH Giant Australian cuttlefish: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 18.300 points.
+- BRD_GIANT_BLIND_MOLE_RAT Giant blind mole-rat: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 6.300 points.
+- BRD_GIANT_BURROWING_COCKROACH Giant burrowing cockroach: Miren; strong direct evidence spans 3 substantial axes; Miren leads Damor by 28.350 points.
+- BRD_GIANT_DAY_GECKO Giant day gecko: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_GIANT_FRESHWATER_PRAWN Giant freshwater prawn: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Sahrem by 25.000 points.
+- BRD_GIANT_GIPPSLAND_EARTHWORM Giant Gippsland earthworm: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 29.750 points.
+- BRD_GIANT_GOLDEN_MOLE Giant golden mole: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 8.250 points.
+- BRD_GIANT_GOURAMI Giant gourami: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 14.100 points.
+- BRD_GIANT_IBIS Giant ibis: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 14.100 points.
+- BRD_GIANT_ICHNEUMON_WASP Giant ichneumon wasp: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Selen by 20.750 points.
+- BRD_GIANT_KINGFISHER Giant kingfisher: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.450 points.
+- BRD_GIANT_MORAY Giant moray: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Miren by 7.400 points.
+- BRD_GIANT_MOTTLED_EEL Giant mottled eel: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Rillan by 14.250 points.
+- BRD_GIANT_PANDA Giant panda: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 14.700 points.
+- BRD_GIANT_PANGOLIN Giant pangolin: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 13.200 points.
+- BRD_GIANT_SQUID Giant squid: Marea; weak direct evidence spans 1 substantial axes; Marea leads Asteriel by 9.150 points.
+- BRD_GIANT_TINAMOU Giant tinamou: Miren; strong direct evidence spans 4 substantial axes; Miren leads Darel by 23.450 points.
+- BRD_GIANT_WATER_BUG Giant water bug: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Neressa by 21.150 points.
+- BRD_GIGANTES Gigantes: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Kharad by 12.100 points.
+- BRD_GILA_MONSTER Gila monster: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 13.800 points.
+- BRD_GLACIER_LANTERNFISH Glacier lanternfish: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 13.400 points.
+- BRD_GLASSWING_BUTTERFLY Glasswing butterfly: Oren; weak direct evidence spans 1 substantial axes; Oren leads Lunessa by 25.300 points.
+- BRD_GOLDEN_EAGLE Golden eagle: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 14.050 points.
+- BRD_GOLDEN_HAMSTER Golden hamster: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 15.650 points.
+- BRD_GOLDEN_KING_CRAB Golden king crab: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 22.750 points.
+- BRD_GOLDEN_POISON_FROG Golden poison frog: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Tavai by 14.400 points.
+- BRD_GOLDEN_SILK_ORB_WEAVER Golden silk orb-weaver: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Scarabos by 23.250 points.
+- BRD_GOLDEN_SNUB_NOSED_MONKEY Golden snub-nosed monkey: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 18.050 points.
+- BRD_GOLDFISH Goldfish: Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Iskarn by 2.000 points.
+- BRD_GOLDFISH_BUBBLE_EYE_GOLDFISH Goldfish (Bubble Eye Goldfish): Neressa; weak direct evidence spans 1 substantial axes; Neressa leads Rillan by 2.143 points.
+- BRD_GOLDFISH_COMET_GOLDFISH Goldfish (Comet Goldfish): Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Damor by 11.143 points.
+- BRD_GOLDFISH_COMMON_GOLDFISH Goldfish (Common Goldfish): Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Damor by 10.572 points.
+- BRD_GOLDFISH_FANTAIL_GOLDFISH Goldfish (Fantail Goldfish): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 7.000 points.
+- BRD_GOLDFISH_LIONHEAD_GOLDFISH Goldfish (Lionhead Goldfish): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 7.000 points.
+- BRD_GOLDFISH_ORANDA Goldfish (Oranda): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 7.000 points.
+- BRD_GOLDFISH_RANCHU Goldfish (Ranchu): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 7.000 points.
+- BRD_GOLDFISH_RYUKIN Goldfish (Ryukin): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 7.000 points.
+- BRD_GOLDFISH_SHUBUNKIN Goldfish (Shubunkin): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 7.000 points.
+- BRD_GOLDFISH_TELESCOPE_GOLDFISH Goldfish (Telescope Goldfish): Rillan; weak partial evidence spans 1 substantial axes; Rillan leads Damor by 7.000 points.
+- BRD_GOLEM Golem: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 5.600 points.
+- BRD_GOLEMS_BONE Golems (Bone): Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 13.400 points.
+- BRD_GOLEMS_CLAY Golems (Clay): Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 12.200 points.
+- BRD_GOLEMS_FLESH Golems (Flesh): Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 13.400 points.
+- BRD_GOLEMS_GLASS Golem (Glass): Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 5.600 points.
+- BRD_GOLEMS_IRON Golems (Iron): Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 12.200 points.
+- BRD_GOLEMS_KINTSUGI_CERAMIC Golem (Kintsugi ceramic): Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 7.400 points.
+- BRD_GOLEMS_STONE Golems (Stone): Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 12.200 points.
+- BRD_GOLEMS_WOOD Golems (Wood): Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 12.200 points.
+- BRD_GOLIATH_BIRDEATER Goliath birdeater: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 13.850 points.
+- BRD_GOLIATH_FROG Goliath frog: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 19.250 points.
+- BRD_GORGON Gorgon: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 15.700 points.
+- BRD_GOULDIAN_FINCH Gouldian finch: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 15.800 points.
+- BRD_GRANT_S_GOLDEN_MOLE Grant's golden mole: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 11.200 points.
+- BRD_GRAY_CROWNED_CRANE Gray crowned crane: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Selen by 3.400 points.
+- BRD_GRAY_PARTRIDGE Gray partridge: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 6.850 points.
+- BRD_GRAY_WHALE Gray whale: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 4.900 points.
+- BRD_GRAY_WOLF Gray wolf: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 23.200 points.
+- BRD_GREAT_BARBET Great barbet: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 19.550 points.
+- BRD_GREAT_BOWERBIRD Great bowerbird: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 6.350 points.
+- BRD_GREAT_BUSTARD Great bustard: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 8.400 points.
+- BRD_GREAT_CORMORANT Great cormorant: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 6.000 points.
+- BRD_GREAT_CRESTED_GREBE Great crested grebe: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 25.400 points.
+- BRD_GREAT_CRESTED_NEWT Great crested newt: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 16.050 points.
+- BRD_GREAT_EGRET Great egret: Savael; weak direct evidence spans 1 substantial axes; Savael leads Rillan by 19.500 points.
+- BRD_GREAT_FRIGATEBIRD Great frigatebird: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 3.000 points.
+- BRD_GREAT_GERBIL Great gerbil: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_GREAT_HORNBILL Great hornbill: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 20.650 points.
+- BRD_GREAT_POTOO Great potoo: Oren; weak direct evidence spans 1 substantial axes; Oren leads Selen by 18.900 points.
+- BRD_GREAT_SPOTTED_KIWI Great spotted kiwi: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Kharad by 23.050 points.
+- BRD_GREAT_SPOTTED_WOODPECKER Great spotted woodpecker: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 7.300 points.
+- BRD_GREAT_WHITE_PELICAN Great white pelican: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 12.900 points.
+- BRD_GREAT_WHITE_SHARK Great white shark: Savael; weak direct evidence spans 1 substantial axes; Savael leads Marea by 22.150 points.
+- BRD_GREATER_ANGLE_WING_KATYDID Greater angle-wing katydid: Oren; weak direct evidence spans 1 substantial axes; Oren leads Elian by 21.750 points.
+- BRD_GREATER_BILBY Greater bilby: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 2.550 points.
+- BRD_GREATER_BIRD_OF_PARADISE Greater bird-of-paradise: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 25.400 points.
+- BRD_GREATER_BLUE_RINGED_OCTOPUS Greater blue-ringed octopus: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 20.000 points.
+- BRD_GREATER_BULLDOG_BAT Greater bulldog bat: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Rillan by 2.050 points.
+- BRD_GREATER_COUCAL Greater coucal: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 14.100 points.
+- BRD_GREATER_FLAMINGO Greater flamingo: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 18.550 points.
+- BRD_GREATER_HOOPOE_LARK Greater hoopoe-lark: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 14.800 points.
+- BRD_GREATER_HORSESHOE_BAT Greater horseshoe bat: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 6.850 points.
+- BRD_GREATER_MOUSE_EARED_BAT Greater mouse-eared bat: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 8.350 points.
+- BRD_GREATER_PIPEFISH Greater pipefish: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Damor by 24.250 points.
+- BRD_GREATER_RHEA Greater rhea: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 17.600 points.
+- BRD_GREATER_ROADRUNNER Greater roadrunner: Varek; weak direct evidence spans 1 substantial axes; Varek leads Savael by 4.700 points.
+- BRD_GREATER_SIREN Greater siren: Savael; weak direct evidence spans 1 substantial axes; Savael leads Varek by 9.450 points.
+- BRD_GREEN_ACOUCHI Green acouchi: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 12.000 points.
+- BRD_GREEN_ANACONDA Green anaconda: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 13.800 points.
+- BRD_GREEN_AND_RUFOUS_KINGFISHER Green-and-rufous kingfisher: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.450 points.
+- BRD_GREEN_ANOLE Green anole: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_GREEN_IGUANA Green iguana: Darel; weak direct evidence spans 1 substantial axes; Darel leads Miren by 18.550 points.
+- BRD_GREEN_SEA_TURTLE Green sea turtle: Marea; strong direct evidence spans 3 substantial axes; Marea leads Sahrem by 3.550 points.
+- BRD_GREEN_TIGER_BEETLE Green tiger beetle: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 14.800 points.
+- BRD_GREEN_TREE_PYTHON Green tree python: Savael; weak direct evidence spans 1 substantial axes; Savael leads Miren by 26.900 points.
+- BRD_GREVY_S_ZEBRA Grévy's zebra: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 17.200 points.
+- BRD_GREYLAG_GOOSE Greylag goose: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Rillan by 9.900 points.
+- BRD_GRIFFIN Griffin: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 11.500 points.
+- BRD_GRIFFON_VULTURE Griffon vulture: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 3.500 points.
+- BRD_GRIZZLED_TREE_KANGAROO Grizzled tree-kangaroo: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 10.250 points.
+- BRD_GROUND_PANGOLIN Ground pangolin: Selen; weak direct evidence spans 1 substantial axes; Selen leads Kharad by 6.250 points.
+- BRD_GROUNDHOG Groundhog: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 2.550 points.
+- BRD_GUPPY_COBRA_GUPPY Guppy (Cobra Guppy): Miren; moderate direct evidence spans 2 substantial axes; Miren leads Rillan by 4.286 points.
+- BRD_GUPPY_TUXEDO_GUPPY Guppy (Tuxedo Guppy): Rillan; weak direct evidence spans 1 substantial axes; Rillan leads Miren by 7.643 points.
+- BRD_GYRFALCON Gyrfalcon: Miren; weak direct evidence spans 1 substantial axes; Miren leads Kharad by 12.200 points.
+- BRD_HAIRY_FROGFISH Hairy frogfish: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Marea by 4.200 points.
+- BRD_HAIRY_LEGGED_VAMPIRE_BAT Hairy-legged vampire bat: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 9.350 points.
+- BRD_HALFLING Halfling: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Miren by 19.350 points.
+- BRD_HAMADRYAS_BABOON Hamadryas baboon: Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Kharad by 10.050 points.
+- BRD_HAMERKOP Hamerkop: Varek; weak direct evidence spans 1 substantial axes; Varek leads Miren by 12.950 points.
+- BRD_HAMMER_HEADED_FRUIT_BAT Hammer-headed fruit bat: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 27.450 points.
+- BRD_HARBOR_SEAL Harbor seal: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 8.450 points.
+- BRD_HARLEQUIN_LADYBIRD Harlequin ladybird: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 7.850 points.
+- BRD_HARLEQUIN_SHRIMP Harlequin shrimp: Miren; weak direct evidence spans 1 substantial axes; Miren leads Selen by 14.100 points.
+- BRD_HARPY Harpy: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Damor by 12.650 points.
+- BRD_HARPY_EAGLE Harpy eagle: Miren; strong direct evidence spans 3 substantial axes; Miren leads Darel by 22.000 points.
+- BRD_HAWFINCH Hawfinch: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Tavai by 10.450 points.
+- BRD_HAWKSBILL_SEA_TURTLE Hawksbill sea turtle: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 7.650 points.
+- BRD_HAZEL_DORMOUSE Hazel dormouse: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 19.800 points.
+- BRD_HEADLIGHTFISH Headlightfish: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 2.700 points.
+- BRD_HECATONCHEIR Hecatoncheir: Varek; weak direct evidence spans 1 substantial axes; Varek leads Miren by 8.650 points.
+- BRD_HELLBENDER Hellbender: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 15.100 points.
+- BRD_HERRING_GULL Herring gull: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Kharad by 19.300 points.
+- BRD_HINNY Hinny: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 6.929 points.
+- BRD_HISPANIOLAN_SOLENODON Hispaniolan solenodon: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Voltar by 2.950 points.
+- BRD_HOATZIN Hoatzin: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 11.950 points.
+- BRD_HOBGOBLIN Hobgoblin: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Kharad by 24.150 points.
+- BRD_HOMING_PIGEON_BEAST Homing pigeon (sapient Beast population): Miren; weak direct evidence spans 1 substantial axes; Miren leads Vespera by 6.200 points.
+- BRD_HOMUNCULUS Homunculus: Oren; weak direct evidence spans 1 substantial axes; Oren leads Myrra by 14.550 points.
+- BRD_HONEY_POSSUM Honey possum: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.750 points.
+- BRD_HOODED_MERGANSER Hooded merganser: Darel; moderate direct evidence spans 2 substantial axes; Darel leads Miren by 22.300 points.
+- BRD_HOODED_VULTURE Hooded vulture: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 6.000 points.
+- BRD_HOODWINKER_SUNFISH Hoodwinker sunfish: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 20.400 points.
+- BRD_HORNED_GREBE Horned grebe: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 25.400 points.
+- BRD_HORNED_LARK Horned lark: Darel; weak direct evidence spans 1 substantial axes; Darel leads Miren by 15.050 points.
+- BRD_HORNED_PARAKEET Horned parakeet: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.950 points.
+- BRD_HORNED_SCREAMER Horned screamer: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Rillan by 10.950 points.
+- BRD_HOUSE_CRICKET House cricket: Selen; weak direct evidence spans 1 substantial axes; Selen leads Scarabos by 20.600 points.
+- BRD_HOUSE_MOUSE House mouse: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Selen by 11.550 points.
+- BRD_HOUSEFLY Housefly: Darel; weak direct evidence spans 1 substantial axes; Darel leads Aveli by 8.500 points.
+- BRD_HUMAN_ABORIGINAL_AUSTRALIAN_ABORIGINAL_AUSTRALIAN Human (Aboriginal Australian - Aboriginal Australian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 16.063 points.
+- BRD_HUMAN_ABORIGINAL_AUSTRALIAN_YOLNGU Human (Aboriginal Australian - Yolngu): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 16.063 points.
+- BRD_HUMAN_AFGHAN Human (Afghan): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 11.875 points.
+- BRD_HUMAN_AFRICAN_AMERICAN_AFRICAN_AMERICAN Human (African American - African American): Miren; strong direct evidence spans 3 substantial axes; Miren leads Orun-IX by 7.450 points.
+- BRD_HUMAN_AFRICAN_AMERICAN_AMERICO_LIBERIAN Human (African American - Americo Liberian): Miren; moderate partial evidence spans 2 substantial axes; Miren leads Asteriel by 7.250 points.
+- BRD_HUMAN_AFRIKANER_AFRIKANER Human (Afrikaner - Afrikaner): Miren; weak partial evidence spans 0 substantial axes; Miren leads Asteriel by 3.000 points.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_COLOMBIAN Human (Afro Latin American Afro Bahian - Afro Colombian): Darel; weak direct evidence spans 1 substantial axes; Darel leads Sahrem by 2.500 points.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_COSTA_RICAN Human (Afro Latin American Afro Bahian - Afro Costa Rican): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Selen by 2.200 points.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_DOMINICAN Human (Afro Latin American Afro Bahian - Afro Dominican): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Sterna by 12.550 points.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_ECUADORIAN Human (Afro Latin American Afro Bahian - Afro Ecuadorian): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Voltar by 3.563 points.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_PANAMANIAN Human (Afro Latin American Afro Bahian - Afro Panamanian): Darel; moderate direct evidence spans 2 substantial axes; Darel leads Sahrem by 5.050 points.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_TRINIDADIAN Human (Afro Latin American Afro Bahian - Afro Trinidadian): Selen; weak direct evidence spans 1 substantial axes; Selen leads Sahrem by 2.375 points.
+- BRD_HUMAN_AINU_AINU Human (Ainu - Ainu): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 10.000 points.
+- BRD_HUMAN_ALBANIAN_ALBANIAN Human (Albanian - Albanian): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.500 points.
+- BRD_HUMAN_AMAZIGH_BERBER_AMAZIGH_BERBER Human (Amazigh Berber - Amazigh Berber): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Orun-IX by 3.050 points.
+- BRD_HUMAN_AMAZIGH_BERBER_AMAZIGH_TUAREG Human (Amazigh Berber - Amazigh Tuareg): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 3.200 points.
+- BRD_HUMAN_AMAZIGH_BERBER_TUAREG Human (Amazigh Berber - Tuareg): Miren; weak partial evidence spans 0 substantial axes; Miren leads Asteriel by 2.150 points.
+- BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_AMAZONIAN Human (Amazonian Indigenous Marajoara Shipibo - Amazonian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Rillan by 8.600 points.
+- BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_AMAZONIAN_INDIGENOUS Human (Amazonian Indigenous Marajoara Shipibo - Amazonian Indigenous): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 7.250 points.
+- BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_INDIGENOUS Human (Amazonian Indigenous Marajoara Shipibo - Indigenous): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 10.000 points.
+- BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_INDIGENOUS_SURINAMESE Human (Amazonian Indigenous Marajoara Shipibo - Indigenous Surinamese): Miren; weak partial evidence spans 1 substantial axes; Miren leads Tavai by 11.937 points.
+- BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_MARAJOARA Human (Amazonian Indigenous Marajoara Shipibo - Marajoara): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 12.875 points.
+- BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_SHIPIBO_KONIBO Human (Amazonian Indigenous Marajoara Shipibo - Shipibo Konibo): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 3.600 points.
+- BRD_HUMAN_AMERICAN Human (American): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.250 points.
+- BRD_HUMAN_AMERICAN_SETTLER_INDIGENOUS_MIXED Human (American — mixed settler/Indigenous): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 18.063 points.
+- BRD_HUMAN_ANCIENT_LEVANTINE_NABATAEAN_PHOENICIAN_NABATAEAN Human (Ancient Levantine Nabataean Phoenician - Nabataean): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 25.250 points.
+- BRD_HUMAN_ANCIENT_LEVANTINE_NABATAEAN_PHOENICIAN_PHOENICIAN_CARTHAGINIAN Human (Ancient Levantine Nabataean Phoenician - Phoenician Carthaginian): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 25.250 points.
+- BRD_HUMAN_ANCIENT_LEVANTINE_NABATAEAN_PHOENICIAN_TUNISIAN_ARAB Human (Ancient Levantine Nabataean Phoenician - Tunisian Arab): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 25.875 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_AFRO_GUYANESE Human (Anglophone Atlantic Creole Maroon - Afro Guyanese): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 7.650 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_AFRO_VIRGIN_ISLANDER Human (Anglophone Atlantic Creole Maroon - Afro Virgin Islander): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 9.687 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_ANGUILLAN Human (Anglophone Atlantic Creole Maroon - Anguillan): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_ANTIGUAN_BARBUDAN Human (Anglophone Atlantic Creole Maroon - Antiguan Barbudan): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_BAHAMIAN Human (Anglophone Atlantic Creole Maroon - Bahamian): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 7.650 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_BAJAN Human (Anglophone Atlantic Creole Maroon - Bajan): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_BELIZEAN_KRIOL Human (Anglophone Atlantic Creole Maroon - Belizean Kriol): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Rillan by 6.800 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_BERMUDIAN Human (Anglophone Atlantic Creole Maroon - Bermudian): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_BVI_CREOLE Human (Anglophone Atlantic Creole Maroon - Bvi Creole): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 7.650 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_CAYMANIAN Human (Anglophone Atlantic Creole Maroon - Caymanian): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_GRENADIAN Human (Anglophone Atlantic Creole Maroon - Grenadian): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_JAMAICAN Human (Anglophone Atlantic Creole Maroon - Jamaican): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_JAMAICAN_MAROON Human (Anglophone Atlantic Creole Maroon - Jamaican Maroon): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_KITTITIAN_NEVISIAN Human (Anglophone Atlantic Creole Maroon - Kittitian Nevisian): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_KRIO Human (Anglophone Atlantic Creole Maroon - Krio): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_MAROON Human (Anglophone Atlantic Creole Maroon - Maroon): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_MONTSERRATIAN Human (Anglophone Atlantic Creole Maroon - Montserratian): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_NICARAGUAN_CREOLE Human (Anglophone Atlantic Creole Maroon - Nicaraguan Creole): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 7.650 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_SABAN_STATIAN Human (Anglophone Atlantic Creole Maroon - Saban Statian): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_SINT_MAARTENER Human (Anglophone Atlantic Creole Maroon - Sint Maartener): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_SURINAMESE_CREOLE Human (Anglophone Atlantic Creole Maroon - Surinamese Creole): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_TURKS_CAICOS Human (Anglophone Atlantic Creole Maroon - Turks Caicos): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 14.812 points.
+- BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_VINCENTIAN Human (Anglophone Atlantic Creole Maroon - Vincentian): Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 7.650 points.
+- BRD_HUMAN_ANISHINAABE_ANISHINAABE Human (Anishinaabe - Anishinaabe): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 13.375 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_ARABIAN_BEDOUIN Human (Arabian Peninsula Arab - Arabian Bedouin): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.550 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_ASIRI Human (Arabian Peninsula Arab - Asiri): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.550 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_BEDOUIN Human (Arabian Peninsula Arab - Bedouin): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 5.100 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_DHOFARI_ARAB Human (Arabian Peninsula Arab - Dhofari Arab): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_EMIRATI_ARAB Human (Arabian Peninsula Arab - Emirati Arab): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_GULF_ARAB Human (Arabian Peninsula Arab - Gulf Arab): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Miren by 2.950 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_HADHRAMI Human (Arabian Peninsula Arab - Hadhrami): Miren; weak partial evidence spans 1 substantial axes; Miren leads Sterna by 3.650 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_KUWAITI_ARAB Human (Arabian Peninsula Arab - Kuwaiti Arab): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.550 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_NAJDI Human (Arabian Peninsula Arab - Najdi): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_OMANI_ARAB Human (Arabian Peninsula Arab - Omani Arab): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Asteriel by 6.350 points.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_SOCOTRI Human (Arabian Peninsula Arab - Socotri): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_ASSYRIAN_SYRIAC_ASSYRIAN_SYRIAC Human (Assyrian Syriac - Assyrian Syriac): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 5.063 points.
+- BRD_HUMAN_ATLANTIS_ATLANTIS Human (Atlantis - Atlantis): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 16.625 points.
+- BRD_HUMAN_AUSTRALIAN Human (Australian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_AVALON_AVALON Human (Avalon - Avalon): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 34.250 points.
+- BRD_HUMAN_AVALON_CORNISH Human (Avalon - Cornish): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 34.250 points.
+- BRD_HUMAN_AYMARA_TIWANAKU_AYMARA Human (Aymara Tiwanaku - Aymara): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_AYMARA_TIWANAKU_TIWANAKU Human (Aymara Tiwanaku - Tiwanaku): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.813 points.
+- BRD_HUMAN_BALINESE_BALINESE Human (Balinese - Balinese): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.813 points.
+- BRD_HUMAN_BASQUE_BASQUE Human (Basque - Basque): Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 25.125 points.
+- BRD_HUMAN_BELGIAN Human (Belgian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_BENGALI_BENGALI Human (Bengali - Bengali): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_BRAZILIAN Human (Brazilian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_CANADIAN Human (Canadian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.813 points.
+- BRD_HUMAN_CANADIAN_SETTLER_INDIGENOUS_MIXED Human (Canadian — mixed settler/Indigenous): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 18.063 points.
+- BRD_HUMAN_CARIBBEAN_INDIGENOUS_TAINO_ARAWAK_CARIB Human (Caribbean Indigenous Taino - Arawak Carib): Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 21.375 points.
+- BRD_HUMAN_CARIBBEAN_INDIGENOUS_TAINO_BRIBRI_CABECAR Human (Caribbean Indigenous Taino - Bribri Cabecar): Damor; weak direct evidence spans 1 substantial axes; Damor leads Elian by 24.625 points.
+- BRD_HUMAN_CARIBBEAN_INDIGENOUS_TAINO_GUNA_EMBERA Human (Caribbean Indigenous Taino - Guna Embera): Damor; weak direct evidence spans 1 substantial axes; Damor leads Scarabos by 25.000 points.
+- BRD_HUMAN_CARIBBEAN_INDIGENOUS_TAINO_MISKITO Human (Caribbean Indigenous Taino - Miskito): Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 15.200 points.
+- BRD_HUMAN_CARIBBEAN_INDIGENOUS_TAINO_TAINO Human (Caribbean Indigenous Taino - Taino): Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 20.750 points.
+- BRD_HUMAN_CATALAN_CATALAN Human (Catalan - Catalan): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 18.063 points.
+- BRD_HUMAN_CAUCASUS_HIGHLAND_GEORGIAN_NORTH_CAUCASIAN_GEORGIAN Human (Caucasus Highland Georgian North Caucasian - Georgian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 13.800 points.
+- BRD_HUMAN_CAUCASUS_HIGHLAND_GEORGIAN_NORTH_CAUCASIAN_LAZ_GEORGIAN Human (Caucasus Highland Georgian North Caucasian - Laz Georgian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_CAUCASUS_HIGHLAND_GEORGIAN_NORTH_CAUCASIAN_LEZGIN Human (Caucasus Highland Georgian North Caucasian - Lezgin): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 14.000 points.
+- BRD_HUMAN_CAUCASUS_HIGHLAND_GEORGIAN_NORTH_CAUCASIAN_NORTH_CAUCASIAN Human (Caucasus Highland Georgian North Caucasian - North Caucasian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 13.800 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BETI_FANG Human (Central And Great Lakes African Kongo Bantu Twa - Beti Fang): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_FANG Human (Central And Great Lakes African Kongo Bantu Twa - Fang): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Orun-IX by 5.250 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_FOREST_PEOPLES Human (Central And Great Lakes African Kongo Bantu Twa - Forest Peoples): Miren; weak partial evidence spans 1 substantial axes; Miren leads Rillan by 2.450 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_GBAYA_BANDA Human (Central And Great Lakes African Kongo Bantu Twa - Gbaya Banda): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_HUTU_TUTSI Human (Central And Great Lakes African Kongo Bantu Twa - Hutu Tutsi): Miren; moderate direct evidence spans 2 substantial axes; Miren leads Orun-IX by 5.938 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_KONGO Human (Central And Great Lakes African Kongo Bantu Twa - Kongo): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_KONGO_TEKE Human (Central And Great Lakes African Kongo Bantu Twa - Kongo Teke): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_MBUNDU_OVIMBUNDU Human (Central And Great Lakes African Kongo Bantu Twa - Mbundu Ovimbundu): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_MYENE Human (Central And Great Lakes African Kongo Bantu Twa - Myene): Miren; weak partial evidence spans 1 substantial axes; Miren leads Rillan by 4.250 points.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_TWA Human (Central And Great Lakes African Kongo Bantu Twa - Twa): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_CENTRAL_SAHARA_TOUBOU_TEBU_TEBU Human (Central Sahara Toubou Tebu - Tebu): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 22.813 points.
+- BRD_HUMAN_CENTRAL_SAHARA_TOUBOU_TEBU_TOUBOU Human (Central Sahara Toubou Tebu - Toubou): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 22.813 points.
+- BRD_HUMAN_CHAD_SUDAN_INTERIOR_CHADIAN_ARAB Human (Chad Sudan Interior - Chadian Arab): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 5.700 points.
+- BRD_HUMAN_CHAD_SUDAN_INTERIOR_FUR_ZAGHAWA Human (Chad Sudan Interior - Fur Zaghawa): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_CHAD_SUDAN_INTERIOR_SARA Human (Chad Sudan Interior - Sara): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_CHINESE Human (Chinese): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 20.875 points.
+- BRD_HUMAN_COLOMBIAN Human (Colombian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_CONGOLESE Human (Congolese): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_CUBAN Human (Cuban): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_DINE_NAVAJO_DINE Human (Dine Navajo - Dine): Sterna; moderate direct evidence spans 2 substantial axes; Sterna leads Vespera by 27.375 points.
+- BRD_HUMAN_DINE_NAVAJO_DINE_NAVAJO Human (Dine Navajo - Dine Navajo): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 23.875 points.
+- BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_CHAGA Human (East African Bantu Swahili Comorian - Chaga): Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 11.800 points.
+- BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_COMORIAN Human (East African Bantu Swahili Comorian - Comorian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 7.300 points.
+- BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_KIKUYU_KAMBA Human (East African Bantu Swahili Comorian - Kikuyu Kamba): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 16.625 points.
+- BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_MAHORAN Human (East African Bantu Swahili Comorian - Mahoran): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 11.375 points.
+- BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_SUKUMA_NYAMWEZI Human (East African Bantu Swahili Comorian - Sukuma Nyamwezi): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 13.300 points.
+- BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_SWAHILI Human (East African Bantu Swahili Comorian - Swahili): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.900 points.
+- BRD_HUMAN_EAST_AFRICAN_BANTU_SWAHILI_COMORIAN_SWAHILI_COAST Human (East African Bantu Swahili Comorian - Swahili Coast): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.500 points.
+- BRD_HUMAN_EDO_BENIN_NIGER_DELTA_EDO Human (Edo Benin Niger Delta - Edo): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_EDO_BENIN_NIGER_DELTA_EDO_BENIN Human (Edo Benin Niger Delta - Edo Benin): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 21.063 points.
+- BRD_HUMAN_EDO_BENIN_NIGER_DELTA_NIGER_DELTA Human (Edo Benin Niger Delta - Niger Delta): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 11.450 points.
+- BRD_HUMAN_EGYPTIAN Human (Egyptian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_EGYPTIAN_COPTIC_COPTIC Human (Egyptian Coptic - Coptic): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_EGYPTIAN_COPTIC_EGYPTIAN_COPTIC Human (Egyptian Coptic - Egyptian Coptic): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_ENGLISH_ANGLO_ANGLO_AMERICAN Human (English Anglo - Anglo American): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_ENGLISH_ANGLO_ANGLO_AUSTRALIAN Human (English Anglo - Anglo Australian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_ENGLISH_ANGLO_ANGLO_SOUTH_AFRICAN Human (English Anglo - Anglo South African): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.250 points.
+- BRD_HUMAN_ENGLISH_ANGLO_ASCENSION_ISLANDER Human (English Anglo - Ascension Islander): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.813 points.
+- BRD_HUMAN_ENGLISH_ANGLO_ENGLISH Human (English Anglo - English): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_ENGLISH_ANGLO_ENGLISH_CANADIAN Human (English Anglo - English Canadian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_ENGLISH_ANGLO_FALKLAND_ISLANDER Human (English Anglo - Falkland Islander): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 5.625 points.
+- BRD_HUMAN_ENGLISH_ANGLO_GUERNSEY_ENGLISH Human (English Anglo - Guernsey English): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_ENGLISH_ANGLO_JERSEY_ENGLISH Human (English Anglo - Jersey English): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_ENGLISH_ANGLO_PAKEHA Human (English Anglo - Pakeha): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_ENGLISH_ANGLO_SAINT_HELENIAN Human (English Anglo - Saint Helenian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 12.563 points.
+- BRD_HUMAN_ENGLISH_ANGLO_TRISTANIAN Human (English Anglo - Tristanian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_AMHARA_TIGRAYAN Human (Ethiopian Eritrean Highlands And South - Amhara Tigrayan): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_TIGRINYA Human (Ethiopian Eritrean Highlands And South - Tigrinya): Miren; weak partial evidence spans 1 substantial axes; Miren leads Sterna by 3.150 points.
+- BRD_HUMAN_FINNIC_ESTONIAN Human (Finnic - Estonian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_FINNIC_FINNISH Human (Finnic - Finnish): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_FINNIC_SWEDISH_FINN Human (Finnic - Swedish Finn): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 2.400 points.
+- BRD_HUMAN_FINNIC_TORNEDALIAN Human (Finnic - Tornedalian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_DOMINICAN_CREOLE Human (Francophone Caribbean Creole - Dominican Creole): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Voltar by 3.563 points.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_FRENCH_CREOLE Human (Francophone Caribbean Creole - French Creole): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Voltar by 3.563 points.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_GUIANESE_CREOLE Human (Francophone Caribbean Creole - Guianese Creole): Darel; weak direct evidence spans 1 substantial axes; Darel leads Sahrem by 3.125 points.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_HAITIAN_KREYOL Human (Francophone Caribbean Creole - Haitian Kreyol): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Voltar by 3.563 points.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_SAINT_LUCIAN Human (Francophone Caribbean Creole - Saint Lucian): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Voltar by 3.563 points.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_LOUISIANA_CREOLE_CAJUN Human (French Francophone - Louisiana Creole Cajun): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_MONEGASQUE Human (French Francophone - Monegasque): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_OCCITAN Human (French Francophone - Occitan): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_SWISS_FRENCH Human (French Francophone - Swiss French): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_GARIFUNA_GARIFUNA Human (Garifuna - Garifuna): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_AFRIKANER_GERMAN Human (German Dutch Flemish Continental West Germanic - Afrikaner German): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_ALEMANNIC Human (German Dutch Flemish Continental West Germanic - Alemannic): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_ALSATIAN Human (German Dutch Flemish Continental West Germanic - Alsatian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_AUSTRIAN Human (German Dutch Flemish Continental West Germanic - Austrian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_BAVARIAN Human (German Dutch Flemish Continental West Germanic - Bavarian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_CARINTHIAN Human (German Dutch Flemish Continental West Germanic - Carinthian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_DUTCH Human (German Dutch Flemish Continental West Germanic - Dutch): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 5.400 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_FLEMISH Human (German Dutch Flemish Continental West Germanic - Flemish): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_FLEMISH_DUTCH_LOW_COUNTRIES Human (German Dutch Flemish Continental West Germanic - Flemish Dutch Low Countries): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_FRANCONIAN Human (German Dutch Flemish Continental West Germanic - Franconian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_FRISIAN Human (German Dutch Flemish Continental West Germanic - Frisian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 8.400 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_GERMAN Human (German Dutch Flemish Continental West Germanic - German): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_GERMAN_BELGIAN Human (German Dutch Flemish Continental West Germanic - German Belgian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_GERMAN_SAXON Human (German Dutch Flemish Continental West Germanic - German Saxon): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_LIECHTENSTEINER Human (German Dutch Flemish Continental West Germanic - Liechtensteiner): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_LIMBURGISH Human (German Dutch Flemish Continental West Germanic - Limburgish): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_LOW_GERMAN Human (German Dutch Flemish Continental West Germanic - Low German): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_LUXEMBOURGISH Human (German Dutch Flemish Continental West Germanic - Luxembourgish): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_MENNONITE Human (German Dutch Flemish Continental West Germanic - Mennonite): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 8.400 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_RHINELANDER Human (German Dutch Flemish Continental West Germanic - Rhinelander): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_SAXON_THURINGIAN Human (German Dutch Flemish Continental West Germanic - Saxon Thuringian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_SOUTH_TYROLEAN Human (German Dutch Flemish Continental West Germanic - South Tyrolean): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_STYRIAN Human (German Dutch Flemish Continental West Germanic - Styrian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_SWABIAN Human (German Dutch Flemish Continental West Germanic - Swabian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_SWISS_GERMAN Human (German Dutch Flemish Continental West Germanic - Swiss German): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_TYROLEAN Human (German Dutch Flemish Continental West Germanic - Tyrolean): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_VIENNESE Human (German Dutch Flemish Continental West Germanic - Viennese): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 5.400 points.
+- BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_VORARLBERGER Human (German Dutch Flemish Continental West Germanic - Vorarlberger): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_AEGEAN_GREEK Human (Greek Aegean Byzantine - Aegean Greek): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 5.938 points.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_ANCIENT_GREEK_AEGEAN Human (Greek Aegean Byzantine - Ancient Greek Aegean): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.812 points.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_GREEK Human (Greek Aegean Byzantine - Greek): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.438 points.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_GREEK_CYPRIOT Human (Greek Aegean Byzantine - Greek Cypriot): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.438 points.
+- BRD_HUMAN_GUARANI_CHACO_CHACO_INDIGENOUS Human (Guarani Chaco - Chaco Indigenous): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 12.250 points.
+- BRD_HUMAN_GUARANI_CHACO_GUARANI Human (Guarani Chaco - Guarani): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 12.250 points.
+- BRD_HUMAN_GUJARATI_GUJARATI Human (Gujarati - Gujarati): Miren; weak direct evidence spans 1 substantial axes; Miren leads Sterna by 22.350 points.
+- BRD_HUMAN_GUJARATI_GUJARATI_MUSLIM Human (Gujarati - Gujarati Muslim): Miren; weak direct evidence spans 1 substantial axes; Miren leads Sterna by 22.350 points.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_AKAN_ASANTE Human (Gulf Volta West African Akan Gbe Gur - Akan Asante): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_AKAN_BAOULE Human (Gulf Volta West African Akan Gbe Gur - Akan Baoule): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.600 points.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_BARIBA Human (Gulf Volta West African Akan Gbe Gur - Bariba): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_FON_AJA Human (Gulf Volta West African Akan Gbe Gur - Fon Aja): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_GA_ADANGBE Human (Gulf Volta West African Akan Gbe Gur - Ga Adangbe): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_KABYE Human (Gulf Volta West African Akan Gbe Gur - Kabye): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 2.400 points.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_MOLE_DAGBANI Human (Gulf Volta West African Akan Gbe Gur - Mole Dagbani): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_HAUDENOSAUNEE_HAUDENOSAUNEE Human (Haudenosaunee - Haudenosaunee): Elian; weak direct evidence spans 1 substantial axes; Elian leads Namiya by 9.750 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_ANDEAN Human (Hispanic American Mestizo - Andean): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_ARGENTINE Human (Hispanic American Mestizo - Argentine): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_CHILEAN Human (Hispanic American Mestizo - Chilean): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_COLOMBIAN_MESTIZO Human (Hispanic American Mestizo - Colombian Mestizo): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_COSTA_RICAN Human (Hispanic American Mestizo - Costa Rican): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_CUBAN Human (Hispanic American Mestizo - Cuban): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_DOMINICAN Human (Hispanic American Mestizo - Dominican): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_ECUADORIAN_MESTIZO Human (Hispanic American Mestizo - Ecuadorian Mestizo): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_LADINO_MESTIZO Human (Hispanic American Mestizo - Ladino Mestizo): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_MESTIZO Human (Hispanic American Mestizo - Mestizo): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_MEXICAN_AMERICAN Human (Hispanic American Mestizo - Mexican American): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_NICARAGUAN_MESTIZO Human (Hispanic American Mestizo - Nicaraguan Mestizo): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_PANAMANIAN_MESTIZO Human (Hispanic American Mestizo - Panamanian Mestizo): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_PUERTO_RICAN Human (Hispanic American Mestizo - Puerto Rican): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_URUGUAYAN Human (Hispanic American Mestizo - Uruguayan): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_VENEZUELAN_MESTIZO Human (Hispanic American Mestizo - Venezuelan Mestizo): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 2.400 points.
+- BRD_HUMAN_HOPI_HOPI Human (Hopi - Hopi): Oren; weak direct evidence spans 1 substantial axes; Oren leads Myrra by 18.188 points.
+- BRD_HUMAN_HOPI_HOPI_PUEBLO Human (Hopi - Hopi Pueblo): Oren; weak direct evidence spans 1 substantial axes; Oren leads Myrra by 18.188 points.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_HUNGARIAN Human (Hungarian Magyar - Hungarian): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 8.625 points.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_SZEKELY_HUNGARIAN Human (Hungarian Magyar - Szekely Hungarian): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_ANGOLAR Human (Iberian Atlantic Portuguese Creole - Angolar): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 8.400 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_ANNOBONESE Human (Iberian Atlantic Portuguese Creole - Annobonese): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Sterna by 6.350 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_ARUBAN Human (Iberian Atlantic Portuguese Creole - Aruban): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_AZOREAN Human (Iberian Atlantic Portuguese Creole - Azorean): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Sterna by 6.350 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_BISSAU_KRIOL Human (Iberian Atlantic Portuguese Creole - Bissau Kriol): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 8.400 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_BONAIREAN Human (Iberian Atlantic Portuguese Creole - Bonairean): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_CABO_VERDEAN Human (Iberian Atlantic Portuguese Creole - Cabo Verdean): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Sterna by 6.350 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_CURACAOAN Human (Iberian Atlantic Portuguese Creole - Curacaoan): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_FORRO Human (Iberian Atlantic Portuguese Creole - Forro): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_GALICIAN Human (Iberian Atlantic Portuguese Creole - Galician): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Sterna by 9.687 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_LUSO_BRAZILIAN Human (Iberian Atlantic Portuguese Creole - Luso Brazilian): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_MACANESE_CREOLE Human (Iberian Atlantic Portuguese Creole - Macanese Creole): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_MADEIRAN Human (Iberian Atlantic Portuguese Creole - Madeiran): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Sterna by 9.687 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_PORTUGUESE Human (Iberian Atlantic Portuguese Creole - Portuguese): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_PORTUGUESE_ATLANTIC Human (Iberian Atlantic Portuguese Creole - Portuguese Atlantic): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 10.500 points.
+- BRD_HUMAN_IGBO_IGBO Human (Igbo - Igbo): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 16.563 points.
+- BRD_HUMAN_INDIAN Human (Indian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Rillan by 6.200 points.
+- BRD_HUMAN_INDIAN_OCEAN_CREOLE_CHAGOSSIAN Human (Indian Ocean Creole - Chagossian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_INDIAN_OCEAN_CREOLE_MAURITIAN_CREOLE Human (Indian Ocean Creole - Mauritian Creole): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Miren by 2.900 points.
+- BRD_HUMAN_INDIAN_OCEAN_CREOLE_REUNION_CREOLE Human (Indian Ocean Creole - Reunion Creole): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_INDIAN_OCEAN_CREOLE_SEYCHELLOIS_CREOLE Human (Indian Ocean Creole - Seychellois Creole): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.600 points.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_CAPE_MALAY Human (Indian Ocean Muslim Cape Malay Maldivian - Cape Malay): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Marea by 2.200 points.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_INDO_TRINIDADIAN Human (Indian Ocean Muslim Cape Malay Maldivian - Indo Trinidadian): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Marea by 2.200 points.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_LANKAN_MOOR Human (Indian Ocean Muslim Cape Malay Maldivian - Lankan Moor): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Marea by 2.000 points.
+- BRD_HUMAN_INUIT_YUPIK_GREENLANDIC_INUIT Human (Inuit Yupik - Greenlandic Inuit): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 16.250 points.
+- BRD_HUMAN_INUIT_YUPIK_INUIT Human (Inuit Yupik - Inuit): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 16.250 points.
+- BRD_HUMAN_INUIT_YUPIK_INUIT_YUPIK Human (Inuit Yupik - Inuit Yupik): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 16.250 points.
+- BRD_HUMAN_IRANIAN Human (Iranian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_IRISH_GAELIC_GAELTACHT_IRISH Human (Irish Gaelic - Gaeltacht Irish): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_IRISH_GAELIC_MANX Human (Irish Gaelic - Manx): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_CORSICAN Human (Italian Central Mediterranean - Corsican): Miren; weak direct evidence spans 1 substantial axes; Miren leads Sterna by 22.350 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_DALMATIAN_ISTRIAN Human (Italian Central Mediterranean - Dalmatian Istrian): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 31.437 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_ISTRIAN Human (Italian Central Mediterranean - Istrian): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 31.437 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_ITALIAN Human (Italian Central Mediterranean - Italian): Miren; weak direct evidence spans 1 substantial axes; Miren leads Sterna by 27.937 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_MALTESE Human (Italian Central Mediterranean - Maltese): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 32.187 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_ROMAN_IMPERIAL Human (Italian Central Mediterranean - Roman Imperial): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 31.437 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_ROMAN_LAZIALE Human (Italian Central Mediterranean - Roman Laziale): Miren; weak direct evidence spans 1 substantial axes; Miren leads Sterna by 26.450 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_ROMANSH Human (Italian Central Mediterranean - Romansh): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 32.937 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_SARDINIAN Human (Italian Central Mediterranean - Sardinian): Miren; weak direct evidence spans 1 substantial axes; Miren leads Sterna by 27.937 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_SOUTHERN_ITALIAN Human (Italian Central Mediterranean - Southern Italian): Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 32.187 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_TICINESE Human (Italian Central Mediterranean - Ticinese): Miren; weak direct evidence spans 1 substantial axes; Miren leads Sterna by 26.450 points.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_VENETIAN Human (Italian Central Mediterranean - Venetian): Miren; weak direct evidence spans 1 substantial axes; Miren leads Sterna by 27.937 points.
+- BRD_HUMAN_JAPANESE_RYUKYUAN Human (Japanese - Ryukyuan): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_JAVA_JAVANESE_SUNDANESE_JAVANESE Human (Java Javanese Sundanese - Javanese): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_JEWISH_DIASPORA_JEWISH_AMERICAN Human (Jewish Diaspora - Jewish American): Miren; moderate direct evidence spans 2 substantial axes; Miren leads Orun-IX by 6.150 points.
+- BRD_HUMAN_JEWISH_DIASPORA_JEWISH_DIASPORA Human (Jewish Diaspora - Jewish Diaspora): Sterna; strong direct evidence spans 3 substantial axes; Sterna leads Miren by 2.000 points.
+- BRD_HUMAN_KANAKA_MAOLI_HAWAIIAN_KANAKA_MAOLI_HAWAIIAN Human (Kanaka Maoli Hawaiian - Kanaka Maoli Hawaiian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 14.000 points.
+- BRD_HUMAN_KANAKA_MAOLI_HAWAIIAN_NATIVE_HAWAIIAN Human (Kanaka Maoli Hawaiian - Native Hawaiian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 16.250 points.
+- BRD_HUMAN_KHMER_KHMER Human (Khmer - Khmer): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.813 points.
+- BRD_HUMAN_KHMER_KHMER_KROM Human (Khmer - Khmer Krom): Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 14.938 points.
+- BRD_HUMAN_KIPCHAK_AND_NORTHERN_TURKIC_KARAKALPAK Human (Kipchak And Northern Turkic - Karakalpak): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Rillan by 23.900 points.
+- BRD_HUMAN_KIPCHAK_AND_NORTHERN_TURKIC_KAZAKH Human (Kipchak And Northern Turkic - Kazakh): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vhalen by 26.937 points.
+- BRD_HUMAN_KIPCHAK_AND_NORTHERN_TURKIC_KYRGYZ Human (Kipchak And Northern Turkic - Kyrgyz): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 27.750 points.
+- BRD_HUMAN_KIPCHAK_AND_NORTHERN_TURKIC_SIBERIAN_TURKIC Human (Kipchak And Northern Turkic - Siberian Turkic): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 22.813 points.
+- BRD_HUMAN_KIPCHAK_AND_NORTHERN_TURKIC_TATAR_BASHKIR Human (Kipchak And Northern Turkic - Tatar Bashkir): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 27.750 points.
+- BRD_HUMAN_KOREAN_KOREAN Human (Korean - Korean): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.438 points.
+- BRD_HUMAN_KURDISH_KURDISH Human (Kurdish - Kurdish): Elian; weak direct evidence spans 1 substantial axes; Elian leads Asteriel by 9.750 points.
+- BRD_HUMAN_LEBANESE Human (Lebanese): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_LEVANTINE_ARAB_DRUZE Human (Levantine Arab - Druze): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_LEVANTINE_ARAB_HATAY_ARAB Human (Levantine Arab - Hatay Arab): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_LEVANTINE_ARAB_JORDANIAN_PALESTINIAN Human (Levantine Arab - Jordanian Palestinian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_LEVANTINE_ARAB_LEBANESE_ARAB Human (Levantine Arab - Lebanese Arab): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Sterna by 9.900 points.
+- BRD_HUMAN_LEVANTINE_ARAB_LEVANTINE_ARAB Human (Levantine Arab - Levantine Arab): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_LEVANTINE_ARAB_PALESTINIAN Human (Levantine Arab - Palestinian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_LEVANTINE_ARAB_PALESTINIAN_ARAB Human (Levantine Arab - Palestinian Arab): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 12.100 points.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_FILIPINO Human (Lowland Filipino Tagalog Visayan - Filipino): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.938 points.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_TAGALOG Human (Lowland Filipino Tagalog Visayan - Tagalog): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_MAASAI_NILOTIC_EAST_AFRICA_ACHOLI_LANGO Human (Maasai Nilotic East Africa - Acholi Lango): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 23.063 points.
+- BRD_HUMAN_MAASAI_NILOTIC_EAST_AFRICA_DINKA_NUER Human (Maasai Nilotic East Africa - Dinka Nuer): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 23.063 points.
+- BRD_HUMAN_MAASAI_NILOTIC_EAST_AFRICA_KARAMOJONG Human (Maasai Nilotic East Africa - Karamojong): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 23.063 points.
+- BRD_HUMAN_MAASAI_NILOTIC_EAST_AFRICA_LUO Human (Maasai Nilotic East Africa - Luo): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 17.050 points.
+- BRD_HUMAN_MAASAI_NILOTIC_EAST_AFRICA_MAASAI Human (Maasai Nilotic East Africa - Maasai): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 17.050 points.
+- BRD_HUMAN_MAASAI_NILOTIC_EAST_AFRICA_MAASAI_KALENJIN Human (Maasai Nilotic East Africa - Maasai Kalenjin): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 23.063 points.
+- BRD_HUMAN_MAGHREBI_ARAB_HARATIN Human (Maghrebi Arab - Haratin): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_MAGHREBI_ARAB_SAHRAWI Human (Maghrebi Arab - Sahrawi): Miren; moderate direct evidence spans 2 substantial axes; Miren leads Asteriel by 8.938 points.
+- BRD_HUMAN_MALAGASY_MALAGASY Human (Malagasy - Malagasy): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_MALAGASY_MALAGASY_HIGHLAND Human (Malagasy - Malagasy Highland): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_MALAGASY_MERINA Human (Malagasy - Merina): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_MAORI_COOK_MAORI Human (Maori - Cook Maori): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 21.875 points.
+- BRD_HUMAN_MAORI_MAORI Human (Maori - Maori): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 21.875 points.
+- BRD_HUMAN_MAPUCHE_MAPUCHE Human (Mapuche - Mapuche): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 14.125 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_BORNEAN_INDIGENOUS Human (Maritime Austronesian Malayic Bornean Timorese - Bornean Indigenous): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.938 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_COCOS_MALAY Human (Maritime Austronesian Malayic Bornean Timorese - Cocos Malay): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_LUSO_TIMORESE Human (Maritime Austronesian Malayic Bornean Timorese - Luso Timorese): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.938 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MALAY_ACEHNESE Human (Maritime Austronesian Malayic Bornean Timorese - Malay Acehnese): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MALAY_MUSLIM Human (Maritime Austronesian Malayic Bornean Timorese - Malay Muslim): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MORO Human (Maritime Austronesian Malayic Bornean Timorese - Moro): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_SINGAPOREAN_MALAY Human (Maritime Austronesian Malayic Bornean Timorese - Singaporean Malay): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_TAIWANESE_INDIGENOUS Human (Maritime Austronesian Malayic Bornean Timorese - Taiwanese Indigenous): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Asteriel by 7.938 points.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_TETUM Human (Maritime Austronesian Malayic Bornean Timorese - Tetum): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.938 points.
+- BRD_HUMAN_MAYA_CULTURAL_CONTINUUM_MAYA Human (Maya Cultural Continuum - Maya): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 23.063 points.
+- BRD_HUMAN_MAYA_CULTURAL_CONTINUUM_MAYA_CULTURAL_CONTINUUM Human (Maya Cultural Continuum - Maya Cultural Continuum): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 23.063 points.
+- BRD_HUMAN_MAYA_CULTURAL_CONTINUUM_YUCATEC_MAYA Human (Maya Cultural Continuum - Yucatec Maya): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 23.063 points.
+- BRD_HUMAN_MELANESIAN_PAPUAN_ITAUKEI Human (Melanesian Papuan - Itaukei): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_MELANESIAN_PAPUAN_KANAK Human (Melanesian Papuan - Kanak): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.813 points.
+- BRD_HUMAN_MELANESIAN_PAPUAN_MELANESIAN Human (Melanesian Papuan - Melanesian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_MELANESIAN_PAPUAN_NI_VANUATU Human (Melanesian Papuan - Ni Vanuatu): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_MELANESIAN_PAPUAN_PAPUAN Human (Melanesian Papuan - Papuan): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_MELANESIAN_PAPUAN_SOLOMON_ISLANDER Human (Melanesian Papuan - Solomon Islander): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 21.063 points.
+- BRD_HUMAN_MELANESIAN_PAPUAN_TORRES_ISLANDER Human (Melanesian Papuan - Torres Islander): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_IRAQI_ARAB Human (Mesopotamian Sumerian Babylonian - Iraqi Arab): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_MARSH_ARAB Human (Mesopotamian Sumerian Babylonian - Marsh Arab): Miren; weak partial evidence spans 1 substantial axes; Miren leads Rillan by 2.350 points.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_SUMERIAN Human (Mesopotamian Sumerian Babylonian - Sumerian): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Miren by 3.875 points.
+- BRD_HUMAN_METIS_METIS Human (Metis - Metis): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 11.850 points.
+- BRD_HUMAN_MEXICA_AZTEC_MESTIZO_NAHUA Human (Mexica Aztec - Mestizo Nahua): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 18.063 points.
+- BRD_HUMAN_MEXICA_AZTEC_MESTIZO_PIPIL Human (Mexica Aztec - Mestizo Pipil): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 18.063 points.
+- BRD_HUMAN_MEXICA_AZTEC_MEXICA_AZTEC Human (Mexica Aztec - Mexica Aztec): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 18.063 points.
+- BRD_HUMAN_MEXICAN Human (Mexican): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_MICRONESIAN_CAROLINIAN Human (Micronesian - Carolinian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_MICRONESIAN_CHAMORRO Human (Micronesian - Chamorro): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_MICRONESIAN_CHAMORRO_CAROLINIAN Human (Micronesian - Chamorro Carolinian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_MICRONESIAN_I_KIRIBATI Human (Micronesian - I Kiribati): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_MICRONESIAN_MARSHALLESE Human (Micronesian - Marshallese): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_MISSISSIPPIAN_EASTERN_WOODLANDS_MISSISSIPPIAN_CAHOKIAN Human (Mississippian Eastern Woodlands - Mississippian Cahokian): Miren; weak direct evidence spans 1 substantial axes; Miren leads Orun-IX by 2.375 points.
+- BRD_HUMAN_MIXTEC_NUU_SAVI_MIXTEC_NUU_SAVI Human (Mixtec Nuu Savi - Mixtec Nuu Savi): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_MIXTEC_NUU_SAVI_NUU_SAVI Human (Mixtec Nuu Savi - Nuu Savi): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Miren by 3.500 points.
+- BRD_HUMAN_MOCHE_COASTAL_PERUVIAN Human (Moche - Coastal Peruvian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 4.500 points.
+- BRD_HUMAN_MOCHE_MOCHE Human (Moche - Moche): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.250 points.
+- BRD_HUMAN_MONGOL_BURYAT_KALMYK Human (Mongol - Buryat Kalmyk): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.600 points.
+- BRD_HUMAN_MONGOL_MONGOL Human (Mongol - Mongol): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_MUISCA_MUISCA Human (Muisca - Muisca): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_BAMAR Human (Myanmar Mainland Southeast Asian Highland - Bamar): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_BAMAR_BURMESE Human (Myanmar Mainland Southeast Asian Highland - Bamar Burmese): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_HIGHLAND_INDIGENOUS Human (Myanmar Mainland Southeast Asian Highland - Highland Indigenous): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_HILL_PEOPLES Human (Myanmar Mainland Southeast Asian Highland - Hill Peoples): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 10.950 points.
+- BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_HMONG Human (Myanmar Mainland Southeast Asian Highland - Hmong): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Sterna by 7.437 points.
+- BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_KAREN_KACHIN_CHIN Human (Myanmar Mainland Southeast Asian Highland - Karen Kachin Chin): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_RAKHINE Human (Myanmar Mainland Southeast Asian Highland - Rakhine): Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Sterna by 10.750 points.
+- BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_ROHINGYA Human (Myanmar Mainland Southeast Asian Highland - Rohingya): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_KHAS_PAHARI Human (Nepal Bhutan Himalayan Newar - Khas Pahari): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_NORTHEAST_INDIGENOUS Human (Nepal Bhutan Himalayan Newar - Northeast Indigenous): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_SHARCHOP Human (Nepal Bhutan Himalayan Newar - Sharchop): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Miren by 6.563 points.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_SHERPA_TAMANG Human (Nepal Bhutan Himalayan Newar - Sherpa Tamang): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_NEW_ZEALANDER Human (New Zealander): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_NEW_ZEALANDER_PAKEHA_MAORI_MIXED Human (New Zealander — mixed Pākehā/Māori): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 14.000 points.
+- BRD_HUMAN_NIGERIAN Human (Nigerian): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 11.450 points.
+- BRD_HUMAN_NORDIC_ALAND_SWEDISH Human (Nordic - Aland Swedish): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 25.000 points.
+- BRD_HUMAN_NORDIC_DANISH Human (Nordic - Danish): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 26.500 points.
+- BRD_HUMAN_NORDIC_FAROESE Human (Nordic - Faroese): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Sterna by 18.450 points.
+- BRD_HUMAN_NORDIC_ICELANDIC Human (Nordic - Icelandic): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 20.125 points.
+- BRD_HUMAN_NORDIC_NORSE_VIKING_AGE Human (Nordic - Norse Viking Age): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 20.875 points.
+- BRD_HUMAN_NORDIC_NORTHERN_SCOTS Human (Nordic - Northern Scots): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 19.375 points.
+- BRD_HUMAN_NORDIC_NORWEGIAN Human (Nordic - Norwegian): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 14.100 points.
+- BRD_HUMAN_NORDIC_SVALBARD_NORWEGIAN Human (Nordic - Svalbard Norwegian): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 20.875 points.
+- BRD_HUMAN_NORDIC_SWEDISH Human (Nordic - Swedish): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Sterna by 18.450 points.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_HINDI Human (North And West Indian Indus Gangetic - Hindi): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 8.313 points.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_HINDUSTANI Human (North And West Indian Indus Gangetic - Hindustani): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 8.313 points.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_GUYANESE Human (North And West Indian Indus Gangetic - Indo Guyanese): Damor; weak direct evidence spans 1 substantial axes; Damor leads Sterna by 5.800 points.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDUS_HARAPPAN Human (North And West Indian Indus Gangetic - Indus Harappan): Damor; weak direct evidence spans 1 substantial axes; Damor leads Rillan by 5.150 points.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_KASHMIRI Human (North And West Indian Indus Gangetic - Kashmiri): Damor; weak direct evidence spans 1 substantial axes; Damor leads Rillan by 4.800 points.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_MARATHI_GOAN Human (North And West Indian Indus Gangetic - Marathi Goan): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 3.063 points.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_SINDHI Human (North And West Indian Indus Gangetic - Sindhi): Damor; weak direct evidence spans 1 substantial axes; Damor leads Sterna by 5.800 points.
+- BRD_HUMAN_NORTHERN_HAN_CHINESE_HAN_CHINESE Human (Northern Han Chinese - Han Chinese): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Sterna by 18.450 points.
+- BRD_HUMAN_NORTHERN_HAN_CHINESE_NORTHERN_CHINESE_COURTYARD Human (Northern Han Chinese - Northern Chinese Courtyard): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 19.375 points.
+- BRD_HUMAN_NORTHERN_HAN_CHINESE_PENGLAI Human (Northern Han Chinese - Penglai): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 14.100 points.
+- BRD_HUMAN_NORTHERN_HAN_CHINESE_SHANDONG_CHINESE Human (Northern Han Chinese - Shandong Chinese): Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 15.300 points.
+- BRD_HUMAN_NUBIAN_NUBIAN Human (Nubian - Nubian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 8.400 points.
+- BRD_HUMAN_OGHUZ_TURKIC_AZERBAIJANI Human (Oghuz Turkic - Azerbaijani): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 30.125 points.
+- BRD_HUMAN_OGHUZ_TURKIC_GAGAUZ Human (Oghuz Turkic - Gagauz): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 30.125 points.
+- BRD_HUMAN_OGHUZ_TURKIC_IRAQI_TURKMEN Human (Oghuz Turkic - Iraqi Turkmen): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 30.125 points.
+- BRD_HUMAN_OGHUZ_TURKIC_OTTOMAN_TURKISH Human (Oghuz Turkic - Ottoman Turkish): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 25.188 points.
+- BRD_HUMAN_OGHUZ_TURKIC_RUMELIAN_TURKISH Human (Oghuz Turkic - Rumelian Turkish): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 34.813 points.
+- BRD_HUMAN_OGHUZ_TURKIC_TURKISH Human (Oghuz Turkic - Turkish): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 30.125 points.
+- BRD_HUMAN_OGHUZ_TURKIC_TURKISH_CYPRIOT Human (Oghuz Turkic - Turkish Cypriot): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 30.125 points.
+- BRD_HUMAN_OGHUZ_TURKIC_TURKMEN Human (Oghuz Turkic - Turkmen): Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Rillan by 19.550 points.
+- BRD_HUMAN_OLMEC_GULF_MEXICAN Human (Olmec - Gulf Mexican): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_OLMEC_OLMEC Human (Olmec - Olmec): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 18.063 points.
+- BRD_HUMAN_PASHTUN_PASHTUN Human (Pashtun - Pashtun): Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 10.000 points.
+- BRD_HUMAN_PERSIAN_IRANIAN_HAZARA Human (Persian Iranian - Hazara): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_PERSIAN_IRANIAN_LUR_BAKHTIARI Human (Persian Iranian - Lur Bakhtiari): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.600 points.
+- BRD_HUMAN_PERSIAN_IRANIAN_PAMIRI Human (Persian Iranian - Pamiri): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN Human (Persian Iranian - Persian): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.938 points.
+- BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN_IRANIAN Human (Persian Iranian - Persian Iranian): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.500 points.
+- BRD_HUMAN_PERSIAN_IRANIAN_TALYSH Human (Persian Iranian - Talysh): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_NIUEAN Human (Polynesian Islands - Niuean): Miren; weak partial evidence spans 1 substantial axes; Miren leads Sterna by 3.150 points.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_RAPA_NUI Human (Polynesian Islands - Rapa Nui): Miren; weak partial evidence spans 1 substantial axes; Miren leads Kharad by 2.350 points.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TOKELAUAN Human (Polynesian Islands - Tokelauan): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TUVALUAN Human (Polynesian Islands - Tuvaluan): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_WALLISIAN_FUTUNAN Human (Polynesian Islands - Wallisian Futunan): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_PUNJABI_SIKH_PUNJABI Human (Punjabi Sikh - Punjabi): Elian; weak direct evidence spans 1 substantial axes; Elian leads Asteriel by 11.250 points.
+- BRD_HUMAN_PUNJABI_SIKH_PUNJABI_SIKH Human (Punjabi Sikh - Punjabi Sikh): Elian; weak direct evidence spans 1 substantial axes; Elian leads Sterna by 5.150 points.
+- BRD_HUMAN_PUREPECHA_PUREPECHA Human (Purepecha - Purepecha): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_QUECHUA_INCA_CONTINUUM_KICHWA Human (Quechua Inca Continuum - Kichwa): Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 12.700 points.
+- BRD_HUMAN_QUECHUA_INCA_CONTINUUM_QUECHUA Human (Quechua Inca Continuum - Quechua): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 12.813 points.
+- BRD_HUMAN_QUECHUA_INCA_CONTINUUM_QUECHUA_INCA_CONTINUUM Human (Quechua Inca Continuum - Quechua Inca Continuum): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 13.125 points.
+- BRD_HUMAN_RAJASTHANI_RAJASTHANI Human (Rajasthani - Rajasthani): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Miren by 17.050 points.
+- BRD_HUMAN_ROMANI_ROMA Human (Romani - Roma): Sterna; moderate direct evidence spans 2 substantial axes; Sterna leads Vespera by 27.375 points.
+- BRD_HUMAN_ROMANI_ROMANI Human (Romani - Romani): Sterna; moderate direct evidence spans 2 substantial axes; Sterna leads Vespera by 27.375 points.
+- BRD_HUMAN_ROMANIAN_MOLDOVAN_MOLDOVAN_ROMANIAN Human (Romanian Moldovan - Moldovan Romanian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Orun-IX by 8.187 points.
+- BRD_HUMAN_ROMANIAN_MOLDOVAN_ROMANIAN Human (Romanian Moldovan - Romanian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_ROMANIAN_MOLDOVAN_ROMANIAN_MOLDOVAN Human (Romanian Moldovan - Romanian Moldovan): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_ARMENIAN Human (Russian Eastern European - Armenian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_BARENTSBURG_RUSSIAN Human (Russian Eastern European - Barentsburg Russian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_BELARUSIAN Human (Russian Eastern European - Belarusian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_CZECH_MORAVIAN Human (Russian Eastern European - Czech Moravian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_JAVAKHETI_ARMENIAN Human (Russian Eastern European - Javakheti Armenian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 9.550 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_KASHUBIAN_SILESIAN Human (Russian Eastern European - Kashubian Silesian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_POLISH Human (Russian Eastern European - Polish): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_POLISH_RUSSIAN Human (Russian Eastern European - Polish Russian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Sterna by 4.550 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_RUSSIAN Human (Russian Eastern European - Russian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 2.850 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_RUSSIAN_SLAVIC Human (Russian Eastern European - Russian Slavic): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Sterna by 4.550 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_RUSSIAN_UKRAINIAN Human (Russian Eastern European - Russian Ukrainian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 2.450 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_SILESIAN Human (Russian Eastern European - Silesian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_SLOVAK Human (Russian Eastern European - Slovak): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 11.250 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_SORBIAN Human (Russian Eastern European - Sorbian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 8.437 points.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_UKRAINIAN Human (Russian Eastern European - Ukrainian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 5.450 points.
+- BRD_HUMAN_SAMI_ARCTIC_URALIC_SAMI Human (Sami Arctic Uralic - Sami): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.938 points.
+- BRD_HUMAN_SAMI_ARCTIC_URALIC_SAMI_NENETS Human (Sami Arctic Uralic - Sami Nenets): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_SAN_KHOEKHOE_NAMA_SAN Human (San Khoekhoe - Nama San): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_SAN_KHOEKHOE_SAN Human (San Khoekhoe - San): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 8.625 points.
+- BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_FULA Human (Senegambian Fulani Wolof Serer - Fula): Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 22.050 points.
+- BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_FULANI Human (Senegambian Fulani Wolof Serer - Fulani): Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 16.600 points.
+- BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_FULANI_TOUCOULEUR Human (Senegambian Fulani Wolof Serer - Fulani Toucouleur): Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 12.450 points.
+- BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_MBORORO Human (Senegambian Fulani Wolof Serer - Mbororo): Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 3.850 points.
+- BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_SONINKE_WOLOF Human (Senegambian Fulani Wolof Serer - Soninke Wolof): Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 16.600 points.
+- BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_WOLOF_SERER Human (Senegambian Fulani Wolof Serer - Wolof Serer): Darel; weak direct evidence spans 1 substantial axes; Darel leads Tavai by 23.000 points.
+- BRD_HUMAN_SHAMBHALA_SHAMBHALA Human (Shambhala - Shambhala): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 14.625 points.
+- BRD_HUMAN_SINHALESE_SINHALESE Human (Sinhalese - Sinhalese): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_SOMALI_CUSHITIC_HORN_AFAR Human (Somali Cushitic Horn - Afar): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_SOMALI_CUSHITIC_HORN_AFAR_SAHO Human (Somali Cushitic Horn - Afar Saho): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_SOMALI_CUSHITIC_HORN_BEJA Human (Somali Cushitic Horn - Beja): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 7.950 points.
+- BRD_HUMAN_SOMALI_CUSHITIC_HORN_OROMO Human (Somali Cushitic Horn - Oromo): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_SOMALI_CUSHITIC_HORN_SOMALI Human (Somali Cushitic Horn - Somali): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_SOMALI_CUSHITIC_HORN_SOMALI_ISSA Human (Somali Cushitic Horn - Somali Issa): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 9.937 points.
+- BRD_HUMAN_SONGHAI_SONGHAI Human (Songhai - Songhai): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 3.650 points.
+- BRD_HUMAN_SONGHAI_SONGHAI_ZARMA Human (Songhai - Songhai Zarma): Damor; weak direct evidence spans 1 substantial axes; Damor leads Rillan by 7.950 points.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_LANKAN_TAMIL Human (South Indian Dravidian - Lankan Tamil): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.438 points.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYALI Human (South Indian Dravidian - Malayali): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Sterna by 3.300 points.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_SOUTH_INDIAN Human (South Indian Dravidian - South Indian): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.438 points.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_TAMIL Human (South Indian Dravidian - Tamil): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_TELUGU_KANNADA Human (South Indian Dravidian - Telugu Kannada): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.438 points.
+- BRD_HUMAN_SOUTH_SLAVIC_BOSNIAK Human (South Slavic - Bosniak): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_BULGARIAN Human (South Slavic - Bulgarian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_BURGENLAND_CROAT Human (South Slavic - Burgenland Croat): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Sterna by 8.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_CARINTHIAN_SLOVENE Human (South Slavic - Carinthian Slovene): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_CROAT Human (South Slavic - Croat): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_CROATIAN Human (South Slavic - Croatian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_MACEDONIAN Human (South Slavic - Macedonian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_MONTENEGRIN_SERB Human (South Slavic - Montenegrin Serb): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_SERB Human (South Slavic - Serb): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_SERBIAN Human (South Slavic - Serbian): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTH_SLAVIC_SLOVENE Human (South Slavic - Slovene): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.875 points.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_BASOTHO Human (Southern African Bantu Nguni Sotho Tswana - Basotho): Miren; moderate direct evidence spans 2 substantial axes; Miren leads Orun-IX by 6.150 points.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_HERERO Human (Southern African Bantu Nguni Sotho Tswana - Herero): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_SOTHO_TSWANA Human (Southern African Bantu Nguni Sotho Tswana - Sotho Tswana): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_TSWANA Human (Southern African Bantu Nguni Sotho Tswana - Tswana): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_XHOSA Human (Southern African Bantu Nguni Sotho Tswana - Xhosa): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_CHINESE Human (Southern Han Chinese Wu Min Yue Hakka - Chinese): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.938 points.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_HAKKA Human (Southern Han Chinese Wu Min Yue Hakka - Hakka): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Sterna by 2.100 points.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_JIANGNAN_CHINESE Human (Southern Han Chinese Wu Min Yue Hakka - Jiangnan Chinese): Miren; weak partial evidence spans 1 substantial axes; Miren leads Rillan by 2.500 points.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MALAYSIAN_CHINESE Human (Southern Han Chinese Wu Min Yue Hakka - Malaysian Chinese): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Rillan by 2.500 points.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MIN_CHINESE Human (Southern Han Chinese Wu Min Yue Hakka - Min Chinese): Miren; weak partial evidence spans 1 substantial axes; Miren leads Sterna by 3.150 points.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_PERANAKAN Human (Southern Han Chinese Wu Min Yue Hakka - Peranakan): Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Miren by 3.938 points.
+- BRD_HUMAN_SPANISH Human (Spanish): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Miren by 3.875 points.
+- BRD_HUMAN_SPANISH_CASTILIAN_ANDALUSIAN Human (Spanish Castilian - Andalusian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Sterna by 3.150 points.
+- BRD_HUMAN_SPANISH_CASTILIAN_CANARIAN Human (Spanish Castilian - Canarian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_SPANISH_CASTILIAN_CASTILIAN Human (Spanish Castilian - Castilian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_SPANISH_CASTILIAN_GIBRALTARIAN Human (Spanish Castilian - Gibraltarian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_TAI_THAI_LAO_LANNA_ISAN_LAO Human (Tai Thai Lao Lanna - Isan Lao): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 12.800 points.
+- BRD_HUMAN_TAI_THAI_LAO_LANNA_LANNA Human (Tai Thai Lao Lanna - Lanna): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 16.250 points.
+- BRD_HUMAN_TAI_THAI_LAO_LANNA_LAO Human (Tai Thai Lao Lanna - Lao): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 9.062 points.
+- BRD_HUMAN_TAI_THAI_LAO_LANNA_SHAN Human (Tai Thai Lao Lanna - Shan): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 20.687 points.
+- BRD_HUMAN_TAI_THAI_LAO_LANNA_TAI Human (Tai Thai Lao Lanna - Tai): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 14.600 points.
+- BRD_HUMAN_TAI_THAI_LAO_LANNA_THAI Human (Tai Thai Lao Lanna - Thai): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 14.000 points.
+- BRD_HUMAN_TAI_THAI_LAO_LANNA_ZHUANG_DAI Human (Tai Thai Lao Lanna - Zhuang Dai): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 14.000 points.
+- BRD_HUMAN_TAJIK_SOGDIAN_TAJIK Human (Tajik Sogdian - Tajik): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_TIBETAN_HIMALAYAN_TIBETAN Human (Tibetan - Himalayan Tibetan): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.600 points.
+- BRD_HUMAN_TIBETAN_LADAKHI Human (Tibetan - Ladakhi): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_TIBETAN_NGALOP Human (Tibetan - Ngalop): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_UPLAND_FILIPINO_IFUGAO_CORDILLERAN_LUMAD_LUMAD Human (Upland Filipino Ifugao Cordilleran Lumad - Lumad): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_BALANTA_MANJACO Human (Upper Guinea Mande Kru Temne - Balanta Manjaco): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_BAMBARA_MANDE Human (Upper Guinea Mande Kru Temne - Bambara Mande): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Miren by 3.875 points.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_LIBERIAN_INDIGENOUS Human (Upper Guinea Mande Kru Temne - Liberian Indigenous): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 4.500 points.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDE_MALIAN Human (Upper Guinea Mande Kru Temne - Mande Malian): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MENDE Human (Upper Guinea Mande Kru Temne - Mende): Miren; weak partial evidence spans 1 substantial axes; Miren leads Sterna by 3.150 points.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_SUSU Human (Upper Guinea Mande Kru Temne - Susu): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_TEMNE Human (Upper Guinea Mande Kru Temne - Temne): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_UZBEK_TIMURID_UYGHUR Human (Uzbek Timurid - Uyghur): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Orun-IX by 3.750 points.
+- BRD_HUMAN_UZBEK_TIMURID_UZBEK Human (Uzbek Timurid - Uzbek): Miren; weak partial evidence spans 1 substantial axes; Miren leads Sterna by 3.150 points.
+- BRD_HUMAN_VIETNAMESE_VIETNAMESE Human (Vietnamese - Vietnamese): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.250 points.
+- BRD_HUMAN_WELSH_BRITTONIC_CELTIC_WELSH Human (Welsh Brittonic Celtic - Welsh): Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.563 points.
+- BRD_HUMAN_YORUBA_YORUBA Human (Yoruba - Yoruba): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_YS_BRETON Human (Ys - Breton): Elian; weak direct evidence spans 1 substantial axes; Elian leads Miren by 9.800 points.
+- BRD_HUMAN_YS_YS Human (Ys - Ys): Elian; weak direct evidence spans 1 substantial axes; Elian leads Namiya by 10.200 points.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_BEMBA Human (Zambezi Zimbabwe Mozambique Bantu - Bemba): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.600 points.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_CHEWA Human (Zambezi Zimbabwe Mozambique Bantu - Chewa): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_SHONA Human (Zambezi Zimbabwe Mozambique Bantu - Shona): Miren; weak partial evidence spans 1 substantial axes; Miren leads Orun-IX by 2.200 points.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_SHONA_GREAT_ZIMBABWE Human (Zambezi Zimbabwe Mozambique Bantu - Shona Great Zimbabwe): Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 4.000 points.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_SHONA_SENA_TSONGA Human (Zambezi Zimbabwe Mozambique Bantu - Shona Sena Tsonga): Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Selen by 2.812 points.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_TONGA_LOZI Human (Zambezi Zimbabwe Mozambique Bantu - Tonga Lozi): Orun-IX; weak partial evidence spans 1 substantial axes; Orun-IX leads Asteriel by 3.000 points.
+- BRD_HUMAN_ZAPOTEC_ZAPOTEC Human (Zapotec - Zapotec): Damor; moderate direct evidence spans 2 substantial axes; Damor leads Scarabos by 21.350 points.
+- BRD_HUMBOLDT_SQUID Humboldt squid: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 6.400 points.
+- BRD_HUMMINGBIRD_HAWK_MOTH Hummingbird hawk-moth: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Aveli by 20.300 points.
+- BRD_HUMPBACK_ANGLERFISH Humpback anglerfish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Neressa by 7.950 points.
+- BRD_HUMPBACK_WHALE Humpback whale: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Marea by 10.450 points.
+- BRD_HUMPHEAD_WRASSE Humphead wrasse: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Marea by 3.350 points.
+- BRD_HYACINTH_MACAW Hyacinth macaw: Miren; weak direct evidence spans 1 substantial axes; Miren leads Rillan by 11.650 points.
+- BRD_IBERIAN_WORM_LIZARD Iberian worm lizard: Elian; weak direct evidence spans 1 substantial axes; Elian leads Kharad by 4.900 points.
+- BRD_IFRIT Ifrit: Miren; weak partial evidence spans 1 substantial axes; Miren leads Varek by 7.800 points.
+- BRD_IJIRAQ Ijiraq: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Myrra by 12.850 points.
+- BRD_ILI_PIKA Ili pika: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 8.850 points.
+- BRD_IMP Imp: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Solkar by 25.000 points.
+- BRD_IMPALA Impala: Darel; weak direct evidence spans 1 substantial axes; Darel leads Damor by 30.400 points.
+- BRD_INDIAN_COBRA Indian cobra: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 5.350 points.
+- BRD_INDIAN_FLAPSHELL_TURTLE Indian flapshell turtle: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 13.700 points.
+- BRD_INDIAN_GIANT_SQUIRREL Indian giant squirrel: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_INDIAN_PEAFOWL Indian peafowl: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Selen by 4.100 points.
+- BRD_INDIAN_SPOTTED_CHEVROTAIN Indian spotted chevrotain: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.650 points.
+- BRD_INDO_PACIFIC_FINLESS_PORPOISE Indo-Pacific finless porpoise: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Varek by 12.650 points.
+- BRD_INDRI Indri: Selen; weak direct evidence spans 1 substantial axes; Selen leads Tavai by 17.250 points.
+- BRD_IRRAWADDY_DOLPHIN Irrawaddy dolphin: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Rillan by 25.450 points.
+- BRD_JABIRU Jabiru: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 13.200 points.
+- BRD_JACKSON_S_CHAMELEON Jackson's chameleon: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 16.400 points.
+- BRD_JAGUAR Jaguar: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 3.400 points.
+- BRD_JAPANESE_GIANT_SALAMANDER Japanese giant salamander: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 9.150 points.
+- BRD_JAPANESE_MACAQUE Japanese macaque: Tavai; weak partial evidence spans 1 substantial axes; Tavai leads Orun-IX by 2.400 points.
+- BRD_JAPANESE_PUFFERFISH Japanese pufferfish: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Marea by 13.850 points.
+- BRD_JAPANESE_SPIDER_CRAB Japanese spider crab: Oren; weak direct evidence spans 1 substantial axes; Oren leads Marea by 15.300 points.
+- BRD_JIANGSHI Jiangshi: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Scarabos by 4.450 points.
+- BRD_JOGAH Jogah: Miren; strong direct evidence spans 3 substantial axes; Miren leads Kharad by 21.850 points.
+- BRD_JOTUNN Jötunn: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 21.500 points.
+- BRD_KAKAPO Kākāpō: Selen; weak direct evidence spans 1 substantial axes; Selen leads Aveli by 27.700 points.
+- BRD_KAPPA Kappa: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Rillan by 11.000 points.
+- BRD_KAPRE Kapre: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 15.200 points.
+- BRD_KEA Kea: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Tavai by 14.500 points.
+- BRD_KEEL_BILLED_TOUCAN Keel-billed toucan: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 19.700 points.
+- BRD_KELPIE Kelpie: Oren; weak direct evidence spans 1 substantial axes; Oren leads Rillan by 10.200 points.
+- BRD_KILLER_WHALE Killer whale: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Marea by 18.950 points.
+- BRD_KING_OF_SAXONY_BIRD_OF_PARADISE King of Saxony bird-of-paradise: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Myrra by 30.750 points.
+- BRD_KING_PENGUIN King penguin: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 9.150 points.
+- BRD_KINKAJOU Kinkajou: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_KINNARA Kinnara: Selen; strong direct evidence spans 3 substantial axes; Selen leads Aveli by 29.600 points.
+- BRD_KISSING_BUG Kissing bug: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 8.250 points.
+- BRD_KITSUNE Kitsune: Myrra; strong direct evidence spans 3 substantial axes; Myrra leads Neressa by 25.150 points.
+- BRD_KNIGHT_ANOLE Knight anole: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 9.800 points.
+- BRD_KOBOLD Kobold: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Darel by 26.350 points.
+- BRD_KOI_CARP Koi carp: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 17.643 points.
+- BRD_KOI_CARP_ASAGI_KOI Koi carp (Asagi Koi): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 17.643 points.
+- BRD_KOI_CARP_KOHAKU_KOI Koi carp (Kohaku Koi): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 17.643 points.
+- BRD_KOI_CARP_OGON_KOI Koi carp (Ogon Koi): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 17.643 points.
+- BRD_KOI_CARP_SHIRO_UTSURI_KOI Koi carp (Shiro Utsuri Koi): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 17.643 points.
+- BRD_KOI_CARP_SHOWA_SANSHOKU_KOI Koi carp (Showa Sanshoku Koi): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 17.643 points.
+- BRD_KOI_CARP_TAISHO_SANKE_KOI Koi carp (Taisho Sanke Koi): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 17.643 points.
+- BRD_KOMODO_DRAGON Komodo dragon: Savael; weak direct evidence spans 1 substantial axes; Savael leads Kharad by 6.000 points.
+- BRD_KORI_BUSTARD Kori bustard: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 28.100 points.
+- BRD_KOWARI Kowari: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 7.000 points.
+- BRD_KUHL_S_FLYING_GECKO Kuhl's flying gecko: Darel; weak direct evidence spans 1 substantial axes; Darel leads Aveli by 16.200 points.
+- BRD_KUSHTAKA Kushtaka: Miren; weak direct evidence spans 1 substantial axes; Miren leads Rillan by 24.100 points.
+- BRD_LAMIA Lamia: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Miren by 8.300 points.
+- BRD_LAR_GIBBON Lar gibbon: Selen; weak direct evidence spans 1 substantial axes; Selen leads Tavai by 19.350 points.
+- BRD_LARGESCALE_FOUR_EYES Largescale four-eyes: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Marea by 5.100 points.
+- BRD_LARGETOOTH_SAWFISH Largetooth sawfish: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Marea by 5.200 points.
+- BRD_LAUGHING_FALCON Laughing falcon: Varek; weak direct evidence spans 1 substantial axes; Varek leads Savael by 2.600 points.
+- BRD_LAUGHING_KOOKABURRA Laughing kookaburra: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 24.450 points.
+- BRD_LEAFCUTTER_ANT Leafcutter ant: Asteriel; weak direct evidence spans 1 substantial axes; Asteriel leads Scarabos by 11.400 points.
+- BRD_LEAFY_SCORPIONFISH Leafy scorpionfish: Oren; weak direct evidence spans 1 substantial axes; Oren leads Marea by 18.300 points.
+- BRD_LEAFY_SEADRAGON Leafy seadragon: Oren; weak direct evidence spans 1 substantial axes; Oren leads Marea by 15.300 points.
+- BRD_LEAST_WEASEL Least weasel: Varek; moderate direct evidence spans 2 substantial axes; Varek leads Savael by 17.650 points.
+- BRD_LEATHERBACK_SEA_TURTLE Leatherback sea turtle: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Marea by 2.050 points.
+- BRD_LEOPARD Leopard: Savael; weak direct evidence spans 1 substantial axes; Savael leads Kharad by 31.700 points.
+- BRD_LEOPARD_GECKO Leopard gecko: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 14.071 points.
+- BRD_LEOPARD_SEAL Leopard seal: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.350 points.
+- BRD_LEPRECHAUN Leprechaun: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 8.850 points.
+- BRD_LESHY Leshy: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 20.850 points.
+- BRD_LESSER_BIRD_OF_PARADISE Lesser bird-of-paradise: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 25.400 points.
+- BRD_LESSER_BLIND_MOLE_RAT Lesser blind mole-rat: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 7.800 points.
+- BRD_LESSER_EGYPTIAN_JERBOA Lesser Egyptian jerboa: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 13.700 points.
+- BRD_LESSER_FLAMINGO Lesser flamingo: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 13.100 points.
+- BRD_LESSER_GYMNURE Lesser gymnure: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Scarabos by 21.450 points.
+- BRD_LESSER_HEDGEHOG_TENREC Lesser hedgehog tenrec: Iskarn; weak direct evidence spans 1 substantial axes; Iskarn leads Kharad by 21.700 points.
+- BRD_LESSER_MOUSE_DEER Lesser mouse-deer: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 9.650 points.
+- BRD_LESSER_RHEA Lesser rhea: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 13.650 points.
+- BRD_LICH Lich: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Damor by 3.450 points.
+- BRD_LILAC_BREASTED_ROLLER Lilac-breasted roller: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_LINED_SEAHORSE Lined seahorse: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 14.650 points.
+- BRD_LINNAEUS_S_TWO_TOED_SLOTH Linnaeus's two-toed sloth: Savael; weak direct evidence spans 1 substantial axes; Savael leads Iskarn by 8.550 points.
+- BRD_LION Lion: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 15.100 points.
+- BRD_LITTLE_SPOTTED_KIWI Little spotted kiwi: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Vespera by 18.000 points.
+- BRD_LIVE_SHARKSUCKER Live sharksucker: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 5.650 points.
+- BRD_LIVING_ARMOR Living Armor: Oren; weak direct evidence spans 1 substantial axes; Oren leads Myrra by 6.750 points.
+- BRD_LOGGERHEAD_SEA_TURTLE Loggerhead sea turtle: Vespera; moderate direct evidence spans 2 substantial axes; Vespera leads Marea by 16.900 points.
+- BRD_LOGGERHEAD_SHRIKE Loggerhead shrike: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Miren by 6.550 points.
+- BRD_LONG_EARED_HEDGEHOG Long-eared hedgehog: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 5.450 points.
+- BRD_LONG_EARED_JERBOA Long-eared jerboa: Varek; weak direct evidence spans 1 substantial axes; Varek leads Iskarn by 7.750 points.
+- BRD_LONG_SPINE_PORCUPINEFISH Long-spine porcupinefish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Miren by 6.000 points.
+- BRD_LONG_TAILED_PANGOLIN Long-tailed pangolin: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 18.650 points.
+- BRD_LONGHORN_COWFISH Longhorn cowfish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Miren by 10.250 points.
+- BRD_LONGNOSE_CHIMAERA Longnose chimaera: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Rillan by 8.350 points.
+- BRD_LOWLAND_PACA Lowland paca: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Rillan by 9.750 points.
+- BRD_LOWLAND_STREAKED_TENREC Lowland streaked tenrec: Selen; weak direct evidence spans 1 substantial axes; Selen leads Kharad by 10.750 points.
+- BRD_LOWLAND_TAPIR Lowland tapir: Damor; weak direct evidence spans 1 substantial axes; Damor leads Rillan by 10.550 points.
+- BRD_LUNA_MOTH Luna moth: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 7.800 points.
+- BRD_MACROPODUS_SPECHTI_PARADISE_FISH Macropodus spechti (Paradise fish): Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 4.700 points.
+- BRD_MADAGASCAR_HISSING_COCKROACH Madagascar hissing cockroach: Selen; weak direct evidence spans 1 substantial axes; Selen leads Scarabos by 16.850 points.
+- BRD_MADAME_BERTHE_S_MOUSE_LEMUR Madame Berthe's mouse lemur: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 10.850 points.
+- BRD_MAGNIFICENT_FRIGATEBIRD Magnificent frigatebird: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 3.150 points.
+- BRD_MAGPIE_SHRIKE Magpie shrike: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Rillan by 15.400 points.
+- BRD_MAHOGANY_GLIDER Mahogany glider: Varek; weak direct evidence spans 1 substantial axes; Varek leads Savael by 3.950 points.
+- BRD_MAJOR_MITCHELL_S_COCKATOO Major Mitchell's cockatoo: Miren; weak direct evidence spans 1 substantial axes; Miren leads Selen by 15.400 points.
+- BRD_MALAYAN_TAPIR Malayan tapir: Damor; weak direct evidence spans 1 substantial axes; Damor leads Rillan by 16.250 points.
+- BRD_MALEO Maleo: Damor; weak direct evidence spans 1 substantial axes; Damor leads Sahrem by 5.650 points.
+- BRD_MALLEEFOWL Malleefowl: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 14.300 points.
+- BRD_MANDRILL Mandrill: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 20.650 points.
+- BRD_MANED_WOLF Maned wolf: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 9.600 points.
+- BRD_MANGROVE_RIVULUS Mangrove rivulus: Neressa; weak direct evidence spans 1 substantial axes; Neressa leads Lunessa by 9.700 points.
+- BRD_MANTLED_GUEREZA Mantled guereza: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 2.550 points.
+- BRD_MANTLED_HOWLER_MONKEY Mantled howler monkey: Selen; weak direct evidence spans 1 substantial axes; Selen leads Tavai by 17.250 points.
+- BRD_MAPINGUARI Mapinguari: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 14.700 points.
+- BRD_MARABOU_STORK Marabou stork: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 11.250 points.
+- BRD_MARBLED_SALAMANDER Marbled salamander: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 9.150 points.
+- BRD_MARINE_IGUANA Marine iguana: Marea; strong direct evidence spans 3 substantial axes; Marea leads Miren by 2.950 points.
+- BRD_MARKHOR Markhor: Darel; weak partial evidence spans 1 substantial axes; Darel leads Sahrem by 3.550 points.
+- BRD_MARMALADE_HOVERFLY Marmalade hoverfly: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 8.850 points.
+- BRD_MAROON_CLOWNFISH Maroon clownfish: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 22.600 points.
+- BRD_MATA_MATA Mata mata: Oren; weak direct evidence spans 1 substantial axes; Oren leads Rillan by 3.250 points.
+- BRD_MATSCHIE_S_TREE_KANGAROO Matschie's tree-kangaroo: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 19.500 points.
+- BRD_MBU_PUFFERFISH Mbu pufferfish: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Miren by 18.250 points.
+- BRD_MEADOW_PIPIT Meadow pipit: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Miren by 30.950 points.
+- BRD_MEDITERRANEAN_TRAPDOOR_SPIDER Mediterranean trapdoor spider: Savael; weak direct evidence spans 1 substantial axes; Savael leads Kharad by 21.800 points.
+- BRD_MEERKAT Meerkat: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 14.000 points.
+- BRD_MENEHUNE Menehune: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 7.600 points.
+- BRD_MERFOLK Merfolk: Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Rillan by 4.700 points.
+- BRD_MEXICAN_HONEYPOT_ANT Mexican honeypot ant: Iskarn; weak direct evidence spans 1 substantial axes; Iskarn leads Scarabos by 3.900 points.
+- BRD_MICRONESIAN_MEGAPODE Micronesian megapode: Damor; weak direct evidence spans 1 substantial axes; Damor leads Sahrem by 4.150 points.
+- BRD_MIMI_SPIRIT Mimi Spirit: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Miren by 13.000 points.
+- BRD_MIMIC_OCTOPUS Mimic octopus: Oren; weak direct evidence spans 1 substantial axes; Oren leads Marea by 9.300 points.
+- BRD_MINOTAUR Minotaur: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Kharad by 19.550 points.
+- BRD_MMOATIA Mmoatia: Miren; weak partial evidence spans 1 substantial axes; Miren leads Asteriel by 2.800 points.
+- BRD_MONARCH_BUTTERFLY Monarch butterfly: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 9.900 points.
+- BRD_MONGOLIAN_GERBIL Mongolian gerbil: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 6.900 points.
+- BRD_MONTANE_GUINEA_PIG Montane guinea pig: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 9.000 points.
+- BRD_MOONRAT Moonrat: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Kharad by 3.200 points.
+- BRD_MOUNTAIN_TAPIR Mountain tapir: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 20.950 points.
+- BRD_MOURNING_DOVE Mourning dove: Miren; weak direct evidence spans 1 substantial axes; Miren leads Elian by 19.700 points.
+- BRD_MUGGER_CROCODILE Mugger crocodile: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Rillan by 11.150 points.
+- BRD_MULE Mule: Myrra; weak indirect evidence spans 0 substantial axes; Myrra leads Selen by 3.571 points.
+- BRD_MUMMY Mummy: Elian; weak direct evidence spans 1 substantial axes; Elian leads Orun-IX by 8.950 points.
+- BRD_MUSK_DUCK Musk duck: Oren; weak direct evidence spans 1 substantial axes; Oren leads Rillan by 7.550 points.
+- BRD_MUSKOX Muskox: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 15.100 points.
+- BRD_MUSTELA_PUTORIUS_DOMESTIC_FERRET Mustela putorius (Domestic ferret): Selen; moderate direct evidence spans 2 substantial axes; Selen leads Kharad by 17.429 points.
+- BRD_MUTE_SWAN Mute swan: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Selen by 5.400 points.
+- BRD_NAGA_NAGA Naga (Nāga): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Rillan by 14.050 points.
+- BRD_NAGA_NAGINI Naga (Nāginī): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 14.350 points.
+- BRD_NAIAD Naiad: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Damor by 6.650 points.
+- BRD_NAKED_MOLE_RAT Naked mole-rat: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 4.450 points.
+- BRD_NAMAQUA_SANDGROUSE Namaqua sandgrouse: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 19.850 points.
+- BRD_NAMIB_DESERT_DARKLING_BEETLE Namib desert darkling beetle: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 8.850 points.
+- BRD_NARWHAL Narwhal: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Marea by 9.450 points.
+- BRD_NASUTE_TERMITE Nasute termite: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 13.250 points.
+- BRD_NEPHILIM Nephilim: Darel; weak direct evidence spans 1 substantial axes; Darel leads Asteriel by 3.650 points.
+- BRD_NEW_HOLLAND_HONEYEATER New Holland honeyeater: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 16.300 points.
+- BRD_NILE_CROCODILE Nile crocodile: Varek; weak direct evidence spans 1 substantial axes; Varek leads Rillan by 4.050 points.
+- BRD_NILE_MONITOR Nile monitor: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Damor by 7.000 points.
+- BRD_NINE_BANDED_ARMADILLO Nine-banded armadillo: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 6.650 points.
+- BRD_NINGYO Ningyo: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Scarabos by 4.350 points.
+- BRD_NORTH_AMERICAN_BEAVER North American beaver: Damor; weak direct evidence spans 1 substantial axes; Damor leads Rillan by 5.500 points.
+- BRD_NORTH_AMERICAN_PORCUPINE North American porcupine: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Vhalen by 32.700 points.
+- BRD_NORTH_AMERICAN_RIVER_OTTER North American river otter: Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 8.050 points.
+- BRD_NORTH_ISLAND_BROWN_KIWI North Island brown kiwi: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 14.650 points.
+- BRD_NORTHERN_BOTTLENOSE_WHALE Northern bottlenose whale: Miren; weak partial evidence spans 1 substantial axes; Miren leads Tavai by 6.550 points.
+- BRD_NORTHERN_BROWN_BANDICOOT Northern brown bandicoot: Damor; moderate direct evidence spans 2 substantial axes; Damor leads Scarabos by 21.750 points.
+- BRD_NORTHERN_CAIMAN_LIZARD Northern caiman lizard: Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 6.100 points.
+- BRD_NORTHERN_CARMINE_BEE_EATER Northern carmine bee-eater: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Tavai by 3.600 points.
+- BRD_NORTHERN_CASSOWARY Northern cassowary: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 7.850 points.
+- BRD_NORTHERN_GIANT_HORNET Northern giant hornet: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Kharad by 21.450 points.
+- BRD_NORTHERN_JACANA Northern jacana: Varek; weak direct evidence spans 1 substantial axes; Varek leads Rillan by 11.300 points.
+- BRD_NORTHERN_LAPWING Northern lapwing: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Rillan by 30.550 points.
+- BRD_NORTHERN_LEOPARD_FROG Northern leopard frog: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 4.100 points.
+- BRD_NORTHERN_SAW_WHET_OWL Northern saw-whet owl: Savael; weak direct evidence spans 1 substantial axes; Savael leads Miren by 18.550 points.
+- BRD_NUMIDA_MELEAGRIS_HELMETED_GUINEAFOWL Numida meleagris (Helmeted guineafowl): Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 24.700 points.
+- BRD_NUNNEHI Nunnehi: Miren; strong direct evidence spans 3 substantial axes; Miren leads Damor by 29.950 points.
+- BRD_OCEAN_SUNFISH Ocean sunfish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Rillan by 14.450 points.
+- BRD_OCEANIC_MANTA_RAY Oceanic manta ray: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 3.000 points.
+- BRD_OCELLARIS_CLOWNFISH Ocellaris clownfish: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 12.800 points.
+- BRD_OCELLATED_TURKEY Ocellated turkey: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Elian by 32.850 points.
+- BRD_OCELOT Ocelot: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Savael by 17.150 points.
+- BRD_OGRE Ogre: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 15.000 points.
+- BRD_OKAPI Okapi: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_OLINGUITO Olinguito: Darel; weak direct evidence spans 1 substantial axes; Darel leads Vespera by 21.800 points.
+- BRD_OLIVE_RIDLEY_SEA_TURTLE Olive ridley sea turtle: Darel; weak direct evidence spans 1 substantial axes; Darel leads Marea by 2.950 points.
+- BRD_OLIVE_SEA_SNAKE Olive sea snake: Marea; strong direct evidence spans 3 substantial axes; Marea leads Selen by 4.400 points.
+- BRD_ONI Oni: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Kharad by 13.350 points.
+- BRD_ORANGE_SPOTTED_FILEFISH Orange-spotted filefish: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Miren by 13.950 points.
+- BRD_ORC Orc: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Kharad by 9.350 points.
+- BRD_ORCHID_MANTIS Orchid mantis: Oren; weak direct evidence spans 1 substantial axes; Oren leads Savael by 19.450 points.
+- BRD_ORIENTAL_DOLLARBIRD Oriental dollarbird: Varek; weak direct evidence spans 1 substantial axes; Varek leads Rillan by 8.950 points.
+- BRD_ORYCTOLAGUS_CUNICULUS_DOMESTICUS_DOMESTIC_RABBIT Oryctolagus cuniculus domesticus (Domestic rabbit): Tavai; weak indirect evidence spans 0 substantial axes; Tavai leads Miren by 2.857 points.
+- BRD_PACIFIC_BANANA_SLUG Pacific banana slug: Scarabos; strong direct evidence spans 3 substantial axes; Scarabos leads Selen by 3.200 points.
+- BRD_PACIFIC_BEETLE_COCKROACH Pacific beetle cockroach: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 19.100 points.
+- BRD_PACIFIC_DAMPWOOD_TERMITE Pacific dampwood termite: Miren; weak partial evidence spans 1 substantial axes; Miren leads Scarabos by 7.350 points.
+- BRD_PACIFIC_FOUR_EYED_FISH Pacific four-eyed fish: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Neressa by 10.950 points.
+- BRD_PACIFIC_LAMPREY Pacific lamprey: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Marea by 10.200 points.
+- BRD_PALLAS_S_CAT Pallas's cat: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Vhalen by 36.000 points.
+- BRD_PALM_COCKATOO Palm cockatoo: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 18.700 points.
+- BRD_PANCAKE_TORTOISE Pancake tortoise: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Miren by 32.250 points.
+- BRD_PANTHER_CHAMELEON Panther chameleon: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_PATAGONIAN_MARA Patagonian mara: Miren; weak direct evidence spans 1 substantial axes; Miren leads Kharad by 22.600 points.
+- BRD_PATAS_MONKEY Patas monkey: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 14.000 points.
+- BRD_PATUPAIAREHE Patupaiarehe: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 16.100 points.
+- BRD_PEACOCK_MANTIS_SHRIMP Peacock mantis shrimp: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Marea by 6.250 points.
+- BRD_PEACOCK_SPIDER Peacock spider: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 25.400 points.
+- BRD_PEN_TAILED_TREESHREW Pen-tailed treeshrew: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 13.650 points.
+- BRD_PEREGRINE_FALCON Peregrine falcon: Miren; weak direct evidence spans 1 substantial axes; Miren leads Aveli by 4.750 points.
+- BRD_PERENTIE Perentie: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Varek by 5.850 points.
+- BRD_PERI Peri: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 16.100 points.
+- BRD_PHANTOM_MIDGE Phantom midge: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Voltar by 5.000 points.
+- BRD_PHEASANT_TAILED_JACANA Pheasant-tailed jacana: Varek; weak direct evidence spans 1 substantial axes; Varek leads Rillan by 6.400 points.
+- BRD_PHILIPPINE_COLUGO Philippine colugo: Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 27.400 points.
+- BRD_PICASSO_TRIGGERFISH Picasso triggerfish: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 9.750 points.
+- BRD_PIED_BILLED_GREBE Pied-billed grebe: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 5.050 points.
+- BRD_PIED_IMPERIAL_PIGEON Pied imperial pigeon: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_PILEATED_WOODPECKER Pileated woodpecker: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 13.000 points.
+- BRD_PILL_MILLIPEDE Pill millipede: Scarabos; moderate direct evidence spans 2 substantial axes; Scarabos leads Selen by 7.400 points.
+- BRD_PIN_TAILED_SANDGROUSE Pin-tailed sandgrouse: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Damor by 24.600 points.
+- BRD_PINE_MARTEN Pine marten: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 19.850 points.
+- BRD_PINK_FAIRY_ARMADILLO Pink fairy armadillo: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 6.800 points.
+- BRD_PLAINS_VISCACHA Plains viscacha: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_PLAINS_ZEBRA Plains zebra: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Rillan by 13.250 points.
+- BRD_POLAR_BEAR Polar bear: Savael; weak direct evidence spans 1 substantial axes; Savael leads Marea by 8.400 points.
+- BRD_PONATURI Ponaturi: Solkar; strong direct evidence spans 4 substantial axes; Solkar leads Marea by 19.750 points.
+- BRD_PREHENSILE_TAILED_SKINK Prehensile-tailed skink: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 8.050 points.
+- BRD_PROBOSCIS_MONKEY Proboscis monkey: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Neressa by 2.100 points.
+- BRD_PRONGHORN Pronghorn: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 15.550 points.
+- BRD_PSYCHEDELIC_FROGFISH Psychedelic frogfish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Selen by 4.700 points.
+- BRD_PUCA Púca: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Rillan by 3.150 points.
+- BRD_PUFF_ADDER Puff adder: Savael; weak direct evidence spans 1 substantial axes; Savael leads Orun-IX by 27.850 points.
+- BRD_PUKWUDGIE Pukwudgie: Solkar; weak direct evidence spans 1 substantial axes; Solkar leads Rillan by 2.450 points.
+- BRD_PUMA_CONCOLOR_COUGAR Puma concolor (Cougar): Savael; moderate direct evidence spans 2 substantial axes; Savael leads Kharad by 29.500 points.
+- BRD_PURPLE_FROG Purple frog: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Rillan by 21.700 points.
+- BRD_PURPLE_GALLINULE Purple gallinule: Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 18.950 points.
+- BRD_PYGMY_HIPPOPOTAMUS Pygmy hippopotamus: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Rillan by 4.600 points.
+- BRD_PYGMY_THREE_TOED_SLOTH Pygmy three-toed sloth: Savael; weak direct evidence spans 1 substantial axes; Savael leads Iskarn by 8.800 points.
+- BRD_PYRENEAN_DESMAN Pyrenean desman: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Rillan by 2.250 points.
+- BRD_QUOKKA Quokka: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 2.900 points.
+- BRD_RABID_WOLF_SPIDER Rabid wolf spider: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 19.200 points.
+- BRD_RACCOON_DOG Raccoon dog: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Damor by 20.100 points.
+- BRD_RADIATED_TORTOISE Radiated tortoise: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Rillan by 9.150 points.
+- BRD_RAINBOW_SCARAB Rainbow scarab: Scarabos; strong direct evidence spans 4 substantial axes; Scarabos leads Damor by 2.100 points.
+- BRD_RAINBOW_TROUT Rainbow trout: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Kharad by 4.900 points.
+- BRD_RED_BELLIED_PIRANHA Red-bellied piranha: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Neressa by 21.100 points.
+- BRD_RED_BILLED_QUELEA Red-billed quelea: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Rillan by 5.600 points.
+- BRD_RED_BIRD_OF_PARADISE Red bird-of-paradise: Selen; strong direct evidence spans 3 substantial axes; Selen leads Myrra by 30.850 points.
+- BRD_RED_CROSSBILL Red crossbill: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Oren by 9.900 points.
+- BRD_RED_DEER Red deer: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 28.950 points.
+- BRD_RED_EARED_SLIDER Red-eared slider: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 4.800 points.
+- BRD_RED_EYED_CROCODILE_SKINK Red-eyed crocodile skink: Varek; weak direct evidence spans 1 substantial axes; Varek leads Rillan by 13.400 points.
+- BRD_RED_EYED_TREE_FROG Red-eyed tree frog: Oren; weak direct evidence spans 1 substantial axes; Oren leads Rillan by 10.300 points.
+- BRD_RED_FACED_SPIDER_MONKEY Red-faced spider monkey: Tavai; weak partial evidence spans 1 substantial axes; Tavai leads Elian by 4.500 points.
+- BRD_RED_FOOTED_BOOBY Red-footed booby: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 12.200 points.
+- BRD_RED_FOX Red fox: Savael; weak direct evidence spans 1 substantial axes; Savael leads Scarabos by 16.950 points.
+- BRD_RED_GIANT_FLYING_SQUIRREL Red giant flying squirrel: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vespera by 11.300 points.
+- BRD_RED_HANDFISH Red handfish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Darel by 8.450 points.
+- BRD_RED_HEADED_WOODPECKER Red-headed woodpecker: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Savael by 4.950 points.
+- BRD_RED_JUNGLEFOWL Red junglefowl: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 6.100 points.
+- BRD_RED_KANGAROO Red kangaroo: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 4.750 points.
+- BRD_RED_KING_CRAB Red king crab: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Marea by 15.450 points.
+- BRD_RED_LEGGED_GRASSHOPPER Red-legged grasshopper: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.350 points.
+- BRD_RED_LIONFISH Red lionfish: Marea; strong direct evidence spans 3 substantial axes; Marea leads Selen by 14.500 points.
+- BRD_RED_NECKED_TANAGER Red-necked tanager: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 6.400 points.
+- BRD_RED_PANDA Red panda: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Vhalen by 22.350 points.
+- BRD_RED_RUFFED_LEMUR Red ruffed lemur: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 19.850 points.
+- BRD_RED_RUMPED_AGOUTI Red-rumped agouti: Damor; weak direct evidence spans 1 substantial axes; Damor leads Miren by 14.250 points.
+- BRD_RED_SALAMANDER Red salamander: Oren; weak direct evidence spans 1 substantial axes; Oren leads Rillan by 6.350 points.
+- BRD_RED_SWAMP_CRAYFISH Red swamp crayfish: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Kharad by 6.250 points.
+- BRD_RED_THROATED_LOON Red-throated loon: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Marea by 17.300 points.
+- BRD_RED_TRIANGLE_SLUG Red triangle slug: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 12.200 points.
+- BRD_REDCAP Redcap: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Damor by 10.650 points.
+- BRD_REDTAIL_CATFISH Redtail catfish: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Kharad by 2.900 points.
+- BRD_REEF_MANTA_RAY Reef manta ray: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 4.100 points.
+- BRD_REEVES_S_MUNTJAC Reeves's muntjac: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 12.200 points.
+- BRD_REGAL_JUMPING_SPIDER Regal jumping spider: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Darel by 18.200 points.
+- BRD_REINDEER Reindeer: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 5.450 points.
+- BRD_RETICULATED_GIRAFFE Reticulated giraffe: Tavai; weak partial evidence spans 1 substantial axes; Tavai leads Sahrem by 3.300 points.
+- BRD_RETICULATED_GLASS_FROG Reticulated glass frog: Varek; moderate direct evidence spans 2 substantial axes; Varek leads Rillan by 11.100 points.
+- BRD_REVENANT Revenant: Darel; weak direct evidence spans 1 substantial axes; Darel leads Scarabos by 15.400 points.
+- BRD_RHINOCEROS_AUKLET Rhinoceros auklet: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Marea by 12.700 points.
+- BRD_RHINOCEROS_HORNBILL Rhinoceros hornbill: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 19.350 points.
+- BRD_RHINOCEROS_IGUANA Rhinoceros iguana: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Sahrem by 10.650 points.
+- BRD_RIBBON_EEL Ribbon eel: Lunessa; weak direct evidence spans 1 substantial axes; Lunessa leads Neressa by 3.200 points.
+- BRD_RING_TAILED_LEMUR Ring-tailed lemur: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Varek by 20.650 points.
+- BRD_RINGED_CAECILIAN Ringed caecilian: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 16.650 points.
+- BRD_RISSO_S_DOLPHIN Risso's dolphin: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Miren by 4.650 points.
+- BRD_ROBOROVSKI_HAMSTER Roborovski hamster: Miren; weak direct evidence spans 0 substantial axes; Miren leads Rillan by 2.285 points.
+- BRD_ROCK_CAVY Rock cavy: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Miren by 6.350 points.
+- BRD_ROCK_PIGEON Rock pigeon: Miren; weak direct evidence spans 1 substantial axes; Miren leads Vespera by 2.250 points.
+- BRD_ROMAN_SNAIL Roman snail: Iskarn; moderate direct evidence spans 2 substantial axes; Iskarn leads Scarabos by 16.300 points.
+- BRD_ROSEATE_SPOONBILL Roseate spoonbill: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 13.100 points.
+- BRD_ROSY_WOLF_SNAIL Rosy wolf snail: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Savael by 15.050 points.
+- BRD_RUBY_THROATED_HUMMINGBIRD Ruby-throated hummingbird: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 6.000 points.
+- BRD_RUSALKA Rusalka: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Rillan by 9.600 points.
+- BRD_RUSSIAN_DESMAN Russian desman: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Tavai by 5.150 points.
+- BRD_SACRED_IBIS Sacred ibis: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 7.250 points.
+- BRD_SADDLE_BILLED_STORK Saddle-billed stork: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Miren by 2.100 points.
+- BRD_SAIGA_ANTELOPE Saiga antelope: Sterna; weak direct evidence spans 1 substantial axes; Sterna leads Vespera by 4.100 points.
+- BRD_SAILFIN_MOLLY Sailfin molly: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 11.000 points.
+- BRD_SAILFIN_TANG Sailfin tang: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Selen by 8.650 points.
+- BRD_SALAMANDER Salamander: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Sahrem by 8.450 points.
+- BRD_SAND_CAT Sand cat: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.350 points.
+- BRD_SANDHILL_CRANE Sandhill crane: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Rillan by 4.200 points.
+- BRD_SARGASSUM_FROGFISH Sargassum frogfish: Oren; weak direct evidence spans 1 substantial axes; Oren leads Marea by 7.150 points.
+- BRD_SARUS_CRANE Sarus crane: Varek; weak direct evidence spans 1 substantial axes; Varek leads Rillan by 6.450 points.
+- BRD_SATANIC_LEAF_TAILED_GECKO Satanic leaf-tailed gecko: Oren; weak direct evidence spans 1 substantial axes; Oren leads Selen by 21.050 points.
+- BRD_SATIN_BOWERBIRD Satin bowerbird: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 13.250 points.
+- BRD_SCARECROW Scarecrow: Varek; weak direct evidence spans 1 substantial axes; Varek leads Miren by 5.700 points.
+- BRD_SCARLET_CHESTED_SUNBIRD Scarlet-chested sunbird: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_SCARLET_CLEANER_SHRIMP Scarlet cleaner shrimp: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 17.350 points.
+- BRD_SCARLET_IBIS Scarlet ibis: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Rillan by 8.300 points.
+- BRD_SCARLET_MACAW Scarlet macaw: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Rillan by 11.100 points.
+- BRD_SCIMITAR_HORNED_ORYX Scimitar-horned oryx: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 4.100 points.
+- BRD_SCREAMING_HAIRY_ARMADILLO Screaming hairy armadillo: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 7.400 points.
+- BRD_SEA_LAMPREY Sea lamprey: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Kharad by 2.000 points.
+- BRD_SEA_OTTER Sea otter: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Marea by 18.400 points.
+- BRD_SELKIE Selkie: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Marea by 18.450 points.
+- BRD_SERVAL Serval: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.350 points.
+- BRD_SEVEN_SPOT_LADYBIRD Seven-spot ladybird: Elian; weak direct evidence spans 1 substantial axes; Elian leads Myrra by 5.100 points.
+- BRD_SEVENTEEN_YEAR_PERIODICAL_CICADA Seventeen-year periodical cicada: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Lunessa by 21.500 points.
+- BRD_SHARPTAIL_MOLA Sharptail mola: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Rillan by 10.000 points.
+- BRD_SHOCKING_PINK_DRAGON_MILLIPEDE Shocking pink dragon millipede: Oren; weak direct evidence spans 1 substantial axes; Oren leads Kharad by 12.700 points.
+- BRD_SHOEBILL Shoebill: Savael; weak direct evidence spans 1 substantial axes; Savael leads Rillan by 19.800 points.
+- BRD_SHORT_BEAKED_COMMON_DOLPHIN Short-beaked common dolphin: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Marea by 19.250 points.
+- BRD_SHORT_BEAKED_ECHIDNA Short-beaked echidna: Darel; weak direct evidence spans 1 substantial axes; Darel leads Kharad by 13.400 points.
+- BRD_SHORT_EARED_ELEPHANT_SHREW Short-eared elephant shrew: Elian; weak direct evidence spans 1 substantial axes; Elian leads Miren by 7.350 points.
+- BRD_SHORT_TAILED_ALBATROSS Short-tailed albatross: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 10.900 points.
+- BRD_SIAMANG Siamang: Selen; weak direct evidence spans 1 substantial axes; Selen leads Tavai by 18.750 points.
+- BRD_SIAMESE_FIGHTING_FISH Siamese fighting fish: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 13.143 points.
+- BRD_SIAMESE_FIGHTING_FISH_CROWNTAIL_BETTA Siamese fighting fish (Crowntail Betta): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 13.428 points.
+- BRD_SIAMESE_FIGHTING_FISH_DOUBLE_TAIL_BETTA Siamese fighting fish (Double Tail Betta): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 13.428 points.
+- BRD_SIAMESE_FIGHTING_FISH_DUMBO_EAR_BETTA Siamese fighting fish (Dumbo Ear Betta): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 8.214 points.
+- BRD_SIAMESE_FIGHTING_FISH_HALFMOON_BETTA Siamese fighting fish (Halfmoon Betta): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 13.428 points.
+- BRD_SIAMESE_FIGHTING_FISH_PLAKAT_BETTA Siamese fighting fish (Plakat Betta): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 14.285 points.
+- BRD_SIAMESE_FIGHTING_FISH_VEILTAIL_BETTA Siamese fighting fish (Veiltail Betta): Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Neressa by 13.428 points.
+- BRD_SIBERIAN_MUSK_DEER Siberian musk deer: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Varek by 3.550 points.
+- BRD_SILKY_ANTEATER Silky anteater: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 15.400 points.
+- BRD_SILKY_POCKET_MOUSE Silky pocket mouse: Varek; weak direct evidence spans 1 substantial axes; Varek leads Iskarn by 6.150 points.
+- BRD_SIR_DAVID_S_LONG_BEAKED_ECHIDNA Sir David's long-beaked echidna: Varek; weak direct evidence spans 1 substantial axes; Varek leads Kharad by 3.450 points.
+- BRD_SIREN Siren: Marea; strong direct evidence spans 4 substantial axes; Marea leads Selen by 6.350 points.
+- BRD_SIX_LINED_RACERUNNER Six-lined racerunner: Darel; weak direct evidence spans 1 substantial axes; Darel leads Rillan by 16.100 points.
+- BRD_SIYOKOY Siyokoy: Marea; strong direct evidence spans 3 substantial axes; Marea leads Rillan by 2.100 points.
+- BRD_SKELETON Skeleton: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Scarabos by 7.500 points.
+- BRD_SLOTH_BEAR Sloth bear: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Varek by 4.700 points.
+- BRD_SLOW_WORM Slow worm: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 8.850 points.
+- BRD_SMALL_SCALED_BURROWING_ASP Small-scaled burrowing asp: Savael; weak direct evidence spans 1 substantial axes; Savael leads Kharad by 16.200 points.
+- BRD_SMALLMOUTH_ELECTRIC_CATFISH Smallmouth electric catfish: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Voltar by 5.250 points.
+- BRD_SNOW_LEOPARD Snow leopard: Oren; weak direct evidence spans 1 substantial axes; Oren leads Kharad by 14.600 points.
+- BRD_SNOW_PETREL Snow petrel: Varek; weak direct evidence spans 1 substantial axes; Varek leads Marea by 6.550 points.
+- BRD_SNOWSHOE_HARE Snowshoe hare: Varek; weak direct evidence spans 1 substantial axes; Varek leads Iskarn by 10.550 points.
+- BRD_SNOWY_OWL Snowy owl: Miren; weak direct evidence spans 1 substantial axes; Miren leads Iskarn by 10.450 points.
+- BRD_SOCIABLE_WEAVER Sociable weaver: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 10.350 points.
+- BRD_SOMALI_OSTRICH Somali ostrich: Miren; weak direct evidence spans 1 substantial axes; Miren leads Selen by 22.650 points.
+- BRD_SONG_THRUSH Song thrush: Selen; weak direct evidence spans 1 substantial axes; Selen leads Darel by 27.100 points.
+- BRD_SOOTY_SHEARWATER Sooty shearwater: Sterna; strong direct evidence spans 3 substantial axes; Sterna leads Vespera by 5.450 points.
+- BRD_SOUTHERN_CASSOWARY Southern cassowary: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 11.150 points.
+- BRD_SOUTHERN_CRESTED_CARACARA Southern crested caracara: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Scarabos by 17.300 points.
+- BRD_SOUTHERN_ELEPHANT_SEAL Southern elephant seal: Darel; moderate direct evidence spans 2 substantial axes; Darel leads Marea by 19.550 points.
+- BRD_SOUTHERN_GIANT_PETREL Southern giant petrel: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 17.450 points.
+- BRD_SOUTHERN_GROUND_HORNBILL Southern ground hornbill: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 21.050 points.
+- BRD_SOUTHERN_HAIRY_NOSED_WOMBAT Southern hairy-nosed wombat: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 5.250 points.
+- BRD_SOUTHERN_MARSUPIAL_MOLE Southern marsupial mole: Damor; weak direct evidence spans 1 substantial axes; Damor leads Orun-IX by 6.800 points.
+- BRD_SOUTHERN_SCREAMER Southern screamer: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 9.150 points.
+- BRD_SOUTHERN_STILETTO_SNAKE Southern stiletto snake: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Kharad by 6.900 points.
+- BRD_SOUTHERN_STINGRAY Southern stingray: Oren; weak direct evidence spans 1 substantial axes; Oren leads Marea by 14.550 points.
+- BRD_SOUTHERN_TAMANDUA Southern tamandua: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 13.350 points.
+- BRD_SOUTHERN_THREE_BANDED_ARMADILLO Southern three-banded armadillo: Darel; weak direct evidence spans 1 substantial axes; Darel leads Kharad by 12.400 points.
+- BRD_SOUTHERN_TREE_HYRAX Southern tree hyrax: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 16.400 points.
+- BRD_SPANISH_RIBBED_NEWT Spanish ribbed newt: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Neressa by 17.750 points.
+- BRD_SPECTRAL_TARSIER Spectral tarsier: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Darel by 14.400 points.
+- BRD_SPERM_WHALE Sperm whale: Darel; weak direct evidence spans 1 substantial axes; Darel leads Marea by 20.500 points.
+- BRD_SPHINX Sphinx: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 4.350 points.
+- BRD_SPINNER_DOLPHIN Spinner dolphin: Darel; weak direct evidence spans 1 substantial axes; Darel leads Marea by 12.700 points.
+- BRD_SPINY_BACKED_ORB_WEAVER Spiny-backed orb-weaver: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 21.500 points.
+- BRD_SPOTTED_EAGLE_RAY Spotted eagle ray: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Marea by 8.100 points.
+- BRD_SPOTTED_HANDFISH Spotted handfish: Marea; weak direct evidence spans 1 substantial axes; Marea leads Elian by 2.700 points.
+- BRD_SPOTTED_HYENA Spotted hyena: Scarabos; weak direct evidence spans 1 substantial axes; Scarabos leads Tavai by 2.950 points.
+- BRD_SPOTTED_RATFISH Spotted ratfish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Rillan by 16.150 points.
+- BRD_SPOTTED_TAILED_QUOLL Spotted-tailed quoll: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Kharad by 2.650 points.
+- BRD_SPOTTED_TRUNKFISH Spotted trunkfish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Miren by 4.250 points.
+- BRD_STALK_EYED_FLY Stalk-eyed fly: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Selen by 13.550 points.
+- BRD_STAR_NOSED_MOLE Star-nosed mole: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Rillan by 5.150 points.
+- BRD_STONE_GIANT Stone Giant: Kharad; moderate direct evidence spans 2 substantial axes; Kharad leads Rillan by 24.650 points.
+- BRD_STRAP_TOOTHED_WHALE Strap-toothed whale: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Marea by 13.400 points.
+- BRD_STRAWBERRY_POISON_FROG Strawberry poison frog: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Damor by 18.050 points.
+- BRD_STRIPED_HYENA Striped hyena: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Vhalen by 17.950 points.
+- BRD_STRIPED_POSSUM Striped possum: Varek; weak direct evidence spans 1 substantial axes; Varek leads Savael by 4.950 points.
+- BRD_STRIPED_SKUNK Striped skunk: Selen; weak direct evidence spans 1 substantial axes; Selen leads Vespera by 8.600 points.
+- BRD_SULPHUR_CRESTED_COCKATOO Sulphur-crested cockatoo: Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Selen by 22.450 points.
+- BRD_SUMATRAN_RHINOCEROS Sumatran rhinoceros: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 10.250 points.
+- BRD_SUNDA_COLUGO Sunda colugo: Savael; weak direct evidence spans 1 substantial axes; Savael leads Iskarn by 8.550 points.
+- BRD_SUNDA_PANGOLIN Sunda pangolin: Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 15.150 points.
+- BRD_SUPERB_LYREBIRD Superb lyrebird: Oren; weak direct evidence spans 1 substantial axes; Oren leads Selen by 14.150 points.
+- BRD_SUPERB_STARLING Superb starling: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 16.000 points.
+- BRD_SUS_SCROFA_DOMESTIC_PIG Sus scrofa (Domestic pig): Scarabos; moderate direct evidence spans 3 substantial axes; Scarabos leads Rillan by 8.572 points.
+- BRD_SWAMP_WALLABY Swamp wallaby: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 3.450 points.
+- BRD_SWORD_BILLED_HUMMINGBIRD Sword-billed hummingbird: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.350 points.
+- BRD_SYLPH Sylph: Aveli; strong direct evidence spans 3 substantial axes; Aveli leads Rillan by 10.500 points.
+- BRD_TAILLESS_TENREC Tailless tenrec: Iskarn; weak direct evidence spans 1 substantial axes; Iskarn leads Miren by 27.200 points.
+- BRD_TAKIN Takin: Vespera; weak direct evidence spans 1 substantial axes; Vespera leads Sterna by 10.200 points.
+- BRD_TANUKI Tanuki: Miren; weak direct evidence spans 1 substantial axes; Miren leads Myrra by 18.200 points.
+- BRD_TASMANIAN_DEVIL Tasmanian devil: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Voltar by 3.600 points.
+- BRD_TAWNY_FROGMOUTH Tawny frogmouth: Oren; weak direct evidence spans 1 substantial axes; Oren leads Darel by 20.250 points.
+- BRD_TENGU Tengu: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Aveli by 12.750 points.
+- BRD_TEXAS_BLIND_SALAMANDER Texas blind salamander: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Kharad by 9.150 points.
+- BRD_THIRTEEN_LINED_GROUND_SQUIRREL Thirteen-lined ground squirrel: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 9.150 points.
+- BRD_THORN_BUG Thorn bug: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 7.350 points.
+- BRD_THORNY_DEVIL Thorny devil: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 6.350 points.
+- BRD_TIGER Tiger: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Rillan by 7.050 points.
+- BRD_TIGER_SALAMANDER Tiger salamander: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Rillan by 22.850 points.
+- BRD_TIKBALANG Tikbalang: Oren; weak direct evidence spans 1 substantial axes; Oren leads Myrra by 2.200 points.
+- BRD_TILIQUA_SCINCOIDES_SCINCOIDES_EASTERN_BLUE_TONGUED_SKINK Tiliqua scincoides scincoides (Eastern blue-tongued skink): Darel; weak direct evidence spans 1 substantial axes; Darel leads Selen by 8.450 points.
+- BRD_TITAN Titan: Selen; weak direct evidence spans 1 substantial axes; Selen leads Asteriel by 2.300 points.
+- BRD_TITAN_TRIGGERFISH Titan triggerfish: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Marea by 12.350 points.
+- BRD_TOCO_TOUCAN Toco toucan: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Selen by 10.400 points.
+- BRD_TOKAY_GECKO Tokay gecko: Varek; weak direct evidence spans 1 substantial axes; Varek leads Kharad by 11.750 points.
+- BRD_TOKOLOSHE Tokoloshe: Selen; moderate direct evidence spans 2 substantial axes; Selen leads Rillan by 12.350 points.
+- BRD_TOMATO_FROG Tomato frog: Rillan; moderate direct evidence spans 2 substantial axes; Rillan leads Miren by 5.500 points.
+- BRD_TOUCAN_BARBET Toucan barbet: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 18.700 points.
+- BRD_TRAP_JAW_ANT Trap-jaw ant: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Sahrem by 11.700 points.
+- BRD_TREANT Treant: Miren; weak direct evidence spans 1 substantial axes; Miren leads Darel by 15.000 points.
+- BRD_TRI_SPINE_HORSESHOE_CRAB Tri-spine horseshoe crab: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Marea by 4.200 points.
+- BRD_TRITON Triton: Marea; strong direct evidence spans 4 substantial axes; Marea leads Selen by 13.250 points.
+- BRD_TROLL Troll: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Rillan by 36.600 points.
+- BRD_TUATARA Tuatara: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Vhalen by 21.200 points.
+- BRD_TUI Tūī: Kharad; weak direct evidence spans 1 substantial axes; Kharad leads Vhalen by 11.700 points.
+- BRD_TURKEY_VULTURE Turkey vulture: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 4.100 points.
+- BRD_TURTLE_FROG Turtle frog: Kharad; strong direct evidence spans 3 substantial axes; Kharad leads Lunessa by 30.150 points.
+- BRD_TWO_TOED_AMPHIUMA Two-toed amphiuma: Savael; weak direct evidence spans 1 substantial axes; Savael leads Rillan by 7.450 points.
+- BRD_UNDINE Undine: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Selen by 7.950 points.
+- BRD_UNICORN Unicorn: Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 7.500 points.
+- BRD_UPSIDE_DOWN_CATFISH Upside-down catfish: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Neressa by 15.250 points.
+- BRD_URSUS_ARCTOS_BROWN_BEAR Ursus arctos (Brown bear): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Elian by 2.300 points.
+- BRD_VALKYRIE Valkyrie: Vhalen; strong direct evidence spans 3 substantial axes; Vhalen leads Scarabos by 17.400 points.
+- BRD_VAMPIRE_SQUID Vampire squid: Selen; weak direct evidence spans 1 substantial axes; Selen leads Marea by 3.850 points.
+- BRD_VAMPIRES_STRIGOI Vampires (Strigoi): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Rillan by 14.450 points.
+- BRD_VAMPIRES_VAMPIRE Vampires (Vampire): Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Rillan by 14.450 points.
+- BRD_VAQUITA Vaquita: Marea; strong direct evidence spans 3 substantial axes; Marea leads Selen by 5.350 points.
+- BRD_VICTORIA_CROWNED_PIGEON Victoria crowned pigeon: Miren; weak direct evidence spans 1 substantial axes; Miren leads Damor by 16.150 points.
+- BRD_VICUNA Vicuña: Varek; weak direct evidence spans 1 substantial axes; Varek leads Miren by 19.350 points.
+- BRD_VIETNAMESE_MOSSY_FROG Vietnamese mossy frog: Oren; weak direct evidence spans 1 substantial axes; Oren leads Rillan by 5.950 points.
+- BRD_VILLAGE_WEAVER Village weaver: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 5.950 points.
+- BRD_VIOLET_TURACO Violet turaco: Selen; weak direct evidence spans 1 substantial axes; Selen leads Vespera by 16.700 points.
+- BRD_VIRGINIA_OPOSSUM Virginia opossum: Damor; weak direct evidence spans 1 substantial axes; Damor leads Kharad by 2.350 points.
+- BRD_VODYANOY Vodyanoy: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Damor by 5.500 points.
+- BRD_VOGELKOP_SUPERB_BIRD_OF_PARADISE Vogelkop superb bird-of-paradise: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 25.400 points.
+- BRD_VULTURINE_GUINEAFOWL Vulturine guineafowl: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Miren by 14.500 points.
+- BRD_WALKING_CATFISH Walking catfish: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Aveli by 14.650 points.
+- BRD_WALLACE_S_FLYING_FROG Wallace's flying frog: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Aveli by 15.450 points.
+- BRD_WANDERING_ALBATROSS Wandering albatross: Miren; weak direct evidence spans 1 substantial axes; Miren leads Marea by 7.750 points.
+- BRD_WATER_CHEVROTAIN Water chevrotain: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Darel by 11.100 points.
+- BRD_WATER_OPOSSUM Water opossum: Varek; weak direct evidence spans 1 substantial axes; Varek leads Rillan by 2.500 points.
+- BRD_WATER_RAIL Water rail: Selen; weak direct evidence spans 1 substantial axes; Selen leads Rillan by 12.950 points.
+- BRD_WATER_SCORPION Water scorpion: Savael; moderate direct evidence spans 2 substantial axes; Savael leads Rillan by 17.550 points.
+- BRD_WEREBEINGS_WEREBEAR Werebeings (Werebear): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 20.650 points.
+- BRD_WEREBEINGS_WEREBOAR Werebeings (Wereboar): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 16.950 points.
+- BRD_WEREBEINGS_WERETIGER Werebeings (Weretiger): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Neressa by 16.950 points.
+- BRD_WEREBEINGS_WEREWOLF Werebeings (Werewolf): Myrra; weak direct evidence spans 1 substantial axes; Myrra leads Lunessa by 14.500 points.
+- BRD_WESTERN_DIAMONDBACK_RATTLESNAKE Western diamondback rattlesnake: Sahrem; weak direct evidence spans 1 substantial axes; Sahrem leads Kharad by 6.650 points.
+- BRD_WESTERN_GORILLA Western gorilla: Tavai; weak partial evidence spans 0 substantial axes; Tavai leads Asteriel by 2.250 points.
+- BRD_WESTERN_HONEY_BEE Western honey bee: Selen; weak direct evidence spans 1 substantial axes; Selen leads Vespera by 13.000 points.
+- BRD_WESTERN_LONG_BEAKED_ECHIDNA Western long-beaked echidna: Varek; weak direct evidence spans 1 substantial axes; Varek leads Orun-IX by 8.200 points.
+- BRD_WESTERN_SPOTTED_SKUNK Western spotted skunk: Darel; weak direct evidence spans 1 substantial axes; Darel leads Kharad by 7.850 points.
+- BRD_WHALE_SHARK Whale shark: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Sahrem by 3.900 points.
+- BRD_WHEEL_BUG Wheel bug: Voltar; weak direct evidence spans 1 substantial axes; Voltar leads Savael by 9.750 points.
+- BRD_WHITE_BELLBIRD White bellbird: Selen; weak direct evidence spans 1 substantial axes; Selen leads Tavai by 16.700 points.
+- BRD_WHITE_CHEEKED_TURACO White-cheeked turaco: Selen; weak direct evidence spans 1 substantial axes; Selen leads Miren by 20.150 points.
+- BRD_WHITE_LIPPED_PECCARY White-lipped peccary: Miren; moderate direct evidence spans 2 substantial axes; Miren leads Tavai by 16.700 points.
+- BRD_WHITE_RHINOCEROS White rhinoceros: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_WHITE_STORK White stork: Miren; weak direct evidence spans 1 substantial axes; Miren leads Rillan by 4.850 points.
+- BRD_WHITE_TAILED_DEER White-tailed deer: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_WHITE_WAGTAIL White wagtail: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Tavai by 6.300 points.
+- BRD_WHITE_WINGED_VAMPIRE_BAT White-winged vampire bat: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 2.900 points.
+- BRD_WHOOPING_CRANE Whooping crane: Miren; weak direct evidence spans 1 substantial axes; Miren leads Rillan by 2.000 points.
+- BRD_WIGHT Wight: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Miren by 24.750 points.
+- BRD_WILD_TURKEY Wild turkey: Miren; weak direct evidence spans 1 substantial axes; Miren leads Tavai by 5.300 points.
+- BRD_WILL_O_THE_WISP_FOLK Will-o’-the-Wisp Folk: Oren; weak direct evidence spans 1 substantial axes; Oren leads Elian by 21.750 points.
+- BRD_WILSON_S_BIRD_OF_PARADISE Wilson's bird-of-paradise: Selen; weak direct evidence spans 1 substantial axes; Selen leads Myrra by 28.000 points.
+- BRD_WIMPLE_PIRANHA Wimple piranha: Rillan; strong direct evidence spans 3 substantial axes; Rillan leads Tavai by 23.450 points.
+- BRD_WINTER_WHITE_DWARF_HAMSTER Winter white dwarf hamster: Iskarn; strong direct evidence spans 3 substantial axes; Iskarn leads Kharad by 15.357 points.
+- BRD_WRINKLE_FACED_BAT Wrinkle-faced bat: Selen; weak direct evidence spans 1 substantial axes; Selen leads Elian by 28.600 points.
+- BRD_YELLOW_BELLIED_SEA_SNAKE Yellow-bellied sea snake: Darel; weak direct evidence spans 1 substantial axes; Darel leads Marea by 10.500 points.
+- BRD_YELLOW_BILLED_LOON Yellow-billed loon: Tavai; weak direct evidence spans 1 substantial axes; Tavai leads Rillan by 8.300 points.
+- BRD_YELLOW_BOXFISH Yellow boxfish: Marea; moderate direct evidence spans 2 substantial axes; Marea leads Miren by 11.700 points.
+- BRD_YELLOW_FEVER_MOSQUITO Yellow fever mosquito: Varek; weak direct evidence spans 1 substantial axes; Varek leads Elian by 8.850 points.
+- BRD_YELLOW_HEADED_AMAZON Yellow-headed amazon: Tavai; moderate direct evidence spans 2 substantial axes; Tavai leads Miren by 6.700 points.
+- BRD_YELLOW_WARBLER Yellow warbler: Orun-IX; weak direct evidence spans 1 substantial axes; Orun-IX leads Asteriel by 5.700 points.
+- BRD_YUREI Yūrei: Vhalen; weak direct evidence spans 1 substantial axes; Vhalen leads Miren by 19.200 points.
+- BRD_ZEBRA_MANTIS_SHRIMP Zebra mantis shrimp: Savael; moderate direct evidence spans 2 substantial axes; Savael leads Marea by 29.450 points.
+- BRD_ZEBRA_MORAY Zebra moray: Marea; strong direct evidence spans 3 substantial axes; Marea leads Kharad by 4.350 points.
+- BRD_ZOMBIE Zombie: Aveli; weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 16.550 points.
+
+## Review Required (353)
+
+- BRD_ACORN_WOODPECKER Acorn woodpecker: provisional Tavai; The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_AMAZON_RIVER_DOLPHIN Amazon river dolphin: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.300-point margin.
+- BRD_AMAZONIAN_GIANT_CENTIPEDE Amazonian giant centipede: provisional Kharad; The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_AMAZONIAN_MANATEE Amazonian manatee: provisional Iskarn; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_AMERICAN_BLACK_BEAR American black bear: provisional Myrra; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.300-point margin.
+- BRD_AMERICAN_BULLFROG American bullfrog: provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.900-point margin.
+- BRD_AMERICAN_PIKA American pika: provisional Kharad; The top two candidates are effectively inseparable at a 0.300-point margin.
+- BRD_ANGELS_ARCHANGEL Angels (Archangel): provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.700-point margin.
+- BRD_ANGELS_CHERUB Angels (Cherub): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_ARAFURA_FILE_SNAKE Arafura file snake: provisional Rillan; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_ARCTIC_HARE Arctic hare: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_ASWANG Aswang: provisional Oren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_ATLANTIC_FLYINGFISH Atlantic flyingfish: provisional Marea; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_ATLANTIC_HORSESHOE_CRAB Atlantic horseshoe crab: provisional Lunessa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_ATLANTIC_SALMON Atlantic salmon: provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.150-point margin.
+- BRD_AXOLOTL Axolotl: provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.142-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_AYE_AYE Aye-aye: provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_BANDED_ARCHERFISH Banded archerfish: provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_BANDED_MONGOOSE Banded mongoose: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.400-point margin.
+- BRD_BARBARY_SHEEP Barbary sheep: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_BIGCLAW_SNAPPING_SHRIMP Bigclaw snapping shrimp: provisional Voltar; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.150-point margin.
+- BRD_BLACK_CAIMAN Black caiman: provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.300-point margin.
+- BRD_BLACKFIN_ICEFISH Blackfin icefish: provisional Iskarn; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.200-point margin.
+- BRD_BLUE_TANG Blue tang: provisional Marea; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_BLUE_WILDEBEEST Blue wildebeest: provisional Sterna; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_BLUESPINE_UNICORNFISH Bluespine unicornfish: provisional Selen; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_BORNEAN_ORANGUTAN Bornean orangutan: provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_BRAZILIAN_RAINBOW_BOA Brazilian rainbow boa: provisional Voltar; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_BUFF_TAILED_BUMBLEBEE Buff-tailed bumblebee: provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.300-point margin.
+- BRD_CALUMMA_PARSONII_PARSON_S_CHAMELEON Calumma parsonii (Parson's chameleon): provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_CHIMNEY_SWIFT Chimney swift: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_CLIFF_SWALLOW Cliff swallow: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_CLOUDED_ARCHERFISH Clouded archerfish: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_COCKATIEL Cockatiel: provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_COMMON_GENET Common genet: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_COMMON_OCTOPUS Common octopus: provisional Kharad; The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_COMMON_RACCOON Common raccoon: provisional Myrra; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.300-point margin.
+- BRD_COMMON_RINGED_PLOVER Common ringed plover: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin.
+- BRD_COMMON_SWIFT Common swift: provisional Sterna; The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_COMMON_TREESHREW Common treeshrew: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_COMMON_VAMPIRE_BAT Common vampire bat: provisional Tavai; The top two candidates are effectively inseparable at a 0.550-point margin.
+- BRD_CORN_SNAKE Corn snake: provisional Rillan; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.071-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_CUVIER_S_DWARF_CAIMAN Cuvier's dwarf caiman: provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_DOMESTICATED_CANARY_YORKSHIRE_CANARY Domesticated canary (Yorkshire Canary): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.572-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CAT_SAVANNAH Domesticated cat (Savannah): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.786-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE Domesticated cattle: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_ANGUS Domesticated cattle (Angus): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_BELGIAN_BLUE Domesticated cattle (Belgian Blue): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_CHAROLAIS Domesticated cattle (Charolais): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_HIGHLAND Domesticated cattle (Highland): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_TEXAS_LONGHORN Domesticated cattle (Texas Longhorn): provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.786-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_FERRET_ALBINO_FERRET Domesticated ferret (Albino Ferret): provisional Selen; No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_FERRET_ANGORA_FERRET Domesticated ferret (Angora Ferret): provisional Selen; No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_FERRET_PANDA_FERRET Domesticated ferret (Panda Ferret): provisional Selen; No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_FERRET_STANDARD_SABLE_FERRET Domesticated ferret (Standard Sable Ferret): provisional Selen; No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT Domesticated goat: provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_ANGORA Domesticated goat (Angora): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_BOER Domesticated goat (Boer): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_CASHMERE Domesticated goat (Cashmere): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_LAMANCHA Domesticated goat (LaMancha): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_NIGERIAN_DWARF Domesticated goat (Nigerian Dwarf): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_NUBIAN Domesticated goat (Nubian): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_PYGMY Domesticated goat (Pygmy): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_SAANEN Domesticated goat (Saanen): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_ABYSSINIAN Domesticated guinea pig (Abyssinian): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.072-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_AMERICAN Domesticated guinea pig (American): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.072-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_SKINNY_PIG Domesticated guinea pig (Skinny Pig): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.072-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_TEDDY Domesticated guinea pig (Teddy): provisional Myrra; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.215-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_TEXEL Domesticated guinea pig (Texel): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.072-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_AKHAL_TEKE Domesticated horse (Akhal-Teke): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_AMERICAN_PAINT_HORSE Domesticated horse (American Paint Horse): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_AMERICAN_QUARTER_HORSE Domesticated horse (American Quarter Horse): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_ANDALUSIAN Domesticated horse (Andalusian): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_APPALOOSA Domesticated horse (Appaloosa): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_ARABIAN Domesticated horse (Arabian): provisional Sterna; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_BELGIAN_DRAFT Domesticated horse (Belgian Draft): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_CLYDESDALE Domesticated horse (Clydesdale): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_FRIESIAN Domesticated horse (Friesian): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_HAFLINGER Domesticated horse (Haflinger): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_ICELANDIC_HORSE Domesticated horse (Icelandic Horse): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_LIPIZZANER Domesticated horse (Lipizzaner): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_MORGAN Domesticated horse (Morgan): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_MUSTANG Domesticated horse (Mustang): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_PERCHERON Domesticated horse (Percheron): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_SHIRE Domesticated horse (Shire): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_TENNESSEE_WALKING_HORSE Domesticated horse (Tennessee Walking Horse): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_THOROUGHBRED Domesticated horse (Thoroughbred): provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_BERKSHIRE Domesticated pig (Berkshire): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_GLOUCESTERSHIRE_OLD_SPOTS Domesticated pig (Gloucestershire Old Spots): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_KUNEKUNE Domesticated pig (Kunekune): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_MANGALITSA Domesticated pig (Mangalitsa): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_TAMWORTH Domesticated pig (Tamworth): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_YAK Domesticated yak: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DRAGONKIN_LONG Dragonkin (Long): provisional Myrra; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_DROMEDARY_CAMEL_DROMEDARY_RIDING_CAMEL Dromedary camel (Dromedary Riding Camel): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.715-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_EGYPTIAN_SPINY_TAILED_LIZARD Egyptian spiny-tailed lizard: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.150-point margin.
+- BRD_ELECTRIC_EEL Electric eel: provisional Rillan; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.550-point margin.
+- BRD_ELEMENTAL Elemental: provisional Neressa; The top two candidates are effectively inseparable at a 1.550-point margin.
+- BRD_ELEMENTALS_AIR Elementals (Air): provisional Aveli; The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_ELEMENTALS_CRYSTAL Elemental (Crystal): provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_ELEMENTALS_MAGMA Elementals (Magma): provisional Sahrem; The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_ELEMENTALS_WOOD Elementals (Wood): provisional Selen; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_ELVES_HIGH Elves (High): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_ELVES_SEA Elves (Sea): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_EMERALD_TREE_MONITOR Emerald tree monitor: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin.
+- BRD_EURASIAN_MAGPIE Eurasian magpie: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_EUROPEAN_BADGER European badger: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.950-point margin.
+- BRD_FANCY_MOUSE Fancy mouse: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_HAIRLESS_MOUSE Fancy mouse (Hairless Mouse): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_LONGHAIR_MOUSE Fancy mouse (Longhair Mouse): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_REX_MOUSE Fancy mouse (Rex Mouse): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_SATIN_MOUSE Fancy mouse (Satin Mouse): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_STANDARD_FANCY_MOUSE Fancy mouse (Standard Fancy Mouse): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_DUMBO_RAT Fancy rat (Dumbo Rat): provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_HAIRLESS_RAT Fancy rat (Hairless Rat): provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_HOODED_RAT Fancy rat (Hooded Rat): provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_REX_RAT Fancy rat (Rex Rat): provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_STANDARD_FANCY_RAT Fancy rat (Standard Fancy Rat): provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FAT_TAILED_DUNNART Fat-tailed dunnart: provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin.
+- BRD_FISH_EATING_MYOTIS Fish-eating myotis: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_FOMORIAN Fomorian: provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.450-point margin.
+- BRD_GIANT_AFRICAN_MILLIPEDE Giant African millipede: provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_GIANT_DEVIL_RAY Giant devil ray: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_GIANT_HAGFISH Giant hagfish: provisional Marea; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.200-point margin.
+- BRD_GIANT_HUMMINGBIRD Giant hummingbird: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_GIANT_MUDSKIPPER Giant mudskipper: provisional Aveli; The top two candidates are effectively inseparable at a 1.100-point margin.
+- BRD_GOBLIN Goblin: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_GREAT_BLUE_TURACO Great blue turaco: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_GREAT_GRAY_SHRIKE Great gray shrike: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_GREATER_KUDU Greater kudu: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_GREEN_SAWFISH Green sawfish: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_GRIZZLY_BEAR Grizzly bear: provisional Elian; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_GUPPY Guppy: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.786-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_GUPPY_DUMBO_EAR_GUPPY Guppy (Dumbo Ear Guppy): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.643-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_GUPPY_MOSCOW_GUPPY Guppy (Moscow Guppy): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.643-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_HAIRY_FROG Hairy frog: provisional Rillan; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_HARBOR_PORPOISE Harbor porpoise: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_HARP_SEAL Harp seal: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_HERCULES_BEETLE Hercules beetle: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.200-point margin.
+- BRD_HOUSE_CENTIPEDE House centipede: provisional Voltar; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.450-point margin.
+- BRD_HOUSE_SPARROW House sparrow: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.350-point margin.
+- BRD_HULI_JING Huli Jing: provisional Oren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_BAHIAN Human (Afro Latin American Afro Bahian - Afro Bahian): provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.688-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_CUBAN Human (Afro Latin American Afro Bahian - Afro Cuban): provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_PUERTO_RICAN Human (Afro Latin American Afro Bahian - Afro Puerto Rican): provisional Sterna; The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_URUGUAYAN Human (Afro Latin American Afro Bahian - Afro Uruguayan): provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_VENEZUELAN Human (Afro Latin American Afro Bahian - Afro Venezuelan): provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.100-point margin.
+- BRD_HUMAN_AMAZIGH_BERBER_AMAZIGH Human (Amazigh Berber - Amazigh): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.150-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_BAHRANI_ARAB Human (Arabian Peninsula Arab - Bahrani Arab): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_HEJAZI Human (Arabian Peninsula Arab - Hejazi): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.313-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_KHUZESTANI_ARAB Human (Arabian Peninsula Arab - Khuzestani Arab): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.438-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_OMANI Human (Arabian Peninsula Arab - Omani): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_QATARI_ARAB Human (Arabian Peninsula Arab - Qatari Arab): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_YEMENI_ARAB Human (Arabian Peninsula Arab - Yemeni Arab): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.938-point margin.
+- BRD_HUMAN_ASSYRIAN_SYRIAC_ASSYRIAN_ARMENIAN Human (Assyrian Syriac - Assyrian Armenian): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ASSYRIAN_SYRIAC_MARONITE_SYRIAC Human (Assyrian Syriac - Maronite Syriac): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.063-point margin.
+- BRD_HUMAN_BALTIC_LATVIAN Human (Baltic - Latvian): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_BALTIC_LITHUANIAN Human (Baltic - Lithuanian): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_BANGLADESHI Human (Bangladeshi): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_BLACK_SOUTH_AFRICAN Human (Black South African): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAGANDA Human (Central And Great Lakes African Kongo Bantu Twa - Baganda): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAKONGO Human (Central And Great Lakes African Kongo Bantu Twa - Bakongo): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAMILEKE Human (Central And Great Lakes African Kongo Bantu Twa - Bamileke): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BANYANKOLE_BUNYORO Human (Central And Great Lakes African Kongo Bantu Twa - Banyankole Bunyoro): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BUBI Human (Central And Great Lakes African Kongo Bantu Twa - Bubi): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_EQUATORIAN_BANTU Human (Central And Great Lakes African Kongo Bantu Twa - Equatorian Bantu): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_KINYARWANDA_KIRUNDI Human (Central And Great Lakes African Kongo Bantu Twa - Kinyarwanda Kirundi): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_LUBA_LUNDA Human (Central And Great Lakes African Kongo Bantu Twa - Luba Lunda): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_CHAD_SUDAN_INTERIOR_SUDANESE_ARAB Human (Chad Sudan Interior - Sudanese Arab): provisional Rillan; The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_HUMAN_EGYPTIAN_COPTIC_EGYPTIAN_ARAB Human (Egyptian Coptic - Egyptian Arab): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_ETHIOPIAN Human (Ethiopian): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_HABESHA_ETHIOPIAN_HIGHLAND Human (Ethiopian Eritrean Highlands And South - Habesha Ethiopian Highland): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_OMOTIC_SIDAMA Human (Ethiopian Eritrean Highlands And South - Omotic Sidama): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_TIGRE Human (Ethiopian Eritrean Highlands And South - Tigre): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_GUADELOUPEAN_CREOLE Human (Francophone Caribbean Creole - Guadeloupean Creole): provisional Sterna; The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_HAITIAN Human (Francophone Caribbean Creole - Haitian): provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.438-point margin.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_MARTINICAN_CREOLE Human (Francophone Caribbean Creole - Martinican Creole): provisional Sterna; The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_SAINT_MARTINOIS Human (Francophone Caribbean Creole - Saint Martinois): provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.438-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_CALDOCHE Human (French Francophone - Caldoche): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_FRENCH Human (French Francophone - French): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_GUERNESIAIS Human (French Francophone - Guernesiais): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_JERRIAIS Human (French Francophone - Jerriais): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_QUEBECOIS_ACADIAN Human (French Francophone - Quebecois Acadian): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_SAINT_PIERRAIS Human (French Francophone - Saint Pierrais): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_WALLOON Human (French Francophone - Walloon): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_BYZANTINE_ROMAN Human (Greek Aegean Byzantine - Byzantine Roman): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.438-point margin.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_PONTIC_GREEK Human (Greek Aegean Byzantine - Pontic Greek): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_EWE Human (Gulf Volta West African Akan Gbe Gur - Ewe): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_MOSSI_GUR Human (Gulf Volta West African Akan Gbe Gur - Mossi Gur): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_GULLAH_GEECHEE_GULLAH_GEECHEE Human (Gullah Geechee - Gullah Geechee): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_HAUSA Human (Hausa Kanuri Sahel - Hausa): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_HAUSA_KANURI Human (Hausa Kanuri Sahel - Hausa Kanuri): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_KANURI Human (Hausa Kanuri Sahel - Kanuri): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_BURGENLAND_HUNGARIAN Human (Hungarian Magyar - Burgenland Hungarian): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_HUNGARIAN_MAGYAR Human (Hungarian Magyar - Hungarian Magyar): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_MALDIVIAN Human (Indian Ocean Muslim Cape Malay Maldivian - Maldivian): provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.100-point margin.
+- BRD_HUMAN_IRISH_GAELIC_HIGHLAND_SCOTS Human (Irish Gaelic - Highland Scots): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_IRISH_GAELIC_IRISH Human (Irish Gaelic - Irish): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_IRISH_GAELIC_IRISH_GAELIC Human (Irish Gaelic - Irish Gaelic): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_JAPANESE_JAPANESE Human (Japanese - Japanese): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_JAPANESE_YAMATO_JAPANESE Human (Japanese - Yamato Japanese): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_JAVA_JAVANESE_SUNDANESE_SUNDANESE Human (Java Javanese Sundanese - Sundanese): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_JEWISH_DIASPORA_ISRAELI_JEWISH Human (Jewish Diaspora - Israeli Jewish): provisional Sterna; The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_HUMAN_LEVANTINE_ARAB_SYRIAN_ARAB Human (Levantine Arab - Syrian Arab): provisional Kharad; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.063-point margin.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_TAGALOG_LOWLAND_FILIPINO Human (Lowland Filipino Tagalog Visayan - Tagalog Lowland Filipino): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_VISAYAN Human (Lowland Filipino Tagalog Visayan - Visayan): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_MAGHREBI_ARAB_ALGERIAN_ARAB Human (Maghrebi Arab - Algerian Arab): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MAGHREBI_ARAB_HASSANIYA_MOOR Human (Maghrebi Arab - Hassaniya Moor): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MAGHREBI_ARAB_LIBYAN_ARAB Human (Maghrebi Arab - Libyan Arab): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_MAGHREBI_ARAB_MOROCCAN_ARAB Human (Maghrebi Arab - Moroccan Arab): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_BRUNEI_MALAY Human (Maritime Austronesian Malayic Bornean Timorese - Brunei Malay): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.312-point margin.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_DAYAK Human (Maritime Austronesian Malayic Bornean Timorese - Dayak): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MALAY Human (Maritime Austronesian Malayic Bornean Timorese - Malay): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MINANGKABAU Human (Maritime Austronesian Malayic Bornean Timorese - Minangkabau): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_BABYLONIAN Human (Mesopotamian Sumerian Babylonian - Babylonian): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_MICRONESIAN_NAURUAN Human (Micronesian - Nauruan): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MICRONESIAN_PALAUAN Human (Micronesian - Palauan): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_MISSISSIPPIAN_EASTERN_WOODLANDS_MISSISSIPPI_INDIGENOUS Human (Mississippian Eastern Woodlands - Mississippi Indigenous): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MOROCCAN Human (Moroccan): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_GILGIT_BALTISTANI Human (Nepal Bhutan Himalayan Newar - Gilgit Baltistani): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_KASHMIRI_HIMALAYAN Human (Nepal Bhutan Himalayan Newar - Kashmiri Himalayan): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_LHOTSHAMPA Human (Nepal Bhutan Himalayan Newar - Lhotshampa): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.937-point margin.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_NEWAR Human (Nepal Bhutan Himalayan Newar - Newar): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDIAN_SOUTH_AFRICAN Human (North And West Indian Indus Gangetic - Indian South African): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_FIJIAN Human (North And West Indian Indus Gangetic - Indo Fijian): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.813-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_MAURITIAN Human (North And West Indian Indus Gangetic - Indo Mauritian): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_MADHESI Human (North And West Indian Indus Gangetic - Madhesi): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_MUHAJIR Human (North And West Indian Indus Gangetic - Muhajir): provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_PERSIAN_IRANIAN_BALOCH Human (Persian Iranian - Baloch): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_MARQUESAN_TUAMOTUAN Human (Polynesian Islands - Marquesan Tuamotuan): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_PITCAIRN_DESCENDED Human (Polynesian Islands - Pitcairn Descended): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_PITCAIRN_ISLANDER Human (Polynesian Islands - Pitcairn Islander): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_SAMOAN Human (Polynesian Islands - Samoan): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TAHITIAN Human (Polynesian Islands - Tahitian): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TONGAN Human (Polynesian Islands - Tongan): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SAN_KHOEKHOE_SAN_KHOEKHOE Human (San Khoekhoe - San Khoekhoe): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SAN_KHOEKHOE_SAN_TSHWA Human (San Khoekhoe - San Tshwa): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SAUDI Human (Saudi): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.438-point margin.
+- BRD_HUMAN_SCOTS_ULSTER_SCOTS_LOWLAND_SCOTS Human (Scots Ulster Scots - Lowland Scots): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_HUMAN_SCOTS_ULSTER_SCOTS_ULSTER_SCOTS Human (Scots Ulster Scots - Ulster Scots): provisional Sterna; The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_HUMAN_SCOTTISH Human (Scottish): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYALI_KERALA Human (South Indian Dravidian - Malayali Kerala): provisional Sterna; The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYSIAN_TAMIL Human (South Indian Dravidian - Malaysian Tamil): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_SINGAPOREAN_TAMIL Human (South Indian Dravidian - Singaporean Tamil): provisional Sterna; The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_TAMIL_MALBAR Human (South Indian Dravidian - Tamil Malbar): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_NDEBELE Human (Southern African Bantu Nguni Sotho Tswana - Ndebele): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_OVAMBO Human (Southern African Bantu Nguni Sotho Tswana - Ovambo): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_SWAZI Human (Southern African Bantu Nguni Sotho Tswana - Swazi): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_ZULU Human (Southern African Bantu Nguni Sotho Tswana - Zulu): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_CANTONESE Human (Southern Han Chinese Wu Min Yue Hakka - Cantonese): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_HOKLO_TAIWANESE Human (Southern Han Chinese Wu Min Yue Hakka - Hoklo Taiwanese): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MACANESE_CHINESE Human (Southern Han Chinese Wu Min Yue Hakka - Macanese Chinese): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MAINLAND_CHINESE Human (Southern Han Chinese Wu Min Yue Hakka - Mainland Chinese): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_SINGAPOREAN_CHINESE Human (Southern Han Chinese Wu Min Yue Hakka - Singaporean Chinese): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_SINO_MAURITIAN Human (Southern Han Chinese Wu Min Yue Hakka - Sino Mauritian): provisional Rillan; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_WU_CHINESE Human (Southern Han Chinese Wu Min Yue Hakka - Wu Chinese): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.938-point margin.
+- BRD_HUMAN_TAJIK_SOGDIAN_TAJIK_SOGDIAN Human (Tajik Sogdian - Tajik Sogdian): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_TIBETAN_TIBETAN Human (Tibetan - Tibetan): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_TLINGIT_TLINGIT Human (Tlingit - Tlingit): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_HUMAN_UPLAND_FILIPINO_IFUGAO_CORDILLERAN_LUMAD_IFUGAO Human (Upland Filipino Ifugao Cordilleran Lumad - Ifugao): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.188-point margin.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_KRU_BETE Human (Upper Guinea Mande Kru Temne - Kru Bete): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDE Human (Upper Guinea Mande Kru Temne - Mande): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDINKA Human (Upper Guinea Mande Kru Temne - Mandinka): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDINKA_MANDE Human (Upper Guinea Mande Kru Temne - Mandinka Mande): provisional Asteriel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_UZBEK_TIMURID_UZBEK_TIMURID Human (Uzbek Timurid - Uzbek Timurid): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_MAKHUWA Human (Zambezi Zimbabwe Mozambique Bantu - Makhuwa): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_YAO Human (Zambezi Zimbabwe Mozambique Bantu - Yao): provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_INCUBUS Incubus: provisional Selen; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_INDIAN_RHINOCEROS Indian rhinoceros: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_IVORY_GULL Ivory gull: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_JAVAN_RHINOCEROS Javan rhinoceros: provisional Rillan; The top two candidates are effectively inseparable at a 1.100-point margin.
+- BRD_KING_VULTURE King vulture: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_KISSING_GOURAMI Kissing gourami: provisional Rillan; The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_KOALA Koala: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_KUMIHO Kumiho: provisional Myrra; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_LARGE_FLYING_FOX Large flying fox: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_LEOPARD_SLUG Leopard slug: provisional Selen; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_LESSER_CAPYBARA Lesser capybara: provisional Rillan; The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_LITTLE_BUSTARD Little bustard: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_LLAMA Llama: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.150-point margin.
+- BRD_LONG_FINNED_PILOT_WHALE Long-finned pilot whale: provisional Selen; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_LONG_TAILED_CHINCHILLA Long-tailed chinchilla: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.550-point margin.
+- BRD_MALLARD Mallard: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin.
+- BRD_MANDARIN_DUCK Mandarin duck: provisional Selen; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.200-point margin.
+- BRD_MASAI_GIRAFFE Masai giraffe: provisional Neressa; The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_MEADOW_JUMPING_MOUSE Meadow jumping mouse: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_MEXICAN_BEADED_LIZARD Mexican beaded lizard: provisional Kharad; The top two candidates are effectively inseparable at a 0.350-point margin.
+- BRD_MEXICAN_MOLE_LIZARD Mexican mole lizard: provisional Kharad; The top two candidates are effectively inseparable at a 1.850-point margin.
+- BRD_MO_O Moʻo: provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_MOOSE Moose: provisional Sterna; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_MYRMECOBIUS_FASCIATUS_NUMBAT Myrmecobius fasciatus (Numbat): provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.450-point margin.
+- BRD_NICOBAR_PIGEON Nicobar pigeon: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_NON_BITING_MIDGE Non-biting midge: provisional Orun-IX; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.800-point margin.
+- BRD_NORTH_ATLANTIC_RIGHT_WHALE North Atlantic right whale: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_NORTH_SULAWESI_BABIRUSA North Sulawesi babirusa: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.700-point margin.
+- BRD_NORTHERN_GANNET Northern gannet: provisional Marea; The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_NORTHERN_GIRAFFE Northern giraffe: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_NORTHERN_MARSUPIAL_MOLE Northern marsupial mole: provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_OCELLATED_ICEFISH Ocellated icefish: provisional Iskarn; The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_OLM Olm: provisional Iskarn; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_ONRYO Onryō: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_ORCHID_BEE Orchid bee: provisional Neressa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_OSPREY Osprey: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_PACIFIC_HAGFISH Pacific hagfish: provisional Scarabos; The top two candidates are effectively inseparable at a 0.150-point margin.
+- BRD_PAINTED_TURTLE Painted turtle: provisional Selen; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.600-point margin.
+- BRD_PARADISE_TANAGER Paradise tanager: provisional Miren; No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.150-point margin.
+- BRD_PEACH_FACED_LOVEBIRD Peach-faced lovebird: provisional Selen; The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_PHILIPPINE_TARSIER Philippine tarsier: provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.950-point margin.
+- BRD_POTTO Potto: provisional Elian; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_POUCHED_LAMPREY Pouched lamprey: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.400-point margin.
+- BRD_PURPLE_MARTIN Purple martin: provisional Rillan; The top two candidates are effectively inseparable at a 1.950-point margin.
+- BRD_PURPLE_SPOTTED_MANTIS_SHRIMP Purple-spotted mantis shrimp: provisional Marea; The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_PYGMY_RABBIT Pygmy rabbit: provisional Damor; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_PYGMY_SLOW_LORIS Pygmy slow loris: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.850-point margin.
+- BRD_RAKSHASA Rakshasa: provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.700-point margin.
+- BRD_RAZORBILL Razorbill: provisional Marea; The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_REEF_STONEFISH Reef stonefish: provisional Marea; The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_RETICULATED_PYTHON Reticulated python: provisional Rillan; The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_ROCK_HYRAX Rock hyrax: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.550-point margin.
+- BRD_SABLE_ANTELOPE Sable antelope: provisional Rillan; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_SACRED_SCARAB Sacred scarab: provisional Kharad; The top two candidates are effectively inseparable at a 0.450-point margin.
+- BRD_SALTWATER_CROCODILE Saltwater crocodile: provisional Marea; The top two candidates are effectively inseparable at a 1.550-point margin.
+- BRD_SECRETARYBIRD Secretarybird: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_SENEGAL_BUSHBABY Senegal bushbaby: provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_SHORT_TAILED_CHINCHILLA Short-tailed chinchilla: provisional Miren; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_SOUTH_AMERICAN_COATI South American coati: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_SOUTH_AMERICAN_LUNGFISH South American lungfish: provisional Rillan; The top two candidates are effectively inseparable at a 0.300-point margin.
+- BRD_SOUTHERN_FLYING_SQUIRREL Southern flying squirrel: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_SOUTHERN_GIRAFFE Southern giraffe: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_SOUTHERN_VISCACHA Southern viscacha: provisional Kharad; The top two candidates are effectively inseparable at a 1.850-point margin.
+- BRD_SPECTACLED_BEAR Spectacled bear: provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.400-point margin.
+- BRD_SPECTACLED_CAIMAN Spectacled caiman: provisional Rillan; The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_SPINY_SOFTSHELL_TURTLE Spiny softshell turtle: provisional Darel; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_SQUIRREL_GLIDER Squirrel glider: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_STARRY_PUFFER Starry puffer: provisional Marea; The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_STOPLIGHT_PARROTFISH Stoplight parrotfish: provisional Lunessa; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.150-point margin.
+- BRD_SUCCUBUS Succubus: provisional Myrra; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.550-point margin.
+- BRD_SUGAR_GLIDER Sugar glider: provisional Aveli; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.142-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_SUN_BEAR Sun bear: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_SUNDA_SLOW_LORIS Sunda slow loris: provisional Selen; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_TERRAPENE_CAROLINA_EASTERN_BOX_TURTLE Terrapene carolina (Eastern box turtle): provisional Vespera; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_VERREAUX_S_SIFAKA Verreaux's sifaka: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_WALRUS Walrus: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_WEB_FOOTED_TENREC Web-footed tenrec: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_WELS_CATFISH Wels catfish: provisional Rillan; The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_WEST_AFRICAN_LUNGFISH West African lungfish: provisional Rillan; The top two candidates are effectively inseparable at a 0.300-point margin.
+- BRD_WEST_INDIAN_MANATEE West Indian manatee: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.400-point margin.
+- BRD_WHITE_THROATED_NEEDLETAIL White-throated needletail: provisional Sterna; The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_WILD_BOAR Wild boar: provisional Varek; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_WOLVERINE Wolverine: provisional Iskarn; The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_YARA_MA_YHA_WHO Yara-ma-yha-who: provisional Sahrem; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_YELLOW_SPOTTED_ROCK_HYRAX Yellow-spotted rock hyrax: provisional Tavai; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.600-point margin.
+- BRD_ZIEBELLS_HANDFISH Ziebell's handfish: provisional Marea; Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.900-point margin.
+
+## Confidence Threshold Overrides (358)
+
+- BRD_ACORN_WOODPECKER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_AMAZON_RIVER_DOLPHIN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.300-point margin.
+- BRD_AMAZONIAN_GIANT_CENTIPEDE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Sahrem: The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_AMAZONIAN_MANATEE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Iskarn over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_AMERICAN_BLACK_BEAR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Myrra over Elian: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.300-point margin.
+- BRD_AMERICAN_BULLFROG: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.900-point margin.
+- BRD_AMERICAN_PIKA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Damor: The top two candidates are effectively inseparable at a 0.300-point margin.
+- BRD_ANGELS_ARCHANGEL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.700-point margin.
+- BRD_ANGELS_CHERUB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Varek: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_ARAFURA_FILE_SNAKE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Sterna: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_ARCTIC_HARE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Iskarn: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_ASWANG: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Oren over Myrra: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_ATLANTIC_FLYINGFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Varek: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_ATLANTIC_HORSESHOE_CRAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Lunessa over Marea: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_ATLANTIC_SALMON: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.150-point margin.
+- BRD_AXOLOTL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.142-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_AYE_AYE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_BANDED_ARCHERFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_BANDED_MONGOOSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.400-point margin.
+- BRD_BARBARY_SHEEP: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_BIGCLAW_SNAPPING_SHRIMP: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Voltar over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.150-point margin.
+- BRD_BLACK_CAIMAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.300-point margin.
+- BRD_BLACKFIN_ICEFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Iskarn over Marea: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.200-point margin.
+- BRD_BLUE_TANG: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Vespera: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_BLUE_WILDEBEEST: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Vespera: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_BLUESPINE_UNICORNFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Marea: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_BORNEAN_ORANGUTAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_BRAZILIAN_RAINBOW_BOA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Voltar over Sahrem: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_BUFF_TAILED_BUMBLEBEE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.300-point margin.
+- BRD_CALUMMA_PARSONII_PARSON_S_CHAMELEON: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_CHIMNEY_SWIFT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_CLIFF_SWALLOW: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_CLOUDED_ARCHERFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_COCKATIEL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Neressa: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_COMMON_GENET: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_COMMON_OCTOPUS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Orun-IX: The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_COMMON_RACCOON: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Myrra over Elian: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.300-point margin.
+- BRD_COMMON_RINGED_PLOVER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Sterna: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin.
+- BRD_COMMON_SWIFT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Aveli: The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_COMMON_TREESHREW: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Varek: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_COMMON_VAMPIRE_BAT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: The top two candidates are effectively inseparable at a 0.550-point margin.
+- BRD_CORN_SNAKE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Darel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.071-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_CUVIER_S_DWARF_CAIMAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_DOMESTICATED_CANARY_YORKSHIRE_CANARY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Darel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.572-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CAT_SAVANNAH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Darel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.786-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_ANGUS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_BELGIAN_BLUE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_CHAROLAIS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_HIGHLAND: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_CATTLE_TEXAS_LONGHORN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.786-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_FERRET_ALBINO_FERRET: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Kharad: No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_FERRET_ANGORA_FERRET: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Kharad: No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_FERRET_PANDA_FERRET: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Kharad: No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_FERRET_STANDARD_SABLE_FERRET: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Kharad: No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_ANGORA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_BOER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_CASHMERE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_LAMANCHA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_NIGERIAN_DWARF: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_NUBIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_PYGMY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GOAT_SAANEN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.929-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_ABYSSINIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.072-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_AMERICAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.072-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_SKINNY_PIG: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.072-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_TEDDY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Myrra over Namiya: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.215-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_GUINEA_PIG_TEXEL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.072-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_AKHAL_TEKE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_AMERICAN_PAINT_HORSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_AMERICAN_QUARTER_HORSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_ANDALUSIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_APPALOOSA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_ARABIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Neressa: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_BELGIAN_DRAFT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_CLYDESDALE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_FRIESIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_HAFLINGER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_ICELANDIC_HORSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_LIPIZZANER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_MORGAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_MUSTANG: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_PERCHERON: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_SHIRE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_TENNESSEE_WALKING_HORSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_HORSE_THOROUGHBRED: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.143-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_BERKSHIRE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_GLOUCESTERSHIRE_OLD_SPOTS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_KUNEKUNE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_MANGALITSA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Sterna: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_PIG_TAMWORTH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.357-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DOMESTICATED_YAK: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Neressa: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_DRAGONKIN_LONG: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Myrra over Neressa: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_DROMEDARY_CAMEL_DROMEDARY_RIDING_CAMEL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Neressa: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.715-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_EGYPTIAN_SPINY_TAILED_LIZARD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.150-point margin.
+- BRD_ELECTRIC_EEL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Voltar: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.550-point margin.
+- BRD_ELEMENTAL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Voltar: The top two candidates are effectively inseparable at a 1.550-point margin.
+- BRD_ELEMENTALS_AIR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Aveli over Kharad: The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_ELEMENTALS_CRYSTAL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Sahrem: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_ELEMENTALS_MAGMA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Kharad: The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_ELEMENTALS_WOOD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_ELVES_HIGH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_ELVES_SEA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_EMERALD_TREE_MONITOR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin.
+- BRD_EURASIAN_MAGPIE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Darel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_EUROPEAN_BADGER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.950-point margin.
+- BRD_FANCY_MOUSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_HAIRLESS_MOUSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_LONGHAIR_MOUSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_REX_MOUSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_SATIN_MOUSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_MOUSE_STANDARD_FANCY_MOUSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_DUMBO_RAT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_HAIRLESS_RAT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_HOODED_RAT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_REX_RAT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FANCY_RAT_STANDARD_FANCY_RAT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.429-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_FAT_TAILED_DUNNART: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin.
+- BRD_FISH_EATING_MYOTIS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Marea: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_FOMORIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Sahrem: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.450-point margin.
+- BRD_GIANT_AFRICAN_MILLIPEDE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Scarabos: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_GIANT_DEVIL_RAY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_GIANT_HAGFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.200-point margin.
+- BRD_GIANT_HUMMINGBIRD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Varek: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_GIANT_MUDSKIPPER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Aveli over Kharad: The top two candidates are effectively inseparable at a 1.100-point margin.
+- BRD_GOBLIN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_GREAT_BLUE_TURACO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_GREAT_GRAY_SHRIKE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_GREATER_KUDU: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Voltar: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_GREEN_SAWFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Marea: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_GRIZZLY_BEAR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Elian over Myrra: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_GUPPY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.786-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_GUPPY_DUMBO_EAR_GUPPY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.643-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_GUPPY_MOSCOW_GUPPY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.643-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_HAIRY_FROG: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_HARBOR_PORPOISE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Varek: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_HARP_SEAL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Vespera: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_HERCULES_BEETLE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Voltar: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.200-point margin.
+- BRD_HOUSE_CENTIPEDE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Voltar over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.450-point margin.
+- BRD_HOUSE_SPARROW: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.350-point margin.
+- BRD_HULI_JING: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Oren over Myrra: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_BAHIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.688-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_CUBAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_PUERTO_RICAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Sahrem: The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_URUGUAYAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Sahrem: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_VENEZUELAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Sahrem: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.100-point margin.
+- BRD_HUMAN_AMAZIGH_BERBER_AMAZIGH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.150-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_BAHRANI_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_HEJAZI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.313-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_KHUZESTANI_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.438-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_OMANI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_QATARI_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_YEMENI_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.938-point margin.
+- BRD_HUMAN_ASSYRIAN_SYRIAC_ASSYRIAN_ARMENIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ASSYRIAN_SYRIAC_MARONITE_SYRIAC: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.063-point margin.
+- BRD_HUMAN_BALTIC_LATVIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_BALTIC_LITHUANIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_BANGLADESHI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_BLACK_SOUTH_AFRICAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAGANDA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAKONGO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAMILEKE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BANYANKOLE_BUNYORO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BUBI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_EQUATORIAN_BANTU: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_KINYARWANDA_KIRUNDI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_LUBA_LUNDA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_CHAD_SUDAN_INTERIOR_SUDANESE_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Kharad: The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_HUMAN_EGYPTIAN_COPTIC_EGYPTIAN_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_ETHIOPIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_HABESHA_ETHIOPIAN_HIGHLAND: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_OMOTIC_SIDAMA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_TIGRE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_GUADELOUPEAN_CREOLE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Sahrem: The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_HAITIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Darel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.438-point margin.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_MARTINICAN_CREOLE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Sahrem: The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_SAINT_MARTINOIS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Darel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.438-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_CALDOCHE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_FRENCH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_GUERNESIAIS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_JERRIAIS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_QUEBECOIS_ACADIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_SAINT_PIERRAIS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_WALLOON: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_BYZANTINE_ROMAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.438-point margin.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_PONTIC_GREEK: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_EWE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_MOSSI_GUR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_GULLAH_GEECHEE_GULLAH_GEECHEE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_HAUSA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_HAUSA_KANURI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_KANURI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_BURGENLAND_HUNGARIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_HUNGARIAN_MAGYAR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_MALDIVIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Sahrem: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.100-point margin.
+- BRD_HUMAN_IRISH_GAELIC_HIGHLAND_SCOTS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_IRISH_GAELIC_IRISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_IRISH_GAELIC_IRISH_GAELIC: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_SAMMARINESE: LOW → MEDIUM. Numeric guidance suggested LOW, but evidence judgment requires MEDIUM: moderate direct evidence spans 2 substantial axes; Miren leads Tavai by 36.375 points.
+- BRD_HUMAN_JAPANESE_JAPANESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_JAPANESE_YAMATO_JAPANESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_JAVA_JAVANESE_SUNDANESE_SUNDANESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_JEWISH_DIASPORA_ISRAELI_JEWISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Miren: The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_HUMAN_LEVANTINE_ARAB_SYRIAN_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Vhalen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.063-point margin.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_TAGALOG_LOWLAND_FILIPINO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_VISAYAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_MAGHREBI_ARAB_ALGERIAN_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MAGHREBI_ARAB_HASSANIYA_MOOR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MAGHREBI_ARAB_LIBYAN_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_MAGHREBI_ARAB_MOROCCAN_ARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_BRUNEI_MALAY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.312-point margin.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_DAYAK: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MALAY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MINANGKABAU: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_BABYLONIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_MICRONESIAN_NAURUAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MICRONESIAN_PALAUAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_MISSISSIPPIAN_EASTERN_WOODLANDS_MISSISSIPPI_INDIGENOUS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_MOROCCAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_GILGIT_BALTISTANI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_KASHMIRI_HIMALAYAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_LHOTSHAMPA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.937-point margin.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_NEWAR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDIAN_SOUTH_AFRICAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_FIJIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.813-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_MAURITIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_MADHESI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_MUHAJIR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_HUMAN_OGHUZ_TURKIC_CRIMEAN_TATAR: LOW → MEDIUM. Numeric guidance suggested LOW, but evidence judgment requires MEDIUM: strong direct evidence spans 3 substantial axes; Sterna leads Vespera by 35.250 points.
+- BRD_HUMAN_PERSIAN_IRANIAN_BALOCH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_MARQUESAN_TUAMOTUAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_PITCAIRN_DESCENDED: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_PITCAIRN_ISLANDER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_SAMOAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TAHITIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TONGAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SAN_KHOEKHOE_SAN_KHOEKHOE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SAN_KHOEKHOE_SAN_TSHWA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SAUDI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.438-point margin.
+- BRD_HUMAN_SCOTS_ULSTER_SCOTS_LOWLAND_SCOTS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_HUMAN_SCOTS_ULSTER_SCOTS_ULSTER_SCOTS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Miren: The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_HUMAN_SCOTTISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYALI_KERALA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Asteriel: The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYSIAN_TAMIL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_SINGAPOREAN_TAMIL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Miren: The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_TAMIL_MALBAR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_NDEBELE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_OVAMBO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_SWAZI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_ZULU: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_CANTONESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_HOKLO_TAIWANESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MACANESE_CHINESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MAINLAND_CHINESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_SINGAPOREAN_CHINESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_SINO_MAURITIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_WU_CHINESE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.938-point margin.
+- BRD_HUMAN_TAJIK_SOGDIAN_TAJIK_SOGDIAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.250-point margin.
+- BRD_HUMAN_TIBETAN_TIBETAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_TLINGIT_TLINGIT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_HUMAN_UPLAND_FILIPINO_IFUGAO_CORDILLERAN_LUMAD_IFUGAO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Asteriel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.188-point margin.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_KRU_BETE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDINKA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDINKA_MANDE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Asteriel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.625-point margin.
+- BRD_HUMAN_UZBEK_TIMURID_UZBEK_TIMURID: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_MAKHUWA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.500-point margin.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_YAO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_INCUBUS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Myrra: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_INDIAN_RHINOCEROS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_IVORY_GULL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Marea: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_JAVAN_RHINOCEROS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Kharad: The top two candidates are effectively inseparable at a 1.100-point margin.
+- BRD_KING_VULTURE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Damor: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_KISSING_GOURAMI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Kharad: The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_KOALA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_KUMIHO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Myrra over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_LARGE_FLYING_FOX: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_LEOPARD_SLUG: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Scarabos: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_LESSER_CAPYBARA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Miren: The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_LITTLE_BUSTARD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_LLAMA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.150-point margin.
+- BRD_LONG_FINNED_PILOT_WHALE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Marea: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_LONG_TAILED_CHINCHILLA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.550-point margin.
+- BRD_MALLARD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.000-point margin.
+- BRD_MANDARIN_DUCK: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.200-point margin.
+- BRD_MASAI_GIRAFFE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Darel: The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_MEADOW_JUMPING_MOUSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Iskarn: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_MEXICAN_BEADED_LIZARD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Voltar: The top two candidates are effectively inseparable at a 0.350-point margin.
+- BRD_MEXICAN_MOLE_LIZARD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Damor: The top two candidates are effectively inseparable at a 1.850-point margin.
+- BRD_MO_O: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Myrra: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_MOOSE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Vespera: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_MYRMECOBIUS_FASCIATUS_NUMBAT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Varek: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.450-point margin.
+- BRD_NICOBAR_PIGEON: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_NON_BITING_MIDGE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Orun-IX over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.800-point margin.
+- BRD_NORTH_ATLANTIC_RIGHT_WHALE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Sterna: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.100-point margin.
+- BRD_NORTH_SULAWESI_BABIRUSA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.700-point margin.
+- BRD_NORTHERN_GANNET: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Miren: The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_NORTHERN_GIRAFFE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Darel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.800-point margin.
+- BRD_NORTHERN_MARSUPIAL_MOLE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_OCELLATED_ICEFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Iskarn over Marea: The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_OLM: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Iskarn over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.700-point margin.
+- BRD_ONRYO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Voltar: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_ORCHID_BEE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Neressa over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.750-point margin.
+- BRD_OREAD: LOW → MEDIUM. Numeric guidance suggested LOW, but evidence judgment requires MEDIUM: strong direct evidence spans 3 substantial axes; Kharad leads Miren by 35.850 points.
+- BRD_OSPREY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_PACIFIC_HAGFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Scarabos over Miren: The top two candidates are effectively inseparable at a 0.150-point margin.
+- BRD_PAINTED_TURTLE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.600-point margin.
+- BRD_PARADISE_TANAGER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Rillan: No direct Breed-level canonical field materially distinguishes the leading deity. Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.150-point margin.
+- BRD_PEACH_FACED_LOVEBIRD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Miren: The top two candidates are effectively inseparable at a 0.286-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_PHILIPPINE_TARSIER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.950-point margin.
+- BRD_POTTO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Elian over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.450-point margin.
+- BRD_POUCHED_LAMPREY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.400-point margin.
+- BRD_PURPLE_MARTIN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Miren: The top two candidates are effectively inseparable at a 1.950-point margin.
+- BRD_PURPLE_SPOTTED_MANTIS_SHRIMP: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Kharad: The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_PYGMY_RABBIT: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Damor over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.350-point margin.
+- BRD_PYGMY_SLOW_LORIS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Iskarn: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.850-point margin.
+- BRD_RAKSHASA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Varek: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.700-point margin.
+- BRD_RAZORBILL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Tavai: The top two candidates are effectively inseparable at a 0.900-point margin.
+- BRD_REEF_STONEFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Kharad: The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_RETICULATED_PYTHON: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Voltar: The top two candidates are effectively inseparable at a 0.750-point margin.
+- BRD_ROCK_HYRAX: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.550-point margin.
+- BRD_SABLE_ANTELOPE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Sahrem: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_SACRED_SCARAB: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Scarabos: The top two candidates are effectively inseparable at a 0.450-point margin.
+- BRD_SALTWATER_CROCODILE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Miren: The top two candidates are effectively inseparable at a 1.550-point margin.
+- BRD_SATYR: LOW → MEDIUM. Numeric guidance suggested LOW, but evidence judgment requires MEDIUM: strong direct evidence spans 4 substantial axes; Selen leads Neressa by 39.300 points.
+- BRD_SCALY_TAILED_POSSUM: LOW → MEDIUM. Numeric guidance suggested LOW, but evidence judgment requires MEDIUM: strong direct evidence spans 3 substantial axes; Kharad leads Miren by 39.400 points.
+- BRD_SECRETARYBIRD: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_SENEGAL_BUSHBABY: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_SHORT_TAILED_CHINCHILLA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Miren over Tavai: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.850-point margin.
+- BRD_SOUTH_AMERICAN_COATI: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_SOUTH_AMERICAN_LUNGFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Iskarn: The top two candidates are effectively inseparable at a 0.300-point margin.
+- BRD_SOUTHERN_FLYING_SQUIRREL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.400-point margin.
+- BRD_SOUTHERN_GIRAFFE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Darel: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_SOUTHERN_VISCACHA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Kharad over Miren: The top two candidates are effectively inseparable at a 1.850-point margin.
+- BRD_SPECTACLED_BEAR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Varek: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.400-point margin.
+- BRD_SPECTACLED_CAIMAN: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Varek: The top two candidates are effectively inseparable at a 1.050-point margin.
+- BRD_SPINY_SOFTSHELL_TURTLE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Darel over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.250-point margin.
+- BRD_SQUIRREL_GLIDER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_STARRY_PUFFER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Rillan: The top two candidates are effectively inseparable at a 0.200-point margin.
+- BRD_STOPLIGHT_PARROTFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Lunessa over Neressa: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.150-point margin.
+- BRD_SUCCUBUS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Myrra over Selen: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.550-point margin.
+- BRD_SUGAR_GLIDER: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Aveli over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.142-point margin. No canonical V4 personality assignment exists for this PET Breed.
+- BRD_SUN_BEAR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_SUNDA_SLOW_LORIS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Selen over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.050-point margin.
+- BRD_TERRAPENE_CAROLINA_EASTERN_BOX_TURTLE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Vespera over Lunessa: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_VERREAUX_S_SIFAKA: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_WALRUS: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Miren: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.600-point margin.
+- BRD_WEB_FOOTED_TENREC: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_WELS_CATFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Varek: The top two candidates are effectively inseparable at a 0.650-point margin.
+- BRD_WEST_AFRICAN_LUNGFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Rillan over Iskarn: The top two candidates are effectively inseparable at a 0.300-point margin.
+- BRD_WEST_INDIAN_MANATEE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.400-point margin.
+- BRD_WHITE_THROATED_NEEDLETAIL: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sterna over Vespera: The top two candidates are effectively inseparable at a 1.000-point margin.
+- BRD_WILD_BOAR: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Varek over Orun-IX: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_WOLVERINE: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Iskarn over Kharad: The top two candidates are effectively inseparable at a 1.500-point margin.
+- BRD_YARA_MA_YHA_WHO: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Sahrem over Rillan: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.650-point margin.
+- BRD_YELLOW_SPOTTED_ROCK_HYRAX: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Tavai over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 0.600-point margin.
+- BRD_ZIEBELLS_HANDFISH: LOW → REVIEW_REQUIRED. Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.900-point margin.
+
+## Top-Two Margins Below 5 (797)
+
+- BRD_ACORN_WOODPECKER: Tavai over Miren, margin 1.000, status REVIEW_REQUIRED.
+- BRD_AFRICAN_PIED_WAGTAIL: Miren over Rillan, margin 3.500, status CLASSIFIED.
+- BRD_AFRICAN_SAVANNA_ELEPHANT: Miren over Tavai, margin 3.650, status CLASSIFIED.
+- BRD_ALPACA: Varek over Scarabos, margin 3.143, status CLASSIFIED.
+- BRD_ALPINE_IBEX: Kharad over Sahrem, margin 4.700, status CLASSIFIED.
+- BRD_ALPINE_MARMOT: Miren over Tavai, margin 2.550, status CLASSIFIED.
+- BRD_AMAZON_RIVER_DOLPHIN: Tavai over Rillan, margin 1.300, status REVIEW_REQUIRED.
+- BRD_AMAZONIAN_GIANT_CENTIPEDE: Kharad over Sahrem, margin 0.050, status REVIEW_REQUIRED.
+- BRD_AMAZONIAN_MANATEE: Iskarn over Rillan, margin 0.850, status REVIEW_REQUIRED.
+- BRD_AMERICAN_BISON: Miren over Tavai, margin 2.550, status CLASSIFIED.
+- BRD_AMERICAN_BLACK_BEAR: Myrra over Elian, margin 1.300, status REVIEW_REQUIRED.
+- BRD_AMERICAN_BULLFROG: Kharad over Rillan, margin 1.900, status REVIEW_REQUIRED.
+- BRD_AMERICAN_COCKROACH: Miren over Tavai, margin 3.150, status CLASSIFIED.
+- BRD_AMERICAN_PIKA: Kharad over Damor, margin 0.300, status REVIEW_REQUIRED.
+- BRD_ANGELS_ANGEL: Miren over Varek, margin 3.800, status CLASSIFIED.
+- BRD_ANGELS_ARCHANGEL: Varek over Miren, margin 0.700, status REVIEW_REQUIRED.
+- BRD_ANGELS_CHERUB: Miren over Varek, margin 1.500, status REVIEW_REQUIRED.
+- BRD_ANGELS_SERAPH: Sahrem over Varek, margin 2.850, status CLASSIFIED.
+- BRD_ARACHNE: Asteriel over Orun-IX, margin 3.900, status CLASSIFIED.
+- BRD_ARAFURA_FILE_SNAKE: Rillan over Sterna, margin 0.100, status REVIEW_REQUIRED.
+- BRD_ARCTIC_CHAR: Kharad over Rillan, margin 3.150, status CLASSIFIED.
+- BRD_ARCTIC_HARE: Varek over Iskarn, margin 0.400, status REVIEW_REQUIRED.
+- BRD_ARGALI: Vespera over Sterna, margin 2.600, status CLASSIFIED.
+- BRD_ARRAU_TURTLE: Rillan over Kharad, margin 2.300, status CLASSIFIED.
+- BRD_ASIAN_BLACK_BEAR: Kharad over Rillan, margin 2.850, status CLASSIFIED.
+- BRD_ASIAN_JUMPING_WORM: Kharad over Damor, margin 2.100, status CLASSIFIED.
+- BRD_ASURA: Darel over Varek, margin 2.000, status CLASSIFIED.
+- BRD_ASWANG: Oren over Myrra, margin 0.850, status REVIEW_REQUIRED.
+- BRD_ATLANTIC_CANARY: Miren over Tavai, margin 3.750, status CLASSIFIED.
+- BRD_ATLANTIC_FLYINGFISH: Marea over Varek, margin 1.700, status REVIEW_REQUIRED.
+- BRD_ATLANTIC_HORSESHOE_CRAB: Lunessa over Marea, margin 1.500, status REVIEW_REQUIRED.
+- BRD_ATLANTIC_SALMON: Kharad over Rillan, margin 1.150, status REVIEW_REQUIRED.
+- BRD_ATLANTIC_SAND_FIDDLER_CRAB: Kharad over Vespera, margin 2.450, status CLASSIFIED.
+- BRD_ATLAS_MOTH: Vhalen over Scarabos, margin 2.400, status CLASSIFIED.
+- BRD_AXOLOTL: Neressa over Rillan, margin 0.142, status REVIEW_REQUIRED.
+- BRD_AYE_AYE: Orun-IX over Miren, margin 1.050, status REVIEW_REQUIRED.
+- BRD_AZIZA: Orun-IX over Asteriel, margin 2.400, status CLASSIFIED.
+- BRD_BACTRIAN_CAMEL: Miren over Rillan, margin 4.500, status CLASSIFIED.
+- BRD_BACTRIAN_CAMEL_BACTRIAN_PACK_CAMEL: Miren over Neressa, margin 3.429, status CLASSIFIED.
+- BRD_BALL_PYTHON: Kharad over Rillan, margin 3.286, status CLASSIFIED.
+- BRD_BANDED_ARCHERFISH: Orun-IX over Tavai, margin 1.600, status REVIEW_REQUIRED.
+- BRD_BANDED_MONGOOSE: Miren over Tavai, margin 1.400, status REVIEW_REQUIRED.
+- BRD_BARBARY_SHEEP: Sahrem over Selen, margin 1.650, status REVIEW_REQUIRED.
+- BRD_BASKING_SHARK: Sahrem over Marea, margin 3.850, status CLASSIFIED.
+- BRD_BIGCLAW_SNAPPING_SHRIMP: Voltar over Selen, margin 1.150, status REVIEW_REQUIRED.
+- BRD_BLACK_CAIMAN: Kharad over Rillan, margin 1.300, status REVIEW_REQUIRED.
+- BRD_BLACK_MAMBA: Selen over Kharad, margin 2.450, status CLASSIFIED.
+- BRD_BLACK_TAILED_PRAIRIE_DOG: Tavai over Miren, margin 3.500, status CLASSIFIED.
+- BRD_BLACKFIN_ICEFISH: Iskarn over Marea, margin 1.200, status REVIEW_REQUIRED.
+- BRD_BLUE_JAY: Myrra over Vespera, margin 3.850, status CLASSIFIED.
+- BRD_BLUE_TANG: Marea over Vespera, margin 0.800, status REVIEW_REQUIRED.
+- BRD_BLUE_WILDEBEEST: Sterna over Vespera, margin 0.400, status REVIEW_REQUIRED.
+- BRD_BLUESPINE_UNICORNFISH: Selen over Marea, margin 1.350, status REVIEW_REQUIRED.
+- BRD_BOA_CONSTRICTOR: Voltar over Savael, margin 4.000, status CLASSIFIED.
+- BRD_BORNEAN_ORANGUTAN: Asteriel over Miren, margin 1.000, status REVIEW_REQUIRED.
+- BRD_BRAZILIAN_RAINBOW_BOA: Voltar over Sahrem, margin 1.250, status REVIEW_REQUIRED.
+- BRD_BUDGERIGAR_AMERICAN_BUDGERIGAR: Rillan over Miren, margin 4.857, status CLASSIFIED.
+- BRD_BUDGERIGAR_ENGLISH_BUDGERIGAR: Rillan over Miren, margin 4.857, status CLASSIFIED.
+- BRD_BUFF_TAILED_BUMBLEBEE: Asteriel over Miren, margin 0.300, status REVIEW_REQUIRED.
+- BRD_CALUMMA_PARSONII_PARSON_S_CHAMELEON: Sahrem over Selen, margin 0.050, status REVIEW_REQUIRED.
+- BRD_CAMPBELL_S_DWARF_HAMSTER: Kharad over Iskarn, margin 4.785, status CLASSIFIED.
+- BRD_CANE_TOAD: Miren over Damor, margin 2.900, status CLASSIFIED.
+- BRD_CAPE_GOLDEN_MOLE: Damor over Kharad, margin 4.200, status CLASSIFIED.
+- BRD_CARIBBEAN_HERMIT_CRAB: Miren over Kharad, margin 2.550, status CLASSIFIED.
+- BRD_CHACOAN_PECCARY: Kharad over Neressa, margin 4.750, status CLASSIFIED.
+- BRD_CHANNEL_CATFISH: Rillan over Neressa, margin 3.150, status CLASSIFIED.
+- BRD_CHENOO: Sahrem over Iskarn, margin 4.100, status CLASSIFIED.
+- BRD_CHIMNEY_SWIFT: Miren over Tavai, margin 0.900, status REVIEW_REQUIRED.
+- BRD_CLIFF_SWALLOW: Miren over Tavai, margin 0.900, status REVIEW_REQUIRED.
+- BRD_CLOUDED_ARCHERFISH: Miren over Rillan, margin 1.700, status REVIEW_REQUIRED.
+- BRD_COCKATIEL: Damor over Neressa, margin 0.357, status REVIEW_REQUIRED.
+- BRD_COCKATIEL_LUTINO_COCKATIEL: Damor over Rillan, margin 2.000, status CLASSIFIED.
+- BRD_COCONUT_OCTOPUS: Asteriel over Miren, margin 2.100, status CLASSIFIED.
+- BRD_COMMON_CHIMPANZEE: Tavai over Miren, margin 2.350, status CLASSIFIED.
+- BRD_COMMON_FRUIT_FLY: Miren over Tavai, margin 4.100, status CLASSIFIED.
+- BRD_COMMON_GARTER_SNAKE: Miren over Tavai, margin 3.600, status CLASSIFIED.
+- BRD_COMMON_GENET: Varek over Orun-IX, margin 1.500, status REVIEW_REQUIRED.
+- BRD_COMMON_GREEN_DARNER: Vespera over Sterna, margin 4.600, status CLASSIFIED.
+- BRD_COMMON_KINGFISHER: Kharad over Rillan, margin 3.450, status CLASSIFIED.
+- BRD_COMMON_OCTOPUS: Kharad over Orun-IX, margin 0.750, status REVIEW_REQUIRED.
+- BRD_COMMON_PIPISTRELLE: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_COMMON_RACCOON: Myrra over Elian, margin 1.300, status REVIEW_REQUIRED.
+- BRD_COMMON_RAVEN: Myrra over Aveli, margin 2.750, status CLASSIFIED.
+- BRD_COMMON_RINGED_PLOVER: Vespera over Sterna, margin 0.000, status REVIEW_REQUIRED.
+- BRD_COMMON_SANDPIPER: Vespera over Varek, margin 4.500, status CLASSIFIED.
+- BRD_COMMON_SWIFT: Sterna over Aveli, margin 0.800, status REVIEW_REQUIRED.
+- BRD_COMMON_TREESHREW: Miren over Varek, margin 1.000, status REVIEW_REQUIRED.
+- BRD_COMMON_VAMPIRE_BAT: Tavai over Miren, margin 0.550, status REVIEW_REQUIRED.
+- BRD_COMMON_WARTHOG: Miren over Tavai, margin 2.550, status CLASSIFIED.
+- BRD_CORN_SNAKE: Rillan over Darel, margin 0.071, status REVIEW_REQUIRED.
+- BRD_CUVIER_S_DWARF_CAIMAN: Damor over Kharad, margin 1.250, status REVIEW_REQUIRED.
+- BRD_CYCLOPS: Kharad over Damor, margin 3.250, status CLASSIFIED.
+- BRD_DALL_S_PORPOISE: Vespera over Sterna, margin 4.950, status CLASSIFIED.
+- BRD_DALMATIAN_PELICAN: Vespera over Sterna, margin 2.600, status CLASSIFIED.
+- BRD_DESERT_LOCUST: Voltar over Rillan, margin 2.200, status CLASSIFIED.
+- BRD_DHAMPIR: Miren over Tavai, margin 2.050, status CLASSIFIED.
+- BRD_DOG_DAY_CICADA: Neressa over Lunessa, margin 2.750, status CLASSIFIED.
+- BRD_DOMESTICATED_ALPACA_HUACAYA_ALPACA: Miren over Tavai, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_ALPACA_SURI_ALPACA: Miren over Tavai, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_CANARY_BORDER_FANCY_CANARY: Neressa over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_DOMESTICATED_CANARY_GLOSTER_CANARY: Neressa over Miren, margin 4.357, status CLASSIFIED.
+- BRD_DOMESTICATED_CANARY_YORKSHIRE_CANARY: Neressa over Darel, margin 1.572, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_CAT_BURMESE: Miren over Kharad, margin 4.357, status CLASSIFIED.
+- BRD_DOMESTICATED_CAT_MAINE_COON: Neressa over Miren, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_CAT_NORWEGIAN_FOREST_CAT: Neressa over Miren, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_CAT_PERSIAN: Neressa over Miren, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_CAT_SAVANNAH: Miren over Darel, margin 0.786, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_CATTLE: Miren over Tavai, margin 0.000, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_CATTLE_ANGUS: Miren over Tavai, margin 0.000, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_CATTLE_BELGIAN_BLUE: Miren over Tavai, margin 0.000, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_CATTLE_BRAHMAN: Sahrem over Neressa, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_CATTLE_CHAROLAIS: Miren over Tavai, margin 0.000, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_CATTLE_DEXTER: Damor over Miren, margin 2.785, status CLASSIFIED.
+- BRD_DOMESTICATED_CATTLE_GUERNSEY: Damor over Miren, margin 2.785, status CLASSIFIED.
+- BRD_DOMESTICATED_CATTLE_HEREFORD: Damor over Miren, margin 2.785, status CLASSIFIED.
+- BRD_DOMESTICATED_CATTLE_HIGHLAND: Neressa over Damor, margin 1.000, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_CATTLE_HOLSTEIN_FRIESIAN: Damor over Miren, margin 2.785, status CLASSIFIED.
+- BRD_DOMESTICATED_CATTLE_JERSEY: Sahrem over Damor, margin 3.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CATTLE_TEXAS_LONGHORN: Darel over Damor, margin 1.786, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_CATTLE_WATUSI: Sahrem over Damor, margin 3.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_ARAUCANA: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_AYAM_CEMANI: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_BARRED_PLYMOUTH_ROCK: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_BRAHMA: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_BUFF_ORPINGTON: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_COCHIN: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_NAKED_NECK: Tavai over Sahrem, margin 2.429, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_POLISH: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_RHODE_ISLAND_RED: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_SEBRIGHT: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_SILKIE: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_CHICKEN_WHITE_LEGHORN: Tavai over Damor, margin 4.143, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_AFGHAN_HOUND: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_AKITA: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_ALASKAN_MALAMUTE: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_AMERICAN_STAFFORDSHIRE_TERRIER: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_AUSTRALIAN_SHEPHERD: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BASENJI: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BASSET_HOUND: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BEAGLE: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BELGIAN_MALINOIS: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BERNESE_MOUNTAIN_DOG: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BLOODHOUND: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BORDER_COLLIE: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BORZOI: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_BOXER: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_CANE_CORSO: Miren over Tavai, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_CAVALIER_KING_CHARLES_SPANIEL: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_CHIHUAHUA: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_CHINESE_CRESTED: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_CHOW_CHOW: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_DALMATIAN: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_DOBERMAN_PINSCHER: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_ENGLISH_BULLDOG: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_ENGLISH_MASTIFF: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_FRENCH_BULLDOG: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_GERMAN_SHEPHERD_DOG: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_GREAT_DANE: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_GREAT_PYRENEES: Miren over Tavai, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_GREYHOUND: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_IRISH_WOLFHOUND: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_JACK_RUSSELL_TERRIER: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_MINIATURE_POODLE: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_MINIATURE_SCHNAUZER: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_NEWFOUNDLAND: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_PAPILLON: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_PEMBROKE_WELSH_CORGI: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_PUG: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_ROTTWEILER: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_SAINT_BERNARD: Tavai over Darel, margin 2.715, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_SALUKI: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_SAMOYED: Iskarn over Tavai, margin 2.428, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_SHIBA_INU: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_SHIH_TZU: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_SIBERIAN_HUSKY: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_STANDARD_POODLE: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_WHIPPET: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_DOG_YORKSHIRE_TERRIER: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_GOAT: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GOAT_ANGORA: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GOAT_BOER: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GOAT_CASHMERE: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GOAT_LAMANCHA: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GOAT_NIGERIAN_DWARF: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GOAT_NUBIAN: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GOAT_PYGMY: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GOAT_SAANEN: Damor over Kharad, margin 0.929, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GUINEA_PIG: Miren over Damor, margin 4.215, status CLASSIFIED.
+- BRD_DOMESTICATED_GUINEA_PIG_ABYSSINIAN: Miren over Damor, margin 0.072, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GUINEA_PIG_AMERICAN: Miren over Damor, margin 0.072, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GUINEA_PIG_CORONET: Namiya over Neressa, margin 2.071, status CLASSIFIED.
+- BRD_DOMESTICATED_GUINEA_PIG_PERUVIAN: Namiya over Miren, margin 2.428, status CLASSIFIED.
+- BRD_DOMESTICATED_GUINEA_PIG_SKINNY_PIG: Miren over Damor, margin 0.072, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GUINEA_PIG_TEDDY: Myrra over Namiya, margin 0.215, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_GUINEA_PIG_TEXEL: Miren over Damor, margin 0.072, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_AKHAL_TEKE: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_AMERICAN_PAINT_HORSE: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_AMERICAN_QUARTER_HORSE: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_ANDALUSIAN: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_APPALOOSA: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_ARABIAN: Sterna over Neressa, margin 1.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_BELGIAN_DRAFT: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_CLYDESDALE: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_FRIESIAN: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_GYPSY_VANNER: Tavai over Neressa, margin 3.428, status CLASSIFIED.
+- BRD_DOMESTICATED_HORSE_HAFLINGER: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_ICELANDIC_HORSE: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_LIPIZZANER: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_MORGAN: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_MUSTANG: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_NORWEGIAN_FJORD: Selen over Neressa, margin 2.357, status CLASSIFIED.
+- BRD_DOMESTICATED_HORSE_PERCHERON: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_SHIRE: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_TENNESSEE_WALKING_HORSE: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_THOROUGHBRED: Neressa over Damor, margin 0.143, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_HORSE_WELSH_PONY: Aveli over Neressa, margin 3.500, status CLASSIFIED.
+- BRD_DOMESTICATED_LLAMA_CCARA_LLAMA: Miren over Damor, margin 3.214, status CLASSIFIED.
+- BRD_DOMESTICATED_LLAMA_TAPADA_LLAMA: Miren over Damor, margin 3.214, status CLASSIFIED.
+- BRD_DOMESTICATED_PIG_BERKSHIRE: Damor over Miren, margin 1.357, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_PIG_GLOUCESTERSHIRE_OLD_SPOTS: Damor over Miren, margin 1.357, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_PIG_KUNEKUNE: Damor over Miren, margin 1.357, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_PIG_MANGALITSA: Damor over Sterna, margin 0.429, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_PIG_TAMWORTH: Damor over Miren, margin 1.357, status REVIEW_REQUIRED.
+- BRD_DOMESTICATED_PIG_VIETNAMESE_POT_BELLIED: Miren over Damor, margin 4.286, status CLASSIFIED.
+- BRD_DOMESTICATED_PIGEON: Kharad over Vespera, margin 3.785, status CLASSIFIED.
+- BRD_DOMESTICATED_PIGEON_ORIENTAL_ROLLER: Aveli over Kharad, margin 2.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_CALIFORNIAN: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_DUTCH_RABBIT: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_ENGLISH_ANGORA: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_FLEMISH_GIANT: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_FRENCH_LOP: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_HARLEQUIN_RABBIT: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_HOLLAND_LOP: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_LIONHEAD: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_MINI_REX: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_RABBIT_NETHERLAND_DWARF: Tavai over Miren, margin 3.286, status CLASSIFIED.
+- BRD_DOMESTICATED_SHEEP_MERINO: Tavai over Rillan, margin 4.572, status CLASSIFIED.
+- BRD_DOMESTICATED_YAK: Miren over Neressa, margin 1.286, status REVIEW_REQUIRED.
+- BRD_DRACAENA: Damor over Kharad, margin 3.800, status CLASSIFIED.
+- BRD_DRAGONKIN_LONG: Myrra over Neressa, margin 1.450, status REVIEW_REQUIRED.
+- BRD_DROMEDARY_CAMEL_DROMEDARY_RIDING_CAMEL: Miren over Neressa, margin 0.715, status REVIEW_REQUIRED.
+- BRD_DUGONG: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_DWARF: Kharad over Miren, margin 4.150, status CLASSIFIED.
+- BRD_DWARVES_DUERGAR: Kharad over Miren, margin 3.750, status CLASSIFIED.
+- BRD_DWARVES_MOUNTAIN_DWARF: Kharad over Orun-IX, margin 4.850, status CLASSIFIED.
+- BRD_ECLECTUS_PARROT: Orun-IX over Miren, margin 3.200, status CLASSIFIED.
+- BRD_EGYPTIAN_FRUIT_BAT: Miren over Tavai, margin 2.950, status CLASSIFIED.
+- BRD_EGYPTIAN_MONGOOSE: Miren over Tavai, margin 4.450, status CLASSIFIED.
+- BRD_EGYPTIAN_SPINY_TAILED_LIZARD: Tavai over Miren, margin 0.150, status REVIEW_REQUIRED.
+- BRD_ELECTRIC_EEL: Rillan over Voltar, margin 0.550, status REVIEW_REQUIRED.
+- BRD_ELEMENTAL: Neressa over Voltar, margin 1.550, status REVIEW_REQUIRED.
+- BRD_ELEMENTALS_AIR: Aveli over Kharad, margin 0.850, status REVIEW_REQUIRED.
+- BRD_ELEMENTALS_CRYSTAL: Kharad over Sahrem, margin 1.600, status REVIEW_REQUIRED.
+- BRD_ELEMENTALS_MAGMA: Sahrem over Kharad, margin 0.900, status REVIEW_REQUIRED.
+- BRD_ELEMENTALS_METAL: Kharad over Neressa, margin 2.700, status CLASSIFIED.
+- BRD_ELEMENTALS_SAND: Varek over Selen, margin 2.400, status CLASSIFIED.
+- BRD_ELEMENTALS_SMOKE: Aveli over Sahrem, margin 3.450, status CLASSIFIED.
+- BRD_ELEMENTALS_WOOD: Selen over Miren, margin 0.200, status REVIEW_REQUIRED.
+- BRD_ELK: Miren over Tavai, margin 3.500, status CLASSIFIED.
+- BRD_ELVES_HIGH: Miren over Tavai, margin 1.450, status REVIEW_REQUIRED.
+- BRD_ELVES_SEA: Miren over Tavai, margin 1.450, status REVIEW_REQUIRED.
+- BRD_EMERALD_COCKROACH_WASP: Damor over Kharad, margin 2.850, status CLASSIFIED.
+- BRD_EMERALD_TREE_MONITOR: Tavai over Miren, margin 0.000, status REVIEW_REQUIRED.
+- BRD_EMPEROR_GOOSE: Selen over Marea, margin 4.400, status CLASSIFIED.
+- BRD_EQUUS_ZEBRA_MOUNTAIN_ZEBRA: Miren over Tavai, margin 4.450, status CLASSIFIED.
+- BRD_ERINYS: Tavai over Orun-IX, margin 3.000, status CLASSIFIED.
+- BRD_ETTIN: Aveli over Kharad, margin 2.000, status CLASSIFIED.
+- BRD_EURASIAN_MAGPIE: Vespera over Darel, margin 1.500, status REVIEW_REQUIRED.
+- BRD_EUROPEAN_BADGER: Tavai over Miren, margin 1.950, status REVIEW_REQUIRED.
+- BRD_EUROPEAN_BEE_EATER: Tavai over Miren, margin 2.000, status CLASSIFIED.
+- BRD_EUROPEAN_RABBIT: Tavai over Miren, margin 2.900, status CLASSIFIED.
+- BRD_FANCY_MOUSE: Miren over Kharad, margin 0.286, status REVIEW_REQUIRED.
+- BRD_FANCY_MOUSE_HAIRLESS_MOUSE: Miren over Kharad, margin 0.286, status REVIEW_REQUIRED.
+- BRD_FANCY_MOUSE_LONGHAIR_MOUSE: Miren over Kharad, margin 0.286, status REVIEW_REQUIRED.
+- BRD_FANCY_MOUSE_REX_MOUSE: Miren over Kharad, margin 0.286, status REVIEW_REQUIRED.
+- BRD_FANCY_MOUSE_SATIN_MOUSE: Miren over Kharad, margin 0.286, status REVIEW_REQUIRED.
+- BRD_FANCY_MOUSE_STANDARD_FANCY_MOUSE: Miren over Kharad, margin 0.286, status REVIEW_REQUIRED.
+- BRD_FANCY_RAT: Tavai over Kharad, margin 4.642, status CLASSIFIED.
+- BRD_FANCY_RAT_DUMBO_RAT: Kharad over Miren, margin 1.429, status REVIEW_REQUIRED.
+- BRD_FANCY_RAT_HAIRLESS_RAT: Kharad over Miren, margin 1.429, status REVIEW_REQUIRED.
+- BRD_FANCY_RAT_HOODED_RAT: Kharad over Miren, margin 1.429, status REVIEW_REQUIRED.
+- BRD_FANCY_RAT_REX_RAT: Kharad over Miren, margin 1.429, status REVIEW_REQUIRED.
+- BRD_FANCY_RAT_STANDARD_FANCY_RAT: Kharad over Miren, margin 1.429, status REVIEW_REQUIRED.
+- BRD_FAT_TAILED_DUNNART: Orun-IX over Damor, margin 0.000, status REVIEW_REQUIRED.
+- BRD_FISH_EATING_MYOTIS: Sahrem over Marea, margin 0.750, status REVIEW_REQUIRED.
+- BRD_FLOWERHORN_CICHLID: Rillan over Neressa, margin 3.428, status CLASSIFIED.
+- BRD_FOMORIAN: Darel over Sahrem, margin 0.450, status REVIEW_REQUIRED.
+- BRD_FRESHWATER_ANGELFISH_VEIL_ANGELFISH: Rillan over Neressa, margin 3.357, status CLASSIFIED.
+- BRD_GAUR: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_GEOFFROY_S_SPIDER_MONKEY: Darel over Miren, margin 2.150, status CLASSIFIED.
+- BRD_GIANT_AFRICAN_MILLIPEDE: Damor over Scarabos, margin 0.500, status REVIEW_REQUIRED.
+- BRD_GIANT_DEVIL_RAY: Tavai over Miren, margin 1.050, status REVIEW_REQUIRED.
+- BRD_GIANT_HAGFISH: Marea over Miren, margin 1.200, status REVIEW_REQUIRED.
+- BRD_GIANT_HUMMINGBIRD: Vespera over Varek, margin 1.650, status REVIEW_REQUIRED.
+- BRD_GIANT_MUDSKIPPER: Aveli over Kharad, margin 1.100, status REVIEW_REQUIRED.
+- BRD_GOBLIN: Miren over Tavai, margin 0.050, status REVIEW_REQUIRED.
+- BRD_GOLDFISH: Rillan over Iskarn, margin 2.000, status CLASSIFIED.
+- BRD_GOLDFISH_BUBBLE_EYE_GOLDFISH: Neressa over Rillan, margin 2.143, status CLASSIFIED.
+- BRD_GRAY_CROWNED_CRANE: Tavai over Selen, margin 3.400, status CLASSIFIED.
+- BRD_GRAY_WHALE: Vespera over Sterna, margin 4.900, status CLASSIFIED.
+- BRD_GREAT_BLUE_TURACO: Tavai over Miren, margin 0.750, status REVIEW_REQUIRED.
+- BRD_GREAT_FRIGATEBIRD: Selen over Marea, margin 3.000, status CLASSIFIED.
+- BRD_GREAT_GERBIL: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_GREAT_GRAY_SHRIKE: Miren over Kharad, margin 1.600, status REVIEW_REQUIRED.
+- BRD_GREATER_BILBY: Damor over Kharad, margin 2.550, status CLASSIFIED.
+- BRD_GREATER_BULLDOG_BAT: Sahrem over Rillan, margin 2.050, status CLASSIFIED.
+- BRD_GREATER_KUDU: Sahrem over Voltar, margin 1.500, status REVIEW_REQUIRED.
+- BRD_GREATER_ROADRUNNER: Varek over Savael, margin 4.700, status CLASSIFIED.
+- BRD_GREEN_SAWFISH: Miren over Marea, margin 0.750, status REVIEW_REQUIRED.
+- BRD_GREEN_SEA_TURTLE: Marea over Sahrem, margin 3.550, status CLASSIFIED.
+- BRD_GRIFFON_VULTURE: Miren over Tavai, margin 3.500, status CLASSIFIED.
+- BRD_GRIZZLY_BEAR: Elian over Myrra, margin 1.450, status REVIEW_REQUIRED.
+- BRD_GROUNDHOG: Damor over Kharad, margin 2.550, status CLASSIFIED.
+- BRD_GUPPY: Miren over Kharad, margin 0.786, status REVIEW_REQUIRED.
+- BRD_GUPPY_COBRA_GUPPY: Miren over Rillan, margin 4.286, status CLASSIFIED.
+- BRD_GUPPY_DUMBO_EAR_GUPPY: Miren over Rillan, margin 0.643, status REVIEW_REQUIRED.
+- BRD_GUPPY_MOSCOW_GUPPY: Miren over Rillan, margin 0.643, status REVIEW_REQUIRED.
+- BRD_HAIRY_FROG: Rillan over Selen, margin 0.200, status REVIEW_REQUIRED.
+- BRD_HAIRY_FROGFISH: Sahrem over Marea, margin 4.200, status CLASSIFIED.
+- BRD_HARBOR_PORPOISE: Vespera over Varek, margin 1.650, status REVIEW_REQUIRED.
+- BRD_HARP_SEAL: Varek over Vespera, margin 1.700, status REVIEW_REQUIRED.
+- BRD_HEADLIGHTFISH: Selen over Marea, margin 2.700, status CLASSIFIED.
+- BRD_HERCULES_BEETLE: Sahrem over Voltar, margin 1.200, status REVIEW_REQUIRED.
+- BRD_HISPANIOLAN_SOLENODON: Kharad over Voltar, margin 2.950, status CLASSIFIED.
+- BRD_HORNED_PARAKEET: Miren over Tavai, margin 2.950, status CLASSIFIED.
+- BRD_HOUSE_CENTIPEDE: Voltar over Kharad, margin 0.450, status REVIEW_REQUIRED.
+- BRD_HOUSE_SPARROW: Sahrem over Miren, margin 0.350, status REVIEW_REQUIRED.
+- BRD_HULI_JING: Oren over Myrra, margin 0.850, status REVIEW_REQUIRED.
+- BRD_HUMAN_AFRIKANER_AFRIKANER: Miren over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_BAHIAN: Sahrem over Selen, margin 0.688, status REVIEW_REQUIRED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_COLOMBIAN: Darel over Sahrem, margin 2.500, status CLASSIFIED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_COSTA_RICAN: Sahrem over Selen, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_CUBAN: Sahrem over Selen, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_ECUADORIAN: Sahrem over Voltar, margin 3.563, status CLASSIFIED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_PUERTO_RICAN: Sterna over Sahrem, margin 0.200, status REVIEW_REQUIRED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_TRINIDADIAN: Selen over Sahrem, margin 2.375, status CLASSIFIED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_URUGUAYAN: Darel over Sahrem, margin 1.250, status REVIEW_REQUIRED.
+- BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_VENEZUELAN: Darel over Sahrem, margin 1.100, status REVIEW_REQUIRED.
+- BRD_HUMAN_ALBANIAN_ALBANIAN: Orun-IX over Asteriel, margin 4.500, status CLASSIFIED.
+- BRD_HUMAN_AMAZIGH_BERBER_AMAZIGH: Miren over Asteriel, margin 0.150, status REVIEW_REQUIRED.
+- BRD_HUMAN_AMAZIGH_BERBER_AMAZIGH_BERBER: Asteriel over Orun-IX, margin 3.050, status CLASSIFIED.
+- BRD_HUMAN_AMAZIGH_BERBER_AMAZIGH_TUAREG: Miren over Orun-IX, margin 3.200, status CLASSIFIED.
+- BRD_HUMAN_AMAZIGH_BERBER_TUAREG: Miren over Asteriel, margin 2.150, status CLASSIFIED.
+- BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_SHIPIBO_KONIBO: Miren over Varek, margin 3.600, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_ARABIAN_BEDOUIN: Orun-IX over Asteriel, margin 3.550, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_ASIRI: Orun-IX over Asteriel, margin 3.550, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_BAHRANI_ARAB: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_DHOFARI_ARAB: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_EMIRATI_ARAB: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_GULF_ARAB: Orun-IX over Miren, margin 2.950, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_HADHRAMI: Miren over Sterna, margin 3.650, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_HEJAZI: Orun-IX over Miren, margin 1.313, status REVIEW_REQUIRED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_KHUZESTANI_ARAB: Orun-IX over Miren, margin 0.438, status REVIEW_REQUIRED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_KUWAITI_ARAB: Orun-IX over Asteriel, margin 3.550, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_NAJDI: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_OMANI: Miren over Orun-IX, margin 1.050, status REVIEW_REQUIRED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_QATARI_ARAB: Orun-IX over Miren, margin 1.250, status REVIEW_REQUIRED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_SOCOTRI: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_ARABIAN_PENINSULA_ARAB_YEMENI_ARAB: Orun-IX over Miren, margin 1.938, status REVIEW_REQUIRED.
+- BRD_HUMAN_ASSYRIAN_SYRIAC_ASSYRIAN_ARMENIAN: Asteriel over Miren, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_ASSYRIAN_SYRIAC_MARONITE_SYRIAC: Orun-IX over Miren, margin 1.063, status REVIEW_REQUIRED.
+- BRD_HUMAN_BALTIC_LATVIAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_BALTIC_LITHUANIAN: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_BANGLADESHI: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_BENGALI_BENGALI: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_BLACK_SOUTH_AFRICAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAGANDA: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAKONGO: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BAMILEKE: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BANYANKOLE_BUNYORO: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BETI_FANG: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_BUBI: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_EQUATORIAN_BANTU: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_FOREST_PEOPLES: Miren over Rillan, margin 2.450, status CLASSIFIED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_GBAYA_BANDA: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_KINYARWANDA_KIRUNDI: Orun-IX over Miren, margin 1.250, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_KONGO: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_KONGO_TEKE: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_LUBA_LUNDA: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_MBUNDU_OVIMBUNDU: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_MYENE: Miren over Rillan, margin 4.250, status CLASSIFIED.
+- BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_TWA: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_CHAD_SUDAN_INTERIOR_SUDANESE_ARAB: Rillan over Kharad, margin 0.800, status REVIEW_REQUIRED.
+- BRD_HUMAN_CONGOLESE: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_EGYPTIAN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_EGYPTIAN_COPTIC_COPTIC: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_EGYPTIAN_COPTIC_EGYPTIAN_ARAB: Orun-IX over Miren, margin 1.250, status REVIEW_REQUIRED.
+- BRD_HUMAN_EGYPTIAN_COPTIC_EGYPTIAN_COPTIC: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_ETHIOPIAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_AMHARA_TIGRAYAN: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_HABESHA_ETHIOPIAN_HIGHLAND: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_OMOTIC_SIDAMA: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_TIGRE: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_TIGRINYA: Miren over Sterna, margin 3.150, status CLASSIFIED.
+- BRD_HUMAN_FINNIC_ESTONIAN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_FINNIC_FINNISH: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_FINNIC_SWEDISH_FINN: Orun-IX over Asteriel, margin 2.400, status CLASSIFIED.
+- BRD_HUMAN_FINNIC_TORNEDALIAN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_DOMINICAN_CREOLE: Sahrem over Voltar, margin 3.563, status CLASSIFIED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_FRENCH_CREOLE: Sahrem over Voltar, margin 3.563, status CLASSIFIED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_GUADELOUPEAN_CREOLE: Sterna over Sahrem, margin 0.250, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_GUIANESE_CREOLE: Darel over Sahrem, margin 3.125, status CLASSIFIED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_HAITIAN: Sahrem over Darel, margin 1.438, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_HAITIAN_KREYOL: Sahrem over Voltar, margin 3.563, status CLASSIFIED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_MARTINICAN_CREOLE: Sterna over Sahrem, margin 0.250, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_SAINT_LUCIAN: Sahrem over Voltar, margin 3.563, status CLASSIFIED.
+- BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_SAINT_MARTINOIS: Sahrem over Darel, margin 1.438, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_CALDOCHE: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_FRENCH: Miren over Asteriel, margin 0.650, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_GUERNESIAIS: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_JERRIAIS: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_LOUISIANA_CREOLE_CAJUN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_MONEGASQUE: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_OCCITAN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_QUEBECOIS_ACADIAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_SAINT_PIERRAIS: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_SWISS_FRENCH: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_FRENCH_FRANCOPHONE_WALLOON: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_GARIFUNA_GARIFUNA: Orun-IX over Asteriel, margin 4.500, status CLASSIFIED.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_ANCIENT_GREEK_AEGEAN: Miren over Orun-IX, margin 2.812, status CLASSIFIED.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_BYZANTINE_ROMAN: Orun-IX over Miren, margin 0.438, status REVIEW_REQUIRED.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_GREEK: Orun-IX over Asteriel, margin 4.438, status CLASSIFIED.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_GREEK_CYPRIOT: Orun-IX over Asteriel, margin 4.438, status CLASSIFIED.
+- BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_PONTIC_GREEK: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_AKAN_ASANTE: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_AKAN_BAOULE: Orun-IX over Asteriel, margin 3.600, status CLASSIFIED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_BARIBA: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_EWE: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_FON_AJA: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_GA_ADANGBE: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_KABYE: Orun-IX over Asteriel, margin 2.400, status CLASSIFIED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_MOLE_DAGBANI: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_MOSSI_GUR: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_GULLAH_GEECHEE_GULLAH_GEECHEE: Miren over Asteriel, margin 0.100, status REVIEW_REQUIRED.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_HAUSA: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_HAUSA_KANURI: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_HAUSA_KANURI_SAHEL_KANURI: Miren over Asteriel, margin 1.750, status REVIEW_REQUIRED.
+- BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_VENEZUELAN_MESTIZO: Myrra over Neressa, margin 2.400, status CLASSIFIED.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_BURGENLAND_HUNGARIAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_HUNGARIAN_MAGYAR: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_HUNGARIAN_MAGYAR_SZEKELY_HUNGARIAN: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_INDIAN_OCEAN_CREOLE_CHAGOSSIAN: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_INDIAN_OCEAN_CREOLE_MAURITIAN_CREOLE: Asteriel over Miren, margin 2.900, status CLASSIFIED.
+- BRD_HUMAN_INDIAN_OCEAN_CREOLE_REUNION_CREOLE: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_INDIAN_OCEAN_CREOLE_SEYCHELLOIS_CREOLE: Orun-IX over Asteriel, margin 3.600, status CLASSIFIED.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_CAPE_MALAY: Sahrem over Marea, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_INDO_TRINIDADIAN: Sahrem over Marea, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_LANKAN_MOOR: Sahrem over Marea, margin 2.000, status CLASSIFIED.
+- BRD_HUMAN_INDIAN_OCEAN_MUSLIM_CAPE_MALAY_MALDIVIAN_MALDIVIAN: Darel over Sahrem, margin 1.100, status REVIEW_REQUIRED.
+- BRD_HUMAN_IRANIAN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_IRISH_GAELIC_GAELTACHT_IRISH: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_IRISH_GAELIC_HIGHLAND_SCOTS: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_IRISH_GAELIC_IRISH: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_IRISH_GAELIC_IRISH_GAELIC: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_IRISH_GAELIC_MANX: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_JAPANESE_JAPANESE: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_JAPANESE_RYUKYUAN: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_JAPANESE_YAMATO_JAPANESE: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_JAVA_JAVANESE_SUNDANESE_JAVANESE: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_JAVA_JAVANESE_SUNDANESE_SUNDANESE: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_JEWISH_DIASPORA_ISRAELI_JEWISH: Sterna over Miren, margin 0.850, status REVIEW_REQUIRED.
+- BRD_HUMAN_JEWISH_DIASPORA_JEWISH_DIASPORA: Sterna over Miren, margin 2.000, status CLASSIFIED.
+- BRD_HUMAN_KOREAN_KOREAN: Orun-IX over Asteriel, margin 4.438, status CLASSIFIED.
+- BRD_HUMAN_LEVANTINE_ARAB_SYRIAN_ARAB: Kharad over Vhalen, margin 0.063, status REVIEW_REQUIRED.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_FILIPINO: Orun-IX over Miren, margin 3.938, status CLASSIFIED.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_TAGALOG: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_TAGALOG_LOWLAND_FILIPINO: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_VISAYAN: Miren over Orun-IX, margin 1.050, status REVIEW_REQUIRED.
+- BRD_HUMAN_MAGHREBI_ARAB_ALGERIAN_ARAB: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_MAGHREBI_ARAB_HARATIN: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_MAGHREBI_ARAB_HASSANIYA_MOOR: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_MAGHREBI_ARAB_LIBYAN_ARAB: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_MAGHREBI_ARAB_MOROCCAN_ARAB: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_MALAGASY_MALAGASY: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_MALAGASY_MALAGASY_HIGHLAND: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_MALAGASY_MERINA: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_BORNEAN_INDIGENOUS: Orun-IX over Miren, margin 3.938, status CLASSIFIED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_BRUNEI_MALAY: Asteriel over Orun-IX, margin 0.312, status REVIEW_REQUIRED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_COCOS_MALAY: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_DAYAK: Orun-IX over Miren, margin 1.750, status REVIEW_REQUIRED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_LUSO_TIMORESE: Orun-IX over Miren, margin 3.938, status CLASSIFIED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MALAY: Miren over Asteriel, margin 0.100, status REVIEW_REQUIRED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MALAY_ACEHNESE: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MALAY_MUSLIM: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MINANGKABAU: Orun-IX over Miren, margin 1.750, status REVIEW_REQUIRED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_MORO: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_SINGAPOREAN_MALAY: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_TETUM: Orun-IX over Miren, margin 3.938, status CLASSIFIED.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_BABYLONIAN: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_IRAQI_ARAB: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_MARSH_ARAB: Miren over Rillan, margin 2.350, status CLASSIFIED.
+- BRD_HUMAN_MESOPOTAMIAN_SUMERIAN_BABYLONIAN_SUMERIAN: Asteriel over Miren, margin 3.875, status CLASSIFIED.
+- BRD_HUMAN_MICRONESIAN_CAROLINIAN: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_MICRONESIAN_CHAMORRO: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_MICRONESIAN_CHAMORRO_CAROLINIAN: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_MICRONESIAN_I_KIRIBATI: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_MICRONESIAN_MARSHALLESE: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_MICRONESIAN_NAURUAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_MICRONESIAN_PALAUAN: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_MISSISSIPPIAN_EASTERN_WOODLANDS_MISSISSIPPI_INDIGENOUS: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_MISSISSIPPIAN_EASTERN_WOODLANDS_MISSISSIPPIAN_CAHOKIAN: Miren over Orun-IX, margin 2.375, status CLASSIFIED.
+- BRD_HUMAN_MIXTEC_NUU_SAVI_MIXTEC_NUU_SAVI: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_MIXTEC_NUU_SAVI_NUU_SAVI: Orun-IX over Miren, margin 3.500, status CLASSIFIED.
+- BRD_HUMAN_MOCHE_COASTAL_PERUVIAN: Damor over Orun-IX, margin 4.500, status CLASSIFIED.
+- BRD_HUMAN_MONGOL_BURYAT_KALMYK: Orun-IX over Asteriel, margin 3.600, status CLASSIFIED.
+- BRD_HUMAN_MONGOL_MONGOL: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_MOROCCAN: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_GILGIT_BALTISTANI: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_KASHMIRI_HIMALAYAN: Miren over Asteriel, margin 1.750, status REVIEW_REQUIRED.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_KHAS_PAHARI: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_LHOTSHAMPA: Orun-IX over Miren, margin 1.937, status REVIEW_REQUIRED.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_NEWAR: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_NORTHEAST_INDIGENOUS: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_SHERPA_TAMANG: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDIAN_SOUTH_AFRICAN: Damor over Orun-IX, margin 0.650, status REVIEW_REQUIRED.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_FIJIAN: Damor over Orun-IX, margin 0.813, status REVIEW_REQUIRED.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_MAURITIAN: Damor over Orun-IX, margin 0.650, status REVIEW_REQUIRED.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_KASHMIRI: Damor over Rillan, margin 4.800, status CLASSIFIED.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_MADHESI: Damor over Orun-IX, margin 0.650, status REVIEW_REQUIRED.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_MARATHI_GOAN: Damor over Orun-IX, margin 3.063, status CLASSIFIED.
+- BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_MUHAJIR: Damor over Orun-IX, margin 0.650, status REVIEW_REQUIRED.
+- BRD_HUMAN_PERSIAN_IRANIAN_BALOCH: Miren over Orun-IX, margin 0.400, status REVIEW_REQUIRED.
+- BRD_HUMAN_PERSIAN_IRANIAN_HAZARA: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_PERSIAN_IRANIAN_LUR_BAKHTIARI: Orun-IX over Asteriel, margin 3.600, status CLASSIFIED.
+- BRD_HUMAN_PERSIAN_IRANIAN_PAMIRI: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN: Orun-IX over Miren, margin 3.938, status CLASSIFIED.
+- BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN_IRANIAN: Orun-IX over Asteriel, margin 4.500, status CLASSIFIED.
+- BRD_HUMAN_PERSIAN_IRANIAN_TALYSH: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_MARQUESAN_TUAMOTUAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_NIUEAN: Miren over Sterna, margin 3.150, status CLASSIFIED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_PITCAIRN_DESCENDED: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_PITCAIRN_ISLANDER: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_RAPA_NUI: Miren over Kharad, margin 2.350, status CLASSIFIED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_SAMOAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TAHITIAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TOKELAUAN: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TONGAN: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_TUVALUAN: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_POLYNESIAN_ISLANDS_WALLISIAN_FUTUNAN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_PUREPECHA_PUREPECHA: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_POLISH_RUSSIAN: Kharad over Sterna, margin 4.550, status CLASSIFIED.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_RUSSIAN: Kharad over Rillan, margin 2.850, status CLASSIFIED.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_RUSSIAN_SLAVIC: Kharad over Sterna, margin 4.550, status CLASSIFIED.
+- BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_RUSSIAN_UKRAINIAN: Kharad over Rillan, margin 2.450, status CLASSIFIED.
+- BRD_HUMAN_SAMI_ARCTIC_URALIC_SAMI: Orun-IX over Miren, margin 3.938, status CLASSIFIED.
+- BRD_HUMAN_SAMI_ARCTIC_URALIC_SAMI_NENETS: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_SAN_KHOEKHOE_NAMA_SAN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_SAN_KHOEKHOE_SAN_KHOEKHOE: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_SAN_KHOEKHOE_SAN_TSHWA: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_SAUDI: Orun-IX over Miren, margin 0.438, status REVIEW_REQUIRED.
+- BRD_HUMAN_SCOTS_ULSTER_SCOTS_LOWLAND_SCOTS: Orun-IX over Miren, margin 0.800, status REVIEW_REQUIRED.
+- BRD_HUMAN_SCOTS_ULSTER_SCOTS_ULSTER_SCOTS: Sterna over Miren, margin 1.350, status REVIEW_REQUIRED.
+- BRD_HUMAN_SCOTTISH: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_MBORORO: Darel over Rillan, margin 3.850, status CLASSIFIED.
+- BRD_HUMAN_SONGHAI_SONGHAI: Damor over Orun-IX, margin 3.650, status CLASSIFIED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_LANKAN_TAMIL: Orun-IX over Asteriel, margin 4.438, status CLASSIFIED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYALI: Orun-IX over Sterna, margin 3.300, status CLASSIFIED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYALI_KERALA: Sterna over Asteriel, margin 1.450, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYSIAN_TAMIL: Miren over Asteriel, margin 0.100, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_SINGAPOREAN_TAMIL: Sterna over Miren, margin 1.350, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_SOUTH_INDIAN: Orun-IX over Asteriel, margin 4.438, status CLASSIFIED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_TAMIL: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_TAMIL_MALBAR: Miren over Orun-IX, margin 1.050, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_TELUGU_KANNADA: Orun-IX over Asteriel, margin 4.438, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_HERERO: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_NDEBELE: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_OVAMBO: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_SOTHO_TSWANA: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_SWAZI: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_TSWANA: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_XHOSA: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_ZULU: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_CANTONESE: Miren over Orun-IX, margin 1.050, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_CHINESE: Orun-IX over Miren, margin 3.938, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_HAKKA: Orun-IX over Sterna, margin 2.100, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_HOKLO_TAIWANESE: Miren over Asteriel, margin 0.100, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_JIANGNAN_CHINESE: Miren over Rillan, margin 2.500, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MACANESE_CHINESE: Miren over Orun-IX, margin 1.050, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MAINLAND_CHINESE: Miren over Asteriel, margin 0.100, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MALAYSIAN_CHINESE: Orun-IX over Rillan, margin 2.500, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MIN_CHINESE: Miren over Sterna, margin 3.150, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_PERANAKAN: Orun-IX over Miren, margin 3.938, status CLASSIFIED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_SINGAPOREAN_CHINESE: Orun-IX over Miren, margin 0.750, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_SINO_MAURITIAN: Rillan over Asteriel, margin 0.400, status REVIEW_REQUIRED.
+- BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_WU_CHINESE: Orun-IX over Miren, margin 1.938, status REVIEW_REQUIRED.
+- BRD_HUMAN_SPANISH: Asteriel over Miren, margin 3.875, status CLASSIFIED.
+- BRD_HUMAN_SPANISH_CASTILIAN_ANDALUSIAN: Miren over Sterna, margin 3.150, status CLASSIFIED.
+- BRD_HUMAN_SPANISH_CASTILIAN_CANARIAN: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_SPANISH_CASTILIAN_CASTILIAN: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_SPANISH_CASTILIAN_GIBRALTARIAN: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_TAJIK_SOGDIAN_TAJIK: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_TAJIK_SOGDIAN_TAJIK_SOGDIAN: Orun-IX over Miren, margin 1.250, status REVIEW_REQUIRED.
+- BRD_HUMAN_TIBETAN_HIMALAYAN_TIBETAN: Orun-IX over Asteriel, margin 3.600, status CLASSIFIED.
+- BRD_HUMAN_TIBETAN_LADAKHI: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_TIBETAN_NGALOP: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_TIBETAN_TIBETAN: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_TLINGIT_TLINGIT: Orun-IX over Miren, margin 0.850, status REVIEW_REQUIRED.
+- BRD_HUMAN_UPLAND_FILIPINO_IFUGAO_CORDILLERAN_LUMAD_IFUGAO: Orun-IX over Asteriel, margin 1.188, status REVIEW_REQUIRED.
+- BRD_HUMAN_UPLAND_FILIPINO_IFUGAO_CORDILLERAN_LUMAD_LUMAD: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_BALANTA_MANJACO: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_BAMBARA_MANDE: Asteriel over Miren, margin 3.875, status CLASSIFIED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_KRU_BETE: Orun-IX over Miren, margin 1.750, status REVIEW_REQUIRED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_LIBERIAN_INDIGENOUS: Orun-IX over Asteriel, margin 4.500, status CLASSIFIED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDE: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDE_MALIAN: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDINKA: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MANDINKA_MANDE: Asteriel over Miren, margin 1.625, status REVIEW_REQUIRED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_MENDE: Miren over Sterna, margin 3.150, status CLASSIFIED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_SUSU: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_TEMNE: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_UZBEK_TIMURID_UYGHUR: Asteriel over Orun-IX, margin 3.750, status CLASSIFIED.
+- BRD_HUMAN_UZBEK_TIMURID_UZBEK: Miren over Sterna, margin 3.150, status CLASSIFIED.
+- BRD_HUMAN_UZBEK_TIMURID_UZBEK_TIMURID: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMAN_YORUBA_YORUBA: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_BEMBA: Miren over Asteriel, margin 4.600, status CLASSIFIED.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_CHEWA: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_MAKHUWA: Orun-IX over Miren, margin 0.500, status REVIEW_REQUIRED.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_SHONA: Miren over Orun-IX, margin 2.200, status CLASSIFIED.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_SHONA_GREAT_ZIMBABWE: Miren over Asteriel, margin 4.000, status CLASSIFIED.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_SHONA_SENA_TSONGA: Asteriel over Selen, margin 2.812, status CLASSIFIED.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_TONGA_LOZI: Orun-IX over Asteriel, margin 3.000, status CLASSIFIED.
+- BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_YAO: Miren over Orun-IX, margin 1.000, status REVIEW_REQUIRED.
+- BRD_HUMPHEAD_WRASSE: Kharad over Marea, margin 3.350, status CLASSIFIED.
+- BRD_IBERIAN_WORM_LIZARD: Elian over Kharad, margin 4.900, status CLASSIFIED.
+- BRD_INCUBUS: Selen over Myrra, margin 0.250, status REVIEW_REQUIRED.
+- BRD_INDIAN_PEAFOWL: Tavai over Selen, margin 4.100, status CLASSIFIED.
+- BRD_INDIAN_RHINOCEROS: Tavai over Rillan, margin 1.750, status REVIEW_REQUIRED.
+- BRD_IVORY_GULL: Vespera over Marea, margin 0.800, status REVIEW_REQUIRED.
+- BRD_JAGUAR: Kharad over Rillan, margin 3.400, status CLASSIFIED.
+- BRD_JAPANESE_MACAQUE: Tavai over Orun-IX, margin 2.400, status CLASSIFIED.
+- BRD_JAVAN_RHINOCEROS: Rillan over Kharad, margin 1.100, status REVIEW_REQUIRED.
+- BRD_JIANGSHI: Vhalen over Scarabos, margin 4.450, status CLASSIFIED.
+- BRD_KING_VULTURE: Sahrem over Damor, margin 0.850, status REVIEW_REQUIRED.
+- BRD_KISSING_GOURAMI: Rillan over Kharad, margin 1.700, status REVIEW_REQUIRED.
+- BRD_KOALA: Varek over Orun-IX, margin 1.500, status REVIEW_REQUIRED.
+- BRD_KUMIHO: Myrra over Selen, margin 0.750, status REVIEW_REQUIRED.
+- BRD_LARGE_FLYING_FOX: Tavai over Miren, margin 0.400, status REVIEW_REQUIRED.
+- BRD_LAUGHING_FALCON: Varek over Savael, margin 2.600, status CLASSIFIED.
+- BRD_LEATHERBACK_SEA_TURTLE: Vespera over Marea, margin 2.050, status CLASSIFIED.
+- BRD_LEOPARD_SLUG: Selen over Scarabos, margin 0.750, status REVIEW_REQUIRED.
+- BRD_LESSER_CAPYBARA: Rillan over Miren, margin 0.650, status REVIEW_REQUIRED.
+- BRD_LICH: Orun-IX over Damor, margin 3.450, status CLASSIFIED.
+- BRD_LITTLE_BUSTARD: Tavai over Miren, margin 1.350, status REVIEW_REQUIRED.
+- BRD_LLAMA: Sahrem over Selen, margin 1.150, status REVIEW_REQUIRED.
+- BRD_LONG_FINNED_PILOT_WHALE: Selen over Marea, margin 1.700, status REVIEW_REQUIRED.
+- BRD_LONG_TAILED_CHINCHILLA: Miren over Kharad, margin 0.550, status REVIEW_REQUIRED.
+- BRD_MACROPODUS_SPECHTI_PARADISE_FISH: Kharad over Rillan, margin 4.700, status CLASSIFIED.
+- BRD_MAGNIFICENT_FRIGATEBIRD: Selen over Marea, margin 3.150, status CLASSIFIED.
+- BRD_MAHOGANY_GLIDER: Varek over Savael, margin 3.950, status CLASSIFIED.
+- BRD_MALLARD: Vespera over Rillan, margin 0.000, status REVIEW_REQUIRED.
+- BRD_MANDARIN_DUCK: Selen over Rillan, margin 1.200, status REVIEW_REQUIRED.
+- BRD_MANTLED_GUEREZA: Kharad over Rillan, margin 2.550, status CLASSIFIED.
+- BRD_MARINE_IGUANA: Marea over Miren, margin 2.950, status CLASSIFIED.
+- BRD_MARKHOR: Darel over Sahrem, margin 3.550, status CLASSIFIED.
+- BRD_MASAI_GIRAFFE: Neressa over Darel, margin 1.000, status REVIEW_REQUIRED.
+- BRD_MATA_MATA: Oren over Rillan, margin 3.250, status CLASSIFIED.
+- BRD_MEADOW_JUMPING_MOUSE: Varek over Iskarn, margin 0.250, status REVIEW_REQUIRED.
+- BRD_MERFOLK: Sterna over Rillan, margin 4.700, status CLASSIFIED.
+- BRD_MEXICAN_BEADED_LIZARD: Kharad over Voltar, margin 0.350, status REVIEW_REQUIRED.
+- BRD_MEXICAN_HONEYPOT_ANT: Iskarn over Scarabos, margin 3.900, status CLASSIFIED.
+- BRD_MEXICAN_MOLE_LIZARD: Kharad over Damor, margin 1.850, status REVIEW_REQUIRED.
+- BRD_MICRONESIAN_MEGAPODE: Damor over Sahrem, margin 4.150, status CLASSIFIED.
+- BRD_MMOATIA: Miren over Asteriel, margin 2.800, status CLASSIFIED.
+- BRD_MO_O: Neressa over Myrra, margin 0.250, status REVIEW_REQUIRED.
+- BRD_MOONRAT: Rillan over Kharad, margin 3.200, status CLASSIFIED.
+- BRD_MOOSE: Sterna over Vespera, margin 0.400, status REVIEW_REQUIRED.
+- BRD_MULE: Myrra over Selen, margin 3.571, status CLASSIFIED.
+- BRD_MYRMECOBIUS_FASCIATUS_NUMBAT: Orun-IX over Varek, margin 0.450, status REVIEW_REQUIRED.
+- BRD_NAKED_MOLE_RAT: Miren over Tavai, margin 4.450, status CLASSIFIED.
+- BRD_NEPHILIM: Darel over Asteriel, margin 3.650, status CLASSIFIED.
+- BRD_NICOBAR_PIGEON: Tavai over Miren, margin 1.600, status REVIEW_REQUIRED.
+- BRD_NILE_CROCODILE: Varek over Rillan, margin 4.050, status CLASSIFIED.
+- BRD_NINGYO: Vhalen over Scarabos, margin 4.350, status CLASSIFIED.
+- BRD_NON_BITING_MIDGE: Orun-IX over Rillan, margin 1.800, status REVIEW_REQUIRED.
+- BRD_NORTH_ATLANTIC_RIGHT_WHALE: Vespera over Sterna, margin 0.100, status REVIEW_REQUIRED.
+- BRD_NORTH_SULAWESI_BABIRUSA: Tavai over Rillan, margin 0.700, status REVIEW_REQUIRED.
+- BRD_NORTHERN_CARMINE_BEE_EATER: Rillan over Tavai, margin 3.600, status CLASSIFIED.
+- BRD_NORTHERN_GANNET: Marea over Miren, margin 0.900, status REVIEW_REQUIRED.
+- BRD_NORTHERN_GIRAFFE: Sahrem over Darel, margin 0.800, status REVIEW_REQUIRED.
+- BRD_NORTHERN_LEOPARD_FROG: Kharad over Rillan, margin 4.100, status CLASSIFIED.
+- BRD_NORTHERN_MARSUPIAL_MOLE: Damor over Kharad, margin 1.350, status REVIEW_REQUIRED.
+- BRD_OCEANIC_MANTA_RAY: Vespera over Sterna, margin 3.000, status CLASSIFIED.
+- BRD_OCELLATED_ICEFISH: Iskarn over Marea, margin 1.650, status REVIEW_REQUIRED.
+- BRD_OLIVE_RIDLEY_SEA_TURTLE: Darel over Marea, margin 2.950, status CLASSIFIED.
+- BRD_OLIVE_SEA_SNAKE: Marea over Selen, margin 4.400, status CLASSIFIED.
+- BRD_OLM: Iskarn over Rillan, margin 1.700, status REVIEW_REQUIRED.
+- BRD_ONRYO: Sahrem over Voltar, margin 0.900, status REVIEW_REQUIRED.
+- BRD_ORCHID_BEE: Neressa over Selen, margin 1.750, status REVIEW_REQUIRED.
+- BRD_ORYCTOLAGUS_CUNICULUS_DOMESTICUS_DOMESTIC_RABBIT: Tavai over Miren, margin 2.857, status CLASSIFIED.
+- BRD_OSPREY: Varek over Orun-IX, margin 1.500, status REVIEW_REQUIRED.
+- BRD_PACIFIC_BANANA_SLUG: Scarabos over Selen, margin 3.200, status CLASSIFIED.
+- BRD_PACIFIC_HAGFISH: Scarabos over Miren, margin 0.150, status REVIEW_REQUIRED.
+- BRD_PAINTED_TURTLE: Selen over Rillan, margin 0.600, status REVIEW_REQUIRED.
+- BRD_PARADISE_TANAGER: Miren over Rillan, margin 1.150, status REVIEW_REQUIRED.
+- BRD_PEACH_FACED_LOVEBIRD: Selen over Miren, margin 0.286, status REVIEW_REQUIRED.
+- BRD_PEREGRINE_FALCON: Miren over Aveli, margin 4.750, status CLASSIFIED.
+- BRD_PHILIPPINE_TARSIER: Darel over Selen, margin 1.950, status REVIEW_REQUIRED.
+- BRD_PIED_IMPERIAL_PIGEON: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_PLAINS_VISCACHA: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_POTTO: Elian over Rillan, margin 1.450, status REVIEW_REQUIRED.
+- BRD_POUCHED_LAMPREY: Vespera over Rillan, margin 1.400, status REVIEW_REQUIRED.
+- BRD_PROBOSCIS_MONKEY: Rillan over Neressa, margin 2.100, status CLASSIFIED.
+- BRD_PSYCHEDELIC_FROGFISH: Marea over Selen, margin 4.700, status CLASSIFIED.
+- BRD_PUCA: Sahrem over Rillan, margin 3.150, status CLASSIFIED.
+- BRD_PUKWUDGIE: Solkar over Rillan, margin 2.450, status CLASSIFIED.
+- BRD_PURPLE_MARTIN: Rillan over Miren, margin 1.950, status REVIEW_REQUIRED.
+- BRD_PURPLE_SPOTTED_MANTIS_SHRIMP: Marea over Kharad, margin 1.650, status REVIEW_REQUIRED.
+- BRD_PYGMY_HIPPOPOTAMUS: Kharad over Rillan, margin 4.600, status CLASSIFIED.
+- BRD_PYGMY_RABBIT: Damor over Kharad, margin 1.350, status REVIEW_REQUIRED.
+- BRD_PYGMY_SLOW_LORIS: Vespera over Iskarn, margin 1.850, status REVIEW_REQUIRED.
+- BRD_PYRENEAN_DESMAN: Myrra over Rillan, margin 2.250, status CLASSIFIED.
+- BRD_QUOKKA: Tavai over Miren, margin 2.900, status CLASSIFIED.
+- BRD_RAINBOW_SCARAB: Scarabos over Damor, margin 2.100, status CLASSIFIED.
+- BRD_RAINBOW_TROUT: Rillan over Kharad, margin 4.900, status CLASSIFIED.
+- BRD_RAKSHASA: Darel over Varek, margin 0.700, status REVIEW_REQUIRED.
+- BRD_RAZORBILL: Marea over Tavai, margin 0.900, status REVIEW_REQUIRED.
+- BRD_RED_EARED_SLIDER: Selen over Rillan, margin 4.800, status CLASSIFIED.
+- BRD_RED_FACED_SPIDER_MONKEY: Tavai over Elian, margin 4.500, status CLASSIFIED.
+- BRD_RED_HEADED_WOODPECKER: Orun-IX over Savael, margin 4.950, status CLASSIFIED.
+- BRD_RED_KANGAROO: Miren over Tavai, margin 4.750, status CLASSIFIED.
+- BRD_REDTAIL_CATFISH: Rillan over Kharad, margin 2.900, status CLASSIFIED.
+- BRD_REEF_MANTA_RAY: Miren over Marea, margin 4.100, status CLASSIFIED.
+- BRD_REEF_STONEFISH: Marea over Kharad, margin 0.200, status REVIEW_REQUIRED.
+- BRD_RETICULATED_GIRAFFE: Tavai over Sahrem, margin 3.300, status CLASSIFIED.
+- BRD_RETICULATED_PYTHON: Rillan over Voltar, margin 0.750, status REVIEW_REQUIRED.
+- BRD_RIBBON_EEL: Lunessa over Neressa, margin 3.200, status CLASSIFIED.
+- BRD_RISSO_S_DOLPHIN: Marea over Miren, margin 4.650, status CLASSIFIED.
+- BRD_ROBOROVSKI_HAMSTER: Miren over Rillan, margin 2.285, status CLASSIFIED.
+- BRD_ROCK_HYRAX: Tavai over Kharad, margin 0.550, status REVIEW_REQUIRED.
+- BRD_ROCK_PIGEON: Miren over Vespera, margin 2.250, status CLASSIFIED.
+- BRD_SABLE_ANTELOPE: Rillan over Sahrem, margin 0.650, status REVIEW_REQUIRED.
+- BRD_SACRED_SCARAB: Kharad over Scarabos, margin 0.450, status REVIEW_REQUIRED.
+- BRD_SADDLE_BILLED_STORK: Rillan over Miren, margin 2.100, status CLASSIFIED.
+- BRD_SAIGA_ANTELOPE: Sterna over Vespera, margin 4.100, status CLASSIFIED.
+- BRD_SALTWATER_CROCODILE: Marea over Miren, margin 1.550, status REVIEW_REQUIRED.
+- BRD_SANDHILL_CRANE: Tavai over Rillan, margin 4.200, status CLASSIFIED.
+- BRD_SCIMITAR_HORNED_ORYX: Miren over Tavai, margin 4.100, status CLASSIFIED.
+- BRD_SEA_LAMPREY: Rillan over Kharad, margin 2.000, status CLASSIFIED.
+- BRD_SECRETARYBIRD: Varek over Orun-IX, margin 1.500, status REVIEW_REQUIRED.
+- BRD_SENEGAL_BUSHBABY: Darel over Miren, margin 0.050, status REVIEW_REQUIRED.
+- BRD_SHORT_TAILED_CHINCHILLA: Miren over Tavai, margin 0.850, status REVIEW_REQUIRED.
+- BRD_SIBERIAN_MUSK_DEER: Vespera over Varek, margin 3.550, status CLASSIFIED.
+- BRD_SIR_DAVID_S_LONG_BEAKED_ECHIDNA: Varek over Kharad, margin 3.450, status CLASSIFIED.
+- BRD_SIYOKOY: Marea over Rillan, margin 2.100, status CLASSIFIED.
+- BRD_SLOTH_BEAR: Orun-IX over Varek, margin 4.700, status CLASSIFIED.
+- BRD_SOUTH_AMERICAN_COATI: Tavai over Miren, margin 1.000, status REVIEW_REQUIRED.
+- BRD_SOUTH_AMERICAN_LUNGFISH: Rillan over Iskarn, margin 0.300, status REVIEW_REQUIRED.
+- BRD_SOUTHERN_FLYING_SQUIRREL: Tavai over Miren, margin 0.400, status REVIEW_REQUIRED.
+- BRD_SOUTHERN_GIRAFFE: Sahrem over Darel, margin 1.050, status REVIEW_REQUIRED.
+- BRD_SOUTHERN_VISCACHA: Kharad over Miren, margin 1.850, status REVIEW_REQUIRED.
+- BRD_SPECTACLED_BEAR: Vespera over Varek, margin 1.400, status REVIEW_REQUIRED.
+- BRD_SPECTACLED_CAIMAN: Rillan over Varek, margin 1.050, status REVIEW_REQUIRED.
+- BRD_SPHINX: Miren over Tavai, margin 4.350, status CLASSIFIED.
+- BRD_SPINY_SOFTSHELL_TURTLE: Darel over Rillan, margin 0.250, status REVIEW_REQUIRED.
+- BRD_SPOTTED_HANDFISH: Marea over Elian, margin 2.700, status CLASSIFIED.
+- BRD_SPOTTED_HYENA: Scarabos over Tavai, margin 2.950, status CLASSIFIED.
+- BRD_SPOTTED_TAILED_QUOLL: Tavai over Kharad, margin 2.650, status CLASSIFIED.
+- BRD_SPOTTED_TRUNKFISH: Marea over Miren, margin 4.250, status CLASSIFIED.
+- BRD_SQUIRREL_GLIDER: Varek over Orun-IX, margin 1.500, status REVIEW_REQUIRED.
+- BRD_STARRY_PUFFER: Marea over Rillan, margin 0.200, status REVIEW_REQUIRED.
+- BRD_STOPLIGHT_PARROTFISH: Lunessa over Neressa, margin 0.150, status REVIEW_REQUIRED.
+- BRD_STRIPED_POSSUM: Varek over Savael, margin 4.950, status CLASSIFIED.
+- BRD_SUCCUBUS: Myrra over Selen, margin 1.550, status REVIEW_REQUIRED.
+- BRD_SUGAR_GLIDER: Aveli over Miren, margin 1.142, status REVIEW_REQUIRED.
+- BRD_SUN_BEAR: Varek over Orun-IX, margin 1.500, status REVIEW_REQUIRED.
+- BRD_SUNDA_SLOW_LORIS: Selen over Rillan, margin 0.050, status REVIEW_REQUIRED.
+- BRD_SWAMP_WALLABY: Varek over Orun-IX, margin 3.450, status CLASSIFIED.
+- BRD_TASMANIAN_DEVIL: Sahrem over Voltar, margin 3.600, status CLASSIFIED.
+- BRD_TERRAPENE_CAROLINA_EASTERN_BOX_TURTLE: Vespera over Lunessa, margin 1.600, status REVIEW_REQUIRED.
+- BRD_TIKBALANG: Oren over Myrra, margin 2.200, status CLASSIFIED.
+- BRD_TITAN: Selen over Asteriel, margin 2.300, status CLASSIFIED.
+- BRD_TRI_SPINE_HORSESHOE_CRAB: Kharad over Marea, margin 4.200, status CLASSIFIED.
+- BRD_TURKEY_VULTURE: Miren over Tavai, margin 4.100, status CLASSIFIED.
+- BRD_URSUS_ARCTOS_BROWN_BEAR: Myrra over Elian, margin 2.300, status CLASSIFIED.
+- BRD_VAMPIRE_SQUID: Selen over Marea, margin 3.850, status CLASSIFIED.
+- BRD_VERREAUX_S_SIFAKA: Tavai over Rillan, margin 0.650, status REVIEW_REQUIRED.
+- BRD_VIRGINIA_OPOSSUM: Damor over Kharad, margin 2.350, status CLASSIFIED.
+- BRD_WALRUS: Tavai over Miren, margin 1.600, status REVIEW_REQUIRED.
+- BRD_WATER_OPOSSUM: Varek over Rillan, margin 2.500, status CLASSIFIED.
+- BRD_WEB_FOOTED_TENREC: Varek over Orun-IX, margin 1.500, status REVIEW_REQUIRED.
+- BRD_WELS_CATFISH: Rillan over Varek, margin 0.650, status REVIEW_REQUIRED.
+- BRD_WEST_AFRICAN_LUNGFISH: Rillan over Iskarn, margin 0.300, status REVIEW_REQUIRED.
+- BRD_WEST_INDIAN_MANATEE: Varek over Rillan, margin 1.400, status REVIEW_REQUIRED.
+- BRD_WESTERN_GORILLA: Tavai over Asteriel, margin 2.250, status CLASSIFIED.
+- BRD_WHALE_SHARK: Marea over Sahrem, margin 3.900, status CLASSIFIED.
+- BRD_WHITE_RHINOCEROS: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_WHITE_STORK: Miren over Rillan, margin 4.850, status CLASSIFIED.
+- BRD_WHITE_TAILED_DEER: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_WHITE_THROATED_NEEDLETAIL: Sterna over Vespera, margin 1.000, status REVIEW_REQUIRED.
+- BRD_WHITE_WINGED_VAMPIRE_BAT: Miren over Tavai, margin 2.900, status CLASSIFIED.
+- BRD_WHOOPING_CRANE: Miren over Rillan, margin 2.000, status CLASSIFIED.
+- BRD_WILD_BOAR: Varek over Orun-IX, margin 1.500, status REVIEW_REQUIRED.
+- BRD_WOLVERINE: Iskarn over Kharad, margin 1.500, status REVIEW_REQUIRED.
+- BRD_YARA_MA_YHA_WHO: Sahrem over Rillan, margin 1.650, status REVIEW_REQUIRED.
+- BRD_YELLOW_SPOTTED_ROCK_HYRAX: Tavai over Kharad, margin 0.600, status REVIEW_REQUIRED.
+- BRD_ZEBRA_MORAY: Marea over Kharad, margin 4.350, status CLASSIFIED.
+- BRD_ZIEBELLS_HANDFISH: Marea over Kharad, margin 1.900, status REVIEW_REQUIRED.
+

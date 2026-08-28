@@ -9,12 +9,14 @@ export type AtlasRouteRealization = {
   routeId: string; active: boolean; name: string | null; nameStatus: string; establishedYear: number | null; primaryMode: string; infrastructureClass: string;
   tradeDesignation: boolean; preferredNamingAnchor: string | null; endpointSettlements: Record<string, unknown> | null; worldSovereignFaction: string | null;
   formalCrownAllegianceAuthority: unknown; nameProvenance: string | null;
+  persistedPrimaryMode?: string | null; persistedInfrastructureClass?: string | null; persistedTradeDesignation?: boolean | null;
 };
 export type AtlasRoute = {
   corridorId: string;
   regionA: { regionId: string; regionName: string; latitude: number; longitude: number };
   regionB: { regionId: string; regionName: string; latitude: number; longitude: number };
   canonicalDirectionality: string; portalCapability: boolean; primaryMode: string; infrastructureClass: string; tradeDesignation: boolean; resolutionAuthority: string;
+  semanticReadiness: "READY" | "NOT_READY"; classificationStatus: string; classificationAuthorityVersion: string | null; ownerEvidenceRef: string | null;
   worlds: Partial<Record<World, AtlasRouteRealization>>;
 };
 export type AtlasSettlement = { settlementId: string; siteId: string; name: string | null; dominantFaction: World | null; latitude: number; longitude: number };
@@ -56,5 +58,5 @@ function PoiDetail({ poi, world }: { poi?: AtlasPoi; world: World }): React.JSX.
 
 function AtlasRouteDetail({ route, world }: { route: AtlasRoute; world: World }): React.JSX.Element {
   const realization = route.worlds[world];
-  return <section className="site-card atlas-poi-detail"><p className="eyebrow">SELECTED ROUTE</p><h2>{realization?.name ?? route.corridorId}</h2><strong>{world} · {route.corridorId}</strong><dl><div><dt>Regions</dt><dd>{route.regionA.regionId} {route.regionA.regionName} ↔ {route.regionB.regionId} {route.regionB.regionName}</dd></div><div><dt>Mode / class</dt><dd>{realization?.primaryMode ?? route.primaryMode} · {realization?.infrastructureClass ?? route.infrastructureClass}</dd></div><div><dt>Trade / portal</dt><dd>{realization?.tradeDesignation ? "Trade designated" : "Not trade designated"} · {route.portalCapability ? "Portal capable" : "No portal authority"}</dd></div><div><dt>Established</dt><dd>{realization?.establishedYear ?? "Inactive"}</dd></div><div><dt>Name status</dt><dd>{realization?.nameStatus ?? "INACTIVE"}</dd></div><div><dt>Naming anchor</dt><dd>{realization?.preferredNamingAnchor ?? "None"}</dd></div><div><dt>Name provenance</dt><dd>{realization?.nameProvenance ?? "Pending owner naming"}</dd></div></dl></section>;
+  return <section className="site-card atlas-poi-detail"><p className="eyebrow">SELECTED ROUTE</p><h2>{realization?.name ?? route.corridorId}</h2><strong>{world} · {route.corridorId}</strong><dl><div><dt>Regions</dt><dd>{route.regionA.regionId} {route.regionA.regionName} ↔ {route.regionB.regionId} {route.regionB.regionName}</dd></div><div><dt>Effective mode / class</dt><dd>{realization?.primaryMode ?? route.primaryMode} · {realization?.infrastructureClass ?? route.infrastructureClass}</dd></div><div><dt>Classification</dt><dd>{route.semanticReadiness} · {route.classificationAuthorityVersion ?? "owner decision required"}</dd></div><div><dt>Trade / portal</dt><dd>{realization?.tradeDesignation ? "Trade designated" : "Not trade designated"} · {route.portalCapability ? "Portal capable" : "No portal authority"}</dd></div><div><dt>Established</dt><dd>{realization?.establishedYear ?? "Inactive"}</dd></div><div><dt>Name status</dt><dd>{realization?.nameStatus ?? "INACTIVE"}</dd></div><div><dt>Naming anchor</dt><dd>{realization?.preferredNamingAnchor ?? "None"}</dd></div><div><dt>Name provenance</dt><dd>{realization?.nameProvenance ?? "Pending owner naming"}</dd></div></dl></section>;
 }

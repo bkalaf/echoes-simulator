@@ -1,0 +1,1802 @@
+{
+  "schemaVersion": "echoes-breed-deity-signal-frequency-audit-v2",
+  "corpusSize": 2062,
+  "specificityFormula": "clamp(0.72 + 0.53 * normalizedInverseFrequency, tierFloor, 1.25); STRONG/DEFINING floor=0.85",
+  "distributionIndependent": true,
+  "rows": [
+    {
+      "deityName": "Miren",
+      "semanticCluster": "caregiving",
+      "breedFrequency": 828,
+      "corpusShare": 0.401552,
+      "specificityFactor": 0.783313,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "MIREN_CARE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "deityName": "Miren",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "MIREN_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Miren",
+      "semanticCluster": "costly_compassion",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "MIREN_COSTLY_COMPASSION"
+      ]
+    },
+    {
+      "deityName": "Miren",
+      "semanticCluster": "generic_prosociality",
+      "breedFrequency": 2046,
+      "corpusShare": 0.992241,
+      "specificityFactor": 0.720541,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "MIREN_GENERIC_PROSOCIAL_CAP"
+      ]
+    },
+    {
+      "deityName": "Miren",
+      "semanticCluster": "mercy_and_suffering",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "MIREN_MERCY_SUFFERING"
+      ]
+    },
+    {
+      "deityName": "Miren",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 231,
+      "corpusShare": 0.112027,
+      "specificityFactor": 0.87175,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Darel",
+      "semanticCluster": "action_despite_fear",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "DAREL_ACTION_DESPITE_FEAR"
+      ]
+    },
+    {
+      "deityName": "Darel",
+      "semanticCluster": "aggression_not_courage",
+      "breedFrequency": 2060,
+      "corpusShare": 0.99903,
+      "specificityFactor": 0.720067,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "DAREL_AGGRESSION_CAP"
+      ]
+    },
+    {
+      "deityName": "Darel",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "DAREL_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Darel",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 113,
+      "corpusShare": 0.054801,
+      "specificityFactor": 0.921094,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Darel",
+      "semanticCluster": "protective_danger",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "DAREL_PROTECTIVE_DANGER"
+      ]
+    },
+    {
+      "deityName": "Darel",
+      "semanticCluster": "risk_taking",
+      "breedFrequency": 33,
+      "corpusShare": 0.016004,
+      "specificityFactor": 1.005111,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "DAREL_RISK_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Savael",
+      "semanticCluster": "active_long_restraint",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "SAVAEL_ACTIVE_ENDURANCE"
+      ]
+    },
+    {
+      "deityName": "Savael",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "SAVAEL_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Savael",
+      "semanticCluster": "mere_slowness",
+      "breedFrequency": 156,
+      "corpusShare": 0.075655,
+      "specificityFactor": 0.898868,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "SAVAEL_SLOWNESS_CAP"
+      ]
+    },
+    {
+      "deityName": "Savael",
+      "semanticCluster": "patient_strategy",
+      "breedFrequency": 6,
+      "corpusShare": 0.00291,
+      "specificityFactor": 1.114866,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "SAVAEL_PATIENT_STRATEGY"
+      ]
+    },
+    {
+      "deityName": "Savael",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 76,
+      "corpusShare": 0.036857,
+      "specificityFactor": 0.948344,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Savael",
+      "semanticCluster": "restraint_composure",
+      "breedFrequency": 599,
+      "corpusShare": 0.290495,
+      "specificityFactor": 0.805764,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "SAVAEL_RESTRAINT_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Elian",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "ELIAN_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Elian",
+      "semanticCluster": "future_optimism",
+      "breedFrequency": 593,
+      "corpusShare": 0.287585,
+      "specificityFactor": 0.806462,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "ELIAN_OPTIMISM_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Elian",
+      "semanticCluster": "novelty_only",
+      "breedFrequency": 25,
+      "corpusShare": 0.012124,
+      "specificityFactor": 1.023741,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "ELIAN_NOVELTY_CAP"
+      ]
+    },
+    {
+      "deityName": "Elian",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 49,
+      "corpusShare": 0.023763,
+      "specificityFactor": 0.978329,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Elian",
+      "semanticCluster": "rebuild_after_loss",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "ELIAN_REBUILD_AFTER_LOSS"
+      ]
+    },
+    {
+      "deityName": "Elian",
+      "semanticCluster": "renewal_recovery",
+      "breedFrequency": 9,
+      "corpusShare": 0.004365,
+      "specificityFactor": 1.090097,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "ELIAN_RENEWAL"
+      ]
+    },
+    {
+      "deityName": "Namiya",
+      "semanticCluster": "accountable_reconciliation",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "NAMIYA_ACCOUNTABLE_RECONCILIATION"
+      ]
+    },
+    {
+      "deityName": "Namiya",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "NAMIYA_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Namiya",
+      "semanticCluster": "mercy_release",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "NAMIYA_MERCY_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Namiya",
+      "semanticCluster": "ordinary_grooming",
+      "breedFrequency": 37,
+      "corpusShare": 0.017944,
+      "specificityFactor": 0.997387,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "NAMIYA_SOCIALITY_CAP"
+      ]
+    },
+    {
+      "deityName": "Namiya",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 6,
+      "corpusShare": 0.00291,
+      "specificityFactor": 1.114866,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Namiya",
+      "semanticCluster": "post_conflict_repair",
+      "breedFrequency": 1,
+      "corpusShare": 0.000485,
+      "specificityFactor": 1.201864,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "NAMIYA_POST_CONFLICT_REPAIR"
+      ]
+    },
+    {
+      "deityName": "Oren",
+      "semanticCluster": "communication_only",
+      "breedFrequency": 724,
+      "corpusShare": 0.351115,
+      "specificityFactor": 0.792622,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "OREN_COMMUNICATION_CAP"
+      ]
+    },
+    {
+      "deityName": "Oren",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "OREN_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Oren",
+      "semanticCluster": "costly_truth",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "OREN_COSTLY_TRUTH"
+      ]
+    },
+    {
+      "deityName": "Oren",
+      "semanticCluster": "integrity_accountability",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "OREN_INTEGRITY_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Oren",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 60,
+      "corpusShare": 0.029098,
+      "specificityFactor": 0.96452,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Oren",
+      "semanticCluster": "reliable_honest_signal",
+      "breedFrequency": 14,
+      "corpusShare": 0.00679,
+      "specificityFactor": 1.061939,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "OREN_HONEST_SIGNAL"
+      ]
+    },
+    {
+      "deityName": "Tavai",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "TAVAI_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Tavai",
+      "semanticCluster": "emotional_attunement",
+      "breedFrequency": 4,
+      "corpusShare": 0.00194,
+      "specificityFactor": 1.138232,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "TAVAI_ATTUNEMENT"
+      ]
+    },
+    {
+      "deityName": "Tavai",
+      "semanticCluster": "generic_teamwork",
+      "breedFrequency": 2062,
+      "corpusShare": 1,
+      "specificityFactor": 0.72,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "TAVAI_TEAMWORK_CAP"
+      ]
+    },
+    {
+      "deityName": "Tavai",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 173,
+      "corpusShare": 0.083899,
+      "specificityFactor": 0.891728,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Tavai",
+      "semanticCluster": "perspective_taking",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "TAVAI_PERSPECTIVE_TAKING"
+      ]
+    },
+    {
+      "deityName": "Tavai",
+      "semanticCluster": "social_learning",
+      "breedFrequency": 126,
+      "corpusShare": 0.061106,
+      "specificityFactor": 0.913594,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "TAVAI_SOCIAL_COGNITION"
+      ]
+    },
+    {
+      "deityName": "Varek",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "VAREK_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Varek",
+      "semanticCluster": "duty_tenacity",
+      "breedFrequency": 19,
+      "corpusShare": 0.009214,
+      "specificityFactor": 1.041961,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "VAREK_DUTY_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Varek",
+      "semanticCluster": "extreme_endurance",
+      "breedFrequency": 2,
+      "corpusShare": 0.00097,
+      "specificityFactor": 1.173707,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "VAREK_ADVERSITY_ENDURANCE"
+      ]
+    },
+    {
+      "deityName": "Varek",
+      "semanticCluster": "perseverance_through_failure",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "VAREK_FAILURE_PERSEVERANCE"
+      ]
+    },
+    {
+      "deityName": "Varek",
+      "semanticCluster": "persistent_word_only",
+      "breedFrequency": 1434,
+      "corpusShare": 0.695441,
+      "specificityFactor": 0.745208,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "VAREK_PERSISTENT_CAP"
+      ]
+    },
+    {
+      "deityName": "Varek",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 165,
+      "corpusShare": 0.080019,
+      "specificityFactor": 0.894997,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Selen",
+      "semanticCluster": "communal_joy",
+      "breedFrequency": 4,
+      "corpusShare": 0.00194,
+      "specificityFactor": 1.138232,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "SELEN_COMMUNAL_JOY"
+      ]
+    },
+    {
+      "deityName": "Selen",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "SELEN_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Selen",
+      "semanticCluster": "expressive_display",
+      "breedFrequency": 933,
+      "corpusShare": 0.452473,
+      "specificityFactor": 0.775031,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "SELEN_DISPLAY_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Selen",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 130,
+      "corpusShare": 0.063046,
+      "specificityFactor": 0.911441,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Selen",
+      "semanticCluster": "play_affection_music",
+      "breedFrequency": 75,
+      "corpusShare": 0.036372,
+      "specificityFactor": 0.949251,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "SELEN_PLAY_EXPRESSION"
+      ]
+    },
+    {
+      "deityName": "Selen",
+      "semanticCluster": "social_only",
+      "breedFrequency": 2059,
+      "corpusShare": 0.998545,
+      "specificityFactor": 0.720101,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "SELEN_SOCIALITY_CAP"
+      ]
+    },
+    {
+      "deityName": "Solkar",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "SOLKAR_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Solkar",
+      "semanticCluster": "diurnal_basking",
+      "breedFrequency": 26,
+      "corpusShare": 0.012609,
+      "specificityFactor": 1.02112,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "SOLKAR_DIURNAL_WARMTH"
+      ]
+    },
+    {
+      "deityName": "Solkar",
+      "semanticCluster": "generic_warm",
+      "breedFrequency": 58,
+      "corpusShare": 0.028128,
+      "specificityFactor": 0.966835,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "SOLKAR_WARMTH_CAP"
+      ]
+    },
+    {
+      "deityName": "Solkar",
+      "semanticCluster": "illumination_warmth",
+      "breedFrequency": 35,
+      "corpusShare": 0.016974,
+      "specificityFactor": 1.001142,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "SOLKAR_LIGHT_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Solkar",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 10,
+      "corpusShare": 0.00485,
+      "specificityFactor": 1.083478,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Solkar",
+      "semanticCluster": "solar_life_cycle",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "SOLKAR_SOLAR_DEPENDENCE"
+      ]
+    },
+    {
+      "deityName": "Lunessa",
+      "semanticCluster": "change_only",
+      "breedFrequency": 215,
+      "corpusShare": 0.104268,
+      "specificityFactor": 0.876713,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "LUNESSA_CHANGE_CAP"
+      ]
+    },
+    {
+      "deityName": "Lunessa",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "LUNESSA_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Lunessa",
+      "semanticCluster": "nocturnal_rhythm",
+      "breedFrequency": 62,
+      "corpusShare": 0.030068,
+      "specificityFactor": 0.962279,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "LUNESSA_NOCTURNAL_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Lunessa",
+      "semanticCluster": "periodic_transformation",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "LUNESSA_PERIODIC_TRANSFORMATION"
+      ]
+    },
+    {
+      "deityName": "Lunessa",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 100,
+      "corpusShare": 0.048497,
+      "specificityFactor": 0.929502,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Lunessa",
+      "semanticCluster": "phase_return_cycle",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "LUNESSA_PHASE_RETURN"
+      ]
+    },
+    {
+      "deityName": "Vespera",
+      "semanticCluster": "celestial_wayfinding",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "VESPERA_CELESTIAL_WAYFINDING"
+      ]
+    },
+    {
+      "deityName": "Vespera",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "VESPERA_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Vespera",
+      "semanticCluster": "homing_orientation",
+      "breedFrequency": 331,
+      "corpusShare": 0.160524,
+      "specificityFactor": 0.85,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "VESPERA_HOMING"
+      ]
+    },
+    {
+      "deityName": "Vespera",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 63,
+      "corpusShare": 0.030553,
+      "specificityFactor": 0.961186,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Vespera",
+      "semanticCluster": "spatial_awareness",
+      "breedFrequency": 257,
+      "corpusShare": 0.124636,
+      "specificityFactor": 0.864374,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "VESPERA_ORIENTATION_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Vespera",
+      "semanticCluster": "travel_only",
+      "breedFrequency": 732,
+      "corpusShare": 0.354995,
+      "specificityFactor": 0.79186,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "VESPERA_TRAVEL_CAP"
+      ]
+    },
+    {
+      "deityName": "Voltar",
+      "semanticCluster": "abrupt_disruption",
+      "breedFrequency": 1,
+      "corpusShare": 0.000485,
+      "specificityFactor": 1.201864,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "VOLTAR_DISRUPTION_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Voltar",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "VOLTAR_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Voltar",
+      "semanticCluster": "electric_discharge",
+      "breedFrequency": 13,
+      "corpusShare": 0.006305,
+      "specificityFactor": 1.06673,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "VOLTAR_ELECTRICITY"
+      ]
+    },
+    {
+      "deityName": "Voltar",
+      "semanticCluster": "force_anger_only",
+      "breedFrequency": 2060,
+      "corpusShare": 0.99903,
+      "specificityFactor": 0.720067,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "VOLTAR_FORCE_CAP"
+      ]
+    },
+    {
+      "deityName": "Voltar",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 77,
+      "corpusShare": 0.037342,
+      "specificityFactor": 0.947447,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Voltar",
+      "semanticCluster": "storm_thunder",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "VOLTAR_STORM"
+      ]
+    },
+    {
+      "deityName": "Marea",
+      "semanticCluster": "coastal_only",
+      "breedFrequency": 616,
+      "corpusShare": 0.298739,
+      "specificityFactor": 0.803824,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "MAREA_COAST_CAP"
+      ]
+    },
+    {
+      "deityName": "Marea",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "MAREA_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Marea",
+      "semanticCluster": "deep_ocean_life",
+      "breedFrequency": 6,
+      "corpusShare": 0.00291,
+      "specificityFactor": 1.114866,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "MAREA_DEEP_OCEAN"
+      ]
+    },
+    {
+      "deityName": "Marea",
+      "semanticCluster": "marine_habitat",
+      "breedFrequency": 363,
+      "corpusShare": 0.176043,
+      "specificityFactor": 0.840471,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "MAREA_MARINE_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Marea",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 94,
+      "corpusShare": 0.045587,
+      "specificityFactor": 0.933755,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Marea",
+      "semanticCluster": "tidal_marine_cycle",
+      "breedFrequency": 197,
+      "corpusShare": 0.095538,
+      "specificityFactor": 0.882755,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "MAREA_TIDES_MOVEMENT"
+      ]
+    },
+    {
+      "deityName": "Rillan",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "RILLAN_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Rillan",
+      "semanticCluster": "freshwater_habitat",
+      "breedFrequency": 865,
+      "corpusShare": 0.419496,
+      "specificityFactor": 0.780281,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "RILLAN_HABITAT_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Rillan",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 34,
+      "corpusShare": 0.016489,
+      "specificityFactor": 1.003098,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Rillan",
+      "semanticCluster": "rain_river_process",
+      "breedFrequency": 2,
+      "corpusShare": 0.00097,
+      "specificityFactor": 1.173707,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "RILLAN_FRESHWATER_PROCESS"
+      ]
+    },
+    {
+      "deityName": "Rillan",
+      "semanticCluster": "upstream_return_cycle",
+      "breedFrequency": 3,
+      "corpusShare": 0.001455,
+      "specificityFactor": 1.153729,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "RILLAN_UPSTREAM_RETURN"
+      ]
+    },
+    {
+      "deityName": "Rillan",
+      "semanticCluster": "water_generic",
+      "breedFrequency": 441,
+      "corpusShare": 0.21387,
+      "specificityFactor": 0.826988,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "RILLAN_WATER_CAP"
+      ]
+    },
+    {
+      "deityName": "Damor",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "DAMOR_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Damor",
+      "semanticCluster": "ecosystem_engineering",
+      "breedFrequency": 2,
+      "corpusShare": 0.00097,
+      "specificityFactor": 1.173707,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "DAMOR_ECOSYSTEM_ENGINEERING"
+      ]
+    },
+    {
+      "deityName": "Damor",
+      "semanticCluster": "habitat_construction",
+      "breedFrequency": 64,
+      "corpusShare": 0.031038,
+      "specificityFactor": 0.960109,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "DAMOR_CONSTRUCTION_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Damor",
+      "semanticCluster": "habitat_occupancy",
+      "breedFrequency": 2047,
+      "corpusShare": 0.992726,
+      "specificityFactor": 0.720507,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "DAMOR_OCCUPANCY_CAP"
+      ]
+    },
+    {
+      "deityName": "Damor",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 211,
+      "corpusShare": 0.102328,
+      "specificityFactor": 0.878011,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Damor",
+      "semanticCluster": "renewal_for_others",
+      "breedFrequency": 1,
+      "corpusShare": 0.000485,
+      "specificityFactor": 1.201864,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "DAMOR_RENEWAL_FOR_OTHERS"
+      ]
+    },
+    {
+      "deityName": "Sterna",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "STERNA_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Sterna",
+      "semanticCluster": "dispersal_journey",
+      "breedFrequency": 758,
+      "corpusShare": 0.367604,
+      "specificityFactor": 0.789439,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "STERNA_TRAVEL_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Sterna",
+      "semanticCluster": "movement_only",
+      "breedFrequency": 34,
+      "corpusShare": 0.016489,
+      "specificityFactor": 1.003098,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "STERNA_MOVEMENT_CAP"
+      ]
+    },
+    {
+      "deityName": "Sterna",
+      "semanticCluster": "nomadic_life_cycle",
+      "breedFrequency": 328,
+      "corpusShare": 0.159069,
+      "specificityFactor": 0.85,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "STERNA_LIFE_CYCLE_TRAVEL"
+      ]
+    },
+    {
+      "deityName": "Sterna",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 74,
+      "corpusShare": 0.035887,
+      "specificityFactor": 0.950171,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Sterna",
+      "semanticCluster": "seasonal_long_migration",
+      "breedFrequency": 12,
+      "corpusShare": 0.00582,
+      "specificityFactor": 1.071877,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "STERNA_SEASONAL_MIGRATION"
+      ]
+    },
+    {
+      "deityName": "Scarabos",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "SCARABOS_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Scarabos",
+      "semanticCluster": "death_feeds_renewal",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "SCARABOS_DEATH_RENEWAL"
+      ]
+    },
+    {
+      "deityName": "Scarabos",
+      "semanticCluster": "decomposition_detritus",
+      "breedFrequency": 204,
+      "corpusShare": 0.098933,
+      "specificityFactor": 0.880342,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "SCARABOS_DECOMPOSITION"
+      ]
+    },
+    {
+      "deityName": "Scarabos",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 57,
+      "corpusShare": 0.027643,
+      "specificityFactor": 0.968022,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Scarabos",
+      "semanticCluster": "soil_burial",
+      "breedFrequency": 55,
+      "corpusShare": 0.026673,
+      "specificityFactor": 0.970459,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "SCARABOS_SOIL_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Scarabos",
+      "semanticCluster": "subterranean_only",
+      "breedFrequency": 463,
+      "corpusShare": 0.224539,
+      "specificityFactor": 0.823614,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "SCARABOS_SUBTERRANEAN_CAP"
+      ]
+    },
+    {
+      "deityName": "Sahrem",
+      "semanticCluster": "appetite_anger",
+      "breedFrequency": 301,
+      "corpusShare": 0.145975,
+      "specificityFactor": 0.853438,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "SAHREM_METAPHOR_CAP"
+      ]
+    },
+    {
+      "deityName": "Sahrem",
+      "semanticCluster": "combustive_transformation",
+      "breedFrequency": 7,
+      "corpusShare": 0.003395,
+      "specificityFactor": 1.105593,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "SAHREM_COMBUSTIVE_TRANSFORMATION"
+      ]
+    },
+    {
+      "deityName": "Sahrem",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 1,
+      "corpusShare": 0.000485,
+      "specificityFactor": 1.201864,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "SAHREM_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Sahrem",
+      "semanticCluster": "fire_volcanic_heat",
+      "breedFrequency": 689,
+      "corpusShare": 0.334142,
+      "specificityFactor": 0.85,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "SAHREM_FIRE_HEAT"
+      ]
+    },
+    {
+      "deityName": "Sahrem",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 101,
+      "corpusShare": 0.048982,
+      "specificityFactor": 0.928818,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Sahrem",
+      "semanticCluster": "thermal_adaptation",
+      "breedFrequency": 23,
+      "corpusShare": 0.011154,
+      "specificityFactor": 1.029299,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "SAHREM_THERMAL_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Neressa",
+      "semanticCluster": "aquatic_only",
+      "breedFrequency": 967,
+      "corpusShare": 0.468962,
+      "specificityFactor": 0.772548,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "NERESSA_AQUATIC_CAP"
+      ]
+    },
+    {
+      "deityName": "Neressa",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "NERESSA_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Neressa",
+      "semanticCluster": "flow_yielding_support",
+      "breedFrequency": 300,
+      "corpusShare": 0.14549,
+      "specificityFactor": 0.853669,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "NERESSA_FLOW_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Neressa",
+      "semanticCluster": "fluid_transformation",
+      "breedFrequency": 1,
+      "corpusShare": 0.000485,
+      "specificityFactor": 1.201864,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "NERESSA_FLUID_TRANSFORMATION"
+      ]
+    },
+    {
+      "deityName": "Neressa",
+      "semanticCluster": "generic_adaptation",
+      "breedFrequency": 1119,
+      "corpusShare": 0.542677,
+      "specificityFactor": 0.762419,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "NERESSA_ADAPTATION_CAP"
+      ]
+    },
+    {
+      "deityName": "Neressa",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 125,
+      "corpusShare": 0.060621,
+      "specificityFactor": 0.914143,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Neressa",
+      "semanticCluster": "yielding_identity",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "NERESSA_YIELDING_IDENTITY"
+      ]
+    },
+    {
+      "deityName": "Kharad",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "KHARAD_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Kharad",
+      "semanticCluster": "earth_subterranean",
+      "breedFrequency": 864,
+      "corpusShare": 0.419011,
+      "specificityFactor": 0.780361,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "KHARAD_EARTH_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Kharad",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 353,
+      "corpusShare": 0.171193,
+      "specificityFactor": 0.842405,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Kharad",
+      "semanticCluster": "physical_foundation",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "KHARAD_FOUNDATION"
+      ]
+    },
+    {
+      "deityName": "Kharad",
+      "semanticCluster": "stone_stability",
+      "breedFrequency": 838,
+      "corpusShare": 0.406402,
+      "specificityFactor": 0.85,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "KHARAD_STONE_STABILITY"
+      ]
+    },
+    {
+      "deityName": "Kharad",
+      "semanticCluster": "territory_boundaries",
+      "breedFrequency": 2039,
+      "corpusShare": 0.988846,
+      "specificityFactor": 0.720779,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "KHARAD_TERRITORY_CAP"
+      ]
+    },
+    {
+      "deityName": "Aveli",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "AVELI_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Aveli",
+      "semanticCluster": "flight_wind_breath",
+      "breedFrequency": 93,
+      "corpusShare": 0.045102,
+      "specificityFactor": 0.93449,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "AVELI_FLIGHT_WIND"
+      ]
+    },
+    {
+      "deityName": "Aveli",
+      "semanticCluster": "mobility_freedom",
+      "breedFrequency": 148,
+      "corpusShare": 0.071775,
+      "specificityFactor": 0.9025,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "AVELI_MOBILITY_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Aveli",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 84,
+      "corpusShare": 0.040737,
+      "specificityFactor": 0.941479,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Aveli",
+      "semanticCluster": "unconfined_aerial_life",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "AVELI_UNCONFINED_AERIAL"
+      ]
+    },
+    {
+      "deityName": "Aveli",
+      "semanticCluster": "wings_only",
+      "breedFrequency": 284,
+      "corpusShare": 0.13773,
+      "specificityFactor": 0.857462,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "AVELI_WINGS_CAP"
+      ]
+    },
+    {
+      "deityName": "Iskarn",
+      "semanticCluster": "appearance_cold",
+      "breedFrequency": 13,
+      "corpusShare": 0.006305,
+      "specificityFactor": 1.06673,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "ISKARN_APPEARANCE_CAP"
+      ]
+    },
+    {
+      "deityName": "Iskarn",
+      "semanticCluster": "cold_dormancy",
+      "breedFrequency": 51,
+      "corpusShare": 0.024733,
+      "specificityFactor": 0.975605,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "ISKARN_COLD_DORMANCY"
+      ]
+    },
+    {
+      "deityName": "Iskarn",
+      "semanticCluster": "cold_stillness",
+      "breedFrequency": 86,
+      "corpusShare": 0.041707,
+      "specificityFactor": 0.939864,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "ISKARN_STILLNESS_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Iskarn",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "ISKARN_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Iskarn",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 40,
+      "corpusShare": 0.019399,
+      "specificityFactor": 0.99211,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Iskarn",
+      "semanticCluster": "preserved_suspended_change",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "ISKARN_PRESERVATION"
+      ]
+    },
+    {
+      "deityName": "Myrra",
+      "semanticCluster": "ambiguity_potential",
+      "breedFrequency": 10,
+      "corpusShare": 0.00485,
+      "specificityFactor": 1.083478,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "MYRRA_AMBIGUITY_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Myrra",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "MYRRA_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Myrra",
+      "semanticCluster": "curiosity_intelligence",
+      "breedFrequency": 2060,
+      "corpusShare": 0.99903,
+      "specificityFactor": 0.720067,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "MYRRA_CURIOSITY_CAP"
+      ]
+    },
+    {
+      "deityName": "Myrra",
+      "semanticCluster": "dream_unreal_possibility",
+      "breedFrequency": 2,
+      "corpusShare": 0.00097,
+      "specificityFactor": 1.173707,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "MYRRA_DREAM_POSSIBILITY"
+      ]
+    },
+    {
+      "deityName": "Myrra",
+      "semanticCluster": "illusion_shape_possibility",
+      "breedFrequency": 8,
+      "corpusShare": 0.00388,
+      "specificityFactor": 1.097413,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "MYRRA_ILLUSION_SHAPE"
+      ]
+    },
+    {
+      "deityName": "Myrra",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 157,
+      "corpusShare": 0.07614,
+      "specificityFactor": 0.898427,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Orun-IX",
+      "semanticCluster": "causal_sequence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "ORUN_CAUSAL_SEQUENCE"
+      ]
+    },
+    {
+      "deityName": "Orun-IX",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "ORUN_IX_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Orun-IX",
+      "semanticCluster": "generic_order",
+      "breedFrequency": 1275,
+      "corpusShare": 0.618332,
+      "specificityFactor": 0.753364,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "ORUN_GENERIC_ORDER_CAP"
+      ]
+    },
+    {
+      "deityName": "Orun-IX",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 503,
+      "corpusShare": 0.243938,
+      "specificityFactor": 0.817872,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Orun-IX",
+      "semanticCluster": "predictable_process",
+      "breedFrequency": 132,
+      "corpusShare": 0.064016,
+      "specificityFactor": 0.910389,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "ORUN_PROCESS_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Orun-IX",
+      "semanticCluster": "timed_synchrony",
+      "breedFrequency": 41,
+      "corpusShare": 0.019884,
+      "specificityFactor": 0.990437,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "ORUN_TIMING_SYNCHRONY"
+      ]
+    },
+    {
+      "deityName": "Vhalen",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "VHALEN_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Vhalen",
+      "semanticCluster": "cryptic_boundary",
+      "breedFrequency": 89,
+      "corpusShare": 0.043162,
+      "specificityFactor": 0.93751,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "VHALEN_CONCEALMENT_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Vhalen",
+      "semanticCluster": "death_shadow_disappearance",
+      "breedFrequency": 98,
+      "corpusShare": 0.047527,
+      "specificityFactor": 0.930891,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "VHALEN_SHADOW_DEATH"
+      ]
+    },
+    {
+      "deityName": "Vhalen",
+      "semanticCluster": "ending_absence",
+      "breedFrequency": 1,
+      "corpusShare": 0.000485,
+      "specificityFactor": 1.201864,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "VHALEN_ENDING_ABSENCE"
+      ]
+    },
+    {
+      "deityName": "Vhalen",
+      "semanticCluster": "nocturnal_only",
+      "breedFrequency": 563,
+      "corpusShare": 0.273036,
+      "specificityFactor": 0.810061,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "VHALEN_NIGHT_CAP"
+      ]
+    },
+    {
+      "deityName": "Vhalen",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 165,
+      "corpusShare": 0.080019,
+      "specificityFactor": 0.894997,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Asteriel",
+      "semanticCluster": "complex_integration",
+      "breedFrequency": 32,
+      "corpusShare": 0.015519,
+      "specificityFactor": 1.007184,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "ASTERIEL_INTEGRATION_SUPPORT"
+      ]
+    },
+    {
+      "deityName": "Asteriel",
+      "semanticCluster": "contradictory_domain_evidence",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "CONTRADICTORY",
+      "calibrationRules": [
+        "ASTERIEL_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "deityName": "Asteriel",
+      "semanticCluster": "cosmic_integration",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "DEFINING",
+      "calibrationRules": [
+        "ASTERIEL_COSMIC_INTEGRATION"
+      ]
+    },
+    {
+      "deityName": "Asteriel",
+      "semanticCluster": "hierarchy_only",
+      "breedFrequency": 669,
+      "corpusShare": 0.324442,
+      "specificityFactor": 0.798101,
+      "strongestTier": "WEAK",
+      "calibrationRules": [
+        "ASTERIEL_HIERARCHY_CAP"
+      ]
+    },
+    {
+      "deityName": "Asteriel",
+      "semanticCluster": "personality_family_affinity",
+      "breedFrequency": 301,
+      "corpusShare": 0.145975,
+      "specificityFactor": 0.853438,
+      "strongestTier": "MODERATE",
+      "calibrationRules": [
+        "PERSONALITY_FAMILY_CALIBRATION_V2"
+      ]
+    },
+    {
+      "deityName": "Asteriel",
+      "semanticCluster": "radiant_higher_order",
+      "breedFrequency": 0,
+      "corpusShare": 0,
+      "specificityFactor": 1.25,
+      "strongestTier": "STRONG",
+      "calibrationRules": [
+        "ASTERIEL_HIGHER_ORDER"
+      ]
+    }
+  ],
+  "sha256": "1ad53bffc17755b7126e4c5eeeec758f8eeded763b60ad10588f4470bf7bb0cb"
+}

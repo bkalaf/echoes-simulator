@@ -3,11 +3,11 @@ import { join } from "node:path";
 import type { SimulatorStore } from "../../persistence/sqlite-store.js";
 import { loadBundledCanonicalV5 } from "./canonical-adapter.js";
 import { diagnosticCandidateOwnerInputsV1, V5_MECHANICS_VERSION } from "./config.js";
-import { V5_EMPTY_EVENT_HISTORY_HASH, buildV5RunManifest, extendV5EventHistoryHash } from "./persistence.js";
+import { V5_EMPTY_EVENT_HISTORY_HASH, buildNonCausalLabelManifestUpdateV5, buildV5RunManifest, extendV5EventHistoryHash, v5RuntimeCompatibilityErrors } from "./persistence.js";
 import { buildDivergenceReport } from "./read-model.js";
 import { continueV5History, runV5History } from "./runner.js";
 import { buildDiagnosticDjtPolicyV5, buildScheduledTransactionsV5, DJT_POLICY_KEY_V5 } from "./schedule.js";
-import { buildPersistedNamingBatchesV5, validateNamingBatchResponseV5 } from "./naming.js";
+import { recoverExportedV2NamingBatchV5, validateNamingBatchResponseV5 } from "./naming.js";
 import type { CausalEventV5, WorldKey } from "./types.js";
 import { updateDivergenceTracesV5, type DivergenceTraceV5 } from "./divergence-diagnostics.js";
 
@@ -38,7 +38,7 @@ export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
   const baseOwnerInputs = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
   const djtPolicy = buildDiagnosticDjtPolicyV5(canonical);
   const ownerInputs = { ...baseOwnerInputs, canonicalPolicies: djtPolicy ? { ...baseOwnerInputs.canonicalPolicies, [DJT_POLICY_KEY_V5]: djtPolicy } : baseOwnerInputs.canonicalPolicies };
-  const scheduledTransactions = buildScheduledTransactionsV5(canonical, ownerInputs);
+  const scheduledTransactions = buildScheduledTransactionsV5(canonical, ownerInputs, input.normalizedSeed);
   const targetYear = input.throughYear ?? 25;
   const operational = { ...configuration.operational, interactiveNamingEnabled: input.namingMode === "INTERACTIVE_LLM_NAMING" };
   const provisional = buildV5RunManifest({ runId: "PROVISIONAL", mode: "DIAGNOSTIC", targetYear, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: input.normalizedSeed, mechanics: configuration.mechanics, causalOwnerInputs: ownerInputs, operational, diagnostic: configuration.diagnostic });
@@ -82,6 +82,8 @@ export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDir
   let manifest = input.store.loadV5RunManifest(input.runId);
   const run = input.store.getRun(input.runId);
   if (!manifest || !run) throw new Error(`Unknown V5 run ${input.runId}`);
+  const compatibilityErrors = v5RuntimeCompatibilityErrors(manifest);
+  if (compatibilityErrors.length > 0) throw new Error(`V5_CAUSAL_RESUME_VERSION_MISMATCH ${compatibilityErrors.join(",")}`);
   const pendingBlocking = input.store.listV5NamingRequests(input.runId).filter((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null);
   if (pendingBlocking.length > 0) throw new Error(`V5 run ${input.runId} still has ${pendingBlocking.length} unresolved blocking names`);
   const canonical = loadBundledCanonicalV5(join(input.resourceDirectory, "canonical"));
@@ -90,7 +92,7 @@ export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDir
   if (WORLDS.some((world) => !checkpoints[world])) throw new Error("V5 continuation requires complete world checkpoints");
   const states = Object.fromEntries(WORLDS.map((world) => [world, checkpoints[world]!.state])) as Record<WorldKey, Parameters<typeof continueV5History>[0]["initialStates"][WorldKey]>;
   if (!WORLDS.every((world) => states[world].year === states.CONCORD.year)) throw new Error("V5 continuation checkpoints are not atomic across worlds");
-  const scheduledTransactions = buildScheduledTransactionsV5(canonical, manifest.causalOwnerInputs);
+  const scheduledTransactions = buildScheduledTransactionsV5(canonical, manifest.causalOwnerInputs, manifest.normalizedSeed);
   const historySummaries = Object.fromEntries(WORLDS.map((world) => [world, input.store.summarizeV5CausalEventHistory(input.runId, world, states[world].year)])) as Record<WorldKey, { eventHistoryHash: string; eventCount: number }>;
   let divergenceTraces = new Map(input.store.listV5DivergenceTraces(input.runId).map((trace) => [trace.comparisonId, trace]));
   for (const world of WORLDS) {
@@ -125,25 +127,44 @@ export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDir
   return { runId: input.runId, status: result.status, currentYear: result.completedYear, divergence };
 }
 
-export function acceptPersistedV5NamingBatch(input: { store: SimulatorStore; runId: string; response: unknown }): { accepted: boolean; errors: string[]; acceptedDecisions?: number; currentYear?: number; behavior?: "BLOCKING" | "BATCHED"; pendingBlocking?: number; pendingBatched?: number } {
+export function acceptPersistedV5NamingBatch(input: { store: SimulatorStore; runId: string; response: unknown }): { accepted: boolean; errors: string[]; acceptedDecisions?: number; currentYear?: number; behavior?: "BLOCKING" | "BATCHED"; pendingBlocking?: number; pendingBatched?: number; acceptanceMode?: "CURRENT_NAMING" | "LEGACY_NAMING_ONLY" } {
   const run = input.store.getRun(input.runId);
   const manifest = input.store.loadV5RunManifest(input.runId);
   if (!run || !manifest) throw new Error(`Unknown V5 run ${input.runId}`);
   const responseBatchId = input.response && typeof input.response === "object" && "batchId" in input.response && typeof (input.response as { batchId?: unknown }).batchId === "string" ? (input.response as { batchId: string }).batchId : "";
-  const batch = buildPersistedNamingBatchesV5(input.runId, input.store.listV5NamingRequests(input.runId), manifest.operationalConfig.namingBatchMaximum).find((candidate) => candidate.batchId === responseBatchId);
-  if (!batch) return { accepted: false, errors: ["batchId does not match a pending V5 naming batch"] };
+  const requests = input.store.listV5NamingRequests(input.runId);
+  let batch = input.store.loadV5NamingBatchAudit(input.runId, responseBatchId);
+  if (!batch) {
+    const recovered = recoverExportedV2NamingBatchV5(input.runId, requests, input.response);
+    if (!recovered.batch) return { accepted: false, errors: recovered.errors };
+    batch = recovered.batch;
+  }
   input.store.saveV5NamingBatchAudit(batch);
   if (batch.behavior === "BLOCKING" && run.status !== "WAITING_FOR_NAMING") throw new Error(`V5 run ${input.runId} is not waiting for blocking naming`);
+  const currentById = new Map(requests.map((request) => [request.requestId, request]));
+  const unresolved = batch.items.filter((item) => currentById.get(item.requestId)?.acceptedLabel === null).length;
+  if (unresolved !== batch.items.length) {
+    const errors = [unresolved === 0 ? "V5 naming batch has already been accepted; response replay rejected" : "V5 naming batch is partially resolved and cannot be accepted"];
+    const attemptId = `V5_NAMING_ATTEMPT_${createHash("sha256").update(`${input.runId}\0${batch.batchId}\0${Date.now()}\0${JSON.stringify(input.response)}`).digest("hex")}`;
+    input.store.saveV5NamingResponseAttempt({ runId: input.runId, batchId: batch.batchId, attemptId, accepted: false, response: input.response, errors });
+    return { accepted: false, errors };
+  }
   const validated = validateNamingBatchResponseV5(batch, input.response);
   const attemptId = `V5_NAMING_ATTEMPT_${createHash("sha256").update(`${input.runId}\0${batch.batchId}\0${Date.now()}\0${JSON.stringify(input.response)}`).digest("hex")}`;
-  input.store.saveV5NamingResponseAttempt({ runId: input.runId, batchId: batch.batchId, attemptId, accepted: validated.accepted, response: input.response, errors: validated.errors });
-  if (!validated.accepted || !validated.labels || !validated.decisions) return { accepted: false, errors: validated.errors };
-  input.store.acceptV5NamingRequests(input.runId, validated.decisions.map((decision) => ({ requestId: decision.requestId, entityId: decision.entityId, label: decision.label, nameEffectiveFromYear: decision.nameEffectiveFromYear })), run.currentYear ?? batch.year, batch.behavior, { batchId: batch.batchId, responseAttemptId: attemptId });
-  const remaining = input.store.listV5NamingRequests(input.runId);
-  const pendingBlocking = remaining.filter((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null).length;
-  const pendingBatched = remaining.filter((request) => request.behavior === "BATCHED" && request.acceptedLabel === null).length;
-  if (pendingBlocking > 0 || pendingBatched > 0) input.store.setRunStatus(input.runId, "WAITING_FOR_NAMING", run.currentYear ?? batch.year);
+  if (!validated.accepted || !validated.labels || !validated.decisions) {
+    input.store.saveV5NamingResponseAttempt({ runId: input.runId, batchId: batch.batchId, attemptId, accepted: false, response: input.response, errors: validated.errors });
+    return { accepted: false, errors: validated.errors };
+  }
   const labels = { ...manifest.labels, ...validated.labels };
-  input.store.saveV5RunManifest(buildV5RunManifest({ runId: manifest.runId, mode: manifest.mode, targetYear: manifest.targetYear, canonicalBundleHash: manifest.canonicalBundleHash, normalizedSeed: manifest.normalizedSeed, mechanics: manifest.mechanicsVariables, causalOwnerInputs: manifest.causalOwnerInputs, operational: manifest.operationalConfig, diagnostic: manifest.diagnosticConfig, labels }));
-  return { accepted: true, errors: [], acceptedDecisions: validated.decisions.length, currentYear: run.currentYear, behavior: batch.behavior, pendingBlocking, pendingBatched };
+  const acceptanceMode = v5RuntimeCompatibilityErrors(manifest).length > 0 ? "LEGACY_NAMING_ONLY" as const : "CURRENT_NAMING" as const;
+  const updatedManifest = buildNonCausalLabelManifestUpdateV5(manifest, labels);
+  const { pendingBlocking, pendingBatched } = input.store.acceptV5NamingRequests(
+    input.runId,
+    validated.decisions.map((decision) => ({ requestId: decision.requestId, entityId: decision.entityId, label: decision.label, nameEffectiveFromYear: decision.nameEffectiveFromYear })),
+    run.currentYear ?? batch.year,
+    batch.behavior,
+    { batchId: batch.batchId, responseAttemptId: attemptId },
+    { response: input.response, manifest: updatedManifest },
+  );
+  return { accepted: true, errors: [], acceptedDecisions: validated.decisions.length, currentYear: run.currentYear, behavior: batch.behavior, pendingBlocking, pendingBatched, acceptanceMode };
 }

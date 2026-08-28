@@ -6,6 +6,7 @@ import { deriveMetrics } from "./derivations.js";
 import { fillMandatoryOfficeVacancies, instantiateGovernmentInstitutions, targetLegitimacy } from "./politics.js";
 import { reconcileBorderRelations } from "./conflict.js";
 import { reconcileWorldRoutes } from "./routes.js";
+import { reconcileChamberAuthorityV5 } from "./chambers.js";
 import type { CausalEventV5, NamingRequestV5, SettlementV5, StateV5, WorldKey, WorldStateV5 } from "./types.js";
 
 const EMPTY_SECTORS = { LAND_AND_FOOD: 500, EXTRACTION: 500, MANUFACTURE: 500, TRADE_AND_TRANSPORT: 500, KNOWLEDGE_AND_SERVICES: 500 } as const;
@@ -40,6 +41,7 @@ export function bootstrapWorldV5(input: BootstrapWorldInput): { state: WorldStat
     if (!government) throw new Error(`No government prototype ${politicalState.actualGovernment}`);
     state = instantiateGovernmentInstitutions(state, politicalState.stateId, government, 0);
   }
+  const chambers = reconcileChamberAuthorityV5(state, input.canonical); state = chambers.state;
   const officeBootstrap = fillMandatoryOfficeVacancies(state, input.canonical, input.ownerInputs, input.variables, input.normalizedSeed, `EVT_${input.worldKey}_0_BOOTSTRAP`);
   state = officeBootstrap.state;
   const politicalMetrics = deriveMetrics(state, input.canonical, input.variables);
@@ -60,5 +62,5 @@ export function bootstrapWorldV5(input: BootstrapWorldInput): { state: WorldStat
     namingComparisonGroupId: `PHYSICAL_POI:${poi.poiId}`, comparisonAuthorityRef: `CANONICAL_PHYSICAL_POI_ID:${poi.poiId}`, comparisonGroupingVersion: "echoes-naming-comparison-groups-v1", acceptedLabel: poi.nameStatus === "CANONICAL" && poi.namingAuthorityRef ? (poi.canonicalLabel ?? null) : null,
     context: { physicalPoiId: poi.poiId, world: input.worldKey, poiType: poi.poiType, workingLabel: poi.workingLabel, canonicalNameStatus: poi.nameStatus, canonicalNamingAuthorityRef: poi.namingAuthorityRef ?? null, siteId: poi.siteId, regionId: poi.regionId, regionName: poi.regionName, continent: poi.continent ?? null, coordinates: { latitude: poi.latitude, longitude: poi.longitude }, hostFeatureId: poi.hostFeatureId },
   }));
-  return { state, events: [event, ...officeBootstrap.events, ...borders.events, ...routes.events], namingRequests: [...settlementCanonicalRequests, ...officeBootstrap.namingRequests, ...poiNamingRequests, ...routes.namingRequests] };
+  return { state, events: [event, ...chambers.events, ...officeBootstrap.events, ...borders.events, ...routes.events], namingRequests: [...settlementCanonicalRequests, ...officeBootstrap.namingRequests, ...poiNamingRequests, ...routes.namingRequests] };
 }

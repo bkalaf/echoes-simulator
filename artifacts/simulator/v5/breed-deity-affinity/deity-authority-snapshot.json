@@ -1,0 +1,264 @@
+{
+  "schemaVersion": "echoes-deity-authority-snapshot-v1",
+  "source": {
+    "sourceType": "NOTION_PAGE_READ_ONLY",
+    "pageId": "3b62380d-0cae-81b6-a408-fb2b08712efc",
+    "title": "Deities",
+    "url": "https://app.notion.com/p/3b62380d0cae81b6a408fb2b08712efc",
+    "lastEditedAt": "2026-08-09T06:22:00.000Z",
+    "fetchedAsOf": "2026-08-09T06:29:03.985Z",
+    "fetchedForRunOn": "2026-08-28",
+    "rules": {
+      "totalDeities": 27,
+      "deitiesPerPantheon": 9,
+      "worshipIsCrossPantheon": true,
+      "populationKindConstrainsSelection": false
+    }
+  },
+  "deities": [
+    {
+      "deityName": "Miren",
+      "deityTitle": "the Open Hand",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "COMPASSION",
+      "domainName": "Compassion",
+      "meaning": "Compassion through meaningful personal cost, generosity, care, protection, mercy, feeding and supporting others, and concern for suffering.",
+      "backstory": "Miren fed strangers during famine after her own household began rationing food; her doctrine makes costly compassion sacred."
+    },
+    {
+      "deityName": "Darel",
+      "deityTitle": "the Unshaken",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "COURAGE",
+      "domainName": "Courage",
+      "meaning": "Acting despite fear; bravery is willingness to proceed while afraid rather than absence of fear.",
+      "backstory": "Darel openly feared battle but repeatedly acted while afraid, making courage the mastery of fear."
+    },
+    {
+      "deityName": "Savael",
+      "deityTitle": "the Long Breath",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "PATIENCE",
+      "domainName": "Patience",
+      "meaning": "Active endurance, reconciliation over long periods, restraint, persistence without escalation, and willingness to wait and continue.",
+      "backstory": "Savael spent decades reconciling communities trapped in an inherited feud; patience is active endurance."
+    },
+    {
+      "deityName": "Elian",
+      "deityTitle": "the Returning Light",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "HOPE",
+      "domainName": "Hope",
+      "meaning": "Rebuilding after destruction, optimism after catastrophe, renewed effort, and belief in future possibility.",
+      "backstory": "Elian rebuilt the same destroyed settlement three times and refused to call any rebuilding wasted."
+    },
+    {
+      "deityName": "Namiya",
+      "deityTitle": "the Unclosed Door",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "FORGIVENESS",
+      "domainName": "Forgiveness",
+      "meaning": "Reconciliation after genuine injury without erasing harm or accountability.",
+      "backstory": "Namiya reconciled with the person responsible for her family's ruin without pretending the wrong had never occurred."
+    },
+    {
+      "deityName": "Oren",
+      "deityTitle": "the Clear Voice",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "HONESTY",
+      "domainName": "Honesty",
+      "meaning": "Truthfulness when personally costly, candor, transparency, integrity, and resistance to convenient deception.",
+      "backstory": "Oren exposed a lie that benefited his own people and lost his reputation for doing so."
+    },
+    {
+      "deityName": "Tavai",
+      "deityTitle": "Who Listens Twice",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "EMPATHY",
+      "domainName": "Empathy",
+      "meaning": "Accurate perspective-taking, social perception, mediation, emotional attunement, and understanding another viewpoint.",
+      "backstory": "Tavai mediated by stating an opponent's grievance so accurately that the opponent felt understood before negotiation."
+    },
+    {
+      "deityName": "Varek",
+      "deityTitle": "the Last Standing",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "RESOLVE",
+      "domainName": "Resolve",
+      "meaning": "Perseverance through repeated failure, tenacity, duty, grit, and refusal to abandon meaningful work.",
+      "backstory": "Varek repeatedly failed at the work for which he is remembered, but failure never made the work cease to matter."
+    },
+    {
+      "deityName": "Selen",
+      "deityTitle": "the Laughing Flame",
+      "pantheon": "NINEFOLD_HEART",
+      "domain": "JOY",
+      "domainName": "Joy",
+      "meaning": "Celebration, affection, humor, music, festivals, pleasure, play, communal happiness, and reasons for living.",
+      "backstory": "Selen taught that survival is insufficient if people forget why survival matters."
+    },
+    {
+      "deityName": "Solkar",
+      "deityTitle": "the First Warmth",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "SUN_AND_DAYLIGHT",
+      "domainName": "Sun & Daylight",
+      "meaning": "Daylight, warmth, solar activity, diurnal life, exposure, illumination, awakening, and life-giving heat.",
+      "backstory": "Solkar carried the first spark of dawn through the motionless night and restored daylight."
+    },
+    {
+      "deityName": "Lunessa",
+      "deityTitle": "the Many-Faced",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "THE_MOONS_AND_THEIR_PHASES",
+      "domainName": "The Moons & Their Phases",
+      "meaning": "Cycles, waxing and waning, nocturnal rhythms, periodic transformation, return after disappearance, and moon-linked activity.",
+      "backstory": "Lunessa taught the darkened moons that disappearance is part of returning."
+    },
+    {
+      "deityName": "Vespera",
+      "deityTitle": "the Thousand-Eyed",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "STARS_AND_NAVIGATION",
+      "domainName": "Stars & Navigation",
+      "meaning": "Orientation, wayfinding, celestial navigation, migration guidance, homing, and long-distance spatial awareness.",
+      "backstory": "Vespera scattered reflected lights across darkness so migrating creatures could find home."
+    },
+    {
+      "deityName": "Voltar",
+      "deityTitle": "the Sudden Current",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "STORMS_AND_LIGHTNING",
+      "domainName": "Storms & Lightning",
+      "meaning": "Electricity, violent atmospheric energy, thunder, storms, charged activity, disruption, and abrupt natural force.",
+      "backstory": "Voltar awakened the stagnant atmosphere with the first violent discharge."
+    },
+    {
+      "deityName": "Marea",
+      "deityTitle": "the Deep Singer",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "OCEAN_AND_TIDES",
+      "domainName": "Ocean & Tides",
+      "meaning": "Open ocean, marine depth, tides, long marine movement, sea navigation, and deep-water life.",
+      "backstory": "Marea sang until the seas remembered the pull of the moons."
+    },
+    {
+      "deityName": "Rillan",
+      "deityTitle": "the Returning River",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "RIVERS_RAIN_AND_FRESH_WATER",
+      "domainName": "Rivers, Rain & Fresh Water",
+      "meaning": "Freshwater systems, rivers, rainfall, upstream movement, lakes, streams, and wet freshwater ecology.",
+      "backstory": "Rillan travelled upstream carrying water and reopened the world's rivers one by one."
+    },
+    {
+      "deityName": "Damor",
+      "deityTitle": "the World-Builder",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "WETLANDS_FOREST_RENEWAL_AND_HABITAT",
+      "domainName": "Wetlands, Forest Renewal & Habitat",
+      "meaning": "Habitat engineering, ecosystem construction, environmental modification, wetlands, forest renewal, and creating conditions for other life.",
+      "backstory": "Damor changed rivers rather than merely living beside them, making creatures participants in nature."
+    },
+    {
+      "deityName": "Sterna",
+      "deityTitle": "the Long Journey",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "SEASONS_AND_MIGRATION",
+      "domainName": "Seasons & Migration",
+      "meaning": "Seasonal cycles, long-distance migration, annual movement, dispersal, seasonal return, and travel tied to life cycles.",
+      "backstory": "Sterna flew until the frozen sky followed her and created the procession of seasons."
+    },
+    {
+      "deityName": "Scarabos",
+      "deityTitle": "the Buried Seed",
+      "pantheon": "NINEFOLD_WILD",
+      "domain": "DECAY_SOIL_AND_RENEWAL",
+      "domainName": "Decay, Soil & Renewal",
+      "meaning": "Decomposition, detritus, soil creation, carrion cycles, burial, nutrient renewal, and death feeding new life.",
+      "backstory": "Scarabos buried the first dead thing and returned to find new life above it."
+    },
+    {
+      "deityName": "Sahrem",
+      "deityTitle": "the First Hunger",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "FIRE_AND_HEAT",
+      "domainName": "Fire & Heat",
+      "meaning": "Fire, combustion, consuming transformation, furnaces, burning, and destructive or creative thermal change.",
+      "backstory": "Sahrem demanded that existence be allowed to consume and transform itself; flame was his argument made physical."
+    },
+    {
+      "deityName": "Neressa",
+      "deityTitle": "the Yielding Deep",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "WATER_AND_FLOW",
+      "domainName": "Water & Flow",
+      "meaning": "Fluidity, adaptation, yielding without losing identity, elemental water, and flowing transformation.",
+      "backstory": "Neressa created something that survives through yielding and reshapes itself without losing its nature."
+    },
+    {
+      "deityName": "Kharad",
+      "deityTitle": "the Foundation",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "EARTH_AND_STONE",
+      "domainName": "Earth & Stone",
+      "meaning": "Solidity, mountains, stone, physical foundations, permanence, weight, stability, and resistance to change.",
+      "backstory": "Kharad established solidity, weight, and foundations against constant change."
+    },
+    {
+      "deityName": "Aveli",
+      "deityTitle": "the Unheld",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "AIR_AND_BREATH",
+      "domainName": "Air & Breath",
+      "meaning": "Air, wind, flight, breath, freedom of movement, diffusion, and motion that resists confinement.",
+      "backstory": "Aveli created motion that could never be permanently imprisoned; breath is their smallest miracle."
+    },
+    {
+      "deityName": "Iskarn",
+      "deityTitle": "the Still World",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "ICE_PRESERVATION_AND_STILLNESS",
+      "domainName": "Ice, Preservation & Stillness",
+      "meaning": "Cold, ice, suspended change, preservation, dormancy, winter, stillness, and slowed processes.",
+      "backstory": "Iskarn demonstrated that change could be suspended without being destroyed."
+    },
+    {
+      "deityName": "Myrra",
+      "deityTitle": "Behind the Eyes",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "DREAMING_AND_POSSIBILITY",
+      "domainName": "Dreaming & Possibility",
+      "meaning": "Dreams, imagination, illusion, uncertainty, potential realities, shape-changing possibility, and things that might exist.",
+      "backstory": "Myrra created dreams so existence could contain things that might be, not only things that are."
+    },
+    {
+      "deityName": "Orun-IX",
+      "deityTitle": "the Measured Hand",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "TIME_SEQUENCE_AND_CAUSALITY",
+      "domainName": "Time, Sequence & Causality",
+      "meaning": "Order of events, precise timing, repetitive sequence, mechanisms, clocks, causality, synchronization, and predictable process.",
+      "backstory": "Orun-IX divided existence into before and after so creation no longer occurred simultaneously."
+    },
+    {
+      "deityName": "Vhalen",
+      "deityTitle": "the Last Shadow",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "SHADOW_ABSENCE_AND_ENDINGS",
+      "domainName": "Shadow, Absence & Endings",
+      "meaning": "Darkness, disappearance, emptiness, boundaries, death, endings, absence, concealment, and things defined by what is missing.",
+      "backstory": "Vhalen introduced absence so creation could possess boundaries and distinct things could exist."
+    },
+    {
+      "deityName": "Asteriel",
+      "deityTitle": "the Turning Eye",
+      "pantheon": "NINEFOLD_VEIL",
+      "domain": "AETHER_LIGHT_AND_COSMIC_ORDER",
+      "domainName": "Aether, Light & Cosmic Order",
+      "meaning": "Cosmic structure, higher-order organization, radiant energy, celestial geometry, universal balance, and coherent integration of conflicting forces.",
+      "backstory": "Asteriel gathered conflicting elements into a universe that could coexist."
+    }
+  ],
+  "sha256": "cc63a7d6ea8ef0f28f90e57b9648d18cef67da3d5a7236c2f5074eb1552b3e5a"
+}

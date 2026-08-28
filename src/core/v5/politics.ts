@@ -7,6 +7,7 @@ import { blend, clamp, divideRoundedAway, factionCompatibility, normalizedVector
 import { breedFactionVector, dominantFaction, governmentDoctrineVector, stateFactionTarget, updateDominantFaction } from "./faction.js";
 import { classDistribution, deriveMetrics, derivedInstitutionControlVector, populationFactionVector, settlementPopulation, statePopulation } from "./derivations.js";
 import { keyedDrawBps, keyedInteger, type KeyedRandomIdentity } from "./random.js";
+import { officeTermActiveAt } from "./office-term.js";
 import type { CausalEventV5, CohortCell, FactionVector, FamilyV5, InstitutionV5, NamingRequestV5, OfficeTermV5, OfficeV5, PoliticalPersonV5, Score1000, SelectionRuleV5, SocialClass, SocialTier, StateV5, TimedConditionV5, WorldStateV5 } from "./types.js";
 
 function digest(input: unknown): string { return createHash("sha256").update(canonicalJson(input), "utf8").digest("hex").slice(0, 20); }
@@ -24,7 +25,7 @@ export function actualGovernmentCompatibility(state: StateV5, populationVector: 
 }
 
 export function currentOfficeTerm(state: WorldStateV5, officeId: string): OfficeTermV5 | null {
-  const active = state.officeTerms.filter((term) => term.officeId === officeId && term.startYear <= state.year && (term.endYear === null || term.endYear > state.year));
+  const active = state.officeTerms.filter((term) => term.officeId === officeId && officeTermActiveAt(term, state.year));
   if (active.length > 1) throw new Error(`Office ${officeId} has multiple active terms`);
   return active[0] ?? null;
 }
@@ -56,7 +57,7 @@ export function rulingCoalitionSupport(state: WorldStateV5, stateId: string, pop
   const coalition = rulingCoalitionVector(state, stateId, canonical);
   const institutionIds = new Set(state.institutions.filter((institution) => institution.stateId === stateId).map((institution) => institution.institutionId));
   const apexOfficeIds = new Set(state.offices.filter((office) => office.apex && institutionIds.has(office.institutionId)).map((office) => office.officeId));
-  const familyIds = state.officeTerms.filter((term) => term.endYear === null && apexOfficeIds.has(term.officeId)).map((term) => state.politicalPeople.find((person) => person.personId === term.personId)?.familyId).filter((value): value is string => Boolean(value));
+  const familyIds = state.officeTerms.filter((term) => officeTermActiveAt(term, state.year) && apexOfficeIds.has(term.officeId)).map((term) => state.politicalPeople.find((person) => person.personId === term.personId)?.familyId).filter((value): value is string => Boolean(value));
   const prestige = familyIds.length === 0 ? 500 : Number(divideRoundedAway(familyIds.reduce((sum, id) => sum + BigInt(state.families.find((family) => family.familyId === id)?.prestige ?? 0), 0n), BigInt(familyIds.length)));
   return weightedMean([factionCompatibility(coalition, populationVector), 7000], [prestige, 3000]);
 }
@@ -100,12 +101,12 @@ export function governmentTransitionPressure(state: WorldStateV5, stateId: strin
 export interface GovernmentReviewResult { state: WorldStateV5; event: CausalEventV5 | null; pressure: Score1000; chanceBps: number; drawBps: number | null; }
 
 function transitionGovernmentInstitutions(state: WorldStateV5, stateId: string, government: GovernmentPrototypeV5, year: number): WorldStateV5 {
-  const retiringInstitutionIds = new Set(state.institutions.filter((institution) => institution.stateId === stateId && institution.dissolvedYear === null).map((institution) => institution.institutionId));
+  const retiringInstitutionIds = new Set(state.institutions.filter((institution) => institution.stateId === stateId && institution.dissolvedYear === null && !["CONCLAVE_PRE90", "CONCLAVE_POST90", "SENATE"].includes(institution.institutionType)).map((institution) => institution.institutionId));
   const retiringOfficeIds = new Set(state.offices.filter((office) => retiringInstitutionIds.has(office.institutionId)).map((office) => office.officeId));
   const retired: WorldStateV5 = {
     ...state,
     institutions: state.institutions.map((institution) => retiringInstitutionIds.has(institution.institutionId) ? { ...institution, dissolvedYear: year } : institution),
-    officeTerms: state.officeTerms.map((term) => term.endYear === null && retiringOfficeIds.has(term.officeId) ? { ...term, endYear: year, terminationReason: "GOVERNMENT_CHANGE" } : term),
+    officeTerms: state.officeTerms.map((term) => term.startYear <= year && (term.endYear === null || term.endYear > year) && retiringOfficeIds.has(term.officeId) ? { ...term, endYear: year, terminationReason: "GOVERNMENT_CHANGE" } : term),
   };
   return instantiateGovernmentInstitutions(retired, stateId, government, year);
 }
@@ -255,7 +256,7 @@ function officeSelectorId(state: WorldStateV5, office: OfficeV5, selectedPerson:
     case "RULER_APPOINTMENT": {
       const institutionIds = new Set(state.institutions.filter((row) => row.stateId === institution.stateId && row.dissolvedYear === null).map((row) => row.institutionId));
       const apexOfficeIds = new Set(state.offices.filter((row) => row.apex && row.officeId !== office.officeId && institutionIds.has(row.institutionId)).sort((a, b) => b.power - a.power || a.officeId.localeCompare(b.officeId)).map((row) => row.officeId));
-      return state.officeTerms.filter((term) => term.endYear === null && apexOfficeIds.has(term.officeId)).sort((a, b) => a.officeId.localeCompare(b.officeId))[0]?.personId ?? null;
+      return state.officeTerms.filter((term) => officeTermActiveAt(term, state.year) && apexOfficeIds.has(term.officeId)).sort((a, b) => a.officeId.localeCompare(b.officeId))[0]?.personId ?? null;
     }
     case "COUNCIL_APPOINTMENT": return institution.institutionId;
     case "ESTATE_SELECTION": return selectedPerson.familyId;
@@ -265,38 +266,104 @@ function officeSelectorId(state: WorldStateV5, office: OfficeV5, selectedPerson:
   }
 }
 
+export interface ChamberSelectionAuthorityV5 {
+  appliedSelectionRule: SelectionRuleV5;
+  sourceGovernmentFormId: string;
+  sourceGovernmentOfficeId: string;
+  termYears: number | null;
+}
+
+export function chamberSelectionAuthorityForOffice(state: WorldStateV5, office: OfficeV5, canonical: CanonicalDataV5): ChamberSelectionAuthorityV5 | null {
+  const institution = state.institutions.find((row) => row.institutionId === office.institutionId);
+  if (!institution || !["CONCLAVE_PRE90", "CONCLAVE_POST90", "SENATE"].includes(institution.institutionType)) return null;
+  const politicalState = state.states.find((row) => row.stateId === institution.stateId);
+  if (!politicalState) throw new Error(`Chamber Office ${office.officeId} lacks State authority`);
+  const government = canonical.governments.find((row) => row.governmentFormId === politicalState.actualGovernment);
+  if (!government) throw new Error(`Chamber Office ${office.officeId} lacks Government ${politicalState.actualGovernment}`);
+  const sources = government.requiredInstitutions.flatMap((definition, institutionIndex) => definition.offices.map((candidate, officeIndex) => ({ definition, candidate, institutionIndex, officeIndex })))
+    .sort((left, right) => Number(right.candidate.apex) - Number(left.candidate.apex) || right.candidate.power - left.candidate.power || left.candidate.titleKey.localeCompare(right.candidate.titleKey) || left.institutionIndex - right.institutionIndex || left.officeIndex - right.officeIndex);
+  const source = sources[0];
+  if (!source) throw new Error(`Government ${government.governmentFormId} has no Office selection authority`);
+  const scope: SelectionRuleV5["scope"] = institution.institutionType === "CONCLAVE_PRE90" || (institution.institutionType === "CONCLAVE_POST90" && office.jurisdictionSettlementId !== null) ? "SETTLEMENT" : "STATE";
+  return {
+    appliedSelectionRule: {
+      ...source.candidate.selectionRule,
+      scope,
+      eligibleTiers: [...source.candidate.selectionRule.eligibleTiers],
+      eligibleClasses: source.candidate.selectionRule.eligibleClasses ? [...source.candidate.selectionRule.eligibleClasses] : undefined,
+      scoreWeights: { ...source.candidate.selectionRule.scoreWeights },
+    },
+    sourceGovernmentFormId: government.governmentFormId,
+    sourceGovernmentOfficeId: `GOVERNMENT_TEMPLATE_${government.governmentFormId}_${source.definition.institutionType}_${source.candidate.titleKey}_${source.institutionIndex}_${source.officeIndex}`,
+    termYears: institution.institutionType === "SENATE" ? 10 : source.candidate.termYears,
+  };
+}
+
+export interface AuthorizedOfficeSelectionResultV5 {
+  state: WorldStateV5;
+  events: CausalEventV5[];
+  namingRequests: NamingRequestV5[];
+  officeTerm: OfficeTermV5 | null;
+}
+
+export function selectHolderForAuthorizedOfficeVacancy(state: WorldStateV5, officeId: string, canonical: CanonicalDataV5, owner: CausalOwnerInputsV1, variables: MechanicsVariablesV1, normalizedSeed: string, causeEventId: string, ordinal: number): AuthorizedOfficeSelectionResultV5 {
+  if (currentOfficeTerm(state, officeId)) return { state, events: [], namingRequests: [], officeTerm: null };
+  let working = state;
+  let office = working.offices.find((row) => row.officeId === officeId);
+  if (!office) throw new Error(`Authorized Office selection references unknown Office ${officeId}`);
+  const institution = working.institutions.find((row) => row.institutionId === office!.institutionId);
+  if (!institution || institution.foundedYear > working.year || (institution.dissolvedYear !== null && institution.dissolvedYear <= working.year)) throw new Error(`Authorized Office ${officeId} lacks an active Institution`);
+  const chamberAuthority = chamberSelectionAuthorityForOffice(working, office, canonical);
+  if (chamberAuthority) {
+    office = { ...office, selectionRule: chamberAuthority.appliedSelectionRule, termYears: chamberAuthority.termYears };
+    working = { ...working, offices: working.offices.map((row) => row.officeId === officeId ? office! : row) };
+  }
+  const eligible = (): PoliticalPersonV5[] => working.politicalPeople.filter((person) => {
+    if (!isPersonEligible(person, working.year) || !office!.selectionRule.eligibleTiers.includes(person.sourceTier)) return false;
+    if (office!.selectionRule.eligibleClasses && (!person.sourceClass || !office!.selectionRule.eligibleClasses.includes(person.sourceClass))) return false;
+    if (office!.selectionRule.requiresTrackedLineage && !person.familyId) return false;
+    const origin = working.settlements.find((settlement) => settlement.settlementId === person.originSettlementId);
+    if (!origin || origin.stateId !== institution.stateId) return false;
+    if (office!.selectionRule.scope === "SETTLEMENT" && origin.settlementId !== office!.jurisdictionSettlementId) return false;
+    const breed = canonical.breeds.find((row) => row.breedId === person.breedId);
+    const politicalState = working.states.find((row) => row.stateId === institution.stateId);
+    return Boolean(breed && politicalState && factionCompatibility(breedFactionVector(breed), politicalState.factionAffinity) >= office!.selectionRule.minimumFactionCompatibility);
+  });
+  let candidates = eligible();
+  let materialized: ReturnType<typeof materializePoliticalPerson> | null = null;
+  let familyWasNew = false;
+  const namingRequests: NamingRequestV5[] = [];
+  if (candidates.length === 0) {
+    materialized = materializePoliticalPerson(working, office, canonical, owner, variables, normalizedSeed, causeEventId, ordinal);
+    familyWasNew = Boolean(materialized.family && !working.families.some((row) => row.familyId === materialized!.family!.familyId));
+    working = materialized.state;
+    namingRequests.push(materialized.namingRequest);
+    if (materialized.family && familyWasNew) namingRequests.push({ requestId: `NAME_${materialized.family.familyId}`, entityType: "FAMILY", entityId: materialized.family.familyId, behavior: "BATCHED", createdYear: state.year, nameEffectiveFromYear: state.year, worldKey: state.worldKey, namingComparisonGroupId: null, comparisonAuthorityRef: null, acceptedLabel: null, context: { world: state.worldKey, creationYear: state.year, causalReason: "OFFICE_OR_LINEAGE_REQUIRED", familyId: materialized.family.familyId, homeSettlementId: materialized.family.homeSettlementId, founderBreedId: materialized.family.founderBreedId, officeId: office.officeId } });
+    candidates = eligible();
+  }
+  if (candidates.length === 0) throw new Error(`No eligible Political Person for authorized Office ${office.officeId}`);
+  const scored = candidates.map((person) => ({ person, score: officeCandidateScore(working, office!, person, canonical, variables) })).sort((a, b) => b.score - a.score || a.person.personId.localeCompare(b.person.personId));
+  const top = scored.filter((candidate) => candidate.score === scored[0]!.score);
+  const randomIdentityForSelection = randomIdentity(normalizedSeed, "OFFICE_CANDIDATE_SELECTION", `${institution.stateId}/${office.titleKey}`, state.year, causeEventId);
+  const selected = top.length > 1 && office.selectionRule.stochasticTies ? top[keyedInteger(randomIdentityForSelection, 0, top.length - 1)]! : top[0]!;
+  const term: OfficeTermV5 = { officeTermId: `TERM_${digest([office.officeId, selected.person.personId, state.year])}`, officeId: office.officeId, personId: selected.person.personId, startYear: state.year, endYear: office.termYears === null ? null : state.year + office.termYears, selectionEventId: `${causeEventId}_OFFICE_${office.officeId}`, selectorType: officeSelectorType(office.selectionRule), selectorId: officeSelectorId(working, office, selected.person), terminationReason: null };
+  working = { ...working, officeTerms: [...working.officeTerms, term] };
+  const event: CausalEventV5 = { schemaVersion: "echoes-causal-event-v5", eventId: term.selectionEventId, worldKey: state.worldKey, year: state.year, phase: "OFFICE_SELECTION", sequence: ordinal, eventType: "OfficeholderSelected", entityType: "OFFICE", entityId: office.officeId, causeEventIds: [causeEventId], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: top.length > 1 && office.selectionRule.stochasticTies ? canonicalJson(randomIdentityForSelection) : null, mutations: [], payload: { personId: selected.person.personId, selectedPersonId: selected.person.personId, familyId: selected.person.familyId, officeTermId: term.officeTermId, selectorType: term.selectorType, selectorId: term.selectorId, appliedSelectionRule: { ...office.selectionRule, eligibleTiers: [...office.selectionRule.eligibleTiers], eligibleClasses: office.selectionRule.eligibleClasses ? [...office.selectionRule.eligibleClasses] : undefined, scoreWeights: { ...office.selectionRule.scoreWeights } }, sourceGovernmentFormId: chamberAuthority?.sourceGovernmentFormId ?? null, sourceGovernmentOfficeId: chamberAuthority?.sourceGovernmentOfficeId ?? null, sourceSettlementId: selected.person.originSettlementId, sourceBreedId: selected.person.breedId, sourceTier: selected.person.sourceTier, sourceClass: selected.person.sourceClass, candidateScore: selected.score, candidateCount: scored.length, materialized: materialized?.person.personId === selected.person.personId } };
+  return { state: working, events: [event], namingRequests, officeTerm: term };
+}
+
 export function fillMandatoryOfficeVacancies(state: WorldStateV5, canonical: CanonicalDataV5, owner: CausalOwnerInputsV1, variables: MechanicsVariablesV1, normalizedSeed: string, causeEventId: string): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[] } {
   let working = state; const events: CausalEventV5[] = []; const namingRequests: NamingRequestV5[] = [];
-  const vacancies = working.offices.filter((office) => office.mandatory && !currentOfficeTerm(working, office.officeId)).sort((a, b) => a.officeId.localeCompare(b.officeId));
-  vacancies.forEach((office, ordinal) => {
-    const institution = working.institutions.find((row) => row.institutionId === office.institutionId)!;
-    const eligible = (): PoliticalPersonV5[] => working.politicalPeople.filter((person) => {
-      if (!isPersonEligible(person, working.year) || !office.selectionRule.eligibleTiers.includes(person.sourceTier)) return false;
-      if (office.selectionRule.eligibleClasses && (!person.sourceClass || !office.selectionRule.eligibleClasses.includes(person.sourceClass))) return false;
-      if (office.selectionRule.requiresTrackedLineage && !person.familyId) return false;
-      const origin = working.settlements.find((settlement) => settlement.settlementId === person.originSettlementId);
-      if (!origin || origin.stateId !== institution.stateId) return false;
-      if (office.selectionRule.scope === "SETTLEMENT" && origin.settlementId !== office.jurisdictionSettlementId) return false;
-      const breed = canonical.breeds.find((row) => row.breedId === person.breedId);
-      const politicalState = working.states.find((row) => row.stateId === institution.stateId);
-      return Boolean(breed && politicalState && factionCompatibility(breedFactionVector(breed), politicalState.factionAffinity) >= office.selectionRule.minimumFactionCompatibility);
-    });
-    let candidates = eligible();
-    let materialized: ReturnType<typeof materializePoliticalPerson> | null = null;
-    if (candidates.length === 0) {
-      materialized = materializePoliticalPerson(working, office, canonical, owner, variables, normalizedSeed, causeEventId, ordinal);
-      working = materialized.state; namingRequests.push(materialized.namingRequest);
-      if (materialized.family && !state.families.some((row) => row.familyId === materialized!.family!.familyId)) namingRequests.push({ requestId: `NAME_${materialized.family.familyId}`, entityType: "FAMILY", entityId: materialized.family.familyId, behavior: "BATCHED", createdYear: state.year, nameEffectiveFromYear: state.year, worldKey: state.worldKey, namingComparisonGroupId: null, comparisonAuthorityRef: null, acceptedLabel: null, context: { world: state.worldKey, creationYear: state.year, causalReason: "OFFICE_OR_LINEAGE_REQUIRED", familyId: materialized.family.familyId, homeSettlementId: materialized.family.homeSettlementId, founderBreedId: materialized.family.founderBreedId, officeId: office.officeId } });
-      candidates = eligible();
-    }
-    if (candidates.length === 0) throw new Error(`No eligible Political Person for mandatory Office ${office.officeId}`);
-    const scored = candidates.map((person) => ({ person, score: officeCandidateScore(working, office, person, canonical, variables) })).sort((a, b) => b.score - a.score || a.person.personId.localeCompare(b.person.personId));
-    const top = scored.filter((candidate) => candidate.score === scored[0]!.score);
-    const randomIdentityForSelection = randomIdentity(normalizedSeed, "OFFICE_CANDIDATE_SELECTION", `${institution.stateId}/${office.titleKey}`, state.year, causeEventId);
-    const selected = top.length > 1 && office.selectionRule.stochasticTies ? top[keyedInteger(randomIdentityForSelection, 0, top.length - 1)]! : top[0]!;
-    const term: OfficeTermV5 = { officeTermId: `TERM_${digest([office.officeId, selected.person.personId, state.year])}`, officeId: office.officeId, personId: selected.person.personId, startYear: state.year, endYear: office.termYears === null ? null : state.year + office.termYears, selectionEventId: `${causeEventId}_OFFICE_${office.officeId}`, selectorType: officeSelectorType(office.selectionRule), selectorId: officeSelectorId(working, office, selected.person), terminationReason: null };
-    working = { ...working, officeTerms: [...working.officeTerms, term] };
-    events.push({ schemaVersion: "echoes-causal-event-v5", eventId: term.selectionEventId, worldKey: state.worldKey, year: state.year, phase: "OFFICE_SELECTION", sequence: ordinal, eventType: "OfficeholderSelected", entityType: "OFFICE", entityId: office.officeId, causeEventIds: [causeEventId], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: top.length > 1 && office.selectionRule.stochasticTies ? canonicalJson(randomIdentityForSelection) : null, mutations: [], payload: { personId: selected.person.personId, familyId: selected.person.familyId, officeTermId: term.officeTermId, selectorType: term.selectorType, selectorId: term.selectorId, sourceSettlementId: selected.person.originSettlementId, sourceBreedId: selected.person.breedId, sourceTier: selected.person.sourceTier, sourceClass: selected.person.sourceClass, candidateScore: selected.score, candidateCount: scored.length, materialized: materialized?.person.personId === selected.person.personId } });
+  const activeInstitutions = new Map(working.institutions.filter((institution) => institution.foundedYear <= working.year && (institution.dissolvedYear === null || institution.dissolvedYear > working.year) && institution.institutionType !== "SENATE").map((institution) => [institution.institutionId, institution]));
+  const vacancyIds = working.offices.filter((office) => {
+    const institution = activeInstitutions.get(office.institutionId);
+    if (!office.mandatory || !institution || currentOfficeTerm(working, office.officeId)) return false;
+    if ((institution.institutionType === "CONCLAVE_PRE90" || institution.institutionType === "CONCLAVE_POST90") && office.titleKey.startsWith("CONCLAVE_CITY_") && office.jurisdictionSettlementId === null) return false;
+    return true;
+  }).map((office) => office.officeId).sort();
+  vacancyIds.forEach((officeId, ordinal) => {
+    const selected = selectHolderForAuthorizedOfficeVacancy(working, officeId, canonical, owner, variables, normalizedSeed, causeEventId, ordinal);
+    working = selected.state; events.push(...selected.events); namingRequests.push(...selected.namingRequests);
   });
   return { state: working, events, namingRequests };
 }

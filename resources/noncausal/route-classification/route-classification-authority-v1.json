@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "echoes-route-classification-authority-v1",
+  "authorityVersion": "route-classification-owner-decisions-v1-empty",
+  "authorityStatus": "NO_OWNER_DECISIONS",
+  "approvedAt": null,
+  "classifications": []
+}

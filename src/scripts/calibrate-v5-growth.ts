@@ -17,8 +17,9 @@ const baseOwnerInputs = diagnosticCandidateOwnerInputsV1(Object.fromEntries(cano
 const djtPolicy = buildDiagnosticDjtPolicyV5(canonical);
 const ownerInputs = { ...baseOwnerInputs, canonicalPolicies: djtPolicy ? { ...baseOwnerInputs.canonicalPolicies, [DJT_POLICY_KEY_V5]: djtPolicy } : baseOwnerInputs.canonicalPolicies };
 const mechanics = { ...DEFAULT_MECHANICS_VARIABLES_V1, growthRatesPpm: { LOW: low, MEDIUM: medium, HIGH: high } };
+const normalizedSeed = normalizeSeed("EIDOLON_V5_GROWTH_CALIBRATION_V1");
 const started = performance.now();
-const result = runV5History({ canonical, ownerInputs, mechanics, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, normalizedSeed: normalizeSeed("EIDOLON_V5_GROWTH_CALIBRATION_V1"), mode: "DIAGNOSTIC", throughYear: 2000, scheduledTransactions: buildScheduledTransactionsV5(canonical, ownerInputs), stopAtBlockingNaming: false, retainHistory: false });
+const result = runV5History({ canonical, ownerInputs, mechanics, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, normalizedSeed, mode: "DIAGNOSTIC", throughYear: 2000, scheduledTransactions: buildScheduledTransactionsV5(canonical, ownerInputs, normalizedSeed), stopAtBlockingNaming: false, retainHistory: false });
 const report = {
   schemaVersion: "echoes-v5-growth-calibration-candidate-v1", seed: "EIDOLON_V5_GROWTH_CALIBRATION_V1", years: 2000, initialPopulationPerWorld: mechanics.initialPopulation.toString(), endingPopulationGoal: DEFAULT_DIAGNOSTIC_CONFIG_V1.endingPopulationGoal.toString(),
   growthRatesPpm: mechanics.growthRatesPpm, growthNonAlignmentDeductionPpm: mechanics.growthNonAlignmentDeductionPpm, elapsedMilliseconds: Math.round(performance.now() - started),

@@ -8,11 +8,13 @@ import type { DjtPolicyV5 } from "./djt.js";
 import { executeDjtV5 } from "./djt.js";
 import { applyCausalEffects, applyShockDefinition, type CausalEffect, type ShockDefinitionV5 } from "./effects.js";
 import { blend, clamp } from "./fixed-point.js";
-import { reviewVoluntaryMigration, executeCanonicalFounding, type ForcedFoundingInput } from "./migration.js";
+import { executeCanonicalFoundingWave, reviewVoluntaryMigration, type CanonicalFoundingTransactionInputV5 } from "./migration.js";
 import { economicStrain, inequality, institutionalAccessWithMetrics, organizationFormationInputs, updateIndustry, updateProsperity, updateUnrest } from "./mechanics.js";
 import { applyNaturalDemography } from "./population.js";
 import { reconcileWorldRoutes } from "./routes.js";
 import { fillMandatoryOfficeVacancies, institutionControlVector, institutionEffectiveness, reviewRoutineGovernmentTransition, reviewSecession, reviewStateFaction, updateLegitimacy } from "./politics.js";
+import { reconcileChamberAuthorityV5, selectAuthorizedSenateVacanciesV5 } from "./chambers.js";
+import { officeTermActiveAt } from "./office-term.js";
 import { reviewSettlementSocialMobility } from "./social.js";
 import { deriveFamilyInteractionSignals, reviewFamilies, reviewFamilyFormation, reviewFamilyRelations, reviewOrganizationFormation, reviewOrganizationLifecycle } from "./society.js";
 import type { CausalEventV5, NamingRequestV5, WorldStateV5 } from "./types.js";
@@ -21,7 +23,7 @@ import type { BoundedDiagnosticObservationV5 } from "./diagnostics.js";
 export type ScheduledTransactionV5 =
   | { type: "EFFECTS"; transactionId: string; year: number; effects: readonly CausalEffect[] }
   | { type: "SHOCK"; transactionId: string; year: number; definition: ShockDefinitionV5 }
-  | { type: "CANONICAL_FOUNDING"; transactionId: string; year: number; founding: ForcedFoundingInput }
+  | ({ type: "CANONICAL_FOUNDING" } & CanonicalFoundingTransactionInputV5)
   | { type: "DJT"; transactionId: string; year: number; policy: DjtPolicyV5 };
 
 export interface V5EngineContext {
@@ -51,7 +53,7 @@ function temporalEvents(state: WorldStateV5): { state: WorldStateV5; events: Cau
   const retiring = new Set(working.politicalPeople.filter((person) => person.actualRetirementYear === null && person.plannedRetirementYear === state.year && (person.actualDeathYear ?? person.naturalDeathYear) > state.year).map((person) => person.personId));
   if (retiring.size) {
     working.politicalPeople = working.politicalPeople.map((person) => retiring.has(person.personId) ? { ...person, actualRetirementYear: state.year } : person);
-    working.officeTerms = working.officeTerms.map((term) => term.endYear === null && retiring.has(term.personId) ? { ...term, endYear: state.year, terminationReason: "RETIREMENT" } : term);
+    working.officeTerms = working.officeTerms.map((term) => retiring.has(term.personId) && officeTermActiveAt(term, state.year) ? { ...term, endYear: state.year, terminationReason: "RETIREMENT" } : term);
     events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_RETIREMENTS`, worldKey: state.worldKey, year: state.year, phase: "TEMPORAL", sequence: events.length, eventType: "PoliticalPeopleRetired", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { personIds: [...retiring].sort() } });
   }
   const expiring = working.officeTerms.filter((term) => term.endYear === state.year && term.terminationReason === null).map((term) => term.officeTermId);
@@ -63,15 +65,26 @@ function temporalEvents(state: WorldStateV5): { state: WorldStateV5; events: Cau
 function applyScheduled(state: WorldStateV5, context: V5EngineContext): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[] } {
   let working = state; const events: CausalEventV5[] = []; const namingRequests: NamingRequestV5[] = [];
   const transactions = context.scheduledTransactions.filter((row) => row.year === state.year).sort((a, b) => a.transactionId.localeCompare(b.transactionId));
-  for (const transaction of transactions) {
+  for (const transaction of transactions.filter((candidate) => candidate.type !== "CANONICAL_FOUNDING")) {
     if (transaction.type === "EFFECTS") {
       const applied = applyCausalEffects(working, transaction.effects); working = applied.state;
       events.push({ schemaVersion: "echoes-causal-event-v5", eventId: transaction.transactionId, worldKey: state.worldKey, year: state.year, phase: "SCHEDULED_CANONICAL", sequence: events.length, eventType: "CanonicalShock", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { effectIds: transaction.effects.map((effect) => effect.effectId), accounting: applied.accounting.map((row) => ({ ...row, populationBefore: row.populationBefore.toString(), populationAfter: row.populationAfter.toString(), deaths: row.deaths.toString(), transferred: row.transferred.toString() })) } });
     } else if (transaction.type === "SHOCK") {
       const applied = applyShockDefinition(working, transaction.definition); working = applied.state;
       events.push({ schemaVersion: "echoes-causal-event-v5", eventId: transaction.transactionId, worldKey: state.worldKey, year: state.year, phase: "SCHEDULED_CANONICAL", sequence: events.length, eventType: "CanonicalShock", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { shockId: transaction.definition.shockId, resolvedTargets: applied.resolvedTargets, effectIds: transaction.definition.effects.map((effect) => effect.effectId), accounting: applied.accounting.map((row) => ({ ...row, populationBefore: row.populationBefore.toString(), populationAfter: row.populationAfter.toString(), deaths: row.deaths.toString(), transferred: row.transferred.toString() })) } });
-    } else if (transaction.type === "CANONICAL_FOUNDING") { const founded = executeCanonicalFounding(working, context.canonical, context.mechanics, transaction.founding); working = founded.state; events.push(...founded.events); namingRequests.push(founded.namingRequest); }
-    else { const djt = executeDjtV5(working, context.canonical, context.mechanics, transaction.policy); working = djt.state; events.push(...djt.events); namingRequests.push(...djt.namingRequests); }
+    } else { const djt = executeDjtV5(working, context.canonical, context.mechanics, transaction.policy); working = djt.state; events.push(...djt.events); namingRequests.push(...djt.namingRequests); }
+  }
+  const foundingByWave = new Map<string, CanonicalFoundingTransactionInputV5[]>();
+  for (const transaction of transactions.filter((candidate): candidate is Extract<ScheduledTransactionV5, { type: "CANONICAL_FOUNDING" }> => candidate.type === "CANONICAL_FOUNDING")) {
+    const wave = foundingByWave.get(transaction.foundingWaveId) ?? [];
+    wave.push(transaction);
+    foundingByWave.set(transaction.foundingWaveId, wave);
+  }
+  for (const [, wave] of [...foundingByWave].sort(([left], [right]) => left.localeCompare(right))) {
+    const founded = executeCanonicalFoundingWave(working, context.canonical, context.mechanics, wave);
+    working = founded.state;
+    events.push(...founded.events);
+    namingRequests.push(...founded.namingRequests);
   }
   if (transactions.length > 0) { const borders = reconcileBorderRelations(working, context.canonical); working = borders.state; events.push(...borders.events); }
   return { state: working, events, namingRequests };
@@ -87,7 +100,7 @@ function validateState(state: WorldStateV5): void {
   const relationPairs = state.personRelations.map((relation) => relation.personAId.localeCompare(relation.personBId) <= 0 ? `${relation.personAId}\0${relation.personBId}\0${relation.relationType}` : `${relation.personBId}\0${relation.personAId}\0${relation.relationType}`); if (new Set(relationPairs).size !== relationPairs.length) throw new Error("Duplicate PersonRelation authority");
 }
 
-export interface AdvanceYearResult { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[]; structuralReviewRan: boolean; diagnosticObservations: BoundedDiagnosticObservationV5[]; }
+export interface AdvanceYearResult { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[]; structuralReviewRan: boolean; migrationReviewRan: boolean; diagnosticObservations: BoundedDiagnosticObservationV5[]; }
 export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContext): AdvanceYearResult {
   let state: WorldStateV5 = { ...prior, year: prior.year + 1 }; let events: CausalEventV5[] = []; let namingRequests: NamingRequestV5[] = []; const diagnosticObservations: BoundedDiagnosticObservationV5[] = [];
   const scheduled = applyScheduled(state, context); state = scheduled.state; events.push(...scheduled.events); namingRequests.push(...scheduled.namingRequests);
@@ -98,6 +111,11 @@ export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContex
   const war = applyActiveWarEpisodes(state, context.canonical, context.ownerInputs, context.mechanics, context.normalizedSeed, institutionEffectivenessByState); state = war.state; events.push(...war.events);
   const demographic = applyNaturalDemography(state, context.canonical, context.mechanics, settlementDominantFactionMap(state, context.canonical)); state = demographic.state; events.push(...demographic.events);
   const structuralReviewRan = state.year % context.mechanics.structuralReviewIntervalYears === 0;
+  const migrationReviewRan = state.year % context.mechanics.migrationReviewIntervalYears === 0;
+  if (migrationReviewRan && !structuralReviewRan) {
+    const migration = reviewVoluntaryMigration(state, deriveMetrics(state, context.canonical, context.mechanics), context.canonical, context.ownerInputs, context.mechanics);
+    state = migration.state; events.push(...migration.events); namingRequests.push(...migration.namingRequests); diagnosticObservations.push(...migration.diagnostics);
+  }
   if (structuralReviewRan) {
     institutionEffectivenessByState = Object.fromEntries(state.states.map((row) => [row.stateId, institutionEffectiveness(state, row.stateId, context.mechanics)]));
     let metrics = deriveMetrics(state, context.canonical, context.mechanics);
@@ -109,7 +127,7 @@ export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContex
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     for (const settlement of [...state.settlements].sort((a, b) => a.settlementId.localeCompare(b.settlementId))) { const mobility = reviewSettlementSocialMobility(state, settlement, metrics.localOpportunity[settlement.settlementId]!, accessBySettlement[settlement.settlementId]!, inequality(state, settlement.settlementId), economicStrain(state, settlement.settlementId), context.mechanics); state = mobility.state; events.push(...mobility.events); }
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
-    const migration = reviewVoluntaryMigration(state, metrics, context.canonical, context.ownerInputs, context.mechanics); state = migration.state; events.push(...migration.events); namingRequests.push(...migration.namingRequests); diagnosticObservations.push(migration.diagnostics);
+    if (migrationReviewRan) { const migration = reviewVoluntaryMigration(state, metrics, context.canonical, context.ownerInputs, context.mechanics); state = migration.state; events.push(...migration.events); namingRequests.push(...migration.namingRequests); diagnosticObservations.push(...migration.diagnostics); }
     metrics = deriveMetrics(state, context.canonical, context.mechanics);
     accessBySettlement = Object.fromEntries(state.settlements.map((settlement) => [settlement.settlementId, institutionalAccessWithMetrics(state, settlement.settlementId, context.canonical, metrics, institutionVectors[settlement.stateId] ?? state.states.find((row) => row.stateId === settlement.stateId)!.factionAffinity)]));
     const familyFormation = reviewFamilyFormation(state, context.canonical, context.ownerInputs, context.mechanics, accessBySettlement, metrics); state = familyFormation.state; events.push(...familyFormation.events); namingRequests.push(...familyFormation.namingRequests); diagnosticObservations.push(familyFormation.diagnostics);
@@ -143,12 +161,14 @@ export function advanceWorldOneYear(prior: WorldStateV5, context: V5EngineContex
     for (const politicalState of [...state.states].sort((a, b) => a.stateId.localeCompare(b.stateId))) { const reviewed = reviewRoutineGovernmentTransition(state, politicalState.stateId, context.canonical, context.mechanics, context.normalizedSeed, metrics); state = reviewed.state; if (reviewed.event) events.push(reviewed.event); }
     state = applyPeacefulExhaustionRecovery(state, context.ownerInputs);
   }
+  const chambers = reconcileChamberAuthorityV5(state, context.canonical); state = chambers.state; events.push(...chambers.events);
+  const senate = selectAuthorizedSenateVacanciesV5(state, context.canonical, context.ownerInputs, context.mechanics, context.normalizedSeed); state = senate.state; events.push(...senate.events); namingRequests.push(...senate.namingRequests);
   const vacancies = fillMandatoryOfficeVacancies(state, context.canonical, context.ownerInputs, context.mechanics, context.normalizedSeed, `EVT_${state.worldKey}_${state.year}_VACANCIES`); state = vacancies.state; events.push(...vacancies.events); namingRequests.push(...vacancies.namingRequests);
   if (structuralReviewRan) { const border = reviewBordersLate(state, context.canonical, context.ownerInputs, context.mechanics, context.normalizedSeed); state = border.state; events.push(...border.events); }
   state.timedConditions = state.timedConditions.filter((condition) => condition.endYear === null || condition.endYear >= state.year);
   validateState(state);
-  events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_CAUSAL_AUDIT`, worldKey: state.worldKey, year: state.year, phase: "AUDIT", sequence: 0, eventType: "CausalInvariantAuditPassed", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { population: state.cohorts.reduce((sum, cell) => sum + cell.tiers.HIGH.population + cell.tiers.MID.population + cell.tiers.LOW.population, 0n).toString(), structuralReviewRan } });
-  return { state, events: resequence(events), namingRequests: namingRequests.sort((a, b) => a.entityType.localeCompare(b.entityType) || a.entityId.localeCompare(b.entityId)), structuralReviewRan, diagnosticObservations };
+  events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_CAUSAL_AUDIT`, worldKey: state.worldKey, year: state.year, phase: "AUDIT", sequence: 0, eventType: "CausalInvariantAuditPassed", entityType: "WORLD", entityId: state.worldKey, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { population: state.cohorts.reduce((sum, cell) => sum + cell.tiers.HIGH.population + cell.tiers.MID.population + cell.tiers.LOW.population, 0n).toString(), structuralReviewRan, migrationReviewRan } });
+  return { state, events: resequence(events), namingRequests: namingRequests.sort((a, b) => a.entityType.localeCompare(b.entityType) || a.entityId.localeCompare(b.entityId)), structuralReviewRan, migrationReviewRan, diagnosticObservations };
 }
 
 export interface RunWorldOptions { stopAtBlockingNaming?: boolean; onAtomicYear?: (result: AdvanceYearResult) => void; }

@@ -161,7 +161,7 @@ export interface OfficeTermV5 {
   selectionEventId: string;
   selectorType: "PERSON" | "FAMILY" | "INSTITUTION" | "STATE" | "ELECTORATE" | "MILITARY" | "RELIGIOUS_BODY" | "SUCCESSION";
   selectorId: string | null;
-  terminationReason: "TERM_EXPIRED" | "DEATH" | "RETIREMENT" | "REMOVAL" | "GOVERNMENT_CHANGE" | null;
+  terminationReason: "TERM_EXPIRED" | "DEATH" | "RETIREMENT" | "REMOVAL" | "GOVERNMENT_CHANGE" | "INSTITUTION_REFORM" | null;
 }
 
 export type ControllerType = "FAMILY" | "PERSON" | "INSTITUTION" | "STATE" | "ORGANIZATION" | "DIFFUSE";

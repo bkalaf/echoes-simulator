@@ -15,7 +15,8 @@ const canonical = loadBundledCanonicalV5(resolve("resources/canonical"));
 const baseOwnerInputs = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
 const djtPolicy = buildDiagnosticDjtPolicyV5(canonical);
 const ownerInputs = { ...baseOwnerInputs, canonicalPolicies: djtPolicy ? { ...baseOwnerInputs.canonicalPolicies, [DJT_POLICY_KEY_V5]: djtPolicy } : baseOwnerInputs.canonicalPolicies };
-const scheduledTransactions = buildScheduledTransactionsV5(canonical, ownerInputs);
+const normalizedSeed = normalizeSeed(process.argv[3] ?? "EIDOLON_V5_BENCHMARK");
+const scheduledTransactions = buildScheduledTransactionsV5(canonical, ownerInputs, normalizedSeed);
 const started = performance.now();
 const result = runV5History({
   canonical,
@@ -23,7 +24,7 @@ const result = runV5History({
   mechanics: DEFAULT_MECHANICS_VARIABLES_V1,
   operational: DEFAULT_OPERATIONAL_CONFIG_V1,
   diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1,
-  normalizedSeed: normalizeSeed(process.argv[3] ?? "EIDOLON_V5_BENCHMARK"),
+  normalizedSeed,
   mode: "DIAGNOSTIC",
   throughYear,
   scheduledTransactions,

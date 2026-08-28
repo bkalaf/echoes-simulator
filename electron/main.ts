@@ -26,11 +26,11 @@ import { loadBundledCanonicalV5 } from "../src/core/v5/canonical-adapter.js";
 import { buildReadModelV1 } from "../src/core/v5/read-model.js";
 import type { WorldKey as WorldKeyV5, WorldStateV5 } from "../src/core/v5/types.js";
 import { acceptPersistedV5NamingBatch } from "../src/core/v5/service.js";
-import { buildPersistedNamingBatchesV5 } from "../src/core/v5/naming.js";
 import { buildRouteCoverageReadModel } from "../src/core/v5/routes.js";
 import { buildPoiCoverage } from "../src/core/atlas/coverage.js";
 import { canonicalPolicyReadiness, diagnosticCandidateOwnerInputsV1 } from "../src/core/v5/config.js";
 import { buildNamingGeographyReadModel } from "../src/core/v5/naming-geography.js";
+import { effectiveRouteClassification, loadRouteClassificationAuthority } from "../src/core/v5/route-classification.js";
 
 let mainWindow: BrowserWindow | null = null;
 const projectRoot = resolve(import.meta.dirname, "../..");
@@ -89,7 +89,9 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
   }
   const selectedRun = getStore().selectedRun();
   const selectedV5Manifest = selectedRun ? getStore().loadV5RunManifest(selectedRun.runId) : null;
-  const pendingV5NamingBatches = selectedRun && selectedV5Manifest ? buildPersistedNamingBatchesV5(selectedRun.runId, getStore().listV5NamingRequests(selectedRun.runId), selectedV5Manifest.operationalConfig.namingBatchMaximum) : [];
+  const pendingV5NamingBatches = selectedRun && selectedV5Manifest && selectedRun.status !== "RUNNING"
+    ? getStore().materializePendingV5NamingBatches(selectedRun.runId, selectedV5Manifest.operationalConfig.namingBatchMaximum)
+    : [];
   const pendingV5NamingBatch = pendingV5NamingBatches[0] ?? null;
   const persistedYear = selectedRun?.mode === "CANONICAL"
     ? Math.max(selectedRun.currentYear ?? 0, getStore().latestCompleteCheckpointYear(selectedRun.runId, ["CONCORD", "SCHISM", "RUIN"]) ?? 0)
@@ -118,7 +120,8 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
   })() : { ready: false, missing: ["CANONICAL_BUNDLE"] };
   const namingReadiness = canonicalData.status === "READY" ? (() => {
     const canonicalV5 = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-    return { routeCorridorsNotReady: canonicalV5.routeCorridors.filter((corridor) => corridor.primaryMode === "UNRESOLVED").length, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: canonicalV5.sites.filter((site) => site.nameStatus !== "CANONICAL").length + canonicalV5.physicalPois.filter((poi) => poi.nameStatus !== "CANONICAL").length, unresolvedDjtYearAuthority: 1 };
+    const routeClassifications = loadRouteClassificationAuthority(runtimeResources, canonicalV5.routeCorridors);
+    return { routeCorridorsNotReady: canonicalV5.routeCorridors.filter((corridor) => effectiveRouteClassification(corridor, routeClassifications).semanticReadiness === "NOT_READY").length, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: canonicalV5.sites.filter((site) => site.nameStatus !== "CANONICAL").length + canonicalV5.physicalPois.filter((poi) => poi.nameStatus !== "CANONICAL").length, unresolvedDjtYearAuthority: 1 };
   })() : { routeCorridorsNotReady: 0, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: 0, unresolvedDjtYearAuthority: 1 };
   const namingQueueSummary = selectedRun && selectedV5Manifest ? (() => {
     const requests = getStore().listV5NamingRequests(selectedRun.runId); const ledger = getStore().loadV5TrustedLabelLedger(selectedRun.runId);
@@ -236,8 +239,9 @@ ipcMain.handle("simulator:get-naming-geography", (_event, requestedYear?: number
   if (!run || !getStore().loadV5RunManifest(run.runId)) return null;
   const year = Math.max(0, Math.min(Number.isFinite(requestedYear) ? Math.trunc(requestedYear!) : run.currentYear ?? 0, run.currentYear ?? 0));
   const canonical = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
+  const routeClassifications = loadRouteClassificationAuthority(runtimeResources, canonical.routeCorridors);
   const states = Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run.runId, world, year)?.state; return state ? [[world, state]] : []; })) as Partial<Record<WorldKeyV5, WorldStateV5>>;
-  return buildNamingGeographyReadModel(canonical, states, getStore().loadV5TrustedLabelLedger(run.runId, year), getStore().listV5NamingRequests(run.runId), year);
+  return buildNamingGeographyReadModel(canonical, states, getStore().loadV5TrustedLabelLedger(run.runId, year), getStore().listV5NamingRequests(run.runId), year, routeClassifications);
 });
 ipcMain.handle("simulator:select-run", (_event, runId: string) => { getStore().selectRun(runId); return snapshotForOperator(); });
 ipcMain.handle("simulator:get-run-view", (_event, runId: string, world: string, year: number) => {
@@ -262,10 +266,17 @@ ipcMain.handle("simulator:get-run-view", (_event, runId: string, world: string, 
       const historical = getStore().loadLatestV5Checkpoint(runId, world, metadata.year)?.state;
       return (historical?.families ?? []).map((family) => ({ year: metadata.year, familyId: family.familyId, wealth: family.wealth, influence: family.influence, prestige: family.prestige, status: family.status }));
     }) : [];
+    const events = getStore().listV5CausalEvents(runId, world, effectiveYear).map((event) => ({ eventId: event.eventId, year: event.year, eventType: event.eventType, entityId: event.entityId, payload: event.payload }));
+    const officeTermSelectionEvidence = Object.fromEntries(events.flatMap((event) => {
+      if (event.eventType !== "OfficeholderSelected" || !event.payload || typeof event.payload !== "object") return [];
+      const payload = event.payload as Record<string, unknown>;
+      if (typeof payload.officeTermId !== "string" || !payload.appliedSelectionRule || typeof payload.appliedSelectionRule !== "object") return [];
+      return [[payload.officeTermId, { selectionEventId: event.eventId, appliedSelectionRule: payload.appliedSelectionRule, sourceGovernmentFormId: typeof payload.sourceGovernmentFormId === "string" ? payload.sourceGovernmentFormId : null, sourceGovernmentOfficeId: typeof payload.sourceGovernmentOfficeId === "string" ? payload.sourceGovernmentOfficeId : null, selectorType: payload.selectorType, selectorId: payload.selectorId, selectedPersonId: payload.selectedPersonId ?? payload.personId }]];
+    }));
     return {
       runId, world, requestedYear: year, effectiveYear: checkpointYear,
       settlements: checkpoint ? v5SettlementProjection(runId, checkpoint.state) : [],
-      events: getStore().listV5CausalEvents(runId, world, effectiveYear).map((event) => ({ eventId: event.eventId, year: event.year, eventType: event.eventType, entityId: event.entityId, payload: event.payload })),
+      events,
       history: [],
       checkpoints: getStore().listV5CheckpointMetadata(runId, world, effectiveYear),
       states: checkpoint?.state.states ?? [],
@@ -282,6 +293,7 @@ ipcMain.handle("simulator:get-run-view", (_event, runId: string, world: string, 
       labels,
       personFactionById,
       familyHistory,
+      officeTermSelectionEvidence,
     };
   }
   return {
@@ -334,9 +346,10 @@ ipcMain.handle("simulator:get-atlas-data", (_event, requestedYear?: number) => {
   const v5Manifest = run ? getStore().loadV5RunManifest(run.runId) : null;
   const states = (v5Manifest ? Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run!.runId, world, year)?.state; return state ? [[world, state]] : []; })) : {}) as Partial<Record<WorldKeyV5, WorldStateV5>>;
   const canonicalV5 = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
+  const routeClassifications = loadRouteClassificationAuthority(runtimeResources, canonicalV5.routeCorridors);
   const labels = run && v5Manifest ? getStore().loadV5Labels(run.runId, year) : {};
   const requests = run && v5Manifest ? getStore().listV5NamingRequests(run.runId) : [];
-  const routeCoverage = buildRouteCoverageReadModel(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_ROUTE_${world}_`))])));
+  const routeCoverage = buildRouteCoverageReadModel(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_ROUTE_${world}_`))])), routeClassifications);
   const poiCoverage = buildPoiCoverage(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_POI_${world}_`))])));
   const settlementsByWorld = Object.fromEntries(V5_WORLDS.map((world) => [world, states[world] && run ? v5SettlementProjection(run.runId, states[world]!).map((settlement) => {
     const site = canonicalV5.sites.find((candidate) => candidate.siteId === settlement.siteId);

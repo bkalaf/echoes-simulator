@@ -9,6 +9,8 @@ export const DEFAULT_NAMING_BEHAVIOR_V5: Readonly<Record<string, NamingBehavior>
 };
 
 export const NAMING_COMPARISON_GROUPING_VERSION_V5 = "echoes-naming-comparison-groups-v1" as const;
+export const CONTENT_ADDRESSED_NAMING_IDENTITY_VERSION_V5 = "echoes-v5-naming-content-addressed-v3" as const;
+export type NamingBatchAuthorityStatusV5 = "MATERIALIZED_CONTENT_ADDRESSED_V3" | "RECOVERED_EXPORTED_V2_BATCH" | "MIGRATED_V2_BATCH_AUDIT";
 export const COMPARISON_AWARE_NAMING_INSTRUCTION_V5 = `Treat these entities as alternate-world counterparts.
 
 Preserve the same accepted name when the supplied eligible naming context is materially equivalent across worlds.
@@ -27,6 +29,26 @@ function requestOrder(left: NamingRequestV5, right: NamingRequestV5): number {
     || leftWorld - rightWorld || left.entityType.localeCompare(right.entityType) || left.entityId.localeCompare(right.entityId) || left.requestId.localeCompare(right.requestId);
 }
 
+function namingUnitKey(request: NamingRequestV5): string {
+  return request.namingComparisonGroupId ? `GROUP:${request.namingComparisonGroupId}` : `REQUEST:${request.requestId}`;
+}
+
+/** Reproduces the ordering used by exported/indexed V2 batches. */
+export function orderNamingRequestsUsingV2Rules(requests: readonly NamingRequestV5[]): NamingRequestV5[] {
+  const grouped = new Map<string, NamingRequestV5[]>();
+  for (const request of requests) {
+    const key = namingUnitKey(request);
+    const unit = grouped.get(key) ?? [];
+    unit.push(request);
+    grouped.set(key, unit);
+  }
+  return [...grouped.keys()].sort().flatMap((key) => grouped.get(key)!.sort(requestOrder));
+}
+
+export function namingRequestSetDigestV5(items: readonly NamingRequestV5[]): string {
+  return createHash("sha256").update(canonicalJson(items.map((item) => item.requestId))).digest("hex").slice(0, 16);
+}
+
 export interface NamingBatchV5 { behavior: "BLOCKING" | "BATCHED"; items: NamingRequestV5[]; }
 
 /** Blocking work is one complete batch and suppresses all deferrable batches. */
@@ -38,7 +60,7 @@ export function buildNamingBatches(requests: readonly NamingRequestV5[], maximum
   const batched = pending.filter((request) => request.behavior === "BATCHED").sort(requestOrder);
   const grouped = new Map<string, NamingRequestV5[]>();
   for (const request of batched) {
-    const key = request.namingComparisonGroupId ? `GROUP:${request.namingComparisonGroupId}` : `REQUEST:${request.requestId}`;
+    const key = namingUnitKey(request);
     const unit = grouped.get(key) ?? [];
     unit.push(request);
     grouped.set(key, unit);
@@ -59,6 +81,12 @@ export interface PersistedNamingBatchV5 extends NamingBatchV5 {
   batchId: string;
   runId: string;
   year: number;
+  barrierYear: number;
+  stableRequestSetDigest: string;
+  identityVersion: typeof CONTENT_ADDRESSED_NAMING_IDENTITY_VERSION_V5 | "echoes-v5-naming-indexed-v2";
+  displayOrdinal: number | null;
+  authorityStatus: NamingBatchAuthorityStatusV5;
+  createdAt: string;
   promptText: string;
   promptSha256: string;
   comparisonGroupingVersion: typeof NAMING_COMPARISON_GROUPING_VERSION_V5;
@@ -92,17 +120,98 @@ function groupAudit(items: readonly NamingRequestV5[], allRequests: readonly Nam
   });
 }
 
-export function buildPersistedNamingBatchesV5(runId: string, requests: readonly NamingRequestV5[], maximumBatchSize = 50): PersistedNamingBatchV5[] {
-  return buildNamingBatches(requests, maximumBatchSize).map((batch, index) => {
+function buildPersistedNamingBatchV5(input: {
+  runId: string;
+  batch: NamingBatchV5;
+  allRequests: readonly NamingRequestV5[];
+  batchId?: string;
+  displayOrdinal?: number | null;
+  authorityStatus?: NamingBatchAuthorityStatusV5;
+  identityVersion?: PersistedNamingBatchV5["identityVersion"];
+  createdAt?: string;
+}): PersistedNamingBatchV5 {
+    const { runId, batch, allRequests } = input;
     const year = Math.max(...batch.items.map((request) => request.createdYear));
-    const stableDigest = createHash("sha256").update(canonicalJson(batch.items.map((item) => item.requestId))).digest("hex").slice(0, 16);
-    const batchId = `V5_NAMING_${runId}_${batch.behavior}_${year}_${index}_${stableDigest}`;
+    const stableDigest = namingRequestSetDigestV5(batch.items);
+    const batchId = input.batchId ?? `V5_NAMING_${runId}_${batch.behavior}_${year}_${stableDigest}`;
     const response = { schemaVersion: "echoes-v5-naming-batch-response-v2", batchId, runId, decisions: batch.items.map((request) => ({ requestId: request.requestId, entityType: request.entityType, entityId: request.entityId, label: "REPLACE_WITH_ACCEPTED_LABEL", nameEffectiveFromYear: request.nameEffectiveFromYear ?? request.createdYear })) };
-    const groups = groupAudit(batch.items, requests);
+    const groups = groupAudit(batch.items, allRequests);
     const ungrouped = batch.items.filter((request) => !request.namingComparisonGroupId).map((request) => ({ requestId: request.requestId, entityType: request.entityType, entityId: request.entityId, worldKey: request.worldKey ?? null, nameEffectiveFromYear: request.nameEffectiveFromYear ?? request.createdYear, context: request.context ?? null }));
     const promptText = `Create one original, historically plausible name for every pending entity ID from its immutable creation-time context. Do not select from word buckets, combine morphemes, use simulator templates, or construct local fallbacks. Labels are non-causal.\n\n${COMPARISON_AWARE_NAMING_INSTRUCTION_V5}\n\nComparison groups (world order CONCORD, SCHISM, RUIN; accepted members are reference-only):\n${JSON.stringify(groups, null, 2)}\n\nUngrouped requests:\n${JSON.stringify(ungrouped, null, 2)}\n\nReturn only this exact JSON shape with an explicit independent decision for every pending entity ID:\n${JSON.stringify(response, null, 2)}`;
-    return { schemaVersion: "echoes-v5-naming-batch-v2", batchId, runId, year, behavior: batch.behavior, items: batch.items, promptText, promptSha256: createHash("sha256").update(promptText).digest("hex"), comparisonGroupingVersion: NAMING_COMPARISON_GROUPING_VERSION_V5, comparisonGroups: groups };
-  });
+    return {
+      schemaVersion: "echoes-v5-naming-batch-v2", batchId, runId, year, barrierYear: year, behavior: batch.behavior, items: batch.items,
+      stableRequestSetDigest: stableDigest,
+      identityVersion: input.identityVersion ?? CONTENT_ADDRESSED_NAMING_IDENTITY_VERSION_V5,
+      displayOrdinal: input.displayOrdinal ?? null,
+      authorityStatus: input.authorityStatus ?? "MATERIALIZED_CONTENT_ADDRESSED_V3",
+      createdAt: input.createdAt ?? new Date().toISOString(),
+      promptText, promptSha256: createHash("sha256").update(promptText).digest("hex"), comparisonGroupingVersion: NAMING_COMPARISON_GROUPING_VERSION_V5, comparisonGroups: groups,
+    };
+}
+
+export function buildPersistedNamingBatchesV5(runId: string, requests: readonly NamingRequestV5[], maximumBatchSize = 50, allRequests: readonly NamingRequestV5[] = requests): PersistedNamingBatchV5[] {
+  const createdAt = new Date().toISOString();
+  return buildNamingBatches(requests, maximumBatchSize).map((batch, index) => buildPersistedNamingBatchV5({ runId, batch, allRequests, displayOrdinal: index, createdAt }));
+}
+
+export interface ExportedV2BatchIdentityV5 { runId: string; behavior: "BLOCKING" | "BATCHED"; year: number; ordinal: number; stableRequestSetDigest: string; }
+
+export function parseExportedV2BatchIdV5(runId: string, batchId: string): ExportedV2BatchIdentityV5 | null {
+  const prefix = `V5_NAMING_${runId}_`;
+  if (!batchId.startsWith(prefix)) return null;
+  const match = /^(BLOCKING|BATCHED)_(-?\d+)_([0-9]+)_([0-9a-f]{16})$/.exec(batchId.slice(prefix.length));
+  if (!match) return null;
+  const year = Number(match[2]);
+  const ordinal = Number(match[3]);
+  if (!Number.isSafeInteger(year) || !Number.isSafeInteger(ordinal)) return null;
+  return { runId, behavior: match[1] as ExportedV2BatchIdentityV5["behavior"], year, ordinal, stableRequestSetDigest: match[4]! };
+}
+
+export function recoverExportedV2NamingBatchV5(runId: string, allRequests: readonly NamingRequestV5[], candidate: unknown): { batch?: PersistedNamingBatchV5; errors: string[] } {
+  if (!candidate || typeof candidate !== "object") return { errors: ["V5 naming response must be an object"] };
+  const response = candidate as Partial<NamingBatchResponseV5>;
+  const identity = typeof response.batchId === "string" ? parseExportedV2BatchIdV5(runId, response.batchId) : null;
+  if (!identity) return { errors: ["batchId is neither persisted authority nor an exact exported V2 batch ID for this run"] };
+  const errors: string[] = [];
+  if (response.runId !== runId) errors.push("runId does not match the pending V5 run");
+  if (!Array.isArray(response.decisions)) errors.push("decisions must be an array");
+  if (errors.length > 0 || !Array.isArray(response.decisions)) return { errors };
+  const requestsById = new Map(allRequests.map((request) => [request.requestId, request]));
+  const decisionIds = response.decisions.map((decision) => decision?.requestId).filter((requestId): requestId is string => typeof requestId === "string");
+  const uniqueIds = new Set(decisionIds);
+  if (decisionIds.length !== response.decisions.length || uniqueIds.size !== response.decisions.length) errors.push("decisions must contain unique persisted request IDs");
+  const items: NamingRequestV5[] = [];
+  for (const decision of response.decisions) {
+    const request = decision && typeof decision === "object" && typeof decision.requestId === "string" ? requestsById.get(decision.requestId) : undefined;
+    if (!request) { errors.push(`unknown V5 naming request ${decision?.requestId ?? "UNKNOWN"}`); continue; }
+    if (request.acceptedLabel !== null) errors.push(`V5 naming request ${request.requestId} is already resolved`);
+    if (request.behavior !== identity.behavior) errors.push(`V5 naming request ${request.requestId} does not have ${identity.behavior} behavior`);
+    if (decision.entityType !== request.entityType || decision.entityId !== request.entityId) errors.push(`invalid naming decision ${request.requestId}`);
+    if (decision.nameEffectiveFromYear !== (request.nameEffectiveFromYear ?? request.createdYear)) errors.push(`nameEffectiveFromYear for ${request.requestId} must remain ${request.nameEffectiveFromYear ?? request.createdYear}`);
+    items.push(request);
+  }
+  for (const groupId of new Set(items.map((item) => item.namingComparisonGroupId).filter((id): id is string => Boolean(id)))) {
+    const unresolvedGroup = allRequests.filter((request) => request.namingComparisonGroupId === groupId && request.acceptedLabel === null && request.behavior === identity.behavior);
+    if (unresolvedGroup.some((request) => !uniqueIds.has(request.requestId))) errors.push(`comparison group ${groupId} must be accepted atomically`);
+  }
+  const ordered = orderNamingRequestsUsingV2Rules(items);
+  const digest = namingRequestSetDigestV5(ordered);
+  if (digest !== identity.stableRequestSetDigest) errors.push(`exported V2 request-set digest ${digest} does not match ${identity.stableRequestSetDigest}`);
+  const year = ordered.length > 0 ? Math.max(...ordered.map((request) => request.createdYear)) : Number.NaN;
+  if (year !== identity.year) errors.push(`exported V2 barrier year ${identity.year} does not match request year ${year}`);
+  if (errors.length > 0) return { errors };
+  return {
+    errors: [],
+    batch: buildPersistedNamingBatchV5({
+      runId,
+      batch: { behavior: identity.behavior, items: ordered },
+      allRequests,
+      batchId: response.batchId!,
+      displayOrdinal: identity.ordinal,
+      authorityStatus: "RECOVERED_EXPORTED_V2_BATCH",
+      identityVersion: "echoes-v5-naming-indexed-v2",
+    }),
+  };
 }
 
 export function buildBlockingNamingBatchV5(runId: string, requests: readonly NamingRequestV5[]): PersistedNamingBatchV5 | null {

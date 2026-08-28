@@ -12,6 +12,7 @@ import {
   DEFAULT_NAMING_BEHAVIOR_V5,
   assertLiteralAutomaticReuseV5,
   buildPersistedNamingBatchesV5,
+  recoverExportedV2NamingBatchV5,
   validateAcceptedLabelProvenanceV5,
   validateNamingBatchResponseV5,
 } from "../../src/core/v5/naming.js";
@@ -65,10 +66,26 @@ describe("V5 naming integrity", () => {
     expect(batches[0]!.items).toHaveLength(3);
     expect(batches[0]!.promptText).toContain(COMPARISON_AWARE_NAMING_INSTRUCTION_V5);
     expect(batches[0]!.comparisonGroups[0]?.members.map((member) => member.worldKey)).toEqual(["CONCORD", "SCHISM", "RUIN"]);
+    expect(batches[0]!.batchId).toBe(`V5_NAMING_RUN_BATCHED_12_${batches[0]!.stableRequestSetDigest}`);
+    expect(batches[0]!.batchId).not.toContain("_0_0_");
     const blocking = buildPersistedNamingBatchesV5("RUN", [...grouped, { ...request("CONCORD", "BLOCKER", "BLOCKING"), namingComparisonGroupId: null, comparisonAuthorityRef: null }], 50);
     expect(blocking).toHaveLength(1);
     expect(blocking[0]!.behavior).toBe("BLOCKING");
     expect(blocking[0]!.items.every((item) => item.behavior === "BLOCKING")).toBe(true);
+  });
+
+  it("recovers an exact exported indexed V2 identity from content proof without trusting its ordinal", () => {
+    const requests = [request("CONCORD", "SITE-1"), request("SCHISM", "SITE-1"), request("RUIN", "SITE-1")];
+    const current = buildPersistedNamingBatchesV5("RUN_WITH_UNDERSCORES", requests, 50)[0]!;
+    const legacyBatchId = `V5_NAMING_RUN_WITH_UNDERSCORES_BATCHED_12_71_${current.stableRequestSetDigest}`;
+    const response = { schemaVersion: "echoes-v5-naming-batch-response-v2", batchId: legacyBatchId, runId: "RUN_WITH_UNDERSCORES", decisions: current.items.map((item) => ({ requestId: item.requestId, entityType: item.entityType, entityId: item.entityId, label: `Owner ${item.worldKey}`, nameEffectiveFromYear: 12 })) };
+    const recovered = recoverExportedV2NamingBatchV5("RUN_WITH_UNDERSCORES", requests, response);
+    expect(recovered.errors).toEqual([]);
+    expect(recovered.batch).toMatchObject({ batchId: legacyBatchId, displayOrdinal: 71, stableRequestSetDigest: current.stableRequestSetDigest, authorityStatus: "RECOVERED_EXPORTED_V2_BATCH", identityVersion: "echoes-v5-naming-indexed-v2" });
+    const incomplete = { ...response, decisions: response.decisions.slice(0, 2) };
+    expect(recoverExportedV2NamingBatchV5("RUN_WITH_UNDERSCORES", requests, incomplete).errors.join(" ")).toMatch(/comparison group|digest/);
+    const falseDigest = { ...response, batchId: legacyBatchId.replace(current.stableRequestSetDigest, "0000000000000000") };
+    expect(recoverExportedV2NamingBatchV5("RUN_WITH_UNDERSCORES", requests, falseDigest).errors.join(" ")).toMatch(/digest/);
   });
 
   it("requires one independent LLM response decision per counterpart and never fills equal contexts locally", () => {

@@ -1,6 +1,7 @@
 import type { CanonicalDataV5, CausalOwnerInputsV1, MechanicsVariablesV1, SiteAuthorityV5 } from "./config.js";
 import { divideRoundedAway, factionCompatibility, largestRemainder, normalizeFactionVector, normalizedVectorWeightedMean, populationWeightedScore, ratioScore, weightedMean } from "./fixed-point.js";
 import { breedFactionVector, dominantFaction } from "./faction.js";
+import { officeTermActiveAt } from "./office-term.js";
 import type { ClassDistribution, CohortCell, DerivedMetricsV1, FactionVector, Score1000, SettlementV5, SocialClass, SocialTier, WorldStateV5 } from "./types.js";
 
 export function cellPopulation(cell: CohortCell): bigint {
@@ -146,7 +147,7 @@ function buildInstitutionControlIndexes(state: WorldStateV5, canonical: Canonica
   }
   return {
     institutionIdsByState,
-    officeTerms: new Map(state.officeTerms.filter((term) => term.endYear === null && term.startYear <= state.year).map((term) => [term.officeId, term])),
+    officeTerms: new Map(state.officeTerms.filter((term) => officeTermActiveAt(term, state.year)).map((term) => [term.officeId, term])),
     families: new Map(state.families.map((family) => [family.familyId, family])),
     people: new Map(state.politicalPeople.map((person) => [person.personId, person])),
     breeds: new Map(canonical.breeds.map((breed) => [breed.breedId, breed])),

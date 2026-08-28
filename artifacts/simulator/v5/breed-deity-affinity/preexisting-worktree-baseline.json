@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "echoes-preexisting-worktree-baseline-v1",
+  "capturedAt": "2026-08-28T07:08:55.914Z",
+  "repositoryRoot": "/home/bobby/echoes-simulator",
+  "headCommit": "eec441cdba82f0344ee4ca177f80384627b6faf9",
+  "branch": "main",
+  "origin": "git@github.com:bkalaf/echoes-simulator.git",
+  "dirtyPathCount": 73,
+  "dirtyPaths": [
+    {
+      "path": "artifacts/simulator/v5/remediation/causal-replay-and-legacy-nonmutation.json",
+      "sha256": "e33db832a6c43beb9acfa528d1d477a9a2b61cb082bd540a8cdeccf83dd748f1"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/founding-wave-authority-audit.md",
+      "sha256": "af71709292bf9969f97601b714950c9596199ebdfcd21ce5d987c5541be29ad6"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/founding-wave-site-selection.json",
+      "sha256": "adb206231dd2a5776ccd81cfff190b12dc4496dfc8009e50dd23f66421d830f1"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/legacy-run-causal-defect-report.md",
+      "sha256": "5aa22886ce93a2181324f8fd7d97ae38857b40fc5db5d44a3eb25849d45239fc"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/migration-one-field-lattice.json",
+      "sha256": "30431f21cacd1ccab94f621564912bf28d74f387cdeead3f4ea22d58c5509cf2"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/migration-parameter-sweep.json",
+      "sha256": "ac562ed0184aef8599b259242d9e68fb3d60c6a7bdad1fa46fcca3e18b42e52c"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/migration-viability-after.json",
+      "sha256": "d8af5ef31b6329cb6a48313a15b14abb4c76e262bda3e1c8ca971a586b5e799e"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/migration-viability-before.json",
+      "sha256": "a63828c57c5bd512b8c5916342c6a6254037da1d3654a347b836d7568db517a1"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/naming-pipeline-audit.json",
+      "sha256": "f6a4b82aaa24e1ad6dde7e5257b4a1cdabca99a11c131cffddbc6f7baf526a60"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/prompt01-acceptance.json",
+      "sha256": "14fcf85d413891269f378c74ceebefef473069f7f0f65fb96c078bb3974e89ea"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/regional-5-to-7-density-report.json",
+      "sha256": "a559693ce850c2d3d28505bd04032dde55a003eee9012c7d3aa04ae5ea5e1218"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/route-classification-worksheet-data.json",
+      "sha256": "a3efbf2fb2be9267454fa9645d4ee018343a650657a422fd5dd4340f16af0776"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/route-classification-worksheet.csv",
+      "sha256": "c042c553724cf9862033941ca0a946c672973cabcc521b90e594271bb306dc81"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/route-classification-worksheet.md",
+      "sha256": "76b22e996263a5f6071832c8224de0dfe12eeeb3496e99d41d06592472c0b109"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/route-classification-worksheet.xlsx",
+      "sha256": "99b3698873c2fec5788a9ac05effa4e1bace3552d55700ceb279e05caef92624"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/route-classification-worksheet.xlsx.inspect.ndjson",
+      "sha256": "1c91cf583a867875516b7c41fc8505b4219893c20ae0d99fae6c127bad1bd706"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/year-100-corrected-acceptance.json",
+      "sha256": "3354251b836ad433817c334109eabf9735bc56dd7b697e8267ff75e964c653bc"
+    },
+    {
+      "path": "artifacts/simulator/v5/remediation/year-200-founding-wave-acceptance.json",
+      "sha256": "f939fb873f26a5458f9071a96b469970cf673ff5de25fbad26677dd16de7c445"
+    },
+    {
+      "path": "electron/main.ts",
+      "sha256": "eace05d8c1a544ad4c3065c0191754ea22915c37865b6c14c8c5897de4777ee2"
+    },
+    {
+      "path": "outputs/01a04453-9e3a-7642-869d-d85bd25e2392/route-classification-worksheet.xlsx",
+      "sha256": "99b3698873c2fec5788a9ac05effa4e1bace3552d55700ceb279e05caef92624"
+    },
+    {
+      "path": "outputs/01a04453-9e3a-7642-869d-d85bd25e2392/route-classification-worksheet.xlsx.inspect.ndjson",
+      "sha256": "1c91cf583a867875516b7c41fc8505b4219893c20ae0d99fae6c127bad1bd706"
+    },
+    {
+      "path": "package.json",
+      "sha256": "99d9a77077866b6b215edb6c422d31e393ec841ba5f32e314043489e1890f6ce"
+    },
+    {
+      "path": "resources/canonical/atlas/pois_by_site_naming.csv",
+      "sha256": "6f690ef98bd7172b011da20890d71a8bfeea5dc685de6a0474d6d64cc826f0fa"
+    },
+    {
+      "path": "resources/canonical/atlas/site_poi_naming_rollup.csv",
+      "sha256": "2bb69a91c856cf46034a193a35205166edf94819f1c4a8f82714db5c60b4f4b2"
+    },
+    {
+      "path": "resources/canonical/atlas/sites_naming_master.csv",
+      "sha256": "74500dc9a469c6ed9abb679bf48fbbfa84f86050446d062d369ca5adcc3c08c5"
+    },
+    {
+      "path": "resources/canonical/canonical_bundle_manifest.json",
+      "sha256": "31901edb398c7d7773a1faa69d2585b2a53bff6ec4ae32200cb1c907f9bb7a11"
+    },
+    {
+      "path": "resources/canonical/integrity/checksums.sha256",
+      "sha256": "96a6f8122f792b0ead7f241dd174314055e1e1d9f0a2634dcff5aed36f4a7ffb"
+    },
+    {
+      "path": "resources/canonical/policies/continent_name_authority.json",
+      "sha256": "9e2bf3074ed970fd45f11279377b3640044ac88d680e7f4fde489b6d30f3892b"
+    },
+    {
+      "path": "resources/noncausal/route-classification/route-classification-authority-v1.json",
+      "sha256": "c47a5df95afb6d9b2c75998b2d3ccca7a6b8719cef51f5d5c1885fb10a1e227d"
+    },
+    {
+      "path": "src/core/v5/bootstrap.ts",
+      "sha256": "3aa14e2081f3f13e1269fc12be441ff61bda34f44377d507d9cf4b730b5ecc1a"
+    },
+    {
+      "path": "src/core/v5/canonical-adapter.ts",
+      "sha256": "d43072c4acd4aed569cd96a9dd77cbcd3ec5155777d0cbbe91db5a09459f2be0"
+    },
+    {
+      "path": "src/core/v5/chambers.ts",
+      "sha256": "b4f74820ae38f4117187c60c95665ab3b71f255b5abd53c66541b0dd03d97ebe"
+    },
+    {
+      "path": "src/core/v5/config.ts",
+      "sha256": "c65d03cd3e104a57177623ce21637d6c6e8449dad181cbae6933ad48d596c099"
+    },
+    {
+      "path": "src/core/v5/derivations.ts",
+      "sha256": "4f151212d70343e211b5be4665d83a0ec439df7ee36c609a8e9f39386099e94e"
+    },
+    {
+      "path": "src/core/v5/diagnostics.ts",
+      "sha256": "51c108d942d24851a27121776f1685d123d692f31f6d2f05bbe245db1793d4cc"
+    },
+    {
+      "path": "src/core/v5/effects.ts",
+      "sha256": "b6fdefd9f7353d2bd1aa1c5c2e3f5f33642e3cf85a83003baedfd9cbf351cf35"
+    },
+    {
+      "path": "src/core/v5/engine.ts",
+      "sha256": "beeeb1e201d944c4000909edfd9903708351b4920bf63ecdedcc826dbe13ac1e"
+    },
+    {
+      "path": "src/core/v5/historical-diagnostics.ts",
+      "sha256": "79e3b8ff1c4a4c76344c8404f79c9558ff84adac60ff6435373295df9b6f1ddc"
+    },
+    {
+      "path": "src/core/v5/migration.ts",
+      "sha256": "aa4778174394db66845b1c30f0f2ea3c564737af2403ce6a4a26dbc4dc539911"
+    },
+    {
+      "path": "src/core/v5/naming-geography.ts",
+      "sha256": "a3f5e8a33644caa699714800e9eb56e8438a81f8bbd96198ad39c99c91b8feae"
+    },
+    {
+      "path": "src/core/v5/naming.ts",
+      "sha256": "cda5a3ae4ba618eb83ebd9ef753d2dac8f550d60530901d931b55f4939eb4f1c"
+    },
+    {
+      "path": "src/core/v5/office-term.ts",
+      "sha256": "c41a931c2e88c34b02c3077e8d71b063a9f7b15d2109de94ae310b765f5aa7d2"
+    },
+    {
+      "path": "src/core/v5/persistence.ts",
+      "sha256": "67af28a4b9a6e007019360d7647b5aa1979569dafdc1e30225834f642403710c"
+    },
+    {
+      "path": "src/core/v5/politics.ts",
+      "sha256": "67a89b2f088c81b41c2619b76efe3d2ab471aed499ad51e65633ace4cca540f3"
+    },
+    {
+      "path": "src/core/v5/read-model.ts",
+      "sha256": "40daef5e6937b70cb02c9a1f66db87ab9c10f79fdff8efe0bfb524fb39acbe1e"
+    },
+    {
+      "path": "src/core/v5/route-classification.ts",
+      "sha256": "ad872be7991adb8f9939c6371e4c6c225c8684daea2c0cfd6dc5569e1719cf08"
+    },
+    {
+      "path": "src/core/v5/routes.ts",
+      "sha256": "3f9c2a222d779d741d9ef4c9be16ce2fd647591eaf499596d0442a2c2bb3a53b"
+    },
+    {
+      "path": "src/core/v5/schedule.ts",
+      "sha256": "4dc0f07995f872ab7e196b0857ff6b071b3991c71b5380313641c0affbc27d39"
+    },
+    {
+      "path": "src/core/v5/service.ts",
+      "sha256": "ab4ab86af6f3f9373ababc851c3c56221e669d82398c332e9ae510d76d29629f"
+    },
+    {
+      "path": "src/core/v5/society.ts",
+      "sha256": "e59ab3f16083170edc9f7780a73ca873e5768dfb2a7cc9a66738859109b5532b"
+    },
+    {
+      "path": "src/core/v5/types.ts",
+      "sha256": "2ba7d2e1d11c9ecd1708766080b4c4e1b00199beae31a2be2bbe3918673db557"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "e1da06036dbed965f592ebeace83275ce39f4f1376c12a3c1f78d48d048d1041"
+    },
+    {
+      "path": "src/persistence/sqlite-store.ts",
+      "sha256": "128ef8b8aec32630322e8871e3002ca4abade46fa42963a84e57a28b74ebde36"
+    },
+    {
+      "path": "src/scripts/accept-v5-prompt00.ts",
+      "sha256": "e52701d24e037f389c048d91dd7cbcff23efb121278499c03d521a5626cc62ef"
+    },
+    {
+      "path": "src/scripts/accept-v5-prompt01.ts",
+      "sha256": "f7d62f7cc0769304b4d633341b8d2c1f137e0ee6698251c78578fef53c2c06b3"
+    },
+    {
+      "path": "src/scripts/accept-v5-route-classifications.ts",
+      "sha256": "8eb32482665d1d7c3cf7aeb8f9587a1d75e3742fd1f0bae66524c1c7be024740"
+    },
+    {
+      "path": "src/scripts/benchmark-v5.ts",
+      "sha256": "9b0b90dfc3c88d0658ee5ba41e42b97744274500adb30bce9a9bf92c3d24c927"
+    },
+    {
+      "path": "src/scripts/calibrate-v5-growth.ts",
+      "sha256": "b5c88aeb12285255f583edf071d3d0fd914f2f7b0accbad64c7828d26fedc32b"
+    },
+    {
+      "path": "src/scripts/generate-v5-route-worksheet.ts",
+      "sha256": "b127066defbff9ca2b4580b2882086061d8fdfbce734be824aefc2c94ea926a1"
+    },
+    {
+      "path": "src/scripts/recover-v5-exported-naming-batches.ts",
+      "sha256": "135964fbb655dce6622de6b74a315d63e0e31a86ae4c438f71b6d9083a61682c"
+    },
+    {
+      "path": "src/scripts/sweep-v5-migration-one-field.ts",
+      "sha256": "0c8ea113f4c8af047ce24ed70a69ac62fb438ac5d6333d65d41f0c58ad3f425d"
+    },
+    {
+      "path": "src/scripts/sync-v5-route-classification-naming.ts",
+      "sha256": "6db42ba6ed3bc6c0c19f8c8e36c671e18bac2ec6f798790c945257916e0a3673"
+    },
+    {
+      "path": "src/scripts/validate-v5-migration-long-horizon.ts",
+      "sha256": "84ad474929b3ae0f80acec675cf1c2959dedd131dfca95784b76a5daf380d2e0"
+    },
+    {
+      "path": "src/ui/atlas-view.tsx",
+      "sha256": "6a683821af5d1759f86a51fd2ae77c1406ebd2bb1ebdb36838cbdbba6f78b02c"
+    },
+    {
+      "path": "src/ui/breed-detail.tsx",
+      "sha256": "c1770672cdfce2e3ee3d8a720df23d164b255fd8b5be84421d35947557c774a2"
+    },
+    {
+      "path": "src/ui/routes-view.tsx",
+      "sha256": "784ac8859b4a752a40d3a8906561f2985c011683cfc685f1e8fd1a1e39719556"
+    },
+    {
+      "path": "src/ui/v5-operator-views.tsx",
+      "sha256": "a03cc34b84eebee7429320136eb3e7807c47008410484ac7a1a763f349f48ea8"
+    },
+    {
+      "path": "tests/e2e/electron-shell.spec.ts",
+      "sha256": "ab6916bbc41a82547de07d85db0944e16c80ab78a5f7ab74adc92a5f6eff83e4"
+    },
+    {
+      "path": "tests/integration/v5-persistence.test.ts",
+      "sha256": "72a6ed9f9ce483ca6f6b96ad0e6172ffba3abdb151975c65f349bfad08555b9a"
+    },
+    {
+      "path": "tests/unit/v5-architecture.test.ts",
+      "sha256": "6d7a9400ad6fd2a1134669ae1915391ef8fe6083d2712cd8ce529bfd10d6c6fe"
+    },
+    {
+      "path": "tests/unit/v5-naming-integrity.test.ts",
+      "sha256": "cfad07e6b340b1115de7c0a6f11f89add3c98dec20c14f4db5013f8d064c8508"
+    },
+    {
+      "path": "tests/unit/v5-prompt00.test.ts",
+      "sha256": "690ced13f37bfe196f67857deefbd032f19b4a9cf5d938e7f1da842a84d8f217"
+    },
+    {
+      "path": "tests/unit/v5-prompt01.test.ts",
+      "sha256": "8d33cad8ea5fdfcaec2b590670c1c3be570111169bc8dd0e874315865f9ac5d0"
+    }
+  ],
+  "porcelainStatus": [
+    "M artifacts/simulator/v5/remediation/causal-replay-and-legacy-nonmutation.json",
+    " M artifacts/simulator/v5/remediation/naming-pipeline-audit.json",
+    " M artifacts/simulator/v5/remediation/route-classification-worksheet.csv",
+    " M artifacts/simulator/v5/remediation/route-classification-worksheet.md",
+    " M artifacts/simulator/v5/remediation/route-classification-worksheet.xlsx",
+    " M artifacts/simulator/v5/remediation/route-classification-worksheet.xlsx.inspect.ndjson",
+    " M electron/main.ts",
+    " M package.json",
+    " M resources/canonical/atlas/pois_by_site_naming.csv",
+    " M resources/canonical/atlas/site_poi_naming_rollup.csv",
+    " M resources/canonical/atlas/sites_naming_master.csv",
+    " M resources/canonical/canonical_bundle_manifest.json",
+    " M resources/canonical/integrity/checksums.sha256",
+    " M src/core/v5/bootstrap.ts",
+    " M src/core/v5/canonical-adapter.ts",
+    " M src/core/v5/config.ts",
+    " M src/core/v5/derivations.ts",
+    " M src/core/v5/diagnostics.ts",
+    " M src/core/v5/effects.ts",
+    " M src/core/v5/engine.ts",
+    " M src/core/v5/historical-diagnostics.ts",
+    " M src/core/v5/migration.ts",
+    " M src/core/v5/naming-geography.ts",
+    " M src/core/v5/naming.ts",
+    " M src/core/v5/persistence.ts",
+    " M src/core/v5/politics.ts",
+    " M src/core/v5/read-model.ts",
+    " M src/core/v5/routes.ts",
+    " M src/core/v5/schedule.ts",
+    " M src/core/v5/service.ts",
+    " M src/core/v5/society.ts",
+    " M src/core/v5/types.ts",
+    " M src/main.tsx",
+    " M src/persistence/sqlite-store.ts",
+    " M src/scripts/benchmark-v5.ts",
+    " M src/scripts/calibrate-v5-growth.ts",
+    " M src/scripts/generate-v5-route-worksheet.ts",
+    " M src/ui/atlas-view.tsx",
+    " M src/ui/breed-detail.tsx",
+    " M src/ui/routes-view.tsx",
+    " M src/ui/v5-operator-views.tsx",
+    " M tests/e2e/electron-shell.spec.ts",
+    " M tests/integration/v5-persistence.test.ts",
+    " M tests/unit/v5-architecture.test.ts",
+    " M tests/unit/v5-naming-integrity.test.ts",
+    "?? artifacts/simulator/v5/remediation/founding-wave-authority-audit.md",
+    "?? artifacts/simulator/v5/remediation/founding-wave-site-selection.json",
+    "?? artifacts/simulator/v5/remediation/legacy-run-causal-defect-report.md",
+    "?? artifacts/simulator/v5/remediation/migration-one-field-lattice.json",
+    "?? artifacts/simulator/v5/remediation/migration-parameter-sweep.json",
+    "?? artifacts/simulator/v5/remediation/migration-viability-after.json",
+    "?? artifacts/simulator/v5/remediation/migration-viability-before.json",
+    "?? artifacts/simulator/v5/remediation/prompt01-acceptance.json",
+    "?? artifacts/simulator/v5/remediation/regional-5-to-7-density-report.json",
+    "?? artifacts/simulator/v5/remediation/route-classification-worksheet-data.json",
+    "?? artifacts/simulator/v5/remediation/year-100-corrected-acceptance.json",
+    "?? artifacts/simulator/v5/remediation/year-200-founding-wave-acceptance.json",
+    "?? outputs/01a04453-9e3a-7642-869d-d85bd25e2392/route-classification-worksheet.xlsx",
+    "?? outputs/01a04453-9e3a-7642-869d-d85bd25e2392/route-classification-worksheet.xlsx.inspect.ndjson",
+    "?? resources/canonical/policies/continent_name_authority.json",
+    "?? resources/noncausal/route-classification/route-classification-authority-v1.json",
+    "?? src/core/v5/chambers.ts",
+    "?? src/core/v5/office-term.ts",
+    "?? src/core/v5/route-classification.ts",
+    "?? src/scripts/accept-v5-prompt00.ts",
+    "?? src/scripts/accept-v5-prompt01.ts",
+    "?? src/scripts/accept-v5-route-classifications.ts",
+    "?? src/scripts/recover-v5-exported-naming-batches.ts",
+    "?? src/scripts/sweep-v5-migration-one-field.ts",
+    "?? src/scripts/sync-v5-route-classification-naming.ts",
+    "?? src/scripts/validate-v5-migration-long-horizon.ts",
+    "?? tests/unit/v5-prompt00.test.ts",
+    "?? tests/unit/v5-prompt01.test.ts"
+  ],
+  "intendedNewPathPrefixes": [
+    "artifacts/simulator/v5/breed-deity-affinity/",
+    "resources/noncausal/breed-deity-affinity/",
+    "src/core/research/breed-deity-affinity.ts",
+    "src/scripts/classify-breed-deity-affinity.ts",
+    "tests/unit/breed-deity-affinity.test.ts"
+  ]
+}

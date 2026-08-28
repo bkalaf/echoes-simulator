@@ -21,7 +21,7 @@ import { buildReadModelV1 } from "../../src/core/v5/read-model.js";
 import { buildScheduledTransactionsV5, DJT_POLICY_KEY_V5 } from "../../src/core/v5/schedule.js";
 import { continueV5History, runV5History } from "../../src/core/v5/runner.js";
 
-const government = (id: string, faction: "CONCORD" | "SCHISM" | "RUIN") => ({ governmentFormId: id, doctrineVector: { CONCORD: faction === "CONCORD" ? 1000 : 0, SCHISM: faction === "SCHISM" ? 1000 : 0, RUIN: faction === "RUIN" ? 1000 : 0 }, administrationMode: faction, legitimacyBasis: faction, authoritySource: faction, franchiseBreadth: 500, requiredInstitutions: [] });
+const government = (id: string, faction: "CONCORD" | "SCHISM" | "RUIN") => ({ governmentFormId: id, doctrineVector: { CONCORD: faction === "CONCORD" ? 1000 : 0, SCHISM: faction === "SCHISM" ? 1000 : 0, RUIN: faction === "RUIN" ? 1000 : 0 }, administrationMode: faction, legitimacyBasis: faction, authoritySource: faction, franchiseBreadth: 500, requiredInstitutions: [{ institutionType: "GOVERNMENT", offices: [{ jurisdictionSettlementId: null, titleKey: "RULER", power: 1000, mandatory: true, apex: true, termYears: null, selectionRule: { selectionMethod: "RULER_APPOINTMENT" as const, scope: "STATE" as const, requiresTrackedLineage: false, eligibleTiers: ["HIGH" as const, "MID" as const], minimumFactionCompatibility: 0, stochasticTies: false, scoreWeights: { factionFit: 3500, classFit: 1000, localSupport: 3000, lineageFit: 1500, ruleSpecificFit: 1000 } } }] }] });
 const canonical: CanonicalDataV5 = {
   schemaVersion: "echoes-canonical-data-v5", canonicalBundleHash: "fixture-canonical",
   breeds: [
@@ -300,11 +300,11 @@ describe("V5 annual scheduler", () => {
   });
 
   it("builds DJT only from explicit causal owner policy and continues identically from a checkpoint", () => {
-    expect(buildScheduledTransactionsV5(canonical, owner).CONCORD).toEqual([]);
+    expect(buildScheduledTransactionsV5(canonical, owner, seed).CONCORD).toEqual([]);
     const withDjt = { ...owner, canonicalPolicies: { [DJT_POLICY_KEY_V5]: { schemaVersion: "echoes-djt-owner-policy-v5", eventId: "DJT", year: 10, r10SiteId: "SITE_R10", innerwoodStateIdByWorld: { CONCORD: "STATE_CONCORD_R10", SCHISM: "STATE_SCHISM_R10", RUIN: "STATE_RUIN_R10" }, quarantineYears: 5 } } };
     const canonicalWithR10 = { ...canonical, sites: [...canonical.sites, { siteId: "SITE_R10", regionId: "R10", regionName: "Innerwood", latitude: 3, longitude: 3, terrainBroad: ["FOREST"], terrainSpecific: ["WOODLAND"], quality: 500 }] };
     const allWorldCanonical = { ...canonicalWithR10, sovereigns: { ...canonical.sovereigns, RUIN: { ...canonical.sovereigns.RUIN, seizureTargetSiteId: "SITE_1" } }, initialSettlements: (["CONCORD", "SCHISM", "RUIN"] as const).flatMap((worldKey) => canonical.initialSettlements.map((row) => ({ ...row, worldKey, settlementId: `${row.settlementId}_${worldKey}`, stateId: `${row.stateId}_${worldKey}` }))) };
-    expect(buildScheduledTransactionsV5(allWorldCanonical, withDjt).CONCORD[0]).toMatchObject({ type: "DJT", year: 10 });
+    expect(buildScheduledTransactionsV5(allWorldCanonical, withDjt, seed).CONCORD[0]).toMatchObject({ type: "DJT", year: 10 });
     const full = runV5History({ canonical: allWorldCanonical, ownerInputs: owner, mechanics, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, normalizedSeed: seed, mode: "DIAGNOSTIC", throughYear: 6, stopAtBlockingNaming: false });
     const first = runV5History({ canonical: allWorldCanonical, ownerInputs: owner, mechanics, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, normalizedSeed: seed, mode: "DIAGNOSTIC", throughYear: 5, stopAtBlockingNaming: false });
     const resumed = continueV5History({ canonical: allWorldCanonical, ownerInputs: owner, mechanics, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, normalizedSeed: seed, mode: "DIAGNOSTIC", throughYear: 6, initialStates: first.states, stopAtBlockingNaming: false });

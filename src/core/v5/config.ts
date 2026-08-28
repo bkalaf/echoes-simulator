@@ -3,11 +3,11 @@ import { canonicalJson } from "../serialization/canonical-json.js";
 import type { BasisPoints, GovernmentFormId, Score1000, SocialClass, SocialTier, WorldKey } from "./types.js";
 import type { ShockDefinitionV5 } from "./effects.js";
 
-export const V5_MECHANICS_VERSION = "echoes-mechanics-v5.1.0";
+export const V5_MECHANICS_VERSION = "echoes-mechanics-v5.3.0";
 export const V5_CAUSAL_DERIVATION_VERSION = "echoes-derived-metrics-v1.1.0";
-export const V5_SCHEDULER_VERSION = "echoes-scheduler-v5.1.0";
+export const V5_SCHEDULER_VERSION = "echoes-scheduler-v5.3.0";
 export const V5_DURABLE_SCHEMA_VERSION = "echoes-world-state-v5";
-export const V5_READ_MODEL_VERSION = "echoes-read-model-v1";
+export const V5_READ_MODEL_VERSION = "echoes-read-model-v1.1.0";
 
 export interface MechanicsVariablesV1 {
   schemaVersion: "echoes-mechanics-variables-v1";
@@ -126,7 +126,7 @@ export const DEFAULT_MECHANICS_VARIABLES_V1: MechanicsVariablesV1 = {
   growthNonAlignmentDeductionPpm: 200,
   structuralReviewIntervalYears: 5,
   migrationReviewIntervalYears: 5,
-  migrationPushThreshold: 300,
+  migrationPushThreshold: 200,
   migrationPushWeights: { factionMismatch: 4000, economicDisadvantage: 3500, unrest: 2500 },
   migrationMaximumOutflowBps: 500,
   migrationMaximumHops: 3,
@@ -485,5 +485,13 @@ export interface CanonicalDataV5 {
   initialSettlements: readonly { worldKey: WorldKey; settlementId: string; siteId: string; stateId: string; governmentFormId: string; populationWeight?: bigint }[];
   canonicalLabels: Record<string, string>;
   canonicalLabelAuthority?: Record<string, string>;
-  canonicalEvents: readonly { eventId: string; year: number; eventType: string; payload: Record<string, unknown> }[];
+  canonicalEvents: readonly {
+    eventId: string;
+    year: number;
+    nominalYear?: number;
+    jitter?: boolean;
+    eventType: string;
+    label?: string;
+    payload: Record<string, unknown>;
+  }[];
 }

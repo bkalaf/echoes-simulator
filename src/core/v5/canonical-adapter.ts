@@ -83,10 +83,22 @@ interface SovereignRow {
 interface SharedEventRow {
   eventKey: string;
   nominalYear: number;
+  jitter: boolean;
   kind: string;
   label: string;
   blocker?: string;
   warning?: string;
+}
+
+interface ContinentNameAuthorityV1 {
+  schemaVersion: "echoes-continent-name-authority-v1";
+  authorityVersion: string;
+  continents: {
+    continentId: string;
+    officialName: string;
+    directionalAliases: string[];
+    regionIds: string[];
+  }[];
 }
 
 function member(archive: ReturnType<typeof openValidatedZip>, name: string): Uint8Array {
@@ -170,6 +182,13 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
     contentSha256: string;
   };
   if (!manifest.buildReady || !manifest.contentSha256) throw new Error("V5 requires a build-ready canonical bundle with a content hash");
+  const continentAuthority = JSON.parse(readFileSync(resolve(canonicalDirectory, "policies/continent_name_authority.json"), "utf8")) as ContinentNameAuthorityV1;
+  if (continentAuthority.schemaVersion !== "echoes-continent-name-authority-v1" || !continentAuthority.authorityVersion) throw new Error("V5 continent-name authority is absent or invalid");
+  const officialContinentByRegion = new Map<string, string>();
+  for (const continent of continentAuthority.continents) for (const regionId of continent.regionIds) {
+    if (officialContinentByRegion.has(regionId)) throw new Error(`Region ${regionId} has duplicate continent-name authority`);
+    officialContinentByRegion.set(regionId, continent.officialName);
+  }
   const archive = openValidatedZip(resolve(canonicalDirectory, "breeds", manifest.breedSemanticFilename));
   const identities = parseJsonLines(member(archive, "canonical_breed_identities.jsonl")) as IdentityRow[];
   const effective = parseJsonLines(member(archive, "effective_breed_semantics.jsonl")) as unknown as CanonicalEffectiveBreedSemantics[];
@@ -194,6 +213,11 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
   // V5 founding may use any canonical Site. `founding_sites.csv` describes the
   // occupied year-0 subset; the Site authority is the complete naming master.
   const siteRows = parseCsvFile(resolve(canonicalDirectory, "atlas/sites_naming_master.csv")) as SiteRow[];
+  for (const row of siteRows) {
+    const officialName = officialContinentByRegion.get(row.regionId);
+    if (!officialName) throw new Error(`Site ${row.siteId} Region ${row.regionId} lacks continent-name authority`);
+    if (row.continent !== officialName) throw new Error(`Site ${row.siteId} uses continent ${row.continent}; expected ${officialName}`);
+  }
   const maximumSiteTier = Math.max(...siteRows.map((row) => Number.parseInt(row.attractivenessTier, 10)).filter(Number.isFinite));
   const sites = siteRows.map((row) => ({
     siteId: row.siteId,
@@ -271,7 +295,12 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
   const politicalRows = (JSON.parse(readFileSync(resolve(canonicalDirectory, "reference/political_form_mapping.json"), "utf8")) as { rows: PoliticalFormRow[] }).rows;
   const economicForms = (JSON.parse(readFileSync(resolve(canonicalDirectory, "reference/economic_form_mapping.json"), "utf8")) as { rows: EconomicFormRow[] }).rows
     .map((row) => ({ ...row })).sort((a, b) => a.economicForm.localeCompare(b.economicForm));
-  const physicalPois = (parseCsvFile(resolve(canonicalDirectory, "atlas/pois_by_site_naming.csv")) as PoiRow[]).map((row) => ({
+  const poiRows = parseCsvFile(resolve(canonicalDirectory, "atlas/pois_by_site_naming.csv")) as PoiRow[];
+  for (const row of poiRows) {
+    const officialName = officialContinentByRegion.get(row.regionId);
+    if (!officialName || row.continent !== officialName) throw new Error(`POI ${row.poiId} has invalid continent authority for ${row.regionId}`);
+  }
+  const physicalPois = poiRows.map((row) => ({
     poiId: row.poiId, poiType: row.poiType, workingLabel: row.poiCurrentName || row.poiWorkingLabel || "", nameStatus: row.poiNameStatus || "WORKING",
     siteId: row.siteId, regionId: row.regionId, regionName: row.regionName, continent: row.continent || null,
     canonicalLabel: row.poiNameStatus === "CANONICAL" && row.poiCurrentName ? row.poiCurrentName : null,
@@ -292,7 +321,10 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
   const canonicalEvents = sharedEvents.map((event) => ({
     eventId: event.eventKey,
     year: event.nominalYear,
+    nominalYear: event.nominalYear,
+    jitter: event.jitter,
     eventType: event.kind,
+    label: event.label,
     payload: { label: event.label, ...(event.blocker ? { blocker: event.blocker } : {}), ...(event.warning ? { warning: event.warning } : {}) },
   }));
 

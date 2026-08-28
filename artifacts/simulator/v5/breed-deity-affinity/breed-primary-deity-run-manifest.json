@@ -1,0 +1,1602 @@
+{
+  "schemaVersion": "echoes-breed-deity-affinity-run-manifest-v1",
+  "runId": "BREED_PRIMARY_DEITY_V1_FC9FBACB173872A4",
+  "authorityId": "BREED_PRIMARY_DEITY_V1",
+  "classificationRulesVersion": "BREED_PRIMARY_DEITY_CLASSIFICATION_V1_2026-08-28",
+  "repository": {
+    "root": "/home/bobby/echoes-simulator",
+    "remote": "git@github.com:bkalaf/echoes-simulator.git",
+    "branch": "main",
+    "prohibitedRepositoryReads": [
+      "bkalaf/echoes-of-eidolon",
+      "all other Echoes repositories"
+    ]
+  },
+  "sources": [
+    {
+      "path": "resources/canonical/canonical_bundle_manifest.json",
+      "version": "V4_SIMULATION_READY_BALANCED_FACTIONS_2026-08-26",
+      "sha256": "31901edb398c7d7773a1faa69d2585b2a53bff6ec4ae32200cb1c907f9bb7a11",
+      "role": "V5 canonical authority locator and version lock"
+    },
+    {
+      "path": "resources/canonical/breeds/ECHOES_OF_EIDOLON_BREED_SEMANTICS_V4_SIMULATION_READY.zip",
+      "version": "V4",
+      "sha256": "6e259468580bf4c5e4a99e6be9e20a3144e1c639fc5a7d05d754f152bc59f7bf",
+      "role": "Canonical Breed identities, effective personalities, dimensions, and terrain"
+    },
+    {
+      "path": "resources/canonical/research-corpus/IMPORT_MANIFEST.json",
+      "version": "EIDOLON_CHAT_CLASSIFICATION_0001_6039_D8A4C62CB65E04BA",
+      "sha256": "4097359abe2f8cce7465181142f1ad4a2540ee69da832e25ea87903964808cfe",
+      "role": "Research corpus version and reconciliation authority"
+    },
+    {
+      "path": "resources/canonical/research-corpus/IMPORT_LEDGER.jsonl",
+      "version": "EIDOLON_CHAT_CLASSIFICATION_0001_6039_D8A4C62CB65E04BA",
+      "sha256": "0fc1a1e4777aa66543ab7e4a8e574c4822fec5f98bb444f8bd321e4ad512c0d2",
+      "role": "Rich Breed, Species, Culture, and Breed Group canonical evidence"
+    },
+    {
+      "path": "resources/canonical/research-corpus/source/EIDOLON_CHAT_CLASSIFICATION_ALL_RESPONSES_0001-6039_REMEDIATED_2026-08-26.zip",
+      "version": "EIDOLON_CHAT_CLASSIFICATION_0001_6039_D8A4C62CB65E04BA",
+      "sha256": "d8a4c62cb65e04ba198d9e72f160f32f7ae2191f828ddec7694e6060fb3b211e",
+      "role": "Immutable research source package provenance"
+    },
+    {
+      "path": "resources/canonical/policies/personality_expression_effective_profiles.jsonl",
+      "version": "PERSONALITY_PROFILE_DIMENSIONS_V1",
+      "sha256": "1a76dd0891fd9257e934da7a22752fd5177afa2d1f5761365d41903c38fb8900",
+      "role": "Personality family and raw-dimension interpretation"
+    }
+  ],
+  "breedAuthorityHash": "1d2acefeee6dbfdc2c9af52b07e7c8b512368a5c6238738c259703b11482be75",
+  "deityAuthoritySource": {
+    "sourceType": "NOTION_PAGE_READ_ONLY",
+    "pageId": "3b62380d-0cae-81b6-a408-fb2b08712efc",
+    "title": "Deities",
+    "url": "https://app.notion.com/p/3b62380d0cae81b6a408fb2b08712efc",
+    "lastEditedAt": "2026-08-09T06:22:00.000Z",
+    "fetchedAsOf": "2026-08-09T06:29:03.985Z",
+    "fetchedForRunOn": "2026-08-28",
+    "rules": {
+      "totalDeities": 27,
+      "deitiesPerPantheon": 9,
+      "worshipIsCrossPantheon": true,
+      "populationKindConstrainsSelection": false
+    }
+  },
+  "deityAuthorityHash": "cc63a7d6ea8ef0f28f90e57b9648d18cef67da3d5a7236c2f5074eb1552b3e5a",
+  "classifierImplementationHash": "9b0e441477fbafcc6b28a16c41f42da0690fc9fff76c4b95bad46612239e0fbe",
+  "inputDigest": "fc9fbacb173872a4e564a01c8e54432f553f5870a03dc7c5c6a53ef99a78ef76",
+  "counts": {
+    "totalBreeds": 2062,
+    "analyticalRecords": 2062,
+    "classified": 1709,
+    "reviewRequired": 353,
+    "authorityAssignments": 1709,
+    "completedBatches": 207,
+    "confidence": {
+      "VERY_HIGH": 0,
+      "HIGH": 0,
+      "MEDIUM": 6,
+      "LOW": 1703,
+      "REVIEW_REQUIRED": 353
+    }
+  },
+  "orderingRule": "Breed ID ascending (Unicode code-point order)",
+  "batchSize": 10,
+  "expectedFullBatches": 206,
+  "finalRemainder": 2,
+  "startTimestamp": "2026-08-28T07:38:58.872Z",
+  "endTimestamp": "2026-08-28T07:44:17.203Z",
+  "scoring": {
+    "axes": {
+      "PERSONALITY_ALIGNMENT": 30,
+      "BEHAVIOR_ALIGNMENT": 25,
+      "ECOLOGICAL_ALIGNMENT": 20,
+      "SYMBOLIC_ALIGNMENT": 15,
+      "CANONICAL_TEXT_SUPPORT": 10
+    },
+    "unavailableAxisPolicy": "Omit only genuinely unavailable axes and renormalize remaining weights; weak evidence remains low-scored.",
+    "confidencePolicy": "Numeric thresholds are guidance; evidence quality, directness, breadth, consistency, and separation determine final confidence."
+  },
+  "checkpointChain": {
+    "checkpointCount": 207,
+    "aggregateSha256": "bc3b8e8f2e71cd3e4c4a34652fbafa0cec087154f19175d9f03199d8977ffd78",
+    "finalCheckpointHash": "7af3ffb5788c73b12c7b982983ff44d8a8342be27a38143a109f5fcda8a42d2c",
+    "checkpoints": [
+      {
+        "batchNumber": 1,
+        "checkpointHash": "7d50cb2032c8ec051e36f6ea95b9600d2888f4da88c3d5b1fa36829e4b75bc1f",
+        "firstBreedId": "BRD_AARDVARK",
+        "lastBreedId": "BRD_AFRICAN_MANATEE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 2,
+        "checkpointHash": "87be0de7aab9525eec534530fc02345e6abbf726a11ca78f9aa98fa41ce5463d",
+        "firstBreedId": "BRD_AFRICAN_MOUND_BUILDING_TERMITE",
+        "lastBreedId": "BRD_ALLIGATOR_SNAPPING_TURTLE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 3,
+        "checkpointHash": "112535bcd50a339ff10097309f74057c49cd8b5bed9df0c8c5d578924848d79f",
+        "firstBreedId": "BRD_ALPACA",
+        "lastBreedId": "BRD_AMERICAN_ALLIGATOR",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 4,
+        "checkpointHash": "36d727a0b0ab68512aba76bed2fb939b0d00b3d9ac95fd9cd9b4ca4228a94c5c",
+        "firstBreedId": "BRD_AMERICAN_BISON",
+        "lastBreedId": "BRD_AMERICAN_PIKA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 5,
+        "checkpointHash": "93475a2bdb3717fecf2bab4088481f736fb89ef74c1d7e321eb112e7fd71982b",
+        "firstBreedId": "BRD_ANDEAN_CONDOR",
+        "lastBreedId": "BRD_ANIMATED_STATUE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 6,
+        "checkpointHash": "8e2c576aac3955b95f67f20c877acc4daed202d8bde3aed22b0406a1b79f457c",
+        "firstBreedId": "BRD_ANSER_SUBSP_DOMESTIC_GOOSE",
+        "lastBreedId": "BRD_ARCTIC_TERN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 7,
+        "checkpointHash": "185f72f4a6d5b7e1c8b4a5ad8ce284d0e7b191de5e93a3d23d5b81b4cae48561",
+        "firstBreedId": "BRD_ARCTICTIS_BINTURONG_BINTURONG",
+        "lastBreedId": "BRD_ASIAN_ELEPHANT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 8,
+        "checkpointHash": "436560c671a26c620fd1ad79c505518a23f7cef5ba7c3fc32b50519aed3aac0a",
+        "firstBreedId": "BRD_ASIAN_JUMPING_WORM",
+        "lastBreedId": "BRD_ATLANTIC_SALMON",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 9,
+        "checkpointHash": "ee2603cd1b175facffcaada8cc2aa278408c041da96d09ecb606c46fb87004eb",
+        "firstBreedId": "BRD_ATLANTIC_SAND_FIDDLER_CRAB",
+        "lastBreedId": "BRD_AZIZA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 10,
+        "checkpointHash": "654f8c2bb9c8ad9ef9b234b74924f1b45b7887f90488ba96fe245289a13f301a",
+        "firstBreedId": "BRD_BACTRIAN_CAMEL",
+        "lastBreedId": "BRD_BANDED_RUBBER_FROG",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 11,
+        "checkpointHash": "c46182353e24371ba613edb7be22fb659c90c6918eba61cfff34127df03deb2e",
+        "firstBreedId": "BRD_BANDED_SEA_KRAIT",
+        "lastBreedId": "BRD_BASKING_SHARK",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 12,
+        "checkpointHash": "a290964f624a1b856710cc64e65a540dcaad025fbf23260bd81d0470b261e572",
+        "firstBreedId": "BRD_BATELEUR",
+        "lastBreedId": "BRD_BLACK_BROWED_ALBATROSS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 13,
+        "checkpointHash": "14e30e196e7baeda3fc34c07a19641d33bb76df97ff96b4ec6d6ae9124edd192",
+        "firstBreedId": "BRD_BLACK_CAIMAN",
+        "lastBreedId": "BRD_BLACK_TAILED_PRAIRIE_DOG",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 14,
+        "checkpointHash": "c57ec7a841b3074172f19ddc26f5c07c4f6b9eeacaa6baaf4aeae211903cb77c",
+        "firstBreedId": "BRD_BLACKFIN_ICEFISH",
+        "lastBreedId": "BRD_BLUE_PETREL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 15,
+        "checkpointHash": "519a3d29c9d57026f757bf1bee8b2190e809b403d531e6824d168de8a8114a6f",
+        "firstBreedId": "BRD_BLUE_TAILED_DAMSELFLY",
+        "lastBreedId": "BRD_BOLAS_SPIDER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 16,
+        "checkpointHash": "7ab54e297c91a736ee6c66c559727979d6c793f0c2903ac7531a7e0adc133933",
+        "firstBreedId": "BRD_BOMBARDIER_BEETLE",
+        "lastBreedId": "BRD_BROADCLUB_CUTTLEFISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 17,
+        "checkpointHash": "aa8f2e827026987e4a7bf772aff5eb8be3ca6fe167715d27f22f3e9e414c11d0",
+        "firstBreedId": "BRD_BROWN_HYENA",
+        "lastBreedId": "BRD_BUDGERIGAR_ENGLISH_BUDGERIGAR",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 18,
+        "checkpointHash": "5182d21b265c3ec64c98efcbd72da9c5162489d0adebdeb2000fe2b0850e9c9d",
+        "firstBreedId": "BRD_BUFF_TAILED_BUMBLEBEE",
+        "lastBreedId": "BRD_CALIFORNIA_SEA_LION",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 19,
+        "checkpointHash": "ebb21d3e1ca81b8cf241aa9a77d6ff854244bd99db36c3b7f5d0756f46f5eee8",
+        "firstBreedId": "BRD_CALUMMA_PARSONII_PARSON_S_CHAMELEON",
+        "lastBreedId": "BRD_CAPYBARA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 20,
+        "checkpointHash": "8712f5188969cbe15ad28b842a9fdfca7427c2073ee67e53dd4660d4b5ec3c06",
+        "firstBreedId": "BRD_CARACAL",
+        "lastBreedId": "BRD_CHANNEL_BILLED_CUCKOO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 21,
+        "checkpointHash": "2ff18e587ad62b921848f0992d3a1673c22a26e9a598ae6a82652013ff15cc7b",
+        "firstBreedId": "BRD_CHANNEL_CATFISH",
+        "lastBreedId": "BRD_CHINESE_GIANT_SALAMANDER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 22,
+        "checkpointHash": "07d26020db7798834b72a784236f07105ff39f47ada37e41c534f7fe9fb8171b",
+        "firstBreedId": "BRD_CHINESE_HAMSTER",
+        "lastBreedId": "BRD_COCONUT_CRAB",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 23,
+        "checkpointHash": "41432e615ab9a5e851c114b8e67433c18c7c188f4a1eb4aa0d875ff554364e3b",
+        "firstBreedId": "BRD_COCONUT_OCTOPUS",
+        "lastBreedId": "BRD_COMMON_CUTTLEFISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 24,
+        "checkpointHash": "a8507777cbc2bd396c06381ca657ef8070732dc277a2f7a2ac315976fdc3dbf1",
+        "firstBreedId": "BRD_COMMON_DIVING_PETREL",
+        "lastBreedId": "BRD_COMMON_GREEN_DARNER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 25,
+        "checkpointHash": "aa37ca63133710f9ae5ff1152b090fe87e78993830815b34f3362091df66d959",
+        "firstBreedId": "BRD_COMMON_HIPPOPOTAMUS",
+        "lastBreedId": "BRD_COMMON_PHEASANT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 26,
+        "checkpointHash": "ad67e9eb50bb5500c88102444af2734a0ec4a79912613f7bda28d23fa01ce4bf",
+        "firstBreedId": "BRD_COMMON_PIPISTRELLE",
+        "lastBreedId": "BRD_COMMON_SPINY_RAT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 27,
+        "checkpointHash": "6fa305875b60e2c2a56a3a9175e5f0ccbe64116d6453c089cd46e36c186f4b85",
+        "firstBreedId": "BRD_COMMON_SPOTTED_CUSCUS",
+        "lastBreedId": "BRD_COMMON_WOMBAT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 28,
+        "checkpointHash": "b9b05879b7513e8aaa8879a94c6fde4323efb7fda6cbb5b4cb891389cf001cc1",
+        "firstBreedId": "BRD_CONGO_PEAFOWL",
+        "lastBreedId": "BRD_CYNOCEPHALUS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 29,
+        "checkpointHash": "402abb3aa56aa4d6d710a0db4b2f2f55eff1170667cc4635980d24722689dc41",
+        "firstBreedId": "BRD_DAEVA",
+        "lastBreedId": "BRD_DEMOISELLE_CRANE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 30,
+        "checkpointHash": "8950b80b9a51f6f7224263b72a015893550faa001e51a185a5654e43c870cbe4",
+        "firstBreedId": "BRD_DESERT_LOCUST",
+        "lastBreedId": "BRD_DISCUS_PIGEON_BLOOD_DISCUS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 31,
+        "checkpointHash": "44358a59ca32f41c0d54749700750ee5396f316994dc8ddf7a37fb8b73937d26",
+        "firstBreedId": "BRD_DIVING_BELL_SPIDER",
+        "lastBreedId": "BRD_DOMESTICATED_CAT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 32,
+        "checkpointHash": "3648ec084257f5f678ae0bc194fa5f4ff4b639349f6d4e42e610956fa3ed8550",
+        "firstBreedId": "BRD_DOMESTICATED_CAT_ABYSSINIAN",
+        "lastBreedId": "BRD_DOMESTICATED_CAT_EGYPTIAN_MAU",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 33,
+        "checkpointHash": "3c3c98b4debfe8bf71770a8144d43e0737771170d7919a90470a72eafddfaabf",
+        "firstBreedId": "BRD_DOMESTICATED_CAT_EXOTIC_SHORTHAIR",
+        "lastBreedId": "BRD_DOMESTICATED_CAT_PERSIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 34,
+        "checkpointHash": "50fd78adfb8727f0a003c20a55cb0e37cd4f895a2c2a7051fc1ce7ecb31a476b",
+        "firstBreedId": "BRD_DOMESTICATED_CAT_RAGDOLL",
+        "lastBreedId": "BRD_DOMESTICATED_CAT_TURKISH_VAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 35,
+        "checkpointHash": "8a8de143987ebf9f7b3b61dbb4b4698ea939722919d846efde622d923c55a92e",
+        "firstBreedId": "BRD_DOMESTICATED_CATTLE",
+        "lastBreedId": "BRD_DOMESTICATED_CATTLE_HOLSTEIN_FRIESIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 36,
+        "checkpointHash": "860ea31c168d9b175f3f9392495a5e6a8421237d7d9b32611009e025f57450b0",
+        "firstBreedId": "BRD_DOMESTICATED_CATTLE_JERSEY",
+        "lastBreedId": "BRD_DOMESTICATED_CHICKEN_COCHIN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 37,
+        "checkpointHash": "340a448467d26a5fc1b38041ec85cae513622156e26984de09572b8f3318e01a",
+        "firstBreedId": "BRD_DOMESTICATED_CHICKEN_NAKED_NECK",
+        "lastBreedId": "BRD_DOMESTICATED_DOG_AMERICAN_STAFFORDSHIRE_TERRIER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 38,
+        "checkpointHash": "3d5077d7a17418e7aec8883c005e5f9f607a11ad83ef19a6a7c80829677d4e87",
+        "firstBreedId": "BRD_DOMESTICATED_DOG_AUSTRALIAN_SHEPHERD",
+        "lastBreedId": "BRD_DOMESTICATED_DOG_BOXER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 39,
+        "checkpointHash": "717e2d15526e40fb4943eeed47feca29c848ecae7df3523b26b7310cb8088e3e",
+        "firstBreedId": "BRD_DOMESTICATED_DOG_BULL_TERRIER",
+        "lastBreedId": "BRD_DOMESTICATED_DOG_ENGLISH_BULLDOG",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 40,
+        "checkpointHash": "ba8fbd7d53105ef3942c1ecef6507401ba076e898a5f156281f17aa10bf91b2d",
+        "firstBreedId": "BRD_DOMESTICATED_DOG_ENGLISH_MASTIFF",
+        "lastBreedId": "BRD_DOMESTICATED_DOG_LABRADOR_RETRIEVER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 41,
+        "checkpointHash": "1d414f10fd082453ce654c9b9c5b824811fa229cb47b0d32887e6187793f9afa",
+        "firstBreedId": "BRD_DOMESTICATED_DOG_MINIATURE_POODLE",
+        "lastBreedId": "BRD_DOMESTICATED_DOG_SAMOYED",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 42,
+        "checkpointHash": "419531c782f29b0e18a80fd4bbd282422ac6bdd4711d50d967f1f95abcd9add5",
+        "firstBreedId": "BRD_DOMESTICATED_DOG_SHIBA_INU",
+        "lastBreedId": "BRD_DOMESTICATED_DUCK_CRESTED_DUCK",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 43,
+        "checkpointHash": "ec90983d27a18a72595e4ce8f30221653fac2c1b197f0a5e3d6e697cdceb0e95",
+        "firstBreedId": "BRD_DOMESTICATED_DUCK_INDIAN_RUNNER",
+        "lastBreedId": "BRD_DOMESTICATED_GOAT_BOER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 44,
+        "checkpointHash": "928371cef0f563c6428ebbe818ad8f453eb4be4976a500ea90fd469eae1bdd0d",
+        "firstBreedId": "BRD_DOMESTICATED_GOAT_CASHMERE",
+        "lastBreedId": "BRD_DOMESTICATED_GOOSE_SEBASTOPOL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 45,
+        "checkpointHash": "fdd1a903261ff86c73615186e07b8728743077be2939f1fe2dbe2dde3a601dbc",
+        "firstBreedId": "BRD_DOMESTICATED_GOOSE_TOULOUSE",
+        "lastBreedId": "BRD_DOMESTICATED_GUINEA_PIG_TEXEL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 46,
+        "checkpointHash": "6cb287c53771d27bc2d2bdb785269e4b052de96f5fb65feebe7851e7ac6f0ed3",
+        "firstBreedId": "BRD_DOMESTICATED_HORSE",
+        "lastBreedId": "BRD_DOMESTICATED_HORSE_FRIESIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 47,
+        "checkpointHash": "18b9fa299080c828f1261c4a98695b3c2e88467a0d2e5a117904ce8bf9deab58",
+        "firstBreedId": "BRD_DOMESTICATED_HORSE_GYPSY_VANNER",
+        "lastBreedId": "BRD_DOMESTICATED_HORSE_SHIRE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 48,
+        "checkpointHash": "ad5abaa3ec7d420049bcfd50708c4dc1ec1d09648b8ab9f8492bb78ae3c93c7f",
+        "firstBreedId": "BRD_DOMESTICATED_HORSE_TENNESSEE_WALKING_HORSE",
+        "lastBreedId": "BRD_DOMESTICATED_PIG_TAMWORTH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 49,
+        "checkpointHash": "2a6049232d8d652ad0166f7fc5391f8dbb3036bf1cd0b51b17bd000c503be32b",
+        "firstBreedId": "BRD_DOMESTICATED_PIG_VIETNAMESE_POT_BELLIED",
+        "lastBreedId": "BRD_DOMESTICATED_PIGEON_RACING_HOMER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 50,
+        "checkpointHash": "ebd088163f952d2c40dd08d4664a2a37e8df06dd15825088708dd777ef82fec7",
+        "firstBreedId": "BRD_DOMESTICATED_RABBIT_CALIFORNIAN",
+        "lastBreedId": "BRD_DOMESTICATED_RABBIT_NETHERLAND_DWARF",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 51,
+        "checkpointHash": "0bde9fc198b9133beb22245d7264c4f7bba43b0f887c62d3bbf05dcb165751a8",
+        "firstBreedId": "BRD_DOMESTICATED_SHEEP",
+        "lastBreedId": "BRD_DOMESTICATED_YAK",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 52,
+        "checkpointHash": "f7664fce70c9e67d8eba5602f157d3e435ac1b540cc7999faeb59879eca81dcf",
+        "firstBreedId": "BRD_DOMOVOI",
+        "lastBreedId": "BRD_DROMEDARY_CAMEL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 53,
+        "checkpointHash": "190c8376be008fc492136fa676317a5ef49df5706453943dc4ccc2bd61313089",
+        "firstBreedId": "BRD_DROMEDARY_CAMEL_DROMEDARY_RIDING_CAMEL",
+        "lastBreedId": "BRD_DWARVES_DUERGAR",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 54,
+        "checkpointHash": "b60504ce72ec44f980b90314deb5e6a25059e7448d01e447beb46c97dbb83276",
+        "firstBreedId": "BRD_DWARVES_HILL_DWARF",
+        "lastBreedId": "BRD_EASTERN_QUOLL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 55,
+        "checkpointHash": "25db35eeef82fcba89bc5d7a722b5a384af137fe8ad98f31a6cf2049baed7fc1",
+        "firstBreedId": "BRD_EASTERN_RAT_SNAKE",
+        "lastBreedId": "BRD_EGYPTIAN_VULTURE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 56,
+        "checkpointHash": "7ebc00168f18529344fa0b6af56674e815a50d46742ea3d7aaa5330f0d5f4141",
+        "firstBreedId": "BRD_ELECTRIC_CATFISH",
+        "lastBreedId": "BRD_ELEMENTALS_LIGHTNING",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 57,
+        "checkpointHash": "d892c45a9d9d6240dbadf2b534ead5e8b93e4ff6da2f5efdd6b9a109c49dad75",
+        "firstBreedId": "BRD_ELEMENTALS_MAGMA",
+        "lastBreedId": "BRD_ELVES_HIGH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 58,
+        "checkpointHash": "c42fde44f0ac0f31f10da4b1c6de5ac49a12a415462666d81e9056111a17db22",
+        "firstBreedId": "BRD_ELVES_SEA",
+        "lastBreedId": "BRD_EMPEROR_PENGUIN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 59,
+        "checkpointHash": "ca25417d8d8f2c49d0ebc5d3d18d3ea2183c0c7e4fdb8ead6867b671f1c4859a",
+        "firstBreedId": "BRD_EMPEROR_SCORPION",
+        "lastBreedId": "BRD_ETHIOPIAN_WOLF",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 60,
+        "checkpointHash": "5170ee302f587643f73e22fde5fb9ae67d293e3f72fda1a3df10bc14c40c5d73",
+        "firstBreedId": "BRD_ETRUSCAN_SHREW",
+        "lastBreedId": "BRD_EURASIAN_SKYLARK",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 61,
+        "checkpointHash": "990e9484ee0f9765f3a962a990a42b5e006ed7cea86a5eebe1a8aed65ac421e0",
+        "firstBreedId": "BRD_EURASIAN_WATER_SHREW",
+        "lastBreedId": "BRD_EUROPEAN_MOLE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 62,
+        "checkpointHash": "68a9987b5d773550e88214a14589799cbc38e4eb9bf0dd9648be877de1f5dcfd",
+        "firstBreedId": "BRD_EUROPEAN_MOLE_CRICKET",
+        "lastBreedId": "BRD_FAIRY_FOLK_PIXIE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 63,
+        "checkpointHash": "120df11c331ff1324b6777e57153bca810a952ac15fd89eb0ebe27739c3a5c31",
+        "firstBreedId": "BRD_FAIRY_FOLK_SPRITE",
+        "lastBreedId": "BRD_FANCY_RAT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 64,
+        "checkpointHash": "3f128bc8aa0326caa2efaeb4a90f5e282f7f831fe77918b2d51e7ebf6cb5cb52",
+        "firstBreedId": "BRD_FANCY_RAT_DUMBO_RAT",
+        "lastBreedId": "BRD_FENNEC_FOX",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 65,
+        "checkpointHash": "2015b860c52948d73b7422a820d7a7062aa5228efd1abffe56c73abff2852e81",
+        "firstBreedId": "BRD_FIELD_VOLE",
+        "lastBreedId": "BRD_FLOWERHORN_CICHLID",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 66,
+        "checkpointHash": "8dbc2c5854b147301e76f9f1a94c8651e3b659334d4736e4aed70e69993f41b0",
+        "firstBreedId": "BRD_FOMORIAN",
+        "lastBreedId": "BRD_FROST_GIANT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 67,
+        "checkpointHash": "03aeb42eac393cf463889ba6774871623392ad668c026b7ed0403b5c5fa84822",
+        "firstBreedId": "BRD_GALAPAGOS_GIANT_TORTOISE",
+        "lastBreedId": "BRD_GAUR",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 68,
+        "checkpointHash": "d2d863835f6224dfb01b539d32e2dede84646bdf1709658fb70622dbfc97eb23",
+        "firstBreedId": "BRD_GELADA",
+        "lastBreedId": "BRD_GHOSTS_POLTERGEIST",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 69,
+        "checkpointHash": "83407fddc5004d8a6096d69519e42f071050a66227bd9ecd187cf9df21657fbd",
+        "firstBreedId": "BRD_GHOSTS_SPECTER",
+        "lastBreedId": "BRD_GIANT_BURROWING_COCKROACH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 70,
+        "checkpointHash": "6ab9d62771cf02f80aeb3e735b03e668e26d87a0dcadd7dba9ef990a2c08a5e3",
+        "firstBreedId": "BRD_GIANT_DAY_GECKO",
+        "lastBreedId": "BRD_GIANT_ICHNEUMON_WASP",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 71,
+        "checkpointHash": "32e8bf2a7f8198e7cf837fdff318e7046c9552e6b1d4eb084518625b304a33d4",
+        "firstBreedId": "BRD_GIANT_KINGFISHER",
+        "lastBreedId": "BRD_GIGANTES",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 72,
+        "checkpointHash": "84448bdd165cf2c5dd55147dee41f25533508e0746dfaa47789139549461dca8",
+        "firstBreedId": "BRD_GILA_MONSTER",
+        "lastBreedId": "BRD_GOLDEN_SNUB_NOSED_MONKEY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 73,
+        "checkpointHash": "3462c44f07f3274420c3f5d5f2298b82d578170f3ec74ffefa9f8ec1de09f4f2",
+        "firstBreedId": "BRD_GOLDFISH",
+        "lastBreedId": "BRD_GOLDFISH_SHUBUNKIN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 74,
+        "checkpointHash": "6e5a309ee3cbe6158d50556c500d69db519ede58837d441259e5ef3adb076125",
+        "firstBreedId": "BRD_GOLDFISH_TELESCOPE_GOLDFISH",
+        "lastBreedId": "BRD_GOLEMS_WOOD",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 75,
+        "checkpointHash": "2f88cc97f54b1057f2eb3285d7292f77de4b7a7342e01f0b25d8cdcadb81b143",
+        "firstBreedId": "BRD_GOLIATH_BIRDEATER",
+        "lastBreedId": "BRD_GREAT_BARBET",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 76,
+        "checkpointHash": "5a3e738a4f9c6fb8acee52ea493e1eb46642f3c4d0f8ae945b6dce7de300158a",
+        "firstBreedId": "BRD_GREAT_BLUE_TURACO",
+        "lastBreedId": "BRD_GREAT_GRAY_SHRIKE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 77,
+        "checkpointHash": "637213337a2fb50ebe986d980cf374a8b09e415e1bbdd75adaeb6da5f9ffa685",
+        "firstBreedId": "BRD_GREAT_HORNBILL",
+        "lastBreedId": "BRD_GREATER_BLUE_RINGED_OCTOPUS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 78,
+        "checkpointHash": "c423fa728ef045d57802dc0d8820703a2b13546370e83edf9b73facbe278d056",
+        "firstBreedId": "BRD_GREATER_BULLDOG_BAT",
+        "lastBreedId": "BRD_GREATER_ROADRUNNER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 79,
+        "checkpointHash": "98b5a2327d0e67aae8876882b9b3a45ae8d926c219d4a715c75a6e2749bb48f1",
+        "firstBreedId": "BRD_GREATER_SIREN",
+        "lastBreedId": "BRD_GREEN_TREE_PYTHON",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 80,
+        "checkpointHash": "31b022ab9c066e640a907546e7d5e96b30dad557f9114afcac546b3b0672322e",
+        "firstBreedId": "BRD_GREVY_S_ZEBRA",
+        "lastBreedId": "BRD_GUPPY_COBRA_GUPPY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 81,
+        "checkpointHash": "5c48896bb9e2460ba5ff7f641b90a843a16514a15ef956d7e47659a7eb450308",
+        "firstBreedId": "BRD_GUPPY_DUMBO_EAR_GUPPY",
+        "lastBreedId": "BRD_HAMERKOP",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 82,
+        "checkpointHash": "63cb9fa6ea3b3c83e798fd672535d957a305690559288a42a90ba8fc3098a949",
+        "firstBreedId": "BRD_HAMMER_HEADED_FRUIT_BAT",
+        "lastBreedId": "BRD_HAWKSBILL_SEA_TURTLE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 83,
+        "checkpointHash": "5ce91acfc4706a64154c384928798cd39cd6a7219c5fff082180438a6dd7d82c",
+        "firstBreedId": "BRD_HAZEL_DORMOUSE",
+        "lastBreedId": "BRD_HOBGOBLIN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 84,
+        "checkpointHash": "321f69390cad4f0c0124909965987d358f42e51a56a05f7d20f6bd0c4d5b2519",
+        "firstBreedId": "BRD_HOMING_PIGEON_BEAST",
+        "lastBreedId": "BRD_HORNED_SCREAMER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 85,
+        "checkpointHash": "18f5655025404900031ad85fce629efeb5abbe89b33e735dcf232d22d72e7231",
+        "firstBreedId": "BRD_HOUSE_CENTIPEDE",
+        "lastBreedId": "BRD_HUMAN_AFRICAN_AMERICAN_AFRICAN_AMERICAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 86,
+        "checkpointHash": "9421c043d25b8f2859be9a4d3034b509df49b0e4b5220d776afe76be112ac833",
+        "firstBreedId": "BRD_HUMAN_AFRICAN_AMERICAN_AMERICO_LIBERIAN",
+        "lastBreedId": "BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_PUERTO_RICAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 87,
+        "checkpointHash": "4677963e6659396c93f21f6485932e3e873a8a0c30f6c84b868619aed6d0a3ab",
+        "firstBreedId": "BRD_HUMAN_AFRO_LATIN_AMERICAN_AFRO_BAHIAN_AFRO_TRINIDADIAN",
+        "lastBreedId": "BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_AMAZONIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 88,
+        "checkpointHash": "3c77297b27ae3e93f647e12512792409b9736b30a1caf196730bc17572e31010",
+        "firstBreedId": "BRD_HUMAN_AMAZONIAN_INDIGENOUS_MARAJOARA_SHIPIBO_AMAZONIAN_INDIGENOUS",
+        "lastBreedId": "BRD_HUMAN_ANCIENT_LEVANTINE_NABATAEAN_PHOENICIAN_TUNISIAN_ARAB",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 89,
+        "checkpointHash": "616cda0656170cd53831ce49cf035f86f06504fc7c658fb2f44e6ca8a5a034e0",
+        "firstBreedId": "BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_AFRO_GUYANESE",
+        "lastBreedId": "BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_CAYMANIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 90,
+        "checkpointHash": "77650071c2972835c3777c31ef16d15e11570976a7331d18cbb034aef842e212",
+        "firstBreedId": "BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_GRENADIAN",
+        "lastBreedId": "BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_SINT_MAARTENER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 91,
+        "checkpointHash": "63e9ff2a85c695b01714f32ff8190b645d6a799521aa4d99f792b89543422d4c",
+        "firstBreedId": "BRD_HUMAN_ANGLOPHONE_ATLANTIC_CREOLE_MAROON_SURINAMESE_CREOLE",
+        "lastBreedId": "BRD_HUMAN_ARABIAN_PENINSULA_ARAB_EMIRATI_ARAB",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 92,
+        "checkpointHash": "cace8baba57f401748aafe2aaf3c55258d5c3295320f4cea18b9c0b62da25b85",
+        "firstBreedId": "BRD_HUMAN_ARABIAN_PENINSULA_ARAB_GULF_ARAB",
+        "lastBreedId": "BRD_HUMAN_ARABIAN_PENINSULA_ARAB_SOCOTRI",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 93,
+        "checkpointHash": "34b280fc3fd5feb756fa16f33b71abd90664f787dbe36783b84e306d77bf9c14",
+        "firstBreedId": "BRD_HUMAN_ARABIAN_PENINSULA_ARAB_YEMENI_ARAB",
+        "lastBreedId": "BRD_HUMAN_AYMARA_TIWANAKU_TIWANAKU",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 94,
+        "checkpointHash": "4806c2cf0d13370ed118083452e56401a94d78b9638e19d13f2b3491deafe91e",
+        "firstBreedId": "BRD_HUMAN_BALINESE_BALINESE",
+        "lastBreedId": "BRD_HUMAN_CANADIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 95,
+        "checkpointHash": "b9ca4f21fc4d93138aa7f00322dbc680f5463a141f5d2baf699a9a9c8542f846",
+        "firstBreedId": "BRD_HUMAN_CANADIAN_SETTLER_INDIGENOUS_MIXED",
+        "lastBreedId": "BRD_HUMAN_CAUCASUS_HIGHLAND_GEORGIAN_NORTH_CAUCASIAN_LEZGIN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 96,
+        "checkpointHash": "362630adfbc10ee16e51bdb582e2fd6f896c85a5aa88e09ca6dc017a2ea740b0",
+        "firstBreedId": "BRD_HUMAN_CAUCASUS_HIGHLAND_GEORGIAN_NORTH_CAUCASIAN_NORTH_CAUCASIAN",
+        "lastBreedId": "BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_FOREST_PEOPLES",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 97,
+        "checkpointHash": "4aa30d0a3b8c0fdc341724b49d06dcffc394648523434e8602ab46e7cb15eabe",
+        "firstBreedId": "BRD_HUMAN_CENTRAL_AND_GREAT_LAKES_AFRICAN_KONGO_BANTU_TWA_GBAYA_BANDA",
+        "lastBreedId": "BRD_HUMAN_CENTRAL_SAHARA_TOUBOU_TEBU_TEBU",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 98,
+        "checkpointHash": "d5e6fa41ed62e1595164a3383f498c22a9bb8d88b8914ae4c3b5215a863617ea",
+        "firstBreedId": "BRD_HUMAN_CENTRAL_SAHARA_TOUBOU_TEBU_TOUBOU",
+        "lastBreedId": "BRD_HUMAN_DINE_NAVAJO_DINE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 99,
+        "checkpointHash": "c6efef02c42d85f38a117d8d71b64d3db728aa7be261bdbf41719fbe601199e8",
+        "firstBreedId": "BRD_HUMAN_DINE_NAVAJO_DINE_NAVAJO",
+        "lastBreedId": "BRD_HUMAN_EDO_BENIN_NIGER_DELTA_EDO_BENIN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 100,
+        "checkpointHash": "05f9b78c7c9a70967fa37d6392343f1050beace86cd5f327e8eb9160868d0930",
+        "firstBreedId": "BRD_HUMAN_EDO_BENIN_NIGER_DELTA_NIGER_DELTA",
+        "lastBreedId": "BRD_HUMAN_ENGLISH_ANGLO_ENGLISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 101,
+        "checkpointHash": "f3e17e252bf0ae6e12807c45bc1dd41e85c95cd10634e0d5696431af273fe798",
+        "firstBreedId": "BRD_HUMAN_ENGLISH_ANGLO_ENGLISH_CANADIAN",
+        "lastBreedId": "BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_HABESHA_ETHIOPIAN_HIGHLAND",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 102,
+        "checkpointHash": "b29b33e8b6aac17d2f5709f5961613499da7e7aab6f5cb75ec54f685f88b9caf",
+        "firstBreedId": "BRD_HUMAN_ETHIOPIAN_ERITREAN_HIGHLANDS_AND_SOUTH_OMOTIC_SIDAMA",
+        "lastBreedId": "BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_GUADELOUPEAN_CREOLE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 103,
+        "checkpointHash": "59239a775e99b4658408ae522a8a338a57bb6219f789f70429488255c4e62c06",
+        "firstBreedId": "BRD_HUMAN_FRANCOPHONE_CARIBBEAN_CREOLE_GUIANESE_CREOLE",
+        "lastBreedId": "BRD_HUMAN_FRENCH_FRANCOPHONE_JERRIAIS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 104,
+        "checkpointHash": "ee837883f1c22680fda27ed7cbcf8f41f5f7863645e8f6db34e242c1496c7f4e",
+        "firstBreedId": "BRD_HUMAN_FRENCH_FRANCOPHONE_LOUISIANA_CREOLE_CAJUN",
+        "lastBreedId": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_ALEMANNIC",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 105,
+        "checkpointHash": "99a978cdf9d6fb35bb66e08fab289f673dd6e35637b79845356c49e6caef49d2",
+        "firstBreedId": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_ALSATIAN",
+        "lastBreedId": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_GERMAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 106,
+        "checkpointHash": "bdd98591ff59172a44f0b561c74411c2b62413a9506807d7f21588a6bb653059",
+        "firstBreedId": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_GERMAN_BELGIAN",
+        "lastBreedId": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_SOUTH_TYROLEAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 107,
+        "checkpointHash": "9cdcd419429f15fb4d75fd5f2a6bebd99f6fd5b8175dfc66cd67c4b54763cca3",
+        "firstBreedId": "BRD_HUMAN_GERMAN_DUTCH_FLEMISH_CONTINENTAL_WEST_GERMANIC_STYRIAN",
+        "lastBreedId": "BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_GREEK",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 108,
+        "checkpointHash": "47eddbd3cec40254a0d703a8ebe2a5b90c75ae1144cc6661e56651abb9d2bfdb",
+        "firstBreedId": "BRD_HUMAN_GREEK_AEGEAN_BYZANTINE_GREEK_CYPRIOT",
+        "lastBreedId": "BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_EWE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 109,
+        "checkpointHash": "8639043c2d464468e9561ae32647092154a5e1800069b7ce05a0c5e73b0c0cd4",
+        "firstBreedId": "BRD_HUMAN_GULF_VOLTA_WEST_AFRICAN_AKAN_GBE_GUR_FON_AJA",
+        "lastBreedId": "BRD_HUMAN_HAUSA_KANURI_SAHEL_KANURI",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 110,
+        "checkpointHash": "e029058dd26d9d55460ad0a7a9a5667badbdb6c572cd0a5684f1f82b41bf2253",
+        "firstBreedId": "BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_ANDEAN",
+        "lastBreedId": "BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_MESTIZO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 111,
+        "checkpointHash": "0ff601a338173a8b9f1b84a5b3211434d16284ce973f62b39b3d60c5e1cbc0cc",
+        "firstBreedId": "BRD_HUMAN_HISPANIC_AMERICAN_MESTIZO_MEXICAN_AMERICAN",
+        "lastBreedId": "BRD_HUMAN_HUNGARIAN_MAGYAR_HUNGARIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 112,
+        "checkpointHash": "d64fdeb990f55ae1fad8b06aa0d7b0342826c4bb9a6924dc443a1f7e4f5ec63d",
+        "firstBreedId": "BRD_HUMAN_HUNGARIAN_MAGYAR_HUNGARIAN_MAGYAR",
+        "lastBreedId": "BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_CURACAOAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 113,
+        "checkpointHash": "53b76617418d1d4b36eecb866075a82d3fb0881decebc86660af00019167bc38",
+        "firstBreedId": "BRD_HUMAN_IBERIAN_ATLANTIC_PORTUGUESE_CREOLE_FORRO",
+        "lastBreedId": "BRD_HUMAN_INDIAN_OCEAN_CREOLE_CHAGOSSIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 114,
+        "checkpointHash": "085e18d1c693855c67c19866c75475017487273aa44e8de42b021cbc450e4e95",
+        "firstBreedId": "BRD_HUMAN_INDIAN_OCEAN_CREOLE_MAURITIAN_CREOLE",
+        "lastBreedId": "BRD_HUMAN_INUIT_YUPIK_INUIT_YUPIK",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 115,
+        "checkpointHash": "5fcd29ffa7f64dfc76c02e0aeb859fb625c87996fb60041fd847b14323bf2a88",
+        "firstBreedId": "BRD_HUMAN_IRANIAN",
+        "lastBreedId": "BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_ITALIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 116,
+        "checkpointHash": "307cdb6b53838236f1c8af658a87c70cf67293d88b9c8e62b5573beb482a4143",
+        "firstBreedId": "BRD_HUMAN_ITALIAN_CENTRAL_MEDITERRANEAN_MALTESE",
+        "lastBreedId": "BRD_HUMAN_JAPANESE_JAPANESE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 117,
+        "checkpointHash": "1a96c9c62148875e2418e59a52d299cdaa079ef4b8c2ed02e677f90f006d1e39",
+        "firstBreedId": "BRD_HUMAN_JAPANESE_RYUKYUAN",
+        "lastBreedId": "BRD_HUMAN_KHMER_KHMER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 118,
+        "checkpointHash": "4ed5b0aafc60d31aa50fe913d84a81070bf58ea6b37305df8acee4634d2f5899",
+        "firstBreedId": "BRD_HUMAN_KHMER_KHMER_KROM",
+        "lastBreedId": "BRD_HUMAN_LEVANTINE_ARAB_DRUZE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 119,
+        "checkpointHash": "873246f13b114250491bd4c7e91c8f64a8b6cdf2b523ca6083cebc3ee0d6007f",
+        "firstBreedId": "BRD_HUMAN_LEVANTINE_ARAB_HATAY_ARAB",
+        "lastBreedId": "BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_TAGALOG_LOWLAND_FILIPINO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 120,
+        "checkpointHash": "bc89f3e2f7cedf7d979431bc8278057aa91ae156e20404323636339c61379e7b",
+        "firstBreedId": "BRD_HUMAN_LOWLAND_FILIPINO_TAGALOG_VISAYAN_VISAYAN",
+        "lastBreedId": "BRD_HUMAN_MAGHREBI_ARAB_HASSANIYA_MOOR",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 121,
+        "checkpointHash": "5f92ee38814efeb74235fbc5eda286d873b7a194e38352f3b37192e5f20128ca",
+        "firstBreedId": "BRD_HUMAN_MAGHREBI_ARAB_LIBYAN_ARAB",
+        "lastBreedId": "BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_BORNEAN_INDIGENOUS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 122,
+        "checkpointHash": "797024999050c1585e5e7c53a2ca5cf64a1772bdf97199b6a9c885e838c2f527",
+        "firstBreedId": "BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_BRUNEI_MALAY",
+        "lastBreedId": "BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_SINGAPOREAN_MALAY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 123,
+        "checkpointHash": "09e9fe35e32f733c113549c01f9b9580b8621d9d87449e5bbb2c264db87287a1",
+        "firstBreedId": "BRD_HUMAN_MARITIME_AUSTRONESIAN_MALAYIC_BORNEAN_TIMORESE_TAIWANESE_INDIGENOUS",
+        "lastBreedId": "BRD_HUMAN_MELANESIAN_PAPUAN_PAPUAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 124,
+        "checkpointHash": "e6187abc344b306b0547d268b861f41d3ff499d60d7fe875534c8ce675a0af8c",
+        "firstBreedId": "BRD_HUMAN_MELANESIAN_PAPUAN_SOLOMON_ISLANDER",
+        "lastBreedId": "BRD_HUMAN_MEXICA_AZTEC_MEXICA_AZTEC",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 125,
+        "checkpointHash": "7bc27415ab4d2621015dfd592ea8e5f0e4d5ff882d8ac2238893f3aba7da5b19",
+        "firstBreedId": "BRD_HUMAN_MEXICAN",
+        "lastBreedId": "BRD_HUMAN_MISSISSIPPIAN_EASTERN_WOODLANDS_MISSISSIPPIAN_CAHOKIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 126,
+        "checkpointHash": "e4b764c076d1cc5b4f8c76451b8e7dbad22c0f8394835b9331fd35ebaac03cdc",
+        "firstBreedId": "BRD_HUMAN_MIXTEC_NUU_SAVI_MIXTEC_NUU_SAVI",
+        "lastBreedId": "BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_BAMAR_BURMESE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 127,
+        "checkpointHash": "7f34bccb90106477a6b578d7cfbf243fc5226b947f9923ac1b17f3b9693d693d",
+        "firstBreedId": "BRD_HUMAN_MYANMAR_MAINLAND_SOUTHEAST_ASIAN_HIGHLAND_HIGHLAND_INDIGENOUS",
+        "lastBreedId": "BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_LHOTSHAMPA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 128,
+        "checkpointHash": "9189d937ef46001ece53c6ea3eb18edd2bc4cb8209f3a4eb191ca500e1eca82b",
+        "firstBreedId": "BRD_HUMAN_NEPAL_BHUTAN_HIMALAYAN_NEWAR_NEWAR",
+        "lastBreedId": "BRD_HUMAN_NORDIC_FAROESE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 129,
+        "checkpointHash": "8008c243e2d17f2aa69f63e280bed5aaf05476d3a32ac2a376f2bdf441342551",
+        "firstBreedId": "BRD_HUMAN_NORDIC_ICELANDIC",
+        "lastBreedId": "BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_FIJIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 130,
+        "checkpointHash": "286b71b3b8e19b48e4a5d884b4140646b8396783b1d7e0231ed935e29249cb5e",
+        "firstBreedId": "BRD_HUMAN_NORTH_AND_WEST_INDIAN_INDUS_GANGETIC_INDO_GUYANESE",
+        "lastBreedId": "BRD_HUMAN_NORTHERN_HAN_CHINESE_NORTHERN_CHINESE_COURTYARD",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 131,
+        "checkpointHash": "95dc9b244c28076fd5e20656efb243e17644d4b99b4c47ff14d1430a89367953",
+        "firstBreedId": "BRD_HUMAN_NORTHERN_HAN_CHINESE_PENGLAI",
+        "lastBreedId": "BRD_HUMAN_OGHUZ_TURKIC_TURKISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 132,
+        "checkpointHash": "bb872fe859facbc2327862a46473e1032a9f4f10b46e59b8a29c56d38a6a529d",
+        "firstBreedId": "BRD_HUMAN_OGHUZ_TURKIC_TURKISH_CYPRIOT",
+        "lastBreedId": "BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 133,
+        "checkpointHash": "f4c3dd4d23626f2b7d4fea08efcc0f3fad8f8ab668787a35bf289f2e2c52ea19",
+        "firstBreedId": "BRD_HUMAN_PERSIAN_IRANIAN_PERSIAN_IRANIAN",
+        "lastBreedId": "BRD_HUMAN_POLYNESIAN_ISLANDS_TOKELAUAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 134,
+        "checkpointHash": "f4a4ac5b8f715ece34768c93070bae932d0e60291642baaf14c516524ae3bde2",
+        "firstBreedId": "BRD_HUMAN_POLYNESIAN_ISLANDS_TONGAN",
+        "lastBreedId": "BRD_HUMAN_RAJASTHANI_RAJASTHANI",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 135,
+        "checkpointHash": "74a3b011ba775ee2361aa4afbfeff48ac4b6605b81cb37c8db16f5b132de94b5",
+        "firstBreedId": "BRD_HUMAN_ROMANI_ROMA",
+        "lastBreedId": "BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_JAVAKHETI_ARMENIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 136,
+        "checkpointHash": "aa129dee7136a3a1f0a4bc995fa730aa12e3432a7629731b5409dca1911450c6",
+        "firstBreedId": "BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_KASHUBIAN_SILESIAN",
+        "lastBreedId": "BRD_HUMAN_RUSSIAN_EASTERN_EUROPEAN_UKRAINIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 137,
+        "checkpointHash": "97c1ff28ed1b7e4b58e8667952911d77c72d921c08b95c6f833622e4c1ec243f",
+        "firstBreedId": "BRD_HUMAN_SAMI_ARCTIC_URALIC_SAMI",
+        "lastBreedId": "BRD_HUMAN_SCOTTISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 138,
+        "checkpointHash": "d1d4195906a6268056781a04e11a8fe3ba32ae741fa77ac9d92c9956dd9ad5fd",
+        "firstBreedId": "BRD_HUMAN_SENEGAMBIAN_FULANI_WOLOF_SERER_FULA",
+        "lastBreedId": "BRD_HUMAN_SOMALI_CUSHITIC_HORN_AFAR_SAHO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 139,
+        "checkpointHash": "8c6cfacf0fb371a26b728ec2faaf8f0c1355cfae7cd1c0bcf72e49e48e042fd9",
+        "firstBreedId": "BRD_HUMAN_SOMALI_CUSHITIC_HORN_BEJA",
+        "lastBreedId": "BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_MALAYSIAN_TAMIL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 140,
+        "checkpointHash": "782e547fab8f0f56063d166623a28e20aa70c3fcd097a44dbf3376381254f1cf",
+        "firstBreedId": "BRD_HUMAN_SOUTH_INDIAN_DRAVIDIAN_SINGAPOREAN_TAMIL",
+        "lastBreedId": "BRD_HUMAN_SOUTH_SLAVIC_CROAT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 141,
+        "checkpointHash": "5cf77dbb3c0197118a8b8cfce2d548b959bd438906e3fb210bae8ce2693fcff6",
+        "firstBreedId": "BRD_HUMAN_SOUTH_SLAVIC_CROATIAN",
+        "lastBreedId": "BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_OVAMBO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 142,
+        "checkpointHash": "433d43c2728bee0aad2ad11f7b592d5ed5bbd3e3d6b6b48ac17a8069ea4e9711",
+        "firstBreedId": "BRD_HUMAN_SOUTHERN_AFRICAN_BANTU_NGUNI_SOTHO_TSWANA_SOTHO_TSWANA",
+        "lastBreedId": "BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_JIANGNAN_CHINESE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 143,
+        "checkpointHash": "72378fda60976cd395b17c75b40be2cbb6a5e29a88cda2ad563adeae6313e5d3",
+        "firstBreedId": "BRD_HUMAN_SOUTHERN_HAN_CHINESE_WU_MIN_YUE_HAKKA_MACANESE_CHINESE",
+        "lastBreedId": "BRD_HUMAN_SPANISH_CASTILIAN_ANDALUSIAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 144,
+        "checkpointHash": "930a22a36b2d4723803f86dc4b14c36f3aa9a7898156a9b8bb2ca3c89609c99c",
+        "firstBreedId": "BRD_HUMAN_SPANISH_CASTILIAN_CANARIAN",
+        "lastBreedId": "BRD_HUMAN_TAI_THAI_LAO_LANNA_ZHUANG_DAI",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 145,
+        "checkpointHash": "48e597126d512368c6a3ee4c37ddc4db5a593e3ccc114db615aa79e9bf6af6f5",
+        "firstBreedId": "BRD_HUMAN_TAJIK_SOGDIAN_TAJIK",
+        "lastBreedId": "BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_BALANTA_MANJACO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 146,
+        "checkpointHash": "0140f5f3986767f674dbb96e38ffbc321f830d1d2e21a294a402b81bba6b94b7",
+        "firstBreedId": "BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_BAMBARA_MANDE",
+        "lastBreedId": "BRD_HUMAN_UPPER_GUINEA_MANDE_KRU_TEMNE_TEMNE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 147,
+        "checkpointHash": "feb5c3127b4f8ceb5fc09bc03d7a68c8c9563558aea978eabe8674861a450e22",
+        "firstBreedId": "BRD_HUMAN_UZBEK_TIMURID_UYGHUR",
+        "lastBreedId": "BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_CHEWA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 148,
+        "checkpointHash": "1fb7b13575945a7652236cacd96373a939371345b6116e0be2e4d6a3b2e45b32",
+        "firstBreedId": "BRD_HUMAN_ZAMBEZI_ZIMBABWE_MOZAMBIQUE_BANTU_MAKHUWA",
+        "lastBreedId": "BRD_HUMPBACK_ANGLERFISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 149,
+        "checkpointHash": "2ed5dd62e63a8de5728a06f7a3b1a1dc94448b162cf8104fd19785dcd1386c32",
+        "firstBreedId": "BRD_HUMPBACK_WHALE",
+        "lastBreedId": "BRD_INCUBUS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 150,
+        "checkpointHash": "ad43eb0b47632db3a7346f2b8029340ebf528f810ca45d2c4a534e12b3778345",
+        "firstBreedId": "BRD_INDIAN_COBRA",
+        "lastBreedId": "BRD_IVORY_GULL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 151,
+        "checkpointHash": "f87f43d36e30fcc45552ceb950582b76b2790ef61d81d95680ac92d93a0b38f1",
+        "firstBreedId": "BRD_JABIRU",
+        "lastBreedId": "BRD_JOGAH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 152,
+        "checkpointHash": "99fca1a61d46773324d157e9c1c8d95e5fdaef9fd30b86fb07afbf43e0ceac14",
+        "firstBreedId": "BRD_JOTUNN",
+        "lastBreedId": "BRD_KING_PENGUIN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 153,
+        "checkpointHash": "19534a0b75cf08d2cf148e6eecb24cd7d2b2aaff9134bbba82ddc848748cfb1f",
+        "firstBreedId": "BRD_KING_VULTURE",
+        "lastBreedId": "BRD_KOI_CARP",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 154,
+        "checkpointHash": "bfd11fa008c1ceea9c95d8bf34983558d3c275e617a0a83326f1d5f856d1b0af",
+        "firstBreedId": "BRD_KOI_CARP_ASAGI_KOI",
+        "lastBreedId": "BRD_KUHL_S_FLYING_GECKO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 155,
+        "checkpointHash": "bbba56b0329d513db96ba667386d9f060527229cdb781db372f6d51ff89dd524",
+        "firstBreedId": "BRD_KUMIHO",
+        "lastBreedId": "BRD_LEAFCUTTER_ANT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 156,
+        "checkpointHash": "a263fe27e037418828c81330726eb4e37af5b1d1230e07858b4e15553127bcc6",
+        "firstBreedId": "BRD_LEAFY_SCORPIONFISH",
+        "lastBreedId": "BRD_LESHY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 157,
+        "checkpointHash": "0192fe0f5813c528eb2241d2fc388e103e9b1abf0e340de343563e5da4abf8fe",
+        "firstBreedId": "BRD_LESSER_BIRD_OF_PARADISE",
+        "lastBreedId": "BRD_LICH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 158,
+        "checkpointHash": "f645537560828745bf05a103557bed0d9e76d9042cb7e80f5d431a37b4b3360f",
+        "firstBreedId": "BRD_LILAC_BREASTED_ROLLER",
+        "lastBreedId": "BRD_LOGGERHEAD_SEA_TURTLE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 159,
+        "checkpointHash": "8856b35ce86c4d344d7588c66d7d17e7d5fabedfbe8c52264080be5e250ea491",
+        "firstBreedId": "BRD_LOGGERHEAD_SHRIKE",
+        "lastBreedId": "BRD_LOWLAND_PACA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 160,
+        "checkpointHash": "317c1a0d4ba56c22579bd2c95efddf98fb42f5a70f5d2908aad39f63f6300674",
+        "firstBreedId": "BRD_LOWLAND_STREAKED_TENREC",
+        "lastBreedId": "BRD_MAJOR_MITCHELL_S_COCKATOO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 161,
+        "checkpointHash": "a3e85596bb1a3646a69b8a673fea213d6365c2d83820299b1410874a8226a140",
+        "firstBreedId": "BRD_MALAYAN_TAPIR",
+        "lastBreedId": "BRD_MANTLED_HOWLER_MONKEY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 162,
+        "checkpointHash": "4a80deb2f34a951bfc4b2bbdd069469e103ad4fc8d1d596e93c654a331319e1b",
+        "firstBreedId": "BRD_MAPINGUARI",
+        "lastBreedId": "BRD_MATSCHIE_S_TREE_KANGAROO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 163,
+        "checkpointHash": "88e79a16022ab7b209c10385ce4a0d50723cf323a5669a26dea70fd82ddfd887",
+        "firstBreedId": "BRD_MBU_PUFFERFISH",
+        "lastBreedId": "BRD_MEXICAN_MOLE_LIZARD",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 164,
+        "checkpointHash": "3e8cddef0a5bcf94ed80fefba7faac169127f96623917018d409275686bdd206",
+        "firstBreedId": "BRD_MICRONESIAN_MEGAPODE",
+        "lastBreedId": "BRD_MOONRAT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 165,
+        "checkpointHash": "348d3eb0623083b9a3a2695819d132e254f65081779cb879424273c482e34c52",
+        "firstBreedId": "BRD_MOOSE",
+        "lastBreedId": "BRD_MUTE_SWAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 166,
+        "checkpointHash": "e681fb4b06adb48e4cbd04c6d69a018ed68680d73577cd1797c7a96afeb15773",
+        "firstBreedId": "BRD_MYRMECOBIUS_FASCIATUS_NUMBAT",
+        "lastBreedId": "BRD_NEPHILIM",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 167,
+        "checkpointHash": "d05e6461f2cc0648540bebd37d64594254f60ecf6209c786427d76ece70161db",
+        "firstBreedId": "BRD_NEW_HOLLAND_HONEYEATER",
+        "lastBreedId": "BRD_NORTH_AMERICAN_RIVER_OTTER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 168,
+        "checkpointHash": "605548b214d9db0495c74f2622e2a595005fdace5ce8442b97b1df285e276cdf",
+        "firstBreedId": "BRD_NORTH_ATLANTIC_RIGHT_WHALE",
+        "lastBreedId": "BRD_NORTHERN_GIANT_HORNET",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 169,
+        "checkpointHash": "ca2bbafac5bdda98a00c94c7f2e7b51c06e9f930689349a12ae78b414f2444e4",
+        "firstBreedId": "BRD_NORTHERN_GIRAFFE",
+        "lastBreedId": "BRD_OCEANIC_MANTA_RAY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 170,
+        "checkpointHash": "99694e44834857a91215e19fc1b9a2c45e592da40836e14a211bfb5e256b8618",
+        "firstBreedId": "BRD_OCELLARIS_CLOWNFISH",
+        "lastBreedId": "BRD_OLM",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 171,
+        "checkpointHash": "cc2ed196a5aadf140e23aff03c7ec9806fdafbb422a072e6a661f705a6a37900",
+        "firstBreedId": "BRD_ONI",
+        "lastBreedId": "BRD_OSPREY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 172,
+        "checkpointHash": "e1b8939593492d96313e8be02e12ae00dc4179bd7504e1613e5438ba1d328b78",
+        "firstBreedId": "BRD_PACIFIC_BANANA_SLUG",
+        "lastBreedId": "BRD_PANCAKE_TORTOISE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 173,
+        "checkpointHash": "8ad7fcf2df6fce667db90dc29bed5a91768cdf51b41ac550db5f4048180bd5ea",
+        "firstBreedId": "BRD_PANTHER_CHAMELEON",
+        "lastBreedId": "BRD_PEREGRINE_FALCON",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 174,
+        "checkpointHash": "2a9a8a1080f35460ff74504f8729e8393bff8a1ad9be9c4dfb74967dd3a4b98c",
+        "firstBreedId": "BRD_PERENTIE",
+        "lastBreedId": "BRD_PILEATED_WOODPECKER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 175,
+        "checkpointHash": "e6b65e8543a45624b7dfec14bfd59ebaae0537287cadd4ab49d586549708e392",
+        "firstBreedId": "BRD_PILL_MILLIPEDE",
+        "lastBreedId": "BRD_POUCHED_LAMPREY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 176,
+        "checkpointHash": "5fd7d98b79caeb4dc3b881f90de26fae7d9f8e9bcda03388bf4fc3501c0087b3",
+        "firstBreedId": "BRD_PREHENSILE_TAILED_SKINK",
+        "lastBreedId": "BRD_PURPLE_GALLINULE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 177,
+        "checkpointHash": "3154a5abb876b3002ac690d5c1afceacfab946698b0aedb995f2a7bfcb9d3a3d",
+        "firstBreedId": "BRD_PURPLE_MARTIN",
+        "lastBreedId": "BRD_RACCOON_DOG",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 178,
+        "checkpointHash": "f756904b97e9bd43418a6cf6cc7f688883f91f1d248d07109e08310a24198442",
+        "firstBreedId": "BRD_RADIATED_TORTOISE",
+        "lastBreedId": "BRD_RED_DEER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 179,
+        "checkpointHash": "a781784d021156bbc3536228d85f598dd44f5de557c18f7d37202565b4e1d2bc",
+        "firstBreedId": "BRD_RED_EARED_SLIDER",
+        "lastBreedId": "BRD_RED_JUNGLEFOWL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 180,
+        "checkpointHash": "6b2b5afa5ca280e8291cb3ebb944009285b0c5efe8b76b7e135d34c53cadfbb7",
+        "firstBreedId": "BRD_RED_KANGAROO",
+        "lastBreedId": "BRD_RED_SWAMP_CRAYFISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 181,
+        "checkpointHash": "320e846a93571cf3e46ccd341f88ca4aeeed5f652114295c1d93a73040281861",
+        "firstBreedId": "BRD_RED_THROATED_LOON",
+        "lastBreedId": "BRD_RETICULATED_GIRAFFE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 182,
+        "checkpointHash": "8cf59c46f61e00a7b37058fd1c51ed1f567ce4d17d7a0a17b9b197e534cd4f94",
+        "firstBreedId": "BRD_RETICULATED_GLASS_FROG",
+        "lastBreedId": "BRD_RISSO_S_DOLPHIN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 183,
+        "checkpointHash": "34d336b122e99ed1de2f1cad12538917c036e38e1ac94fd8ea763fae4d43104a",
+        "firstBreedId": "BRD_ROBOROVSKI_HAMSTER",
+        "lastBreedId": "BRD_RUSSIAN_DESMAN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 184,
+        "checkpointHash": "2aa6140d58f77c8a11a6180f71f500d62a9a672c29912bd04c72392287548c0a",
+        "firstBreedId": "BRD_SABLE_ANTELOPE",
+        "lastBreedId": "BRD_SAND_CAT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 185,
+        "checkpointHash": "8d5dd5bcfd077997ca5c4eee0c0cdc8794003511847b7efcb693f33794bbcc4d",
+        "firstBreedId": "BRD_SANDHILL_CRANE",
+        "lastBreedId": "BRD_SCARLET_CLEANER_SHRIMP",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 186,
+        "checkpointHash": "d4c14171110ddad00f553485eb43d4b144cbe60a66d5a1fe4e0ac13e567183fb",
+        "firstBreedId": "BRD_SCARLET_IBIS",
+        "lastBreedId": "BRD_SERVAL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 187,
+        "checkpointHash": "52aa435cad4aaedb970c8cb27b37e98bcfad6506485e87ec6164a04c438d7818",
+        "firstBreedId": "BRD_SEVEN_SPOT_LADYBIRD",
+        "lastBreedId": "BRD_SHORT_TAILED_CHINCHILLA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 188,
+        "checkpointHash": "bba227cdd3e7b63fae3a90dcb7a999148ca7a30490bf56b41b759211f39bcd15",
+        "firstBreedId": "BRD_SIAMANG",
+        "lastBreedId": "BRD_SILKY_ANTEATER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 189,
+        "checkpointHash": "edc009ee88ead470df08c7f5f1fe2c67f4750fd1403c635a47ce9a36202fe65a",
+        "firstBreedId": "BRD_SILKY_POCKET_MOUSE",
+        "lastBreedId": "BRD_SMALLMOUTH_ELECTRIC_CATFISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 190,
+        "checkpointHash": "e5d33150910a379810fc930ae65ad2def63e3d00c2d69e6aaa596db3a13510eb",
+        "firstBreedId": "BRD_SNOW_LEOPARD",
+        "lastBreedId": "BRD_SOUTH_AMERICAN_LUNGFISH",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 191,
+        "checkpointHash": "5a0a710f1b8168c09ac528cbbd6b64de1bad214cfecbb96ddf5da21b267b82dc",
+        "firstBreedId": "BRD_SOUTHERN_CASSOWARY",
+        "lastBreedId": "BRD_SOUTHERN_SCREAMER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 192,
+        "checkpointHash": "84c0f0f586c49a32b5ab4fc8df1196dc45183c1dddd56588c4a1c43732147e31",
+        "firstBreedId": "BRD_SOUTHERN_STILETTO_SNAKE",
+        "lastBreedId": "BRD_SPECTRAL_TARSIER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 193,
+        "checkpointHash": "0111cf68d67e45822f968635ac9cc9e94ee5de549d4f35922014ce5d89466d1e",
+        "firstBreedId": "BRD_SPERM_WHALE",
+        "lastBreedId": "BRD_SPOTTED_TAILED_QUOLL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 194,
+        "checkpointHash": "4e665fe832d2070b6a680231eaacfe6d2486877dc8f036ba039d5314efed9069",
+        "firstBreedId": "BRD_SPOTTED_TRUNKFISH",
+        "lastBreedId": "BRD_STRIPED_HYENA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 195,
+        "checkpointHash": "c1fa3b3d10d77e337630375a1a1524137bfffde5a55f862c8d4573cc47219be6",
+        "firstBreedId": "BRD_STRIPED_POSSUM",
+        "lastBreedId": "BRD_SUNDA_SLOW_LORIS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 196,
+        "checkpointHash": "b5617598099868134147b3a40412a08201f69b16feb4b4b1d2fd02e2f573354e",
+        "firstBreedId": "BRD_SUPERB_LYREBIRD",
+        "lastBreedId": "BRD_TASMANIAN_DEVIL",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 197,
+        "checkpointHash": "5abbf0daed8ca537c5b713f77a3e09cdbe5824f453f618512da9b8c30f53e0e6",
+        "firstBreedId": "BRD_TAWNY_FROGMOUTH",
+        "lastBreedId": "BRD_TIKBALANG",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 198,
+        "checkpointHash": "d29a25951c6489d55a61256aaa3e0c6245d59b17a4f0a3ad5996539c57049695",
+        "firstBreedId": "BRD_TILIQUA_SCINCOIDES_SCINCOIDES_EASTERN_BLUE_TONGUED_SKINK",
+        "lastBreedId": "BRD_TREANT",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 199,
+        "checkpointHash": "e732786724146deec7555faf233a6a6906b031e1d496e3a3eaabed2fa68878ae",
+        "firstBreedId": "BRD_TRI_SPINE_HORSESHOE_CRAB",
+        "lastBreedId": "BRD_UNICORN",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 200,
+        "checkpointHash": "963cb0ce73255deb395fa4a467d0ed0675377db4c8770603a2a9329a201874a9",
+        "firstBreedId": "BRD_UPSIDE_DOWN_CATFISH",
+        "lastBreedId": "BRD_VICUNA",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 201,
+        "checkpointHash": "b4050656baa99e71f88a49df912b100efc53950c2019619c2d38acee27c0d54e",
+        "firstBreedId": "BRD_VIETNAMESE_MOSSY_FROG",
+        "lastBreedId": "BRD_WALRUS",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 202,
+        "checkpointHash": "615c5b41d873a5b2571aaf59a6bb4ba605cf0a3d4cb25ca8ae30ab1b842ad0ee",
+        "firstBreedId": "BRD_WANDERING_ALBATROSS",
+        "lastBreedId": "BRD_WEREBEINGS_WERETIGER",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 203,
+        "checkpointHash": "ba870d4a3a9f82360959c3802550a9016eaa46939759a9a55c2c49f38a14b039",
+        "firstBreedId": "BRD_WEREBEINGS_WEREWOLF",
+        "lastBreedId": "BRD_WHEEL_BUG",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 204,
+        "checkpointHash": "ad2d751463f20635863d3f3e1df7ab7d1f802a81136d0ed0ea8d86d07e61a7c5",
+        "firstBreedId": "BRD_WHITE_BELLBIRD",
+        "lastBreedId": "BRD_WHOOPING_CRANE",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 205,
+        "checkpointHash": "5e5b0f61bb8c87dacc22bdd2e354be79b1cea69f34d6fa2935a3e5ce22a43e41",
+        "firstBreedId": "BRD_WIGHT",
+        "lastBreedId": "BRD_YARA_MA_YHA_WHO",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 206,
+        "checkpointHash": "e0699c2e5240aa6792154723f6ee2af53fdbdd92fc43765b8159a4ec0bc0ec05",
+        "firstBreedId": "BRD_YELLOW_BELLIED_SEA_SNAKE",
+        "lastBreedId": "BRD_ZEBRA_MORAY",
+        "recordCount": 10
+      },
+      {
+        "batchNumber": 207,
+        "checkpointHash": "7af3ffb5788c73b12c7b982983ff44d8a8342be27a38143a109f5fcda8a42d2c",
+        "firstBreedId": "BRD_ZIEBELLS_HANDFISH",
+        "lastBreedId": "BRD_ZOMBIE",
+        "recordCount": 2
+      }
+    ]
+  },
+  "distributionAudit": {
+    "noQuota": true,
+    "noPantheonPreference": true,
+    "noDistributionBalancing": true,
+    "clusterRule": {
+      "minimumCount": 5,
+      "minimumWithinGroupPercent": 25,
+      "minimumLift": 2
+    },
+    "confidenceOverrides": 358,
+    "topTwoMarginsBelowFive": 797
+  },
+  "integrityHashes": {
+    "breed-primary-deity-classifications.json": "9a4f526569382973437eee0204a53201787698461d7a2ad4c02b6dd7f3a8803d",
+    "breed-primary-deity-classifications.csv": "82fb93c7505d5fb86c82998d71e2115ad416bfcad5436c4755de358012cba9cc",
+    "breed-primary-deity-review-required.json": "72bf7a17b58a15a465f955b94d0aafe7d1503d12420336fb7bb06a2e1721ef74",
+    "breed-primary-deity-distribution-report.md": "9aefa68c0e75cc60dc4d4190ad4f77337cb8082d05d8e42d73edd63d6ff80b2f",
+    "deity-authority-snapshot.json": "1494e4f9fa9b7e707659161f3101a4407542cecc40fbf053f44874b481ffe3be",
+    "preexisting-worktree-baseline.json": "6b4dfa6d0d31a61f1919fd4f4ee72c8c1255f58a78ae726e0835376ed82b4de5",
+    "resources/noncausal/breed-deity-affinity/breed-primary-deity-authority-v1.json": "863514e8fae588bccbf8500be7b6e84742e7c3643867921bdc275916c8e5ae93"
+  },
+  "preservationValidation": {
+    "dirtyPathCount": 73,
+    "preserved": true,
+    "mismatches": []
+  },
+  "nonCausalBoundary": {
+    "runtimeConsumersAdded": 0,
+    "canonicalBundleChangedByThisRun": false,
+    "causalRunHashChanged": false,
+    "canonicalBundleHashChanged": false,
+    "schedulerVersionChanged": false,
+    "mechanicsVersionChanged": false,
+    "causalDerivationVersionChanged": false,
+    "existingRunsOrDatabasesModified": false
+  },
+  "externalResearchPerformed": false,
+  "notionModified": false,
+  "committed": false,
+  "pushed": false,
+  "pullRequestCreated": false,
+  "manifestPayloadSha256": "9a42f527ed2e83e1e541de7d1659a5074cf2559d2271824ff78bb5524d68b615"
+}

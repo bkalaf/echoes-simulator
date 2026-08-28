@@ -8,8 +8,8 @@ import type { NamingJob } from "../core/naming/naming.js";
 import type { CheckpointEnvelope } from "../core/contracts/domain.js";
 import type { Cohort } from "../core/engine/cohort-engine.js";
 import type { AcceptedLabelLedgerEntryV5, CausalEventV5, NamingRequestV5, WorldStateV5 } from "../core/v5/types.js";
-import type { PersistedNamingBatchV5 } from "../core/v5/naming.js";
-import { validateAcceptedLabelProvenanceV5 } from "../core/v5/naming.js";
+import type { NamingBatchAuthorityStatusV5, PersistedNamingBatchV5 } from "../core/v5/naming.js";
+import { buildPersistedNamingBatchesV5, namingRequestSetDigestV5, parseExportedV2BatchIdV5, validateAcceptedLabelProvenanceV5 } from "../core/v5/naming.js";
 import type { V5RunManifest } from "../core/v5/persistence.js";
 import { V5_EMPTY_EVENT_HISTORY_HASH, extendV5EventHistoryHashFromCanonicalJson, restoreWorldStateV5, v5CheckpointHash } from "../core/v5/persistence.js";
 import type { EditableV5Configuration } from "../core/v5/configuration.js";
@@ -330,7 +330,16 @@ export class SimulatorStore {
         batch_id TEXT NOT NULL,
         behavior TEXT NOT NULL CHECK(behavior IN ('BLOCKING','BATCHED')),
         year INTEGER NOT NULL,
+        barrier_year INTEGER NOT NULL,
+        ordered_request_ids_json TEXT NOT NULL,
+        comparison_groups_json TEXT NOT NULL,
+        prompt_text TEXT NOT NULL,
         prompt_sha256 TEXT NOT NULL,
+        grouping_version TEXT NOT NULL,
+        stable_request_set_digest TEXT NOT NULL,
+        identity_version TEXT NOT NULL,
+        display_ordinal INTEGER,
+        authority_status TEXT NOT NULL,
         batch_json TEXT NOT NULL,
         created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY(run_id, batch_id)
@@ -406,6 +415,42 @@ export class SimulatorStore {
       this.database.exec("UPDATE v5_causal_event SET event_type=json_extract(event_json, '$.eventType') WHERE event_type IS NULL");
     }
     this.database.exec("CREATE INDEX IF NOT EXISTS v5_causal_event_type ON v5_causal_event(run_id, world_key, event_type, year, sequence)");
+    const namingBatchColumns = new Set((this.database.prepare("PRAGMA table_info(v5_naming_batch_audit)").all() as { name: string }[]).map((column) => column.name));
+    const namingBatchColumnDefinitions: Readonly<Record<string, string>> = {
+      barrier_year: "INTEGER", ordered_request_ids_json: "TEXT", comparison_groups_json: "TEXT", prompt_text: "TEXT",
+      grouping_version: "TEXT", stable_request_set_digest: "TEXT", identity_version: "TEXT", display_ordinal: "INTEGER", authority_status: "TEXT",
+    };
+    for (const [column, definition] of Object.entries(namingBatchColumnDefinitions)) {
+      if (!namingBatchColumns.has(column)) this.database.exec(`ALTER TABLE v5_naming_batch_audit ADD COLUMN ${column} ${definition}`);
+    }
+    const incompleteNamingAudits = this.database.prepare(`SELECT run_id,batch_id,year,batch_json,created_at FROM v5_naming_batch_audit
+      WHERE barrier_year IS NULL OR ordered_request_ids_json IS NULL OR comparison_groups_json IS NULL OR prompt_text IS NULL OR grouping_version IS NULL
+        OR stable_request_set_digest IS NULL OR identity_version IS NULL OR authority_status IS NULL`).all() as { run_id: string; batch_id: string; year: number; batch_json: string; created_at: string }[];
+    const backfillNamingAudit = this.database.prepare(`UPDATE v5_naming_batch_audit SET barrier_year=?,ordered_request_ids_json=?,comparison_groups_json=?,prompt_text=?,grouping_version=?,
+      stable_request_set_digest=?,identity_version=?,display_ordinal=?,authority_status=? WHERE run_id=? AND batch_id=?`);
+    for (const row of incompleteNamingAudits) {
+      const batch = JSON.parse(row.batch_json) as Partial<PersistedNamingBatchV5> & Pick<PersistedNamingBatchV5, "items" | "promptText" | "comparisonGroups" | "comparisonGroupingVersion">;
+      const legacy = parseExportedV2BatchIdV5(row.run_id, row.batch_id);
+      backfillNamingAudit.run(
+        batch.barrierYear ?? batch.year ?? row.year,
+        canonicalJson(batch.items.map((item) => item.requestId)),
+        canonicalJson(batch.comparisonGroups),
+        batch.promptText,
+        batch.comparisonGroupingVersion,
+        batch.stableRequestSetDigest ?? namingRequestSetDigestV5(batch.items),
+        batch.identityVersion ?? (legacy ? "echoes-v5-naming-indexed-v2" : "echoes-v5-naming-content-addressed-v3"),
+        batch.displayOrdinal ?? legacy?.ordinal ?? null,
+        batch.authorityStatus ?? "MIGRATED_V2_BATCH_AUDIT",
+        row.run_id,
+        row.batch_id,
+      );
+    }
+    this.database.exec(`
+      CREATE TRIGGER IF NOT EXISTS v5_naming_batch_audit_immutable_update BEFORE UPDATE ON v5_naming_batch_audit
+      BEGIN SELECT RAISE(ABORT, 'V5 naming batch audit is immutable'); END;
+      CREATE TRIGGER IF NOT EXISTS v5_naming_batch_audit_immutable_delete BEFORE DELETE ON v5_naming_batch_audit
+      BEGIN SELECT RAISE(ABORT, 'V5 naming batch audit is immutable'); END;
+    `);
   }
 
   saveV5RunManifest(manifest: V5RunManifest): void {
@@ -431,7 +476,13 @@ export class SimulatorStore {
     try {
       for (const event of [...events].sort((a, b) => a.year - b.year || a.sequence - b.sequence || a.eventId.localeCompare(b.eventId))) insert.run(event.eventId, runId, event.worldKey, event.year, event.sequence, event.eventType, canonicalJson(event));
       this.database.exec("COMMIT");
-    } catch (error) { this.database.exec("ROLLBACK"); throw error; }
+    } catch (error) {
+      // SQLite can automatically end a transaction after errors such as
+      // SQLITE_FULL. Preserve the original failure instead of masking it with
+      // a secondary "no transaction is active" rollback error.
+      try { this.database.exec("ROLLBACK"); } catch { /* original error is authoritative */ }
+      throw error;
+    }
   }
 
   listV5CausalEvents(runId: string, worldKey: string, throughYear = Number.MAX_SAFE_INTEGER): CausalEventV5[] {
@@ -540,9 +591,102 @@ export class SimulatorStore {
     return (this.database.prepare("SELECT entry_json FROM v5_label_ledger WHERE run_id=? AND source!='TEST_FIXTURE' AND name_effective_from_year<=? ORDER BY entity_type,entity_id,name_effective_from_year").all(runId, effectiveYear) as { entry_json: string }[]).map((row) => JSON.parse(row.entry_json) as AcceptedLabelLedgerEntryV5);
   }
 
+  private insertV5NamingBatchAudit(batch: PersistedNamingBatchV5): void {
+    if (batch.promptSha256 !== createHash("sha256").update(batch.promptText).digest("hex")) throw new Error(`Naming batch ${batch.batchId} prompt hash is invalid`);
+    if (batch.stableRequestSetDigest !== namingRequestSetDigestV5(batch.items)) throw new Error(`Naming batch ${batch.batchId} request-set digest is invalid`);
+    if (batch.year !== batch.barrierYear) throw new Error(`Naming batch ${batch.batchId} barrier year is inconsistent`);
+    const existing = this.loadV5NamingBatchAudit(batch.runId, batch.batchId);
+    if (existing) {
+      const immutableExisting = { ...existing, createdAt: batch.createdAt };
+      if (canonicalJson(immutableExisting) !== canonicalJson(batch)) throw new Error(`Naming batch ${batch.batchId} conflicts with immutable persisted authority`);
+      return;
+    }
+    this.database.prepare(`INSERT INTO v5_naming_batch_audit(run_id,batch_id,behavior,year,barrier_year,ordered_request_ids_json,comparison_groups_json,prompt_text,prompt_sha256,
+      grouping_version,stable_request_set_digest,identity_version,display_ordinal,authority_status,batch_json,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
+      .run(
+        batch.runId, batch.batchId, batch.behavior, batch.year, batch.barrierYear, canonicalJson(batch.items.map((item) => item.requestId)), canonicalJson(batch.comparisonGroups),
+        batch.promptText, batch.promptSha256, batch.comparisonGroupingVersion, batch.stableRequestSetDigest, batch.identityVersion, batch.displayOrdinal, batch.authorityStatus,
+        canonicalJson(batch), batch.createdAt,
+      );
+  }
+
   saveV5NamingBatchAudit(batch: PersistedNamingBatchV5): void {
-    this.database.prepare("INSERT OR IGNORE INTO v5_naming_batch_audit(run_id,batch_id,behavior,year,prompt_sha256,batch_json) VALUES (?,?,?,?,?,?)")
-      .run(batch.runId, batch.batchId, batch.behavior, batch.year, batch.promptSha256, canonicalJson(batch));
+    this.insertV5NamingBatchAudit(batch);
+  }
+
+  loadV5NamingBatchAudit(runId: string, batchId: string): PersistedNamingBatchV5 | null {
+    const row = this.database.prepare(`SELECT batch_id,behavior,year,barrier_year,ordered_request_ids_json,comparison_groups_json,prompt_text,prompt_sha256,grouping_version,
+      stable_request_set_digest,identity_version,display_ordinal,authority_status,batch_json,created_at FROM v5_naming_batch_audit WHERE run_id=? AND batch_id=?`).get(runId, batchId) as {
+        batch_id: string; behavior: "BLOCKING" | "BATCHED"; year: number; barrier_year: number; ordered_request_ids_json: string; comparison_groups_json: string;
+        prompt_text: string; prompt_sha256: string; grouping_version: PersistedNamingBatchV5["comparisonGroupingVersion"]; stable_request_set_digest: string;
+        identity_version: PersistedNamingBatchV5["identityVersion"]; display_ordinal: number | null; authority_status: NamingBatchAuthorityStatusV5; batch_json: string; created_at: string;
+      } | undefined;
+    if (!row) return null;
+    const parsed = JSON.parse(row.batch_json) as PersistedNamingBatchV5;
+    const orderedRequestIds = JSON.parse(row.ordered_request_ids_json) as string[];
+    if (canonicalJson(parsed.items.map((item) => item.requestId)) !== canonicalJson(orderedRequestIds)) throw new Error(`Naming batch ${batchId} ordered request authority is corrupt`);
+    return {
+      ...parsed,
+      batchId: row.batch_id,
+      behavior: row.behavior,
+      year: row.year,
+      barrierYear: row.barrier_year,
+      comparisonGroups: JSON.parse(row.comparison_groups_json) as PersistedNamingBatchV5["comparisonGroups"],
+      promptText: row.prompt_text,
+      promptSha256: row.prompt_sha256,
+      comparisonGroupingVersion: row.grouping_version,
+      stableRequestSetDigest: row.stable_request_set_digest,
+      identityVersion: row.identity_version,
+      displayOrdinal: row.display_ordinal,
+      authorityStatus: row.authority_status,
+      createdAt: row.created_at,
+    };
+  }
+
+  listV5NamingBatchAudits(runId: string): PersistedNamingBatchV5[] {
+    const ids = this.database.prepare("SELECT batch_id FROM v5_naming_batch_audit WHERE run_id=? ORDER BY created_at,batch_id").all(runId) as { batch_id: string }[];
+    return ids.map((row) => this.loadV5NamingBatchAudit(runId, row.batch_id)!);
+  }
+
+  private unresolvedPersistedV5NamingBatches(runId: string, requests: readonly NamingRequestV5[]): PersistedNamingBatchV5[] {
+    const requestsById = new Map(requests.map((request) => [request.requestId, request]));
+    const pending: PersistedNamingBatchV5[] = [];
+    for (const batch of this.listV5NamingBatchAudits(runId)) {
+      const current = batch.items.map((item) => requestsById.get(item.requestId));
+      if (current.some((request) => !request)) throw new Error(`Naming batch ${batch.batchId} references a missing persisted request`);
+      const unresolved = current.filter((request) => request!.acceptedLabel === null).length;
+      if (unresolved === 0) continue;
+      if (unresolved !== batch.items.length) throw new Error(`Naming batch ${batch.batchId} has a forbidden partially resolved request set`);
+      pending.push(batch);
+    }
+    return pending.sort((left, right) => {
+      const behaviorOrder = left.behavior === right.behavior ? 0 : left.behavior === "BLOCKING" ? -1 : 1;
+      if (behaviorOrder !== 0) return behaviorOrder;
+      if (left.identityVersion === "echoes-v5-naming-indexed-v2" && right.identityVersion === "echoes-v5-naming-indexed-v2") {
+        const ordinalOrder = (left.displayOrdinal ?? Number.MAX_SAFE_INTEGER) - (right.displayOrdinal ?? Number.MAX_SAFE_INTEGER);
+        if (ordinalOrder !== 0) return ordinalOrder;
+      }
+      return left.createdAt.localeCompare(right.createdAt) || (left.displayOrdinal ?? Number.MAX_SAFE_INTEGER) - (right.displayOrdinal ?? Number.MAX_SAFE_INTEGER) || left.batchId.localeCompare(right.batchId);
+    });
+  }
+
+  materializePendingV5NamingBatches(runId: string, maximumBatchSize = 50): PersistedNamingBatchV5[] {
+    if (!Number.isSafeInteger(maximumBatchSize) || maximumBatchSize <= 0) throw new Error("Naming batch size must be positive");
+    this.database.exec("BEGIN IMMEDIATE");
+    try {
+      const requests = this.listV5NamingRequests(runId);
+      const existing = this.listV5NamingBatchAudits(runId);
+      const assigned = new Set(existing.flatMap((batch) => batch.items.map((item) => item.requestId)));
+      const persistedPending = this.unresolvedPersistedV5NamingBatches(runId, requests);
+      const unassignedPending = requests.filter((request) => request.acceptedLabel === null && (request.behavior === "BLOCKING" || request.behavior === "BATCHED") && !assigned.has(request.requestId));
+      const newlyMaterialized = persistedPending.some((batch) => batch.behavior === "BLOCKING")
+        ? []
+        : buildPersistedNamingBatchesV5(runId, unassignedPending, maximumBatchSize, requests);
+      for (const batch of newlyMaterialized) this.insertV5NamingBatchAudit(batch);
+      const result = this.unresolvedPersistedV5NamingBatches(runId, requests);
+      this.database.exec("COMMIT");
+      return result;
+    } catch (error) { this.database.exec("ROLLBACK"); throw error; }
   }
 
   saveV5NamingResponseAttempt(input: { runId: string; batchId: string; attemptId: string; accepted: boolean; response: unknown; errors: readonly string[] }): void {
@@ -616,7 +760,14 @@ export class SimulatorStore {
     return result;
   }
 
-  acceptV5NamingRequests(runId: string, decisions: readonly { requestId: string; entityId: string; label: string; nameEffectiveFromYear: number }[], acceptanceYear: number, behavior: "BLOCKING" | "BATCHED", provenance: { batchId: string; responseAttemptId: string }): void {
+  acceptV5NamingRequests(
+    runId: string,
+    decisions: readonly { requestId: string; entityId: string; label: string; nameEffectiveFromYear: number }[],
+    acceptanceYear: number,
+    behavior: "BLOCKING" | "BATCHED",
+    provenance: { batchId: string; responseAttemptId: string },
+    atomic?: { response: unknown; manifest: V5RunManifest },
+  ): { pendingBlocking: number; pendingBatched: number } {
     if (decisions.length === 0) throw new Error("V5 naming response is empty");
     this.database.exec("BEGIN IMMEDIATE");
     try {
@@ -624,13 +775,21 @@ export class SimulatorStore {
       const pending = new Map(pendingRows.map((row) => [row.request_id, JSON.parse(row.request_json) as NamingRequestV5]));
       const requiredIds = new Set(decisions.map((decision) => decision.requestId));
       if (decisions.length !== requiredIds.size) throw new Error("V5 naming response contains duplicate request IDs");
-      if (behavior === "BLOCKING") {
-        const required = [...pending.values()].filter((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null);
-        if (decisions.length !== required.length || required.some((request) => !requiredIds.has(request.requestId))) throw new Error("V5 naming response must exactly cover the current blocking batch");
-      }
       if (behavior === "BATCHED" && [...pending.values()].some((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null)) throw new Error("BATCHED naming cannot be accepted while any BLOCKING request remains");
-      const auditedBatch = this.database.prepare("SELECT batch_json FROM v5_naming_batch_audit WHERE run_id=? AND batch_id=?").get(runId, provenance.batchId) as { batch_json: string } | undefined;
+      const auditedBatch = this.loadV5NamingBatchAudit(runId, provenance.batchId);
       if (!auditedBatch) throw new Error(`Naming batch ${provenance.batchId} lacks immutable audit`);
+      const auditedIds = new Set(auditedBatch.items.map((item) => item.requestId));
+      if (auditedBatch.behavior !== behavior || auditedIds.size !== decisions.length || [...auditedIds].some((requestId) => !requiredIds.has(requestId))) throw new Error("V5 naming response must exactly cover its immutable audited request set");
+      for (const groupId of new Set(auditedBatch.items.map((item) => item.namingComparisonGroupId).filter((id): id is string => Boolean(id)))) {
+        const unresolvedGroup = [...pending.values()].filter((request) => request.namingComparisonGroupId === groupId && request.acceptedLabel === null && request.behavior === behavior);
+        if (unresolvedGroup.some((request) => !requiredIds.has(request.requestId))) throw new Error(`Comparison group ${groupId} must be accepted atomically`);
+      }
+      if (atomic) {
+        const currentManifest = this.database.prepare("SELECT causal_run_hash FROM v5_run_manifest WHERE run_id=?").get(runId) as { causal_run_hash: string } | undefined;
+        if (!currentManifest || atomic.manifest.runId !== runId || atomic.manifest.causalRunHash !== currentManifest.causal_run_hash) throw new Error("V5 naming acceptance cannot alter causal run identity");
+        this.database.prepare("INSERT INTO v5_naming_response_attempt(run_id,batch_id,attempt_id,accepted,response_text,errors_json) VALUES (?,?,?,?,?,?)")
+          .run(runId, provenance.batchId, provenance.responseAttemptId, 1, canonicalJson(atomic.response), "[]");
+      }
       const updateRequest = this.database.prepare("UPDATE v5_naming_request SET request_json=? WHERE run_id=? AND request_id=?");
       const insertLabel = this.database.prepare(`INSERT INTO v5_label_ledger(ledger_entry_id,run_id,world_key,entity_type,entity_id,label,source,source_request_id,source_authority_ref,source_batch_id,source_response_attempt_id,name_effective_from_year,acceptance_year,reused_from_entity_id,reused_from_ledger_entry_id,naming_comparison_group_id,comparison_authority_ref,entry_json) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`);
       for (const decision of [...decisions].sort((a, b) => a.requestId.localeCompare(b.requestId))) {
@@ -642,8 +801,18 @@ export class SimulatorStore {
         validateAcceptedLabelProvenanceV5(entry, "PRODUCTION");
         insertLabel.run(entry.ledgerEntryId, entry.runId, entry.worldKey, entry.entityType, entry.entityId, entry.label, entry.source, entry.sourceRequestId, entry.sourceAuthorityRef, entry.sourceBatchId, entry.sourceResponseAttemptId, entry.nameEffectiveFromYear, entry.acceptanceYear, entry.reusedFromEntityId, entry.reusedFromLedgerEntryId, entry.namingComparisonGroupId, entry.comparisonAuthorityRef, canonicalJson(entry));
       }
-      if (behavior === "BLOCKING") this.database.prepare("UPDATE simulation_run SET status='RUNNING', updated_at=CURRENT_TIMESTAMP WHERE run_id=? AND status='WAITING_FOR_NAMING'").run(runId);
+      const remainingRows = this.database.prepare("SELECT request_json FROM v5_naming_request WHERE run_id=?").all(runId) as { request_json: string }[];
+      const remaining = remainingRows.map((row) => JSON.parse(row.request_json) as NamingRequestV5);
+      const pendingBlocking = remaining.filter((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null).length;
+      const pendingBatched = remaining.filter((request) => request.behavior === "BATCHED" && request.acceptedLabel === null).length;
+      if (atomic && (pendingBlocking > 0 || pendingBatched > 0)) this.database.prepare("UPDATE simulation_run SET status='WAITING_FOR_NAMING', updated_at=CURRENT_TIMESTAMP WHERE run_id=?").run(runId);
+      else if (behavior === "BLOCKING" || (atomic && pendingBlocking === 0 && pendingBatched === 0)) this.database.prepare("UPDATE simulation_run SET status='RUNNING', updated_at=CURRENT_TIMESTAMP WHERE run_id=? AND status='WAITING_FOR_NAMING'").run(runId);
+      if (atomic) {
+        this.database.prepare(`UPDATE v5_run_manifest SET causal_run_hash=?,operational_config_hash=?,diagnostic_config_hash=?,label_input_hash=?,run_manifest_hash=?,manifest_json=? WHERE run_id=?`)
+          .run(atomic.manifest.causalRunHash, atomic.manifest.operationalConfigHash, atomic.manifest.diagnosticConfigHash, atomic.manifest.labelInputHash, atomic.manifest.runManifestHash, canonicalJson(atomic.manifest), runId);
+      }
       this.database.exec("COMMIT");
+      return { pendingBlocking, pendingBatched };
     } catch (error) { this.database.exec("ROLLBACK"); throw error; }
   }
 

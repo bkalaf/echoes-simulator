@@ -11,6 +11,7 @@ import { normalizeSeed } from "../../src/core/v5/random.js";
 import type { CausalEventV5, WorldStateV5 } from "../../src/core/v5/types.js";
 import { buildBlockingNamingBatchV5, buildPersistedNamingBatchesV5, validateNamingBatchResponseV5 } from "../../src/core/v5/naming.js";
 import { inspectLegacyV5NamingTrust } from "../../src/persistence/v5-legacy-trust.js";
+import { acceptPersistedV5NamingBatch, resumePersistedV5Run } from "../../src/core/v5/service.js";
 
 const state: WorldStateV5 = {
   schemaVersion: "echoes-world-state-v5", worldKey: "CONCORD", year: 5,
@@ -109,6 +110,149 @@ describe("V5 persistence and replay boundaries", () => {
     store.acceptV5NamingRequests("RUN_BATCHED_NAMES", response.decisions, 25, "BATCHED", { batchId: batch.batchId, responseAttemptId: "ATTEMPT_BATCHED" });
     expect(store.getRun("RUN_BATCHED_NAMES")?.status).toBe("COMPLETE");
     expect(store.loadV5Labels("RUN_BATCHED_NAMES")).toEqual({ FAMILY_A: "Name FAMILY_A", FAMILY_B: "Name FAMILY_B" });
+    store.close();
+  });
+
+  it("keeps nine materialized batch IDs immutable through refreshes and restarts while accepting every originally captured response", () => {
+    const directory = mkdtempSync(join(tmpdir(), "echoes-v5-nine-batches-"));
+    const filename = join(directory, "run.sqlite");
+    const runId = "RUN_NINE_IMMUTABLE_BATCHES";
+    const owner = diagnosticCandidateOwnerInputsV1({ GOV: {} });
+    const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 25, canonicalBundleHash: "bundle", normalizedSeed: normalizeSeed("nine batches"), mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: { ...DEFAULT_OPERATIONAL_CONFIG_V1, namingBatchMaximum: 50 }, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+    const targets = [48, 48, 48, 48, 50, 50, 50, 50, 19] as const;
+    const years = [0, 0, 0, 0, 24, 25, 25, 25, 21] as const;
+    const requests: Array<{ requestId: string; entityType: string; entityId: string; behavior: "BATCHED"; createdYear: number; nameEffectiveFromYear: number; worldKey: "CONCORD" | "SCHISM" | "RUIN"; namingComparisonGroupId: string; comparisonAuthorityRef: string; comparisonGroupingVersion: "echoes-naming-comparison-groups-v1"; acceptedLabel: null; context: { creationYear: number } }> = [];
+    let groupIndex = 0;
+    for (let batchIndex = 0; batchIndex < targets.length; batchIndex += 1) {
+      const sizes = batchIndex < 4 ? Array(16).fill(3) : batchIndex < 8 ? [...Array(16).fill(3), 2] : [...Array(6).fill(3), 1];
+      expect(sizes.reduce((sum, size) => sum + size, 0)).toBe(targets[batchIndex]);
+      for (const size of sizes) {
+        const group = `GROUP_${String(groupIndex).padStart(4, "0")}`;
+        groupIndex += 1;
+        for (const worldKey of (["CONCORD", "SCHISM", "RUIN"] as const).slice(0, size)) {
+          const requestId = `REQ_${group}_${worldKey}`;
+          requests.push({ requestId, entityType: "FAMILY", entityId: `FAMILY_${group}_${worldKey}`, behavior: "BATCHED", createdYear: years[batchIndex]!, nameEffectiveFromYear: years[batchIndex]!, worldKey, namingComparisonGroupId: group, comparisonAuthorityRef: `TEST_GROUP:${group}`, comparisonGroupingVersion: "echoes-naming-comparison-groups-v1", acceptedLabel: null, context: { creationYear: years[batchIndex]! } });
+        }
+      }
+    }
+    expect(requests).toHaveLength(411);
+
+    let store = new SimulatorStore(filename);
+    store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_NAMING", seed: "seed", seedHash: "hash", policyVersion: "v5" });
+    store.setRunStatus(runId, "WAITING_FOR_NAMING", 25);
+    store.saveV5RunManifest(manifest);
+    store.appendV5CausalEvents(runId, [event]);
+    const checkpoint = store.saveV5Checkpoint(runId, state, v5EventHistoryHash([event]));
+    store.saveV5NamingRequests(runId, requests);
+    const causalSignature = () => ({
+      causalRunHash: store.loadV5RunManifest(runId)!.causalRunHash,
+      eventCount: store.v5EventCount(runId),
+      eventHistory: store.summarizeV5CausalEventHistory(runId, "CONCORD"),
+      stateHash: store.loadLatestV5Checkpoint(runId, "CONCORD")!.stateHash,
+      checkpointEventHash: store.loadLatestV5Checkpoint(runId, "CONCORD")!.eventHistoryHash,
+    });
+    const causalBefore = causalSignature();
+    expect(causalBefore.stateHash).toBe(checkpoint.stateHash);
+    const batches = store.materializePendingV5NamingBatches(runId, 50);
+    expect(batches.map((batch) => batch.items.length)).toEqual(targets);
+    expect([...new Set(batches.map((batch) => batch.year))].sort((a, b) => a - b)).toEqual([0, 21, 24, 25]);
+    expect(batches.every((batch) => batch.batchId === `V5_NAMING_${runId}_${batch.behavior}_${batch.year}_${batch.stableRequestSetDigest}`)).toBe(true);
+    const capturedIds = batches.map((batch) => batch.batchId);
+    const responses = batches.map((batch, batchIndex) => ({ schemaVersion: "echoes-v5-naming-batch-response-v2", batchId: batch.batchId, runId, decisions: batch.items.map((item, itemIndex) => ({ requestId: item.requestId, entityType: item.entityType, entityId: item.entityId, label: `Original owner label ${batchIndex}-${itemIndex}`, nameEffectiveFromYear: item.nameEffectiveFromYear ?? item.createdYear })) }));
+
+    const incompleteGroup = { ...responses[0]!, decisions: responses[0]!.decisions.slice(1) };
+    expect(acceptPersistedV5NamingBatch({ store, runId, response: incompleteGroup }).accepted).toBe(false);
+    expect(store.loadV5TrustedLabelLedger(runId).filter((entry) => entry.source === "LLM_NAMING_RESPONSE")).toHaveLength(0);
+
+    for (let index = 0; index < responses.length; index += 1) {
+      expect(store.materializePendingV5NamingBatches(runId, 50).map((batch) => batch.batchId)).toEqual(capturedIds.slice(index));
+      expect(store.materializePendingV5NamingBatches(runId, 50).map((batch) => batch.batchId)).toEqual(capturedIds.slice(index));
+      if (index > 0) {
+        store.close();
+        store = new SimulatorStore(filename);
+        expect(store.materializePendingV5NamingBatches(runId, 50).map((batch) => batch.batchId)).toEqual(capturedIds.slice(index));
+      }
+      const accepted = acceptPersistedV5NamingBatch({ store, runId, response: responses[index] });
+      expect(accepted).toMatchObject({ accepted: true, acceptedDecisions: targets[index], pendingBatched: targets.slice(index + 1).reduce((sum, count) => sum + count, 0) });
+      expect(store.materializePendingV5NamingBatches(runId, 50).map((batch) => batch.batchId)).toEqual(capturedIds.slice(index + 1));
+      expect(causalSignature()).toEqual(causalBefore);
+      if (index === 0) expect(acceptPersistedV5NamingBatch({ store, runId, response: responses[0] }).errors.join(" ")).toMatch(/replay rejected/);
+    }
+    expect(store.materializePendingV5NamingBatches(runId, 50)).toEqual([]);
+    const ledger = store.loadV5TrustedLabelLedger(runId).filter((entry) => entry.source === "LLM_NAMING_RESPONSE");
+    expect(ledger).toHaveLength(411);
+    const expectedBatchByRequest = new Map(responses.flatMap((response) => response.decisions.map((decision) => [decision.requestId, response.batchId] as const)));
+    expect(ledger.every((entry) => entry.sourceRequestId && entry.sourceBatchId === expectedBatchByRequest.get(entry.sourceRequestId))).toBe(true);
+    expect(store.listV5NamingBatchAudits(runId)).toHaveLength(9);
+    expect(store.listV5NamingBatchAudits(runId).every((batch) => batch.promptText && batch.promptSha256 && batch.comparisonGroupingVersion && batch.createdAt && batch.items.length > 0)).toBe(true);
+    expect(causalSignature()).toEqual(causalBefore);
+    store.close();
+    const immutable = new DatabaseSync(filename);
+    expect(() => immutable.prepare("UPDATE v5_naming_batch_audit SET year=year+1 WHERE run_id=?").run(runId)).toThrow(/immutable/);
+    expect(() => immutable.prepare("DELETE FROM v5_naming_batch_audit WHERE run_id=?").run(runId)).toThrow(/immutable/);
+    immutable.close();
+  });
+
+  it("recovers and accepts the exact original indexed V2 batch ID while rejecting digest substitutions and replay", () => {
+    const store = new SimulatorStore(join(mkdtempSync(join(tmpdir(), "echoes-v5-recovered-v2-")), "run.sqlite"));
+    const runId = "RUN_RECOVER_EXPORTED_V2";
+    const owner = diagnosticCandidateOwnerInputsV1({ GOV: {} });
+    const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 12, canonicalBundleHash: "bundle", normalizedSeed: normalizeSeed("legacy response"), mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: { ...DEFAULT_OPERATIONAL_CONFIG_V1, namingBatchMaximum: 50 }, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+    store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_NAMING", seed: "seed", seedHash: "hash", policyVersion: "v5" });
+    store.setRunStatus(runId, "WAITING_FOR_NAMING", 12);
+    store.saveV5RunManifest(manifest);
+    const requests = (["CONCORD", "SCHISM", "RUIN"] as const).map((worldKey) => ({ requestId: `REQ_${worldKey}`, entityType: "FAMILY", entityId: `FAMILY_${worldKey}`, behavior: "BATCHED" as const, createdYear: 12, nameEffectiveFromYear: 12, worldKey, namingComparisonGroupId: "FAMILY:ONE", comparisonAuthorityRef: "TEST:FAMILY:ONE", comparisonGroupingVersion: "echoes-naming-comparison-groups-v1" as const, acceptedLabel: null, context: { creationYear: 12 } }));
+    store.saveV5NamingRequests(runId, requests);
+    const contentBatch = buildPersistedNamingBatchesV5(runId, requests, 50)[0]!;
+    const originalBatchId = `V5_NAMING_${runId}_BATCHED_12_8_${contentBatch.stableRequestSetDigest}`;
+    const response = { schemaVersion: "echoes-v5-naming-batch-response-v2", batchId: originalBatchId, runId, decisions: contentBatch.items.map((item) => ({ requestId: item.requestId, entityType: item.entityType, entityId: item.entityId, label: `Recovered ${item.worldKey}`, nameEffectiveFromYear: 12 })) };
+    const substitution = { ...response, batchId: originalBatchId.replace(contentBatch.stableRequestSetDigest, "0000000000000000") };
+    expect(acceptPersistedV5NamingBatch({ store, runId, response: substitution }).errors.join(" ")).toMatch(/digest/);
+    expect(store.loadV5NamingBatchAudit(runId, substitution.batchId)).toBeNull();
+    expect(acceptPersistedV5NamingBatch({ store, runId, response })).toMatchObject({ accepted: true, acceptedDecisions: 3, pendingBatched: 0 });
+    expect(store.loadV5NamingBatchAudit(runId, originalBatchId)).toMatchObject({ batchId: originalBatchId, displayOrdinal: 8, authorityStatus: "RECOVERED_EXPORTED_V2_BATCH", stableRequestSetDigest: contentBatch.stableRequestSetDigest });
+    expect(store.loadV5TrustedLabelLedger(runId).every((entry) => entry.sourceBatchId === originalBatchId)).toBe(true);
+    expect(acceptPersistedV5NamingBatch({ store, runId, response }).errors.join(" ")).toMatch(/replay rejected/);
+    store.close();
+  });
+
+  it("fails causal resume closed on an older scheduler/mechanics identity before writing one byte", () => {
+    const filename = join(mkdtempSync(join(tmpdir(), "echoes-v5-version-gate-")), "run.sqlite");
+    let store = new SimulatorStore(filename);
+    const runId = "RUN_OLD_CAUSAL_IDENTITY";
+    const current = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 25, canonicalBundleHash: "bundle", normalizedSeed: normalizeSeed("old causal"), mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: diagnosticCandidateOwnerInputsV1({ GOV: {} }), operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+    const legacy = { ...current, mechanicsVersion: "echoes-mechanics-v5.1.0", schedulerVersion: "echoes-scheduler-v5.1.0" };
+    store.createRun({ runId, mode: "DIAGNOSTIC", status: "RUNNING", seed: "seed", seedHash: "hash", policyVersion: legacy.mechanicsVersion });
+    store.saveV5RunManifest(legacy);
+    store.recordV5AcceptedLabel({ ledgerEntryId: "LEDGER_VERSION_GATE", runId, worldKey: "CONCORD", entityType: "STATE", entityId: "STATE_VERSION_GATE", label: "Version Gate", source: "OWNER_INPUT", sourceRequestId: null, sourceAuthorityRef: "OWNER_AUDIT:VERSION_GATE", sourceBatchId: null, sourceResponseAttemptId: null, nameEffectiveFromYear: 0, acceptanceYear: 0, reusedFromEntityId: null, reusedFromLedgerEntryId: null, namingComparisonGroupId: null, comparisonAuthorityRef: null }, "TEST");
+    store.close();
+    const before = createHash("sha256").update(readFileSync(filename)).digest("hex");
+    store = new SimulatorStore(filename);
+    expect(() => resumePersistedV5Run({ store, resourceDirectory: "resources", runId })).toThrow(/V5_CAUSAL_RESUME_VERSION_MISMATCH.*mechanicsVersion.*schedulerVersion/);
+    store.close();
+    expect(createHash("sha256").update(readFileSync(filename)).digest("hex")).toBe(before);
+  });
+
+  it("accepts legacy naming only without upgrading causal identity, events, or checkpoints", () => {
+    const store = new SimulatorStore(join(mkdtempSync(join(tmpdir(), "echoes-v5-legacy-naming-only-")), "run.sqlite"));
+    const runId = "RUN_LEGACY_NAMING_ONLY";
+    const current = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 5, canonicalBundleHash: "bundle", normalizedSeed: normalizeSeed("legacy naming only"), mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: diagnosticCandidateOwnerInputsV1({ GOV: {} }), operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+    const legacy = { ...current, mechanicsVersion: "echoes-mechanics-v5.1.0", schedulerVersion: "echoes-scheduler-v5.1.0" };
+    store.createRun({ runId, mode: "DIAGNOSTIC", status: "COMPLETE", seed: "seed", seedHash: "hash", policyVersion: legacy.mechanicsVersion });
+    store.setRunStatus(runId, "COMPLETE", 5);
+    store.saveV5RunManifest(legacy);
+    store.appendV5CausalEvents(runId, [event]);
+    const checkpoint = store.saveV5Checkpoint(runId, state, v5EventHistoryHash([event]));
+    const request = { requestId: "REQ_LEGACY", entityType: "SETTLEMENT", entityId: "S1", behavior: "BATCHED" as const, createdYear: 5, nameEffectiveFromYear: 5, worldKey: "CONCORD" as const, namingComparisonGroupId: "SETTLEMENT_SITE:SITE1", comparisonAuthorityRef: "CANONICAL_SITE_ID:SITE1", comparisonGroupingVersion: "echoes-naming-comparison-groups-v1" as const, acceptedLabel: null, context: { creationYear: 5 } };
+    store.saveV5NamingRequests(runId, [request]);
+    const batch = buildPersistedNamingBatchesV5(runId, [request], 50)[0]!;
+    store.saveV5NamingBatchAudit(batch);
+    const response = { schemaVersion: "echoes-v5-naming-batch-response-v2", batchId: batch.batchId, runId, decisions: [{ requestId: request.requestId, entityType: request.entityType, entityId: request.entityId, label: "Owner Legacy Label", nameEffectiveFromYear: 5 }] };
+    const before = { causalRunHash: legacy.causalRunHash, mechanicsVersion: legacy.mechanicsVersion, schedulerVersion: legacy.schedulerVersion, causalDerivationVersion: legacy.causalDerivationVersion, events: store.listV5CausalEvents(runId, "CONCORD"), checkpoint };
+    expect(acceptPersistedV5NamingBatch({ store, runId, response })).toMatchObject({ accepted: true, acceptanceMode: "LEGACY_NAMING_ONLY", acceptedDecisions: 1 });
+    const after = store.loadV5RunManifest(runId)!;
+    expect({ causalRunHash: after.causalRunHash, mechanicsVersion: after.mechanicsVersion, schedulerVersion: after.schedulerVersion, causalDerivationVersion: after.causalDerivationVersion, events: store.listV5CausalEvents(runId, "CONCORD"), checkpoint: store.loadLatestV5Checkpoint(runId, "CONCORD") }).toEqual({ ...before, checkpoint: { state, stateHash: checkpoint.stateHash, eventHistoryHash: checkpoint.eventHistoryHash } });
+    expect(after.labels).toEqual({ S1: "Owner Legacy Label" });
     store.close();
   });
 });

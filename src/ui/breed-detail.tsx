@@ -15,6 +15,20 @@ export type BreedPopulationView = {
   cities: Record<World, { sampledYear: number | null; rows: City[] }>;
 };
 
+export function filterBreedCatalog(catalog: readonly BreedCatalogEntry[], query: string): BreedCatalogEntry[] {
+  const needle = query.trim().toLocaleLowerCase();
+  if (!needle) return [...catalog];
+  return catalog.filter((breed) => [breed.name, breed.breedId, breed.speciesName, breed.scientificName, breed.speciesId, breed.groupId, breed.cultureId, breed.populationKind]
+    .some((value) => value?.toLocaleLowerCase().includes(needle)));
+}
+
+export function selectableBreedCatalog(catalog: readonly BreedCatalogEntry[], query: string, selectedBreedId: string | null): BreedCatalogEntry[] {
+  const matches = filterBreedCatalog(catalog, query);
+  if (!selectedBreedId || matches.some((breed) => breed.breedId === selectedBreedId)) return matches;
+  const selected = catalog.find((breed) => breed.breedId === selectedBreedId);
+  return selected ? [...matches, selected] : matches;
+}
+
 const WORLDS: World[] = ["CONCORD", "SCHISM", "RUIN"];
 const colors: Record<World, string> = { CONCORD: "#246edb", SCHISM: "#e6bd31", RUIN: "#c9443b" };
 const exact = new Intl.NumberFormat("en-US");
@@ -47,14 +61,11 @@ export function BreedDetail({ catalog, query, selectedBreedId, population, loadi
   catalog: BreedCatalogEntry[]; query: string; selectedBreedId: string | null; population: BreedPopulationView | null; loading: boolean;
   onQuery: (query: string) => void; onSelect: (breedId: string) => void;
 }): React.JSX.Element {
-  const matches = useMemo(() => {
-    const needle = query.trim().toLocaleLowerCase();
-    const rows = needle ? catalog.filter((breed) => [breed.name, breed.breedId, breed.speciesName, breed.scientificName, breed.speciesId, breed.groupId, breed.cultureId, breed.populationKind].some((value) => value?.toLocaleLowerCase().includes(needle))) : catalog;
-    return rows.slice(0, 60);
-  }, [catalog, query]);
   const selected = catalog.find((breed) => breed.breedId === selectedBreedId) ?? null;
+  const matches = useMemo(() => filterBreedCatalog(catalog, query), [catalog, query]);
+  const selectable = useMemo(() => selectableBreedCatalog(catalog, query, selectedBreedId), [catalog, query, selectedBreedId]);
   return <>
-    <section className="breed-finder"><label>SEARCH BREEDS<input aria-label="Search Breeds" value={query} onChange={(event) => onQuery(event.target.value)} placeholder="Name, scientific name, common name, ID…"/></label><label>BREED<select aria-label="Select Breed" value={selectedBreedId ?? ""} onChange={(event) => onSelect(event.target.value)}><option value="" disabled>Select a Breed</option>{matches.map((breed) => <option value={breed.breedId} key={breed.breedId}>{breed.name} · {breed.scientificName ?? breed.speciesName ?? breed.breedId}</option>)}</select></label><small>{matches.length === 60 ? "Showing first 60 matches" : `${matches.length} match(es)`} · {catalog.length.toLocaleString()} canonical Breeds</small></section>
+    <section className="breed-finder"><label>SEARCH BREEDS<input aria-label="Search Breeds" value={query} onChange={(event) => onQuery(event.target.value)} placeholder="Name, scientific name, common name, ID…"/></label><label>BREED<select aria-label="Select Breed" value={selectedBreedId ?? ""} onChange={(event) => onSelect(event.target.value)}><option value="" disabled>Select a Breed</option>{selectable.map((breed) => <option value={breed.breedId} key={breed.breedId}>{breed.name} · {breed.scientificName ?? breed.speciesName ?? breed.breedId}</option>)}</select></label><small>{matches.length} match(es){selectable.length > matches.length ? " + current selection" : ""} · {catalog.length.toLocaleString()} canonical Breeds</small></section>
     {selected && <section className="breed-identity"><div><p className="eyebrow">CANONICAL BREED</p><h2>{selected.name}</h2><em>{selected.scientificName ?? selected.speciesName ?? "No scientific name recorded"}</em></div><dl><div><dt>Breed ID</dt><dd>{selected.breedId}</dd></div><div><dt>Species</dt><dd>{selected.speciesName ?? selected.speciesId ?? "—"}</dd></div><div><dt>Population kind</dt><dd>{selected.populationKind}</dd></div><div><dt>Culture / Group</dt><dd>{selected.cultureId ?? "—"} · {selected.groupId ?? "—"}</dd></div><div><dt>Faction points</dt><dd>Concord {selected.factionObject.CONCORD} · Schism {selected.factionObject.SCHISM} · Ruin {selected.factionObject.RUIN}</dd></div><div><dt>Dominant faction</dt><dd>{selected.dominantFaction.length ? selected.dominantFaction.join(" / ") : "Not civically classified"}</dd></div></dl></section>}
     {loading && <section className="panel vertical"><h2>Building compact historical Breed index…</h2><p>The simulation remains untouched. Existing compressed checkpoints are being summarized off the UI thread once.</p></section>}
     {!loading && population && <><TrendChart series={population.series}/><div className="breed-city-grid">{WORLDS.map((world) => <CityBars key={world} world={world} {...population.cities[world]}/>)}</div></>}

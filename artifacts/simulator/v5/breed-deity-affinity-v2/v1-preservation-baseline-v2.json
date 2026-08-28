@@ -1,0 +1,1081 @@
+{
+  "fileCount": 215,
+  "sha256": "2df9394bfc081c38fb41f0cf7642c3c77f4f0de2e10e86cceab80bbd5110a56b",
+  "files": [
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/breed-primary-deity-classifications.csv",
+      "sha256": "82fb93c7505d5fb86c82998d71e2115ad416bfcad5436c4755de358012cba9cc",
+      "bytes": 36993673
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/breed-primary-deity-classifications.json",
+      "sha256": "9a4f526569382973437eee0204a53201787698461d7a2ad4c02b6dd7f3a8803d",
+      "bytes": 51084963
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/breed-primary-deity-distribution-report.md",
+      "sha256": "9aefa68c0e75cc60dc4d4190ad4f77337cb8082d05d8e42d73edd63d6ff80b2f",
+      "bytes": 562806
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/breed-primary-deity-review-required.json",
+      "sha256": "72bf7a17b58a15a465f955b94d0aafe7d1503d12420336fb7bb06a2e1721ef74",
+      "bytes": 51215517
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/breed-primary-deity-run-manifest.json",
+      "sha256": "fa6371446a03b25921f86c2aa32b953674dfdb8867925d61364ce95325bccea7",
+      "bytes": 64005
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0001.json",
+      "sha256": "c8521696b56f519fd4041921bdd3eb8d20d63f28afed4a36b23f94dff0adcc3c",
+      "bytes": 946883
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0002.json",
+      "sha256": "b5224ae25ea958c100f3044492bd159233048c9aa8bcab2f4478cc29f5a3cf73",
+      "bytes": 928988
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0003.json",
+      "sha256": "30c7cedefa59515aeb23f17d615803b70e44b27c63d55ac577ffff2037e71cdf",
+      "bytes": 902201
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0004.json",
+      "sha256": "333f947960a35dee7361014eda0feaf911f306a448b8d858b26b514348653556",
+      "bytes": 916993
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0005.json",
+      "sha256": "d55ddc38d282dcd1140744e0fceede488660208633a39dcfa605c784498a1a63",
+      "bytes": 973128
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0006.json",
+      "sha256": "3dc47baa96315ec28d6d4956f6fd5a447d6e84cd8fbfe43f9f458304bb740872",
+      "bytes": 981214
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0007.json",
+      "sha256": "ba66a3d9aeda7f00d50e95ea89e17ef826c9d11bcff2e7458cf29e0d0b0eeb65",
+      "bytes": 894918
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0008.json",
+      "sha256": "ab67cd303797de35495d03b52cc3399a28511d76bf6400d5a7822e12bf5e4208",
+      "bytes": 926394
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0009.json",
+      "sha256": "5e3e8a8cdb118faa687aff3c56b8e01a883eb30678cde057d692ead917e0c4ba",
+      "bytes": 861746
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0010.json",
+      "sha256": "4a5ee2f5c5d748a52f768849b3792aea59eb32580e093ff9a68d9e470e2551a8",
+      "bytes": 863479
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0011.json",
+      "sha256": "3bb8672b4031010356b69abd3d09d38fe77d6eb7491b9c9129d75dd429495459",
+      "bytes": 892943
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0012.json",
+      "sha256": "b85dfb0b7624f990c22d6af4187f9390a8eade1e301885f8387dbc28893b7f76",
+      "bytes": 884975
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0013.json",
+      "sha256": "ad9142bd7fd72d7c9eac5294f4f0c3fba7ed40b4df4cce37b84d6532842cfaf0",
+      "bytes": 875692
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0014.json",
+      "sha256": "eeddbb8ec3ae1c455543d510f3a64d6bace9dca3da0dea048f1d9257270032e2",
+      "bytes": 816476
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0015.json",
+      "sha256": "9e9ac25ebe4f9d6f39598530291f5c50348e9e88d9e189ee1ef015e197d9536f",
+      "bytes": 828054
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0016.json",
+      "sha256": "9807508b5f31e8e05b43a517a32dbf26bfabda81f2f7050b6694a3b010765442",
+      "bytes": 806084
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0017.json",
+      "sha256": "968b6e83b7bade7cbe91b99f7a27fc09b90783d8671d9e3aa22d1e7c3cc5b6f0",
+      "bytes": 813978
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0018.json",
+      "sha256": "a8ec5de0cd2e64994b50782f8ea706d9ab42b7e89d59329118b289561c83e52c",
+      "bytes": 826961
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0019.json",
+      "sha256": "1a56efacd3dc4ddd83ea6ad1a4e2e1ecfd79b5bf14fc96ac3dc217790b0962a8",
+      "bytes": 807997
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0020.json",
+      "sha256": "53ec446bc8883f96bdd43612cfdc1025278b3f6c14490c65f29cbac2930ef48b",
+      "bytes": 852666
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0021.json",
+      "sha256": "597b0a76819f3d6ebf190b1f071c04f3c5117df32e6bbf6afdf2b2ea858ea10e",
+      "bytes": 859557
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0022.json",
+      "sha256": "6493621007c445f5a2917fb13f8b6421c5124c90c6088adc591ba4a6525d9639",
+      "bytes": 840513
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0023.json",
+      "sha256": "3ef0af3942783e88e9d8361603ed97176e8d527f1fa45134d31b0f440127862e",
+      "bytes": 830247
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0024.json",
+      "sha256": "f479d7e994b5faeeed89925ab3157508bcf0a580aabc6868a234b8f8ee1d1e95",
+      "bytes": 857709
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0025.json",
+      "sha256": "fd930be4acd41e3f33ff9f5bd1dbf9c40226bd45c48c863b3899497a8dc08206",
+      "bytes": 895732
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0026.json",
+      "sha256": "a87232f07aee39dc0badd4435195559a1d49af34c041f0b0a64457b78f91f3fa",
+      "bytes": 861592
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0027.json",
+      "sha256": "b772cbb145353542019f3389624f6014c050f9a1e5314496cd8bc88c5b152001",
+      "bytes": 877018
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0028.json",
+      "sha256": "4fa0f764d7d82e1e99a9708d78aea6ec95f1273b214b38f4248d8987119d2dd5",
+      "bytes": 848419
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0029.json",
+      "sha256": "474a7d0b633f9b6cde075dbf2f43fb1e967af5071529b6b2bea9d346dc10e2bc",
+      "bytes": 834487
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0030.json",
+      "sha256": "29c6c52e5aa03a2a3a89eb2973b6c2d711070c3c7a29b58c71a717ed1a1e3d0c",
+      "bytes": 841456
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0031.json",
+      "sha256": "165b2bcb1c6d7c35779b9d2b60a73c114b37601e759344f7b309464aa3903f53",
+      "bytes": 801204
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0032.json",
+      "sha256": "748312205c28743509d6ca5775b85b72c9db1df1eb826225e342d3fa080ec160",
+      "bytes": 743651
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0033.json",
+      "sha256": "0e9ae4d679a8af9968525282689c2beebadab99edef98229ea04d6ef83298436",
+      "bytes": 748222
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0034.json",
+      "sha256": "254169a56f354ad9aab0141cee4e10055bb1e2b149504aa30f458ea6a22543d1",
+      "bytes": 743169
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0035.json",
+      "sha256": "fe9cd79092175650554e1292ce3149b649b5dab4cb2f40c8dd5e570e6ceeac38",
+      "bytes": 720581
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0036.json",
+      "sha256": "ba40d7174d41f29f03ba064dad70d4fa0f2f822ebd6f68cf638654c95a5e992f",
+      "bytes": 805323
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0037.json",
+      "sha256": "c4f3badb4b295063e28720cf92d7f2afc67b59f0f4de2094d1965ed168f7b258",
+      "bytes": 801713
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0038.json",
+      "sha256": "3307a4be2e8eb681949e73cff36658a826cfefcbb31370c4579b4f953c63c6a1",
+      "bytes": 752880
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0039.json",
+      "sha256": "5452eb6d7d31d623bc4d992851affd858be369ca4acb6564c24b79b60f0ef057",
+      "bytes": 759954
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0040.json",
+      "sha256": "ceded75bc01775f026525cb803c9f20e4b4aaa36f072de51952ac8cf78dfeec9",
+      "bytes": 771246
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0041.json",
+      "sha256": "267eb8e0aa4d370293f4eddfc35cfb87a5e4367a4d23c5414c0273c44ff1284a",
+      "bytes": 759831
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0042.json",
+      "sha256": "0298600c5209794e1e60c7791b3920ec1f3d7156dabeadc92d6bff4523706349",
+      "bytes": 797715
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0043.json",
+      "sha256": "49c7d34d7feda303e56618b498ab78c16dc52a79242baa15f68b9f2dcc4e7e4f",
+      "bytes": 831404
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0044.json",
+      "sha256": "7a5fe7f8424e61d6db57da5784f7ca1cd92782ed15a36d86be4ed5ee35a09dcf",
+      "bytes": 763744
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0045.json",
+      "sha256": "71d83a0761d30f1a18c7a310452dd1eea36f1c72bb0af7ca481a57a72532cdfc",
+      "bytes": 726473
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0046.json",
+      "sha256": "0ffadb7f182963a020aa7f1b8c3e0b65757030018c8bde76d12630e3223a3fcc",
+      "bytes": 842481
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0047.json",
+      "sha256": "e1312fafbe68f6920bf8282e0656c80d3677774997b9d6a33ec49caa500ce6f5",
+      "bytes": 853638
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0048.json",
+      "sha256": "0d6efe86be6e962cef4ac4ab25ce212a2e06591716c4d9b2bc7fc70f527ee69a",
+      "bytes": 796712
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0049.json",
+      "sha256": "5e6907e4067b21aa9a67273d9a18c6a8ecac1c35b4d899ca4fc604cc9f02c174",
+      "bytes": 889051
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0050.json",
+      "sha256": "07b1a8ec7551c0895c92876e69ed35a2c225726960b5619d54dc08ee7f0b3ea6",
+      "bytes": 796065
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0051.json",
+      "sha256": "0eae68b71a2552ea9a1363f981d0a77f4a287484b711a3a362605781ead2b2f7",
+      "bytes": 699044
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0052.json",
+      "sha256": "213a34b851217477a0ce79ab98a971ed59529e7abdbc4cc9b032b0f34cde7e05",
+      "bytes": 837227
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0053.json",
+      "sha256": "75659f38649fd003aa4f0b724be018b365a8206a44c0cc0d90744ba1eeabee2d",
+      "bytes": 852542
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0054.json",
+      "sha256": "c81c0273373f440cec1aef126759da744d3b03d830433f50febf7d1dd994426d",
+      "bytes": 828649
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0055.json",
+      "sha256": "339e35100fd31ffda7298b7389c12a71f9ec0df382f1c59082a8ffcd24625ed3",
+      "bytes": 845651
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0056.json",
+      "sha256": "c9659f0ba69341320df9892c6d303f0758ef9beed864cca8c3e31c6e4e7c6009",
+      "bytes": 941129
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0057.json",
+      "sha256": "8302ec3b2222451992b3b9438f771817a2d3a084f768d1296aa256101a30b2e6",
+      "bytes": 976950
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0058.json",
+      "sha256": "1d2510333736c7867713f3e09a91e87b1fdac2c4426b11489a949b6cde76531c",
+      "bytes": 883171
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0059.json",
+      "sha256": "3ddeb1a26597733b574cf91553bc617d06ca1f0cd89439024d608d6c3e918466",
+      "bytes": 879883
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0060.json",
+      "sha256": "a93b75b6b464600347ceee6c70240ba1b4e00ce5e6b9d42c21669a03ad1ff72a",
+      "bytes": 795055
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0061.json",
+      "sha256": "dad27f28fc39845aa4a9b6c5ea9c6f1ba374d0bf7b3520d3bbcbac6b2f38376c",
+      "bytes": 821158
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0062.json",
+      "sha256": "b4ae0b35a19ba2e0c9047086176025a9e3b8d000e91e66c5851d56609fd9496d",
+      "bytes": 894464
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0063.json",
+      "sha256": "7dc258bbf70631fd72ec3f59adcfddae6f27d17ab929d5ae43909169098b2fe8",
+      "bytes": 819990
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0064.json",
+      "sha256": "1d4d41be61253e000d5d089d6d9784b3ec32f36787862b9591a4721a2646f358",
+      "bytes": 793098
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0065.json",
+      "sha256": "bca4a064ee93358a2ce568022791401bd02315d0830bcefce5a86f7f2415d616",
+      "bytes": 857980
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0066.json",
+      "sha256": "2efdd6e7267f55e853b81abcd4d3f8640d36d62b435d0ffb008d07cb45c1484c",
+      "bytes": 847931
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0067.json",
+      "sha256": "d92789a1197a728852d91b1abcca4f52b0b33559767cbf31b9cdf9f56dbe9a41",
+      "bytes": 913636
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0068.json",
+      "sha256": "317fb3058856ea19d8a9ac7be9103942d4b295a07c9f74f5d183ea7db709c5c8",
+      "bytes": 850306
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0069.json",
+      "sha256": "dfa929ad2b46033a84c966ef40eb152a7c80203f3267b0cf18da099a733131f4",
+      "bytes": 863240
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0070.json",
+      "sha256": "b1b3d7c589c3a6921dbffee57be38e9b249b67fc5f2b8fd7874453ec916819f2",
+      "bytes": 870340
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0071.json",
+      "sha256": "558deb3a985e47e66bff41a87c47f099fb2b86a37e57abd983f7944e2f9de739",
+      "bytes": 866438
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0072.json",
+      "sha256": "7c220451f3772dcbcf042dea8ff1d1a90cf959e9966dd2261c596d5f0b830dec",
+      "bytes": 901285
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0073.json",
+      "sha256": "7dac171af0932c44e45ccaf86c1d83bf5d542678dfd826286624cfd7bab2c22a",
+      "bytes": 888111
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0074.json",
+      "sha256": "aa6907dd64b3a42252a6933532faef841dc095dacd4a30a0880bd1bb5ff976ca",
+      "bytes": 904389
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0075.json",
+      "sha256": "59b8c1201c66cf9f66184904eed900e45ec0f8e764f1be1916867e39e091c698",
+      "bytes": 889738
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0076.json",
+      "sha256": "ed3851f648c614e3a4db69b34aa2dc58784940cf4240b0170ad6e97ae58531e6",
+      "bytes": 904002
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0077.json",
+      "sha256": "e065eb3e8a9f7120d86c5bf22d46d9a1872bdaa4f7249e2cd35452ca3bee943c",
+      "bytes": 868535
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0078.json",
+      "sha256": "8a7cb0a0368bd52b05000cf9c00381d1133f7fa57b4c27765740e3a9fff9c37a",
+      "bytes": 859730
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0079.json",
+      "sha256": "03e641fff5931802774ca3a1ae1c066a33dd173da6bfc4bef8e955a90e457001",
+      "bytes": 899736
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0080.json",
+      "sha256": "48f246fe8b2048c3f9faba0322a5ea604340bcef753f8cf889ece624461c411c",
+      "bytes": 863169
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0081.json",
+      "sha256": "33e5703249b1ec4be1bef733adfe00a19fa741b96d49eae4a008f72c4b204ce7",
+      "bytes": 893986
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0082.json",
+      "sha256": "85001121f4c168859b001c32a9db474d0e66a5ab1f8dab313938a224d37aae77",
+      "bytes": 935872
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0083.json",
+      "sha256": "2a32506662e452a5f2f2cbc780111226f6ec24f953f7ef4f418a348ac6efcd56",
+      "bytes": 902428
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0084.json",
+      "sha256": "af271c7104d55b55b81296aba1153f035d6f8a59cead97afd9c828cd552a5683",
+      "bytes": 941242
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0085.json",
+      "sha256": "328ea4d453f1f63bb593daae60eb9e822326b2b026544109457f5958b614ebc4",
+      "bytes": 918354
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0086.json",
+      "sha256": "e0f758c52b0358b7d0f106cc39e732bf5007584c2983982466a90e072acbcfa3",
+      "bytes": 976339
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0087.json",
+      "sha256": "11240d5f7d408cf8a9fbe79cccad3984cdd1049283bdafc12b0813ea553014ac",
+      "bytes": 1013641
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0088.json",
+      "sha256": "dbc57d04a34fa84e4ff44585076d419e734fd3f6f43b03bf5a5c4f62edfeb275",
+      "bytes": 1028596
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0089.json",
+      "sha256": "89392f8cc7752f5af0495fa9dcd6bdf521127366c5f64ed8181d18aa8703784c",
+      "bytes": 922545
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0090.json",
+      "sha256": "1bfe4a12c07fed5b1a9c78f4e8320d1a1523da800bc0df5906ce47d0ec980187",
+      "bytes": 912123
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0091.json",
+      "sha256": "b43acd74744ee176353edbf6cbe2bda2be581010dd9dd91854686ff821d9bc54",
+      "bytes": 965686
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0092.json",
+      "sha256": "36060c06dc4db32f628bb4ce2234b7c94832f47e91025bde3387b6bb715b63f5",
+      "bytes": 1024911
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0093.json",
+      "sha256": "bbcfc04146c7361817685aa28bb12e21034b32ea440c04ef2773dc7198413619",
+      "bytes": 974123
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0094.json",
+      "sha256": "a5751add23712b22bc51849629b80625082f82f3d1735ae4a241d05244c1db06",
+      "bytes": 941774
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0095.json",
+      "sha256": "1b5a13f1d459224d6fbca27e88e053441550aa429b2b6c12f47ac09a60a39f9b",
+      "bytes": 1001318
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0096.json",
+      "sha256": "b6e8c0e2a39d31f9c1e8c8f018a89a6ebb8bfced225c33510e464e9b785b6244",
+      "bytes": 962489
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0097.json",
+      "sha256": "48d227d06e39128a3917519a30df5aa40744c8ae75eda40a8f6dd25c29886bd9",
+      "bytes": 957588
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0098.json",
+      "sha256": "25063d5ac3e2dc457367c0ea7899d05cd30c875e8faf02e9850bfdb744fce76d",
+      "bytes": 928820
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0099.json",
+      "sha256": "60a89a386799131a29082168382168d4284a08e6388199054d14e3c1bd75c038",
+      "bytes": 983716
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0100.json",
+      "sha256": "3937c3a32bcba38ef09e6da9c00ec7da2caf6bfac94e862268b5288a3eb0241c",
+      "bytes": 966168
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0101.json",
+      "sha256": "6b14ca2ff0f51b01e5199d88f512cecf8f3ac219d4bb79b74ce0ac072b5513dd",
+      "bytes": 1002567
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0102.json",
+      "sha256": "2658a3baff37edd91431bcf0af58722ce573e04b5286e322e5ae0a4abc526918",
+      "bytes": 956894
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0103.json",
+      "sha256": "1b8eb02d8ab63cbae88c8a5d67f27a5f1dadbc71cab6c5685f3a013febc97ceb",
+      "bytes": 944607
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0104.json",
+      "sha256": "936d0337430d3919378a1ca610caffa66d14360d109e6a424f944b0c88b31858",
+      "bytes": 953671
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0105.json",
+      "sha256": "01c5e1f7ff530679e58524cd8efe88757b79d9ad1791b4437fce0b8e049a7cc9",
+      "bytes": 889360
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0106.json",
+      "sha256": "ff78dbbab6ebdd5022815ec6008b61073bb581f3a246fe72a2901fe4f215dbaa",
+      "bytes": 885946
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0107.json",
+      "sha256": "3b3eec9fefca6463f153795f77954aae808f048813e96f0a9aa1c4df0279605b",
+      "bytes": 929483
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0108.json",
+      "sha256": "354e307e1f68a786f85082bf43a3d107e57f8cdf65b1957df9de21f6214f78b5",
+      "bytes": 994094
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0109.json",
+      "sha256": "051fe6905d90066bd4d0340618acccbc3f27969971989dfe751e040e5de53305",
+      "bytes": 970373
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0110.json",
+      "sha256": "cdd6328a78ed03b5a5bdc0b459c20f674a34d17961450676098a940cf2c91f57",
+      "bytes": 861744
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0111.json",
+      "sha256": "db70483d401417d63a04e824d9039069ace993e4c40706fda633be792354d2bc",
+      "bytes": 883245
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0112.json",
+      "sha256": "ba721daceea98cdd5f1d9f69c9195b9c896ec5b62949c7709fa5e77a78b10862",
+      "bytes": 906037
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0113.json",
+      "sha256": "14299c6ac12c63a1d3b36a9ac1d7e5fa99dd5c60cab0d6b9869544985baa7555",
+      "bytes": 904377
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0114.json",
+      "sha256": "472fa15ec5a4d3f35c6343519a48221c68d1207c3e864605139e223f38519cc0",
+      "bytes": 957674
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0115.json",
+      "sha256": "ec7f9b45a02fe5ddd4945d7757a59c21aa08e1bd2f454282c8e406e6e50bc0ea",
+      "bytes": 1016094
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0116.json",
+      "sha256": "e36d3e4071b7664bc9f472cfb8776c6a2a6cb5087068d3f68c1398c9792eea31",
+      "bytes": 1026222
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0117.json",
+      "sha256": "5a7b64dea276b3b4eda00b58df0acdc407c4e6a39f563825ef116b5751268b25",
+      "bytes": 971339
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0118.json",
+      "sha256": "de5a80f700ed9977de5b73d4d67d29f69a251d75d21f31f2050451300f985cfa",
+      "bytes": 923835
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0119.json",
+      "sha256": "094e6191386eab27f5c33ae0999df5e2cc01287fc71d34d47f8076df3f1df5c5",
+      "bytes": 988329
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0120.json",
+      "sha256": "f217cf03702658cb8d2445636262a1d212070e710c7eb6cb372ed22e57ac5528",
+      "bytes": 1002330
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0121.json",
+      "sha256": "e4c703ab193cba2c08f8ddff6c32011fe39b54de9948713dff00eb0074b1425b",
+      "bytes": 965908
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0122.json",
+      "sha256": "41b887eb054225314b91d4f2eeb6af69a9c08dd39560d8afc81c377ecff70b81",
+      "bytes": 990335
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0123.json",
+      "sha256": "7c17f6796c7631b6bb91578f49f7e2b6e6ad488d3683d176a7da6e7cfb9f8fbd",
+      "bytes": 971917
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0124.json",
+      "sha256": "622277bb85ecf84c9186432ea5d3c71003e3587d62c47a5d1e66f76671dc2b2c",
+      "bytes": 952943
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0125.json",
+      "sha256": "7fad3f669da16060d9584f433cd6a2a710dccd44c15aa3eae9bb5111aa66418c",
+      "bytes": 989956
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0126.json",
+      "sha256": "7f1aadd1df605240a79b192d7e36164b52efa53b8dc3c6b053a4bde2320d8a42",
+      "bytes": 937995
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0127.json",
+      "sha256": "4d3db5b4aa5dc23e72a2cf6090ec54b42a8d2c86cc08ba8522c74a283afea244",
+      "bytes": 965097
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0128.json",
+      "sha256": "07bc371f33a87c0b1d2947fd0852e236906c595bc340b18e89e73c20f7a53166",
+      "bytes": 962198
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0129.json",
+      "sha256": "646275652cb60831ec09d74a60668240b61a41c6699df08e574bce87eaab1d05",
+      "bytes": 1004258
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0130.json",
+      "sha256": "c8fdf8a6dfdb1e53c0439698580a67b91b96576b40dc63dda1509e8c564457cb",
+      "bytes": 996596
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0131.json",
+      "sha256": "9abc4fe42df41ff6b3a2f80c5234029884706d2a0e35aece17e77e4cd64bf317",
+      "bytes": 958057
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0132.json",
+      "sha256": "b56e60b2bd966313ea564cc28470d09671c975b8de8fb908845ee9038f636e19",
+      "bytes": 936805
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0133.json",
+      "sha256": "10ff78907c99f780b8f1bcc00fb92fbad18ed058e4c14dd4ac68a6206a3974b0",
+      "bytes": 1007429
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0134.json",
+      "sha256": "3a0494aa8709a33acaa5943f8cca4290ae319d82a10e29f2cac6c0b4a7cb59dd",
+      "bytes": 955456
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0135.json",
+      "sha256": "f0a89a34b6927d10c0a00aad812043f253f40cdcf5c3f8bab2f12a333075058c",
+      "bytes": 906974
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0136.json",
+      "sha256": "f40b3943eb5dd4682a1f33b88c33ec32021127d5fc651c690504a8e11b625a31",
+      "bytes": 942237
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0137.json",
+      "sha256": "daa1477ffd98103785b663406fb9cbe251cebe53aa6e68f9e600a00f18b6e74b",
+      "bytes": 1002867
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0138.json",
+      "sha256": "739a1c1192f04606c07987def1268b7566740e30ebf1781bd0ce861232ec2eb7",
+      "bytes": 925218
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0139.json",
+      "sha256": "9a4e6c4a1be65a9ce6e68f12a7f27c07161b168470b3adba410b0b719f2f6407",
+      "bytes": 932035
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0140.json",
+      "sha256": "7ed8447dfce5a228a891833f0019e516e74d228eb621416c6d0405fc615670e9",
+      "bytes": 988776
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0141.json",
+      "sha256": "d8e1d872ec318832c07e13b9559b032f0232a57fee6d767b62313d7ac17b3bcb",
+      "bytes": 969716
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0142.json",
+      "sha256": "76c02db8a24b9df2ac1aa8542963bc6fa70b0cf05370bdcd0b298ac411b05dd9",
+      "bytes": 1014475
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0143.json",
+      "sha256": "405883ea4801b6e8a7f8eb7aea10a7b0f6dae8e05c44afaf73cf36f892d054ef",
+      "bytes": 1034837
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0144.json",
+      "sha256": "e738f1706344c210738497582a65894a05f8c139a3d30779e909ea1b65d78c57",
+      "bytes": 979487
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0145.json",
+      "sha256": "22f32982fd3961baa3e41319d8b6857750e9cba99a37456b4fce6ab99eac89de",
+      "bytes": 963139
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0146.json",
+      "sha256": "038b2e8f0966bd8fc14eb5e980af3ecda2b32a054e7769b8505e9679013905ee",
+      "bytes": 948164
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0147.json",
+      "sha256": "0606e4e8f6775a3becffe1cd209d881cf193e017dd27ac1f8677e29fcc62ff25",
+      "bytes": 995799
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0148.json",
+      "sha256": "6bd402718b2846c263959dad51f9d937a0950608165167cf44c2bebc1067d911",
+      "bytes": 944632
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0149.json",
+      "sha256": "bfef10866f8325ea8faf3cc7138b5f7e7142340b8caa44a75316c7c9482f5e34",
+      "bytes": 862306
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0150.json",
+      "sha256": "88c43289000c1fbfeb8e4704d59816d6aac1b81465916c5b54cbc09d3de98f46",
+      "bytes": 917281
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0151.json",
+      "sha256": "d4b47aaba5e14c35355d39b7b99bffae42d88177f120802f7fcffa6436c8b210",
+      "bytes": 926204
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0152.json",
+      "sha256": "054bcb74a8bae7355bc9ced84b67507f7681dc9221ff08141879694489f7fd82",
+      "bytes": 899319
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0153.json",
+      "sha256": "c7611fb2e16adcc02d56abdb940484c91c49fde2e1919c1c73f310aa76c7ce0d",
+      "bytes": 851133
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0154.json",
+      "sha256": "8e27fd41b4653bcadf8ceb2481cfbb490b54dd0b6064f47f44f31332dc39a9e9",
+      "bytes": 904005
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0155.json",
+      "sha256": "dc8abd2af41b8be54fc5e4c92029f8744c39a82c60eb91485073dd58814239f3",
+      "bytes": 848579
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0156.json",
+      "sha256": "781b910e417c4d88d2b9bb439dab58f663092de144751fdbc9b5b9ae5af431eb",
+      "bytes": 906523
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0157.json",
+      "sha256": "6ccbaaab68ce4f0b9cddc5a5077dea12ff09e8df4d19b8a7dd5ed781cceb2b42",
+      "bytes": 856407
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0158.json",
+      "sha256": "b1aa4095ce4e2cec3515a89fd06995b5da13301da0437e1d7d103d06c6288ae5",
+      "bytes": 879818
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0159.json",
+      "sha256": "3b38fc5e3a0e1856fad06c7e7532ed28b9537ec6cde1be4c4034ce46666c4bb3",
+      "bytes": 871893
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0160.json",
+      "sha256": "b1c5135ef8468270b295c1cc12c6f4f2fb632207c74bdb4914e07af4eed49830",
+      "bytes": 894239
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0161.json",
+      "sha256": "a06d4820b58fe1153c1617f3f554a507c9239cc13a9cc0e4a7955a3b3662d88a",
+      "bytes": 905230
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0162.json",
+      "sha256": "88f3d487b05ab441d6cce0e1472691212839f6ab28ae95b3537ffe8bf4800345",
+      "bytes": 924786
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0163.json",
+      "sha256": "f0b10407a7134ce74a729d5b9464ab5332ec11416f19d63eff4d1e48df50e6a5",
+      "bytes": 911432
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0164.json",
+      "sha256": "ebdc60972e6fa5bce194c54ecf21d35f23bc201beb4a3458cdf7c8d60ea3d8a7",
+      "bytes": 920393
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0165.json",
+      "sha256": "8e551eb114ac60e526b68f286ede0fb6bf384717fd680ebb18b4d41382190272",
+      "bytes": 888557
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0166.json",
+      "sha256": "b33306fbd68e03242918c160821f5b8252938e903e7f677e036989bb6475034f",
+      "bytes": 957389
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0167.json",
+      "sha256": "d01eeb056d7f42895856fcfa8e1ae450014fd4e3f55bf74a5185d3b90818a892",
+      "bytes": 951868
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0168.json",
+      "sha256": "f234808972e5382a0151982c8f935f54043fdeaadb2dcea4c81c0a2bad1fee68",
+      "bytes": 966449
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0169.json",
+      "sha256": "21abad3953a04295e46f0697f8c985403ce7d23bd1267d3c59aaac969615e418",
+      "bytes": 918673
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0170.json",
+      "sha256": "8aa3c3fddb9ea9fb9ada0441c8f49ea51965f96ed7ea06a556664b8650c189ee",
+      "bytes": 841425
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0171.json",
+      "sha256": "3cefa3600f22f918c0a6e1aba9fb98a254306a99d847241113897499a9afc886",
+      "bytes": 878659
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0172.json",
+      "sha256": "b4b5ca8926fa3d4d66a1508eb56f38dd8e657b1c8e7931d9835df1aecd357525",
+      "bytes": 956720
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0173.json",
+      "sha256": "65a360829b6edbb90638b9edeec0744d0e7a45f99bb409ba92814a12b8f62929",
+      "bytes": 867802
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0174.json",
+      "sha256": "83aa85b73034d5af6a50bc58482b5020ff8cd26f3f836be15f2e76efb11bc776",
+      "bytes": 896085
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0175.json",
+      "sha256": "a7f2bd9b14a6ed4c925bc5bcf4baa90d012662729980c6c505d9796f406c1f3e",
+      "bytes": 943166
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0176.json",
+      "sha256": "11fc4a6d46c27d416b0f9882bf2ab4e3ee3dc2a094282e048f2f3159516b2e96",
+      "bytes": 863216
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0177.json",
+      "sha256": "2c601ab63e769da7f2f49ea7ab30b3b5059061200afc0e0cdf00b5d9521748f5",
+      "bytes": 889510
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0178.json",
+      "sha256": "2581fc1a61b07a6a8822e8d100983316343eb8164b41d9794973e38dacd8c095",
+      "bytes": 876370
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0179.json",
+      "sha256": "dc8cd176dec390cfe4f6d3e2a91a3ca689bc1ee105a0f996eb6ac655b7813a9d",
+      "bytes": 923043
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0180.json",
+      "sha256": "0784525308bd95477da5c02d1f395fb03ef4f9cf04fd048f879019c0879af113",
+      "bytes": 927801
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0181.json",
+      "sha256": "df7c050874eb5eb13898cc01cf34065e4ac0c78ab4144e0d868fca650775b9e2",
+      "bytes": 881010
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0182.json",
+      "sha256": "cc771487373e76b4afa96371b99764cb6a574d3b1867691b2c31fdee573a7281",
+      "bytes": 932251
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0183.json",
+      "sha256": "824364cd0d8a7c99b73d7dbfbce8278f074362eb740f78f9ab357739d19eff55",
+      "bytes": 953401
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0184.json",
+      "sha256": "bf80959454f9678ad73d22a986526c080e9cb1c7a2963508803b9956c8182d8f",
+      "bytes": 938668
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0185.json",
+      "sha256": "4f541e6bfcb4d2a931eb5506ae170e7ac38f7bb06256d53febcc199d5eeb2c18",
+      "bytes": 910537
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0186.json",
+      "sha256": "96c27b936926db0a2e289ed75b827a6602aba05c443ede69e8bf26f3b012c81b",
+      "bytes": 960510
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0187.json",
+      "sha256": "effb17d7ad1d6221db847776c75c4d2ab5bdfa96b3cb6ab72130ff1c2ff18344",
+      "bytes": 932049
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0188.json",
+      "sha256": "157424bc56b2713f260a46044db8c550e39f3c9f40bb808b86710f60fccd1491",
+      "bytes": 931253
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0189.json",
+      "sha256": "fddcf8f93c5b66160068e3753df36dde1eea5a8631703e97e01dc0056dda5b21",
+      "bytes": 885609
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0190.json",
+      "sha256": "c96dddb2b4eec4ce447eb3610693f6bbdc9979967f9116d317ace30b4c84dc83",
+      "bytes": 965564
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0191.json",
+      "sha256": "8f986e68af91325fa31ca0bcf16f358a2881c13e5044dd8b6f51d56052496468",
+      "bytes": 915917
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0192.json",
+      "sha256": "143fb76fb82d0e99b8e6a6eb810349ce527083ce06490a6753baafdf214781f0",
+      "bytes": 856018
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0193.json",
+      "sha256": "aaf25ac0a1393eaa37a834b2d17c000ea7bbac54f5a67a7d6f4b0481fa9e33c3",
+      "bytes": 876141
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0194.json",
+      "sha256": "a213767ff4641c0578e6fb71cef86e9a6d46bc62067f88a54755d10584a2072c",
+      "bytes": 890791
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0195.json",
+      "sha256": "ea1d494ca3addc867f635069c2e2954a27e09b1e990b76521e50c6ad2765eeea",
+      "bytes": 802538
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0196.json",
+      "sha256": "c4cfe1b8c85bc9cd30783137c94646bab2ad8442abd3d96aba7bd2f2f6d33bea",
+      "bytes": 876315
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0197.json",
+      "sha256": "c00b4082c04714f961777e4bfc20c0600ebafb9788177c722f46211048c2d6a2",
+      "bytes": 917115
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0198.json",
+      "sha256": "f2f2a2270185647170973baa86c05722eadcafd1974251be62218411e3321246",
+      "bytes": 872112
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0199.json",
+      "sha256": "9e0bed08d154059d03854846314799e77ef408e3ad8acec45b987284bd7b9c94",
+      "bytes": 939661
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0200.json",
+      "sha256": "6155ff7f03a236799f6bc05764796e97a8c7ffdef10975ddfab2b6da35583dbd",
+      "bytes": 884302
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0201.json",
+      "sha256": "90ae5e1726684600c28953d995c4d994900c1f20bc7b7f5b4ec0fc94158edbb5",
+      "bytes": 891187
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0202.json",
+      "sha256": "abad04b645348ee420fd31d52755afdf5ba80d9b06258769200fda4bbb0318f2",
+      "bytes": 936794
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0203.json",
+      "sha256": "261ec846f2bc205dd5b0ba5adb265307190f545f81d148377b400e02e7e12a2b",
+      "bytes": 926960
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0204.json",
+      "sha256": "c50da80e31171cf699181c25922b63b0a65392bf6043df96edc294aec9d8112e",
+      "bytes": 926842
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0205.json",
+      "sha256": "b369871e69804b9ba2536f039062f865fbd490b67cf21114bdac33e1c1e86208",
+      "bytes": 863302
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0206.json",
+      "sha256": "9963eae8981b8f756c4b9e3b780cebd1090dc4834674757b180042e3fe8a5202",
+      "bytes": 931070
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/checkpoints/batch-0207.json",
+      "sha256": "4f0a55bafbca4402231033e9db91962e23b9cebd1b61f456795e77699a5283f1",
+      "bytes": 147328
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/deity-authority-snapshot.json",
+      "sha256": "1494e4f9fa9b7e707659161f3101a4407542cecc40fbf053f44874b481ffe3be",
+      "bytes": 12557
+    },
+    {
+      "path": "artifacts/simulator/v5/breed-deity-affinity/preexisting-worktree-baseline.json",
+      "sha256": "6b4dfa6d0d31a61f1919fd4f4ee72c8c1255f58a78ae726e0835376ed82b4de5",
+      "bytes": 16032
+    },
+    {
+      "path": "resources/noncausal/breed-deity-affinity/breed-primary-deity-authority-v1.json",
+      "sha256": "863514e8fae588bccbf8500be7b6e84742e7c3643867921bdc275916c8e5ae93",
+      "bytes": 3589974
+    }
+  ]
+}

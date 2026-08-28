@@ -3,6 +3,7 @@ import type { BoundedDiagnosticObservationV5 } from "./diagnostics.js";
 import type { DivergenceReportV1 } from "./read-model.js";
 import type { CausalEventV5, FamilyV5, OrganizationType, WorldKey, WorldStateV5 } from "./types.js";
 import { aggregateDivergenceTransitionsV5, type DivergenceTraceV5 } from "./divergence-diagnostics.js";
+import { officeTermActiveAt } from "./office-term.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
 const metric = (values: readonly number[]) => ({ mean: values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0, median: values.length ? [...values].sort((a, b) => a - b)[Math.floor((values.length - 1) / 2)]! : 0, max: values.length ? Math.max(...values) : 0 });
@@ -21,7 +22,7 @@ function familyDiagnostic(state: WorldStateV5, events: readonly CausalEventV5[],
   const organizationById = new Map(state.organizations.map((organization) => [organization.organizationId, organization]));
   const relations = state.familyRelations.filter((relation) => relation.endYear === null);
   const buckets = (key: (family: FamilyV5) => string) => Object.fromEntries([...new Set(state.families.map(key))].sort().map((value) => [value, state.families.filter((family) => key(family) === value).length]));
-  const hasCurrentOffice = (family: FamilyV5) => state.politicalPeople.some((person) => person.familyId === family.familyId && state.officeTerms.some((term) => term.personId === person.personId && term.endYear === null));
+  const hasCurrentOffice = (family: FamilyV5) => state.politicalPeople.some((person) => person.familyId === family.familyId && state.officeTerms.some((term) => term.personId === person.personId && officeTermActiveAt(term, state.year)));
   const hasHistoricalOffice = (family: FamilyV5) => state.politicalPeople.some((person) => person.familyId === family.familyId && state.officeTerms.some((term) => term.personId === person.personId));
   const controls = (family: FamilyV5, type: OrganizationType) => state.ownershipStakes.some((stake) => stake.controllerType === "FAMILY" && stake.controllerId === family.familyId && stake.endYear === null && organizationById.get(stake.organizationId)?.type === type);
   const reasonCounts = Object.fromEntries(["CANONICAL_YEAR0","OFFICE_OR_LINEAGE_REQUIRED","RULING_LINEAGE","ORGANIZATION_FOUNDER_OR_CONTROLLER","EMERGENT_PROMOTION","OTHER_TYPED_CAUSE"].map((reason) => [reason, state.families.filter((family) => familyReason(family, state, events) === reason).length]));

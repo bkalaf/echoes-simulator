@@ -1,7 +1,14 @@
 import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { _electron as electron, expect, test, type ElectronApplication } from "@playwright/test";
+import { SimulatorStore } from "../../src/persistence/sqlite-store.js";
+import { loadBundledCanonicalV5 } from "../../src/core/v5/canonical-adapter.js";
+import { DEFAULT_DIAGNOSTIC_CONFIG_V1, DEFAULT_MECHANICS_VARIABLES_V1, DEFAULT_OPERATIONAL_CONFIG_V1, V5_MECHANICS_VERSION, diagnosticCandidateOwnerInputsV1 } from "../../src/core/v5/config.js";
+import { bootstrapWorldV5 } from "../../src/core/v5/bootstrap.js";
+import { V5_EMPTY_EVENT_HISTORY_HASH, buildV5RunManifest, extendV5EventHistoryHash } from "../../src/core/v5/persistence.js";
+import { normalizeSeed } from "../../src/core/v5/random.js";
+import type { WorldKey, WorldStateV5 } from "../../src/core/v5/types.js";
 
 async function launch(userData: string, environment: Record<string, string> = {}): Promise<ElectronApplication> {
   return electron.launch({
@@ -20,16 +27,61 @@ function writeNamingGeographyFixture(directory: string): string {
     const oddWorld = pattern === "AAB" ? "RUIN" : pattern === "ABA" ? "SCHISM" : pattern === "BAA" ? "CONCORD" : null;
     const values = labels(pattern);
     return {
-      entityType, physicalIdentity, secondaryReference: entityType === "ROUTE" ? "R01 ↔ R03" : "test-only physical identity", continentGroup: "Northwestern", pattern,
+      entityType, physicalIdentity, secondaryReference: entityType === "ROUTE" ? "R01 ↔ R03" : "test-only physical identity", continentGroup: "Raukaam", pattern,
       comparisonAuditStatus: "COMPARISON_AWARE",
       atlasTarget: entityType === "SETTLEMENT" ? { kind: "SITE", ids: [physicalIdentity] } : entityType === "POI" ? { kind: "POI", ids: [physicalIdentity] } : { kind: "ROUTE", ids: ["R01", "R03"] },
       cells: Object.fromEntries(worlds.map((world, worldIndex) => [world, { worldKey: world, entityId: `${entityType}_${world}_${physicalIdentity}`, label: values[worldIndex], display: values[worldIndex] ?? "PENDING", status: values[worldIndex] ? "ACCEPTED" : "PENDING", source: values[worldIndex] ? "OWNER_INPUT" : null, cssClass: pattern === "ABC" ? "name-divergence-all" : oddWorld === world ? "name-divergence-odd" : pattern === "INCOMPLETE" ? "name-incomplete" : null }]))
     };
   }));
-  rows.push({ entityType: "ROUTE", physicalIdentity: "ROUTE_CORRIDOR_R03_R06", secondaryReference: "R03 ↔ R06", continentGroup: "Northwestern", pattern: "INCOMPLETE", comparisonAuditStatus: "UNCOORDINATED", atlasTarget: { kind: "ROUTE", ids: ["R03", "R06"] }, cells: Object.fromEntries(worlds.map((world) => [world, { worldKey: world, entityId: `WORLD_ROUTE_${world}_ROUTE_CORRIDOR_R03_R06`, label: null, display: "NOT READY FOR NAMING", status: "MODE_UNRESOLVED", source: null, cssClass: "name-incomplete" }])) } as never);
+  rows.push({ entityType: "ROUTE", physicalIdentity: "ROUTE_CORRIDOR_R03_R06", secondaryReference: "R03 ↔ R06", continentGroup: "Raukaam", pattern: "INCOMPLETE", comparisonAuditStatus: "UNCOORDINATED", atlasTarget: { kind: "ROUTE", ids: ["R03", "R06"] }, cells: Object.fromEntries(worlds.map((world) => [world, { worldKey: world, entityId: `WORLD_ROUTE_${world}_ROUTE_CORRIDOR_R03_R06`, label: null, display: "NOT READY FOR NAMING", status: "MODE_UNRESOLVED", source: null, cssClass: "name-incomplete" }])) } as never);
   const path = join(directory, "naming-geography-fixture.json");
-  writeFileSync(path, JSON.stringify({ schemaVersion: "echoes-naming-geography-v1", year: 2000, rows, summaries: { Northwestern: { AAA: 3, AAB_FAMILY: 9, ABC: 3, INCOMPLETE: 4 } } }), "utf8");
+  writeFileSync(path, JSON.stringify({ schemaVersion: "echoes-naming-geography-v1", year: 2000, rows, summaries: { Raukaam: { AAA: 3, AAB_FAMILY: 9, ABC: 3, INCOMPLETE: 4 } } }), "utf8");
   return path;
+}
+
+function writeNineBatchRestartFixture(userData: string): { runId: string; batchIds: string[]; responses: string[] } {
+  const runId = "RUN_ELECTRON_NINE_BATCH_RESTART";
+  const store = new SimulatorStore(join(userData, "simulator.sqlite"));
+  const canonical = loadBundledCanonicalV5(resolve("resources/canonical"));
+  const owner = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, {}])));
+  const operational = { ...DEFAULT_OPERATIONAL_CONFIG_V1, namingBatchMaximum: 2, interactiveNamingEnabled: true };
+  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 5, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: normalizeSeed("electron restart naming"), mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+  store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_NAMING", seed: "seed", seedHash: "hash", policyVersion: "v5" });
+  store.setRunStatus(runId, "WAITING_FOR_NAMING", 5);
+  store.saveV5RunManifest(manifest);
+  store.recordV5AcceptedLabel({ ledgerEntryId: "LEDGER_CANONICAL_FIXTURE", runId, worldKey: null, entityType: "SETTLEMENT", entityId: "CANONICAL_FIXTURE", label: "Canonical Fixture", source: "CANONICAL_EXISTING", sourceRequestId: null, sourceAuthorityRef: "CANONICAL_NAME_AUTHORITY:FIXTURE", sourceBatchId: null, sourceResponseAttemptId: null, nameEffectiveFromYear: 0, acceptanceYear: 0, reusedFromEntityId: null, reusedFromLedgerEntryId: null, namingComparisonGroupId: null, comparisonAuthorityRef: null }, "TEST");
+  for (const worldKey of ["CONCORD", "SCHISM", "RUIN"] as const) {
+    const state: WorldStateV5 = { schemaVersion: "echoes-world-state-v5", worldKey, year: 5, cohorts: [], settlements: [], states: [], families: [], politicalPeople: [], personRelations: [], organizations: [], institutions: [], offices: [], officeTerms: [], ownershipStakes: [], familyRelations: [], borderRelations: [], timedConditions: [], activeConflicts: [], worldRoutes: [] };
+    store.saveV5Checkpoint(runId, state, V5_EMPTY_EVENT_HISTORY_HASH);
+  }
+  store.saveV5NamingRequests(runId, Array.from({ length: 18 }, (_, index) => ({ requestId: `REQ_${String(index).padStart(2, "0")}`, entityType: "FAMILY", entityId: `FAMILY_${String(index).padStart(2, "0")}`, behavior: "BATCHED" as const, createdYear: index < 8 ? 0 : index < 14 ? 3 : 5, nameEffectiveFromYear: index < 8 ? 0 : index < 14 ? 3 : 5, worldKey: (["CONCORD", "SCHISM", "RUIN"] as const)[index % 3] as WorldKey, namingComparisonGroupId: null, comparisonAuthorityRef: null, comparisonGroupingVersion: "echoes-naming-comparison-groups-v1" as const, acceptedLabel: null, context: { fixtureIndex: index } })));
+  const batches = store.materializePendingV5NamingBatches(runId, 2);
+  store.selectRun(runId);
+  const responses = batches.map((batch, batchIndex) => JSON.stringify({ schemaVersion: "echoes-v5-naming-batch-response-v2", batchId: batch.batchId, runId, decisions: batch.items.map((item, itemIndex) => ({ requestId: item.requestId, entityType: item.entityType, entityId: item.entityId, label: `Restart Label ${batchIndex}-${itemIndex}`, nameEffectiveFromYear: item.nameEffectiveFromYear ?? item.createdYear })) }));
+  store.close();
+  return { runId, batchIds: batches.map((batch) => batch.batchId), responses };
+}
+
+function writePrompt01OperatorFixture(userData: string): string {
+  const runId = "RUN_ELECTRON_PROMPT01_OPERATOR";
+  const store = new SimulatorStore(join(userData, "simulator.sqlite"));
+  const canonical = loadBundledCanonicalV5(resolve("resources/canonical"));
+  const owner = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
+  const seed = normalizeSeed("electron prompt01 operator fixture");
+  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 25, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: seed, mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+  store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_NAMING", seed, seedHash: "prompt01-operator-fixture", policyVersion: V5_MECHANICS_VERSION, currentYear: 0 });
+  store.saveV5RunManifest(manifest);
+  for (const worldKey of ["CONCORD", "SCHISM", "RUIN"] as const) {
+    const bootstrap = bootstrapWorldV5({ worldKey, canonical, ownerInputs: owner, variables: DEFAULT_MECHANICS_VARIABLES_V1, normalizedSeed: seed, mode: "DIAGNOSTIC" });
+    const events = [...bootstrap.events].sort((left, right) => left.eventId.localeCompare(right.eventId)).map((event, sequence) => ({ ...event, sequence }));
+    store.appendV5CausalEvents(runId, events);
+    store.saveV5NamingRequests(runId, bootstrap.namingRequests);
+    store.saveV5Checkpoint(runId, bootstrap.state, extendV5EventHistoryHash(V5_EMPTY_EVENT_HISTORY_HASH, events));
+  }
+  store.materializePendingV5NamingBatches(runId);
+  store.selectRun(runId);
+  store.close();
+  return runId;
 }
 
 test("clean startup is V5-first and legacy V4 diagnostics persist behind Diagnostics", async () => {
@@ -141,8 +193,21 @@ test("Breed Detail search and the POI-only master Atlas render through desktop I
   try {
     const page = await application.firstWindow();
     await page.getByRole("button", { name: "Breed Detail" }).click();
+    const catalog = await page.evaluate(async () => (window as unknown as { eidolonSimulator: { getBreedCatalog(): Promise<{ breedId: string; name: string }[]> } }).eidolonSimulator.getBreedCatalog());
+    expect(catalog).toHaveLength(2062);
+    const selections = [catalog[0]!, catalog[Math.floor(catalog.length / 2)]!, catalog.at(-1)!];
+    await expect(page.getByLabel("Select Breed").locator("option")).toHaveCount(2063, { timeout: 20_000 });
+    for (const selection of selections) {
+      await page.getByLabel("Select Breed").selectOption(selection.breedId);
+      await expect(page.getByRole("heading", { name: selection.name, exact: true })).toBeVisible();
+    }
+    await page.getByLabel("Search Breeds").fill("definitely-no-canonical-breed-matches-this");
+    await expect(page.getByLabel("Select Breed").locator("option")).toHaveCount(2);
+    await expect(page.getByLabel("Select Breed")).toHaveValue(selections[2]!.breedId);
     await page.getByLabel("Search Breeds").fill("Orycteropus afer");
-    await expect(page.getByLabel("Select Breed").locator("option")).toHaveCount(2, { timeout: 20_000 });
+    await expect(page.getByLabel("Select Breed").locator("option")).toHaveCount(3, { timeout: 20_000 });
+    await expect(page.getByLabel("Select Breed")).toHaveValue(selections[2]!.breedId);
+    await expect(page.getByLabel("Select Breed").locator('option[value="BRD_AARDVARK"]')).toHaveCount(1);
     await page.getByLabel("Select Breed").selectOption("BRD_AARDVARK");
     await expect(page.getByRole("heading", { name: "Aardvark", exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Atlas" }).click();
@@ -153,16 +218,16 @@ test("Breed Detail search and the POI-only master Atlas render through desktop I
 });
 
 test("V5 operator views render persisted economics, comparisons, routes, people, families, and chambers", async () => {
-  test.setTimeout(420_000);
+  test.setTimeout(180_000);
   const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-v5-views-"));
+  writePrompt01OperatorFixture(userData);
   const application = await launch(userData);
   try {
     const page = await application.firstWindow();
-    await page.getByRole("button", { name: "RUN V5 TO YEAR 25" }).click();
     await page.getByRole("button", { name: "Naming Queue" }).click();
-    await expect(page.getByText(/V5_DIAGNOSTIC_.*WAITING_FOR_NAMING.*year 25/).first()).toBeVisible({ timeout: 360_000 });
-    await expect(page.getByLabel("Naming batch prompt")).toContainText("Treat these entities as alternate-world counterparts.");
-    await expect(page.getByLabel("Naming batch prompt")).toContainText("Do not attempt to satisfy the simulator's 65/25/10 diagnostic target.");
+    await expect(page.getByLabel("Naming batch prompt")).toBeVisible({ timeout: 30_000 });
+    await expect(page.getByLabel("Naming batch prompt")).toHaveValue(/Treat these entities as alternate-world counterparts\./);
+    await expect(page.getByLabel("Naming batch prompt")).toHaveValue(/Do not attempt to satisfy the simulator's 65\/25\/10 diagnostic target\./);
     const v5Response = await page.evaluate(async () => {
       const simulator = (window as unknown as { eidolonSimulator: { getOperatorSnapshot(): Promise<{ pendingV5NamingBatches: { batchId: string; runId: string; items: { requestId: string; entityType: string; entityId: string; nameEffectiveFromYear?: number; createdYear: number }[] }[] }> } }).eidolonSimulator;
       const batch = (await simulator.getOperatorSnapshot()).pendingV5NamingBatches[0]!;
@@ -208,11 +273,57 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
     await expect(page.getByText("FAMILY / LEGACY DETAIL", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Conclave" }).click();
     await expect(page.getByLabel("CONCLAVE chamber")).toBeVisible();
-    await expect(page.getByText("NO CANONICAL CONCLAVE OFFICE AUTHORITY", { exact: true })).toBeVisible();
+    await expect(page.getByText("NO CANONICAL CONCLAVE OFFICE AUTHORITY", { exact: true })).toHaveCount(0);
+    await expect(page.locator(".chamber-seat").first()).toBeVisible();
+    const chamberPersonButton = page.getByRole("button", { name: /Open Political Person/ }).first();
+    await expect(chamberPersonButton).toBeVisible();
+    const chamberPersonId = (await chamberPersonButton.getAttribute("aria-label"))!.replace("Open Political Person ", "");
+    await chamberPersonButton.click();
+    await expect(page.getByText("PERSON DETAIL", { exact: true })).toBeVisible();
+    await expect(page.getByText(chamberPersonId, { exact: true }).first()).toBeVisible();
     await page.getByRole("button", { name: "Senate" }).click();
     await expect(page.getByLabel("SENATE chamber")).toBeVisible();
     await expect(page.getByText("NO CANONICAL SENATE OFFICE AUTHORITY", { exact: true })).toBeVisible();
   } finally { await application.close(); }
+});
+
+test("nine persisted V5 naming batches retain their IDs and advance across an app restart after every acceptance", async () => {
+  test.setTimeout(240_000);
+  const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-v5-batch-restarts-"));
+  const fixture = writeNineBatchRestartFixture(userData);
+  expect(fixture.batchIds).toHaveLength(9);
+  for (let index = 0; index < fixture.responses.length; index += 1) {
+    const application = await launch(userData);
+    try {
+      const page = await application.firstWindow();
+      await page.getByRole("button", { name: "Naming Queue" }).click();
+      await expect(page.getByRole("heading", { name: fixture.batchIds[index]!, exact: true })).toBeVisible();
+      const persistedIds = await page.evaluate(async () => {
+        const simulator = (window as unknown as { eidolonSimulator: { getOperatorSnapshot(): Promise<{ pendingV5NamingBatches: { batchId: string }[] }> } }).eidolonSimulator;
+        return (await simulator.getOperatorSnapshot()).pendingV5NamingBatches.map((batch) => batch.batchId);
+      });
+      expect(persistedIds).toEqual(fixture.batchIds.slice(index));
+      await page.getByLabel("Naming response JSON").fill(fixture.responses[index]!);
+      await page.getByRole("button", { name: "VALIDATE & ACCEPT" }).click();
+      await expect(page.getByRole("status")).toContainText("Naming response accepted and persisted.");
+      if (index + 1 < fixture.batchIds.length) await expect(page.getByRole("heading", { name: fixture.batchIds[index + 1]!, exact: true })).toBeVisible();
+      else await expect(page.getByRole("heading", { name: "No pending required naming batch", exact: true })).toBeVisible();
+    } finally {
+      await application.close();
+    }
+  }
+  const application = await launch(userData);
+  try {
+    const page = await application.firstWindow();
+    const final = await page.evaluate(async () => {
+      const simulator = (window as unknown as { eidolonSimulator: { getOperatorSnapshot(): Promise<{ pendingV5NamingBatches: { batchId: string }[]; namingQueueSummary: { acceptedFromLlm: Record<string, number> } }> } }).eidolonSimulator;
+      return simulator.getOperatorSnapshot();
+    });
+    expect(final.pendingV5NamingBatches).toEqual([]);
+    expect(Object.values(final.namingQueueSummary.acceptedFromLlm).reduce((sum, count) => sum + count, 0)).toBe(18);
+  } finally {
+    await application.close();
+  }
 });
 
 test("Naming Geography fixtures classify and style all three physical entity tables and highlight Route endpoints", async () => {
@@ -225,7 +336,7 @@ test("Naming Geography fixtures classify and style all three physical entity tab
     await expect(page.getByText("SETTLEMENTS", { exact: true })).toBeVisible();
     await expect(page.getByText("POIs", { exact: true })).toBeVisible();
     await expect(page.getByText("NAMED ROUTES", { exact: true })).toBeVisible();
-    await expect(page.getByText("Northwestern", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("Raukaam", { exact: true }).first()).toBeVisible();
     for (const tableName of ["SETTLEMENTS", "POIs", "NAMED ROUTES"]) {
       const table = page.locator("section.naming-table").filter({ hasText: tableName });
       await expect(table.locator(".name-divergence-all")).toHaveCount(3);

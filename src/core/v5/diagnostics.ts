@@ -1,7 +1,7 @@
 import type { WorldKey } from "./types.js";
 
 export interface BoundedDiagnosticObservationV5 {
-  domain: "FAMILY_FORMATION" | "ORGANIZATION_CORPORATION" | "ORGANIZATION_CRIME" | "FOUNDING";
+  domain: "FAMILY_FORMATION" | "ORGANIZATION_CORPORATION" | "ORGANIZATION_CRIME" | "MIGRATION" | "FOUNDING";
   worldKey: WorldKey;
   year: number;
   counters: Record<string, number>;

@@ -1,6 +1,7 @@
 import { clamp, largestRemainder, normalizeFactionVector } from "./fixed-point.js";
 import { applyMigrationTransfers, type MigrationTransferV5 } from "./migration.js";
 import { cellPopulation } from "./derivations.js";
+import { officeTermActiveAt } from "./office-term.js";
 import type { ControllerType, FamilyStatus, InstitutionV5, OfficeV5, Score1000, SectorId, SocialTier, WorldStateV5 } from "./types.js";
 
 interface EffectBase { effectId: string; sourceEventId: string; }
@@ -68,7 +69,7 @@ function applyPopulationLoss(state: WorldStateV5, effect: PopulationLossEffect):
 
 function validateFamilyExtinction(state: WorldStateV5, familyId: string): void {
   const living = state.politicalPeople.some((person) => person.familyId === familyId && (person.actualDeathYear ?? person.naturalDeathYear) > state.year);
-  const offices = state.officeTerms.some((term) => term.endYear === null && state.politicalPeople.find((person) => person.personId === term.personId)?.familyId === familyId);
+  const offices = state.officeTerms.some((term) => officeTermActiveAt(term, state.year) && state.politicalPeople.find((person) => person.personId === term.personId)?.familyId === familyId);
   const ownership = state.ownershipStakes.some((stake) => stake.endYear === null && stake.controllerType === "FAMILY" && stake.controllerId === familyId && (stake.ownershipShareBps > 0 || stake.controlShareBps > 0));
   const relations = state.familyRelations.some((relation) => relation.endYear === null && (relation.familyAId === familyId || relation.familyBId === familyId));
   if (living || offices || ownership || relations) throw new Error(`Family ${familyId} cannot become extinct while durable roles remain`);
@@ -95,7 +96,7 @@ export function applyCausalEffects(initial: WorldStateV5, effects: readonly Caus
         if (effect.personIds.some((personId) => !state.politicalPeople.some((person) => person.personId === personId))) throw new Error(`PoliticalPersonDeathEffect ${effect.effectId} targets an unknown person`);
         state.politicalPeople = state.politicalPeople.map((person) => ids.has(person.personId) ? { ...person, actualDeathYear: Math.min(person.actualDeathYear ?? person.naturalDeathYear, state.year) } : person);
         state.officeTerms = state.officeTerms.map((term) => {
-          if (term.endYear !== null || !ids.has(term.personId)) return term;
+          if (!officeTermActiveAt(term, state.year) || !ids.has(term.personId)) return term;
           successionOfficeIds.add(term.officeId); return { ...term, endYear: state.year, terminationReason: "DEATH" };
         });
         break;
@@ -134,7 +135,7 @@ export function applyCausalEffects(initial: WorldStateV5, effects: readonly Caus
         state.states = state.states.map((row) => effect.stateIds.includes(row.stateId) ? { ...row, factionAffinity: normalizeFactionVector({ CONCORD: clamp(row.factionAffinity.CONCORD + (effect.delta.CONCORD ?? 0), 0, 1000), SCHISM: clamp(row.factionAffinity.SCHISM + (effect.delta.SCHISM ?? 0), 0, 1000), RUIN: clamp(row.factionAffinity.RUIN + (effect.delta.RUIN ?? 0), 0, 1000) }) } : row); break;
       }
       case "OFFICE_REMOVAL": {
-        const ids = new Set(effect.officeTermIds); state.officeTerms = state.officeTerms.map((term) => { if (!ids.has(term.officeTermId) || term.endYear !== null) return term; successionOfficeIds.add(term.officeId); return { ...term, endYear: state.year, terminationReason: effect.reason }; }); break;
+        const ids = new Set(effect.officeTermIds); state.officeTerms = state.officeTerms.map((term) => { if (!ids.has(term.officeTermId) || !officeTermActiveAt(term, state.year)) return term; successionOfficeIds.add(term.officeId); return { ...term, endYear: state.year, terminationReason: effect.reason }; }); break;
       }
       case "GOVERNMENT_TRANSITION": {
         const retiringInstitutionIds = new Set(effect.retireInstitutionIds);
@@ -147,7 +148,7 @@ export function applyCausalEffects(initial: WorldStateV5, effects: readonly Caus
         ];
         state.offices = [...state.offices, ...effect.newOffices];
         state.officeTerms = state.officeTerms.map((term) => {
-          if (term.endYear !== null || !retiringOfficeIds.has(term.officeId)) return term;
+          if (!officeTermActiveAt(term, state.year) || !retiringOfficeIds.has(term.officeId)) return term;
           return { ...term, endYear: state.year, terminationReason: "GOVERNMENT_CHANGE" };
         });
         state.states = state.states.map((row) => row.stateId === effect.stateId ? { ...row, actualGovernment: effect.governmentFormId, qualifyingGovernmentReviewCount: 0, lastGovernmentTransitionYear: state.year, routineTransitionCooldownUntilYear: effect.cooldownUntilYear } : row);
@@ -183,7 +184,7 @@ export function resolveShockSelectors(state: WorldStateV5, selectors: readonly S
     else if (selector.type === "POLITICAL_PERSON") result.POLITICAL_PERSON = [...(result.POLITICAL_PERSON ?? []), selector.personId];
     else {
       const apexOfficeIds = new Set(state.offices.filter((office) => office.apex && state.institutions.find((institution) => institution.institutionId === office.institutionId)?.stateId === selector.stateId).map((office) => office.officeId));
-      const personIds = new Set(state.officeTerms.filter((term) => term.endYear === null && apexOfficeIds.has(term.officeId)).map((term) => term.personId));
+      const personIds = new Set(state.officeTerms.filter((term) => officeTermActiveAt(term, state.year) && apexOfficeIds.has(term.officeId)).map((term) => term.personId));
       result.FAMILY = [...new Set(state.politicalPeople.filter((person) => personIds.has(person.personId) && person.familyId).map((person) => person.familyId!))].sort();
     }
   }

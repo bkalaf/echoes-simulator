@@ -7,6 +7,7 @@ import { classDistribution, deriveMetrics, industryMean, localFamilyWealth, sett
 import { keyedDrawBps, type KeyedRandomIdentity } from "./random.js";
 import type { CausalEventV5, ControllerType, FamilyRelationType, FamilyRelationV5, FamilyV5, NamingRequestV5, OrganizationType, OrganizationV5, OwnershipStakeV5, Score1000, SectorId, TimedConditionV5, WorldStateV5 } from "./types.js";
 import { boundedHistogram, type BoundedDiagnosticObservationV5 } from "./diagnostics.js";
+import { officeTermActiveAt } from "./office-term.js";
 
 function digest(value: unknown): string { return createHash("sha256").update(canonicalJson(value), "utf8").digest("hex").slice(0, 20); }
 function identity(normalizedSeed: string, randomNamespace: KeyedRandomIdentity["randomNamespace"], comparisonEntityId: string, year: number, candidateOrDecisionKey: string): KeyedRandomIdentity { return { normalizedSeed, randomNamespace, comparisonEntityId, year, candidateOrDecisionKey }; }
@@ -41,7 +42,7 @@ export function familyOfficePowerShare(state: WorldStateV5, familyId: string): S
   const offices = state.offices.filter((office) => institutionIds.has(office.institutionId));
   const totalPower = offices.reduce((sum, office) => sum + BigInt(office.power), 0n);
   const familyPersonIds = new Set(state.politicalPeople.filter((person) => person.familyId === familyId).map((person) => person.personId));
-  const held = offices.filter((office) => state.officeTerms.some((term) => term.officeId === office.officeId && term.endYear === null && familyPersonIds.has(term.personId))).reduce((sum, office) => sum + BigInt(office.power), 0n);
+  const held = offices.filter((office) => state.officeTerms.some((term) => term.officeId === office.officeId && officeTermActiveAt(term, state.year) && familyPersonIds.has(term.personId))).reduce((sum, office) => sum + BigInt(office.power), 0n);
   return ratioScore(held, totalPower, 0);
 }
 
@@ -49,7 +50,7 @@ export function familyNetworkStrength(state: WorldStateV5, familyId: string): Sc
   const alliance = state.familyRelations.filter((relation) => relation.endYear === null && relation.relationType === "ALLIANCE" && (relation.familyAId === familyId || relation.familyBId === familyId)).reduce((maximum, relation) => Math.max(maximum, relation.strength), 0);
   const familyPeople = new Set(state.politicalPeople.filter((person) => person.familyId === familyId).map((person) => person.personId));
   const relatedPeople = new Set(state.personRelations.filter((relation) => relation.endYear === null && (familyPeople.has(relation.personAId) || familyPeople.has(relation.personBId))).flatMap((relation) => [relation.personAId, relation.personBId]));
-  const kinOffice = state.officeTerms.some((term) => term.endYear === null && relatedPeople.has(term.personId)) ? 1000 : 0;
+  const kinOffice = state.officeTerms.some((term) => officeTermActiveAt(term, state.year) && relatedPeople.has(term.personId)) ? 1000 : 0;
   const coControl = state.organizations.some((organization) => {
     const controllers = activeStakes(state, organization.organizationId).filter((stake) => stake.controlShareBps > 0 && stake.controllerType === "FAMILY").map((stake) => stake.controllerId);
     return controllers.includes(familyId) && controllers.some((controller) => controller !== familyId);
@@ -77,7 +78,7 @@ export function familyFormationPressure(state: WorldStateV5, settlementId: strin
 }
 
 function historicallyRelevantUntrackedPeople(state: WorldStateV5): string[] {
-  const officeholders = new Set(state.officeTerms.filter((term) => term.endYear === null).map((term) => term.personId));
+  const officeholders = new Set(state.officeTerms.filter((term) => officeTermActiveAt(term, state.year)).map((term) => term.personId));
   const organizationFounders = new Set(state.organizations.filter((organization) => organization.status !== "DISSOLVED" && organization.founderControllerType === "PERSON").map((organization) => organization.founderControllerId));
   const owners = new Set(state.ownershipStakes.filter((stake) => stake.endYear === null && stake.controllerType === "PERSON" && (stake.ownershipShareBps > 0 || stake.controlShareBps > 0)).map((stake) => stake.controllerId));
   return state.politicalPeople
@@ -123,7 +124,7 @@ export function reviewFamilyFormation(
     const familyId = `FAMILY_${digest([state.worldKey, "EMERGENT", person.personId])}`;
     const breed = canonical.breeds.find((row) => row.breedId === person.breedId);
     if (!breed) throw new Error(`Family promotion person ${person.personId} has unknown Breed ${person.breedId}`);
-    const activeOfficePower = state.offices.filter((office) => state.officeTerms.some((term) => term.endYear === null && term.personId === person.personId && term.officeId === office.officeId)).reduce((sum, office) => sum + office.power, 0);
+    const activeOfficePower = state.offices.filter((office) => state.officeTerms.some((term) => officeTermActiveAt(term, state.year) && term.personId === person.personId && term.officeId === office.officeId)).reduce((sum, office) => sum + office.power, 0);
     const family: FamilyV5 = {
       familyId,
       homeSettlementId: person.originSettlementId,
@@ -256,7 +257,7 @@ export function organizationPoliticalCapture(state: WorldStateV5, organizationId
   if (stakes.length === 0) return 0;
   let value = 0n;
   for (const stake of stakes) {
-    const power = stake.controllerType === "FAMILY" ? familyOfficePowerShare(state, stake.controllerId) : (() => { const person = state.politicalPeople.find((row) => row.personId === stake.controllerId); if (!person) return 0; const officePower = state.offices.filter((office) => state.officeTerms.some((term) => term.officeId === office.officeId && term.personId === person.personId && term.endYear === null)).reduce((sum, office) => sum + office.power, 0); return clamp(officePower, 0, 1000); })();
+    const power = stake.controllerType === "FAMILY" ? familyOfficePowerShare(state, stake.controllerId) : (() => { const person = state.politicalPeople.find((row) => row.personId === stake.controllerId); if (!person) return 0; const officePower = state.offices.filter((office) => state.officeTerms.some((term) => term.officeId === office.officeId && term.personId === person.personId && officeTermActiveAt(term, state.year))).reduce((sum, office) => sum + office.power, 0); return clamp(officePower, 0, 1000); })();
     value += BigInt(stake.controlShareBps) * BigInt(power);
   }
   return clamp(Number(divideRoundedAway(value, 10_000n)), 0, 1000);
@@ -272,7 +273,7 @@ function controllerCandidates(state: WorldStateV5, settlementId: string, type: O
   const candidates: ControllerCandidate[] = [];
   for (const family of state.families.filter((row) => row.status === "ACTIVE" && row.homeSettlementId === settlementId)) candidates.push({ controllerType: "FAMILY", controllerId: family.familyId, score: organizationControllerCandidateScore(type, family.wealth, family.influence, familyNetworkStrength(state, family.familyId), familyOfficePowerShare(state, family.familyId), 1000) });
   for (const person of state.politicalPeople.filter((row) => row.originSettlementId === settlementId && (row.actualDeathYear ?? row.naturalDeathYear) > state.year)) {
-    const family = person.familyId ? state.families.find((row) => row.familyId === person.familyId) : undefined; const officePower = state.offices.filter((office) => state.officeTerms.some((term) => term.officeId === office.officeId && term.personId === person.personId && term.endYear === null)).reduce((sum, office) => sum + office.power, 0);
+    const family = person.familyId ? state.families.find((row) => row.familyId === person.familyId) : undefined; const officePower = state.offices.filter((office) => state.officeTerms.some((term) => term.officeId === office.officeId && term.personId === person.personId && officeTermActiveAt(term, state.year))).reduce((sum, office) => sum + office.power, 0);
     candidates.push({ controllerType: "PERSON", controllerId: person.personId, score: organizationControllerCandidateScore(type, family?.wealth ?? 500, family?.influence ?? 300, family ? familyNetworkStrength(state, family.familyId) : 0, clamp(officePower, 0, 1000), 1000) });
   }
   const settlement = state.settlements.find((row) => row.settlementId === settlementId)!;

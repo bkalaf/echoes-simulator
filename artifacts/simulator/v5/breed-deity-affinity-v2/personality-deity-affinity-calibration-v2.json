@@ -1,0 +1,2415 @@
+{
+  "schemaVersion": "echoes-personality-deity-affinity-calibration-v2",
+  "calibrationRule": "No mapping is based on deity distribution; family names narrow concepts but never replace defining Breed evidence.",
+  "v1SourcePath": "src/core/research/breed-deity-affinity.ts",
+  "v1ClassifierImplementationHash": "9b0e441477fbafcc6b28a16c41f42da0690fc9fff76c4b95bad46612239e0fbe",
+  "mappingCount": 154,
+  "mappings": [
+    {
+      "deityName": "Asteriel",
+      "family": "AUTHORITY",
+      "v1Strength": 50,
+      "personalityExpressions": [
+        "AUTHORITY_ABUSIVE_RULE_WOUND",
+        "AUTHORITY_ORDAINED_RANK_CONFLICT",
+        "AUTHORITY_REPRODUCTIVE_LEADER_EXPRESSION",
+        "AUTHORITY_STEWARD_OR_OWNER_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "AUTHORITY is calibrated as weak personality context for Asteriel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Asteriel",
+      "family": "COLLECTIVE_MEMORY",
+      "v1Strength": 60,
+      "personalityExpressions": [
+        "COLLECTIVE_MEMORY_LIVING_MEMORIAL_CONFLICT",
+        "COLLECTIVE_MEMORY_TECHNIQUE_TRADITION"
+      ],
+      "v2Strength": 24,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Collective memory is organized continuity, not necessarily cosmic order.",
+      "changed": true
+    },
+    {
+      "deityName": "Asteriel",
+      "family": "FAITH",
+      "v1Strength": 40,
+      "personalityExpressions": [
+        "FAITH_FALSE_REVELATION_CONFLICT",
+        "FAITH_INHERITED_CUE_EXPRESSION",
+        "FAITH_PERSECUTED_FAITH_WOUND",
+        "FAITH_SELF_AS_OBJECT_OF_FAITH_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "FAITH is calibrated as weak personality context for Asteriel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Asteriel",
+      "family": "HIERARCHY",
+      "v1Strength": 90,
+      "personalityExpressions": [
+        "HIERARCHY_CASTE_FIXATION_WOUND",
+        "HIERARCHY_COSMIC_ORDER_CONFLICT",
+        "HIERARCHY_REPRODUCTIVE_CASTE_EXPRESSION"
+      ],
+      "v2Strength": 18,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Hierarchy alone is not coherent cosmic integration.",
+      "changed": true
+    },
+    {
+      "deityName": "Asteriel",
+      "family": "LEGITIMACY",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "LEGITIMACY_CHALLENGE_LEGITIMACY_EXPRESSION",
+        "LEGITIMACY_CONQUEST_LEGITIMACY_WOUND",
+        "LEGITIMACY_DIVINE_MANDATE_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "LEGITIMACY is calibrated as weak personality context for Asteriel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Asteriel",
+      "family": "MEANING",
+      "v1Strength": 50,
+      "personalityExpressions": [
+        "MEANING_CREATED_PURPOSE_VERSUS_MEANING_CONFLICT",
+        "MEANING_ERASED_WORLDVIEW_WOUND",
+        "MEANING_RITUAL_ACTION_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "MEANING is calibrated as weak personality context for Asteriel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Asteriel",
+      "family": "PERFECTION",
+      "v1Strength": 76,
+      "personalityExpressions": [
+        "PERFECTION_ERROR_CORRECTION_EXPRESSION",
+        "PERFECTION_EXEMPLARY_MINORITY_WOUND",
+        "PERFECTION_IDEAL_FORM_CONFLICT",
+        "PERFECTION_PERFECT_OBEDIENCE_CONFLICT",
+        "PERFECTION_SYMMETRY_PREFERENCE_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Perfection supports ideal order without proving cosmic structure.",
+      "changed": true
+    },
+    {
+      "deityName": "Asteriel",
+      "family": "PERSPECTIVE",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "PERSPECTIVE_GOD_S_EYE_CONFLICT",
+        "PERSPECTIVE_PERSISTENT_MISREADING_WOUND",
+        "PERSPECTIVE_VISUAL_VANTAGE_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "PERSPECTIVE is calibrated as weak personality context for Asteriel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Asteriel",
+      "family": "STATUS",
+      "v1Strength": 50,
+      "personalityExpressions": [
+        "STATUS_CASTE_HUMILIATION_WOUND",
+        "STATUS_FALLEN_DIVINITY_CONFLICT",
+        "STATUS_ORNAMENT_RANK_EXPRESSION",
+        "STATUS_RACIALIZED_RANK_WOUND",
+        "STATUS_VICTORY_RANK_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "STATUS is calibrated as weak personality context for Asteriel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Aveli",
+      "family": "AUTONOMY",
+      "v1Strength": 92,
+      "personalityExpressions": [
+        "AUTONOMY_DEPENDENCY_TOLERANT_EXPRESSION",
+        "AUTONOMY_ENSLAVEMENT_WOUND",
+        "AUTONOMY_FREEDOM_THROUGH_ISOLATION_CONFLICT",
+        "AUTONOMY_PAIRING_CHOICE_EXPRESSION",
+        "AUTONOMY_PATERNAL_RULE_WOUND",
+        "AUTONOMY_POSSESSION_WITHIN_CONFLICT"
+      ],
+      "v2Strength": 34,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Autonomy supports freedom but is not air, breath, or flight-dominant ecology.",
+      "changed": true
+    },
+    {
+      "deityName": "Aveli",
+      "family": "EXILE",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "EXILE_COLONIZATION_EXPRESSION",
+        "EXILE_DIASPORA_DISTANCE_WOUND",
+        "EXILE_FORCED_MIGRATION_WOUND",
+        "EXILE_NOMADIC_CONTINUITY_EXPRESSION",
+        "EXILE_TWO_HOME_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "EXILE is calibrated as weak personality context for Aveli; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Aveli",
+      "family": "EXPOSURE",
+      "v1Strength": 38,
+      "personalityExpressions": [
+        "EXPOSURE_DISPLAY_EXPOSURE_EXPRESSION",
+        "EXPOSURE_EXPOSURE_AS_EXISTENCE_CONFLICT",
+        "EXPOSURE_INVINCIBLE_WHILE_UNKNOWN_CONFLICT",
+        "EXPOSURE_PRIVACY_DEPRIVATION_WOUND",
+        "EXPOSURE_SEEN_AND_BOUND_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "EXPOSURE is calibrated as weak personality context for Aveli; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Aveli",
+      "family": "INDIVIDUALITY",
+      "v1Strength": 55,
+      "personalityExpressions": [
+        "INDIVIDUALITY_HOST_IDENTITY_CONFLICT",
+        "INDIVIDUALITY_STEREOTYPE_WOUND",
+        "INDIVIDUALITY_UNIQUE_MARKING_EXPRESSION",
+        "INDIVIDUALITY_UNIQUE_MONSTER_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "INDIVIDUALITY is calibrated as weak personality context for Aveli; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Aveli",
+      "family": "REACTANCE",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "REACTANCE_HANDLING_REACTANCE_EXPRESSION",
+        "REACTANCE_OCCUPATION_REACTANCE_WOUND",
+        "REACTANCE_REVERSE_COMPULSION_CONFLICT"
+      ],
+      "v2Strength": 20,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Resistance to control is contextual freedom evidence.",
+      "changed": true
+    },
+    {
+      "deityName": "Aveli",
+      "family": "RISK",
+      "v1Strength": 35,
+      "personalityExpressions": [
+        "RISK_LEAP_OR_DIVE_EXPRESSION",
+        "RISK_OPEN_FORAGING_EXPRESSION",
+        "RISK_PRECARITY_WOUND",
+        "RISK_PROPHECY_CALCULATION_CONFLICT",
+        "RISK_SOCIAL_RISK_SHARING_EXPRESSION",
+        "RISK_UNEQUAL_RISK_WOUND"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "RISK is calibrated as weak personality context for Aveli; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Damor",
+      "family": "CARE",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "CARE_ABANDONMENT_WOUND",
+        "CARE_CARRYING_EXPRESSION",
+        "CARE_CREATED_SERVANT_CONFLICT",
+        "CARE_PROVISIONING_EXPRESSION",
+        "CARE_SELECTIVE_NEGLECT_EXPRESSION",
+        "CARE_UNIVERSAL_GUARDIAN_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "CARE is calibrated as weak personality context for Damor; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Damor",
+      "family": "CONTROL",
+      "v1Strength": 76,
+      "personalityExpressions": [
+        "CONTROL_ADAPTIVE_SURRENDER_EXPRESSION",
+        "CONTROL_BINDING_RITUAL_CONFLICT",
+        "CONTROL_ENVIRONMENT_ENGINEERING_EXPRESSION",
+        "CONTROL_POWERLESSNESS_WOUND",
+        "CONTROL_RESOURCE_CONTROL_EXPRESSION",
+        "CONTROL_UNCONTROLLABLE_CORE_CONFLICT",
+        "CONTROL_UNPREDICTABILITY_WOUND"
+      ],
+      "v2Strength": 40,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "CONTROL is calibrated as moderate personality context for Damor; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Damor",
+      "family": "REPAIR",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "REPAIR_DESTROYED_INFRASTRUCTURE_WOUND",
+        "REPAIR_STRUCTURE_REPAIR_EXPRESSION",
+        "REPAIR_UNREPAIRABLE_ORIGIN_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "REPAIR is calibrated as weak personality context for Damor; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Damor",
+      "family": "STEWARDSHIP",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "STEWARDSHIP_EXTRACTION_WOUND",
+        "STEWARDSHIP_FUTURE_SIGHT_CONFLICT",
+        "STEWARDSHIP_GUARDIAN_OWNER_CONFLICT",
+        "STEWARDSHIP_HABITAT_ENGINEERING_EXPRESSION",
+        "STEWARDSHIP_LIVING_SYSTEM_CONFLICT",
+        "STEWARDSHIP_REALM_KEEPER_CONFLICT",
+        "STEWARDSHIP_SEED_DISPERSAL_EXPRESSION",
+        "STEWARDSHIP_WASTE_RECYCLING_EXPRESSION"
+      ],
+      "v2Strength": 54,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Stewardship supports habitat creation but does not guarantee ecosystem engineering.",
+      "changed": true
+    },
+    {
+      "deityName": "Darel",
+      "family": "COMPETITION",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "COMPETITION_COSMIC_TOURNAMENT_CONFLICT",
+        "COMPETITION_MANUFACTURED_RIVALRY_WOUND",
+        "COMPETITION_MATE_COMPETITION",
+        "COMPETITION_UNFAIR_GIFT_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "COMPETITION is calibrated as weak personality context for Darel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Darel",
+      "family": "COURAGE",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "COURAGE_COURAGE_WITHOUT_CHOICE_CONFLICT",
+        "COURAGE_FEIGNED_INJURY_EXPRESSION",
+        "COURAGE_RESISTANCE_COURAGE_WOUND"
+      ],
+      "v2Strength": 58,
+      "v2Tier": "STRONG",
+      "semanticJustification": "The family directly names courage, while the expression must still show action despite fear.",
+      "changed": true
+    },
+    {
+      "deityName": "Darel",
+      "family": "FEAR",
+      "v1Strength": 66,
+      "personalityExpressions": [
+        "FEAR_CHRONIC_DANGER_WOUND",
+        "FEAR_DEFENSIVE_DISPLAY_EXPRESSION",
+        "FEAR_FEAR_FED_CONFLICT",
+        "FEAR_INTERGENERATIONAL_WARNING_WOUND",
+        "FEAR_STATE_TERROR_WOUND",
+        "FEAR_TERROR_INCARNATE_CONFLICT"
+      ],
+      "v2Strength": 18,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Fear alone is not courage.",
+      "changed": true
+    },
+    {
+      "deityName": "Darel",
+      "family": "POWER",
+      "v1Strength": 38,
+      "personalityExpressions": [
+        "POWER_CAPTURED_RESOURCE_WOUND",
+        "POWER_COLONIAL_POWER_WOUND",
+        "POWER_PHYSICAL_POWER_EXPRESSION",
+        "POWER_REPRODUCTIVE_POWER_EXPRESSION",
+        "POWER_SINGLE_WEAKNESS_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "POWER is calibrated as weak personality context for Darel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Darel",
+      "family": "PROTECTION",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "PROTECTION_GUARDIAN_CURSE_CONFLICT",
+        "PROTECTION_PROTECTOR_AS_PERPETRATOR_WOUND",
+        "PROTECTION_THREAT_CREATION_CONFLICT",
+        "PROTECTION_WORLD_SHIELD_CONFLICT",
+        "PROTECTION_YOUNG_SHIELDING_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "PROTECTION is calibrated as weak personality context for Darel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Darel",
+      "family": "REACTANCE",
+      "v1Strength": 55,
+      "personalityExpressions": [
+        "REACTANCE_HANDLING_REACTANCE_EXPRESSION",
+        "REACTANCE_OCCUPATION_REACTANCE_WOUND",
+        "REACTANCE_REVERSE_COMPULSION_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "REACTANCE is calibrated as weak personality context for Darel; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Darel",
+      "family": "RISK",
+      "v1Strength": 76,
+      "personalityExpressions": [
+        "RISK_LEAP_OR_DIVE_EXPRESSION",
+        "RISK_OPEN_FORAGING_EXPRESSION",
+        "RISK_PRECARITY_WOUND",
+        "RISK_PROPHECY_CALCULATION_CONFLICT",
+        "RISK_SOCIAL_RISK_SHARING_EXPRESSION",
+        "RISK_UNEQUAL_RISK_WOUND"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Risk is supporting context, not courage without chosen action despite danger.",
+      "changed": true
+    },
+    {
+      "deityName": "Elian",
+      "family": "CHANGE",
+      "v1Strength": 52,
+      "personalityExpressions": [
+        "CHANGE_DEVELOPMENTAL_PLASTICITY_EXPRESSION",
+        "CHANGE_FORM_SURRENDER_CONFLICT",
+        "CHANGE_MIGRATION_CHANGE_WOUND",
+        "CHANGE_MOLTING_EXPRESSION",
+        "CHANGE_WORLD_ADAPTATION_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "CHANGE is calibrated as weak personality context for Elian; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Elian",
+      "family": "FAITH",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "FAITH_FALSE_REVELATION_CONFLICT",
+        "FAITH_INHERITED_CUE_EXPRESSION",
+        "FAITH_PERSECUTED_FAITH_WOUND",
+        "FAITH_SELF_AS_OBJECT_OF_FAITH_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "FAITH is calibrated as weak personality context for Elian; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Elian",
+      "family": "HOPE",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "HOPE_BROKEN_PROMISE_WOUND",
+        "HOPE_HOPE_BEARER_CONFLICT",
+        "HOPE_JUVENILE_INVESTMENT_EXPRESSION"
+      ],
+      "v2Strength": 60,
+      "v2Tier": "STRONG",
+      "semanticJustification": "Hope is direct family support; catastrophe and rebuilding remain defining.",
+      "changed": true
+    },
+    {
+      "deityName": "Elian",
+      "family": "MEANING",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "MEANING_CREATED_PURPOSE_VERSUS_MEANING_CONFLICT",
+        "MEANING_ERASED_WORLDVIEW_WOUND",
+        "MEANING_RITUAL_ACTION_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "MEANING is calibrated as weak personality context for Elian; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Elian",
+      "family": "NOVELTY",
+      "v1Strength": 60,
+      "personalityExpressions": [
+        "NOVELTY_CREATION_ADDICTION_CONFLICT",
+        "NOVELTY_ENDLESS_REINVENTION_CONFLICT",
+        "NOVELTY_MIGRATION_OPPORTUNITY_WOUND",
+        "NOVELTY_OBJECT_PLAY_EXPRESSION",
+        "NOVELTY_STRATEGY_SWITCH_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "NOVELTY is calibrated as moderate personality context for Elian; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Elian",
+      "family": "PERSEVERANCE",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "PERSEVERANCE_DROUGHT_OR_COLD_ENDURANCE_EXPRESSION",
+        "PERSEVERANCE_LABOR_EXPLOITATION_WOUND",
+        "PERSEVERANCE_METHOD_SWITCHING_EXPRESSION",
+        "PERSEVERANCE_PERSISTENT_PURSUIT_EXPRESSION",
+        "PERSEVERANCE_SUFFERING_AS_PROOF_CONFLICT",
+        "PERSEVERANCE_SURVIVAL_PERSISTENCE_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "PERSEVERANCE is calibrated as weak personality context for Elian; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Elian",
+      "family": "REPAIR",
+      "v1Strength": 85,
+      "personalityExpressions": [
+        "REPAIR_DESTROYED_INFRASTRUCTURE_WOUND",
+        "REPAIR_STRUCTURE_REPAIR_EXPRESSION",
+        "REPAIR_UNREPAIRABLE_ORIGIN_CONFLICT"
+      ],
+      "v2Strength": 42,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Repair supports renewal but may be routine maintenance.",
+      "changed": true
+    },
+    {
+      "deityName": "Iskarn",
+      "family": "EQUANIMITY",
+      "v1Strength": 62,
+      "personalityExpressions": [
+        "EQUANIMITY_LOW_REACTIVITY_EXPRESSION",
+        "EQUANIMITY_SCRUTINIZED_COMPOSURE_WOUND",
+        "EQUANIMITY_SERENITY_AS_SEAL_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "EQUANIMITY is calibrated as moderate personality context for Iskarn; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Iskarn",
+      "family": "PERSEVERANCE",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "PERSEVERANCE_DROUGHT_OR_COLD_ENDURANCE_EXPRESSION",
+        "PERSEVERANCE_LABOR_EXPLOITATION_WOUND",
+        "PERSEVERANCE_METHOD_SWITCHING_EXPRESSION",
+        "PERSEVERANCE_PERSISTENT_PURSUIT_EXPRESSION",
+        "PERSEVERANCE_SUFFERING_AS_PROOF_CONFLICT",
+        "PERSEVERANCE_SURVIVAL_PERSISTENCE_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "PERSEVERANCE is calibrated as weak personality context for Iskarn; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Iskarn",
+      "family": "RESTRAINT",
+      "v1Strength": 50,
+      "personalityExpressions": [
+        "RESTRAINT_ATTACK_INHIBITION_EXPRESSION",
+        "RESTRAINT_CATASTROPHE_CONTAINED_CONFLICT",
+        "RESTRAINT_PUNISHED_EXPRESSION_WOUND",
+        "RESTRAINT_SCARCITY_RESTRAINT_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "RESTRAINT is calibrated as weak personality context for Iskarn; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Iskarn",
+      "family": "SCARCITY",
+      "v1Strength": 80,
+      "personalityExpressions": [
+        "SCARCITY_CACHE_EXPRESSION",
+        "SCARCITY_LAND_LOSS_SCARCITY",
+        "SCARCITY_LAST_RESOURCE_CONFLICT",
+        "SCARCITY_MEMORY_OF_LACK_CONFLICT",
+        "SCARCITY_METABOLIC_SLOWING_EXPRESSION"
+      ],
+      "v2Strength": 40,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "SCARCITY is calibrated as moderate personality context for Iskarn; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Kharad",
+      "family": "AUTHORITY",
+      "v1Strength": 42,
+      "personalityExpressions": [
+        "AUTHORITY_ABUSIVE_RULE_WOUND",
+        "AUTHORITY_ORDAINED_RANK_CONFLICT",
+        "AUTHORITY_REPRODUCTIVE_LEADER_EXPRESSION",
+        "AUTHORITY_STEWARD_OR_OWNER_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "AUTHORITY is calibrated as weak personality context for Kharad; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Kharad",
+      "family": "BOUNDARIES",
+      "v1Strength": 64,
+      "personalityExpressions": [
+        "BOUNDARIES_DOMAIN_BOUND_CONFLICT",
+        "BOUNDARIES_LAND_BOUNDARY_WOUND",
+        "BOUNDARIES_TERRITORIAL_MARKING_EXPRESSION"
+      ],
+      "v2Strength": 12,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Territorial boundaries are not physical foundations.",
+      "changed": true
+    },
+    {
+      "deityName": "Kharad",
+      "family": "CONTROL",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "CONTROL_ADAPTIVE_SURRENDER_EXPRESSION",
+        "CONTROL_BINDING_RITUAL_CONFLICT",
+        "CONTROL_ENVIRONMENT_ENGINEERING_EXPRESSION",
+        "CONTROL_POWERLESSNESS_WOUND",
+        "CONTROL_RESOURCE_CONTROL_EXPRESSION",
+        "CONTROL_UNCONTROLLABLE_CORE_CONFLICT",
+        "CONTROL_UNPREDICTABILITY_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "CONTROL is calibrated as weak personality context for Kharad; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Kharad",
+      "family": "DISCIPLINE",
+      "v1Strength": 40,
+      "personalityExpressions": [
+        "DISCIPLINE_ASCETIC_POWER_CONFLICT",
+        "DISCIPLINE_COMMANDED_DISCIPLINE_CONFLICT",
+        "DISCIPLINE_FORAGING_DISCIPLINE_EXPRESSION",
+        "DISCIPLINE_FORM_MAINTENANCE_CONFLICT",
+        "DISCIPLINE_PUNITIVE_TRAINING_WOUND",
+        "DISCIPLINE_VIGIL_WITHOUT_END_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "DISCIPLINE is calibrated as weak personality context for Kharad; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Kharad",
+      "family": "LAND",
+      "v1Strength": 92,
+      "personalityExpressions": [
+        "LAND_DOMAIN_BOUND_CONFLICT",
+        "LAND_LAND_AS_BODY_CONFLICT",
+        "LAND_NESTING_SITE_DEPENDENCE",
+        "LAND_REMOVAL_WOUND",
+        "LAND_ROOTEDNESS_VERSUS_FREEDOM_CONFLICT",
+        "LAND_SPAWNING_SITE_DEPENDENCE"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Land affinity supports Earth, but does not itself establish stone, weight, or permanence.",
+      "changed": true
+    },
+    {
+      "deityName": "Kharad",
+      "family": "POSSESSION",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "POSSESSION_CACHE_GUARDING_EXPRESSION",
+        "POSSESSION_CULTURAL_PROPERTY_WOUND",
+        "POSSESSION_GUARDIAN_VERSUS_OWNER_CONFLICT",
+        "POSSESSION_HOARD_MASTER_CONFLICT",
+        "POSSESSION_NEST_DECORATION_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "POSSESSION is calibrated as weak personality context for Kharad; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Lunessa",
+      "family": "AMBIGUITY",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "AMBIGUITY_BETWEEN_STATES_CONFLICT",
+        "AMBIGUITY_BLESSING_CURSE_CONFLICT",
+        "AMBIGUITY_CONTEXT_SHIFTING_SIGNAL_EXPRESSION",
+        "AMBIGUITY_FRAGMENTED_RECORD_WOUND",
+        "AMBIGUITY_MIXED_STRATEGY_EXPRESSION",
+        "AMBIGUITY_ROLE_FLUID_EXPRESSION",
+        "AMBIGUITY_UNFIXED_FORM_CONFLICT"
+      ],
+      "v2Strength": 16,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Ambiguity is not necessarily cyclical.",
+      "changed": true
+    },
+    {
+      "deityName": "Lunessa",
+      "family": "CHANGE",
+      "v1Strength": 72,
+      "personalityExpressions": [
+        "CHANGE_DEVELOPMENTAL_PLASTICITY_EXPRESSION",
+        "CHANGE_FORM_SURRENDER_CONFLICT",
+        "CHANGE_MIGRATION_CHANGE_WOUND",
+        "CHANGE_MOLTING_EXPRESSION",
+        "CHANGE_WORLD_ADAPTATION_CONFLICT"
+      ],
+      "v2Strength": 28,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Change is a phase clue, not evidence of recurrence by itself.",
+      "changed": true
+    },
+    {
+      "deityName": "Lunessa",
+      "family": "MEMORY",
+      "v1Strength": 40,
+      "personalityExpressions": [
+        "MEMORY_CACHE_MEMORY_EXPRESSION",
+        "MEMORY_HAUNTED_MEMORY_CONFLICT",
+        "MEMORY_RITUAL_RETURN_EXPRESSION",
+        "MEMORY_SELECTIVE_MEMORY_WOUND",
+        "MEMORY_SURVIVOR_MEMORY_WOUND"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "MEMORY is calibrated as weak personality context for Lunessa; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Marea",
+      "family": "EXILE",
+      "v1Strength": 32,
+      "personalityExpressions": [
+        "EXILE_COLONIZATION_EXPRESSION",
+        "EXILE_DIASPORA_DISTANCE_WOUND",
+        "EXILE_FORCED_MIGRATION_WOUND",
+        "EXILE_NOMADIC_CONTINUITY_EXPRESSION",
+        "EXILE_TWO_HOME_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "EXILE is calibrated as weak personality context for Marea; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Marea",
+      "family": "EXPRESSION",
+      "v1Strength": 38,
+      "personalityExpressions": [
+        "EXPRESSION_CHEMICAL_EXPRESSION",
+        "EXPRESSION_COMPELLED_PERFORMANCE_CONFLICT",
+        "EXPRESSION_LANGUAGE_SUPPRESSION_WOUND",
+        "EXPRESSION_SILENCE_EXPRESSION",
+        "EXPRESSION_TACTILE_EXPRESSION",
+        "EXPRESSION_UNSPEAKABLE_NEED_CONFLICT",
+        "EXPRESSION_VISUAL_EXPRESSION",
+        "EXPRESSION_VOCAL_EXPRESSION",
+        "EXPRESSION_WORLD_CHANGING_VOICE_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "EXPRESSION is calibrated as weak personality context for Marea; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "ATTACHMENT",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "ATTACHMENT_ANCHOR_PERSON_CONFLICT",
+        "ATTACHMENT_FAMILY_SEPARATION_WOUND",
+        "ATTACHMENT_LIFELONG_BOND_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "ATTACHMENT is calibrated as weak personality context for Miren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "BELONGING",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "BELONGING_COLONY_EXPRESSION",
+        "BELONGING_DISPLACEMENT_WOUND",
+        "BELONGING_HERDING_EXPRESSION",
+        "BELONGING_KINDLESS_CONFLICT",
+        "BELONGING_MORTAL_LONGING_CONFLICT",
+        "BELONGING_THRESHOLD_KEEPER_CONFLICT",
+        "BELONGING_TWO_WORLD_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "BELONGING is calibrated as weak personality context for Miren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "CARE",
+      "v1Strength": 88,
+      "personalityExpressions": [
+        "CARE_ABANDONMENT_WOUND",
+        "CARE_CARRYING_EXPRESSION",
+        "CARE_CREATED_SERVANT_CONFLICT",
+        "CARE_PROVISIONING_EXPRESSION",
+        "CARE_SELECTIVE_NEGLECT_EXPRESSION",
+        "CARE_UNIVERSAL_GUARDIAN_CONFLICT"
+      ],
+      "v2Strength": 40,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Care supports compassion but may be ordinary parental or in-group care.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "COMPASSION",
+      "v1Strength": 95,
+      "personalityExpressions": [
+        "COMPASSION_INJURY_AID_EXPRESSION",
+        "COMPASSION_NECESSARY_HARM_CONFLICT",
+        "COMPASSION_RESCUE_CONTROL_WOUND"
+      ],
+      "v2Strength": 62,
+      "v2Tier": "STRONG",
+      "semanticJustification": "The family directly names compassion, but a family label does not prove costly compassion.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "HOSPITALITY",
+      "v1Strength": 72,
+      "personalityExpressions": [
+        "HOSPITALITY_CLEANING_STATION_EXPRESSION",
+        "HOSPITALITY_GUEST_RIGHT_BINDING_CONFLICT",
+        "HOSPITALITY_HOST_VERSUS_REALM_CONFLICT",
+        "HOSPITALITY_REFUGE_WOUND"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "HOSPITALITY is calibrated as moderate personality context for Miren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "LOYALTY",
+      "v1Strength": 40,
+      "personalityExpressions": [
+        "LOYALTY_DEAD_MASTER_CONFLICT",
+        "LOYALTY_FACTIONALIZATION_WOUND",
+        "LOYALTY_GROUP_ALLEGIANCE_EXPRESSION"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "LOYALTY is calibrated as weak personality context for Miren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "MERCY",
+      "v1Strength": 80,
+      "personalityExpressions": [
+        "MERCY_IMPUNITY_THROUGH_MERCY_WOUND",
+        "MERCY_JUDGE_WHO_CANNOT_FORGIVE_CONFLICT",
+        "MERCY_MERCY_DENIAL_WOUND",
+        "MERCY_SUBMISSION_RESPONSE_EXPRESSION"
+      ],
+      "v2Strength": 48,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Mercy is close to compassion but may fit forgiveness more specifically.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "PROTECTION",
+      "v1Strength": 62,
+      "personalityExpressions": [
+        "PROTECTION_GUARDIAN_CURSE_CONFLICT",
+        "PROTECTION_PROTECTOR_AS_PERPETRATOR_WOUND",
+        "PROTECTION_THREAT_CREATION_CONFLICT",
+        "PROTECTION_WORLD_SHIELD_CONFLICT",
+        "PROTECTION_YOUNG_SHIELDING_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "PROTECTION is calibrated as moderate personality context for Miren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Miren",
+      "family": "RECIPROCITY",
+      "v1Strength": 68,
+      "personalityExpressions": [
+        "RECIPROCITY_CLEANING_MUTUALISM_EXPRESSION",
+        "RECIPROCITY_EXTRACTIVE_EXCHANGE_WOUND",
+        "RECIPROCITY_FOOD_SHARING_EXPRESSION",
+        "RECIPROCITY_GENEROSITY_WITHOUT_RECEIVING_CONFLICT",
+        "RECIPROCITY_GIFT_AS_BINDING_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "RECIPROCITY is calibrated as moderate personality context for Miren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "AMBIGUITY",
+      "v1Strength": 94,
+      "personalityExpressions": [
+        "AMBIGUITY_BETWEEN_STATES_CONFLICT",
+        "AMBIGUITY_BLESSING_CURSE_CONFLICT",
+        "AMBIGUITY_CONTEXT_SHIFTING_SIGNAL_EXPRESSION",
+        "AMBIGUITY_FRAGMENTED_RECORD_WOUND",
+        "AMBIGUITY_MIXED_STRATEGY_EXPRESSION",
+        "AMBIGUITY_ROLE_FLUID_EXPRESSION",
+        "AMBIGUITY_UNFIXED_FORM_CONFLICT"
+      ],
+      "v2Strength": 28,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Ambiguity is an affinity clue, not a direct equivalence to dreaming or possibility.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "AUTHENTICITY",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "AUTHENTICITY_ASSIMILATION_WOUND",
+        "AUTHENTICITY_CONTEXTUAL_FORM_EXPRESSION",
+        "AUTHENTICITY_INDIVIDUAL_SIGNATURE_EXPRESSION",
+        "AUTHENTICITY_MADE_PURPOSE_CONFLICT",
+        "AUTHENTICITY_MASK_FUSION_CONFLICT",
+        "AUTHENTICITY_PURITY_TEST_WOUND",
+        "AUTHENTICITY_SHAPE_WITHOUT_SELF_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "AUTHENTICITY is calibrated as weak personality context for Myrra; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "CURIOSITY",
+      "v1Strength": 70,
+      "personalityExpressions": [
+        "CURIOSITY_BOUNDARY_BLIND_INQUIRY_CONFLICT",
+        "CURIOSITY_LOST_HISTORY_WOUND",
+        "CURIOSITY_PROBLEM_SOLVING_EXPRESSION"
+      ],
+      "v2Strength": 16,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Curiosity and problem-solving are not dreaming.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "DESIRE",
+      "v1Strength": 52,
+      "personalityExpressions": [
+        "DESIRE_COMMODIFIED_DESIRE_WOUND",
+        "DESIRE_COMPELLED_ATTRACTION_CONFLICT",
+        "DESIRE_COURTSHIP_DISPLAY_EXPRESSION",
+        "DESIRE_HUNGER_VERSUS_LOVE_CONFLICT",
+        "DESIRE_WISH_GRANTER_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "DESIRE is calibrated as weak personality context for Myrra; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "DOUBT",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "DOUBT_MAKER_DECEPTION_CONFLICT",
+        "DOUBT_RETESTING_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "DOUBT is calibrated as weak personality context for Myrra; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "ENVY",
+      "v1Strength": 36,
+      "personalityExpressions": [
+        "ENVY_INTERNAL_COMPARISON_WOUND",
+        "ENVY_OBJECT_COVETING_EXPRESSION",
+        "ENVY_ORDINARY_LIFE_ENVY_CONFLICT",
+        "ENVY_VISIBLE_INEQUALITY_WOUND"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "ENVY is calibrated as weak personality context for Myrra; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "INDIVIDUALITY",
+      "v1Strength": 46,
+      "personalityExpressions": [
+        "INDIVIDUALITY_HOST_IDENTITY_CONFLICT",
+        "INDIVIDUALITY_STEREOTYPE_WOUND",
+        "INDIVIDUALITY_UNIQUE_MARKING_EXPRESSION",
+        "INDIVIDUALITY_UNIQUE_MONSTER_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "INDIVIDUALITY is calibrated as weak personality context for Myrra; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "NOVELTY",
+      "v1Strength": 74,
+      "personalityExpressions": [
+        "NOVELTY_CREATION_ADDICTION_CONFLICT",
+        "NOVELTY_ENDLESS_REINVENTION_CONFLICT",
+        "NOVELTY_MIGRATION_OPPORTUNITY_WOUND",
+        "NOVELTY_OBJECT_PLAY_EXPRESSION",
+        "NOVELTY_STRATEGY_SWITCH_EXPRESSION"
+      ],
+      "v2Strength": 18,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Novelty does not itself imply unreal potential.",
+      "changed": true
+    },
+    {
+      "deityName": "Myrra",
+      "family": "SELF_KNOWLEDGE",
+      "v1Strength": 42,
+      "personalityExpressions": [
+        "SELF_KNOWLEDGE_EXTERNALLY_DEFINED_WOUND",
+        "SELF_KNOWLEDGE_GASLIGHTING_WOUND",
+        "SELF_KNOWLEDGE_MIRROR_RECOGNITION_EXPRESSION",
+        "SELF_KNOWLEDGE_SPLIT_SOUL_CONFLICT",
+        "SELF_KNOWLEDGE_STATE_AWARENESS_EXPRESSION"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "SELF_KNOWLEDGE is calibrated as weak personality context for Myrra; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Namiya",
+      "family": "CLOSURE",
+      "v1Strength": 65,
+      "personalityExpressions": [
+        "CLOSURE_OPEN_DOOR_CONFLICT",
+        "CLOSURE_RAPID_CLASSIFICATION_EXPRESSION",
+        "CLOSURE_UNRESOLVED_DISAPPEARANCE_WOUND"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "CLOSURE is calibrated as moderate personality context for Namiya; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Namiya",
+      "family": "FAIRNESS",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "FAIRNESS_JUSTICE_VERSUS_LOVE_CONFLICT",
+        "FAIRNESS_LABOR_EXTRACTION_WOUND",
+        "FAIRNESS_TURN_TAKING_EXPRESSION",
+        "FAIRNESS_UNEQUAL_LAW_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "FAIRNESS is calibrated as weak personality context for Namiya; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Namiya",
+      "family": "FORGIVENESS",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "FORGIVENESS_COMMUNITY_SPLIT_WOUND",
+        "FORGIVENESS_CONDITIONAL_RELEASE_CONFLICT",
+        "FORGIVENESS_RECONCILIATION_GROOMING_EXPRESSION",
+        "FORGIVENESS_UNACKNOWLEDGED_HARM_WOUND"
+      ],
+      "v2Strength": 62,
+      "v2Tier": "STRONG",
+      "semanticJustification": "Forgiveness is direct support, while injury and accountability remain defining.",
+      "changed": true
+    },
+    {
+      "deityName": "Namiya",
+      "family": "MERCY",
+      "v1Strength": 86,
+      "personalityExpressions": [
+        "MERCY_IMPUNITY_THROUGH_MERCY_WOUND",
+        "MERCY_JUDGE_WHO_CANNOT_FORGIVE_CONFLICT",
+        "MERCY_MERCY_DENIAL_WOUND",
+        "MERCY_SUBMISSION_RESPONSE_EXPRESSION"
+      ],
+      "v2Strength": 38,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Mercy supports forgiveness without necessarily restoring a relationship.",
+      "changed": true
+    },
+    {
+      "deityName": "Namiya",
+      "family": "REPAIR",
+      "v1Strength": 62,
+      "personalityExpressions": [
+        "REPAIR_DESTROYED_INFRASTRUCTURE_WOUND",
+        "REPAIR_STRUCTURE_REPAIR_EXPRESSION",
+        "REPAIR_UNREPAIRABLE_ORIGIN_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "REPAIR is calibrated as moderate personality context for Namiya; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Neressa",
+      "family": "AMBIGUITY",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "AMBIGUITY_BETWEEN_STATES_CONFLICT",
+        "AMBIGUITY_BLESSING_CURSE_CONFLICT",
+        "AMBIGUITY_CONTEXT_SHIFTING_SIGNAL_EXPRESSION",
+        "AMBIGUITY_FRAGMENTED_RECORD_WOUND",
+        "AMBIGUITY_MIXED_STRATEGY_EXPRESSION",
+        "AMBIGUITY_ROLE_FLUID_EXPRESSION",
+        "AMBIGUITY_UNFIXED_FORM_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "AMBIGUITY is calibrated as weak personality context for Neressa; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Neressa",
+      "family": "AUTONOMY",
+      "v1Strength": 38,
+      "personalityExpressions": [
+        "AUTONOMY_DEPENDENCY_TOLERANT_EXPRESSION",
+        "AUTONOMY_ENSLAVEMENT_WOUND",
+        "AUTONOMY_FREEDOM_THROUGH_ISOLATION_CONFLICT",
+        "AUTONOMY_PAIRING_CHOICE_EXPRESSION",
+        "AUTONOMY_PATERNAL_RULE_WOUND",
+        "AUTONOMY_POSSESSION_WITHIN_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "AUTONOMY is calibrated as weak personality context for Neressa; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Neressa",
+      "family": "CHANGE",
+      "v1Strength": 82,
+      "personalityExpressions": [
+        "CHANGE_DEVELOPMENTAL_PLASTICITY_EXPRESSION",
+        "CHANGE_FORM_SURRENDER_CONFLICT",
+        "CHANGE_MIGRATION_CHANGE_WOUND",
+        "CHANGE_MOLTING_EXPRESSION",
+        "CHANGE_WORLD_ADAPTATION_CONFLICT"
+      ],
+      "v2Strength": 40,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "CHANGE is calibrated as moderate personality context for Neressa; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Oren",
+      "family": "ACCOUNTABILITY",
+      "v1Strength": 78,
+      "personalityExpressions": [
+        "ACCOUNTABILITY_CURSE_EXCUSE_CONFLICT",
+        "ACCOUNTABILITY_DENIED_HARM_WOUND",
+        "ACCOUNTABILITY_ERROR_CORRECTION_EXPRESSION",
+        "ACCOUNTABILITY_SCAPEGOAT_WOUND"
+      ],
+      "v2Strength": 38,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Accountability supports correction and integrity.",
+      "changed": true
+    },
+    {
+      "deityName": "Oren",
+      "family": "AUTHENTICITY",
+      "v1Strength": 88,
+      "personalityExpressions": [
+        "AUTHENTICITY_ASSIMILATION_WOUND",
+        "AUTHENTICITY_CONTEXTUAL_FORM_EXPRESSION",
+        "AUTHENTICITY_INDIVIDUAL_SIGNATURE_EXPRESSION",
+        "AUTHENTICITY_MADE_PURPOSE_CONFLICT",
+        "AUTHENTICITY_MASK_FUSION_CONFLICT",
+        "AUTHENTICITY_PURITY_TEST_WOUND",
+        "AUTHENTICITY_SHAPE_WITHOUT_SELF_CONFLICT"
+      ],
+      "v2Strength": 40,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Authenticity supports honesty without proving truthful disclosure.",
+      "changed": true
+    },
+    {
+      "deityName": "Oren",
+      "family": "DOUBT",
+      "v1Strength": 62,
+      "personalityExpressions": [
+        "DOUBT_MAKER_DECEPTION_CONFLICT",
+        "DOUBT_RETESTING_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "DOUBT is calibrated as moderate personality context for Oren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Oren",
+      "family": "INDIVIDUALITY",
+      "v1Strength": 46,
+      "personalityExpressions": [
+        "INDIVIDUALITY_HOST_IDENTITY_CONFLICT",
+        "INDIVIDUALITY_STEREOTYPE_WOUND",
+        "INDIVIDUALITY_UNIQUE_MARKING_EXPRESSION",
+        "INDIVIDUALITY_UNIQUE_MONSTER_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "INDIVIDUALITY is calibrated as weak personality context for Oren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Oren",
+      "family": "REPUTATION",
+      "v1Strength": 50,
+      "personalityExpressions": [
+        "REPUTATION_INHERITED_LEGEND_CONFLICT",
+        "REPUTATION_THREAT_MEMORY_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "REPUTATION is calibrated as weak personality context for Oren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Oren",
+      "family": "SELF_KNOWLEDGE",
+      "v1Strength": 52,
+      "personalityExpressions": [
+        "SELF_KNOWLEDGE_EXTERNALLY_DEFINED_WOUND",
+        "SELF_KNOWLEDGE_GASLIGHTING_WOUND",
+        "SELF_KNOWLEDGE_MIRROR_RECOGNITION_EXPRESSION",
+        "SELF_KNOWLEDGE_SPLIT_SOUL_CONFLICT",
+        "SELF_KNOWLEDGE_STATE_AWARENESS_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "SELF_KNOWLEDGE is calibrated as weak personality context for Oren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Oren",
+      "family": "TRUST",
+      "v1Strength": 55,
+      "personalityExpressions": [
+        "TRUST_ALARM_RELIABILITY_EXPRESSION",
+        "TRUST_COMPULSION_DOUBT_CONFLICT",
+        "TRUST_FRAUD_AND_EXTRACTION_WOUND",
+        "TRUST_TRUST_BY_PROXIMITY_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "TRUST is calibrated as weak personality context for Oren; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Oren",
+      "family": "TRUTH",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "TRUTH_CAMOUFLAGE_EXPRESSION",
+        "TRUTH_GLAMOUR_DEPENDENCE_CONFLICT",
+        "TRUTH_HONEST_SIGNAL_EXPRESSION",
+        "TRUTH_LIVING_LIE_CONFLICT",
+        "TRUTH_MIMICRY_EXPRESSION",
+        "TRUTH_OFFICIAL_DENIAL_WOUND",
+        "TRUTH_PROPAGANDA_WOUND"
+      ],
+      "v2Strength": 62,
+      "v2Tier": "STRONG",
+      "semanticJustification": "Truth is direct support, but costly candor remains defining.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "AUTHORITY",
+      "v1Strength": 55,
+      "personalityExpressions": [
+        "AUTHORITY_ABUSIVE_RULE_WOUND",
+        "AUTHORITY_ORDAINED_RANK_CONFLICT",
+        "AUTHORITY_REPRODUCTIVE_LEADER_EXPRESSION",
+        "AUTHORITY_STEWARD_OR_OWNER_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "AUTHORITY is calibrated as weak personality context for Orun-IX; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "COLLECTIVE_MEMORY",
+      "v1Strength": 42,
+      "personalityExpressions": [
+        "COLLECTIVE_MEMORY_LIVING_MEMORIAL_CONFLICT",
+        "COLLECTIVE_MEMORY_TECHNIQUE_TRADITION"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "COLLECTIVE_MEMORY is calibrated as weak personality context for Orun-IX; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "CONFORMITY",
+      "v1Strength": 82,
+      "personalityExpressions": [
+        "CONFORMITY_ASSIMILATION_WOUND",
+        "CONFORMITY_EMERGENCE_SYNCHRONY_EXPRESSION",
+        "CONFORMITY_MOVEMENT_SYNCHRONY_EXPRESSION",
+        "CONFORMITY_OBEDIENCE_NATURE_CONFLICT"
+      ],
+      "v2Strength": 24,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Conformity is generic order, not timing or causality.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "CONTROL",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "CONTROL_ADAPTIVE_SURRENDER_EXPRESSION",
+        "CONTROL_BINDING_RITUAL_CONFLICT",
+        "CONTROL_ENVIRONMENT_ENGINEERING_EXPRESSION",
+        "CONTROL_POWERLESSNESS_WOUND",
+        "CONTROL_RESOURCE_CONTROL_EXPRESSION",
+        "CONTROL_UNCONTROLLABLE_CORE_CONFLICT",
+        "CONTROL_UNPREDICTABILITY_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "CONTROL is calibrated as weak personality context for Orun-IX; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "DISCIPLINE",
+      "v1Strength": 74,
+      "personalityExpressions": [
+        "DISCIPLINE_ASCETIC_POWER_CONFLICT",
+        "DISCIPLINE_COMMANDED_DISCIPLINE_CONFLICT",
+        "DISCIPLINE_FORAGING_DISCIPLINE_EXPRESSION",
+        "DISCIPLINE_FORM_MAINTENANCE_CONFLICT",
+        "DISCIPLINE_PUNITIVE_TRAINING_WOUND",
+        "DISCIPLINE_VIGIL_WITHOUT_END_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Discipline supports repeatability without proving sequence.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "DUTY",
+      "v1Strength": 52,
+      "personalityExpressions": [
+        "DUTY_ABANDONED_DUTY_WOUND",
+        "DUTY_LAST_GUARDIAN_CONFLICT",
+        "DUTY_NEST_DUTY_EXPRESSION",
+        "DUTY_WATCH_DUTY_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "DUTY is calibrated as weak personality context for Orun-IX; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "FAIRNESS",
+      "v1Strength": 38,
+      "personalityExpressions": [
+        "FAIRNESS_JUSTICE_VERSUS_LOVE_CONFLICT",
+        "FAIRNESS_LABOR_EXTRACTION_WOUND",
+        "FAIRNESS_TURN_TAKING_EXPRESSION",
+        "FAIRNESS_UNEQUAL_LAW_WOUND"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "FAIRNESS is calibrated as weak personality context for Orun-IX; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "PERFECTION",
+      "v1Strength": 66,
+      "personalityExpressions": [
+        "PERFECTION_ERROR_CORRECTION_EXPRESSION",
+        "PERFECTION_EXEMPLARY_MINORITY_WOUND",
+        "PERFECTION_IDEAL_FORM_CONFLICT",
+        "PERFECTION_PERFECT_OBEDIENCE_CONFLICT",
+        "PERFECTION_SYMMETRY_PREFERENCE_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Perfection may imply precision but not causal ordering.",
+      "changed": true
+    },
+    {
+      "deityName": "Orun-IX",
+      "family": "TRADITION",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "TRADITION_APPROPRIATION_WOUND",
+        "TRADITION_FORAGING_TRADITION_EXPRESSION",
+        "TRADITION_FOUNDER_SHADOW_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "TRADITION is calibrated as weak personality context for Orun-IX; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Rillan",
+      "family": "CHANGE",
+      "v1Strength": 42,
+      "personalityExpressions": [
+        "CHANGE_DEVELOPMENTAL_PLASTICITY_EXPRESSION",
+        "CHANGE_FORM_SURRENDER_CONFLICT",
+        "CHANGE_MIGRATION_CHANGE_WOUND",
+        "CHANGE_MOLTING_EXPRESSION",
+        "CHANGE_WORLD_ADAPTATION_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "CHANGE is calibrated as weak personality context for Rillan; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Rillan",
+      "family": "EXILE",
+      "v1Strength": 32,
+      "personalityExpressions": [
+        "EXILE_COLONIZATION_EXPRESSION",
+        "EXILE_DIASPORA_DISTANCE_WOUND",
+        "EXILE_FORCED_MIGRATION_WOUND",
+        "EXILE_NOMADIC_CONTINUITY_EXPRESSION",
+        "EXILE_TWO_HOME_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "EXILE is calibrated as weak personality context for Rillan; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sahrem",
+      "family": "ANGER",
+      "v1Strength": 70,
+      "personalityExpressions": [
+        "ANGER_CONTAINED_FURY_CONFLICT",
+        "ANGER_PUNISHED_ANGER_WOUND",
+        "ANGER_RAGE_POWERED_CONFLICT",
+        "ANGER_THREAT_DISPLAY_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "ANGER is calibrated as moderate personality context for Sahrem; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sahrem",
+      "family": "APPETITE",
+      "v1Strength": 68,
+      "personalityExpressions": [
+        "APPETITE_AMBUSH_FEEDING_EXPRESSION",
+        "APPETITE_EXTRACTION_WOUND",
+        "APPETITE_FILTER_FEEDING_EXPRESSION",
+        "APPETITE_FORBIDDEN_FOOD_CONFLICT",
+        "APPETITE_GORGE_AND_FAST_EXPRESSION",
+        "APPETITE_GRAZING_EXPRESSION",
+        "APPETITE_HOST_DEPENDENCE_CONFLICT",
+        "APPETITE_PARASITIC_EXPRESSION",
+        "APPETITE_UNENDING_HUNGER_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "APPETITE is calibrated as moderate personality context for Sahrem; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sahrem",
+      "family": "DOMINANCE",
+      "v1Strength": 46,
+      "personalityExpressions": [
+        "DOMINANCE_POSTURE_DOMINANCE_EXPRESSION",
+        "DOMINANCE_RESOURCE_MONOPOLY_EXPRESSION",
+        "DOMINANCE_RULE_OR_BE_RULED_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "DOMINANCE is calibrated as weak personality context for Sahrem; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sahrem",
+      "family": "FORCE",
+      "v1Strength": 28,
+      "personalityExpressions": [
+        "FORCE_BITE_OR_STING_EXPRESSION",
+        "FORCE_CATASTROPHIC_THRESHOLD_CONFLICT",
+        "FORCE_CHARGE_EXPRESSION",
+        "FORCE_CONSTRICT_EXPRESSION",
+        "FORCE_CONTAINED_POWER_CONFLICT",
+        "FORCE_LIVING_WEAPON_CONFLICT",
+        "FORCE_PROTECTIVE_BRUTALITY_CONFLICT",
+        "FORCE_STATE_FORCE_WOUND",
+        "FORCE_SWARM_EXPRESSION"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "FORCE is calibrated as weak personality context for Sahrem; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sahrem",
+      "family": "IMPULSE",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "IMPULSE_DANGER_CONDITIONED_IMPULSE",
+        "IMPULSE_EMOTION_MANIFEST_CONFLICT",
+        "IMPULSE_FIRST_THOUGHT_MAGIC_CONFLICT",
+        "IMPULSE_STRIKE_FIRST_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "IMPULSE is calibrated as weak personality context for Sahrem; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sahrem",
+      "family": "POWER",
+      "v1Strength": 52,
+      "personalityExpressions": [
+        "POWER_CAPTURED_RESOURCE_WOUND",
+        "POWER_COLONIAL_POWER_WOUND",
+        "POWER_PHYSICAL_POWER_EXPRESSION",
+        "POWER_REPRODUCTIVE_POWER_EXPRESSION",
+        "POWER_SINGLE_WEAKNESS_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "POWER is calibrated as weak personality context for Sahrem; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Savael",
+      "family": "CLOSURE",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "CLOSURE_OPEN_DOOR_CONFLICT",
+        "CLOSURE_RAPID_CLASSIFICATION_EXPRESSION",
+        "CLOSURE_UNRESOLVED_DISAPPEARANCE_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "CLOSURE is calibrated as weak personality context for Savael; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Savael",
+      "family": "DISCIPLINE",
+      "v1Strength": 68,
+      "personalityExpressions": [
+        "DISCIPLINE_ASCETIC_POWER_CONFLICT",
+        "DISCIPLINE_COMMANDED_DISCIPLINE_CONFLICT",
+        "DISCIPLINE_FORAGING_DISCIPLINE_EXPRESSION",
+        "DISCIPLINE_FORM_MAINTENANCE_CONFLICT",
+        "DISCIPLINE_PUNITIVE_TRAINING_WOUND",
+        "DISCIPLINE_VIGIL_WITHOUT_END_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "DISCIPLINE is calibrated as moderate personality context for Savael; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Savael",
+      "family": "EQUANIMITY",
+      "v1Strength": 86,
+      "personalityExpressions": [
+        "EQUANIMITY_LOW_REACTIVITY_EXPRESSION",
+        "EQUANIMITY_SCRUTINIZED_COMPOSURE_WOUND",
+        "EQUANIMITY_SERENITY_AS_SEAL_CONFLICT"
+      ],
+      "v2Strength": 38,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Composure supports restraint but not duration.",
+      "changed": true
+    },
+    {
+      "deityName": "Savael",
+      "family": "PATIENCE",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "PATIENCE_AMBUSH_PATIENCE_EXPRESSION",
+        "PATIENCE_STALKING_PATIENCE_EXPRESSION",
+        "PATIENCE_STONE_OR_SEED_CONFLICT",
+        "PATIENCE_WAITING_FOR_RETURN_WOUND"
+      ],
+      "v2Strength": 60,
+      "v2Tier": "STRONG",
+      "semanticJustification": "Patience is direct family support but not a substitute for active endurance.",
+      "changed": true
+    },
+    {
+      "deityName": "Savael",
+      "family": "RESTRAINT",
+      "v1Strength": 82,
+      "personalityExpressions": [
+        "RESTRAINT_ATTACK_INHIBITION_EXPRESSION",
+        "RESTRAINT_CATASTROPHE_CONTAINED_CONFLICT",
+        "RESTRAINT_PUNISHED_EXPRESSION_WOUND",
+        "RESTRAINT_SCARCITY_RESTRAINT_WOUND"
+      ],
+      "v2Strength": 38,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Restraint supports patience but may be situational.",
+      "changed": true
+    },
+    {
+      "deityName": "Savael",
+      "family": "TRADITION",
+      "v1Strength": 44,
+      "personalityExpressions": [
+        "TRADITION_APPROPRIATION_WOUND",
+        "TRADITION_FORAGING_TRADITION_EXPRESSION",
+        "TRADITION_FOUNDER_SHADOW_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "TRADITION is calibrated as weak personality context for Savael; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Scarabos",
+      "family": "MORTALITY",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "MORTALITY_BRIEF_LIFE_EXPRESSION",
+        "MORTALITY_IMMORTALITY_FATIGUE_CONFLICT",
+        "MORTALITY_LONG_LIFE_EXPRESSION",
+        "MORTALITY_MASS_DEATH_WOUND",
+        "MORTALITY_MORTALITY_THEFT_CONFLICT",
+        "MORTALITY_SEMELPAROUS_EXPRESSION",
+        "MORTALITY_UNDEAD_CONTINUATION_CONFLICT",
+        "MORTALITY_UNEQUAL_EXPOSURE_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "MORTALITY is calibrated as weak personality context for Scarabos; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Scarabos",
+      "family": "REPAIR",
+      "v1Strength": 42,
+      "personalityExpressions": [
+        "REPAIR_DESTROYED_INFRASTRUCTURE_WOUND",
+        "REPAIR_STRUCTURE_REPAIR_EXPRESSION",
+        "REPAIR_UNREPAIRABLE_ORIGIN_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "REPAIR is calibrated as weak personality context for Scarabos; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Scarabos",
+      "family": "STEWARDSHIP",
+      "v1Strength": 62,
+      "personalityExpressions": [
+        "STEWARDSHIP_EXTRACTION_WOUND",
+        "STEWARDSHIP_FUTURE_SIGHT_CONFLICT",
+        "STEWARDSHIP_GUARDIAN_OWNER_CONFLICT",
+        "STEWARDSHIP_HABITAT_ENGINEERING_EXPRESSION",
+        "STEWARDSHIP_LIVING_SYSTEM_CONFLICT",
+        "STEWARDSHIP_REALM_KEEPER_CONFLICT",
+        "STEWARDSHIP_SEED_DISPERSAL_EXPRESSION",
+        "STEWARDSHIP_WASTE_RECYCLING_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "STEWARDSHIP is calibrated as moderate personality context for Scarabos; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "DESIRE",
+      "v1Strength": 66,
+      "personalityExpressions": [
+        "DESIRE_COMMODIFIED_DESIRE_WOUND",
+        "DESIRE_COMPELLED_ATTRACTION_CONFLICT",
+        "DESIRE_COURTSHIP_DISPLAY_EXPRESSION",
+        "DESIRE_HUNGER_VERSUS_LOVE_CONFLICT",
+        "DESIRE_WISH_GRANTER_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "DESIRE is calibrated as moderate personality context for Selen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "EXPRESSION",
+      "v1Strength": 72,
+      "personalityExpressions": [
+        "EXPRESSION_CHEMICAL_EXPRESSION",
+        "EXPRESSION_COMPELLED_PERFORMANCE_CONFLICT",
+        "EXPRESSION_LANGUAGE_SUPPRESSION_WOUND",
+        "EXPRESSION_SILENCE_EXPRESSION",
+        "EXPRESSION_TACTILE_EXPRESSION",
+        "EXPRESSION_UNSPEAKABLE_NEED_CONFLICT",
+        "EXPRESSION_VISUAL_EXPRESSION",
+        "EXPRESSION_VOCAL_EXPRESSION",
+        "EXPRESSION_WORLD_CHANGING_VOICE_CONFLICT"
+      ],
+      "v2Strength": 34,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Expression supports joy only when playful, affectionate, or celebratory.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "INTIMACY",
+      "v1Strength": 52,
+      "personalityExpressions": [
+        "INTIMACY_ARMOR_REMOVAL_CONFLICT",
+        "INTIMACY_EMOTIONAL_DEPRIVATION_WOUND",
+        "INTIMACY_GROOMING_INTIMACY_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "INTIMACY is calibrated as weak personality context for Selen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "NOVELTY",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "NOVELTY_CREATION_ADDICTION_CONFLICT",
+        "NOVELTY_ENDLESS_REINVENTION_CONFLICT",
+        "NOVELTY_MIGRATION_OPPORTUNITY_WOUND",
+        "NOVELTY_OBJECT_PLAY_EXPRESSION",
+        "NOVELTY_STRATEGY_SWITCH_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "NOVELTY is calibrated as weak personality context for Selen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "PLEASURE",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "PLEASURE_BASKING_EXPRESSION",
+        "PLEASURE_EXPLORATION_PLEASURE_EXPRESSION",
+        "PLEASURE_JOY_BRINGER_CONFLICT",
+        "PLEASURE_PLAY_EXPRESSION",
+        "PLEASURE_PLEASURE_TABOO_CONFLICT"
+      ],
+      "v2Strength": 58,
+      "v2Tier": "STRONG",
+      "semanticJustification": "Pleasure directly supports joy but may be individual rather than communal.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "RECOGNITION",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "RECOGNITION_COURTSHIP_DISPLAY_EXPRESSION",
+        "RECOGNITION_CREDIT_THEFT_WOUND",
+        "RECOGNITION_MISRECOGNIZED_MONSTER_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "RECOGNITION is calibrated as weak personality context for Selen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "REPUTATION",
+      "v1Strength": 40,
+      "personalityExpressions": [
+        "REPUTATION_INHERITED_LEGEND_CONFLICT",
+        "REPUTATION_THREAT_MEMORY_EXPRESSION"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "REPUTATION is calibrated as weak personality context for Selen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "SELF_REGARD",
+      "v1Strength": 50,
+      "personalityExpressions": [
+        "SELF_REGARD_FLAW_REVELATION_CONFLICT",
+        "SELF_REGARD_INVULNERABILITY_DISPLAY_EXPRESSION",
+        "SELF_REGARD_OVERCOMPENSATION_WOUND",
+        "SELF_REGARD_RANK_DISPLAY_EXPRESSION",
+        "SELF_REGARD_SHAME_BOUND_FORM_CONFLICT",
+        "SELF_REGARD_UNADVERTISED_ASSURANCE_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "SELF_REGARD is calibrated as weak personality context for Selen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Selen",
+      "family": "STATUS",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "STATUS_CASTE_HUMILIATION_WOUND",
+        "STATUS_FALLEN_DIVINITY_CONFLICT",
+        "STATUS_ORNAMENT_RANK_EXPRESSION",
+        "STATUS_RACIALIZED_RANK_WOUND",
+        "STATUS_VICTORY_RANK_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "STATUS is calibrated as weak personality context for Selen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Solkar",
+      "family": "EXPOSURE",
+      "v1Strength": 64,
+      "personalityExpressions": [
+        "EXPOSURE_DISPLAY_EXPOSURE_EXPRESSION",
+        "EXPOSURE_EXPOSURE_AS_EXISTENCE_CONFLICT",
+        "EXPOSURE_INVINCIBLE_WHILE_UNKNOWN_CONFLICT",
+        "EXPOSURE_PRIVACY_DEPRIVATION_WOUND",
+        "EXPOSURE_SEEN_AND_BOUND_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "EXPOSURE is calibrated as moderate personality context for Solkar; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Solkar",
+      "family": "PLEASURE",
+      "v1Strength": 42,
+      "personalityExpressions": [
+        "PLEASURE_BASKING_EXPRESSION",
+        "PLEASURE_EXPLORATION_PLEASURE_EXPRESSION",
+        "PLEASURE_JOY_BRINGER_CONFLICT",
+        "PLEASURE_PLAY_EXPRESSION",
+        "PLEASURE_PLEASURE_TABOO_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "PLEASURE is calibrated as weak personality context for Solkar; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sterna",
+      "family": "CHANGE",
+      "v1Strength": 70,
+      "personalityExpressions": [
+        "CHANGE_DEVELOPMENTAL_PLASTICITY_EXPRESSION",
+        "CHANGE_FORM_SURRENDER_CONFLICT",
+        "CHANGE_MIGRATION_CHANGE_WOUND",
+        "CHANGE_MOLTING_EXPRESSION",
+        "CHANGE_WORLD_ADAPTATION_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "CHANGE is calibrated as moderate personality context for Sterna; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sterna",
+      "family": "EXILE",
+      "v1Strength": 88,
+      "personalityExpressions": [
+        "EXILE_COLONIZATION_EXPRESSION",
+        "EXILE_DIASPORA_DISTANCE_WOUND",
+        "EXILE_FORCED_MIGRATION_WOUND",
+        "EXILE_NOMADIC_CONTINUITY_EXPRESSION",
+        "EXILE_TWO_HOME_CONFLICT"
+      ],
+      "v2Strength": 40,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "EXILE is calibrated as moderate personality context for Sterna; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sterna",
+      "family": "NOVELTY",
+      "v1Strength": 52,
+      "personalityExpressions": [
+        "NOVELTY_CREATION_ADDICTION_CONFLICT",
+        "NOVELTY_ENDLESS_REINVENTION_CONFLICT",
+        "NOVELTY_MIGRATION_OPPORTUNITY_WOUND",
+        "NOVELTY_OBJECT_PLAY_EXPRESSION",
+        "NOVELTY_STRATEGY_SWITCH_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "NOVELTY is calibrated as weak personality context for Sterna; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Sterna",
+      "family": "PURPOSE",
+      "v1Strength": 62,
+      "personalityExpressions": [
+        "PURPOSE_DISPOSSESSION_PURPOSE_WOUND",
+        "PURPOSE_MIGRATION_PURPOSE_EXPRESSION",
+        "PURPOSE_SUCCESS_DISSOLUTION_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "PURPOSE is calibrated as moderate personality context for Sterna; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Tavai",
+      "family": "BELONGING",
+      "v1Strength": 55,
+      "personalityExpressions": [
+        "BELONGING_COLONY_EXPRESSION",
+        "BELONGING_DISPLACEMENT_WOUND",
+        "BELONGING_HERDING_EXPRESSION",
+        "BELONGING_KINDLESS_CONFLICT",
+        "BELONGING_MORTAL_LONGING_CONFLICT",
+        "BELONGING_THRESHOLD_KEEPER_CONFLICT",
+        "BELONGING_TWO_WORLD_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "BELONGING is calibrated as weak personality context for Tavai; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Tavai",
+      "family": "COOPERATION",
+      "v1Strength": 66,
+      "personalityExpressions": [
+        "COOPERATION_CIRCLE_DEPENDENT_POWER_CONFLICT",
+        "COOPERATION_COOPERATIVE_HUNTING_EXPRESSION",
+        "COOPERATION_GROUP_DEFENSE_EXPRESSION",
+        "COOPERATION_SOLIDARITY_FRACTURE_WOUND"
+      ],
+      "v2Strength": 20,
+      "v2Tier": "WEAK",
+      "semanticJustification": "Teamwork is not equivalent to empathy.",
+      "changed": true
+    },
+    {
+      "deityName": "Tavai",
+      "family": "EMPATHY",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "EMPATHY_CONSOLATION_EXPRESSION",
+        "EMPATHY_DEHUMANIZATION_WOUND",
+        "EMPATHY_DISTRESS_RESPONSE_EXPRESSION",
+        "EMPATHY_PREDATOR_EMPATHY_CONFLICT"
+      ],
+      "v2Strength": 62,
+      "v2Tier": "STRONG",
+      "semanticJustification": "Empathy is direct family support, while observable perspective-taking remains defining.",
+      "changed": true
+    },
+    {
+      "deityName": "Tavai",
+      "family": "FAIRNESS",
+      "v1Strength": 58,
+      "personalityExpressions": [
+        "FAIRNESS_JUSTICE_VERSUS_LOVE_CONFLICT",
+        "FAIRNESS_LABOR_EXTRACTION_WOUND",
+        "FAIRNESS_TURN_TAKING_EXPRESSION",
+        "FAIRNESS_UNEQUAL_LAW_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "FAIRNESS is calibrated as weak personality context for Tavai; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Tavai",
+      "family": "INTIMACY",
+      "v1Strength": 72,
+      "personalityExpressions": [
+        "INTIMACY_ARMOR_REMOVAL_CONFLICT",
+        "INTIMACY_EMOTIONAL_DEPRIVATION_WOUND",
+        "INTIMACY_GROOMING_INTIMACY_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "INTIMACY is calibrated as moderate personality context for Tavai; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Tavai",
+      "family": "PERSPECTIVE",
+      "v1Strength": 90,
+      "personalityExpressions": [
+        "PERSPECTIVE_GOD_S_EYE_CONFLICT",
+        "PERSPECTIVE_PERSISTENT_MISREADING_WOUND",
+        "PERSPECTIVE_VISUAL_VANTAGE_EXPRESSION"
+      ],
+      "v2Strength": 58,
+      "v2Tier": "STRONG",
+      "semanticJustification": "Perspective strongly narrows the domain but can describe vantage rather than another mind.",
+      "changed": true
+    },
+    {
+      "deityName": "Tavai",
+      "family": "TRUST",
+      "v1Strength": 52,
+      "personalityExpressions": [
+        "TRUST_ALARM_RELIABILITY_EXPRESSION",
+        "TRUST_COMPULSION_DOUBT_CONFLICT",
+        "TRUST_FRAUD_AND_EXTRACTION_WOUND",
+        "TRUST_TRUST_BY_PROXIMITY_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "TRUST is calibrated as weak personality context for Tavai; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Varek",
+      "family": "COMPETITION",
+      "v1Strength": 35,
+      "personalityExpressions": [
+        "COMPETITION_COSMIC_TOURNAMENT_CONFLICT",
+        "COMPETITION_MANUFACTURED_RIVALRY_WOUND",
+        "COMPETITION_MATE_COMPETITION",
+        "COMPETITION_UNFAIR_GIFT_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "COMPETITION is calibrated as weak personality context for Varek; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Varek",
+      "family": "DISCIPLINE",
+      "v1Strength": 80,
+      "personalityExpressions": [
+        "DISCIPLINE_ASCETIC_POWER_CONFLICT",
+        "DISCIPLINE_COMMANDED_DISCIPLINE_CONFLICT",
+        "DISCIPLINE_FORAGING_DISCIPLINE_EXPRESSION",
+        "DISCIPLINE_FORM_MAINTENANCE_CONFLICT",
+        "DISCIPLINE_PUNITIVE_TRAINING_WOUND",
+        "DISCIPLINE_VIGIL_WITHOUT_END_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Discipline alone does not prove persistence through failure.",
+      "changed": true
+    },
+    {
+      "deityName": "Varek",
+      "family": "DUTY",
+      "v1Strength": 91,
+      "personalityExpressions": [
+        "DUTY_ABANDONED_DUTY_WOUND",
+        "DUTY_LAST_GUARDIAN_CONFLICT",
+        "DUTY_NEST_DUTY_EXPRESSION",
+        "DUTY_WATCH_DUTY_EXPRESSION"
+      ],
+      "v2Strength": 46,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Duty supports resolve when maintained through adversity.",
+      "changed": true
+    },
+    {
+      "deityName": "Varek",
+      "family": "LOYALTY",
+      "v1Strength": 66,
+      "personalityExpressions": [
+        "LOYALTY_DEAD_MASTER_CONFLICT",
+        "LOYALTY_FACTIONALIZATION_WOUND",
+        "LOYALTY_GROUP_ALLEGIANCE_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "LOYALTY is calibrated as moderate personality context for Varek; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Varek",
+      "family": "PERSEVERANCE",
+      "v1Strength": 98,
+      "personalityExpressions": [
+        "PERSEVERANCE_DROUGHT_OR_COLD_ENDURANCE_EXPRESSION",
+        "PERSEVERANCE_LABOR_EXPLOITATION_WOUND",
+        "PERSEVERANCE_METHOD_SWITCHING_EXPRESSION",
+        "PERSEVERANCE_PERSISTENT_PURSUIT_EXPRESSION",
+        "PERSEVERANCE_SUFFERING_AS_PROOF_CONFLICT",
+        "PERSEVERANCE_SURVIVAL_PERSISTENCE_WOUND"
+      ],
+      "v2Strength": 52,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Perseverance is close, but Varek requires setback, failure, or adversity.",
+      "changed": true
+    },
+    {
+      "deityName": "Varek",
+      "family": "PURPOSE",
+      "v1Strength": 65,
+      "personalityExpressions": [
+        "PURPOSE_DISPOSSESSION_PURPOSE_WOUND",
+        "PURPOSE_MIGRATION_PURPOSE_EXPRESSION",
+        "PURPOSE_SUCCESS_DISSOLUTION_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "PURPOSE is calibrated as moderate personality context for Varek; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Varek",
+      "family": "RESTRAINT",
+      "v1Strength": 50,
+      "personalityExpressions": [
+        "RESTRAINT_ATTACK_INHIBITION_EXPRESSION",
+        "RESTRAINT_CATASTROPHE_CONTAINED_CONFLICT",
+        "RESTRAINT_PUNISHED_EXPRESSION_WOUND",
+        "RESTRAINT_SCARCITY_RESTRAINT_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "RESTRAINT is calibrated as weak personality context for Varek; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Varek",
+      "family": "TRADITION",
+      "v1Strength": 50,
+      "personalityExpressions": [
+        "TRADITION_APPROPRIATION_WOUND",
+        "TRADITION_FORAGING_TRADITION_EXPRESSION",
+        "TRADITION_FOUNDER_SHADOW_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "TRADITION is calibrated as weak personality context for Varek; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Vespera",
+      "family": "EXILE",
+      "v1Strength": 38,
+      "personalityExpressions": [
+        "EXILE_COLONIZATION_EXPRESSION",
+        "EXILE_DIASPORA_DISTANCE_WOUND",
+        "EXILE_FORCED_MIGRATION_WOUND",
+        "EXILE_NOMADIC_CONTINUITY_EXPRESSION",
+        "EXILE_TWO_HOME_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "EXILE is calibrated as weak personality context for Vespera; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Vespera",
+      "family": "MEMORY",
+      "v1Strength": 45,
+      "personalityExpressions": [
+        "MEMORY_CACHE_MEMORY_EXPRESSION",
+        "MEMORY_HAUNTED_MEMORY_CONFLICT",
+        "MEMORY_RITUAL_RETURN_EXPRESSION",
+        "MEMORY_SELECTIVE_MEMORY_WOUND",
+        "MEMORY_SURVIVOR_MEMORY_WOUND"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "MEMORY is calibrated as weak personality context for Vespera; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Vespera",
+      "family": "PERSPECTIVE",
+      "v1Strength": 42,
+      "personalityExpressions": [
+        "PERSPECTIVE_GOD_S_EYE_CONFLICT",
+        "PERSPECTIVE_PERSISTENT_MISREADING_WOUND",
+        "PERSPECTIVE_VISUAL_VANTAGE_EXPRESSION"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "PERSPECTIVE is calibrated as weak personality context for Vespera; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Vespera",
+      "family": "PURPOSE",
+      "v1Strength": 70,
+      "personalityExpressions": [
+        "PURPOSE_DISPOSSESSION_PURPOSE_WOUND",
+        "PURPOSE_MIGRATION_PURPOSE_EXPRESSION",
+        "PURPOSE_SUCCESS_DISSOLUTION_CONFLICT"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "PURPOSE is calibrated as moderate personality context for Vespera; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Vhalen",
+      "family": "BOUNDARIES",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "BOUNDARIES_DOMAIN_BOUND_CONFLICT",
+        "BOUNDARIES_LAND_BOUNDARY_WOUND",
+        "BOUNDARIES_TERRITORIAL_MARKING_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "BOUNDARIES is calibrated as weak personality context for Vhalen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Vhalen",
+      "family": "CLOSURE",
+      "v1Strength": 64,
+      "personalityExpressions": [
+        "CLOSURE_OPEN_DOOR_CONFLICT",
+        "CLOSURE_RAPID_CLASSIFICATION_EXPRESSION",
+        "CLOSURE_UNRESOLVED_DISAPPEARANCE_WOUND"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "CLOSURE is calibrated as moderate personality context for Vhalen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Vhalen",
+      "family": "EXILE",
+      "v1Strength": 40,
+      "personalityExpressions": [
+        "EXILE_COLONIZATION_EXPRESSION",
+        "EXILE_DIASPORA_DISTANCE_WOUND",
+        "EXILE_FORCED_MIGRATION_WOUND",
+        "EXILE_NOMADIC_CONTINUITY_EXPRESSION",
+        "EXILE_TWO_HOME_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "EXILE is calibrated as weak personality context for Vhalen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Vhalen",
+      "family": "GRIEF",
+      "v1Strength": 84,
+      "personalityExpressions": [
+        "GRIEF_DISPLACEMENT_GRIEF_WOUND",
+        "GRIEF_GHOST_BOND_CONFLICT",
+        "GRIEF_GUARD_REMAINS_EXPRESSION",
+        "GRIEF_MASS_LOSS_WOUND",
+        "GRIEF_MEMORY_BODY_CONFLICT",
+        "GRIEF_WORLD_MOURNER_CONFLICT"
+      ],
+      "v2Strength": 38,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Grief reflects an absence left by ending.",
+      "changed": true
+    },
+    {
+      "deityName": "Vhalen",
+      "family": "MORTALITY",
+      "v1Strength": 90,
+      "personalityExpressions": [
+        "MORTALITY_BRIEF_LIFE_EXPRESSION",
+        "MORTALITY_IMMORTALITY_FATIGUE_CONFLICT",
+        "MORTALITY_LONG_LIFE_EXPRESSION",
+        "MORTALITY_MASS_DEATH_WOUND",
+        "MORTALITY_MORTALITY_THEFT_CONFLICT",
+        "MORTALITY_SEMELPAROUS_EXPRESSION",
+        "MORTALITY_UNDEAD_CONTINUATION_CONFLICT",
+        "MORTALITY_UNEQUAL_EXPOSURE_WOUND"
+      ],
+      "v2Strength": 54,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Mortality closely supports endings but does not always embody absence.",
+      "changed": true
+    },
+    {
+      "deityName": "Vhalen",
+      "family": "SECRECY",
+      "v1Strength": 74,
+      "personalityExpressions": [
+        "SECRECY_MASK_WITHIN_MASK_CONFLICT",
+        "SECRECY_PERSECUTION_SECRECY_WOUND",
+        "SECRECY_ROUTE_SECRECY_EXPRESSION",
+        "SECRECY_SECRET_INSTITUTION_WOUND"
+      ],
+      "v2Strength": 28,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "Secrecy supports concealment but not death or endings.",
+      "changed": true
+    },
+    {
+      "deityName": "Vhalen",
+      "family": "VENGEANCE",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "VENGEANCE_BLOOD_FEUD_WOUND",
+        "VENGEANCE_DELAYED_RETALIATION_EXPRESSION",
+        "VENGEANCE_MEMORY_PERFECT_CONFLICT",
+        "VENGEANCE_WRONG_TARGET_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "VENGEANCE is calibrated as weak personality context for Vhalen; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Voltar",
+      "family": "ANGER",
+      "v1Strength": 55,
+      "personalityExpressions": [
+        "ANGER_CONTAINED_FURY_CONFLICT",
+        "ANGER_PUNISHED_ANGER_WOUND",
+        "ANGER_RAGE_POWERED_CONFLICT",
+        "ANGER_THREAT_DISPLAY_EXPRESSION"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "ANGER is calibrated as weak personality context for Voltar; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Voltar",
+      "family": "DOMINANCE",
+      "v1Strength": 40,
+      "personalityExpressions": [
+        "DOMINANCE_POSTURE_DOMINANCE_EXPRESSION",
+        "DOMINANCE_RESOURCE_MONOPOLY_EXPRESSION",
+        "DOMINANCE_RULE_OR_BE_RULED_CONFLICT"
+      ],
+      "v2Strength": 14,
+      "v2Tier": "WEAK",
+      "semanticJustification": "DOMINANCE is calibrated as weak personality context for Voltar; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Voltar",
+      "family": "FORCE",
+      "v1Strength": 70,
+      "personalityExpressions": [
+        "FORCE_BITE_OR_STING_EXPRESSION",
+        "FORCE_CATASTROPHIC_THRESHOLD_CONFLICT",
+        "FORCE_CHARGE_EXPRESSION",
+        "FORCE_CONSTRICT_EXPRESSION",
+        "FORCE_CONTAINED_POWER_CONFLICT",
+        "FORCE_LIVING_WEAPON_CONFLICT",
+        "FORCE_PROTECTIVE_BRUTALITY_CONFLICT",
+        "FORCE_STATE_FORCE_WOUND",
+        "FORCE_SWARM_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "FORCE is calibrated as moderate personality context for Voltar; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Voltar",
+      "family": "IMPULSE",
+      "v1Strength": 62,
+      "personalityExpressions": [
+        "IMPULSE_DANGER_CONDITIONED_IMPULSE",
+        "IMPULSE_EMOTION_MANIFEST_CONFLICT",
+        "IMPULSE_FIRST_THOUGHT_MAGIC_CONFLICT",
+        "IMPULSE_STRIKE_FIRST_EXPRESSION"
+      ],
+      "v2Strength": 30,
+      "v2Tier": "MODERATE",
+      "semanticJustification": "IMPULSE is calibrated as moderate personality context for Voltar; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    },
+    {
+      "deityName": "Voltar",
+      "family": "POWER",
+      "v1Strength": 48,
+      "personalityExpressions": [
+        "POWER_CAPTURED_RESOURCE_WOUND",
+        "POWER_COLONIAL_POWER_WOUND",
+        "POWER_PHYSICAL_POWER_EXPRESSION",
+        "POWER_REPRODUCTIVE_POWER_EXPRESSION",
+        "POWER_SINGLE_WEAKNESS_CONFLICT"
+      ],
+      "v2Strength": 22,
+      "v2Tier": "WEAK",
+      "semanticJustification": "POWER is calibrated as weak personality context for Voltar; the family label narrows concepts but cannot replace direct Breed behavior or text.",
+      "changed": true
+    }
+  ],
+  "sha256": "f99300b80288ccd76b9c16ba03a79e6f811112a05c07c963f31accdf13bf0f2f"
+}

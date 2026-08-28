@@ -1,0 +1,2943 @@
+{
+  "schemaVersion": "echoes-deity-evidence-profiles-v2",
+  "distributionIndependent": true,
+  "profiles": [
+    {
+      "deityName": "Miren",
+      "specificityReview": "Costly compassion, mercy, and concern for suffering define the domain. Ordinary parenting and sociality remain contextual support.",
+      "contradictoryEvidence": [
+        "deliberate cruelty",
+        "abandons injured",
+        "indifferent to suffering"
+      ],
+      "signals": [
+        {
+          "clusterId": "costly_compassion",
+          "tier": "DEFINING",
+          "terms": [
+            "personal cost",
+            "at personal cost",
+            "self-sacrifice",
+            "self sacrifice",
+            "sacrifices itself",
+            "despite personal loss",
+            "risks itself to protect",
+            "gives up food",
+            "feeds unrelated"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Aid or protection is undertaken despite material cost to the actor.",
+          "calibrationRule": "MIREN_COSTLY_COMPASSION"
+        },
+        {
+          "clusterId": "mercy_and_suffering",
+          "tier": "STRONG",
+          "terms": [
+            "mercy",
+            "concern for suffering",
+            "aids injured",
+            "injury aid",
+            "rescues others",
+            "rescue behavior",
+            "protects the vulnerable",
+            "cares for unrelated"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly concerns mercy or another's suffering.",
+          "calibrationRule": "MIREN_MERCY_SUFFERING"
+        },
+        {
+          "clusterId": "caregiving",
+          "tier": "MODERATE",
+          "terms": [
+            "caregiving",
+            "provisioning",
+            "food sharing",
+            "alloparent",
+            "alloparental",
+            "cooperative breeding",
+            "adoption",
+            "protect young",
+            "parental care",
+            "nursing young"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Care is real but does not itself establish costly or universal compassion.",
+          "calibrationRule": "MIREN_CARE_SUPPORT_ONLY"
+        },
+        {
+          "clusterId": "generic_prosociality",
+          "tier": "WEAK",
+          "terms": [
+            "helpful",
+            "altruistic",
+            "social",
+            "pair bond",
+            "pair-bond",
+            "refuge",
+            "cooperative",
+            "guardian",
+            "parental"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Generic prosociality is contextual rather than defining compassion.",
+          "calibrationRule": "MIREN_GENERIC_PROSOCIAL_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "deliberate cruelty",
+            "abandons injured",
+            "indifferent to suffering"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Miren's defining domain.",
+          "calibrationRule": "MIREN_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Darel",
+      "specificityReview": "Courage requires action in the presence of danger or fear. Aggression, threat, or combat without that relation is not courage.",
+      "contradictoryEvidence": [
+        "refuses to act from fear",
+        "flees solely from fear"
+      ],
+      "signals": [
+        {
+          "clusterId": "action_despite_fear",
+          "tier": "DEFINING",
+          "terms": [
+            "despite fear",
+            "while afraid",
+            "in spite of fear",
+            "faces fear",
+            "acts while afraid",
+            "fear but continues",
+            "knowingly enters danger"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The actor proceeds while fear or danger is explicitly present.",
+          "calibrationRule": "DAREL_ACTION_DESPITE_FEAR"
+        },
+        {
+          "clusterId": "protective_danger",
+          "tier": "STRONG",
+          "terms": [
+            "risks injury to defend",
+            "defends against predator",
+            "mobbing predators",
+            "feigned injury",
+            "stands ground against",
+            "dangerous rescue",
+            "protective defense"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Protective action exposes the actor to meaningful danger.",
+          "calibrationRule": "DAREL_PROTECTIVE_DANGER"
+        },
+        {
+          "clusterId": "risk_taking",
+          "tier": "MODERATE",
+          "terms": [
+            "bold",
+            "brave",
+            "high-risk",
+            "high risk",
+            "dangerous crossing",
+            "exposed foraging",
+            "cliff leap",
+            "defiance"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Risk is present, but fear and chosen action are not both explicit.",
+          "calibrationRule": "DAREL_RISK_SUPPORT"
+        },
+        {
+          "clusterId": "aggression_not_courage",
+          "tier": "WEAK",
+          "terms": [
+            "aggression",
+            "combat",
+            "threat display",
+            "dominant",
+            "attack",
+            "fight"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT"
+          ],
+          "rationale": "Aggression or combat is not equivalent to courage.",
+          "calibrationRule": "DAREL_AGGRESSION_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "refuses to act from fear",
+            "flees solely from fear"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Darel's defining domain.",
+          "calibrationRule": "DAREL_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Savael",
+      "specificityReview": "Active waiting, restraint, and long non-escalatory endurance define patience; mere slowness is contextual.",
+      "contradictoryEvidence": [
+        "immediate escalation",
+        "retaliates immediately"
+      ],
+      "signals": [
+        {
+          "clusterId": "active_long_restraint",
+          "tier": "DEFINING",
+          "terms": [
+            "without escalation",
+            "decades of reconciliation",
+            "long-term restraint",
+            "waits for years",
+            "patiently persists",
+            "active endurance",
+            "continues without retaliating"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact combines duration with restraint or reconciliation.",
+          "calibrationRule": "SAVAEL_ACTIVE_ENDURANCE"
+        },
+        {
+          "clusterId": "patient_strategy",
+          "tier": "STRONG",
+          "terms": [
+            "sit-and-wait",
+            "sit and wait",
+            "ambush patience",
+            "stalking patience",
+            "waits motionless",
+            "long incubation",
+            "delayed maturity"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Waiting is a central, active life strategy.",
+          "calibrationRule": "SAVAEL_PATIENT_STRATEGY"
+        },
+        {
+          "clusterId": "restraint_composure",
+          "tier": "MODERATE",
+          "terms": [
+            "patience",
+            "restraint",
+            "equanimity",
+            "low reactivity",
+            "composed",
+            "tolerates",
+            "de-escalation"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Restraint supports patience without proving long endurance.",
+          "calibrationRule": "SAVAEL_RESTRAINT_SUPPORT"
+        },
+        {
+          "clusterId": "mere_slowness",
+          "tier": "WEAK",
+          "terms": [
+            "slow",
+            "sedentary",
+            "low activity",
+            "long-lived"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Slowness alone does not embody active patience.",
+          "calibrationRule": "SAVAEL_SLOWNESS_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "immediate escalation",
+            "retaliates immediately"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Savael's defining domain.",
+          "calibrationRule": "SAVAEL_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Elian",
+      "specificityReview": "Hope is renewal after loss or destruction, not generic optimism alone.",
+      "contradictoryEvidence": [
+        "abandons rebuilding",
+        "despairs after destruction"
+      ],
+      "signals": [
+        {
+          "clusterId": "rebuild_after_loss",
+          "tier": "DEFINING",
+          "terms": [
+            "rebuilds after destruction",
+            "returns after catastrophe",
+            "recovers after collapse",
+            "restores after loss",
+            "recolonizes disturbed",
+            "regrows after fire",
+            "tries again after failure"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Renewed effort follows explicit destruction, loss, or failure.",
+          "calibrationRule": "ELIAN_REBUILD_AFTER_LOSS"
+        },
+        {
+          "clusterId": "renewal_recovery",
+          "tier": "STRONG",
+          "terms": [
+            "regeneration",
+            "regrowth",
+            "recolonization",
+            "pioneer species",
+            "ecological recovery",
+            "rebirth",
+            "restoration"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The life strategy materially restores what was lost.",
+          "calibrationRule": "ELIAN_RENEWAL"
+        },
+        {
+          "clusterId": "future_optimism",
+          "tier": "MODERATE",
+          "terms": [
+            "hope",
+            "optimistic",
+            "future possibility",
+            "new beginning",
+            "renewed effort"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Future orientation supports hope but may lack prior catastrophe.",
+          "calibrationRule": "ELIAN_OPTIMISM_SUPPORT"
+        },
+        {
+          "clusterId": "novelty_only",
+          "tier": "WEAK",
+          "terms": [
+            "novelty",
+            "curious",
+            "exploration"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Novelty is not by itself hope.",
+          "calibrationRule": "ELIAN_NOVELTY_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "abandons rebuilding",
+            "despairs after destruction"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Elian's defining domain.",
+          "calibrationRule": "ELIAN_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Namiya",
+      "specificityReview": "Forgiveness requires repair after genuine injury with accountability preserved.",
+      "contradictoryEvidence": [
+        "refuses reconciliation",
+        "permanent vendetta"
+      ],
+      "signals": [
+        {
+          "clusterId": "accountable_reconciliation",
+          "tier": "DEFINING",
+          "terms": [
+            "reconciles after harm",
+            "forgives without forgetting",
+            "accountability and reconciliation",
+            "restores relationship after injury",
+            "post-conflict reconciliation",
+            "repair after betrayal"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact contains both real injury and restored relationship or release.",
+          "calibrationRule": "NAMIYA_ACCOUNTABLE_RECONCILIATION"
+        },
+        {
+          "clusterId": "post_conflict_repair",
+          "tier": "STRONG",
+          "terms": [
+            "post-conflict grooming",
+            "post conflict grooming",
+            "reconciliation grooming",
+            "repairs social bond",
+            "reconcile",
+            "forgiveness"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "A relationship is repaired after conflict.",
+          "calibrationRule": "NAMIYA_POST_CONFLICT_REPAIR"
+        },
+        {
+          "clusterId": "mercy_release",
+          "tier": "MODERATE",
+          "terms": [
+            "mercy",
+            "release after submission",
+            "accepts submission",
+            "conditional release",
+            "restores bond"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Merciful release supports forgiveness without full injury context.",
+          "calibrationRule": "NAMIYA_MERCY_SUPPORT"
+        },
+        {
+          "clusterId": "ordinary_grooming",
+          "tier": "WEAK",
+          "terms": [
+            "grooming",
+            "social bonding",
+            "tolerant"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Ordinary affiliative behavior does not establish forgiveness.",
+          "calibrationRule": "NAMIYA_SOCIALITY_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "refuses reconciliation",
+            "permanent vendetta"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Namiya's defining domain.",
+          "calibrationRule": "NAMIYA_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Oren",
+      "specificityReview": "Honesty is truthful signaling or correction, especially when costly; generic communication is insufficient.",
+      "contradictoryEvidence": [
+        "deliberate deception",
+        "lies for advantage",
+        "false signal"
+      ],
+      "signals": [
+        {
+          "clusterId": "costly_truth",
+          "tier": "DEFINING",
+          "terms": [
+            "truth at personal cost",
+            "exposes a lie despite",
+            "costly honesty",
+            "reveals wrongdoing",
+            "truthful despite penalty",
+            "corrects its own error"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Truth is maintained despite a cost or contrary incentive.",
+          "calibrationRule": "OREN_COSTLY_TRUTH"
+        },
+        {
+          "clusterId": "reliable_honest_signal",
+          "tier": "STRONG",
+          "terms": [
+            "honest signal",
+            "honest signaling",
+            "reliable signal",
+            "truthful",
+            "transparent",
+            "candor",
+            "detects deception",
+            "error correction",
+            "retesting"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly concerns signal reliability, truth, or correction.",
+          "calibrationRule": "OREN_HONEST_SIGNAL"
+        },
+        {
+          "clusterId": "integrity_accountability",
+          "tier": "MODERATE",
+          "terms": [
+            "integrity",
+            "accountability",
+            "authenticity",
+            "fact-check",
+            "verification"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Integrity supports honesty without an explicit costly truth act.",
+          "calibrationRule": "OREN_INTEGRITY_SUPPORT"
+        },
+        {
+          "clusterId": "communication_only",
+          "tier": "WEAK",
+          "terms": [
+            "communicates",
+            "vocal",
+            "signal",
+            "talkative"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT"
+          ],
+          "rationale": "Communication volume is not truthfulness.",
+          "calibrationRule": "OREN_COMMUNICATION_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "deliberate deception",
+            "lies for advantage",
+            "false signal"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Oren's defining domain.",
+          "calibrationRule": "OREN_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Tavai",
+      "specificityReview": "Empathy requires perspective-taking, emotional inference, mediation, or attunement; teamwork is contextual.",
+      "contradictoryEvidence": [
+        "ignores distress",
+        "cannot recognize individuals"
+      ],
+      "signals": [
+        {
+          "clusterId": "perspective_taking",
+          "tier": "DEFINING",
+          "terms": [
+            "perspective-taking",
+            "perspective taking",
+            "understands another viewpoint",
+            "infers emotional state",
+            "theory of mind",
+            "accurately reads distress",
+            "mediates between"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly demonstrates understanding another mind or viewpoint.",
+          "calibrationRule": "TAVAI_PERSPECTIVE_TAKING"
+        },
+        {
+          "clusterId": "emotional_attunement",
+          "tier": "STRONG",
+          "terms": [
+            "consolation",
+            "distress response",
+            "emotional attunement",
+            "responds to distress",
+            "social perception",
+            "empathetic",
+            "empathy"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Behavior is tuned to another's emotional state.",
+          "calibrationRule": "TAVAI_ATTUNEMENT"
+        },
+        {
+          "clusterId": "social_learning",
+          "tier": "MODERATE",
+          "terms": [
+            "social learning",
+            "recognizes individuals",
+            "learns from others",
+            "cooperative coordination",
+            "mediation"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Social cognition supports empathy but is not perspective-taking by itself.",
+          "calibrationRule": "TAVAI_SOCIAL_COGNITION"
+        },
+        {
+          "clusterId": "generic_teamwork",
+          "tier": "WEAK",
+          "terms": [
+            "social",
+            "teamwork",
+            "cooperative",
+            "group living",
+            "helpful",
+            "herd",
+            "colony"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Generic sociality or teamwork is weak empathy evidence.",
+          "calibrationRule": "TAVAI_TEAMWORK_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "ignores distress",
+            "cannot recognize individuals"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Tavai's defining domain.",
+          "calibrationRule": "TAVAI_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Varek",
+      "specificityReview": "Resolve requires persistence through setback, failure, adversity, or duty; the word persistent alone is weak.",
+      "contradictoryEvidence": [
+        "abandons after failure",
+        "gives up after setback"
+      ],
+      "signals": [
+        {
+          "clusterId": "perseverance_through_failure",
+          "tier": "DEFINING",
+          "terms": [
+            "repeated failure",
+            "after repeated failure",
+            "fails but continues",
+            "refuses to abandon",
+            "despite setbacks",
+            "tries again",
+            "duty despite adversity",
+            "continues after defeat"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Meaningful effort continues through explicit setback or failure.",
+          "calibrationRule": "VAREK_FAILURE_PERSEVERANCE"
+        },
+        {
+          "clusterId": "extreme_endurance",
+          "tier": "STRONG",
+          "terms": [
+            "survives repeated hardship",
+            "persistent pursuit",
+            "extreme endurance",
+            "drought endurance",
+            "cold endurance",
+            "long pursuit",
+            "holds vigil",
+            "last guardian"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Sustained duty or endurance occurs under material adversity.",
+          "calibrationRule": "VAREK_ADVERSITY_ENDURANCE"
+        },
+        {
+          "clusterId": "duty_tenacity",
+          "tier": "MODERATE",
+          "terms": [
+            "perseverance",
+            "tenacity",
+            "grit",
+            "duty",
+            "discipline",
+            "continues",
+            "endures"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Duty or tenacity supports resolve without explicit failure.",
+          "calibrationRule": "VAREK_DUTY_SUPPORT"
+        },
+        {
+          "clusterId": "persistent_word_only",
+          "tier": "WEAK",
+          "terms": [
+            "persistent",
+            "persistence",
+            "long-lived",
+            "durable"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Generic persistence is weak unless adversity is stated.",
+          "calibrationRule": "VAREK_PERSISTENT_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "abandons after failure",
+            "gives up after setback"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Varek's defining domain.",
+          "calibrationRule": "VAREK_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Selen",
+      "specificityReview": "Joy is play, celebration, affection, music, humor, or communal pleasure; display without pleasure is supporting.",
+      "contradictoryEvidence": [
+        "suppresses play",
+        "forbids celebration"
+      ],
+      "signals": [
+        {
+          "clusterId": "communal_joy",
+          "tier": "DEFINING",
+          "terms": [
+            "communal celebration",
+            "celebrates together",
+            "festival",
+            "shared joy",
+            "laughter",
+            "humor",
+            "music-making",
+            "reasons for living"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Joy is explicitly shared or celebrated.",
+          "calibrationRule": "SELEN_COMMUNAL_JOY"
+        },
+        {
+          "clusterId": "play_affection_music",
+          "tier": "STRONG",
+          "terms": [
+            "social play",
+            "object play",
+            "playful",
+            "affection",
+            "courtship song",
+            "sings",
+            "dance",
+            "music",
+            "pleasure",
+            "joy"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Play, affection, music, or pleasure is a characteristic expression.",
+          "calibrationRule": "SELEN_PLAY_EXPRESSION"
+        },
+        {
+          "clusterId": "expressive_display",
+          "tier": "MODERATE",
+          "terms": [
+            "courtship display",
+            "display lek",
+            "vocal display",
+            "visual display",
+            "joyful",
+            "talkative"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Expressive display supports joy but may serve reproduction rather than pleasure.",
+          "calibrationRule": "SELEN_DISPLAY_SUPPORT"
+        },
+        {
+          "clusterId": "social_only",
+          "tier": "WEAK",
+          "terms": [
+            "social",
+            "gregarious",
+            "group living"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Sociality alone does not establish joy.",
+          "calibrationRule": "SELEN_SOCIALITY_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "suppresses play",
+            "forbids celebration"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Selen's defining domain.",
+          "calibrationRule": "SELEN_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Solkar",
+      "specificityReview": "Daylight-linked activity and life-giving solar warmth are central; generic heat belongs weakly here unless solar or vital.",
+      "contradictoryEvidence": [
+        "avoids daylight",
+        "strictly nocturnal"
+      ],
+      "signals": [
+        {
+          "clusterId": "solar_life_cycle",
+          "tier": "DEFINING",
+          "terms": [
+            "sun-dependent",
+            "solar activity",
+            "awakens at dawn",
+            "tracks the sun",
+            "sunlight essential",
+            "photosynthetic",
+            "daylight-dependent"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The life strategy is explicitly governed by solar light or dawn.",
+          "calibrationRule": "SOLKAR_SOLAR_DEPENDENCE"
+        },
+        {
+          "clusterId": "diurnal_basking",
+          "tier": "STRONG",
+          "terms": [
+            "diurnal",
+            "day-active",
+            "day active",
+            "basking",
+            "basks in sun",
+            "dawn activity",
+            "sun exposed"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Daylight or solar warmth structures activity.",
+          "calibrationRule": "SOLKAR_DIURNAL_WARMTH"
+        },
+        {
+          "clusterId": "illumination_warmth",
+          "tier": "MODERATE",
+          "terms": [
+            "sunlight",
+            "daylight",
+            "solar",
+            "dawn",
+            "life-giving warmth",
+            "illumination"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Solar illumination or warmth is present without a full life-cycle dependency.",
+          "calibrationRule": "SOLKAR_LIGHT_SUPPORT"
+        },
+        {
+          "clusterId": "generic_warm",
+          "tier": "WEAK",
+          "terms": [
+            "warm",
+            "heat tolerant",
+            "hot climate"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Ambient warmth is contextual, not necessarily solar embodiment.",
+          "calibrationRule": "SOLKAR_WARMTH_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "avoids daylight",
+            "strictly nocturnal"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Solkar's defining domain.",
+          "calibrationRule": "SOLKAR_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Lunessa",
+      "specificityReview": "Periodic transformation, disappearance and return, and recurring nocturnal rhythms define phase symbolism; nocturnality alone is moderate.",
+      "contradictoryEvidence": [
+        "strictly aperiodic",
+        "no recurring cycle"
+      ],
+      "signals": [
+        {
+          "clusterId": "phase_return_cycle",
+          "tier": "DEFINING",
+          "terms": [
+            "return after disappearance",
+            "periodic disappearance",
+            "waxing and waning",
+            "waxing",
+            "waning",
+            "phase-linked",
+            "phase linked",
+            "cyclic transformation",
+            "recurring nocturnal rhythm"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly embodies phases or disappearance and return.",
+          "calibrationRule": "LUNESSA_PHASE_RETURN"
+        },
+        {
+          "clusterId": "periodic_transformation",
+          "tier": "STRONG",
+          "terms": [
+            "periodic emergence",
+            "metamorphosis cycle",
+            "seasonal molt",
+            "molting cycle",
+            "moulting cycle",
+            "recurring transformation",
+            "developmental cycle",
+            "lunar rhythm",
+            "moon-linked"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "A recurring cycle changes form or visibility.",
+          "calibrationRule": "LUNESSA_PERIODIC_TRANSFORMATION"
+        },
+        {
+          "clusterId": "nocturnal_rhythm",
+          "tier": "MODERATE",
+          "terms": [
+            "nocturnal",
+            "night-active",
+            "night active",
+            "night activity",
+            "crepuscular cycle",
+            "circadian night"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Nocturnality supports the domain but does not alone prove phase embodiment.",
+          "calibrationRule": "LUNESSA_NOCTURNAL_SUPPORT"
+        },
+        {
+          "clusterId": "change_only",
+          "tier": "WEAK",
+          "terms": [
+            "change",
+            "molting",
+            "moulting",
+            "between states"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Unstructured change is weak phase evidence.",
+          "calibrationRule": "LUNESSA_CHANGE_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "strictly aperiodic",
+            "no recurring cycle"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Lunessa's defining domain.",
+          "calibrationRule": "LUNESSA_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Vespera",
+      "specificityReview": "Orientation, wayfinding, homing, and navigation define the domain; migration without navigation is supporting.",
+      "contradictoryEvidence": [
+        "cannot home",
+        "random disorientation"
+      ],
+      "signals": [
+        {
+          "clusterId": "celestial_wayfinding",
+          "tier": "DEFINING",
+          "terms": [
+            "celestial navigation",
+            "navigates by stars",
+            "star compass",
+            "sun compass",
+            "magnetic compass",
+            "celestial compass"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Long-distance orientation uses a celestial or equivalent compass.",
+          "calibrationRule": "VESPERA_CELESTIAL_WAYFINDING"
+        },
+        {
+          "clusterId": "homing_orientation",
+          "tier": "STRONG",
+          "terms": [
+            "homing",
+            "returns home",
+            "wayfinding",
+            "spatial navigation",
+            "magnetic orientation",
+            "long-distance orientation",
+            "route memory"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The Breed has a characteristic orientation or homing capacity.",
+          "calibrationRule": "VESPERA_HOMING"
+        },
+        {
+          "clusterId": "spatial_awareness",
+          "tier": "MODERATE",
+          "terms": [
+            "navigation",
+            "orients",
+            "spatial memory",
+            "migration guidance",
+            "finds route"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Spatial awareness supports navigation without a defining mechanism.",
+          "calibrationRule": "VESPERA_ORIENTATION_SUPPORT"
+        },
+        {
+          "clusterId": "travel_only",
+          "tier": "WEAK",
+          "terms": [
+            "migration",
+            "travels",
+            "dispersal",
+            "journey"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Movement alone is not navigation.",
+          "calibrationRule": "VESPERA_TRAVEL_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "cannot home",
+            "random disorientation"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Vespera's defining domain.",
+          "calibrationRule": "VESPERA_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Voltar",
+      "specificityReview": "Electric discharge, storms, thunder, and abrupt charged force define the domain; generic force or anger does not.",
+      "contradictoryEvidence": [
+        "electrically inert",
+        "storm avoidance"
+      ],
+      "signals": [
+        {
+          "clusterId": "electric_discharge",
+          "tier": "DEFINING",
+          "terms": [
+            "electric discharge",
+            "electrogenic",
+            "lightning",
+            "bioelectric shock",
+            "electric shock",
+            "charged atmosphere"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly concerns electricity or lightning.",
+          "calibrationRule": "VOLTAR_ELECTRICITY"
+        },
+        {
+          "clusterId": "storm_thunder",
+          "tier": "STRONG",
+          "terms": [
+            "thunderstorm",
+            "violent storm",
+            "thunder",
+            "storm-driven",
+            "storm linked",
+            "storm-linked"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Violent atmospheric energy structures the fact.",
+          "calibrationRule": "VOLTAR_STORM"
+        },
+        {
+          "clusterId": "abrupt_disruption",
+          "tier": "MODERATE",
+          "terms": [
+            "sudden strike",
+            "abrupt burst",
+            "violent burst",
+            "sudden current",
+            "catastrophic threshold",
+            "disruptive force"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Abrupt force supports Voltar without explicit electricity.",
+          "calibrationRule": "VOLTAR_DISRUPTION_SUPPORT"
+        },
+        {
+          "clusterId": "force_anger_only",
+          "tier": "WEAK",
+          "terms": [
+            "force",
+            "anger",
+            "rage",
+            "power",
+            "dominance",
+            "aggression"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT"
+          ],
+          "rationale": "Generic force, anger, and dominance are not storms or lightning.",
+          "calibrationRule": "VOLTAR_FORCE_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "electrically inert",
+            "storm avoidance"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Voltar's defining domain.",
+          "calibrationRule": "VOLTAR_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Marea",
+      "specificityReview": "Open-ocean depth, tides, and long marine movement are strong; merely coastal or aquatic habitat is supporting.",
+      "contradictoryEvidence": [
+        "obligate terrestrial",
+        "avoids open water"
+      ],
+      "signals": [
+        {
+          "clusterId": "deep_ocean_life",
+          "tier": "DEFINING",
+          "terms": [
+            "deep-sea",
+            "deep sea",
+            "abyssal",
+            "pelagic migration",
+            "open-ocean migration",
+            "open ocean migration",
+            "ocean crossing",
+            "deep dive"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The life strategy is bound to open-ocean depth or long marine movement.",
+          "calibrationRule": "MAREA_DEEP_OCEAN"
+        },
+        {
+          "clusterId": "tidal_marine_cycle",
+          "tier": "STRONG",
+          "terms": [
+            "tidal",
+            "tide-linked",
+            "tide linked",
+            "sea navigation",
+            "marine migration",
+            "pelagic",
+            "open sea"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Tides or substantial marine movement structure behavior.",
+          "calibrationRule": "MAREA_TIDES_MOVEMENT"
+        },
+        {
+          "clusterId": "marine_habitat",
+          "tier": "MODERATE",
+          "terms": [
+            "ocean",
+            "marine",
+            "saltwater",
+            "seabed",
+            "deep water"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Marine habitat supports Marea without proving depth or tides.",
+          "calibrationRule": "MAREA_MARINE_SUPPORT"
+        },
+        {
+          "clusterId": "coastal_only",
+          "tier": "WEAK",
+          "terms": [
+            "coastal",
+            "shore",
+            "estuary"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Coastal occurrence alone is weak open-ocean evidence.",
+          "calibrationRule": "MAREA_COAST_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "obligate terrestrial",
+            "avoids open water"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Marea's defining domain.",
+          "calibrationRule": "MAREA_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Rillan",
+      "specificityReview": "Freshwater-dependent cycles, upstream return, rainfall, and river movement outrank simple freshwater occupancy.",
+      "contradictoryEvidence": [
+        "strictly arid",
+        "avoids freshwater"
+      ],
+      "signals": [
+        {
+          "clusterId": "upstream_return_cycle",
+          "tier": "DEFINING",
+          "terms": [
+            "upstream migration",
+            "returns upstream",
+            "returns to river",
+            "freshwater-dependent cycle",
+            "freshwater dependent cycle",
+            "river migration",
+            "anadromous"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "A life cycle depends on return or movement through freshwater systems.",
+          "calibrationRule": "RILLAN_UPSTREAM_RETURN"
+        },
+        {
+          "clusterId": "rain_river_process",
+          "tier": "STRONG",
+          "terms": [
+            "seasonal flooding",
+            "rainfall cycle",
+            "river dispersal",
+            "stream spawning",
+            "riverine migration",
+            "flood pulse",
+            "rain-triggered"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Freshwater flow or rain actively structures behavior or reproduction.",
+          "calibrationRule": "RILLAN_FRESHWATER_PROCESS"
+        },
+        {
+          "clusterId": "freshwater_habitat",
+          "tier": "MODERATE",
+          "terms": [
+            "freshwater",
+            "fresh water",
+            "river",
+            "stream",
+            "lake",
+            "rainfall",
+            "floodplain"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Freshwater occupancy supports but does not by itself embody return or flow.",
+          "calibrationRule": "RILLAN_HABITAT_SUPPORT"
+        },
+        {
+          "clusterId": "water_generic",
+          "tier": "WEAK",
+          "terms": [
+            "water",
+            "aquatic",
+            "wet"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Generic water association does not distinguish freshwater systems.",
+          "calibrationRule": "RILLAN_WATER_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "strictly arid",
+            "avoids freshwater"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Rillan's defining domain.",
+          "calibrationRule": "RILLAN_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Damor",
+      "specificityReview": "Habitat engineering, renewal, and creating conditions for other life define the domain; terrain occupancy is weak.",
+      "contradictoryEvidence": [
+        "destroys habitat",
+        "degrades ecosystem"
+      ],
+      "signals": [
+        {
+          "clusterId": "ecosystem_engineering",
+          "tier": "DEFINING",
+          "terms": [
+            "ecosystem engineer",
+            "habitat engineer",
+            "engineers habitat",
+            "modifies environment",
+            "environmental modification",
+            "dam building",
+            "creates habitat",
+            "constructs wetland"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The Breed materially constructs or modifies an ecosystem.",
+          "calibrationRule": "DAMOR_ECOSYSTEM_ENGINEERING"
+        },
+        {
+          "clusterId": "renewal_for_others",
+          "tier": "STRONG",
+          "terms": [
+            "forest renewal",
+            "seed dispersal",
+            "pollination",
+            "soil aeration",
+            "creates refuge",
+            "creates conditions for",
+            "ecosystem construction",
+            "nutrient redistribution"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Activity renews habitat or enables other life.",
+          "calibrationRule": "DAMOR_RENEWAL_FOR_OTHERS"
+        },
+        {
+          "clusterId": "habitat_construction",
+          "tier": "MODERATE",
+          "terms": [
+            "burrow system",
+            "nest construction",
+            "builds shelter",
+            "stewardship",
+            "wetland restoration"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Construction or stewardship affects habitat on a limited scale.",
+          "calibrationRule": "DAMOR_CONSTRUCTION_SUPPORT"
+        },
+        {
+          "clusterId": "habitat_occupancy",
+          "tier": "WEAK",
+          "terms": [
+            "forest",
+            "wetland",
+            "habitat",
+            "woodland",
+            "swamp",
+            "refuge",
+            "nesting"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Living in associated terrain is not ecosystem engineering.",
+          "calibrationRule": "DAMOR_OCCUPANCY_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "destroys habitat",
+            "degrades ecosystem"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Damor's defining domain.",
+          "calibrationRule": "DAMOR_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Sterna",
+      "specificityReview": "Seasonal, annual, and life-cycle travel define the domain; ordinary movement and dispersal are supporting.",
+      "contradictoryEvidence": [
+        "strictly sedentary",
+        "never disperses"
+      ],
+      "signals": [
+        {
+          "clusterId": "seasonal_long_migration",
+          "tier": "DEFINING",
+          "terms": [
+            "long-distance migration",
+            "long distance migration",
+            "annual migration",
+            "seasonal migration",
+            "seasonal return",
+            "transcontinental migration",
+            "breeding migration"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Long travel recurs as part of a seasonal or reproductive life cycle.",
+          "calibrationRule": "STERNA_SEASONAL_MIGRATION"
+        },
+        {
+          "clusterId": "nomadic_life_cycle",
+          "tier": "STRONG",
+          "terms": [
+            "nomadic continuity",
+            "overwinter",
+            "migration route",
+            "seasonal movement",
+            "diaspora",
+            "two-home",
+            "two home"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Recurring movement materially structures life history.",
+          "calibrationRule": "STERNA_LIFE_CYCLE_TRAVEL"
+        },
+        {
+          "clusterId": "dispersal_journey",
+          "tier": "MODERATE",
+          "terms": [
+            "migration",
+            "migrates",
+            "dispersal",
+            "long journey",
+            "nomadic"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Travel is important but seasonality or recurrence is not explicit.",
+          "calibrationRule": "STERNA_TRAVEL_SUPPORT"
+        },
+        {
+          "clusterId": "movement_only",
+          "tier": "WEAK",
+          "terms": [
+            "moves",
+            "wanders",
+            "travels"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Generic movement is weak migration evidence.",
+          "calibrationRule": "STERNA_MOVEMENT_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "strictly sedentary",
+            "never disperses"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Sterna's defining domain.",
+          "calibrationRule": "STERNA_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Scarabos",
+      "specificityReview": "Decomposition, burial, soil formation, carrion, and death feeding renewal define the domain; soil habitat alone is weak.",
+      "contradictoryEvidence": [
+        "avoids carrion",
+        "avoids detritus"
+      ],
+      "signals": [
+        {
+          "clusterId": "death_feeds_renewal",
+          "tier": "DEFINING",
+          "terms": [
+            "death feeds life",
+            "carrion nutrient cycle",
+            "decomposition creates soil",
+            "buries dead",
+            "nutrient renewal",
+            "recycles carcass",
+            "decay supports new growth"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Death or waste is directly transformed into renewed life.",
+          "calibrationRule": "SCARABOS_DEATH_RENEWAL"
+        },
+        {
+          "clusterId": "decomposition_detritus",
+          "tier": "STRONG",
+          "terms": [
+            "decomposition",
+            "detritus",
+            "carrion",
+            "dung burial",
+            "coprophag",
+            "necrophag",
+            "saprophytic",
+            "nutrient cycling"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The life strategy directly processes decay, waste, or carrion.",
+          "calibrationRule": "SCARABOS_DECOMPOSITION"
+        },
+        {
+          "clusterId": "soil_burial",
+          "tier": "MODERATE",
+          "terms": [
+            "soil creation",
+            "burial",
+            "buries",
+            "dung",
+            "detritivore",
+            "scavenges"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Burial or detritus supports the renewal cycle.",
+          "calibrationRule": "SCARABOS_SOIL_SUPPORT"
+        },
+        {
+          "clusterId": "subterranean_only",
+          "tier": "WEAK",
+          "terms": [
+            "soil",
+            "underground",
+            "subterranean",
+            "burrow"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Being underground is not decay or renewal.",
+          "calibrationRule": "SCARABOS_SUBTERRANEAN_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "avoids carrion",
+            "avoids detritus"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Scarabos's defining domain.",
+          "calibrationRule": "SCARABOS_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Sahrem",
+      "specificityReview": "Combustion and consuming thermal transformation define the domain; appetite, anger, and ambient warmth are weak analogues.",
+      "contradictoryEvidence": [
+        "extinguishes fire",
+        "heat avoidance"
+      ],
+      "signals": [
+        {
+          "clusterId": "combustive_transformation",
+          "tier": "DEFINING",
+          "terms": [
+            "combustion",
+            "consuming fire",
+            "burning transformation",
+            "incinerates",
+            "furnace",
+            "wildfire regeneration",
+            "creative destruction by fire"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Fire consumes and materially transforms its subject.",
+          "calibrationRule": "SAHREM_COMBUSTIVE_TRANSFORMATION"
+        },
+        {
+          "clusterId": "fire_volcanic_heat",
+          "tier": "STRONG",
+          "terms": [
+            "fire",
+            "flame",
+            "burning",
+            "volcanic",
+            "geothermal",
+            "erupts",
+            "thermal vent",
+            "fiery"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Literal fire or intense thermal process is characteristic.",
+          "calibrationRule": "SAHREM_FIRE_HEAT"
+        },
+        {
+          "clusterId": "thermal_adaptation",
+          "tier": "MODERATE",
+          "terms": [
+            "extreme heat",
+            "heat tolerant",
+            "thermal",
+            "hot spring",
+            "furnace heat"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Heat is functional but combustion is not explicit.",
+          "calibrationRule": "SAHREM_THERMAL_SUPPORT"
+        },
+        {
+          "clusterId": "appetite_anger",
+          "tier": "WEAK",
+          "terms": [
+            "hunger",
+            "appetite",
+            "consumes",
+            "rage",
+            "anger",
+            "force",
+            "power"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT"
+          ],
+          "rationale": "Appetite, anger, and force are metaphorical only without thermal change.",
+          "calibrationRule": "SAHREM_METAPHOR_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "extinguishes fire",
+            "heat avoidance"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Sahrem's defining domain.",
+          "calibrationRule": "SAHREM_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Neressa",
+      "specificityReview": "Yielding adaptation and flowing transformation define the domain; generic adaptation and aquatic habitat alone are weak.",
+      "contradictoryEvidence": [
+        "rigid form",
+        "cannot adapt"
+      ],
+      "signals": [
+        {
+          "clusterId": "yielding_identity",
+          "tier": "DEFINING",
+          "terms": [
+            "yields without losing identity",
+            "changes form without losing",
+            "adaptive surrender",
+            "form surrender",
+            "fluid identity",
+            "flows around obstacles"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The subject adapts through yielding while retaining identity.",
+          "calibrationRule": "NERESSA_YIELDING_IDENTITY"
+        },
+        {
+          "clusterId": "fluid_transformation",
+          "tier": "STRONG",
+          "terms": [
+            "fluid transformation",
+            "reshapes itself",
+            "developmental plasticity",
+            "flexible form",
+            "flowing transformation",
+            "water flow"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Fluidity or plasticity is an active transformation strategy.",
+          "calibrationRule": "NERESSA_FLUID_TRANSFORMATION"
+        },
+        {
+          "clusterId": "flow_yielding_support",
+          "tier": "MODERATE",
+          "terms": [
+            "fluid",
+            "flow",
+            "current",
+            "yielding",
+            "flows around",
+            "amphibious transition"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Functional flow or yielding supports the domain without establishing preserved identity.",
+          "calibrationRule": "NERESSA_FLOW_SUPPORT"
+        },
+        {
+          "clusterId": "generic_adaptation",
+          "tier": "WEAK",
+          "terms": [
+            "adapts",
+            "adaptation",
+            "adaptive",
+            "flexible",
+            "amphibious"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Generic adaptation is weak without yielding or fluid transformation.",
+          "calibrationRule": "NERESSA_ADAPTATION_CAP"
+        },
+        {
+          "clusterId": "aquatic_only",
+          "tier": "WEAK",
+          "terms": [
+            "water",
+            "aquatic",
+            "marine",
+            "freshwater"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Living in water is not the same as embodying yielding flow.",
+          "calibrationRule": "NERESSA_AQUATIC_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "rigid form",
+            "cannot adapt"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Neressa's defining domain.",
+          "calibrationRule": "NERESSA_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Kharad",
+      "specificityReview": "Stone, solidity, foundations, weight, permanence, and resistance to change define the domain. Territorial boundaries do not.",
+      "contradictoryEvidence": [
+        "unstable and weightless",
+        "rapidly loses solidity"
+      ],
+      "signals": [
+        {
+          "clusterId": "physical_foundation",
+          "tier": "DEFINING",
+          "terms": [
+            "physical foundation",
+            "living stone",
+            "made of stone",
+            "bedrock",
+            "immovable foundation",
+            "bears immense weight",
+            "geological permanence"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly concerns foundation, stone, weight, or permanence.",
+          "calibrationRule": "KHARAD_FOUNDATION"
+        },
+        {
+          "clusterId": "stone_stability",
+          "tier": "STRONG",
+          "terms": [
+            "stone",
+            "rock dwelling",
+            "mountain",
+            "geologic",
+            "resists change",
+            "immovable",
+            "rooted",
+            "solidity",
+            "permanence"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Physical stability or stone is characteristic.",
+          "calibrationRule": "KHARAD_STONE_STABILITY"
+        },
+        {
+          "clusterId": "earth_subterranean",
+          "tier": "MODERATE",
+          "terms": [
+            "earth",
+            "cave",
+            "subterranean",
+            "underground",
+            "burrow",
+            "cliff",
+            "heavy"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Earth association supports but does not prove foundational permanence.",
+          "calibrationRule": "KHARAD_EARTH_SUPPORT"
+        },
+        {
+          "clusterId": "territory_boundaries",
+          "tier": "WEAK",
+          "terms": [
+            "territorial",
+            "territorial marking",
+            "boundary",
+            "boundaries",
+            "domain bound",
+            "land"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT"
+          ],
+          "rationale": "Territoriality and generic boundaries are not direct Earth-and-Stone evidence.",
+          "calibrationRule": "KHARAD_TERRITORY_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "unstable and weightless",
+            "rapidly loses solidity"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Kharad's defining domain.",
+          "calibrationRule": "KHARAD_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Aveli",
+      "specificityReview": "Flight-dominant freedom, wind, breath, diffusion, and movement resisting confinement define the domain; wings alone do not.",
+      "contradictoryEvidence": [
+        "permanently confined",
+        "cannot move through air"
+      ],
+      "signals": [
+        {
+          "clusterId": "unconfined_aerial_life",
+          "tier": "DEFINING",
+          "terms": [
+            "flight-dominant",
+            "flight dominant",
+            "never lands",
+            "resists confinement",
+            "wind-borne dispersal",
+            "wind borne dispersal",
+            "lives entirely aloft",
+            "freedom of movement"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Aerial mobility or unconfined motion fundamentally structures life.",
+          "calibrationRule": "AVELI_UNCONFINED_AERIAL"
+        },
+        {
+          "clusterId": "flight_wind_breath",
+          "tier": "STRONG",
+          "terms": [
+            "soaring",
+            "gliding",
+            "aerial",
+            "airborne",
+            "wind-borne",
+            "wind borne",
+            "breath",
+            "high-altitude flight",
+            "high altitude flight"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Flight, wind, or breath is a characteristic functional strategy.",
+          "calibrationRule": "AVELI_FLIGHT_WIND"
+        },
+        {
+          "clusterId": "mobility_freedom",
+          "tier": "MODERATE",
+          "terms": [
+            "flight",
+            "flies",
+            "wind",
+            "disperses",
+            "escape confinement",
+            "autonomy",
+            "free movement"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Mobility or freedom supports the concept without dominance.",
+          "calibrationRule": "AVELI_MOBILITY_SUPPORT"
+        },
+        {
+          "clusterId": "wings_only",
+          "tier": "WEAK",
+          "terms": [
+            "wing",
+            "wings",
+            "feathered",
+            "arboreal"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Possessing wings or living above ground is weak evidence.",
+          "calibrationRule": "AVELI_WINGS_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "permanently confined",
+            "cannot move through air"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Aveli's defining domain.",
+          "calibrationRule": "AVELI_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Iskarn",
+      "specificityReview": "Cold-linked preservation, dormancy, metabolic suppression, and suspended change define the domain; white appearance does not.",
+      "contradictoryEvidence": [
+        "heat-dependent rapid metabolism",
+        "cannot enter dormancy"
+      ],
+      "signals": [
+        {
+          "clusterId": "preserved_suspended_change",
+          "tier": "DEFINING",
+          "terms": [
+            "suspended change",
+            "metabolic suppression",
+            "freezes without dying",
+            "cryogenic preservation",
+            "preserved in ice",
+            "survives by dormancy",
+            "winter dormancy"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Survival depends on preservation or arrested process.",
+          "calibrationRule": "ISKARN_PRESERVATION"
+        },
+        {
+          "clusterId": "cold_dormancy",
+          "tier": "STRONG",
+          "terms": [
+            "hibernates",
+            "hibernation",
+            "torpor",
+            "dormant",
+            "ice adapted",
+            "ice-adapted",
+            "permafrost",
+            "glacier",
+            "polar winter"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Cold, dormancy, or metabolic slowing is a core strategy.",
+          "calibrationRule": "ISKARN_COLD_DORMANCY"
+        },
+        {
+          "clusterId": "cold_stillness",
+          "tier": "MODERATE",
+          "terms": [
+            "cold adapted",
+            "cold-adapted",
+            "frozen",
+            "winter",
+            "stillness",
+            "remains still",
+            "metabolic slowing"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Cold or stillness supports preservation without a full strategy.",
+          "calibrationRule": "ISKARN_STILLNESS_SUPPORT"
+        },
+        {
+          "clusterId": "appearance_cold",
+          "tier": "WEAK",
+          "terms": [
+            "white fur",
+            "white plumage",
+            "snow-colored",
+            "snow covered",
+            "cold climate"
+          ],
+          "axes": [
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Appearance or climate alone is weak evidence.",
+          "calibrationRule": "ISKARN_APPEARANCE_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "heat-dependent rapid metabolism",
+            "cannot enter dormancy"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Iskarn's defining domain.",
+          "calibrationRule": "ISKARN_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Myrra",
+      "specificityReview": "Dreams, imagination, illusion, unreal potential, and shape-changing possibility define the domain. Curiosity, intelligence, and ambiguity are clues only.",
+      "contradictoryEvidence": [
+        "incapable of imagination",
+        "only one possible form"
+      ],
+      "signals": [
+        {
+          "clusterId": "dream_unreal_possibility",
+          "tier": "DEFINING",
+          "terms": [
+            "dream",
+            "dreaming",
+            "imagines possible",
+            "potential reality",
+            "might exist",
+            "wish made real",
+            "unreal possibility",
+            "alternate possibility"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly concerns dreams or unreal potential.",
+          "calibrationRule": "MYRRA_DREAM_POSSIBILITY"
+        },
+        {
+          "clusterId": "illusion_shape_possibility",
+          "tier": "STRONG",
+          "terms": [
+            "illusion",
+            "shapeshift",
+            "shape-shift",
+            "shape changing",
+            "unfixed form",
+            "contextual form",
+            "unpredictable form",
+            "mimics appearance"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Form or perception opens multiple possible realities.",
+          "calibrationRule": "MYRRA_ILLUSION_SHAPE"
+        },
+        {
+          "clusterId": "ambiguity_potential",
+          "tier": "MODERATE",
+          "terms": [
+            "between states",
+            "uncertainty",
+            "ambiguity",
+            "reinvention",
+            "variable form",
+            "metamorphosis",
+            "possibility"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Ambiguity or transformation suggests possibility without directly invoking dreams.",
+          "calibrationRule": "MYRRA_AMBIGUITY_SUPPORT"
+        },
+        {
+          "clusterId": "curiosity_intelligence",
+          "tier": "WEAK",
+          "terms": [
+            "curiosity",
+            "curious",
+            "intelligence",
+            "problem solving",
+            "problem-solving",
+            "novelty"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT"
+          ],
+          "rationale": "Curiosity and intelligence are not near-equivalents of dreaming.",
+          "calibrationRule": "MYRRA_CURIOSITY_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "incapable of imagination",
+            "only one possible form"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Myrra's defining domain.",
+          "calibrationRule": "MYRRA_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Orun-IX",
+      "specificityReview": "Timing, sequence, synchronization, mechanism, and causal order define the domain. Planned or centralized organization is supporting only.",
+      "contradictoryEvidence": [
+        "random timing",
+        "nonrepeatable process"
+      ],
+      "signals": [
+        {
+          "clusterId": "causal_sequence",
+          "tier": "DEFINING",
+          "terms": [
+            "causal sequence",
+            "before and after",
+            "cause and effect",
+            "ordered sequence",
+            "clockwork mechanism",
+            "precise timing",
+            "synchronized mechanism"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly concerns causality, sequence, or mechanism.",
+          "calibrationRule": "ORUN_CAUSAL_SEQUENCE"
+        },
+        {
+          "clusterId": "timed_synchrony",
+          "tier": "STRONG",
+          "terms": [
+            "synchronized",
+            "synchrony",
+            "timed emergence",
+            "circadian timing",
+            "repetitive sequence",
+            "periodic sequence",
+            "scheduled",
+            "mechanism"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Predictable timing or synchronization structures behavior.",
+          "calibrationRule": "ORUN_TIMING_SYNCHRONY"
+        },
+        {
+          "clusterId": "predictable_process",
+          "tier": "MODERATE",
+          "terms": [
+            "predictable process",
+            "repetitive",
+            "ritual sequence",
+            "error correction",
+            "measured",
+            "routine"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Order is procedural rather than merely hierarchical.",
+          "calibrationRule": "ORUN_PROCESS_SUPPORT"
+        },
+        {
+          "clusterId": "generic_order",
+          "tier": "WEAK",
+          "terms": [
+            "ordered",
+            "centralized",
+            "planned",
+            "discipline",
+            "hierarchy",
+            "organized"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Generic order, planning, or centralization is not time and causality.",
+          "calibrationRule": "ORUN_GENERIC_ORDER_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "random timing",
+            "nonrepeatable process"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Orun-IX's defining domain.",
+          "calibrationRule": "ORUN_IX_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Vhalen",
+      "specificityReview": "Absence, disappearance, endings, death, concealment, and shadow define the domain; nocturnality alone is weak.",
+      "contradictoryEvidence": [
+        "cannot conceal",
+        "permanent unavoidable presence"
+      ],
+      "signals": [
+        {
+          "clusterId": "ending_absence",
+          "tier": "DEFINING",
+          "terms": [
+            "defined by absence",
+            "final ending",
+            "ceases to exist",
+            "erased from",
+            "returns to nothing",
+            "boundary through absence",
+            "death and disappearance"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "The fact directly embodies ending, emptiness, or defining absence.",
+          "calibrationRule": "VHALEN_ENDING_ABSENCE"
+        },
+        {
+          "clusterId": "death_shadow_disappearance",
+          "tier": "STRONG",
+          "terms": [
+            "undead",
+            "death",
+            "shadow",
+            "vanishes",
+            "disappears",
+            "haunted",
+            "specter",
+            "wraith",
+            "concealment",
+            "emptiness"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Death, shadow, or disappearance is characteristic.",
+          "calibrationRule": "VHALEN_SHADOW_DEATH"
+        },
+        {
+          "clusterId": "cryptic_boundary",
+          "tier": "MODERATE",
+          "terms": [
+            "cryptic",
+            "darkness",
+            "secrecy",
+            "ending",
+            "absence",
+            "guards remains",
+            "cave darkness"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Concealment or darkness supports the domain.",
+          "calibrationRule": "VHALEN_CONCEALMENT_SUPPORT"
+        },
+        {
+          "clusterId": "nocturnal_only",
+          "tier": "WEAK",
+          "terms": [
+            "nocturnal",
+            "night-active",
+            "kills",
+            "boundary",
+            "black"
+          ],
+          "axes": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Night activity, predation, or coloration is not absence or endings.",
+          "calibrationRule": "VHALEN_NIGHT_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "cannot conceal",
+            "permanent unavoidable presence"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Vhalen's defining domain.",
+          "calibrationRule": "VHALEN_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "deityName": "Asteriel",
+      "specificityReview": "Cosmic structure, radiant order, universal balance, and coherent integration define the domain. Hierarchy alone is weak.",
+      "contradictoryEvidence": [
+        "chaotic fragmentation",
+        "disintegrates coordination"
+      ],
+      "signals": [
+        {
+          "clusterId": "cosmic_integration",
+          "tier": "DEFINING",
+          "terms": [
+            "cosmic order",
+            "universal balance",
+            "celestial geometry",
+            "integrates conflicting forces",
+            "coherent whole",
+            "higher-order cosmic",
+            "higher order cosmic"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Conflicting elements are integrated into a coherent cosmic structure.",
+          "calibrationRule": "ASTERIEL_COSMIC_INTEGRATION"
+        },
+        {
+          "clusterId": "radiant_higher_order",
+          "tier": "STRONG",
+          "terms": [
+            "aether",
+            "radiant order",
+            "celestial structure",
+            "geometric structure",
+            "superorganism",
+            "coordinated whole",
+            "universal structure"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Higher-order or radiant organization is explicit.",
+          "calibrationRule": "ASTERIEL_HIGHER_ORDER"
+        },
+        {
+          "clusterId": "complex_integration",
+          "tier": "MODERATE",
+          "terms": [
+            "complex organization",
+            "integrates",
+            "symmetry",
+            "geometric",
+            "system balance",
+            "eusocial coordination"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Complex integration supports but may not be cosmic.",
+          "calibrationRule": "ASTERIEL_INTEGRATION_SUPPORT"
+        },
+        {
+          "clusterId": "hierarchy_only",
+          "tier": "WEAK",
+          "terms": [
+            "hierarchy",
+            "hierarchical",
+            "authority",
+            "centralized",
+            "organized colony",
+            "status"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "rationale": "Hierarchy alone is not cosmic order.",
+          "calibrationRule": "ASTERIEL_HIERARCHY_CAP"
+        },
+        {
+          "clusterId": "contradictory_domain_evidence",
+          "tier": "CONTRADICTORY",
+          "terms": [
+            "chaotic fragmentation",
+            "disintegrates coordination"
+          ],
+          "axes": [
+            "PERSONALITY_ALIGNMENT",
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "rationale": "Evidence directly opposes Asteriel's defining domain.",
+          "calibrationRule": "ASTERIEL_CONTRADICTORY_EVIDENCE"
+        }
+      ]
+    }
+  ]
+}

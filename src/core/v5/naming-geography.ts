@@ -1,4 +1,5 @@
 import type { CanonicalDataV5 } from "./config.js";
+import { effectiveRouteClassification, type RouteClassificationAuthorityV1 } from "./route-classification.js";
 import type { AcceptedLabelLedgerEntryV5, NamingComparisonAuditStatusV5, NamingRequestV5, WorldKey, WorldStateV5 } from "./types.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
@@ -81,7 +82,7 @@ function finalize(row: Omit<NamingGeographyRow, "pattern" | "cells" | "compariso
   return { entityType: row.entityType, physicalIdentity: row.physicalIdentity, secondaryReference: row.secondaryReference, continentGroup: row.continentGroup, atlasTarget: row.atlasTarget, pattern: classified.pattern, cells: classified.styled, comparisonAuditStatus: auditStatus(classified.styled, ledger, row.expectedGroupId) };
 }
 
-export function buildNamingGeographyReadModel(canonical: CanonicalDataV5, states: Partial<Record<WorldKey, WorldStateV5>>, ledger: readonly AcceptedLabelLedgerEntryV5[], requests: readonly NamingRequestV5[], year: number): NamingGeographyReadModelV1 {
+export function buildNamingGeographyReadModel(canonical: CanonicalDataV5, states: Partial<Record<WorldKey, WorldStateV5>>, ledger: readonly AcceptedLabelLedgerEntryV5[], requests: readonly NamingRequestV5[], year: number, classificationAuthority?: RouteClassificationAuthorityV1): NamingGeographyReadModelV1 {
   const rows: NamingGeographyRow[] = [];
   for (const site of canonical.sites) {
     const cells = Object.fromEntries(WORLDS.map((world) => {
@@ -101,14 +102,14 @@ export function buildNamingGeographyReadModel(canonical: CanonicalDataV5, states
     rows.push(finalize({ entityType: "POI", physicalIdentity: poi.poiId, secondaryReference: `${poi.poiType} · ${poi.siteId}`, continentGroup: poi.continent ?? canonical.sites.find((site) => site.siteId === poi.siteId)?.continent ?? "CONTINENT UNRESOLVED", atlasTarget: { kind: "POI", ids: [poi.poiId] }, cells, expectedGroupId: `PHYSICAL_POI:${poi.poiId}` }, ledger));
   }
   for (const corridor of canonical.routeCorridors) {
+    const effective = effectiveRouteClassification(corridor, classificationAuthority);
     const continentA = continentForRegion(canonical, corridor.regionAId); const continentB = continentForRegion(canonical, corridor.regionBId);
     const continentGroup = !continentA || !continentB ? "CONTINENT UNRESOLVED" : continentA === continentB ? continentA : `INTERCONTINENTAL — ${[continentA, continentB].sort().join(" ↔ ")}`;
     const cells = Object.fromEntries(WORLDS.map((world) => {
       const entityId = `WORLD_ROUTE_${world}_${corridor.corridorId}`;
       const route = states[world]?.worldRoutes.find((item) => item.routeId === entityId);
       if (!route) return [world, cell(entityId, "INACTIVE", "INACTIVE", ledger, year)];
-      if (route.primaryMode === "UNRESOLVED") return [world, cell(entityId, "MODE_UNRESOLVED", "NOT READY FOR NAMING", ledger, year)];
-      if (corridor.portalCapability && route.primaryMode === "NONE") return [world, cell(entityId, "NO_NAME_REQUIRED", "NO NAME REQUIRED", ledger, year)];
+      if (effective.semanticReadiness === "NOT_READY") return [world, cell(entityId, "MODE_UNRESOLVED", "NOT READY FOR NAMING", ledger, year)];
       const pending = requests.some((request) => request.entityId === entityId && !request.acceptedLabel);
       return [world, cell(entityId, pending ? "PENDING" : "UNNAMED", pending ? "PENDING" : "UNNAMED", ledger, year)];
     })) as Record<WorldKey, NamingGeographyWorldCell>;

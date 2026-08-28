@@ -1,0 +1,3366 @@
+{
+  "schemaVersion": "echoes-breed-deity-affinity-checkpoint-v1",
+  "authorityId": "BREED_PRIMARY_DEITY_V1",
+  "runId": "BREED_PRIMARY_DEITY_V1_FC9FBACB173872A4",
+  "batchNumber": 207,
+  "requestedBatchSize": 10,
+  "recordCount": 2,
+  "finalRemainder": true,
+  "orderingRule": "Breed ID ascending (Unicode code-point order)",
+  "classificationRulesVersion": "BREED_PRIMARY_DEITY_CLASSIFICATION_V1_2026-08-28",
+  "inputDigest": "fc9fbacb173872a4e564a01c8e54432f553f5870a03dc7c5c6a53ef99a78ef76",
+  "previousCheckpointHash": "e0699c2e5240aa6792154723f6ee2af53fdbdd92fc43765b8159a4ec0bc0ec05",
+  "firstBreedId": "BRD_ZIEBELLS_HANDFISH",
+  "lastBreedId": "BRD_ZOMBIE",
+  "records": [
+    {
+      "breedId": "BRD_ZIEBELLS_HANDFISH",
+      "breedName": "Ziebell's handfish",
+      "speciesId": "SPC_BRACHIOPSILUS_ZIEBELLI",
+      "speciesName": "Ziebell's handfish",
+      "populationKind": "BEAST",
+      "cultureId": null,
+      "cultureName": null,
+      "breedGroupId": "B04",
+      "breedGroupName": "Bony Fish",
+      "personalityId": "EMBODIMENT_FUNCTIONAL_BODY_EXPRESSION",
+      "classificationStatus": "REVIEW_REQUIRED",
+      "primaryDeity": null,
+      "provisionalPrimaryDeity": {
+        "deityName": "Marea",
+        "deityTitle": "the Deep Singer",
+        "pantheon": "NINEFOLD_WILD",
+        "domain": "OCEAN_AND_TIDES",
+        "domainName": "Ocean & Tides",
+        "meaning": "Open ocean, marine depth, tides, long marine movement, sea navigation, and deep-water life.",
+        "backstory": "Marea sang until the seas remembered the pull of the moons."
+      },
+      "confidence": "REVIEW_REQUIRED",
+      "suggestedConfidence": "LOW",
+      "confidenceRationale": "Canonical evidence does not resolve Marea over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.900-point margin.",
+      "confidenceOverrideReason": "Numeric guidance suggested LOW, but evidence judgment requires REVIEW_REQUIRED: Canonical evidence does not resolve Marea over Kharad: Fewer than two evidence dimensions provide substantial support for the leading deity. The top two candidates are effectively inseparable at a 1.900-point margin.",
+      "evidenceQuality": "WEAK",
+      "evidenceDirectness": "DIRECT",
+      "evidenceBreadth": 1,
+      "evidenceConsistency": "INSEPARABLE",
+      "evidence": [
+        "BRD_ZIEBELLS_HANDFISH canonicalPayload.text: Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming…",
+        "BRD_ZIEBELLS_HANDFISH canonicalPayload.traits.0.text: Ziebell's handfish crawl on hand-like fins through structurally complex Tasmanian seabed habitat.",
+        "BRD_ZIEBELLS_HANDFISH canonicalPayload.terrainBroad: COASTAL OCEAN"
+      ],
+      "sourceFieldReferences": [
+        {
+          "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+          "sourceScope": "BREED",
+          "fieldPath": "canonicalPayload.text",
+          "basis": "CANONICAL_TEXT"
+        },
+        {
+          "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+          "sourceScope": "BREED",
+          "fieldPath": "canonicalPayload.traits.0.text",
+          "basis": "ECOLOGY"
+        },
+        {
+          "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+          "sourceScope": "BREED",
+          "fieldPath": "canonicalPayload.terrainBroad",
+          "basis": "HABITAT"
+        }
+      ],
+      "topCandidates": [
+        {
+          "deityName": "Marea",
+          "deityTitle": "the Deep Singer",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "OCEAN_AND_TIDES",
+          "domainName": "Ocean & Tides",
+          "meaning": "Open ocean, marine depth, tides, long marine movement, sea navigation, and deep-water life.",
+          "backstory": "Marea sang until the seas remembered the pull of the moons.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 52,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 16.1,
+          "score": 16,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "seabed",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.traits.0.text",
+              "excerpt": "Ziebell's handfish crawl on hand-like fins through structurally complex Tasmanian seabed habitat.",
+              "signal": "seabed",
+              "contribution": 16.15,
+              "basis": "ECOLOGY"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainBroad",
+              "excerpt": "COASTAL OCEAN",
+              "signal": "coastal",
+              "contribution": 15.3,
+              "basis": "HABITAT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainBroad",
+              "excerpt": "COASTAL OCEAN",
+              "signal": "ocean",
+              "contribution": 15.3,
+              "basis": "HABITAT"
+            }
+          ]
+        },
+        {
+          "deityName": "Kharad",
+          "deityTitle": "the Foundation",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "EARTH_AND_STONE",
+          "domainName": "Earth & Stone",
+          "meaning": "Solidity, mountains, stone, physical foundations, permanence, weight, stability, and resistance to change.",
+          "backstory": "Kharad established solidity, weight, and foundations against constant change.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 34,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 39
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 14.2,
+          "score": 14,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "cave",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "rock",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainSpecific",
+              "excerpt": "CAVE CORAL_REEF KELP_FOREST",
+              "signal": "cave",
+              "contribution": 15.3,
+              "basis": "HABITAT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "rock",
+              "contribution": 13.6,
+              "basis": "ECOLOGY"
+            }
+          ]
+        },
+        {
+          "deityName": "Selen",
+          "deityTitle": "the Laughing Flame",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "JOY",
+          "domainName": "Joy",
+          "meaning": "Celebration, affection, humor, music, festivals, pleasure, play, communal happiness, and reasons for living.",
+          "backstory": "Selen taught that survival is insufficient if people forget why survival matters.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 25,
+            "BEHAVIOR_ALIGNMENT": 9,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 12,
+          "score": 12,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.emotionalTemperature.value",
+              "excerpt": "emotionalTemperature=JOYFUL",
+              "signal": "emotionalTemperature:JOYFUL",
+              "contribution": 18,
+              "basis": "PERSONALITY"
+            },
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.loquacity.value",
+              "excerpt": "loquacity=TALKATIVE",
+              "signal": "loquacity:TALKATIVE",
+              "contribution": 6,
+              "basis": "PERSONALITY"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=2/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Damor",
+          "deityTitle": "the World-Builder",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "WETLANDS_FOREST_RENEWAL_AND_HABITAT",
+          "domainName": "Wetlands, Forest Renewal & Habitat",
+          "meaning": "Habitat engineering, ecosystem construction, environmental modification, wetlands, forest renewal, and creating conditions for other life.",
+          "backstory": "Damor changed rivers rather than merely living beside them, making creatures participants in nature.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 13,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 20,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 10.95,
+          "score": 11,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "habitat",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "habitat",
+              "contribution": 15.3,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=2/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.nesting.score",
+              "excerpt": "nesting=2/4",
+              "signal": "nesting behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Neressa",
+          "deityTitle": "the Yielding Deep",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "WATER_AND_FLOW",
+          "domainName": "Water & Flow",
+          "meaning": "Fluidity, adaptation, yielding without losing identity, elemental water, and flowing transformation.",
+          "backstory": "Neressa created something that survives through yielding and reshapes itself without losing its nature.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 19,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 9.5,
+          "score": 10,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "current",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "current",
+              "contribution": 13.6,
+              "basis": "ECOLOGY"
+            }
+          ]
+        }
+      ],
+      "allCandidatesDigest": "ea04ad6ae8b966b43205296ce328dc495c448061acaeb1722ab02eee01285fab",
+      "runnerUp": "Kharad",
+      "winnerReason": "Marea is the provisional leader over Kharad because the canonical evidence contains seabed, coastal, ocean; the 1.900-point comparison remains unresolved for the recorded missing-evidence reasons.",
+      "classificationBasis": [
+        "CANONICAL_TEXT",
+        "ECOLOGY",
+        "HABITAT"
+      ],
+      "missingEvidence": [
+        "Fewer than two evidence dimensions provide substantial support for the leading deity.",
+        "The top two candidates are effectively inseparable at a 1.900-point margin."
+      ],
+      "topTwoMargin": 1.9,
+      "candidateAssessments": [
+        {
+          "deityName": "Marea",
+          "deityTitle": "the Deep Singer",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "OCEAN_AND_TIDES",
+          "domainName": "Ocean & Tides",
+          "meaning": "Open ocean, marine depth, tides, long marine movement, sea navigation, and deep-water life.",
+          "backstory": "Marea sang until the seas remembered the pull of the moons.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 52,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 16.1,
+          "score": 16,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "seabed",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.traits.0.text",
+              "excerpt": "Ziebell's handfish crawl on hand-like fins through structurally complex Tasmanian seabed habitat.",
+              "signal": "seabed",
+              "contribution": 16.15,
+              "basis": "ECOLOGY"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainBroad",
+              "excerpt": "COASTAL OCEAN",
+              "signal": "coastal",
+              "contribution": 15.3,
+              "basis": "HABITAT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainBroad",
+              "excerpt": "COASTAL OCEAN",
+              "signal": "ocean",
+              "contribution": 15.3,
+              "basis": "HABITAT"
+            }
+          ]
+        },
+        {
+          "deityName": "Kharad",
+          "deityTitle": "the Foundation",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "EARTH_AND_STONE",
+          "domainName": "Earth & Stone",
+          "meaning": "Solidity, mountains, stone, physical foundations, permanence, weight, stability, and resistance to change.",
+          "backstory": "Kharad established solidity, weight, and foundations against constant change.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 34,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 39
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 14.2,
+          "score": 14,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "cave",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "rock",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainSpecific",
+              "excerpt": "CAVE CORAL_REEF KELP_FOREST",
+              "signal": "cave",
+              "contribution": 15.3,
+              "basis": "HABITAT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "rock",
+              "contribution": 13.6,
+              "basis": "ECOLOGY"
+            }
+          ]
+        },
+        {
+          "deityName": "Selen",
+          "deityTitle": "the Laughing Flame",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "JOY",
+          "domainName": "Joy",
+          "meaning": "Celebration, affection, humor, music, festivals, pleasure, play, communal happiness, and reasons for living.",
+          "backstory": "Selen taught that survival is insufficient if people forget why survival matters.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 25,
+            "BEHAVIOR_ALIGNMENT": 9,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 12,
+          "score": 12,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.emotionalTemperature.value",
+              "excerpt": "emotionalTemperature=JOYFUL",
+              "signal": "emotionalTemperature:JOYFUL",
+              "contribution": 18,
+              "basis": "PERSONALITY"
+            },
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.loquacity.value",
+              "excerpt": "loquacity=TALKATIVE",
+              "signal": "loquacity:TALKATIVE",
+              "contribution": 6,
+              "basis": "PERSONALITY"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=2/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Damor",
+          "deityTitle": "the World-Builder",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "WETLANDS_FOREST_RENEWAL_AND_HABITAT",
+          "domainName": "Wetlands, Forest Renewal & Habitat",
+          "meaning": "Habitat engineering, ecosystem construction, environmental modification, wetlands, forest renewal, and creating conditions for other life.",
+          "backstory": "Damor changed rivers rather than merely living beside them, making creatures participants in nature.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 13,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 20,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 10.95,
+          "score": 11,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "habitat",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "habitat",
+              "contribution": 15.3,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=2/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.nesting.score",
+              "excerpt": "nesting=2/4",
+              "signal": "nesting behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Neressa",
+          "deityTitle": "the Yielding Deep",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "WATER_AND_FLOW",
+          "domainName": "Water & Flow",
+          "meaning": "Fluidity, adaptation, yielding without losing identity, elemental water, and flowing transformation.",
+          "backstory": "Neressa created something that survives through yielding and reshapes itself without losing its nature.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 19,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 9.5,
+          "score": 10,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "current",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Ziebell's handfish (Brachiopsilus ziebelli) is a large Tasmanian handfish associated with complex rocky and sponge-rich seabed habitat. Like other handfishes, it crawls with modified hand-like fins rather than relying on sustained swimming. The recovery plan describes records from eastern and southern Tasmania across r",
+              "signal": "current",
+              "contribution": 13.6,
+              "basis": "ECOLOGY"
+            }
+          ]
+        },
+        {
+          "deityName": "Vespera",
+          "deityTitle": "the Thousand-Eyed",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "STARS_AND_NAVIGATION",
+          "domainName": "Stars & Navigation",
+          "meaning": "Orientation, wayfinding, celestial navigation, migration guidance, homing, and long-distance spatial awareness.",
+          "backstory": "Vespera scattered reflected lights across darkness so migrating creatures could find home.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 17,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 8.6,
+          "score": 9,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.outlookOrientation.value",
+              "excerpt": "outlookOrientation PESSIMISTIC",
+              "signal": "orientation",
+              "contribution": 11.9,
+              "basis": "PERSONALITY"
+            }
+          ]
+        },
+        {
+          "deityName": "Miren",
+          "deityTitle": "the Open Hand",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "COMPASSION",
+          "domainName": "Compassion",
+          "meaning": "Compassion through meaningful personal cost, generosity, care, protection, mercy, feeding and supporting others, and concern for suffering.",
+          "backstory": "Miren fed strangers during famine after her own household began rationing food; her doctrine makes costly compassion sacred.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 19,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 8.5,
+          "score": 9,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.parental.score",
+              "excerpt": "parental=2/4",
+              "signal": "parental behavior profile",
+              "contribution": 6,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.aggression.score",
+              "excerpt": "aggression=2/4",
+              "signal": "aggression behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.nesting.score",
+              "excerpt": "nesting=2/4",
+              "signal": "nesting behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Tavai",
+          "deityTitle": "Who Listens Twice",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "EMPATHY",
+          "domainName": "Empathy",
+          "meaning": "Accurate perspective-taking, social perception, mediation, emotional attunement, and understanding another viewpoint.",
+          "backstory": "Tavai mediated by stating an opponent's grievance so accurately that the opponent felt understood before negotiation.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 17,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 8,
+          "score": 8,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 6,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=2/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.parental.score",
+              "excerpt": "parental=2/4",
+              "signal": "parental behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Darel",
+          "deityTitle": "the Unshaken",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "COURAGE",
+          "domainName": "Courage",
+          "meaning": "Acting despite fear; bravery is willingness to proceed while afraid rather than absence of fear.",
+          "backstory": "Darel openly feared battle but repeatedly acted while afraid, making courage the mastery of fear.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 13,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 7,
+          "score": 7,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.aggression.score",
+              "excerpt": "aggression=2/4",
+              "signal": "aggression behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=2/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.parental.score",
+              "excerpt": "parental=2/4",
+              "signal": "parental behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Elian",
+          "deityTitle": "the Returning Light",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "HOPE",
+          "domainName": "Hope",
+          "meaning": "Rebuilding after destruction, optimism after catastrophe, renewed effort, and belief in future possibility.",
+          "backstory": "Elian rebuilt the same destroyed settlement three times and refused to call any rebuilding wasted.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 10,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 6.5,
+          "score": 7,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.emotionalTemperature.value",
+              "excerpt": "emotionalTemperature=JOYFUL",
+              "signal": "emotionalTemperature:JOYFUL",
+              "contribution": 5,
+              "basis": "PERSONALITY"
+            }
+          ]
+        },
+        {
+          "deityName": "Savael",
+          "deityTitle": "the Long Breath",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "PATIENCE",
+          "domainName": "Patience",
+          "meaning": "Active endurance, reconciliation over long periods, restraint, persistence without escalation, and willingness to wait and continue.",
+          "backstory": "Savael spent decades reconciling communities trapped in an inherited feud; patience is active endurance.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 11,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 6.5,
+          "score": 7,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.aggression.score",
+              "excerpt": "aggression=2/4",
+              "signal": "aggression behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=2/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Namiya",
+          "deityTitle": "the Unclosed Door",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "FORGIVENESS",
+          "domainName": "Forgiveness",
+          "meaning": "Reconciliation after genuine injury without erasing harm or accountability.",
+          "backstory": "Namiya reconciled with the person responsible for her family's ruin without pretending the wrong had never occurred.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 11,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 6.5,
+          "score": 7,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.aggression.score",
+              "excerpt": "aggression=2/4",
+              "signal": "aggression behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Aveli",
+          "deityTitle": "the Unheld",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "AIR_AND_BREATH",
+          "domainName": "Air & Breath",
+          "meaning": "Air, wind, flight, breath, freedom of movement, diffusion, and motion that resists confinement.",
+          "backstory": "Aveli created motion that could never be permanently imprisoned; breath is their smallest miracle.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 14,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 6.35,
+          "score": 6,
+          "matchedEvidence": [
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "BRD_ZIEBELLS_HANDFISH",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.aggression.rationale",
+              "excerpt": "The exact authority supports identity, locomotion, and habitat but not a complete Breed behavior vector. No evidence supports a more specific aggression score, so the explicit neutral default is retained.",
+              "signal": "motion",
+              "contribution": 9.35,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Oren",
+          "deityTitle": "the Clear Voice",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "HONESTY",
+          "domainName": "Honesty",
+          "meaning": "Truthfulness when personally costly, candor, transparency, integrity, and resistance to convenient deception.",
+          "backstory": "Oren exposed a lie that benefited his own people and lost his reputation for doing so.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Varek",
+          "deityTitle": "the Last Standing",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "RESOLVE",
+          "domainName": "Resolve",
+          "meaning": "Perseverance through repeated failure, tenacity, duty, grit, and refusal to abandon meaningful work.",
+          "backstory": "Varek repeatedly failed at the work for which he is remembered, but failure never made the work cease to matter.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Solkar",
+          "deityTitle": "the First Warmth",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "SUN_AND_DAYLIGHT",
+          "domainName": "Sun & Daylight",
+          "meaning": "Daylight, warmth, solar activity, diurnal life, exposure, illumination, awakening, and life-giving heat.",
+          "backstory": "Solkar carried the first spark of dawn through the motionless night and restored daylight.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Lunessa",
+          "deityTitle": "the Many-Faced",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "THE_MOONS_AND_THEIR_PHASES",
+          "domainName": "The Moons & Their Phases",
+          "meaning": "Cycles, waxing and waning, nocturnal rhythms, periodic transformation, return after disappearance, and moon-linked activity.",
+          "backstory": "Lunessa taught the darkened moons that disappearance is part of returning.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Voltar",
+          "deityTitle": "the Sudden Current",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "STORMS_AND_LIGHTNING",
+          "domainName": "Storms & Lightning",
+          "meaning": "Electricity, violent atmospheric energy, thunder, storms, charged activity, disruption, and abrupt natural force.",
+          "backstory": "Voltar awakened the stagnant atmosphere with the first violent discharge.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Rillan",
+          "deityTitle": "the Returning River",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "RIVERS_RAIN_AND_FRESH_WATER",
+          "domainName": "Rivers, Rain & Fresh Water",
+          "meaning": "Freshwater systems, rivers, rainfall, upstream movement, lakes, streams, and wet freshwater ecology.",
+          "backstory": "Rillan travelled upstream carrying water and reopened the world's rivers one by one.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Sterna",
+          "deityTitle": "the Long Journey",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "SEASONS_AND_MIGRATION",
+          "domainName": "Seasons & Migration",
+          "meaning": "Seasonal cycles, long-distance migration, annual movement, dispersal, seasonal return, and travel tied to life cycles.",
+          "backstory": "Sterna flew until the frozen sky followed her and created the procession of seasons.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Scarabos",
+          "deityTitle": "the Buried Seed",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "DECAY_SOIL_AND_RENEWAL",
+          "domainName": "Decay, Soil & Renewal",
+          "meaning": "Decomposition, detritus, soil creation, carrion cycles, burial, nutrient renewal, and death feeding new life.",
+          "backstory": "Scarabos buried the first dead thing and returned to find new life above it.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Sahrem",
+          "deityTitle": "the First Hunger",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "FIRE_AND_HEAT",
+          "domainName": "Fire & Heat",
+          "meaning": "Fire, combustion, consuming transformation, furnaces, burning, and destructive or creative thermal change.",
+          "backstory": "Sahrem demanded that existence be allowed to consume and transform itself; flame was his argument made physical.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Iskarn",
+          "deityTitle": "the Still World",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "ICE_PRESERVATION_AND_STILLNESS",
+          "domainName": "Ice, Preservation & Stillness",
+          "meaning": "Cold, ice, suspended change, preservation, dormancy, winter, stillness, and slowed processes.",
+          "backstory": "Iskarn demonstrated that change could be suspended without being destroyed.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Myrra",
+          "deityTitle": "Behind the Eyes",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "DREAMING_AND_POSSIBILITY",
+          "domainName": "Dreaming & Possibility",
+          "meaning": "Dreams, imagination, illusion, uncertainty, potential realities, shape-changing possibility, and things that might exist.",
+          "backstory": "Myrra created dreams so existence could contain things that might be, not only things that are.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Orun-IX",
+          "deityTitle": "the Measured Hand",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "TIME_SEQUENCE_AND_CAUSALITY",
+          "domainName": "Time, Sequence & Causality",
+          "meaning": "Order of events, precise timing, repetitive sequence, mechanisms, clocks, causality, synchronization, and predictable process.",
+          "backstory": "Orun-IX divided existence into before and after so creation no longer occurred simultaneously.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Vhalen",
+          "deityTitle": "the Last Shadow",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "SHADOW_ABSENCE_AND_ENDINGS",
+          "domainName": "Shadow, Absence & Endings",
+          "meaning": "Darkness, disappearance, emptiness, boundaries, death, endings, absence, concealment, and things defined by what is missing.",
+          "backstory": "Vhalen introduced absence so creation could possess boundaries and distinct things could exist.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Asteriel",
+          "deityTitle": "the Turning Eye",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "AETHER_LIGHT_AND_COSMIC_ORDER",
+          "domainName": "Aether, Light & Cosmic Order",
+          "meaning": "Cosmic structure, higher-order organization, radiant energy, celestial geometry, universal balance, and coherent integration of conflicting forces.",
+          "backstory": "Asteriel gathered conflicting elements into a universe that could coexist.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        }
+      ]
+    },
+    {
+      "breedId": "BRD_ZOMBIE",
+      "breedName": "Zombie",
+      "speciesId": "SPC_CADAVER_AMBULANS",
+      "speciesName": "Zombie",
+      "populationKind": "MYTHOS",
+      "cultureId": null,
+      "cultureName": null,
+      "breedGroupId": "M22",
+      "breedGroupName": "Skeletons & Zombies",
+      "personalityId": "AUTONOMY_ENSLAVEMENT_WOUND",
+      "classificationStatus": "CLASSIFIED",
+      "primaryDeity": {
+        "deityName": "Aveli",
+        "deityTitle": "the Unheld",
+        "pantheon": "NINEFOLD_VEIL",
+        "domain": "AIR_AND_BREATH",
+        "domainName": "Air & Breath",
+        "meaning": "Air, wind, flight, breath, freedom of movement, diffusion, and motion that resists confinement.",
+        "backstory": "Aveli created motion that could never be permanently imprisoned; breath is their smallest miracle."
+      },
+      "provisionalPrimaryDeity": null,
+      "confidence": "LOW",
+      "suggestedConfidence": "LOW",
+      "confidenceRationale": "weak direct evidence spans 1 substantial axes; Aveli leads Neressa by 16.550 points.",
+      "confidenceOverrideReason": null,
+      "evidenceQuality": "WEAK",
+      "evidenceDirectness": "DIRECT",
+      "evidenceBreadth": 1,
+      "evidenceConsistency": "MIXED",
+      "evidence": [
+        "BRD_ZOMBIE v4Effective.personalityId: AUTONOMY_ENSLAVEMENT_WOUND",
+        "BRD_ZOMBIE canonicalPayload.text: Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually …"
+      ],
+      "sourceFieldReferences": [
+        {
+          "sourceRecordId": "BRD_ZOMBIE",
+          "sourceScope": "BREED",
+          "fieldPath": "v4Effective.personalityId",
+          "basis": "PERSONALITY"
+        },
+        {
+          "sourceRecordId": "BRD_ZOMBIE",
+          "sourceScope": "BREED",
+          "fieldPath": "canonicalPayload.text",
+          "basis": "CANONICAL_TEXT"
+        }
+      ],
+      "topCandidates": [
+        {
+          "deityName": "Aveli",
+          "deityTitle": "the Unheld",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "AIR_AND_BREATH",
+          "domainName": "Air & Breath",
+          "meaning": "Air, wind, flight, breath, freedom of movement, diffusion, and motion that resists confinement.",
+          "backstory": "Aveli created motion that could never be permanently imprisoned; breath is their smallest miracle.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 77,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 20,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 30.55,
+          "score": 31,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.personalityId",
+              "excerpt": "AUTONOMY_ENSLAVEMENT_WOUND",
+              "signal": "personality family AUTONOMY",
+              "contribution": 71.76,
+              "basis": "PERSONALITY"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "motion",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "motion",
+              "contribution": 15.3,
+              "basis": "CANONICAL_TEXT"
+            }
+          ]
+        },
+        {
+          "deityName": "Neressa",
+          "deityTitle": "the Yielding Deep",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "WATER_AND_FLOW",
+          "domainName": "Water & Flow",
+          "meaning": "Fluidity, adaptation, yielding without losing identity, elemental water, and flowing transformation.",
+          "backstory": "Neressa created something that survives through yielding and reshapes itself without losing its nature.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 35,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 14,
+          "score": 14,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.personalityId",
+              "excerpt": "AUTONOMY_ENSLAVEMENT_WOUND",
+              "signal": "personality family AUTONOMY",
+              "contribution": 29.64,
+              "basis": "PERSONALITY"
+            }
+          ]
+        },
+        {
+          "deityName": "Varek",
+          "deityTitle": "the Last Standing",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "RESOLVE",
+          "domainName": "Resolve",
+          "meaning": "Perseverance through repeated failure, tenacity, duty, grit, and refusal to abandon meaningful work.",
+          "backstory": "Varek repeatedly failed at the work for which he is remembered, but failure never made the work cease to matter.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 20,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 12,
+            "CANONICAL_TEXT_SUPPORT": 28
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 12.1,
+          "score": 12,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "continues",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.traits.0.text",
+              "excerpt": "Movement continues through tissue damage and physiological failure because locomotion is sustained by supernatural animation rather than circulation or respiration.",
+              "signal": "continues",
+              "contribution": 15.3,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "resolve",
+              "contribution": 7.14,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "resolve",
+              "contribution": 5.712,
+              "basis": "SPECIES_CONTEXT"
+            }
+          ]
+        },
+        {
+          "deityName": "Tavai",
+          "deityTitle": "Who Listens Twice",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "EMPATHY",
+          "domainName": "Empathy",
+          "meaning": "Accurate perspective-taking, social perception, mediation, emotional attunement, and understanding another viewpoint.",
+          "backstory": "Tavai mediated by stating an opponent's grievance so accurately that the opponent felt understood before negotiation.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 30,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 11
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 11.85,
+          "score": 12,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.rationale",
+              "excerpt": "Exact Breed review for Zombie reopened the exact subject source and found no narrower canonical subtype or contradictory child evidence for social; retain score 2. crowds accumulate around shared stimuli but do not form cooperative social systems",
+              "signal": "cooperative",
+              "contribution": 17,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 6,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "cooperative",
+              "contribution": 5.712,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=1/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Rillan",
+          "deityTitle": "the Returning River",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "RIVERS_RAIN_AND_FRESH_WATER",
+          "domainName": "Rivers, Rain & Fresh Water",
+          "meaning": "Freshwater systems, rivers, rainfall, upstream movement, lakes, streams, and wet freshwater ecology.",
+          "backstory": "Rillan travelled upstream carrying water and reopened the world's rivers one by one.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 19,
+            "SYMBOLIC_ALIGNMENT": 20,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 11.75,
+          "score": 12,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "rain",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "rain",
+              "contribution": 15.3,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "rain",
+              "contribution": 13.6,
+              "basis": "ECOLOGY"
+            }
+          ]
+        }
+      ],
+      "allCandidatesDigest": "0333e7d45f3279131a5bc425def84fab2ca758dc7199c4ed20bae81d7f1c5a1e",
+      "runnerUp": "Neressa",
+      "winnerReason": "Aveli better represents this Breed than Neressa: canonical personality, canonical_text evidence contains personality family AUTONOMY, motion, producing broader or more direct support across the weighted axes (30.550 versus 14.000).",
+      "classificationBasis": [
+        "PERSONALITY",
+        "CANONICAL_TEXT"
+      ],
+      "missingEvidence": [
+        "Fewer than two evidence dimensions provide substantial support for the leading deity."
+      ],
+      "topTwoMargin": 16.55,
+      "candidateAssessments": [
+        {
+          "deityName": "Aveli",
+          "deityTitle": "the Unheld",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "AIR_AND_BREATH",
+          "domainName": "Air & Breath",
+          "meaning": "Air, wind, flight, breath, freedom of movement, diffusion, and motion that resists confinement.",
+          "backstory": "Aveli created motion that could never be permanently imprisoned; breath is their smallest miracle.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 77,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 20,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 30.55,
+          "score": 31,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.personalityId",
+              "excerpt": "AUTONOMY_ENSLAVEMENT_WOUND",
+              "signal": "personality family AUTONOMY",
+              "contribution": 71.76,
+              "basis": "PERSONALITY"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "motion",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "motion",
+              "contribution": 15.3,
+              "basis": "CANONICAL_TEXT"
+            }
+          ]
+        },
+        {
+          "deityName": "Neressa",
+          "deityTitle": "the Yielding Deep",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "WATER_AND_FLOW",
+          "domainName": "Water & Flow",
+          "meaning": "Fluidity, adaptation, yielding without losing identity, elemental water, and flowing transformation.",
+          "backstory": "Neressa created something that survives through yielding and reshapes itself without losing its nature.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 35,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 14,
+          "score": 14,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.personalityId",
+              "excerpt": "AUTONOMY_ENSLAVEMENT_WOUND",
+              "signal": "personality family AUTONOMY",
+              "contribution": 29.64,
+              "basis": "PERSONALITY"
+            }
+          ]
+        },
+        {
+          "deityName": "Varek",
+          "deityTitle": "the Last Standing",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "RESOLVE",
+          "domainName": "Resolve",
+          "meaning": "Perseverance through repeated failure, tenacity, duty, grit, and refusal to abandon meaningful work.",
+          "backstory": "Varek repeatedly failed at the work for which he is remembered, but failure never made the work cease to matter.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 20,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 12,
+            "CANONICAL_TEXT_SUPPORT": 28
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 12.1,
+          "score": 12,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "continues",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.traits.0.text",
+              "excerpt": "Movement continues through tissue damage and physiological failure because locomotion is sustained by supernatural animation rather than circulation or respiration.",
+              "signal": "continues",
+              "contribution": 15.3,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "resolve",
+              "contribution": 7.14,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "resolve",
+              "contribution": 5.712,
+              "basis": "SPECIES_CONTEXT"
+            }
+          ]
+        },
+        {
+          "deityName": "Tavai",
+          "deityTitle": "Who Listens Twice",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "EMPATHY",
+          "domainName": "Empathy",
+          "meaning": "Accurate perspective-taking, social perception, mediation, emotional attunement, and understanding another viewpoint.",
+          "backstory": "Tavai mediated by stating an opponent's grievance so accurately that the opponent felt understood before negotiation.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 30,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 11
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 11.85,
+          "score": 12,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.rationale",
+              "excerpt": "Exact Breed review for Zombie reopened the exact subject source and found no narrower canonical subtype or contradictory child evidence for social; retain score 2. crowds accumulate around shared stimuli but do not form cooperative social systems",
+              "signal": "cooperative",
+              "contribution": 17,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 6,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "cooperative",
+              "contribution": 5.712,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=1/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Rillan",
+          "deityTitle": "the Returning River",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "RIVERS_RAIN_AND_FRESH_WATER",
+          "domainName": "Rivers, Rain & Fresh Water",
+          "meaning": "Freshwater systems, rivers, rainfall, upstream movement, lakes, streams, and wet freshwater ecology.",
+          "backstory": "Rillan travelled upstream carrying water and reopened the world's rivers one by one.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 19,
+            "SYMBOLIC_ALIGNMENT": 20,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 11.75,
+          "score": 12,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "rain",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "rain",
+              "contribution": 15.3,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "rain",
+              "contribution": 13.6,
+              "basis": "ECOLOGY"
+            }
+          ]
+        },
+        {
+          "deityName": "Selen",
+          "deityTitle": "the Laughing Flame",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "JOY",
+          "domainName": "Joy",
+          "meaning": "Celebration, affection, humor, music, festivals, pleasure, play, communal happiness, and reasons for living.",
+          "backstory": "Selen taught that survival is insufficient if people forget why survival matters.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 23,
+            "BEHAVIOR_ALIGNMENT": 8,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 11.15,
+          "score": 11,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.emotionalTemperature.value",
+              "excerpt": "emotionalTemperature=JOYFUL",
+              "signal": "emotionalTemperature:JOYFUL",
+              "contribution": 18,
+              "basis": "PERSONALITY"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=1/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 1,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Damor",
+          "deityTitle": "the World-Builder",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "WETLANDS_FOREST_RENEWAL_AND_HABITAT",
+          "domainName": "Wetlands, Forest Renewal & Habitat",
+          "meaning": "Habitat engineering, ecosystem construction, environmental modification, wetlands, forest renewal, and creating conditions for other life.",
+          "backstory": "Damor changed rivers rather than merely living beside them, making creatures participants in nature.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 24,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 11
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 10.35,
+          "score": 10,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.parental.rationale",
+              "excerpt": "Exact Breed review for Zombie reopened the exact subject source and found no narrower canonical subtype or contradictory child evidence for parental; retain score 0. dead constructs do not reproduce or provide juvenile care",
+              "signal": "constructs",
+              "contribution": 17,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "constructs",
+              "contribution": 5.712,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=1/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 2,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Miren",
+          "deityTitle": "the Open Hand",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "COMPASSION",
+          "domainName": "Compassion",
+          "meaning": "Compassion through meaningful personal cost, generosity, care, protection, mercy, feeding and supporting others, and concern for suffering.",
+          "backstory": "Miren fed strangers during famine after her own household began rationing food; her doctrine makes costly compassion sacred.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 9,
+            "ECOLOGICAL_ALIGNMENT": 12,
+            "SYMBOLIC_ALIGNMENT": 14,
+            "CANONICAL_TEXT_SUPPORT": 16
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 9.85,
+          "score": 10,
+          "matchedEvidence": [
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.parental.rationale",
+              "excerpt": "Exact Breed review for Zombie reopened the exact subject source and found no narrower canonical subtype or contradictory child evidence for parental; retain score 0. dead constructs do not reproduce or provide juvenile care",
+              "signal": "care",
+              "contribution": 9.35,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "nurse",
+              "contribution": 7.14,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "care",
+              "contribution": 5.712,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "nurse",
+              "contribution": 5.712,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Kharad",
+          "deityTitle": "the Foundation",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "EARTH_AND_STONE",
+          "domainName": "Earth & Stone",
+          "meaning": "Solidity, mountains, stone, physical foundations, permanence, weight, stability, and resistance to change.",
+          "backstory": "Kharad established solidity, weight, and foundations against constant change.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 20,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 9.7,
+          "score": 10,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "cave",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainSpecific",
+              "excerpt": "CASTLE CAVE CITY ROAD RUINS TEMPLE VILLAGE",
+              "signal": "cave",
+              "contribution": 15.3,
+              "basis": "HABITAT"
+            }
+          ]
+        },
+        {
+          "deityName": "Scarabos",
+          "deityTitle": "the Buried Seed",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "DECAY_SOIL_AND_RENEWAL",
+          "domainName": "Decay, Soil & Renewal",
+          "meaning": "Decomposition, detritus, soil creation, carrion cycles, burial, nutrient renewal, and death feeding new life.",
+          "backstory": "Scarabos buried the first dead thing and returned to find new life above it.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 19,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 22
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 9.5,
+          "score": 10,
+          "matchedEvidence": [
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "decomposition",
+              "contribution": 17,
+              "basis": "CANONICAL_TEXT"
+            },
+            {
+              "axis": "ECOLOGICAL_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Zombie is the canonical MYTHOS Breed-level population under SPC_CADAVER_AMBULANS. The manifest defines no narrower subspecies, locality, morph, traditional subtype, or parent Breed, so this child is coterminous with the exact individually researched Species; nevertheless, the exact subject source was reopened and every",
+              "signal": "decomposition",
+              "contribution": 13.6,
+              "basis": "ECOLOGY"
+            }
+          ]
+        },
+        {
+          "deityName": "Vespera",
+          "deityTitle": "the Thousand-Eyed",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "STARS_AND_NAVIGATION",
+          "domainName": "Stars & Navigation",
+          "meaning": "Orientation, wayfinding, celestial navigation, migration guidance, homing, and long-distance spatial awareness.",
+          "backstory": "Vespera scattered reflected lights across darkness so migrating creatures could find home.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 17,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 8.6,
+          "score": 9,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.outlookOrientation.value",
+              "excerpt": "outlookOrientation NEUTRAL",
+              "signal": "orientation",
+              "contribution": 11.9,
+              "basis": "PERSONALITY"
+            }
+          ]
+        },
+        {
+          "deityName": "Darel",
+          "deityTitle": "the Unshaken",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "COURAGE",
+          "domainName": "Courage",
+          "meaning": "Acting despite fear; bravery is willingness to proceed while afraid rather than absence of fear.",
+          "backstory": "Darel openly feared battle but repeatedly acted while afraid, making courage the mastery of fear.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 14,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 7.25,
+          "score": 7,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.aggression.score",
+              "excerpt": "aggression=4/4",
+              "signal": "aggression behavior profile",
+              "contribution": 8,
+              "basis": "BEHAVIOR"
+            },
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=1/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 1,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Lunessa",
+          "deityTitle": "the Many-Faced",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "THE_MOONS_AND_THEIR_PHASES",
+          "domainName": "The Moons & Their Phases",
+          "meaning": "Cycles, waxing and waning, nocturnal rhythms, periodic transformation, return after disappearance, and moon-linked activity.",
+          "backstory": "Lunessa taught the darkened moons that disappearance is part of returning.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 12,
+            "CANONICAL_TEXT_SUPPORT": 11
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 6.65,
+          "score": 7,
+          "matchedEvidence": [
+            {
+              "axis": "SYMBOLIC_ALIGNMENT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "cycle",
+              "contribution": 7.14,
+              "basis": "SPECIES_CONTEXT"
+            },
+            {
+              "axis": "CANONICAL_TEXT_SUPPORT",
+              "sourceRecordId": "SPC_CADAVER_AMBULANS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "excerpt": "Cadaver ambulans is an Echoes of Eidolon synthetic undead species derived from the broad modern zombie archetype: a dead humanoid body restored to movement without ordinary life, health, or personhood. Its body retains recognizable human proportions but shows pallor, lividity, wounds, stiffness, decomposition, clouded ",
+              "signal": "cycle",
+              "contribution": 5.712,
+              "basis": "SPECIES_CONTEXT"
+            }
+          ]
+        },
+        {
+          "deityName": "Elian",
+          "deityTitle": "the Returning Light",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "HOPE",
+          "domainName": "Hope",
+          "meaning": "Rebuilding after destruction, optimism after catastrophe, renewed effort, and belief in future possibility.",
+          "backstory": "Elian rebuilt the same destroyed settlement three times and refused to call any rebuilding wasted.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 10,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 6.5,
+          "score": 7,
+          "matchedEvidence": [
+            {
+              "axis": "PERSONALITY_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.emotionalTemperature.value",
+              "excerpt": "emotionalTemperature=JOYFUL",
+              "signal": "emotionalTemperature:JOYFUL",
+              "contribution": 5,
+              "basis": "PERSONALITY"
+            }
+          ]
+        },
+        {
+          "deityName": "Namiya",
+          "deityTitle": "the Unclosed Door",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "FORGIVENESS",
+          "domainName": "Forgiveness",
+          "meaning": "Reconciliation after genuine injury without erasing harm or accountability.",
+          "backstory": "Namiya reconciled with the person responsible for her family's ruin without pretending the wrong had never occurred.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 9,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 6,
+          "score": 6,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "excerpt": "social=2/4",
+              "signal": "social behavior profile",
+              "contribution": 4,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Savael",
+          "deityTitle": "the Long Breath",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "PATIENCE",
+          "domainName": "Patience",
+          "meaning": "Active endurance, reconciliation over long periods, restraint, persistence without escalation, and willingness to wait and continue.",
+          "backstory": "Savael spent decades reconciling communities trapped in an inherited feud; patience is active endurance.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 6,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5.25,
+          "score": 5,
+          "matchedEvidence": [
+            {
+              "axis": "BEHAVIOR_ALIGNMENT",
+              "sourceRecordId": "BRD_ZOMBIE",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.score",
+              "excerpt": "intelligence=1/4",
+              "signal": "intelligence behavior profile",
+              "contribution": 1,
+              "basis": "BEHAVIOR"
+            }
+          ]
+        },
+        {
+          "deityName": "Oren",
+          "deityTitle": "the Clear Voice",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "HONESTY",
+          "domainName": "Honesty",
+          "meaning": "Truthfulness when personally costly, candor, transparency, integrity, and resistance to convenient deception.",
+          "backstory": "Oren exposed a lie that benefited his own people and lost his reputation for doing so.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Solkar",
+          "deityTitle": "the First Warmth",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "SUN_AND_DAYLIGHT",
+          "domainName": "Sun & Daylight",
+          "meaning": "Daylight, warmth, solar activity, diurnal life, exposure, illumination, awakening, and life-giving heat.",
+          "backstory": "Solkar carried the first spark of dawn through the motionless night and restored daylight.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Voltar",
+          "deityTitle": "the Sudden Current",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "STORMS_AND_LIGHTNING",
+          "domainName": "Storms & Lightning",
+          "meaning": "Electricity, violent atmospheric energy, thunder, storms, charged activity, disruption, and abrupt natural force.",
+          "backstory": "Voltar awakened the stagnant atmosphere with the first violent discharge.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Marea",
+          "deityTitle": "the Deep Singer",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "OCEAN_AND_TIDES",
+          "domainName": "Ocean & Tides",
+          "meaning": "Open ocean, marine depth, tides, long marine movement, sea navigation, and deep-water life.",
+          "backstory": "Marea sang until the seas remembered the pull of the moons.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Sterna",
+          "deityTitle": "the Long Journey",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "SEASONS_AND_MIGRATION",
+          "domainName": "Seasons & Migration",
+          "meaning": "Seasonal cycles, long-distance migration, annual movement, dispersal, seasonal return, and travel tied to life cycles.",
+          "backstory": "Sterna flew until the frozen sky followed her and created the procession of seasons.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Sahrem",
+          "deityTitle": "the First Hunger",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "FIRE_AND_HEAT",
+          "domainName": "Fire & Heat",
+          "meaning": "Fire, combustion, consuming transformation, furnaces, burning, and destructive or creative thermal change.",
+          "backstory": "Sahrem demanded that existence be allowed to consume and transform itself; flame was his argument made physical.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Iskarn",
+          "deityTitle": "the Still World",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "ICE_PRESERVATION_AND_STILLNESS",
+          "domainName": "Ice, Preservation & Stillness",
+          "meaning": "Cold, ice, suspended change, preservation, dormancy, winter, stillness, and slowed processes.",
+          "backstory": "Iskarn demonstrated that change could be suspended without being destroyed.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Myrra",
+          "deityTitle": "Behind the Eyes",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "DREAMING_AND_POSSIBILITY",
+          "domainName": "Dreaming & Possibility",
+          "meaning": "Dreams, imagination, illusion, uncertainty, potential realities, shape-changing possibility, and things that might exist.",
+          "backstory": "Myrra created dreams so existence could contain things that might be, not only things that are.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Orun-IX",
+          "deityTitle": "the Measured Hand",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "TIME_SEQUENCE_AND_CAUSALITY",
+          "domainName": "Time, Sequence & Causality",
+          "meaning": "Order of events, precise timing, repetitive sequence, mechanisms, clocks, causality, synchronization, and predictable process.",
+          "backstory": "Orun-IX divided existence into before and after so creation no longer occurred simultaneously.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Vhalen",
+          "deityTitle": "the Last Shadow",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "SHADOW_ABSENCE_AND_ENDINGS",
+          "domainName": "Shadow, Absence & Endings",
+          "meaning": "Darkness, disappearance, emptiness, boundaries, death, endings, absence, concealment, and things defined by what is missing.",
+          "backstory": "Vhalen introduced absence so creation could possess boundaries and distinct things could exist.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        },
+        {
+          "deityName": "Asteriel",
+          "deityTitle": "the Turning Eye",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "AETHER_LIGHT_AND_COSMIC_ORDER",
+          "domainName": "Aether, Light & Cosmic Order",
+          "meaning": "Cosmic structure, higher-order organization, radiant energy, celestial geometry, universal balance, and coherent integration of conflicting forces.",
+          "backstory": "Asteriel gathered conflicting elements into a universe that could coexist.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 5,
+            "BEHAVIOR_ALIGNMENT": 5,
+            "ECOLOGICAL_ALIGNMENT": 5,
+            "SYMBOLIC_ALIGNMENT": 5,
+            "CANONICAL_TEXT_SUPPORT": 5
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 5,
+          "score": 5,
+          "matchedEvidence": []
+        }
+      ]
+    }
+  ],
+  "checkpointHash": "7af3ffb5788c73b12c7b982983ff44d8a8342be27a38143a109f5fcda8a42d2c"
+}

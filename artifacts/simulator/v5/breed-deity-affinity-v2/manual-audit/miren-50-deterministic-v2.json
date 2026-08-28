@@ -1,0 +1,2378 @@
+{
+  "schemaVersion": "echoes-breed-deity-manual-audit-v2",
+  "category": "MIREN_50_DETERMINISTIC",
+  "seed": "c87205b9f06e7924eb65d53d7f036f08c46b51ff9c6a5b76b5e917f3138a56cf",
+  "records": [
+    {
+      "breedId": "BRD_HUMAN_AVALON_AVALON",
+      "breedName": "Human (Avalon - Avalon)",
+      "status": "CLASSIFIED",
+      "deity": "Miren",
+      "provisionalDeity": null,
+      "confidence": "MEDIUM",
+      "score": 38.702,
+      "runnerUp": "Sahrem",
+      "margin": 29.395,
+      "winnerReason": "Miren better represents this Breed than Sahrem: personality_family_affinity (STRONG), caregiving (MODERATE), generic_prosociality (WEAK) provides deduplicated support across 3 semantic clusters and 5 source facts (38.702 versus 9.307).",
+      "evidence": [
+        "BRD_HUMAN_AVALON_AVALON v4Effective.personalityId: COMPASSION_INJURY_AID_EXPRESSION",
+        "SPC_HOMO_SAPIENS canonicalPayload.text: Human (Homo sapiens) is the canonical HUMAN Species entry for this exact population. Its traditional or corpus-bounded origin is Africa, followed by global dispersal. It is an upright, long-legged ape with a large globular braincase, reduc…",
+        "BRD_HUMAN_AVALON_AVALON canonicalPayload.primitiveBehavior.parental.rationale: Exact child evidence is insufficient for a responsible population-wide parental distinction; neutral 2 is retained as an explicit default.",
+        "SPC_HOMO_SAPIENS canonicalPayload.traits.1.text: A long childhood and cooperative caregiving allow unusually prolonged learning before full independence.",
+        "BRD_HUMAN_AVALON_AVALON canonicalPayload.primitiveBehavior.social.rationale: Exact child evidence is insufficient for a responsible population-wide social distinction; neutral 2 is retained as an explicit default.",
+        "BRD_HUMAN_AVALON_AVALON v4Effective.dimensions.collaborativePosture.value: collaborativePosture HELPFUL",
+        "BRD_HUMAN_AVALON_AVALON v4Effective.dimensions.motivation.value: motivation ALTRUISTIC",
+        "CLT_AVALON canonicalPayload.text: Avalon is a literary culture-space from Arthurian tradition rather than a historical ethnic society. It first appears as an island associated with Arthur’s final journey and later becomes linked to healing, enchantment, apples and figures …"
+      ],
+      "sourceFieldReferences": [
+        {
+          "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+          "sourceScope": "BREED",
+          "fieldPath": "v4Effective.personalityId",
+          "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.personalityId:95c5d442",
+          "semanticCluster": "personality_family_affinity",
+          "evidenceTier": "STRONG",
+          "axesInformed": [
+            "PERSONALITY_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "basis": [
+            "PERSONALITY"
+          ]
+        },
+        {
+          "sourceRecordId": "SPC_HOMO_SAPIENS",
+          "sourceScope": "SPECIES",
+          "fieldPath": "canonicalPayload.text",
+          "sourceFactId": "SPC_HOMO_SAPIENS:canonicalPayload.text:87072370",
+          "semanticCluster": "caregiving",
+          "evidenceTier": "MODERATE",
+          "axesInformed": [
+            "BEHAVIOR_ALIGNMENT",
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT",
+            "CANONICAL_TEXT_SUPPORT"
+          ],
+          "basis": [
+            "SPECIES_CONTEXT"
+          ]
+        },
+        {
+          "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+          "sourceScope": "BREED",
+          "fieldPath": "canonicalPayload.primitiveBehavior.parental.rationale",
+          "sourceFactId": "BRD_HUMAN_AVALON_AVALON:canonicalPayload.primitiveBehavior.parental.rationale:d296ab76",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "basis": [
+            "BEHAVIOR"
+          ]
+        },
+        {
+          "sourceRecordId": "SPC_HOMO_SAPIENS",
+          "sourceScope": "SPECIES",
+          "fieldPath": "canonicalPayload.traits.1.text",
+          "sourceFactId": "SPC_HOMO_SAPIENS:canonicalPayload.traits.1.text:4f95194c",
+          "semanticCluster": "caregiving",
+          "evidenceTier": "MODERATE",
+          "axesInformed": [
+            "ECOLOGICAL_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "basis": [
+            "SPECIES_CONTEXT"
+          ]
+        },
+        {
+          "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+          "sourceScope": "BREED",
+          "fieldPath": "canonicalPayload.primitiveBehavior.social.rationale",
+          "sourceFactId": "BRD_HUMAN_AVALON_AVALON:canonicalPayload.primitiveBehavior.social.rationale:b97a19ac",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "basis": [
+            "BEHAVIOR"
+          ]
+        },
+        {
+          "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+          "sourceScope": "BREED",
+          "fieldPath": "v4Effective.dimensions.collaborativePosture.value",
+          "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.dimensions.collaborativePosture.value:191c5020",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "PERSONALITY_ALIGNMENT"
+          ],
+          "basis": [
+            "PERSONALITY"
+          ]
+        },
+        {
+          "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+          "sourceScope": "BREED",
+          "fieldPath": "v4Effective.dimensions.motivation.value",
+          "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.dimensions.motivation.value:64f0d3c5",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "PERSONALITY_ALIGNMENT"
+          ],
+          "basis": [
+            "PERSONALITY"
+          ]
+        },
+        {
+          "sourceRecordId": "CLT_AVALON",
+          "sourceScope": "CULTURE",
+          "fieldPath": "canonicalPayload.text",
+          "sourceFactId": "CLT_AVALON:canonicalPayload.text:0d7b07db",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "basis": [
+            "CULTURE"
+          ]
+        }
+      ],
+      "topCandidates": [
+        {
+          "deityName": "Miren",
+          "deityTitle": "the Open Hand",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "COMPASSION",
+          "domainName": "Compassion",
+          "meaning": "Compassion through meaningful personal cost, generosity, care, protection, mercy, feeding and supporting others, and concern for suffering.",
+          "backstory": "Miren fed strangers during famine after her own household began rationing food; her doctrine makes costly compassion sacred.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 56.46,
+            "BEHAVIOR_ALIGNMENT": 29.631,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 42.604,
+            "CANONICAL_TEXT_SUPPORT": 2.25
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": false,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.375,
+            "BEHAVIOR_ALIGNMENT": 0.3125,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 0.1875,
+            "CANONICAL_TEXT_SUPPORT": 0.125
+          },
+          "weightedScoreExact": 38.702,
+          "score": 39,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.personalityId",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.personalityId:95c5d442",
+              "excerpt": "COMPASSION_INJURY_AID_EXPRESSION",
+              "semanticCluster": "personality_family_affinity",
+              "strongestTier": "STRONG",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "COMPASSION",
+                "COMPASSION_INJURY_AID_EXPRESSION"
+              ],
+              "rawSemanticContribution": 62,
+              "specificityFactor": 0.87175,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 54.049,
+                "SYMBOLIC_ALIGNMENT": 29.727
+              },
+              "effectiveScoredContribution": 83.776,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "PERSONALITY_FAMILY_COMPASSION_Miren"
+              ],
+              "rationale": "The family directly names compassion, but a family label does not prove costly compassion."
+            },
+            {
+              "sourceRecordId": "SPC_HOMO_SAPIENS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_HOMO_SAPIENS:canonicalPayload.text:87072370",
+              "excerpt": "Human (Homo sapiens) is the canonical HUMAN Species entry for this exact population. Its traditional or corpus-bounded origin is Africa, followed by global dispersal. It is an upright, long-legged ape with a large globular braincase, reduced brow ridges and jaws, a true chin, dexterous hands, sparse body hair, and extensive visible variation in skin, hair, f",
+              "semanticCluster": "caregiving",
+              "strongestTier": "MODERATE",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT",
+                "CANONICAL_TEXT_SUPPORT"
+              ],
+              "rawLexicalMatches": [
+                "caregiving"
+              ],
+              "rawSemanticContribution": 38,
+              "specificityFactor": 0.783313,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55,
+                "SYMBOLIC_ALIGNMENT": 0.32,
+                "CANONICAL_TEXT_SUPPORT": 0.18
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 12.502,
+                "ECOLOGICAL_ALIGNMENT": 6.876,
+                "SYMBOLIC_ALIGNMENT": 4.001,
+                "CANONICAL_TEXT_SUPPORT": 2.25
+              },
+              "effectiveScoredContribution": 25.629,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "MIREN_CARE_SUPPORT_ONLY"
+              ],
+              "rationale": "Care is real but does not itself establish costly or universal compassion."
+            },
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.parental.rationale",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:canonicalPayload.primitiveBehavior.parental.rationale:d296ab76",
+              "excerpt": "Exact child evidence is insufficient for a responsible population-wide parental distinction; neutral 2 is retained as an explicit default.",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "parental"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 11.529,
+                "SYMBOLIC_ALIGNMENT": 6.341
+              },
+              "effectiveScoredContribution": 17.87,
+              "basis": [
+                "BEHAVIOR"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            },
+            {
+              "sourceRecordId": "SPC_HOMO_SAPIENS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.traits.1.text",
+              "sourceFactId": "SPC_HOMO_SAPIENS:canonicalPayload.traits.1.text:4f95194c",
+              "excerpt": "A long childhood and cooperative caregiving allow unusually prolonged learning before full independence.",
+              "semanticCluster": "caregiving",
+              "strongestTier": "MODERATE",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "caregiving"
+              ],
+              "rawSemanticContribution": 38,
+              "specificityFactor": 0.783313,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 8.126,
+                "SYMBOLIC_ALIGNMENT": 4.469
+              },
+              "effectiveScoredContribution": 12.595,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "MIREN_CARE_SUPPORT_ONLY"
+              ],
+              "rationale": "Care is real but does not itself establish costly or universal compassion."
+            },
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.rationale",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:canonicalPayload.primitiveBehavior.social.rationale:b97a19ac",
+              "excerpt": "Exact child evidence is insufficient for a responsible population-wide social distinction; neutral 2 is retained as an explicit default.",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 7.494,
+                "SYMBOLIC_ALIGNMENT": 4.121
+              },
+              "effectiveScoredContribution": 11.615,
+              "basis": [
+                "BEHAVIOR"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            },
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.collaborativePosture.value",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.dimensions.collaborativePosture.value:191c5020",
+              "excerpt": "collaborativePosture HELPFUL",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "helpful"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 0.7,
+              "repeatedClusterFactor": 0.4,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 3.228
+              },
+              "effectiveScoredContribution": 3.228,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            },
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.motivation.value",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.dimensions.motivation.value:64f0d3c5",
+              "excerpt": "motivation ALTRUISTIC",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "altruistic"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 0.7,
+              "repeatedClusterFactor": 0.25,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 2.018
+              },
+              "effectiveScoredContribution": 2.018,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            },
+            {
+              "sourceRecordId": "CLT_AVALON",
+              "sourceScope": "CULTURE",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "CLT_AVALON:canonicalPayload.text:0d7b07db",
+              "excerpt": "Avalon is a literary culture-space from Arthurian tradition rather than a historical ethnic society. It first appears as an island associated with Arthur’s final journey and later becomes linked to healing, enchantment, apples and figures such as Morgan le Fay. Because sources disagree on Avalon’s location and social detail, the record should use only recurr",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 0.32,
+              "repeatedClusterFactor": 0.15,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 0.553,
+                "SYMBOLIC_ALIGNMENT": 0.304
+              },
+              "effectiveScoredContribution": 0.857,
+              "basis": [
+                "CULTURE"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 1,
+          "moderateClusterCount": 1,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 3,
+          "independentSourceFactCount": 5,
+          "directBreedClusterCount": 2,
+          "directBreedDefiningOrStrongCount": 1,
+          "sourceFieldCount": 5,
+          "singleFieldDependence": 0.553032,
+          "calibrationRules": [
+            "MIREN_CARE_SUPPORT_ONLY",
+            "MIREN_GENERIC_PROSOCIAL_CAP",
+            "PERSONALITY_FAMILY_COMPASSION_Miren"
+          ]
+        },
+        {
+          "deityName": "Sahrem",
+          "deityTitle": "the First Hunger",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "FIRE_AND_HEAT",
+          "domainName": "Fire & Heat",
+          "meaning": "Fire, combustion, consuming transformation, furnaces, burning, and destructive or creative thermal change.",
+          "backstory": "Sahrem demanded that existence be allowed to consume and transform itself; flame was his argument made physical.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 0,
+            "BEHAVIOR_ALIGNMENT": 23.562,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 7.54,
+            "CANONICAL_TEXT_SUPPORT": 4.241
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": false,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.375,
+            "BEHAVIOR_ALIGNMENT": 0.3125,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 0.1875,
+            "CANONICAL_TEXT_SUPPORT": 0.125
+          },
+          "weightedScoreExact": 9.307,
+          "score": 9,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "SPC_HOMO_SAPIENS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_HOMO_SAPIENS:canonicalPayload.text:87072370",
+              "excerpt": "Human (Homo sapiens) is the canonical HUMAN Species entry for this exact population. Its traditional or corpus-bounded origin is Africa, followed by global dispersal. It is an upright, long-legged ape with a large globular braincase, reduced brow ridges and jaws, a true chin, dexterous hands, sparse body hair, and extensive visible variation in skin, hair, f",
+              "semanticCluster": "fire_volcanic_heat",
+              "strongestTier": "STRONG",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT",
+                "CANONICAL_TEXT_SUPPORT"
+              ],
+              "rawLexicalMatches": [
+                "fire"
+              ],
+              "rawSemanticContribution": 66,
+              "specificityFactor": 0.85,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55,
+                "SYMBOLIC_ALIGNMENT": 0.32,
+                "CANONICAL_TEXT_SUPPORT": 0.18
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 23.562,
+                "ECOLOGICAL_ALIGNMENT": 12.959,
+                "SYMBOLIC_ALIGNMENT": 7.54,
+                "CANONICAL_TEXT_SUPPORT": 4.241
+              },
+              "effectiveScoredContribution": 48.302,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "SAHREM_FIRE_HEAT"
+              ],
+              "rationale": "Literal fire or intense thermal process is characteristic."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 1,
+          "moderateClusterCount": 0,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 1,
+          "independentSourceFactCount": 1,
+          "directBreedClusterCount": 0,
+          "directBreedDefiningOrStrongCount": 0,
+          "sourceFieldCount": 1,
+          "singleFieldDependence": 1,
+          "calibrationRules": [
+            "SAHREM_FIRE_HEAT"
+          ]
+        },
+        {
+          "deityName": "Elian",
+          "deityTitle": "the Returning Light",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "HOPE",
+          "domainName": "Hope",
+          "meaning": "Rebuilding after destruction, optimism after catastrophe, renewed effort, and belief in future possibility.",
+          "backstory": "Elian rebuilt the same destroyed settlement three times and refused to call any rebuilding wasted.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 21.452,
+            "BEHAVIOR_ALIGNMENT": 0,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 0,
+            "CANONICAL_TEXT_SUPPORT": 0
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": false,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.375,
+            "BEHAVIOR_ALIGNMENT": 0.3125,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 0.1875,
+            "CANONICAL_TEXT_SUPPORT": 0.125
+          },
+          "weightedScoreExact": 8.045,
+          "score": 8,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.outlookOrientation.value",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.dimensions.outlookOrientation.value:7b8ad083",
+              "excerpt": "outlookOrientation OPTIMISTIC",
+              "semanticCluster": "future_optimism",
+              "strongestTier": "MODERATE",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "optimistic"
+              ],
+              "rawSemanticContribution": 38,
+              "specificityFactor": 0.806462,
+              "authorityFactor": 0.7,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 21.452
+              },
+              "effectiveScoredContribution": 21.452,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "ELIAN_OPTIMISM_SUPPORT"
+              ],
+              "rationale": "Future orientation supports hope but may lack prior catastrophe."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 0,
+          "moderateClusterCount": 1,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 1,
+          "independentSourceFactCount": 1,
+          "directBreedClusterCount": 1,
+          "directBreedDefiningOrStrongCount": 0,
+          "sourceFieldCount": 1,
+          "singleFieldDependence": 1,
+          "calibrationRules": [
+            "ELIAN_OPTIMISM_SUPPORT"
+          ]
+        },
+        {
+          "deityName": "Myrra",
+          "deityTitle": "Behind the Eyes",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "DREAMING_AND_POSSIBILITY",
+          "domainName": "Dreaming & Possibility",
+          "meaning": "Dreams, imagination, illusion, uncertainty, potential realities, shape-changing possibility, and things that might exist.",
+          "backstory": "Myrra created dreams so existence could contain things that might be, not only things that are.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 0,
+            "BEHAVIOR_ALIGNMENT": 20.946,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 7.246,
+            "CANONICAL_TEXT_SUPPORT": 0
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": false,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.375,
+            "BEHAVIOR_ALIGNMENT": 0.3125,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 0.1875,
+            "CANONICAL_TEXT_SUPPORT": 0.125
+          },
+          "weightedScoreExact": 7.904,
+          "score": 8,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "CLT_AVALON",
+              "sourceScope": "CULTURE",
+              "fieldPath": "canonicalPayload.traits.1.text",
+              "sourceFactId": "CLT_AVALON:canonicalPayload.traits.1.text:e957924b",
+              "excerpt": "Apple/island/enchantment motifs vary across texts; visual worldbuilding must preserve that literary uncertainty.",
+              "semanticCluster": "ambiguity_potential",
+              "strongestTier": "MODERATE",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "uncertainty"
+              ],
+              "rawSemanticContribution": 38,
+              "specificityFactor": 1.083478,
+              "authorityFactor": 0.32,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 13.175,
+                "SYMBOLIC_ALIGNMENT": 7.246
+              },
+              "effectiveScoredContribution": 20.421,
+              "basis": [
+                "CULTURE"
+              ],
+              "calibrationRules": [
+                "MYRRA_AMBIGUITY_SUPPORT"
+              ],
+              "rationale": "Ambiguity or transformation suggests possibility without directly invoking dreams."
+            },
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.intelligence.rationale",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:canonicalPayload.primitiveBehavior.intelligence.rationale:1ae88225",
+              "excerpt": "No responsible evidence permits assigning innate intelligence from ethnic, national, or ancestral identity; neutral 2 is used by rule.",
+              "semanticCluster": "curiosity_intelligence",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "intelligence"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720067,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 11.521
+              },
+              "effectiveScoredContribution": 11.521,
+              "basis": [
+                "BEHAVIOR"
+              ],
+              "calibrationRules": [
+                "MYRRA_CURIOSITY_CAP"
+              ],
+              "rationale": "Curiosity and intelligence are not near-equivalents of dreaming."
+            },
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:canonicalPayload.text:3aa66d6a",
+              "excerpt": "The differentiating historical evidence is kept separate from fictional Echoes interpretation. Different texts and later traditions locate or interpret Avalon differently. In Echoes, the stored primitive, derived, political, economic, and faction outputs are bounded worldbuilding projections only; aggression, territoriality, and intelligence are neutral defa",
+              "semanticCluster": "curiosity_intelligence",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "intelligence"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720067,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 7.489
+              },
+              "effectiveScoredContribution": 7.489,
+              "basis": [
+                "CANONICAL_TEXT",
+                "ECOLOGY"
+              ],
+              "calibrationRules": [
+                "MYRRA_CURIOSITY_CAP"
+              ],
+              "rationale": "Curiosity and intelligence are not near-equivalents of dreaming."
+            },
+            {
+              "sourceRecordId": "SPC_HOMO_SAPIENS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_HOMO_SAPIENS:canonicalPayload.text:87072370",
+              "excerpt": "Human (Homo sapiens) is the canonical HUMAN Species entry for this exact population. Its traditional or corpus-bounded origin is Africa, followed by global dispersal. It is an upright, long-legged ape with a large globular braincase, reduced brow ridges and jaws, a true chin, dexterous hands, sparse body hair, and extensive visible variation in skin, hair, f",
+              "semanticCluster": "curiosity_intelligence",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "intelligence"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720067,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.4,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 1.936
+              },
+              "effectiveScoredContribution": 1.936,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "MYRRA_CURIOSITY_CAP"
+              ],
+              "rationale": "Curiosity and intelligence are not near-equivalents of dreaming."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 0,
+          "moderateClusterCount": 1,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 2,
+          "independentSourceFactCount": 3,
+          "directBreedClusterCount": 1,
+          "directBreedDefiningOrStrongCount": 0,
+          "sourceFieldCount": 3,
+          "singleFieldDependence": 0.517892,
+          "calibrationRules": [
+            "MYRRA_AMBIGUITY_SUPPORT",
+            "MYRRA_CURIOSITY_CAP"
+          ]
+        },
+        {
+          "deityName": "Tavai",
+          "deityTitle": "Who Listens Twice",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "EMPATHY",
+          "domainName": "Empathy",
+          "meaning": "Accurate perspective-taking, social perception, mediation, emotional attunement, and understanding another viewpoint.",
+          "backstory": "Tavai mediated by stating an opponent's grievance so accurately that the opponent felt understood before negotiation.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 8.468,
+            "BEHAVIOR_ALIGNMENT": 13.283,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 0,
+            "CANONICAL_TEXT_SUPPORT": 0
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": false,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.375,
+            "BEHAVIOR_ALIGNMENT": 0.3125,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 0.1875,
+            "CANONICAL_TEXT_SUPPORT": 0.125
+          },
+          "weightedScoreExact": 7.326,
+          "score": 7,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.rationale",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:canonicalPayload.primitiveBehavior.social.rationale:b97a19ac",
+              "excerpt": "Exact child evidence is insufficient for a responsible population-wide social distinction; neutral 2 is retained as an explicit default.",
+              "semanticCluster": "generic_teamwork",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.72,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 11.52
+              },
+              "effectiveScoredContribution": 11.52,
+              "basis": [
+                "BEHAVIOR"
+              ],
+              "calibrationRules": [
+                "TAVAI_TEAMWORK_CAP"
+              ],
+              "rationale": "Generic sociality or teamwork is weak empathy evidence."
+            },
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.collaborativePosture.value",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.dimensions.collaborativePosture.value:191c5020",
+              "excerpt": "collaborativePosture HELPFUL",
+              "semanticCluster": "generic_teamwork",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "helpful"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.72,
+              "authorityFactor": 0.7,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 5.242
+              },
+              "effectiveScoredContribution": 5.242,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "TAVAI_TEAMWORK_CAP"
+              ],
+              "rationale": "Generic sociality or teamwork is weak empathy evidence."
+            },
+            {
+              "sourceRecordId": "BRD_HUMAN_AVALON_AVALON",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.operatingStyle.value",
+              "sourceFactId": "BRD_HUMAN_AVALON_AVALON:v4Effective.dimensions.operatingStyle.value:5e683adb",
+              "excerpt": "operatingStyle TEAMWORK",
+              "semanticCluster": "generic_teamwork",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "teamwork"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.72,
+              "authorityFactor": 0.7,
+              "repeatedClusterFactor": 0.4,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 3.226
+              },
+              "effectiveScoredContribution": 3.226,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "TAVAI_TEAMWORK_CAP"
+              ],
+              "rationale": "Generic sociality or teamwork is weak empathy evidence."
+            },
+            {
+              "sourceRecordId": "SPC_HOMO_SAPIENS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_HOMO_SAPIENS:canonicalPayload.text:87072370",
+              "excerpt": "Human (Homo sapiens) is the canonical HUMAN Species entry for this exact population. Its traditional or corpus-bounded origin is Africa, followed by global dispersal. It is an upright, long-legged ape with a large globular braincase, reduced brow ridges and jaws, a true chin, dexterous hands, sparse body hair, and extensive visible variation in skin, hair, f",
+              "semanticCluster": "generic_teamwork",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "cooperative",
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.72,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.25,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 1.21,
+                "ECOLOGICAL_ALIGNMENT": 0.665
+              },
+              "effectiveScoredContribution": 1.875,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "TAVAI_TEAMWORK_CAP"
+              ],
+              "rationale": "Generic sociality or teamwork is weak empathy evidence."
+            },
+            {
+              "sourceRecordId": "CLT_AVALON",
+              "sourceScope": "CULTURE",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "CLT_AVALON:canonicalPayload.text:0d7b07db",
+              "excerpt": "Avalon is a literary culture-space from Arthurian tradition rather than a historical ethnic society. It first appears as an island associated with Arthur’s final journey and later becomes linked to healing, enchantment, apples and figures such as Morgan le Fay. Because sources disagree on Avalon’s location and social detail, the record should use only recurr",
+              "semanticCluster": "generic_teamwork",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.72,
+              "authorityFactor": 0.32,
+              "repeatedClusterFactor": 0.15,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 0.553,
+                "ECOLOGICAL_ALIGNMENT": 0.304
+              },
+              "effectiveScoredContribution": 0.857,
+              "basis": [
+                "CULTURE"
+              ],
+              "calibrationRules": [
+                "TAVAI_TEAMWORK_CAP"
+              ],
+              "rationale": "Generic sociality or teamwork is weak empathy evidence."
+            },
+            {
+              "sourceRecordId": "SPC_HOMO_SAPIENS",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.traits.1.text",
+              "sourceFactId": "SPC_HOMO_SAPIENS:canonicalPayload.traits.1.text:4f95194c",
+              "excerpt": "A long childhood and cooperative caregiving allow unusually prolonged learning before full independence.",
+              "semanticCluster": "generic_teamwork",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "cooperative"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.72,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.15,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 0.726
+              },
+              "effectiveScoredContribution": 0.726,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "TAVAI_TEAMWORK_CAP"
+              ],
+              "rationale": "Generic sociality or teamwork is weak empathy evidence."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 0,
+          "moderateClusterCount": 0,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 1,
+          "independentSourceFactCount": 2,
+          "directBreedClusterCount": 1,
+          "directBreedDefiningOrStrongCount": 0,
+          "sourceFieldCount": 2,
+          "singleFieldDependence": 0.687269,
+          "calibrationRules": [
+            "TAVAI_TEAMWORK_CAP"
+          ]
+        }
+      ]
+    },
+    {
+      "breedId": "BRD_KUSHTAKA",
+      "breedName": "Kushtaka",
+      "status": "CLASSIFIED",
+      "deity": "Miren",
+      "provisionalDeity": null,
+      "confidence": "MEDIUM",
+      "score": 25.94,
+      "runnerUp": "Kharad",
+      "margin": 13.285,
+      "winnerReason": "Miren better represents this Breed than Kharad: personality_family_affinity (STRONG), generic_prosociality (WEAK) provides deduplicated support across 2 semantic clusters and 3 source facts (25.940 versus 12.655).",
+      "evidence": [
+        "BRD_KUSHTAKA v4Effective.personalityId: COMPASSION_RESCUE_CONTROL_WOUND",
+        "BRD_KUSHTAKA canonicalPayload.primitiveBehavior.nesting.rationale: Individually reassessed for exact Breed scope: Moderate, mixed, or conservatively unresolved persistent pair, family, or recurring refuge continuity is assigned at 2/4. Exact-record evidence and bounded inference: Kushtaka are socially and…",
+        "BRD_KUSHTAKA v4Effective.dimensions.collaborativePosture.value: collaborativePosture HELPFUL",
+        "BRD_KUSHTAKA v4Effective.dimensions.motivation.value: motivation ALTRUISTIC",
+        "BRD_KUSHTAKA canonicalPayload.primitiveBehavior.social.score: social high score 3/4",
+        "SPC_VERSIPELLIS_KUSHTAKA canonicalPayload.text: Kushtaka (Versipellis kushtaka) is the canonical MYTHOS Species entry for this exact population. Its traditional or corpus-bounded origin is Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities. I…"
+      ],
+      "sourceFieldReferences": [
+        {
+          "sourceRecordId": "BRD_KUSHTAKA",
+          "sourceScope": "BREED",
+          "fieldPath": "v4Effective.personalityId",
+          "sourceFactId": "BRD_KUSHTAKA:v4Effective.personalityId:e3549c2a",
+          "semanticCluster": "personality_family_affinity",
+          "evidenceTier": "STRONG",
+          "axesInformed": [
+            "PERSONALITY_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "basis": [
+            "PERSONALITY"
+          ]
+        },
+        {
+          "sourceRecordId": "BRD_KUSHTAKA",
+          "sourceScope": "BREED",
+          "fieldPath": "canonicalPayload.primitiveBehavior.nesting.rationale",
+          "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.primitiveBehavior.nesting.rationale:989da0bd",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "basis": [
+            "BEHAVIOR"
+          ]
+        },
+        {
+          "sourceRecordId": "BRD_KUSHTAKA",
+          "sourceScope": "BREED",
+          "fieldPath": "v4Effective.dimensions.collaborativePosture.value",
+          "sourceFactId": "BRD_KUSHTAKA:v4Effective.dimensions.collaborativePosture.value:191c5020",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "PERSONALITY_ALIGNMENT"
+          ],
+          "basis": [
+            "PERSONALITY"
+          ]
+        },
+        {
+          "sourceRecordId": "BRD_KUSHTAKA",
+          "sourceScope": "BREED",
+          "fieldPath": "v4Effective.dimensions.motivation.value",
+          "sourceFactId": "BRD_KUSHTAKA:v4Effective.dimensions.motivation.value:64f0d3c5",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "PERSONALITY_ALIGNMENT"
+          ],
+          "basis": [
+            "PERSONALITY"
+          ]
+        },
+        {
+          "sourceRecordId": "BRD_KUSHTAKA",
+          "sourceScope": "BREED",
+          "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+          "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.primitiveBehavior.social.score:e6e98efa",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "BEHAVIOR_ALIGNMENT"
+          ],
+          "basis": [
+            "BEHAVIOR"
+          ]
+        },
+        {
+          "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+          "sourceScope": "SPECIES",
+          "fieldPath": "canonicalPayload.text",
+          "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.text:1dddfe03",
+          "semanticCluster": "generic_prosociality",
+          "evidenceTier": "WEAK",
+          "axesInformed": [
+            "BEHAVIOR_ALIGNMENT",
+            "SYMBOLIC_ALIGNMENT"
+          ],
+          "basis": [
+            "SPECIES_CONTEXT"
+          ]
+        }
+      ],
+      "topCandidates": [
+        {
+          "deityName": "Miren",
+          "deityTitle": "the Open Hand",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "COMPASSION",
+          "domainName": "Compassion",
+          "meaning": "Compassion through meaningful personal cost, generosity, care, protection, mercy, feeding and supporting others, and concern for suffering.",
+          "backstory": "Miren fed strangers during famine after her own household began rationing food; her doctrine makes costly compassion sacred.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 57.943,
+            "BEHAVIOR_ALIGNMENT": 13.552,
+            "ECOLOGICAL_ALIGNMENT": 0,
+            "SYMBOLIC_ALIGNMENT": 34.463,
+            "CANONICAL_TEXT_SUPPORT": 0
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 25.94,
+          "score": 26,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.personalityId",
+              "sourceFactId": "BRD_KUSHTAKA:v4Effective.personalityId:e3549c2a",
+              "excerpt": "COMPASSION_RESCUE_CONTROL_WOUND",
+              "semanticCluster": "personality_family_affinity",
+              "strongestTier": "STRONG",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "COMPASSION",
+                "COMPASSION_RESCUE_CONTROL_WOUND"
+              ],
+              "rawSemanticContribution": 62,
+              "specificityFactor": 0.87175,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 54.049,
+                "SYMBOLIC_ALIGNMENT": 29.727
+              },
+              "effectiveScoredContribution": 83.776,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "PERSONALITY_FAMILY_COMPASSION_Miren"
+              ],
+              "rationale": "The family directly names compassion, but a family label does not prove costly compassion."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.nesting.rationale",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.primitiveBehavior.nesting.rationale:989da0bd",
+              "excerpt": "Individually reassessed for exact Breed scope: Moderate, mixed, or conservatively unresolved persistent pair, family, or recurring refuge continuity is assigned at 2/4. Exact-record evidence and bounded inference: Kushtaka are socially and verbally deceptive, may operate alone or in groups, lure or transform people, and have tradition-specific family and fee",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "refuge"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 11.529,
+                "SYMBOLIC_ALIGNMENT": 6.341
+              },
+              "effectiveScoredContribution": 17.87,
+              "basis": [
+                "BEHAVIOR"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.collaborativePosture.value",
+              "sourceFactId": "BRD_KUSHTAKA:v4Effective.dimensions.collaborativePosture.value:191c5020",
+              "excerpt": "collaborativePosture HELPFUL",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "helpful"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 0.7,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 5.246
+              },
+              "effectiveScoredContribution": 5.246,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.motivation.value",
+              "sourceFactId": "BRD_KUSHTAKA:v4Effective.dimensions.motivation.value:64f0d3c5",
+              "excerpt": "motivation ALTRUISTIC",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "altruistic"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 0.7,
+              "repeatedClusterFactor": 0.4,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 3.228
+              },
+              "effectiveScoredContribution": 3.228,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.primitiveBehavior.social.score:e6e98efa",
+              "excerpt": "social high score 3/4",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 0.45,
+              "repeatedClusterFactor": 0.25,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 1.297
+              },
+              "effectiveScoredContribution": 1.297,
+              "basis": [
+                "BEHAVIOR"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            },
+            {
+              "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.text:1dddfe03",
+              "excerpt": "Kushtaka (Versipellis kushtaka) is the canonical MYTHOS Species entry for this exact population. Its traditional or corpus-bounded origin is Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities. Its defining appearance is a Tlingit land-otter person or shapeshifting being associated with otter, human, and intermedia",
+              "semanticCluster": "generic_prosociality",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "parental",
+                "refuge",
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720541,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.15,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 0.726,
+                "SYMBOLIC_ALIGNMENT": 0.399
+              },
+              "effectiveScoredContribution": 1.125,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "MIREN_GENERIC_PROSOCIAL_CAP"
+              ],
+              "rationale": "Generic prosociality is contextual rather than defining compassion."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 1,
+          "moderateClusterCount": 0,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 2,
+          "independentSourceFactCount": 3,
+          "directBreedClusterCount": 2,
+          "directBreedDefiningOrStrongCount": 1,
+          "sourceFieldCount": 3,
+          "singleFieldDependence": 0.783744,
+          "calibrationRules": [
+            "MIREN_GENERIC_PROSOCIAL_CAP",
+            "PERSONALITY_FAMILY_COMPASSION_Miren"
+          ]
+        },
+        {
+          "deityName": "Kharad",
+          "deityTitle": "the Foundation",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "EARTH_AND_STONE",
+          "domainName": "Earth & Stone",
+          "meaning": "Solidity, mountains, stone, physical foundations, permanence, weight, stability, and resistance to change.",
+          "backstory": "Kharad established solidity, weight, and foundations against constant change.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 0,
+            "BEHAVIOR_ALIGNMENT": 22.315,
+            "ECOLOGICAL_ALIGNMENT": 35.382,
+            "SYMBOLIC_ALIGNMENT": 0,
+            "CANONICAL_TEXT_SUPPORT": 0
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 12.655,
+          "score": 13,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainSpecific",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.terrainSpecific:43152208",
+              "excerpt": "COASTAL_CLIFF GENERALIST ISLAND KELP_FOREST RIVER SEA_CAVE WOODLAND",
+              "semanticCluster": "earth_subterranean",
+              "strongestTier": "MODERATE",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "cave",
+                "cliff"
+              ],
+              "rawSemanticContribution": 38,
+              "specificityFactor": 0.780361,
+              "authorityFactor": 0.9,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 26.688
+              },
+              "effectiveScoredContribution": 26.688,
+              "basis": [
+                "HABITAT"
+              ],
+              "calibrationRules": [
+                "KHARAD_EARTH_SUPPORT",
+                "CONTEXT_FIELD_TIER_CAP"
+              ],
+              "rationale": "Earth association supports but does not prove foundational permanence."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.text:dffe3e57",
+              "excerpt": "Kushtaka is the canonical MYTHOS Breed-level expression under SPC_VERSIPELLIS_KUSHTAKA; the input defines no narrower subtype, so this child remains bounded to the same traditional figure rather than importing sibling mythology. Geographic/traditional origin: Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities.. Th",
+              "semanticCluster": "territory_boundaries",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "boundary"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720779,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 11.532,
+                "ECOLOGICAL_ALIGNMENT": 6.343
+              },
+              "effectiveScoredContribution": 17.875,
+              "basis": [
+                "CANONICAL_TEXT",
+                "ECOLOGY"
+              ],
+              "calibrationRules": [
+                "KHARAD_TERRITORY_CAP"
+              ],
+              "rationale": "Territoriality and generic boundaries are not direct Earth-and-Stone evidence."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.traits.1.text",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.traits.1.text:fdc54160",
+              "excerpt": "Otter and human presentations express a boundary between maritime and human communities.",
+              "semanticCluster": "territory_boundaries",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "boundary"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720779,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 7.496,
+                "ECOLOGICAL_ALIGNMENT": 4.123
+              },
+              "effectiveScoredContribution": 11.619,
+              "basis": [
+                "BEHAVIOR",
+                "ECOLOGY",
+                "CANONICAL_TEXT"
+              ],
+              "calibrationRules": [
+                "KHARAD_TERRITORY_CAP"
+              ],
+              "rationale": "Territoriality and generic boundaries are not direct Earth-and-Stone evidence."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.territorial.score",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.primitiveBehavior.territorial.score:bb40b014",
+              "excerpt": "territorial high score 3/4",
+              "semanticCluster": "territory_boundaries",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "territorial"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720779,
+              "authorityFactor": 0.45,
+              "repeatedClusterFactor": 0.4,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 2.076
+              },
+              "effectiveScoredContribution": 2.076,
+              "basis": [
+                "BEHAVIOR"
+              ],
+              "calibrationRules": [
+                "KHARAD_TERRITORY_CAP"
+              ],
+              "rationale": "Territoriality and generic boundaries are not direct Earth-and-Stone evidence."
+            },
+            {
+              "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.text:1dddfe03",
+              "excerpt": "Kushtaka (Versipellis kushtaka) is the canonical MYTHOS Species entry for this exact population. Its traditional or corpus-bounded origin is Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities. Its defining appearance is a Tlingit land-otter person or shapeshifting being associated with otter, human, and intermedia",
+              "semanticCluster": "territory_boundaries",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "boundary",
+                "land",
+                "territorial"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720779,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.25,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 1.211,
+                "ECOLOGICAL_ALIGNMENT": 0.666
+              },
+              "effectiveScoredContribution": 1.877,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "KHARAD_TERRITORY_CAP"
+              ],
+              "rationale": "Territoriality and generic boundaries are not direct Earth-and-Stone evidence."
+            },
+            {
+              "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.traits.1.text",
+              "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.traits.1.text:fdc54160",
+              "excerpt": "Otter and human presentations express a boundary between maritime and human communities.",
+              "semanticCluster": "territory_boundaries",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "boundary"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720779,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.15,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 0.727
+              },
+              "effectiveScoredContribution": 0.727,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "KHARAD_TERRITORY_CAP"
+              ],
+              "rationale": "Territoriality and generic boundaries are not direct Earth-and-Stone evidence."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 0,
+          "moderateClusterCount": 1,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 2,
+          "independentSourceFactCount": 3,
+          "directBreedClusterCount": 2,
+          "directBreedDefiningOrStrongCount": 0,
+          "sourceFieldCount": 3,
+          "singleFieldDependence": 0.475028,
+          "calibrationRules": [
+            "CONTEXT_FIELD_TIER_CAP",
+            "KHARAD_EARTH_SUPPORT",
+            "KHARAD_TERRITORY_CAP"
+          ]
+        },
+        {
+          "deityName": "Rillan",
+          "deityTitle": "the Returning River",
+          "pantheon": "NINEFOLD_WILD",
+          "domain": "RIVERS_RAIN_AND_FRESH_WATER",
+          "domainName": "Rivers, Rain & Fresh Water",
+          "meaning": "Freshwater systems, rivers, rainfall, upstream movement, lakes, streams, and wet freshwater ecology.",
+          "backstory": "Rillan travelled upstream carrying water and reopened the world's rivers one by one.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 0,
+            "BEHAVIOR_ALIGNMENT": 0,
+            "ECOLOGICAL_ALIGNMENT": 58.273,
+            "SYMBOLIC_ALIGNMENT": 0,
+            "CANONICAL_TEXT_SUPPORT": 0
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 11.655,
+          "score": 12,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainBroad",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.terrainBroad:9b562526",
+              "excerpt": "COASTAL FOREST FRESHWATER OCEAN",
+              "semanticCluster": "freshwater_habitat",
+              "strongestTier": "MODERATE",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "freshwater"
+              ],
+              "rawSemanticContribution": 38,
+              "specificityFactor": 0.780281,
+              "authorityFactor": 0.9,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 26.686
+              },
+              "effectiveScoredContribution": 26.686,
+              "basis": [
+                "HABITAT"
+              ],
+              "calibrationRules": [
+                "RILLAN_HABITAT_SUPPORT",
+                "CONTEXT_FIELD_TIER_CAP"
+              ],
+              "rationale": "Freshwater occupancy supports but does not by itself embody return or flow."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.terrainSpecific",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.terrainSpecific:43152208",
+              "excerpt": "COASTAL_CLIFF GENERALIST ISLAND KELP_FOREST RIVER SEA_CAVE WOODLAND",
+              "semanticCluster": "freshwater_habitat",
+              "strongestTier": "MODERATE",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "river"
+              ],
+              "rawSemanticContribution": 38,
+              "specificityFactor": 0.780281,
+              "authorityFactor": 0.9,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 17.346
+              },
+              "effectiveScoredContribution": 17.346,
+              "basis": [
+                "HABITAT"
+              ],
+              "calibrationRules": [
+                "RILLAN_HABITAT_SUPPORT",
+                "CONTEXT_FIELD_TIER_CAP"
+              ],
+              "rationale": "Freshwater occupancy supports but does not by itself embody return or flow."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.text:dffe3e57",
+              "excerpt": "Kushtaka is the canonical MYTHOS Breed-level expression under SPC_VERSIPELLIS_KUSHTAKA; the input defines no narrower subtype, so this child remains bounded to the same traditional figure rather than importing sibling mythology. Geographic/traditional origin: Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities.. Th",
+              "semanticCluster": "water_generic",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "water"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.826988,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 13.232
+              },
+              "effectiveScoredContribution": 13.232,
+              "basis": [
+                "CANONICAL_TEXT",
+                "ECOLOGY"
+              ],
+              "calibrationRules": [
+                "RILLAN_WATER_CAP"
+              ],
+              "rationale": "Generic water association does not distinguish freshwater systems."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.traits.0.text",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.traits.0.text:917a8ad1",
+              "excerpt": "A humanlike cry can be used to draw travelers toward water or conceal the speaker’s true form.",
+              "semanticCluster": "water_generic",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "water"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.826988,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 8.601
+              },
+              "effectiveScoredContribution": 8.601,
+              "basis": [
+                "BEHAVIOR",
+                "ECOLOGY",
+                "CANONICAL_TEXT"
+              ],
+              "calibrationRules": [
+                "RILLAN_WATER_CAP"
+              ],
+              "rationale": "Generic water association does not distinguish freshwater systems."
+            },
+            {
+              "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.text:1dddfe03",
+              "excerpt": "Kushtaka (Versipellis kushtaka) is the canonical MYTHOS Species entry for this exact population. Its traditional or corpus-bounded origin is Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities. Its defining appearance is a Tlingit land-otter person or shapeshifting being associated with otter, human, and intermedia",
+              "semanticCluster": "water_generic",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "water"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.826988,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.4,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 2.223
+              },
+              "effectiveScoredContribution": 2.223,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "RILLAN_WATER_CAP"
+              ],
+              "rationale": "Generic water association does not distinguish freshwater systems."
+            },
+            {
+              "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.traits.0.text",
+              "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.traits.0.text:917a8ad1",
+              "excerpt": "A humanlike cry can be used to draw travelers toward water or conceal the speaker’s true form.",
+              "semanticCluster": "water_generic",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "water"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.826988,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.25,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 1.389
+              },
+              "effectiveScoredContribution": 1.389,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "RILLAN_WATER_CAP"
+              ],
+              "rationale": "Generic water association does not distinguish freshwater systems."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 0,
+          "moderateClusterCount": 1,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 2,
+          "independentSourceFactCount": 4,
+          "directBreedClusterCount": 2,
+          "directBreedDefiningOrStrongCount": 0,
+          "sourceFieldCount": 4,
+          "singleFieldDependence": 0.405162,
+          "calibrationRules": [
+            "CONTEXT_FIELD_TIER_CAP",
+            "RILLAN_HABITAT_SUPPORT",
+            "RILLAN_WATER_CAP"
+          ]
+        },
+        {
+          "deityName": "Vhalen",
+          "deityTitle": "the Last Shadow",
+          "pantheon": "NINEFOLD_VEIL",
+          "domain": "SHADOW_ABSENCE_AND_ENDINGS",
+          "domainName": "Shadow, Absence & Endings",
+          "meaning": "Darkness, disappearance, emptiness, boundaries, death, endings, absence, concealment, and things defined by what is missing.",
+          "backstory": "Vhalen introduced absence so creation could possess boundaries and distinct things could exist.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 0,
+            "BEHAVIOR_ALIGNMENT": 23.563,
+            "ECOLOGICAL_ALIGNMENT": 14.322,
+            "SYMBOLIC_ALIGNMENT": 8.289,
+            "CANONICAL_TEXT_SUPPORT": 0
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 9.999,
+          "score": 10,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.text:dffe3e57",
+              "excerpt": "Kushtaka is the canonical MYTHOS Breed-level expression under SPC_VERSIPELLIS_KUSHTAKA; the input defines no narrower subtype, so this child remains bounded to the same traditional figure rather than importing sibling mythology. Geographic/traditional origin: Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities.. Th",
+              "semanticCluster": "nocturnal_only",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "boundary"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.810061,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55,
+                "SYMBOLIC_ALIGNMENT": 0.32
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 12.961,
+                "ECOLOGICAL_ALIGNMENT": 7.129,
+                "SYMBOLIC_ALIGNMENT": 4.148
+              },
+              "effectiveScoredContribution": 24.238,
+              "basis": [
+                "CANONICAL_TEXT",
+                "ECOLOGY"
+              ],
+              "calibrationRules": [
+                "VHALEN_NIGHT_CAP"
+              ],
+              "rationale": "Night activity, predation, or coloration is not absence or endings."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.traits.1.text",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.traits.1.text:fdc54160",
+              "excerpt": "Otter and human presentations express a boundary between maritime and human communities.",
+              "semanticCluster": "nocturnal_only",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "boundary"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.810061,
+              "authorityFactor": 1,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55,
+                "SYMBOLIC_ALIGNMENT": 0.32
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 8.425,
+                "ECOLOGICAL_ALIGNMENT": 4.634,
+                "SYMBOLIC_ALIGNMENT": 2.696
+              },
+              "effectiveScoredContribution": 15.755,
+              "basis": [
+                "BEHAVIOR",
+                "ECOLOGY",
+                "CANONICAL_TEXT"
+              ],
+              "calibrationRules": [
+                "VHALEN_NIGHT_CAP"
+              ],
+              "rationale": "Night activity, predation, or coloration is not absence or endings."
+            },
+            {
+              "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.text:1dddfe03",
+              "excerpt": "Kushtaka (Versipellis kushtaka) is the canonical MYTHOS Species entry for this exact population. Its traditional or corpus-bounded origin is Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities. Its defining appearance is a Tlingit land-otter person or shapeshifting being associated with otter, human, and intermedia",
+              "semanticCluster": "nocturnal_only",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "boundary"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.810061,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.4,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55,
+                "SYMBOLIC_ALIGNMENT": 0.32
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 2.177,
+                "ECOLOGICAL_ALIGNMENT": 1.198,
+                "SYMBOLIC_ALIGNMENT": 0.697
+              },
+              "effectiveScoredContribution": 4.072,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "VHALEN_NIGHT_CAP"
+              ],
+              "rationale": "Night activity, predation, or coloration is not absence or endings."
+            },
+            {
+              "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.traits.1.text",
+              "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.traits.1.text:fdc54160",
+              "excerpt": "Otter and human presentations express a boundary between maritime and human communities.",
+              "semanticCluster": "nocturnal_only",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "ECOLOGICAL_ALIGNMENT",
+                "SYMBOLIC_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "boundary"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.810061,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.25,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "ECOLOGICAL_ALIGNMENT": 1,
+                "SYMBOLIC_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "ECOLOGICAL_ALIGNMENT": 1.361,
+                "SYMBOLIC_ALIGNMENT": 0.748
+              },
+              "effectiveScoredContribution": 2.109,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "VHALEN_NIGHT_CAP"
+              ],
+              "rationale": "Night activity, predation, or coloration is not absence or endings."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 0,
+          "moderateClusterCount": 0,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 1,
+          "independentSourceFactCount": 3,
+          "directBreedClusterCount": 1,
+          "directBreedDefiningOrStrongCount": 0,
+          "sourceFieldCount": 3,
+          "singleFieldDependence": 0.550051,
+          "calibrationRules": [
+            "VHALEN_NIGHT_CAP"
+          ]
+        },
+        {
+          "deityName": "Selen",
+          "deityTitle": "the Laughing Flame",
+          "pantheon": "NINEFOLD_HEART",
+          "domain": "JOY",
+          "domainName": "Joy",
+          "meaning": "Celebration, affection, humor, music, festivals, pleasure, play, communal happiness, and reasons for living.",
+          "backstory": "Selen taught that survival is insufficient if people forget why survival matters.",
+          "componentScores": {
+            "PERSONALITY_ALIGNMENT": 20.616,
+            "BEHAVIOR_ALIGNMENT": 8.33,
+            "ECOLOGICAL_ALIGNMENT": 1.73,
+            "SYMBOLIC_ALIGNMENT": 0,
+            "CANONICAL_TEXT_SUPPORT": 0
+          },
+          "axisAvailability": {
+            "PERSONALITY_ALIGNMENT": true,
+            "BEHAVIOR_ALIGNMENT": true,
+            "ECOLOGICAL_ALIGNMENT": true,
+            "SYMBOLIC_ALIGNMENT": true,
+            "CANONICAL_TEXT_SUPPORT": true
+          },
+          "effectiveWeights": {
+            "PERSONALITY_ALIGNMENT": 0.3,
+            "BEHAVIOR_ALIGNMENT": 0.25,
+            "ECOLOGICAL_ALIGNMENT": 0.2,
+            "SYMBOLIC_ALIGNMENT": 0.15,
+            "CANONICAL_TEXT_SUPPORT": 0.1
+          },
+          "weightedScoreExact": 8.613,
+          "score": 9,
+          "semanticEvidenceClusters": [
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "v4Effective.dimensions.emotionalTemperature.value",
+              "sourceFactId": "BRD_KUSHTAKA:v4Effective.dimensions.emotionalTemperature.value:08b5ef5c",
+              "excerpt": "emotionalTemperature JOYFUL",
+              "semanticCluster": "expressive_display",
+              "strongestTier": "MODERATE",
+              "axesInformed": [
+                "PERSONALITY_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "joyful"
+              ],
+              "rawSemanticContribution": 38,
+              "specificityFactor": 0.775031,
+              "authorityFactor": 0.7,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "PERSONALITY_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "PERSONALITY_ALIGNMENT": 20.616
+              },
+              "effectiveScoredContribution": 20.616,
+              "basis": [
+                "PERSONALITY"
+              ],
+              "calibrationRules": [
+                "SELEN_DISPLAY_SUPPORT"
+              ],
+              "rationale": "Expressive display supports joy but may serve reproduction rather than pleasure."
+            },
+            {
+              "sourceRecordId": "BRD_KUSHTAKA",
+              "sourceScope": "BREED",
+              "fieldPath": "canonicalPayload.primitiveBehavior.social.score",
+              "sourceFactId": "BRD_KUSHTAKA:canonicalPayload.primitiveBehavior.social.score:e6e98efa",
+              "excerpt": "social high score 3/4",
+              "semanticCluster": "social_only",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720101,
+              "authorityFactor": 0.45,
+              "repeatedClusterFactor": 1,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 5.185
+              },
+              "effectiveScoredContribution": 5.185,
+              "basis": [
+                "BEHAVIOR"
+              ],
+              "calibrationRules": [
+                "SELEN_SOCIALITY_CAP"
+              ],
+              "rationale": "Sociality alone does not establish joy."
+            },
+            {
+              "sourceRecordId": "SPC_VERSIPELLIS_KUSHTAKA",
+              "sourceScope": "SPECIES",
+              "fieldPath": "canonicalPayload.text",
+              "sourceFactId": "SPC_VERSIPELLIS_KUSHTAKA:canonicalPayload.text:1dddfe03",
+              "excerpt": "Kushtaka (Versipellis kushtaka) is the canonical MYTHOS Species entry for this exact population. Its traditional or corpus-bounded origin is Tlingit oral traditions of Southeast Alaska; accounts differ among storytellers and communities. Its defining appearance is a Tlingit land-otter person or shapeshifting being associated with otter, human, and intermedia",
+              "semanticCluster": "social_only",
+              "strongestTier": "WEAK",
+              "axesInformed": [
+                "BEHAVIOR_ALIGNMENT",
+                "ECOLOGICAL_ALIGNMENT"
+              ],
+              "rawLexicalMatches": [
+                "social"
+              ],
+              "rawSemanticContribution": 16,
+              "specificityFactor": 0.720101,
+              "authorityFactor": 0.42,
+              "repeatedClusterFactor": 0.65,
+              "crossFactConceptFactor": 1,
+              "crossAxisFactors": {
+                "BEHAVIOR_ALIGNMENT": 1,
+                "ECOLOGICAL_ALIGNMENT": 0.55
+              },
+              "effectiveContributions": {
+                "BEHAVIOR_ALIGNMENT": 3.145,
+                "ECOLOGICAL_ALIGNMENT": 1.73
+              },
+              "effectiveScoredContribution": 4.875,
+              "basis": [
+                "SPECIES_CONTEXT"
+              ],
+              "calibrationRules": [
+                "SELEN_SOCIALITY_CAP"
+              ],
+              "rationale": "Sociality alone does not establish joy."
+            }
+          ],
+          "definingClusterCount": 0,
+          "strongClusterCount": 0,
+          "moderateClusterCount": 1,
+          "contradictoryClusterCount": 0,
+          "independentSemanticClusterCount": 2,
+          "independentSourceFactCount": 3,
+          "directBreedClusterCount": 2,
+          "directBreedDefiningOrStrongCount": 0,
+          "sourceFieldCount": 3,
+          "singleFieldDependence": 0.672056,
+          "calibrationRules": [
+            "SELEN_DISPLAY_SUPPORT",
+            "SELEN_SOCIALITY_CAP"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -66,6 +66,23 @@ export function buildV5RunManifest(input: { runId: string; mode: "CANONICAL" | "
   return { ...core, runManifestHash: hash(core) };
 }
 
+export function v5RuntimeCompatibilityErrors(manifest: V5RunManifest): string[] {
+  const expected = {
+    durableStateSchemaVersion: V5_DURABLE_SCHEMA_VERSION,
+    mechanicsVersion: V5_MECHANICS_VERSION,
+    causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION,
+    schedulerVersion: V5_SCHEDULER_VERSION,
+    keyedRandomVersion: KEYED_RANDOM_VERSION_V1,
+  } as const;
+  return Object.entries(expected).flatMap(([field, value]) => manifest[field as keyof V5RunManifest] === value ? [] : [`${field}:${String(manifest[field as keyof V5RunManifest])}!=${value}`]);
+}
+
+export function buildNonCausalLabelManifestUpdateV5(manifest: V5RunManifest, labels: Record<string, string>): V5RunManifest {
+  const { runManifestHash: _priorHash, ...priorCore } = manifest;
+  const core = { ...priorCore, labelInputHash: labelInputHash(labels), labels };
+  return { ...core, runManifestHash: hash(core) };
+}
+
 export function restoreWorldStateV5(value: unknown): WorldStateV5 {
   const state = structuredClone(value) as Omit<WorldStateV5, "cohorts"> & { cohorts: { settlementId: string; breedId: string; tiers: Record<"HIGH" | "MID" | "LOW", { population: bigint | string; prosperity: number }> }[] };
   return { ...state, worldRoutes: state.worldRoutes ?? [], cohorts: state.cohorts.map((cell) => ({ ...cell, tiers: {
