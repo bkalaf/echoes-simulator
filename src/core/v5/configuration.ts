@@ -48,6 +48,8 @@ export function restoreOperationalConfigV1(value: unknown): OperationalConfigV1 
   const row = object(value, "OperationalConfigV1");
   const restored = {
     ...row,
+    checkpointCompressionLevel: row.checkpointCompressionLevel ?? 3,
+    divergenceDiagnosticIntervalYears: row.divergenceDiagnosticIntervalYears ?? 25,
     interactiveNamingEnabled: row.interactiveNamingEnabled ?? false,
     namingBatchFlushIntervalYears: row.namingBatchFlushIntervalYears ?? 25,
     namingBatchMaximum: row.namingBatchMaximum ?? row.namingBatchSize ?? 50,
@@ -87,7 +89,8 @@ export function validateMechanicsVariablesV1(value: MechanicsVariablesV1): void 
 export function validateOperationalConfigV1(value: OperationalConfigV1): void {
   if (value.schemaVersion !== "echoes-operational-config-v1") throw new Error("Unsupported OperationalConfigV1 schema");
   assertIntegerTree(value, "operational");
-  if (value.checkpointIntervalYears <= 0 || value.workerCount <= 0 || value.namingBatchSize <= 0 || value.namingBatchFlushIntervalYears <= 0 || value.namingBatchMaximum <= 0) throw new Error("Operational intervals, workers, and naming batch sizes must be positive");
+  if (value.checkpointIntervalYears <= 0 || value.divergenceDiagnosticIntervalYears <= 0 || value.workerCount <= 0 || value.namingBatchSize <= 0 || value.namingBatchFlushIntervalYears <= 0 || value.namingBatchMaximum <= 0) throw new Error("Operational intervals, workers, and naming batch sizes must be positive");
+  if (![1, 3, 6, 9].includes(value.checkpointCompressionLevel)) throw new Error("checkpointCompressionLevel must be one of 1, 3, 6, or 9");
 }
 
 export function validateDiagnosticConfigV1(value: DiagnosticConfigV1): void {

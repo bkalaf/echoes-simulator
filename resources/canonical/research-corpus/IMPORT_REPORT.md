@@ -11,7 +11,7 @@
 - Deferred relationships: 0
 - Quarantined: 0
 - Blocker findings: 0
-- Warning findings: 11170
+- Warning findings: 11168
 - Info findings: 1449
 
 The process completed with no record-level blockers. Raw semantic, review, evidence, and source payloads are retained in `IMPORT_LEDGER.jsonl`; no submitted semantic file was dropped.
@@ -19,7 +19,7 @@ The process completed with no record-level blockers. Raw semantic, review, evide
 ## Source package reconciliation
 
 - Source package: EIDOLON_CHAT_CLASSIFICATION_ALL_RESPONSES_0001-6039_REMEDIATED_2026-08-26.zip
-- Source SHA-256: `d8a4c62cb65e04ba198d9e72f160f32f7ae2191f828ddec7694e6060fb3b211e`
+- Source SHA-256: `5793511c0f7082eadfbc60c73c4995d54b447cf24ad7b28e418ac9624a6825bc`
 - Semantic files: 6039
 - Review files: 6039
 - Evidence files: 6039
@@ -51,7 +51,7 @@ The complete filename inventory and discrepancy arrays are in `SOURCE_PACKAGE_IN
 - MECHANICAL_PROJECTION_NONLITERAL — 4285
 - CANONICAL_LIFECYCLE_FIELDS_NOT_PRESENT_IN_INPUT — 1508
 - DEFAULT_VALUES_EXPLICIT — 1449
-- HUMAN_WORLD_BUILDING_PROJECTION — 782
+- HUMAN_WORLD_BUILDING_PROJECTION — 781
 - BREED_COEXTENSIVE_WITH_SPECIES — 546
 - EXACT_CHILD_SOURCE_REOPENED — 506
 - BREED_COTERMINOUS_WITH_EXACT_SPECIES — 488
@@ -63,7 +63,7 @@ The complete filename inventory and discrepancy arrays are in `SOURCE_PACKAGE_IN
 - OWNER_CLASSIFICATION_BUCKET — 84
 - REGIONAL_UMBRELLA — 83
 - SYNTHETIC_NONSCIENTIFIC_GENUS — 68
-- PARENT_SCOPE_MISMATCH — 67
+- PARENT_SCOPE_MISMATCH — 66
 - OWNER_FOOD_DEFAULT_SEMANTIC_LIMIT — 64
 - BREED_COTERMINOUS_WITH_SPECIES — 62
 - OWNER_DEFAULT_USED — 60
@@ -134,7 +134,6 @@ The complete filename inventory and discrepancy arrays are in `SOURCE_PACKAGE_IN
 - MANIFEST_PARENT_FAMILY_CONFLICT — 5
 - MANIFEST_PARENT_FAMILY_MISMATCH — 5
 - MIXED_SELF_IDENTIFICATION — 5
-- NON_POPULATION_LABEL — 5
 - CANONICAL_SCOPE_NARROWING — 4
 - CURRENT_GENUS_DIFFERS_FROM_CORPUS — 4
 - CURRENT_TAXONOMIC_NAME_DIFFERENCE — 4
@@ -147,6 +146,7 @@ The complete filename inventory and discrepancy arrays are in `SOURCE_PACKAGE_IN
 - MANIFEST_DESCENDANT_GENUS_MISMATCH — 4
 - MANIFEST_PARENT_PLACEMENT_MISMATCH — 4
 - MANIFEST_RANK_MISMATCH — 4
+- NON_POPULATION_LABEL — 4
 - NONBIOLOGICAL_FEEDING_MODEL — 4
 - PARENT_REVENANT_SCOPE_TOO_NARROW — 4
 - PARENTAL_SCORE_SCOPE_NOTE — 4
@@ -165,7 +165,6 @@ The complete filename inventory and discrepancy arrays are in `SOURCE_PACKAGE_IN
 - MULTI_PARENT_HIERARCHY_CONFLICT — 3
 - MUMMIFICATION_VS_REANIMATION — 3
 - PET_SCOPE_RECHECKED — 3
-- PLACE_NAME_NOT_PEOPLE — 3
 - RELIGIOUS_PROVENANCE — 3
 - SETTLER_UMBRELLA — 3
 - SUBSPECIES_EVIDENCE_BOUNDED_TO_SPECIES — 3
@@ -286,6 +285,7 @@ The complete filename inventory and discrepancy arrays are in `SOURCE_PACKAGE_IN
 - PARENTAL_EVIDENCE_PARTLY_LINEAGE_LEVEL — 2
 - PET_DOMESTICATED_SCOPE_NARROWED — 2
 - PET_SCOPE_INDIVIDUALLY_REVIEWED — 2
+- PLACE_NAME_NOT_PEOPLE — 2
 - PLANT_SPIRIT_CATEGORY_STRETCH — 2
 - RECENT_TAXONOMIC_SPLIT — 2
 - RELIGIOUS_UMBRELLA — 2
@@ -399,6 +399,7 @@ The complete filename inventory and discrepancy arrays are in `SOURCE_PACKAGE_IN
 - FOOD_ENUM_GRANULARITY_LIMIT — 1
 - FOOD_EVIDENCE — 1
 - FROGMOUTH_CONFLICT — 1
+- FUNCTIONAL_SUSTENANCE_NORMALIZATION — 1
 - FUNGI_NOT_PLANTS — 1
 - GENUS_BEHAVIORAL_VARIATION — 1
 - GENUS_ECOLOGICAL_DIVERSITY — 1
@@ -489,6 +490,7 @@ The complete filename inventory and discrepancy arrays are in `SOURCE_PACKAGE_IN
 - SOURCE_SCOPE_BROAD_FOLKLORE_MOTIF — 1
 - SOURCE_TAXONOMY_LEGACY_GENUS — 1
 - SPECIES_COMPLEX_SCOPE — 1
+- SPECIES_LEVEL_DIET_ONLY — 1
 - SPECIES_REPRODUCTION_EVIDENCE_LIMIT — 1
 - SPECIES_SAMPLE_LIMIT — 1
 - SPECIES_SOCIAL_LIMIT — 1
@@ -537,7 +539,7 @@ The table shows the first 0 blocker findings in deterministic record/validation 
 
 ## Canonical change audit
 
-Changed canonical entity rows by record type: {"TAXONOMY":2628,"SPECIES":1138,"CULTURE":127,"SPECIES_GROUP":84,"BREED":2062}. Changed canonical field rows by record type: {"TAXONOMY":97269,"SPECIES":42131,"CULTURE":4699,"SPECIES_GROUP":3108,"BREED":71093}. Exact before/after values are in `CANONICAL_CHANGE_AUDIT.jsonl`. Existing canonical identity/lifecycle values were retained on conflict, and unchanged fields are omitted.
+Changed canonical entity rows by record type: {"TAXONOMY":2628,"SPECIES":1138,"CULTURE":127,"SPECIES_GROUP":84,"BREED":2062}. Changed canonical field rows by record type: {"TAXONOMY":97272,"SPECIES":42178,"CULTURE":4699,"SPECIES_GROUP":3108,"BREED":71143}. Exact before/after values are in `CANONICAL_CHANGE_AUDIT.jsonl`. Existing canonical identity/lifecycle values were retained on conflict, and unchanged fields are omitted.
 
 ## Application/schema changes
 

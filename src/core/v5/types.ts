@@ -135,7 +135,9 @@ export interface PersonRelationV5 {
   sourceEventId: string;
 }
 
-export type OrganizationType = "CORPORATION" | "CRIME_ORGANIZATION" | "GUILD";
+export const V5_SECURITY_ORGANIZATION_TYPES = ["CITY_WATCH", "STATE_GUARD", "FAMILY_GUARD", "CORPORATE_SECURITY", "RELIGIOUS_GUARD", "MERCENARY_COMPANY", "CRIMINAL_ENFORCEMENT_ORGANIZATION"] as const;
+export type SecurityOrganizationTypeV5 = (typeof V5_SECURITY_ORGANIZATION_TYPES)[number];
+export type OrganizationType = "CORPORATION" | "CRIME_ORGANIZATION" | "GUILD" | SecurityOrganizationTypeV5;
 export type OrganizationStatus = "ACTIVE" | "DECLINING" | "DISSOLVED";
 export interface OrganizationV5 {
   organizationId: string;
@@ -203,7 +205,7 @@ export interface OfficeTermV5 {
   terminationReason: "TERM_EXPIRED" | "DEATH" | "RETIREMENT" | "REMOVAL" | "GOVERNMENT_CHANGE" | "INSTITUTION_REFORM" | null;
 }
 
-export type ControllerType = "FAMILY" | "PERSON" | "INSTITUTION" | "STATE" | "ORGANIZATION" | "DIFFUSE";
+export type ControllerType = "FAMILY" | "PERSON" | "INSTITUTION" | "STATE" | "SETTLEMENT" | "ORGANIZATION" | "DIFFUSE";
 export interface OwnershipStakeV5 {
   stakeId: string;
   organizationId: string;
@@ -323,7 +325,7 @@ export interface SecurityForceV5 {
   commandQuality: Score1000;
   suppressionCapacity: Score1000;
   combatCapacity: Score1000;
-  status: "ACTIVE" | "DEGRADED" | "DEFECTED" | "FRAGMENTED" | "DISSOLVED";
+  status: "ACTIVE" | "DEGRADED" | "DEFECTED" | "FRAGMENTED" | "INACTIVE" | "DISBANDED" | "REBUILDING" | "DISSOLVED";
   foundedYear: number;
   recoveryUntilYear: number | null;
 }

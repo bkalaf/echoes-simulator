@@ -71,7 +71,7 @@ export function applyNaturalDemography(state: WorldStateV5, canonical: Canonical
   let totalGrowth = 0n;
   const growthByRatePpm = new Map<number, bigint>();
   const populationBefore = state.cohorts.reduce((sum, cell) => sum + cellPopulation(cell), 0n);
-  const cohorts = [...state.cohorts].sort((a, b) => `${a.settlementId}\0${a.breedId}`.localeCompare(`${b.settlementId}\0${b.breedId}`)).map((cell, sequence) => {
+  const cohorts = [...state.cohorts].sort((a, b) => a.settlementId.localeCompare(b.settlementId) || a.breedId.localeCompare(b.breedId)).map((cell) => {
     const breed = breedById.get(cell.breedId);
     if (!breed) throw new Error(`Unknown Breed ${cell.breedId}`);
     const faction = resolveBreedFaction(breed, sovereign, variables.sovereignTieBreak);

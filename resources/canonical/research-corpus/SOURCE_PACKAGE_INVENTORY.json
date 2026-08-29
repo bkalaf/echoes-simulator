@@ -1,7 +1,7 @@
 {
   "schemaVersion": "eidolon-research-corpus-source-inventory-v1",
   "sourcePackage": "EIDOLON_CHAT_CLASSIFICATION_ALL_RESPONSES_0001-6039_REMEDIATED_2026-08-26.zip",
-  "sourcePackageSha256": "d8a4c62cb65e04ba198d9e72f160f32f7ae2191f828ddec7694e6060fb3b211e",
+  "sourcePackageSha256": "5793511c0f7082eadfbc60c73c4995d54b447cf24ad7b28e418ac9624a6825bc",
   "semanticFiles": [
     "records/0001_TAX_KINGDOM_ANIMALIA.json",
     "records/0002_TAX_KINGDOM_METAZOA.json",
@@ -30522,6 +30522,11 @@
         "SPC_PARADISAEA_RUBRA",
         "BRD_RED_BIRD_OF_PARADISE"
       ],
+      "foodCoverage": {
+        "breeds": 2062,
+        "mappedBreeds": 2062,
+        "unmappedBreedIds": []
+      },
       "requestedBreedCoverage": {
         "frigatebird": [
           "BRD_GREAT_FRIGATEBIRD",

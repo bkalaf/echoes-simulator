@@ -5,8 +5,37 @@ import type { CausalEventV5, NamingRequestV5, WorldKey, WorldStateV5 } from "./t
 import type { BoundedDiagnosticObservationV5 } from "./diagnostics.js";
 import { PolicyAuthorityRequiredV5, type CausalPolicyBlockerV5 } from "./historical-policies.js";
 import { applyAcceptedDerogatoryDecisionBatchV5, buildDerogatoryDecisionBatchV5, isDerogatoryDecisionReviewYearV5, requireDerogatoryMembershipPolicyAtReviewV5, type AcceptedDerogatoryDecisionBatchV5, type DerogatoryDecisionBatchV5 } from "./derogatory-decisions.js";
+import type { V5PerformanceTimingObserver } from "./performance.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
+
+export function freezeCommittedCausalStateV5<T>(value: T): T {
+  const freeze = (candidate: unknown): void => {
+    if (candidate === null || typeof candidate !== "object" || Object.isFrozen(candidate)) return;
+    for (const child of Object.values(candidate)) freeze(child);
+    Object.freeze(candidate);
+  };
+  freeze(value); return value;
+}
+
+export function createDeepReadonlyViewV5<T>(value: T): T {
+  const cache = new WeakMap<object, object>();
+  const wrap = (candidate: unknown): unknown => {
+    if (candidate === null || typeof candidate !== "object") return candidate;
+    if (Object.isFrozen(candidate)) return candidate;
+    const existing = cache.get(candidate); if (existing) return existing;
+    const proxy = new Proxy(candidate, {
+      get: (target, property, receiver) => wrap(Reflect.get(target, property, receiver)),
+      set: () => { throw new TypeError("V5 atomic-year callback state is read-only"); },
+      deleteProperty: () => { throw new TypeError("V5 atomic-year callback state is read-only"); },
+      defineProperty: () => { throw new TypeError("V5 atomic-year callback state is read-only"); },
+      setPrototypeOf: () => { throw new TypeError("V5 atomic-year callback state is read-only"); },
+    });
+    cache.set(candidate, proxy);
+    return proxy;
+  };
+  return wrap(value) as T;
+}
 
 export interface V5HistoryRunInput {
   canonical: CanonicalDataV5;
@@ -29,6 +58,7 @@ export interface V5HistoryRunInput {
   onPolicyBlocker?: (blocker: CausalPolicyBlockerV5) => void;
   onDerogatoryDecisionBarrier?: (batch: DerogatoryDecisionBatchV5) => void;
   onPauseCheckpoint?: (states: Readonly<Record<WorldKey, WorldStateV5>>) => void;
+  onPerformanceTiming?: V5PerformanceTimingObserver;
 }
 
 export interface V5AtomicYearSnapshot {
@@ -70,7 +100,7 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
   let derogatoryDecisionStreamHash = input.priorDerogatoryDecisionStreamHash;
   for (const worldKey of WORLDS) {
     const bootstrap = bootstrapWorldV5({ worldKey, canonical: input.canonical, ownerInputs: input.ownerInputs, variables: input.mechanics, normalizedSeed: input.normalizedSeed, mode: input.mode });
-    states[worldKey] = bootstrap.state;
+    states[worldKey] = freezeCommittedCausalStateV5(bootstrap.state);
     const operationalNamingRequests = bootstrap.namingRequests;
     const bootstrapEvents = [...bootstrap.events].sort((a, b) => a.eventId.localeCompare(b.eventId)).map((event, sequence) => ({ ...event, sequence }));
     bootstrapYearEvents[worldKey].push(...bootstrapEvents);
@@ -78,9 +108,12 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
     eventCounts[worldKey] += bootstrapEvents.length;
     if (input.retainHistory !== false) { events[worldKey].push(...bootstrapEvents); namingRequests[worldKey].push(...operationalNamingRequests); }
   }
+  const bootstrapCallbackViewStartedAt = performance.now();
+  const bootstrapCallbackStates = createDeepReadonlyViewV5(states);
+  input.onPerformanceTiming?.({ scope: "RUNNER", worldKey: "MULTIWORLD", year: 0, phase: "CALLBACK_READONLY_VIEW", milliseconds: performance.now() - bootstrapCallbackViewStartedAt });
   input.onBootstrap?.({
     year: 0,
-    states: structuredClone(states),
+    states: bootstrapCallbackStates,
     yearEvents: bootstrapYearEvents,
     yearNamingRequests: bootstrapNamingRequests,
     yearDiagnosticObservations: { CONCORD: [], SCHISM: [], RUIN: [] },
@@ -94,13 +127,13 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
       try { policy = requireDerogatoryMembershipPolicyAtReviewV5({ mode: input.mode, ownerInputs: input.ownerInputs, states, reviewYear: year }); }
       catch (error) {
         if (!(error instanceof PolicyAuthorityRequiredV5)) throw error;
-        input.onPauseCheckpoint?.(structuredClone(states));
+        input.onPauseCheckpoint?.(createDeepReadonlyViewV5(states));
         input.onPolicyBlocker?.(error.blocker);
         return { status: "WAITING_FOR_POLICY_AUTHORITY", pauseReason: "POLICY_AUTHORITY", completedYear: year - 1, states, events, namingRequests, eventCounts, policyBlocker: error.blocker, derogatoryDecisionStreamHash };
       }
       const batch = buildDerogatoryDecisionBatchV5(states, year, policy);
       const accepted = input.acceptedDerogatoryDecisionBatches?.find((row) => row.batch.batchId === batch.batchId);
-      if (!accepted) { input.onPauseCheckpoint?.(structuredClone(states)); input.onDerogatoryDecisionBarrier?.(batch); return { status: "WAITING_FOR_DEROGATORY_DECISIONS", pauseReason: "DEROGATORY_DECISIONS", completedYear: year - 1, states, events, namingRequests, eventCounts, derogatoryDecisionBatch: batch, derogatoryDecisionStreamHash }; }
+      if (!accepted) { input.onPauseCheckpoint?.(createDeepReadonlyViewV5(states)); input.onDerogatoryDecisionBarrier?.(batch); return { status: "WAITING_FOR_DEROGATORY_DECISIONS", pauseReason: "DEROGATORY_DECISIONS", completedYear: year - 1, states, events, namingRequests, eventCounts, derogatoryDecisionBatch: batch, derogatoryDecisionStreamHash }; }
       const streamCompatible = derogatoryDecisionStreamHash === undefined || accepted.priorDecisionStreamHash === derogatoryDecisionStreamHash || accepted.decisionStreamHash === derogatoryDecisionStreamHash;
       if (accepted.batch.contextSha256 !== batch.contextSha256 || accepted.batch.promptSha256 !== batch.promptSha256 || !streamCompatible) throw new Error(`Accepted Derogatory decision batch ${accepted.batch.batchId} does not match the current immutable context or decision stream`);
       preparedStates = applyAcceptedDerogatoryDecisionBatchV5(states, input.canonical, policy, accepted);
@@ -109,7 +142,7 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
     const yearEvents = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, CausalEventV5[]>;
     const yearNamingRequests = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, NamingRequestV5[]>;
     const yearDiagnosticObservations = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, BoundedDiagnosticObservationV5[]>;
-    const candidateStates = structuredClone(preparedStates);
+    const candidateStates = { ...preparedStates };
     try { for (const worldKey of WORLDS) {
       const context: V5EngineContext = {
         canonical: input.canonical,
@@ -120,9 +153,11 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
         normalizedSeed: input.normalizedSeed,
         scheduledTransactions: input.scheduledTransactions?.[worldKey] ?? [],
         mode: input.mode,
+        onPerformanceTiming: input.onPerformanceTiming,
       };
       const advanced = advanceWorldOneYear(candidateStates[worldKey], context);
-      candidateStates[worldKey] = advanced.state;
+      const freezeStartedAt = performance.now(); candidateStates[worldKey] = freezeCommittedCausalStateV5(advanced.state);
+      input.onPerformanceTiming?.({ scope: "RUNNER", worldKey, year, phase: "WORLD_COMMIT_FREEZE", milliseconds: performance.now() - freezeStartedAt });
       yearEvents[worldKey].push(...advanced.events);
       yearNamingRequests[worldKey].push(...advanced.namingRequests);
       yearDiagnosticObservations[worldKey].push(...advanced.diagnosticObservations);
@@ -131,7 +166,7 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
     } } catch (error) {
       for (const worldKey of WORLDS) { eventCounts[worldKey] -= yearEvents[worldKey].length; if (input.retainHistory !== false) { events[worldKey].splice(events[worldKey].length - yearEvents[worldKey].length, yearEvents[worldKey].length); namingRequests[worldKey].splice(namingRequests[worldKey].length - yearNamingRequests[worldKey].length, yearNamingRequests[worldKey].length); } }
       if (!(error instanceof PolicyAuthorityRequiredV5)) throw error;
-      input.onPauseCheckpoint?.(structuredClone(states));
+      input.onPauseCheckpoint?.(createDeepReadonlyViewV5(states));
       input.onPolicyBlocker?.(error.blocker);
       return { status: "WAITING_FOR_POLICY_AUTHORITY", pauseReason: "POLICY_AUTHORITY", completedYear: year - 1, states, events, namingRequests, eventCounts, policyBlocker: error.blocker, derogatoryDecisionStreamHash };
     }
@@ -140,7 +175,10 @@ export function runV5History(input: V5HistoryRunInput): V5HistoryRunResult {
     batchedSinceFlush ||= WORLDS.some((worldKey) => yearNamingRequests[worldKey].some((request) => request.behavior === "BATCHED" && request.acceptedLabel === null));
     const interactiveFlushDue = Boolean(input.interactiveNamingEnabled && batchedSinceFlush && year % input.operational.namingBatchFlushIntervalYears === 0);
     const checkpointDue = year % input.operational.checkpointIntervalYears === 0 || year === input.throughYear || blocking || interactiveFlushDue;
-    input.onAtomicYear?.({ year, states: structuredClone(states), yearEvents, yearNamingRequests, yearDiagnosticObservations, checkpointDue });
+    const callbackViewStartedAt = performance.now();
+    const callbackStates = createDeepReadonlyViewV5(states);
+    input.onPerformanceTiming?.({ scope: "RUNNER", worldKey: "MULTIWORLD", year, phase: "CALLBACK_READONLY_VIEW", milliseconds: performance.now() - callbackViewStartedAt });
+    input.onAtomicYear?.({ year, states: callbackStates, yearEvents, yearNamingRequests, yearDiagnosticObservations, checkpointDue });
     if ((input.stopAtBlockingNaming ?? true) && blocking) return { status: "WAITING_FOR_NAMING", pauseReason: "BLOCKING_NAMING", completedYear: year, states, events, namingRequests, eventCounts, derogatoryDecisionStreamHash };
     if (interactiveFlushDue) return { status: "WAITING_FOR_NAMING", pauseReason: "BATCHED_NAMING_FLUSH", completedYear: year, states, events, namingRequests, eventCounts, derogatoryDecisionStreamHash };
   }
@@ -152,7 +190,7 @@ export function continueV5History(input: V5HistoryContinuationInput): V5HistoryR
   if (!years.every((year) => year === years[0])) throw new Error("V5 continuation requires one common atomic checkpoint year");
   const startYear = years[0]!;
   if (input.throughYear < startYear) throw new Error("V5 continuation target precedes its checkpoint");
-  const states = structuredClone(input.initialStates);
+  const states = Object.fromEntries(WORLDS.map((world) => [world, freezeCommittedCausalStateV5(input.initialStates[world])])) as Record<WorldKey, WorldStateV5>;
   const events = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, CausalEventV5[]>;
   const namingRequests = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, NamingRequestV5[]>;
   const eventCounts = Object.fromEntries(WORLDS.map((world) => [world, input.initialEventCounts?.[world] ?? 0])) as Record<WorldKey, number>;
@@ -163,9 +201,9 @@ export function continueV5History(input: V5HistoryContinuationInput): V5HistoryR
     if (isDerogatoryDecisionReviewYearV5(year)) {
       let policy;
       try { policy = requireDerogatoryMembershipPolicyAtReviewV5({ mode: input.mode, ownerInputs: input.ownerInputs, states, reviewYear: year }); }
-      catch (error) { if (!(error instanceof PolicyAuthorityRequiredV5)) throw error; input.onPauseCheckpoint?.(structuredClone(states)); input.onPolicyBlocker?.(error.blocker); return { status: "WAITING_FOR_POLICY_AUTHORITY", pauseReason: "POLICY_AUTHORITY", completedYear: year - 1, states, events, namingRequests, eventCounts, policyBlocker: error.blocker, derogatoryDecisionStreamHash }; }
+      catch (error) { if (!(error instanceof PolicyAuthorityRequiredV5)) throw error; input.onPauseCheckpoint?.(createDeepReadonlyViewV5(states)); input.onPolicyBlocker?.(error.blocker); return { status: "WAITING_FOR_POLICY_AUTHORITY", pauseReason: "POLICY_AUTHORITY", completedYear: year - 1, states, events, namingRequests, eventCounts, policyBlocker: error.blocker, derogatoryDecisionStreamHash }; }
       const batch = buildDerogatoryDecisionBatchV5(states, year, policy); const accepted = input.acceptedDerogatoryDecisionBatches?.find((row) => row.batch.batchId === batch.batchId);
-      if (!accepted) { input.onPauseCheckpoint?.(structuredClone(states)); input.onDerogatoryDecisionBarrier?.(batch); return { status: "WAITING_FOR_DEROGATORY_DECISIONS", pauseReason: "DEROGATORY_DECISIONS", completedYear: year - 1, states, events, namingRequests, eventCounts, derogatoryDecisionBatch: batch, derogatoryDecisionStreamHash }; }
+      if (!accepted) { input.onPauseCheckpoint?.(createDeepReadonlyViewV5(states)); input.onDerogatoryDecisionBarrier?.(batch); return { status: "WAITING_FOR_DEROGATORY_DECISIONS", pauseReason: "DEROGATORY_DECISIONS", completedYear: year - 1, states, events, namingRequests, eventCounts, derogatoryDecisionBatch: batch, derogatoryDecisionStreamHash }; }
       const streamCompatible = derogatoryDecisionStreamHash === undefined || accepted.priorDecisionStreamHash === derogatoryDecisionStreamHash || accepted.decisionStreamHash === derogatoryDecisionStreamHash;
       if (accepted.batch.contextSha256 !== batch.contextSha256 || accepted.batch.promptSha256 !== batch.promptSha256 || !streamCompatible) throw new Error(`Accepted Derogatory decision batch ${accepted.batch.batchId} does not match the current immutable context or decision stream`);
       preparedStates = applyAcceptedDerogatoryDecisionBatchV5(states, input.canonical, policy, accepted); derogatoryDecisionStreamHash = accepted.decisionStreamHash;
@@ -173,7 +211,7 @@ export function continueV5History(input: V5HistoryContinuationInput): V5HistoryR
     const yearEvents = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, CausalEventV5[]>;
     const yearNamingRequests = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, NamingRequestV5[]>;
     const yearDiagnosticObservations = { CONCORD: [], SCHISM: [], RUIN: [] } as Record<WorldKey, BoundedDiagnosticObservationV5[]>;
-    const candidateStates = structuredClone(preparedStates);
+    const candidateStates = { ...preparedStates };
     try { for (const worldKey of WORLDS) {
       const advanced = advanceWorldOneYear(candidateStates[worldKey], {
         canonical: input.canonical,
@@ -184,8 +222,10 @@ export function continueV5History(input: V5HistoryContinuationInput): V5HistoryR
         normalizedSeed: input.normalizedSeed,
         scheduledTransactions: input.scheduledTransactions?.[worldKey] ?? [],
         mode: input.mode,
+        onPerformanceTiming: input.onPerformanceTiming,
       });
-      candidateStates[worldKey] = advanced.state;
+      const freezeStartedAt = performance.now(); candidateStates[worldKey] = freezeCommittedCausalStateV5(advanced.state);
+      input.onPerformanceTiming?.({ scope: "RUNNER", worldKey, year, phase: "WORLD_COMMIT_FREEZE", milliseconds: performance.now() - freezeStartedAt });
       yearEvents[worldKey].push(...advanced.events);
       yearNamingRequests[worldKey].push(...advanced.namingRequests);
       yearDiagnosticObservations[worldKey].push(...advanced.diagnosticObservations);
@@ -193,14 +233,17 @@ export function continueV5History(input: V5HistoryContinuationInput): V5HistoryR
       if (input.retainHistory !== false) { events[worldKey].push(...advanced.events); namingRequests[worldKey].push(...advanced.namingRequests); }
     } } catch (error) {
       for (const worldKey of WORLDS) { eventCounts[worldKey] -= yearEvents[worldKey].length; if (input.retainHistory !== false) { events[worldKey].splice(events[worldKey].length - yearEvents[worldKey].length, yearEvents[worldKey].length); namingRequests[worldKey].splice(namingRequests[worldKey].length - yearNamingRequests[worldKey].length, yearNamingRequests[worldKey].length); } }
-      if (!(error instanceof PolicyAuthorityRequiredV5)) throw error; input.onPauseCheckpoint?.(structuredClone(states)); input.onPolicyBlocker?.(error.blocker); return { status: "WAITING_FOR_POLICY_AUTHORITY", pauseReason: "POLICY_AUTHORITY", completedYear: year - 1, states, events, namingRequests, eventCounts, policyBlocker: error.blocker, derogatoryDecisionStreamHash };
+      if (!(error instanceof PolicyAuthorityRequiredV5)) throw error; input.onPauseCheckpoint?.(createDeepReadonlyViewV5(states)); input.onPolicyBlocker?.(error.blocker); return { status: "WAITING_FOR_POLICY_AUTHORITY", pauseReason: "POLICY_AUTHORITY", completedYear: year - 1, states, events, namingRequests, eventCounts, policyBlocker: error.blocker, derogatoryDecisionStreamHash };
     }
     Object.assign(states, candidateStates);
     const blocking = WORLDS.some((world) => yearNamingRequests[world].some((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null));
     batchedSinceFlush ||= WORLDS.some((worldKey) => yearNamingRequests[worldKey].some((request) => request.behavior === "BATCHED" && request.acceptedLabel === null));
     const interactiveFlushDue = Boolean(input.interactiveNamingEnabled && batchedSinceFlush && year % input.operational.namingBatchFlushIntervalYears === 0);
     const checkpointDue = year % input.operational.checkpointIntervalYears === 0 || year === input.throughYear || blocking || interactiveFlushDue;
-    input.onAtomicYear?.({ year, states: structuredClone(states), yearEvents, yearNamingRequests, yearDiagnosticObservations, checkpointDue });
+    const callbackViewStartedAt = performance.now();
+    const callbackStates = createDeepReadonlyViewV5(states);
+    input.onPerformanceTiming?.({ scope: "RUNNER", worldKey: "MULTIWORLD", year, phase: "CALLBACK_READONLY_VIEW", milliseconds: performance.now() - callbackViewStartedAt });
+    input.onAtomicYear?.({ year, states: callbackStates, yearEvents, yearNamingRequests, yearDiagnosticObservations, checkpointDue });
     if ((input.stopAtBlockingNaming ?? true) && blocking) return { status: "WAITING_FOR_NAMING", pauseReason: "BLOCKING_NAMING", completedYear: year, states, events, namingRequests, eventCounts, derogatoryDecisionStreamHash };
     if (interactiveFlushDue) return { status: "WAITING_FOR_NAMING", pauseReason: "BATCHED_NAMING_FLUSH", completedYear: year, states, events, namingRequests, eventCounts, derogatoryDecisionStreamHash };
   }

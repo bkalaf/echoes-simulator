@@ -61,8 +61,9 @@ function apportion(total: bigint, weighted: readonly { key: string; weight: bigi
   return result;
 }
 
-export function reconcilePublicPopulationSlicesV5(state: WorldStateV5, canonical: CanonicalDataV5): WorldStateV5 {
-  const initialized = ensurePopulationSlicesV5(state, canonical);
+export function reconcilePublicPopulationSlicesV5(state: WorldStateV5, canonical: CanonicalDataV5, options: { populationSlicesComplete?: boolean; populationsRemainPositive?: boolean } = {}): WorldStateV5 {
+  const initialized = options.populationSlicesComplete ? state : ensurePopulationSlicesV5(state, canonical);
+  if (!initialized.populationSlices) throw new Error("Complete population-slice reconciliation requires materialized population slices");
   const slices = [...initialized.populationSlices!];
   const slicesByAggregate = new Map<string, TargetedPopulationSliceV5[]>();
   const currentTotals = new Map<string, bigint>();
@@ -74,15 +75,17 @@ export function reconcilePublicPopulationSlicesV5(state: WorldStateV5, canonical
     slicesByAggregate.set(key, aggregate);
     currentTotals.set(key, (currentTotals.get(key) ?? 0n) + slice.population);
   }
-  const mismatched = initialized.cohorts.flatMap((cell) => V5_TIERS.map((tier) => ({ cell, tier, key: aggregateKey("PUBLIC_SETTLEMENT", cell.settlementId, cell.breedId, tier) }))).filter(({ cell, tier, key }) => (currentTotals.get(key) ?? 0n) !== cell.tiers[tier].population);
+  const mismatched: Array<{ cell: WorldStateV5["cohorts"][number]; tier: SocialTier; key: string }> = [];
+  for (const cell of initialized.cohorts) for (const tier of V5_TIERS) { const key = aggregateKey("PUBLIC_SETTLEMENT", cell.settlementId, cell.breedId, tier); if ((currentTotals.get(key) ?? 0n) !== cell.tiers[tier].population) mismatched.push({ cell, tier, key }); }
   if (mismatched.length === 0) return initialized;
   const populationBySliceId = new Map<string, bigint>();
   for (const { cell, tier, key } of mismatched) {
     const matches = slicesByAggregate.get(key) ?? [];
-    const allocations = apportion(cell.tiers[tier].population, matches.map((slice) => ({ key: slice.populationSliceId, weight: slice.population })));
-    for (const [sliceId, population] of allocations) populationBySliceId.set(sliceId, population);
+    if (matches.length === 1) populationBySliceId.set(matches[0]!.populationSliceId, cell.tiers[tier].population);
+    else { const allocations = apportion(cell.tiers[tier].population, matches.map((slice) => ({ key: slice.populationSliceId, weight: slice.population }))); for (const [sliceId, population] of allocations) populationBySliceId.set(sliceId, population); }
   }
-  return { ...initialized, populationSlices: compactPopulationSlicesV5(slices.map((slice) => populationBySliceId.has(slice.populationSliceId) ? { ...slice, population: populationBySliceId.get(slice.populationSliceId)! } : slice)) };
+  const reconciled = slices.map((slice) => populationBySliceId.has(slice.populationSliceId) ? { ...slice, population: populationBySliceId.get(slice.populationSliceId)! } : slice);
+  return { ...initialized, populationSlices: options.populationsRemainPositive ? reconciled : compactPopulationSlicesV5(reconciled) };
 }
 
 function matchesWholePredicate(predicate: DerogatoryMembershipPredicateV1, breed: BreedAuthorityV5, state: WorldStateV5, slice: TargetedPopulationSliceV5, canonical: CanonicalDataV5): boolean {
@@ -145,20 +148,24 @@ export function compactPopulationSlicesV5(slices: readonly TargetedPopulationSli
   return [...merged.values()].sort((a, b) => a.locationType.localeCompare(b.locationType) || a.locationId.localeCompare(b.locationId) || a.breedId.localeCompare(b.breedId) || a.tier.localeCompare(b.tier) || a.populationSliceId.localeCompare(b.populationSliceId));
 }
 
-export function validatePopulationPartitionV5(state: WorldStateV5): void {
+export function validatePopulationPartitionV5(state: WorldStateV5): { publicPopulation: bigint; enclavePopulation: bigint; causalTotalPopulation: bigint } {
   const slices = state.populationSlices ?? [];
-  const publicTotals = new Map<string, bigint>();
+  const publicTotals = new Map<string, bigint>(); const enclaveIds = new Set((state.enclaves ?? []).map((enclave) => enclave.enclaveId));
+  let enclavePopulation = 0n;
   for (const slice of slices) {
     if (slice.population < 0n) throw new Error(`Negative population slice ${slice.populationSliceId}`);
     if (slice.locationType === "PUBLIC_SETTLEMENT") {
       const key = aggregateKey(slice.locationType, slice.locationId, slice.breedId, slice.tier);
       publicTotals.set(key, (publicTotals.get(key) ?? 0n) + slice.population);
-    } else if (!state.enclaves?.some((enclave) => enclave.enclaveId === slice.locationId)) throw new Error(`Population slice ${slice.populationSliceId} references unknown Enclave`);
+    } else { if (!enclaveIds.has(slice.locationId)) throw new Error(`Population slice ${slice.populationSliceId} references unknown Enclave`); enclavePopulation += slice.population; }
   }
+  let publicPopulation = 0n;
   for (const cell of state.cohorts) for (const tier of V5_TIERS) {
     const key = aggregateKey("PUBLIC_SETTLEMENT", cell.settlementId, cell.breedId, tier);
     if ((publicTotals.get(key) ?? 0n) !== cell.tiers[tier].population) throw new Error(`Population partition mismatch for ${cell.settlementId}/${cell.breedId}/${tier}`);
+    publicPopulation += cell.tiers[tier].population;
   }
+  return { publicPopulation, enclavePopulation, causalTotalPopulation: publicPopulation + enclavePopulation };
 }
 
 export function causalPopulationTotalsV5(state: WorldStateV5): { publicPopulation: bigint; enclavePopulation: bigint; causalTotalPopulation: bigint } {
@@ -200,16 +207,19 @@ export function applyTargetedGrowthSuppressionV5(state: WorldStateV5, groupId: D
 }
 
 export function applyPublicSliceGrowthModifiersV5(prior: WorldStateV5, postDemography: WorldStateV5): WorldStateV5 {
+  const hasRelevantModifier = (postDemography.populationSlices ?? []).some((slice) => slice.growthModifierPpm !== 0 || slice.growthModifierUntilYear !== null);
+  if (!hasRelevantModifier) return postDemography;
   const priorById = new Map((prior.populationSlices ?? []).map((slice) => [slice.populationSliceId, slice])); const reductions = new Map<string, bigint>();
+  let modifierExpired = false;
   const populationSlices = (postDemography.populationSlices ?? []).map((slice) => {
     const previous = priorById.get(slice.populationSliceId); const activeModifier = slice.growthModifierUntilYear !== null && slice.growthModifierUntilYear >= postDemography.year ? slice.growthModifierPpm : 0;
-    if (slice.locationType !== "PUBLIC_SETTLEMENT" || !previous || activeModifier >= 0) return slice.growthModifierUntilYear !== null && slice.growthModifierUntilYear < postDemography.year ? { ...slice, growthModifierPpm: 0, growthModifierUntilYear: null } : slice;
+    if (slice.locationType !== "PUBLIC_SETTLEMENT" || !previous || activeModifier >= 0) { if (slice.growthModifierUntilYear !== null && slice.growthModifierUntilYear < postDemography.year) { modifierExpired = true; return { ...slice, growthModifierPpm: 0, growthModifierUntilYear: null }; } return slice; }
     const allocatedGrowth = slice.population > previous.population ? slice.population - previous.population : 0n; const reduction = allocatedGrowth * BigInt(-activeModifier) / 1_000_000n;
     if (reduction > 0n) { const key = `${slice.locationId}\u0000${slice.breedId}\u0000${slice.tier}`; reductions.set(key, (reductions.get(key) ?? 0n) + reduction); }
     return { ...slice, population: slice.population - reduction };
   });
   const cohorts = postDemography.cohorts.map((cell) => ({ ...cell, tiers: Object.fromEntries(V5_TIERS.map((tier) => [tier, { ...cell.tiers[tier], population: cell.tiers[tier].population - (reductions.get(`${cell.settlementId}\u0000${cell.breedId}\u0000${tier}`) ?? 0n) }])) as typeof cell.tiers }));
-  const result = { ...postDemography, cohorts, populationSlices: compactPopulationSlicesV5(populationSlices) }; validatePopulationPartitionV5(result); return result;
+  const result = { ...postDemography, cohorts, populationSlices: modifierExpired ? compactPopulationSlicesV5(populationSlices) : populationSlices }; validatePopulationPartitionV5(result); return result;
 }
 
 export function applyEnclaveDemographyV5(state: WorldStateV5, canonical: CanonicalDataV5, variables: MechanicsVariablesV1, settlementDominantFactions: Readonly<Record<string, WorldKey>>): { state: WorldStateV5; growth: bigint } {
@@ -224,7 +234,10 @@ export function applyEnclaveDemographyV5(state: WorldStateV5, canonical: Canonic
     const growth = slice.population === 0n ? 0n : divideRoundedAway(slice.population * BigInt(rate), 1_000_000n); totalGrowth += growth;
     return { ...slice, population: slice.population + growth, growthModifierPpm: slice.growthModifierUntilYear !== null && slice.growthModifierUntilYear < state.year ? 0 : slice.growthModifierPpm, growthModifierUntilYear: slice.growthModifierUntilYear !== null && slice.growthModifierUntilYear < state.year ? null : slice.growthModifierUntilYear };
   });
-  return { state: { ...state, populationSlices: compactPopulationSlicesV5(populationSlices) }, growth: totalGrowth };
+  // Growth changes population only; it cannot create, delete, split, or merge
+  // slice identities. The input is already compact, so re-sorting and merging
+  // the complete public partition here is redundant annual work.
+  return { state: { ...state, populationSlices }, growth: totalGrowth };
 }
 
 export function applyTargetedConfiscationV5(state: WorldStateV5, groupId: DerogatoryGroupIdV5, score: number, sourceEventId: string): WorldStateV5 {

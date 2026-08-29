@@ -2,7 +2,7 @@ import { DatabaseSync } from "node:sqlite";
 import { createHash } from "node:crypto";
 import { dirname } from "node:path";
 import { existsSync, mkdirSync } from "node:fs";
-import { gzipSync, gunzipSync } from "node:zlib";
+import { deflateRawSync, gzipSync, gunzipSync, inflateRawSync } from "node:zlib";
 import { canonicalJson } from "../core/serialization/canonical-json.js";
 import type { NamingJob } from "../core/naming/naming.js";
 import type { CheckpointEnvelope } from "../core/contracts/domain.js";
@@ -19,6 +19,7 @@ import { mergeBoundedDiagnosticObservations, type BoundedDiagnosticObservationV5
 import type { DivergenceTraceV5 } from "../core/v5/divergence-diagnostics.js";
 import type { CausalPolicyBlockerV5 } from "../core/v5/historical-policies.js";
 import type { AcceptedDerogatoryDecisionBatchV5, DerogatoryDecisionBatchV5, DerogatoryDecisionResponseV5 } from "../core/v5/derogatory-decisions.js";
+import type { V5PerformanceTimingObserver } from "../core/v5/performance.js";
 
 export interface StoredRun {
   runId: string;
@@ -42,6 +43,18 @@ export interface StoredEvent {
   entityType: string;
   entityId: string;
   payload: unknown;
+}
+
+function encodeV5CausalEventJson(eventJson: string): Uint8Array {
+  return deflateRawSync(Buffer.from(eventJson, "utf8"), { level: 1 });
+}
+
+function canonicalV5CausalEventJson(encoded: string | Uint8Array): string {
+  return typeof encoded === "string" ? encoded : inflateRawSync(encoded).toString("utf8");
+}
+
+function decodeV5CausalEvent(encoded: string | Uint8Array): CausalEventV5 {
+  return JSON.parse(canonicalV5CausalEventJson(encoded)) as CausalEventV5;
 }
 
 export interface StoredPreflight {
@@ -71,6 +84,7 @@ export interface BreedPopulationView {
 
 export class SimulatorStore {
   private readonly database: DatabaseSync;
+  private v5AtomicWriteActive = false;
 
   constructor(readonly filename: string) {
     mkdirSync(dirname(filename), { recursive: true });
@@ -81,6 +95,22 @@ export class SimulatorStore {
     this.database = new DatabaseSync(filename);
     this.database.exec("PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON;");
     this.migrate();
+  }
+
+  withV5AtomicYearTransaction<T>(operation: () => T): T {
+    if (this.v5AtomicWriteActive) throw new Error("Nested V5 atomic-year transaction");
+    this.database.exec("BEGIN IMMEDIATE");
+    this.v5AtomicWriteActive = true;
+    try {
+      const result = operation();
+      this.database.exec("COMMIT");
+      return result;
+    } catch (error) {
+      try { this.database.exec("ROLLBACK"); } catch { /* preserve the original persistence failure */ }
+      throw error;
+    } finally {
+      this.v5AtomicWriteActive = false;
+    }
   }
 
   private migrate(): void {
@@ -281,7 +311,6 @@ export class SimulatorStore {
         PRIMARY KEY(run_id, event_id),
         UNIQUE(run_id, world_key, year, sequence)
       );
-      CREATE INDEX IF NOT EXISTS v5_causal_event_replay ON v5_causal_event(run_id, world_key, year, sequence);
       CREATE TABLE IF NOT EXISTS v5_checkpoint (
         checkpoint_id TEXT PRIMARY KEY,
         run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
@@ -464,7 +493,6 @@ export class SimulatorStore {
         INSERT INTO v5_causal_event(event_id, run_id, world_key, year, sequence, event_type, event_json)
           SELECT event_id, run_id, world_key, year, sequence, json_extract(event_json, '$.eventType'), event_json FROM v5_causal_event_legacy;
         DROP TABLE v5_causal_event_legacy;
-        CREATE INDEX IF NOT EXISTS v5_causal_event_replay ON v5_causal_event(run_id, world_key, year, sequence);
       `);
     }
     const currentV5EventColumns = new Set((this.database.prepare("PRAGMA table_info(v5_causal_event)").all() as { name: string }[]).map((column) => column.name));
@@ -472,6 +500,10 @@ export class SimulatorStore {
       this.database.exec("ALTER TABLE v5_causal_event ADD COLUMN event_type TEXT");
       this.database.exec("UPDATE v5_causal_event SET event_type=json_extract(event_json, '$.eventType') WHERE event_type IS NULL");
     }
+    // The UNIQUE(run_id, world_key, year, sequence) auto-index already serves
+    // replay order; retaining an identical explicit index doubles hot-ledger
+    // index storage without changing query semantics.
+    this.database.exec("DROP INDEX IF EXISTS v5_causal_event_replay");
     this.database.exec("CREATE INDEX IF NOT EXISTS v5_causal_event_type ON v5_causal_event(run_id, world_key, event_type, year, sequence)");
     const namingBatchColumns = new Set((this.database.prepare("PRAGMA table_info(v5_naming_batch_audit)").all() as { name: string }[]).map((column) => column.name));
     const namingBatchColumnDefinitions: Readonly<Record<string, string>> = {
@@ -556,54 +588,57 @@ export class SimulatorStore {
         },
       },
     } : parsed.causalOwnerInputs;
-    return { ...parsed, causalOwnerInputs, mechanicsVariables: { ...parsed.mechanicsVariables, initialPopulation: BigInt(parsed.mechanicsVariables.initialPopulation), initialTierWeights: parsed.mechanicsVariables.initialTierWeights.map(BigInt) as unknown as readonly [bigint, bigint, bigint], foundingMinimumPopulation: BigInt(parsed.mechanicsVariables.foundingMinimumPopulation), secessionMinimumPopulation: BigInt(parsed.mechanicsVariables.secessionMinimumPopulation), conflictStatePopulationReference: BigInt(parsed.mechanicsVariables.conflictStatePopulationReference) }, diagnosticConfig: { ...parsed.diagnosticConfig, endingPopulationGoal: BigInt(parsed.diagnosticConfig.endingPopulationGoal), foundingNotabilityThreshold: BigInt(parsed.diagnosticConfig.foundingNotabilityThreshold) } };
+    return { ...parsed, causalOwnerInputs, mechanicsVariables: { ...parsed.mechanicsVariables, initialPopulation: BigInt(parsed.mechanicsVariables.initialPopulation), initialTierWeights: parsed.mechanicsVariables.initialTierWeights.map(BigInt) as unknown as readonly [bigint, bigint, bigint], foundingMinimumPopulation: BigInt(parsed.mechanicsVariables.foundingMinimumPopulation), secessionMinimumPopulation: BigInt(parsed.mechanicsVariables.secessionMinimumPopulation), conflictStatePopulationReference: BigInt(parsed.mechanicsVariables.conflictStatePopulationReference) }, operationalConfig: restoreOperationalConfigV1(parsed.operationalConfig), diagnosticConfig: { ...parsed.diagnosticConfig, endingPopulationGoal: BigInt(parsed.diagnosticConfig.endingPopulationGoal), foundingNotabilityThreshold: BigInt(parsed.diagnosticConfig.foundingNotabilityThreshold) } };
   }
 
-  appendV5CausalEvents(runId: string, events: readonly CausalEventV5[]): void {
+  appendV5CausalEvents(runId: string, events: readonly CausalEventV5[], canonicalEventJson?: readonly string[]): void {
     if (events.length === 0) return;
+    if (canonicalEventJson && canonicalEventJson.length !== events.length) throw new Error("Canonical V5 event serialization count mismatch");
     const insert = this.database.prepare(`INSERT INTO v5_causal_event(event_id, run_id, world_key, year, sequence, event_type, event_json) VALUES (?, ?, ?, ?, ?, ?, ?)`);
-    this.database.exec("BEGIN IMMEDIATE");
+    const ownsTransaction = !this.v5AtomicWriteActive;
+    if (ownsTransaction) this.database.exec("BEGIN IMMEDIATE");
     try {
-      for (const event of [...events].sort((a, b) => a.year - b.year || a.sequence - b.sequence || a.eventId.localeCompare(b.eventId))) insert.run(event.eventId, runId, event.worldKey, event.year, event.sequence, event.eventType, canonicalJson(event));
-      this.database.exec("COMMIT");
+      const ordered = events.map((event, index) => ({ event, eventJson: canonicalEventJson?.[index] ?? canonicalJson(event) })).sort((left, right) => left.event.year - right.event.year || left.event.sequence - right.event.sequence || left.event.eventId.localeCompare(right.event.eventId));
+      for (const { event, eventJson } of ordered) insert.run(event.eventId, runId, event.worldKey, event.year, event.sequence, event.eventType, encodeV5CausalEventJson(eventJson));
+      if (ownsTransaction) this.database.exec("COMMIT");
     } catch (error) {
       // SQLite can automatically end a transaction after errors such as
       // SQLITE_FULL. Preserve the original failure instead of masking it with
       // a secondary "no transaction is active" rollback error.
-      try { this.database.exec("ROLLBACK"); } catch { /* original error is authoritative */ }
+      if (ownsTransaction) try { this.database.exec("ROLLBACK"); } catch { /* original error is authoritative */ }
       throw error;
     }
   }
 
   listV5CausalEvents(runId: string, worldKey: string, throughYear = Number.MAX_SAFE_INTEGER): CausalEventV5[] {
-    const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=? ORDER BY year, sequence").all(runId, worldKey, throughYear) as { event_json: string }[];
-    return rows.map((row) => JSON.parse(row.event_json) as CausalEventV5);
+    const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=? ORDER BY year, sequence").all(runId, worldKey, throughYear) as { event_json: string | Uint8Array }[];
+    return rows.map((row) => decodeV5CausalEvent(row.event_json));
   }
 
   listV5CausalEventsByTypes(runId: string, worldKey: string, eventTypes: readonly string[], throughYear = Number.MAX_SAFE_INTEGER): CausalEventV5[] {
     if (eventTypes.length === 0) return [];
     const placeholders = eventTypes.map(() => "?").join(",");
-    const rows = this.database.prepare(`SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=? AND event_type IN (${placeholders}) ORDER BY year, sequence`).all(runId, worldKey, throughYear, ...eventTypes) as { event_json: string }[];
-    return rows.map((row) => JSON.parse(row.event_json) as CausalEventV5);
+    const rows = this.database.prepare(`SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=? AND event_type IN (${placeholders}) ORDER BY year, sequence`).all(runId, worldKey, throughYear, ...eventTypes) as { event_json: string | Uint8Array }[];
+    return rows.map((row) => decodeV5CausalEvent(row.event_json));
   }
 
   summarizeV5CausalEventHistory(runId: string, worldKey: string, throughYear = Number.MAX_SAFE_INTEGER): { eventHistoryHash: string; eventCount: number } {
-    const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=? ORDER BY year, sequence").iterate(runId, worldKey, throughYear) as Iterable<{ event_json: string }>;
+    const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=? ORDER BY year, sequence").iterate(runId, worldKey, throughYear) as Iterable<{ event_json: string | Uint8Array }>;
     let eventHistoryHash = V5_EMPTY_EVENT_HISTORY_HASH;
     let eventCount = 0;
     eventHistoryHash = extendV5EventHistoryHashFromCanonicalJson(eventHistoryHash, (function* (): Iterable<string> {
-      for (const row of rows) { eventCount += 1; yield row.event_json; }
+      for (const row of rows) { eventCount += 1; yield canonicalV5CausalEventJson(row.event_json); }
     })());
     return { eventHistoryHash, eventCount };
   }
 
   summarizeV5CausalEventHistoryRange(runId: string, worldKey: string, afterYear: number, throughYear = Number.MAX_SAFE_INTEGER): { eventHistoryHash: string; eventCount: number } {
     const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year>? AND year<=? ORDER BY year, sequence")
-      .iterate(runId, worldKey, afterYear, throughYear) as Iterable<{ event_json: string }>;
+      .iterate(runId, worldKey, afterYear, throughYear) as Iterable<{ event_json: string | Uint8Array }>;
     let eventHistoryHash = V5_EMPTY_EVENT_HISTORY_HASH;
     let eventCount = 0;
     eventHistoryHash = extendV5EventHistoryHashFromCanonicalJson(eventHistoryHash, (function* (): Iterable<string> {
-      for (const row of rows) { eventCount += 1; yield row.event_json; }
+      for (const row of rows) { eventCount += 1; yield canonicalV5CausalEventJson(row.event_json); }
     })());
     return { eventHistoryHash, eventCount };
   }
@@ -612,13 +647,24 @@ export class SimulatorStore {
     return (this.database.prepare("SELECT COUNT(*) AS count FROM v5_causal_event WHERE run_id=?").get(runId) as { count: number }).count;
   }
 
-  saveV5Checkpoint(runId: string, state: WorldStateV5, eventHistoryHash: string): { checkpointId: string; stateHash: string; eventHistoryHash: string } {
+  v5CausalEventCount(runId: string, worldKey: string, throughYear = Number.MAX_SAFE_INTEGER): number {
+    return (this.database.prepare("SELECT COUNT(*) AS count FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=?").get(runId, worldKey, throughYear) as { count: number }).count;
+  }
+
+  saveV5Checkpoint(runId: string, state: WorldStateV5, eventHistoryHash: string, onPerformanceTiming?: V5PerformanceTimingObserver, compressionLevel: 1 | 3 | 6 | 9 = 3): { checkpointId: string; stateHash: string; eventHistoryHash: string } {
     if (!/^[0-9a-f]{64}$/.test(eventHistoryHash)) throw new Error(`Invalid V5 event-history hash ${eventHistoryHash}`);
-    const stateHash = v5CheckpointHash(state); const checkpointId = `V5_CHECKPOINT_${runId}_${state.worldKey}_${state.year}_${stateHash.slice(0, 16)}`;
-    const stateGzip = gzipSync(canonicalJson(state), { level: 9 });
+    let startedAt = performance.now();
+    const canonicalState = Buffer.from(canonicalJson(state), "utf8");
+    onPerformanceTiming?.({ scope: "PERSISTENCE", worldKey: state.worldKey, year: state.year, phase: "CHECKPOINT_CANONICAL_SERIALIZATION", milliseconds: performance.now() - startedAt, bytes: canonicalState.byteLength });
+    const stateHash = v5CheckpointHash(state, canonicalState); const checkpointId = `V5_CHECKPOINT_${runId}_${state.worldKey}_${state.year}_${stateHash.slice(0, 16)}`;
+    startedAt = performance.now();
+    const stateGzip = gzipSync(canonicalState, { level: compressionLevel });
+    onPerformanceTiming?.({ scope: "PERSISTENCE", worldKey: state.worldKey, year: state.year, phase: `CHECKPOINT_COMPRESSION_GZIP_${compressionLevel}`, milliseconds: performance.now() - startedAt, bytes: stateGzip.byteLength });
+    startedAt = performance.now();
     this.database.prepare(`INSERT INTO v5_checkpoint(checkpoint_id, run_id, world_key, year, state_hash, event_history_hash, state_gzip) VALUES (?, ?, ?, ?, ?, ?, ?)
       ON CONFLICT(run_id, world_key, year) DO UPDATE SET checkpoint_id=excluded.checkpoint_id, state_hash=excluded.state_hash, event_history_hash=excluded.event_history_hash, state_gzip=excluded.state_gzip`)
       .run(checkpointId, runId, state.worldKey, state.year, stateHash, eventHistoryHash, stateGzip);
+    onPerformanceTiming?.({ scope: "PERSISTENCE", worldKey: state.worldKey, year: state.year, phase: "CHECKPOINT_SQLITE_WRITE", milliseconds: performance.now() - startedAt, bytes: stateGzip.byteLength, rows: 1 });
     return { checkpointId, stateHash, eventHistoryHash };
   }
 
@@ -654,7 +700,8 @@ export class SimulatorStore {
     if (requests.length === 0) return;
     const insert = this.database.prepare(`INSERT INTO v5_naming_request(run_id, request_id, request_json) VALUES (?, ?, ?)
       ON CONFLICT(run_id, request_id) DO UPDATE SET request_json=excluded.request_json`);
-    this.database.exec("BEGIN IMMEDIATE");
+    const ownsTransaction = !this.v5AtomicWriteActive;
+    if (ownsTransaction) this.database.exec("BEGIN IMMEDIATE");
     try {
       for (const request of [...requests].sort((a, b) => a.requestId.localeCompare(b.requestId))) {
         insert.run(runId, request.requestId, canonicalJson(request));
@@ -673,9 +720,9 @@ export class SimulatorStore {
             .run(entry.ledgerEntryId, entry.runId, entry.worldKey, entry.entityType, entry.entityId, entry.label, entry.source, entry.sourceRequestId, entry.sourceAuthorityRef, entry.sourceBatchId, entry.sourceResponseAttemptId, entry.nameEffectiveFromYear, entry.acceptanceYear, entry.reusedFromEntityId, entry.reusedFromLedgerEntryId, entry.namingComparisonGroupId, entry.comparisonAuthorityRef, canonicalJson(entry));
         }
       }
-      this.database.exec("COMMIT");
+      if (ownsTransaction) this.database.exec("COMMIT");
     }
-    catch (error) { this.database.exec("ROLLBACK"); throw error; }
+    catch (error) { if (ownsTransaction) this.database.exec("ROLLBACK"); throw error; }
   }
 
   listV5NamingRequests(runId: string): NamingRequestV5[] {
@@ -848,7 +895,8 @@ export class SimulatorStore {
     const load = this.database.prepare("SELECT payload_json FROM v5_diagnostic_summary WHERE run_id=? AND world_key=? AND domain=?");
     const upsert = this.database.prepare(`INSERT INTO v5_diagnostic_summary(run_id,world_key,domain,through_year,payload_json,payload_bytes) VALUES (?,?,?,?,?,?)
       ON CONFLICT(run_id,world_key,domain) DO UPDATE SET through_year=excluded.through_year,payload_json=excluded.payload_json,payload_bytes=excluded.payload_bytes`);
-    this.database.exec("BEGIN IMMEDIATE");
+    const ownsTransaction = !this.v5AtomicWriteActive;
+    if (ownsTransaction) this.database.exec("BEGIN IMMEDIATE");
     try {
       for (const observation of observations) {
         const row = load.get(runId, observation.worldKey, observation.domain) as { payload_json: string } | undefined;
@@ -856,8 +904,8 @@ export class SimulatorStore {
         const payload = canonicalJson(merged);
         upsert.run(runId, merged.worldKey, merged.domain, merged.year, payload, Buffer.byteLength(payload));
       }
-      this.database.exec("COMMIT");
-    } catch (error) { this.database.exec("ROLLBACK"); throw error; }
+      if (ownsTransaction) this.database.exec("COMMIT");
+    } catch (error) { if (ownsTransaction) this.database.exec("ROLLBACK"); throw error; }
   }
 
   listV5DiagnosticSummaries(runId: string): BoundedDiagnosticObservationV5[] {
@@ -868,11 +916,12 @@ export class SimulatorStore {
     if (traces.length === 0) return;
     const upsert = this.database.prepare(`INSERT INTO v5_divergence_trace(run_id,comparison_id,category,trace_json,payload_bytes) VALUES (?,?,?,?,?)
       ON CONFLICT(run_id,comparison_id) DO UPDATE SET category=excluded.category,trace_json=excluded.trace_json,payload_bytes=excluded.payload_bytes`);
-    this.database.exec("BEGIN IMMEDIATE");
+    const ownsTransaction = !this.v5AtomicWriteActive;
+    if (ownsTransaction) this.database.exec("BEGIN IMMEDIATE");
     try {
       for (const trace of traces) { const payload = canonicalJson(trace); upsert.run(runId, trace.comparisonId, trace.category, payload, Buffer.byteLength(payload)); }
-      this.database.exec("COMMIT");
-    } catch (error) { this.database.exec("ROLLBACK"); throw error; }
+      if (ownsTransaction) this.database.exec("COMMIT");
+    } catch (error) { if (ownsTransaction) this.database.exec("ROLLBACK"); throw error; }
   }
 
   listV5DivergenceTraces(runId: string): DivergenceTraceV5[] {

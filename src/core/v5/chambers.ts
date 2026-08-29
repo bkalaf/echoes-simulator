@@ -1,6 +1,6 @@
 import type { CanonicalDataV5, CausalOwnerInputsV1, MechanicsVariablesV1 } from "./config.js";
 import { V5_CAUSAL_DERIVATION_VERSION, V5_MECHANICS_VERSION } from "./config.js";
-import { settlementPopulation } from "./derivations.js";
+import { buildEphemeralWorldIndexesV5 } from "./indexes.js";
 import { chamberSelectionAuthorityForOffice, currentOfficeTerm, selectHolderForAuthorizedOfficeVacancy } from "./politics.js";
 import type { CausalEventV5, InstitutionV5, NamingRequestV5, OfficeV5, SelectionRuleV5, WorldStateV5 } from "./types.js";
 
@@ -35,6 +35,7 @@ export interface ChamberReconciliationResultV5 { state: WorldStateV5; events: Ca
 export function reconcileChamberAuthorityV5(state: WorldStateV5, canonical: CanonicalDataV5): ChamberReconciliationResultV5 {
   let working = state;
   const events: CausalEventV5[] = [];
+  const annualIndexes = buildEphemeralWorldIndexesV5(state, canonical, { includePopulationSlices: false });
   for (const politicalState of [...working.states].sort((left, right) => left.stateId.localeCompare(right.stateId))) {
     const stateId = politicalState.stateId;
     if (working.year < 90) {
@@ -44,7 +45,21 @@ export function reconcileChamberAuthorityV5(state: WorldStateV5, canonical: Cano
         working = { ...working, institutions: [...working.institutions, institution] };
         events.push(causalEvent(working, `EVT_${working.worldKey}_${working.year}_CONCLAVE_PRE90_CREATED_${stateId}`, "ConclaveInstitutionCreated", "INSTITUTION", institutionId, { stateId, structure: "ONE_CITY_SEAT_PER_SETTLEMENT" }));
       }
-      const settlements = working.settlements.filter((settlement) => settlement.stateId === stateId).sort((left, right) => left.settlementId.localeCompare(right.settlementId));
+      const settlements = annualIndexes.settlementsByState.get(stateId) ?? [];
+      const desiredSettlementIds = new Set(settlements.map((settlement) => settlement.settlementId));
+      const chamberOfficeIds = new Set(working.offices.filter((office) => office.institutionId === institutionId).map((office) => office.officeId));
+      const retiringOfficeIds = working.offices.filter((office) => chamberOfficeIds.has(office.officeId) && office.jurisdictionSettlementId !== null && !desiredSettlementIds.has(office.jurisdictionSettlementId) && office.mandatory).map((office) => office.officeId).sort();
+      const reactivatingOfficeIds = working.offices.filter((office) => chamberOfficeIds.has(office.officeId) && office.jurisdictionSettlementId !== null && desiredSettlementIds.has(office.jurisdictionSettlementId) && !office.mandatory).map((office) => office.officeId).sort();
+      if (retiringOfficeIds.length || reactivatingOfficeIds.length) {
+        const retiring = new Set(retiringOfficeIds); const reactivating = new Set(reactivatingOfficeIds);
+        working = {
+          ...working,
+          offices: working.offices.map((office) => retiring.has(office.officeId) ? { ...office, mandatory: false } : reactivating.has(office.officeId) ? { ...office, mandatory: true } : office),
+          officeTerms: working.officeTerms.map((term) => retiring.has(term.officeId) && term.startYear <= working.year && (term.endYear === null || term.endYear > working.year) ? { ...term, endYear: working.year, terminationReason: "INSTITUTION_REFORM" } : term),
+        };
+        for (const officeId of retiringOfficeIds) events.push(causalEvent(working, `EVT_${working.worldKey}_${working.year}_CONCLAVE_SEAT_RETIRED_${officeId}`, "ConclaveSeatRetired", "OFFICE", officeId, { stateId, reason: "LEGAL_STATE_MEMBERSHIP_CHANGED" }));
+        for (const officeId of reactivatingOfficeIds) events.push(causalEvent(working, `EVT_${working.worldKey}_${working.year}_CONCLAVE_SEAT_REACTIVATED_${officeId}`, "ConclaveSeatReactivated", "OFFICE", officeId, { stateId, reason: "LEGAL_STATE_MEMBERSHIP_CHANGED" }));
+      }
       const additions: OfficeV5[] = [];
       for (const settlement of settlements) {
         const officeId = `CONCLAVE_${working.worldKey}_${stateId}_${settlement.settlementId}`;
@@ -74,25 +89,25 @@ export function reconcileChamberAuthorityV5(state: WorldStateV5, canonical: Cano
     if (!working.institutions.some((institution) => institution.institutionId === institutionId)) {
       working = { ...working, institutions: [...working.institutions, { institutionId, stateId, institutionType: "CONCLAVE_POST90", foundedYear: working.year, dissolvedYear: null }] };
     }
-    const ranked = working.settlements.filter((settlement) => settlement.stateId === stateId).sort((left, right) => {
-      const leftPopulation = settlementPopulation(working, left.settlementId); const rightPopulation = settlementPopulation(working, right.settlementId);
+    const ranked = [...(annualIndexes.settlementsByState.get(stateId) ?? [])].sort((left, right) => {
+      const leftPopulation = annualIndexes.populationBySettlement.get(left.settlementId) ?? 0n; const rightPopulation = annualIndexes.populationBySettlement.get(right.settlementId) ?? 0n;
       return leftPopulation === rightPopulation ? left.siteId.localeCompare(right.siteId) : leftPopulation > rightPopulation ? -1 : 1;
     });
     const definitions = [
-      { officeId: `CONCLAVE_${working.worldKey}_${stateId}_CITY_1`, titleKey: "CONCLAVE_CITY_1", jurisdictionSettlementId: ranked[0]?.settlementId ?? null },
-      { officeId: `CONCLAVE_${working.worldKey}_${stateId}_CITY_2`, titleKey: "CONCLAVE_CITY_2", jurisdictionSettlementId: ranked[1]?.settlementId ?? null },
-      { officeId: `CONCLAVE_${working.worldKey}_${stateId}_UNINCORPORATED`, titleKey: "CONCLAVE_UNINCORPORATED", jurisdictionSettlementId: null },
+      { officeId: `CONCLAVE_${working.worldKey}_${stateId}_CITY_1`, titleKey: "CONCLAVE_CITY_1", jurisdictionSettlementId: ranked[0]?.settlementId ?? null, mandatory: ranked[0] !== undefined },
+      { officeId: `CONCLAVE_${working.worldKey}_${stateId}_CITY_2`, titleKey: "CONCLAVE_CITY_2", jurisdictionSettlementId: ranked[1]?.settlementId ?? null, mandatory: ranked[1] !== undefined },
+      { officeId: `CONCLAVE_${working.worldKey}_${stateId}_UNINCORPORATED`, titleKey: "CONCLAVE_UNINCORPORATED", jurisdictionSettlementId: null, mandatory: ranked.length > 0 },
     ];
     const additions: OfficeV5[] = [];
-    const jurisdictionChanges: { officeId: string; before: string | null; after: string | null }[] = [];
+    const jurisdictionChanges: { officeId: string; before: string | null; after: string | null; mandatoryBefore: boolean; mandatoryAfter: boolean }[] = [];
     for (const definition of definitions) {
       const existing = working.offices.find((office) => office.officeId === definition.officeId);
-      if (!existing) additions.push(createChamberOffice(working, canonical, institutionId, definition.officeId, definition.titleKey, definition.jurisdictionSettlementId));
-      else if (existing.jurisdictionSettlementId !== definition.jurisdictionSettlementId) jurisdictionChanges.push({ officeId: existing.officeId, before: existing.jurisdictionSettlementId, after: definition.jurisdictionSettlementId });
+      if (!existing) additions.push({ ...createChamberOffice(working, canonical, institutionId, definition.officeId, definition.titleKey, definition.jurisdictionSettlementId), mandatory: definition.mandatory });
+      else if (existing.jurisdictionSettlementId !== definition.jurisdictionSettlementId || existing.mandatory !== definition.mandatory) jurisdictionChanges.push({ officeId: existing.officeId, before: existing.jurisdictionSettlementId, after: definition.jurisdictionSettlementId, mandatoryBefore: existing.mandatory, mandatoryAfter: definition.mandatory });
     }
     if (additions.length || jurisdictionChanges.length) {
-      const changes = new Map(jurisdictionChanges.map((change) => [change.officeId, change.after]));
-      working = { ...working, offices: [...working.offices.map((office) => changes.has(office.officeId) ? { ...office, jurisdictionSettlementId: changes.get(office.officeId)! } : office), ...additions] };
+      const changes = new Map(jurisdictionChanges.map((change) => [change.officeId, change])); const retired = new Set(jurisdictionChanges.filter((change) => change.mandatoryBefore && !change.mandatoryAfter).map((change) => change.officeId));
+      working = { ...working, offices: [...working.offices.map((office) => changes.has(office.officeId) ? { ...office, jurisdictionSettlementId: changes.get(office.officeId)!.after, mandatory: changes.get(office.officeId)!.mandatoryAfter } : office), ...additions], officeTerms: working.officeTerms.map((term) => retired.has(term.officeId) && term.startYear <= working.year && (term.endYear === null || term.endYear > working.year) ? { ...term, endYear: working.year, terminationReason: "INSTITUTION_REFORM" } : term) };
       events.push(causalEvent(working, `EVT_${working.worldKey}_${working.year}_CONCLAVE_POST90_AUTHORITY_${stateId}`, "ConclaveAuthorityReconciled", "INSTITUTION", institutionId, { stateId, addedOfficeIds: additions.map((office) => office.officeId), jurisdictionChanges }));
     }
   }

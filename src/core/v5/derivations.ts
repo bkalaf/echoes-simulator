@@ -97,12 +97,12 @@ export interface SupportedEconomicFormResult {
   allocationTotals: Record<string, string>;
 }
 
-export function supportedEconomicForm(state: WorldStateV5, settlementId: string, canonical: CanonicalDataV5): SupportedEconomicFormResult {
-  const breedById = new Map(canonical.breeds.map((breed) => [breed.breedId, breed]));
+export function supportedEconomicForm(state: WorldStateV5, settlementId: string, canonical: CanonicalDataV5, suppliedCells?: readonly CohortCell[], suppliedBreedById?: ReadonlyMap<string, CanonicalDataV5["breeds"][number]>): SupportedEconomicFormResult {
+  const breedById = suppliedBreedById ?? new Map(canonical.breeds.map((breed) => [breed.breedId, breed]));
   const ownership = new Map<string, bigint>();
   const allocation = new Map<string, bigint>();
   let population = 0n;
-  for (const cell of state.cohorts.filter((candidate) => candidate.settlementId === settlementId)) {
+  for (const cell of suppliedCells ?? state.cohorts.filter((candidate) => candidate.settlementId === settlementId)) {
     const count = cellPopulation(cell);
     if (count === 0n) continue;
     const breed = breedById.get(cell.breedId);
@@ -180,14 +180,14 @@ export function derivedInstitutionControlVector(state: WorldStateV5, stateId: st
   }));
 }
 
-export function institutionalAccessScore(state: WorldStateV5, settlement: SettlementV5, populationVector: FactionVector, canonical: CanonicalDataV5, controlVector = derivedInstitutionControlVector(state, settlement.stateId, canonical)): Score1000 {
+export function institutionalAccessScore(state: WorldStateV5, settlement: SettlementV5, populationVector: FactionVector, canonical: CanonicalDataV5, controlVector = derivedInstitutionControlVector(state, settlement.stateId, canonical), suppliedOwnershipConcentration?: Score1000): Score1000 {
   const politicalState = state.states.find((row) => row.stateId === settlement.stateId);
   const government = canonical.governments.find((row) => row.governmentFormId === politicalState?.actualGovernment);
   if (!government) throw new Error(`Settlement ${settlement.settlementId} has no actual-government prototype`);
   return weightedMean(
     [government.franchiseBreadth, 4000],
     [factionCompatibility(populationVector, controlVector), 4000],
-    [1000 - settlementOwnershipConcentration(state, settlement.settlementId), 2000],
+    [1000 - (suppliedOwnershipConcentration ?? settlementOwnershipConcentration(state, settlement.settlementId)), 2000],
   );
 }
 
@@ -296,6 +296,16 @@ export function deriveMetrics(state: WorldStateV5, canonical: CanonicalDataV5, v
   const hopsByRegion = new Map<string, Map<string, number>>();
   const institutionIndexes = buildInstitutionControlIndexes(state, canonical);
   const controlVectors = new Map(state.states.map((row) => [row.stateId, derivedInstitutionControlVector(state, row.stateId, canonical, institutionIndexes)]));
+  const organizationSettlement = new Map(state.organizations.filter((organization) => organization.status !== "DISSOLVED").map((organization) => [organization.organizationId, organization.homeSettlementId]));
+  const ownershipHhiBySettlement = new Map<string, bigint>();
+  for (const stake of state.ownershipStakes) if (stake.endYear === null && stake.controllerType !== "DIFFUSE") { const settlementId = organizationSettlement.get(stake.organizationId); if (settlementId) ownershipHhiBySettlement.set(settlementId, (ownershipHhiBySettlement.get(settlementId) ?? 0n) + BigInt(stake.ownershipShareBps) * BigInt(stake.ownershipShareBps)); }
+  const ownershipConcentrationBySettlement = new Map(state.settlements.map((settlement) => [settlement.settlementId, Math.min(1000, Number(divideRoundedAway(ownershipHhiBySettlement.get(settlement.settlementId) ?? 0n, 100_000n)))]));
+  const recentMigrationBySettlement = new Map<string, number>(); const disruptionBySettlement = new Map<string, number>();
+  for (const condition of state.timedConditions) {
+    if (condition.targetType !== "SETTLEMENT" || condition.startYear > state.year || condition.endYear !== null && condition.endYear < state.year) continue;
+    if (condition.type === "RECENT_MIGRATION") recentMigrationBySettlement.set(condition.targetId, Math.max(recentMigrationBySettlement.get(condition.targetId) ?? 0, condition.magnitude));
+    if (["REPRESSION", "SCANDAL", "TRAUMA", "RESTRICTION"].includes(condition.type)) disruptionBySettlement.set(condition.targetId, Math.max(disruptionBySettlement.get(condition.targetId) ?? 0, condition.magnitude));
+  }
   for (const settlement of state.settlements) {
     const cells = cohortsBySettlement.get(settlement.settlementId) ?? [];
     const vector = populationFactionVector(cells, canonical, breedById);
@@ -315,15 +325,17 @@ export function deriveMetrics(state: WorldStateV5, canonical: CanonicalDataV5, v
       reachableWeightedPopulation += (populationBySettlement.get(destination.settlementId) ?? 0n) * BigInt(variables.migrationMaximumHops + 1 - distance);
     }
     trade[settlement.settlementId] = ratioScore(reachableWeightedPopulation, denominator, 0);
-    institutionalAccess[settlement.settlementId] = institutionalAccessScore(state, settlement, vector, canonical, controlVectors.get(settlement.stateId)!);
+    institutionalAccess[settlement.settlementId] = institutionalAccessScore(state, settlement, vector, canonical, controlVectors.get(settlement.stateId)!, ownershipConcentrationBySettlement.get(settlement.settlementId) ?? 0);
     localOpportunity[settlement.settlementId] = weightedMean([industryMean(settlement), 4000], [settlementProsperities[settlement.settlementId]!, 3500], [institutionalAccess[settlement.settlementId]!, 1500], [1000 - settlement.unrest, 1000]);
-    const recent = activeConditionMagnitude(state, "SETTLEMENT", settlement.settlementId, state.year, ["RECENT_MIGRATION"]);
-    const disrupted = activeConditionMagnitude(state, "SETTLEMENT", settlement.settlementId, state.year, ["REPRESSION", "SCANDAL", "TRAUMA", "RESTRICTION"]);
+    const recent = recentMigrationBySettlement.get(settlement.settlementId) ?? 0;
+    const disrupted = disruptionBySettlement.get(settlement.settlementId) ?? 0;
     disruptionPressure[settlement.settlementId] = Math.max(recent, disrupted);
-    if (originPopulation > 0n) supportedEconomicForms[settlement.settlementId] = supportedEconomicForm(state, settlement.settlementId, canonical);
+    if (originPopulation > 0n) supportedEconomicForms[settlement.settlementId] = supportedEconomicForm(state, settlement.settlementId, canonical, cells, breedById);
   }
+  const settlementsByState = new Map<string, SettlementV5[]>();
+  for (const settlement of state.settlements) { const rows = settlementsByState.get(settlement.stateId) ?? []; rows.push(settlement); settlementsByState.set(settlement.stateId, rows); }
   for (const politicalState of state.states) {
-    const members = state.settlements.filter((settlement) => settlement.stateId === politicalState.stateId);
+    const members = settlementsByState.get(politicalState.stateId) ?? [];
     const stateCells = members.flatMap((settlement) => cohortsBySettlement.get(settlement.settlementId) ?? []);
     statePopulationFactionVectors[politicalState.stateId] = populationFactionVector(stateCells, canonical, breedById);
     const population = members.reduce((sum, settlement) => sum + (populationBySettlement.get(settlement.settlementId) ?? 0n), 0n);

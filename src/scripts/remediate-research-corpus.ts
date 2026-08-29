@@ -620,18 +620,18 @@ for (const [ordinal, recordId] of [[4392, "BRD_DOMESTICATED_GOOSE_AFRICAN_GOOSE"
 
 // Replace the Korean-dragon mismatch at both Taxonomy and Species scope with exact Hawaiian Moʻo research.
 const mooSources = [sourceRow("SRC_MOO_UHPRESS", "Ka Poʻe Moʻo Akua: Hawaiian Reptilian Water Deities", "Marie Alohalani Brown", "University of Hawaiʻi Press", "https://uhpress.hawaii.edu/title/ka-poe-moo-akua-hawaiian-reptilian-water-deities/")];
-const mooEvidence = [evidenceRow("EV_MOO_01", "SRC_MOO_UHPRESS", "text,geographicOrigin,presentation,traits,terrain", "EXACT_HAWAIIAN_MOO", "Moʻo are uniquely Hawaiian reptilian water deities associated primarily with fresh water; they vary greatly in size and form, are predominantly female, and can take alternate forms.", "Use Hawaiian Moʻo evidence only; exclude Korean dragon and imugi material.")];
+const mooEvidence = [evidenceRow("EV_MOO_01", "SRC_MOO_UHPRESS", "text,geographicOrigin,presentation,traits,terrain,foodBroad,foodSpecific", "EXACT_HAWAIIAN_MOO", "Moʻo are uniquely Hawaiian reptilian water deities that embody the life-giving and death-dealing properties of water and are associated primarily with fresh water; they vary greatly in size and form, are predominantly female, and can take alternate forms.", "Use Hawaiian Moʻo evidence only; exclude Korean dragon and imugi material. Normalize the exact water-deity association to ELEMENTAL/WATER as bounded simulator functional sustenance, not as a claim that Hawaiian tradition describes literal feeding.")];
 const mooTraits = [
   { text: "Moʻo are Hawaiian reptilian water deities associated primarily with fresh water and with both life-giving and dangerous aspects of water.", historicalFact: "University of Hawaiʻi Press describes moʻo as uniquely Hawaiian deities living mainly in or near fresh water.", worldbuildingInterpretation: "Anchor the record to Hawaiian freshwater traditions and exclude Korean-dragon motifs.", evidenceRefs: ["EV_MOO_01"] },
   { text: "Moʻo vary dramatically in scale and form, are described as predominantly female, and may assume human appearance.", historicalFact: "The source describes sizes from gecko to mountain scale, alternate forms, and predominantly female moʻo.", worldbuildingInterpretation: "Allow varied reptilian and human presentation without forcing one standardized anatomy.", evidenceRefs: ["EV_MOO_01"] },
 ];
-const mooText = "Moʻo is the owner-canonical Hawaiian MYTHOS identity normalized under the synthetic key Draco moo. Exact Hawaiian research describes moʻo as reptilian water deities associated primarily with fresh water rather than as Korean dragons or imugi.\n\nMoʻo embody life-giving and death-dealing aspects of water, vary enormously in size and form, are predominantly female, and may take alternate or human forms. Diet and universal behavior are not established by the bounded source, so they remain empty or explicitly neutral rather than being inferred from a different dragon tradition.";
-const mooTax = baseRecord({ recordType: "TAXONOMY", recordId: "TAX_SPECIES_DRACO_MOO", name: "Draco moo", text: mooText, geographicOrigin: "Hawaiian Islands", appearance: "A highly variable reptilian freshwater deity that may range from tiny to immense and may assume alternate or human form.", traits: mooTraits, terrainBroad: ["FRESHWATER", "WETLAND"], sources: mooSources, evidence: mooEvidence, defaultReason: "The exact Hawaiian source does not establish one universal behavior vector.", canonicalConflicts: [{ code: "SYNTHETIC_SPECIES_NORMALIZATION", message: "Draco moo is an owner-canonical synthetic Taxonomy key for Hawaiian moʻo, not a biological binomial.", resolution: "Preserve the key and keep exact Hawaiian tradition evidence explicit." }] });
+const mooText = "Moʻo is the owner-canonical Hawaiian MYTHOS identity normalized under the synthetic key Draco moo. Exact Hawaiian research describes moʻo as reptilian water deities associated primarily with fresh water rather than as Korean dragons or imugi.\n\nMoʻo embody life-giving and death-dealing aspects of water, vary enormously in size and form, are predominantly female, and may take alternate or human forms. The simulator maps that exact elemental association to ELEMENTAL/WATER functional sustenance; this is an explicit worldbuilding normalization, not a claim that Hawaiian tradition describes literal feeding behavior.";
+const mooTax = baseRecord({ recordType: "TAXONOMY", recordId: "TAX_SPECIES_DRACO_MOO", name: "Draco moo", text: mooText, geographicOrigin: "Hawaiian Islands", appearance: "A highly variable reptilian freshwater deity that may range from tiny to immense and may assume alternate or human form.", traits: mooTraits, terrainBroad: ["FRESHWATER", "WETLAND"], foodBroad: ["ELEMENTAL"], foodSpecific: ["WATER"], sources: mooSources, evidence: mooEvidence, defaultReason: "The exact Hawaiian source does not establish one universal behavior vector.", canonicalConflicts: [{ code: "SYNTHETIC_SPECIES_NORMALIZATION", message: "Draco moo is an owner-canonical synthetic Taxonomy key for Hawaiian moʻo, not a biological binomial.", resolution: "Preserve the key and keep exact Hawaiian tradition evidence explicit." }] });
 Object.assign(mooTax, { taxonomyType: "SPECIES", parentInheritanceDecisions: [{ parentRecordId: "TAX_GENUS_DRACO", field: "taxonomyParent", decision: "INHERIT", rationale: "Preserve the owner-canonical MYTHOS parent chain without importing sibling dragon traditions." }] });
 writeRecordBundle(1844, "TAX_SPECIES_DRACO_MOO", mooTax, passReview("TAXONOMY", "TAX_SPECIES_DRACO_MOO", [{ severity: "WARNING", code: "SYNTHETIC_SPECIES_NORMALIZATION", field: "recordId", message: "The owner-canonical key is synthetic and the semantic evidence is specifically Hawaiian.", requiredFix: "None; preserve this boundary." }]));
 {
   const oldSpecies = readRecord(3346, "SPC_DRACO_MOO");
-  const species = baseRecord({ recordType: "SPECIES", recordId: "SPC_DRACO_MOO", name: "Moʻo", text: mooText, geographicOrigin: "Hawaiian Islands", appearance: "A highly variable reptilian freshwater deity that may range from tiny to immense and may assume alternate or human form.", traits: mooTraits, terrainBroad: ["FRESHWATER", "WETLAND"], sources: mooSources, evidence: mooEvidence, defaultReason: "The exact Hawaiian source does not establish one universal behavior vector.", canonicalConflicts: [{ code: "SYNTHETIC_SPECIES_NORMALIZATION", message: "Draco moo is an owner-canonical synthetic Species key for Hawaiian moʻo.", resolution: "Preserve the key and exclude Korean-dragon semantics." }] });
+  const species = baseRecord({ recordType: "SPECIES", recordId: "SPC_DRACO_MOO", name: "Moʻo", text: mooText, geographicOrigin: "Hawaiian Islands", appearance: "A highly variable reptilian freshwater deity that may range from tiny to immense and may assume alternate or human form.", traits: mooTraits, terrainBroad: ["FRESHWATER", "WETLAND"], foodBroad: ["ELEMENTAL"], foodSpecific: ["WATER"], sources: mooSources, evidence: mooEvidence, defaultReason: "The exact Hawaiian source does not establish one universal behavior vector.", canonicalConflicts: [{ code: "SYNTHETIC_SPECIES_NORMALIZATION", message: "Draco moo is an owner-canonical synthetic Species key for Hawaiian moʻo.", resolution: "Preserve the key and exclude Korean-dragon semantics." }] });
   Object.assign(species, { scientificName: oldSpecies.scientificName, speciesKind: oldSpecies.speciesKind, taxonomyDependencyIds: oldSpecies.taxonomyDependencyIds, originMode: oldSpecies.originMode ?? null, reproductiveMethod: oldSpecies.reproductiveMethod ?? null, juvenileStages: oldSpecies.juvenileStages ?? null, nurseryMode: oldSpecies.nurseryMode ?? null, longevityClass: oldSpecies.longevityClass ?? null, mortalityMode: oldSpecies.mortalityMode ?? null, soulDisposition: oldSpecies.soulDisposition ?? null, continuityGroup: oldSpecies.continuityGroup ?? null, continuityPropagationMode: oldSpecies.continuityPropagationMode ?? null, parentInheritanceDecisions: [{ parentRecordId: "TAX_SPECIES_DRACO_MOO", field: "semanticFields", decision: "NARROW", rationale: "Use the corrected exact Hawaiian terminal Taxonomy record and do not inherit Korean-dragon material." }] });
   writeRecordBundle(3346, "SPC_DRACO_MOO", species, passReview("SPECIES", "SPC_DRACO_MOO", [{ severity: "WARNING", code: "SYNTHETIC_SPECIES_NORMALIZATION", field: "scientificName", message: "Draco moo remains an owner-canonical synthetic key rather than a biological binomial.", requiredFix: "None; preserve the exact Hawaiian semantic boundary." }]));
 }
@@ -674,6 +674,13 @@ interface HandfishCorpusInput {
   traits: Json[];
   terrainBroad: string[];
   terrainSpecific: string[];
+  foodBroad: string[];
+  foodSpecific: string[];
+  dietSourceTitle: string;
+  dietSourceOrganization: string;
+  dietSourcePublisher: string;
+  dietSourceUrl: string;
+  dietSourceFact: string;
 }
 
 const handfishCorpus: HandfishCorpusInput[] = [
@@ -685,6 +692,9 @@ const handfishCorpus: HandfishCorpusInput[] = [
     appearance: "A very small red-to-orange benthic fish with mottling and enlarged pectoral fins shaped like hands.",
     traits: [{ text: "Red handfish use modified hand-like pectoral fins to walk across the seabed.", historicalFact: "The Australian Government action plan documents the walking fins and absence of a swim bladder.", worldbuildingInterpretation: "Use deliberate seabed walking as the signature locomotion without turning the fins into literal hands.", evidenceRefs: ["EV_6020_EXACT"] }],
     terrainBroad: ["OCEAN", "COASTAL"], terrainSpecific: ["SEAGRASS_BED", "KELP_FOREST", "CORAL_REEF"],
+    foodBroad: ["ANIMAL"], foodSpecific: ["SHELLFISH_CRUSTACEANS", "WORMS_LARVAE"],
+    dietSourceTitle: "Red Handfish", dietSourceOrganization: "Tasmanian Government Department of Natural Resources and Environment Tasmania", dietSourcePublisher: "Tasmanian Government", dietSourceUrl: "https://fishing.tas.gov.au/species/handfish-red",
+    dietSourceFact: "The Tasmanian Government states that Red handfish feed primarily on small crustaceans and worms.",
   },
   {
     breedOrdinal: 6025, breedId: "BRD_SPOTTED_HANDFISH", breedName: "Spotted handfish", speciesOrdinal: 6024, speciesId: "SPC_BRACHIONICHTHYS_HIRSUTUS", scientificName: "Brachionichthys hirsutus", genusTaxonomyId: "TAX_GENUS_BRACHIONICHTHYS", genusName: "Brachionichthys", genusOrdinal: 6022, speciesTaxonomyId: "TAX_SPECIES_BRACHIONICHTHYS_HIRSUTUS", speciesTaxonomyOrdinal: 6023,
@@ -694,6 +704,9 @@ const handfishCorpus: HandfishCorpusInput[] = [
     appearance: "A small pale benthic handfish patterned with numerous brown, orange, or dark spots and supported by hand-like pectoral fins.",
     traits: [{ text: "Spotted handfish walk along the seabed and fasten egg clusters to upright spawning structures.", historicalFact: "The Australian Government factsheet documents both walking locomotion and structure-attached egg masses.", worldbuildingInterpretation: "Combine deliberate benthic movement with strong dependence on local spawning structure.", evidenceRefs: ["EV_6024_EXACT"] }],
     terrainBroad: ["OCEAN", "COASTAL"], terrainSpecific: ["SEAGRASS_BED", "MUDFLAT", "CORAL_REEF"],
+    foodBroad: ["ANIMAL"], foodSpecific: ["SHELLFISH_CRUSTACEANS", "WORMS_LARVAE", "FISH"],
+    dietSourceTitle: "The Spotted Handfish 1999-2001 Recovery Plan", dietSourceOrganization: "Australian Government Department of the Environment and Heritage", dietSourcePublisher: "Australian Government", dietSourceUrl: "https://www.dcceew.gov.au/environment/biodiversity/threatened/recovery-plans/spotted-handfish-1999-2001-recovery-plan",
+    dietSourceFact: "The Australian recovery plan reports wild Spotted handfish preying on small shellfish, shrimps, polychaete worms, and amphipods, with adults also accepting small live fish in aquaria.",
   },
   {
     breedOrdinal: 6029, breedId: "BRD_ZIEBELLS_HANDFISH", breedName: "Ziebell's handfish", speciesOrdinal: 6028, speciesId: "SPC_BRACHIOPSILUS_ZIEBELLI", scientificName: "Brachiopsilus ziebelli", genusTaxonomyId: "TAX_GENUS_BRACHIOPSILUS", genusName: "Brachiopsilus", genusOrdinal: 6026, speciesTaxonomyId: "TAX_SPECIES_BRACHIOPSILUS_ZIEBELLI", speciesTaxonomyOrdinal: 6027,
@@ -703,6 +716,9 @@ const handfishCorpus: HandfishCorpusInput[] = [
     appearance: "A rounded, humped handfish with pink-white skin, purple-brown blotches, and often conspicuous yellow fins.",
     traits: [{ text: "Ziebell's handfish crawl on hand-like fins through structurally complex Tasmanian seabed habitat.", historicalFact: "The Australian recovery plan documents the Species and its rocky, sponge, algae, kelp-edge, wall, cave, and soft-bottom habitat.", worldbuildingInterpretation: "Use slow crawling and complex-habitat dependence without inventing a wider range.", evidenceRefs: ["EV_6028_EXACT"] }],
     terrainBroad: ["OCEAN", "COASTAL"], terrainSpecific: ["KELP_FOREST", "CAVE", "CORAL_REEF"],
+    foodBroad: ["ANIMAL"], foodSpecific: ["SHELLFISH_CRUSTACEANS", "WORMS_LARVAE"],
+    dietSourceTitle: "Listing Statement for Brachiopsilus ziebelli (Ziebell's handfish)", dietSourceOrganization: "Tasmanian Government Department of Natural Resources and Environment Tasmania", dietSourcePublisher: "Tasmanian Government", dietSourceUrl: "https://nre.tas.gov.au/Documents/Ziebells%20Handfish%20Listing%20Statement%202020.pdf",
+    dietSourceFact: "The Tasmanian listing statement says the unconfirmed Ziebell's handfish diet is expected to match other handfish and consist of small invertebrates such as crustaceans and worms.",
   },
 ];
 
@@ -733,8 +749,12 @@ for (const animal of handfishCorpus) {
   const exactEvidenceId = `EV_${animal.speciesOrdinal}_EXACT`;
   const exactSource = sourceRow(exactSourceId, animal.sourceTitle, animal.sourceOrganization, "Australian Government", animal.sourceUrl);
   const exactEvidence = evidenceRow(exactEvidenceId, exactSourceId, "identity,text,presentation,traits,terrain", "EXACT_SPECIES_SUBJECT", animal.sourceFact, "Use only the documented scientific identity, hand-like fin locomotion, and bounded habitat; do not infer unsupported cognition or literal grasping hands.");
+  const dietSourceId = `SRC_${animal.speciesOrdinal}_DIET`;
+  const dietEvidenceId = `EV_${animal.speciesOrdinal}_DIET`;
+  const dietSource = sourceRow(dietSourceId, animal.dietSourceTitle, animal.dietSourceOrganization, animal.dietSourcePublisher, animal.dietSourceUrl);
+  const dietEvidence = evidenceRow(dietEvidenceId, dietSourceId, "foodBroad,foodSpecific", "EXACT_OR_EXPLICITLY_BOUNDED_HANDFISH_DIET", animal.dietSourceFact, "Normalize crustaceans or shellfish to SHELLFISH_CRUSTACEANS, polychaete worms to WORMS_LARVAE, and documented small live fish to FISH; retain ANIMAL as the broad parent.");
   const exactTraits = animal.traits.map((row) => ({ ...row, evidenceRefs: [exactEvidenceId] }));
-  const species = baseRecord({ recordType: "SPECIES", recordId: animal.speciesId, name: animal.breedName, text: animal.text, appearance: animal.appearance, traits: exactTraits, terrainBroad: animal.terrainBroad, terrainSpecific: animal.terrainSpecific, sources: [exactSource], evidence: [exactEvidence], defaultReason: "The exact authority supports identity, locomotion, and habitat but not a full scored behavior vector." });
+  const species = baseRecord({ recordType: "SPECIES", recordId: animal.speciesId, name: animal.breedName, text: animal.text, appearance: animal.appearance, traits: exactTraits, terrainBroad: animal.terrainBroad, terrainSpecific: animal.terrainSpecific, foodBroad: animal.foodBroad, foodSpecific: animal.foodSpecific, sources: [exactSource, dietSource], evidence: [exactEvidence, dietEvidence], defaultReason: "The exact authority supports identity, locomotion, habitat, and bounded diet but not a full scored behavior vector." });
   Object.assign(species, { scientificName: animal.scientificName, speciesKind: "BEAST", taxonomyDependencyIds: ["TAX_KINGDOM_ANIMALIA", "TAX_PHYLUM_CHORDATA", "TAX_CLASS_TELEOSTEI", "TAX_ORDER_LOPHIIFORMES", "TAX_FAMILY_BRACHIONICHTHYIDAE", animal.genusTaxonomyId, animal.speciesTaxonomyId], originMode: null, reproductiveMethod: null, juvenileStages: null, nurseryMode: null, longevityClass: null, mortalityMode: null, soulDisposition: null, continuityGroup: null, continuityPropagationMode: null, parentInheritanceDecisions: [{ parentRecordId: animal.speciesTaxonomyId, field: "semanticFields", decision: "NARROW", rationale: "Use the exact terminal Taxonomy node for identity while keeping semantic claims tied to the reviewed Species authority." }] });
   writeRecordBundle(animal.speciesOrdinal, animal.speciesId, species, passReview("SPECIES", animal.speciesId, [{ severity: "WARNING", code: "CANONICAL_LIFECYCLE_FIELDS_NOT_PRESENT_IN_INPUT", field: "lifecycle", message: "The supplemental Species does not invent lifecycle enum values absent from owner authority.", requiredFix: "Owner review is required before lifecycle values are added." }]));
 
@@ -742,7 +762,11 @@ for (const animal of handfishCorpus) {
   const breedEvidenceId = `EV_${animal.breedOrdinal}_EXACT`;
   const breedSource = sourceRow(breedSourceId, animal.sourceTitle, animal.sourceOrganization, "Australian Government", animal.sourceUrl);
   const breedEvidence = evidenceRow(breedEvidenceId, breedSourceId, "identity,text,presentation,traits,terrain", "EXACT_BREED_COEXTENSIVE_WITH_SPECIES", animal.sourceFact, "This canonical Breed is coextensive with the exact biological Species and may inherit the independently reviewed Species semantics.");
-  const breed = baseRecord({ recordType: "BREED", recordId: animal.breedId, name: animal.breedName, text: animal.text, appearance: animal.appearance, traits: animal.traits.map((row) => ({ ...row, evidenceRefs: [breedEvidenceId] })), terrainBroad: animal.terrainBroad, terrainSpecific: animal.terrainSpecific, sources: [breedSource], evidence: [breedEvidence], defaultReason: "The exact authority supports identity, locomotion, and habitat but not a complete Breed behavior vector." });
+  const breedDietSourceId = `SRC_${animal.breedOrdinal}_DIET`;
+  const breedDietEvidenceId = `EV_${animal.breedOrdinal}_DIET`;
+  const breedDietSource = sourceRow(breedDietSourceId, animal.dietSourceTitle, animal.dietSourceOrganization, animal.dietSourcePublisher, animal.dietSourceUrl);
+  const breedDietEvidence = evidenceRow(breedDietEvidenceId, breedDietSourceId, "foodBroad,foodSpecific", "EXACT_OR_EXPLICITLY_BOUNDED_HANDFISH_DIET", animal.dietSourceFact, "Normalize crustaceans or shellfish to SHELLFISH_CRUSTACEANS, polychaete worms to WORMS_LARVAE, and documented small live fish to FISH; retain ANIMAL as the broad parent.");
+  const breed = baseRecord({ recordType: "BREED", recordId: animal.breedId, name: animal.breedName, text: animal.text, appearance: animal.appearance, traits: animal.traits.map((row) => ({ ...row, evidenceRefs: [breedEvidenceId] })), terrainBroad: animal.terrainBroad, terrainSpecific: animal.terrainSpecific, foodBroad: animal.foodBroad, foodSpecific: animal.foodSpecific, sources: [breedSource, breedDietSource], evidence: [breedEvidence, breedDietEvidence], defaultReason: "The exact authority supports identity, locomotion, habitat, and bounded diet but not a complete Breed behavior vector." });
   Object.assign(breed, { breedId: animal.breedId, speciesId: animal.speciesId, cultureId: null, parentBreedId: null, populationKind: "BEAST", groupId: "B04", personalityId: personalityByBreed.get(animal.breedId), dependencyRecordIds: [animal.speciesId, "B04"], parentInheritanceDecisions: [{ parentRecordId: animal.speciesId, field: "semanticFields", decision: "INHERIT", rationale: "The canonical Breed is coextensive with the exact reviewed biological Species." }, { parentRecordId: "B04", field: "semanticFields", decision: "NOT_APPLICABLE", rationale: "Species Group is classification context only." }] });
   writeRecordBundle(animal.breedOrdinal, animal.breedId, breed, passReview("BREED", animal.breedId));
 }
@@ -771,6 +795,15 @@ interface BirdOfParadiseCorpusInput {
   terrainSpecific: string[];
   foodBroad: string[];
   foodSpecific: string[];
+  dietSources?: {
+    key: string;
+    title: string;
+    organization: string;
+    publisher: string;
+    url: string;
+    sourceFact: string;
+    normalization: string;
+  }[];
 }
 
 const birdOfParadiseCorpus: BirdOfParadiseCorpusInput[] = [
@@ -783,7 +816,27 @@ const birdOfParadiseCorpus: BirdOfParadiseCorpusInput[] = [
     traitText: "The male performs a visually hypnotic courtship show, transforming into a crescent-like black-and-iridescent form and sliding side to side on a display log.",
     historicalFact: "Scholes and Laman documented the exact Species' distinctive cape presentation, ornamental form, sounds, and side-to-side courtship movements from audiovisual recordings in the wild.",
     interpretation: "Use the hypnotic quality as a visual and dramatic description of the documented display, never as literal mind control.",
-    terrainBroad: ["FOREST", "MOUNTAIN"], terrainSpecific: ["MONTANE_FOREST", "FOREST_FLOOR"], foodBroad: [], foodSpecific: [],
+    terrainBroad: ["FOREST", "MOUNTAIN"], terrainSpecific: ["MONTANE_FOREST", "FOREST_FLOOR"], foodBroad: ["PLANT", "ANIMAL"], foodSpecific: ["FRUIT", "ARTHROPODS"],
+    dietSources: [
+      {
+        key: "EXACT_FOOD_PLANTS",
+        title: "Karakteristik Habitat Burung Cenderawasih Kerah Vogelkop (Lophorina niedda Mayr, 1930) di Pegunungan Arfak, Manokwari, Papua Barat",
+        organization: "Edward Glorious Excelsa Heatubun / Universitas Gadjah Mada",
+        publisher: "Universitas Gadjah Mada",
+        url: "https://etd.repository.ugm.ac.id/penelitian/detail/240660",
+        sourceFact: "Exact-species field research identifies Lithocarpus and Macaranga plants as key food sources for Lophorina niedda in the Arfak Mountains.",
+        normalization: "Use exact-species food plants to establish PLANT and the fruit/nut plant-food context without extending the claim to unrelated birds.",
+      },
+      {
+        key: "COMPLEX_DIET",
+        title: "Superb Bird of Paradise",
+        organization: "Australian Museum",
+        publisher: "Australian Museum",
+        url: "https://australian.museum/about/history/exhibitions/birds-of-paradise/superb-bird-of-paradise/",
+        sourceFact: "The Australian Museum records fruit and arthropods as the diet of the historically broader Superb Bird-of-Paradise complex, whose stated range includes the Vogelkop Peninsula.",
+        normalization: "Combine the historical complex-level fruit-and-arthropod diet with exact Lophorina niedda plant-food evidence; record FRUIT and ARTHROPODS while keeping the taxonomic-split inference explicit.",
+      },
+    ],
   },
   {
     breedOrdinal: 6036, breedId: "BRD_LESSER_BIRD_OF_PARADISE", breedName: "Lesser bird-of-paradise", speciesOrdinal: 6035, speciesId: "SPC_PARADISAEA_MINOR", scientificName: "Paradisaea minor", genusTaxonomyId: "TAX_GENUS_PARADISAEA", speciesTaxonomyId: "TAX_SPECIES_PARADISAEA_MINOR", speciesTaxonomyOrdinal: 6034,
@@ -829,8 +882,10 @@ for (const animal of birdOfParadiseCorpus) {
   const speciesEvidenceId = `EV_${animal.speciesOrdinal}_EXACT`;
   const speciesSource = sourceRow(speciesSourceId, animal.sourceTitle, animal.sourceOrganization, animal.sourcePublisher, animal.sourceUrl);
   const speciesEvidence = evidenceRow(speciesEvidenceId, speciesSourceId, "identity,text,presentation,traits,terrain", "EXACT_SPECIES_SUBJECT", animal.sourceFact, "Use only the documented scientific identity, courtship phenotype, and bounded habitat; treat evocative display language as interpretation rather than literal mind control.");
+  const speciesDietSources = (animal.dietSources ?? []).map((row) => sourceRow(`SRC_${animal.speciesOrdinal}_DIET_${row.key}`, row.title, row.organization, row.publisher, row.url));
+  const speciesDietEvidence = (animal.dietSources ?? []).map((row) => evidenceRow(`EV_${animal.speciesOrdinal}_DIET_${row.key}`, `SRC_${animal.speciesOrdinal}_DIET_${row.key}`, "foodBroad,foodSpecific", row.key === "EXACT_FOOD_PLANTS" ? "EXACT_SPECIES_DIET" : "TAXONOMIC_COMPLEX_DIET_CONTEXT", row.sourceFact, row.normalization));
   const speciesTrait = { text: animal.traitText, historicalFact: animal.historicalFact, worldbuildingInterpretation: animal.interpretation, evidenceRefs: [speciesEvidenceId] };
-  const species = baseRecord({ recordType: "SPECIES", recordId: animal.speciesId, name: animal.breedName, text: animal.text, appearance: animal.appearance, traits: [speciesTrait], terrainBroad: animal.terrainBroad, terrainSpecific: animal.terrainSpecific, foodBroad: animal.foodBroad, foodSpecific: animal.foodSpecific, sources: [speciesSource], evidence: [speciesEvidence], defaultReason: "The exact authority supports identity, display, and habitat but not a complete scored behavior vector." });
+  const species = baseRecord({ recordType: "SPECIES", recordId: animal.speciesId, name: animal.breedName, text: animal.text, appearance: animal.appearance, traits: [speciesTrait], terrainBroad: animal.terrainBroad, terrainSpecific: animal.terrainSpecific, foodBroad: animal.foodBroad, foodSpecific: animal.foodSpecific, sources: [speciesSource, ...speciesDietSources], evidence: [speciesEvidence, ...speciesDietEvidence], defaultReason: "The exact authority supports identity, display, habitat, and bounded diet but not a complete scored behavior vector." });
   Object.assign(species, { scientificName: animal.scientificName, speciesKind: "BEAST", taxonomyDependencyIds: ["TAX_KINGDOM_ANIMALIA", "TAX_PHYLUM_CHORDATA", "TAX_CLASS_AVES", "TAX_ORDER_PASSERIFORMES", "TAX_FAMILY_PARADISAEIDAE", animal.genusTaxonomyId, animal.speciesTaxonomyId], originMode: null, reproductiveMethod: null, juvenileStages: null, nurseryMode: null, longevityClass: null, mortalityMode: null, soulDisposition: null, continuityGroup: null, continuityPropagationMode: null, parentInheritanceDecisions: [{ parentRecordId: animal.speciesTaxonomyId, field: "semanticFields", decision: "NARROW", rationale: "Use the exact terminal Taxonomy node for identity while keeping semantic claims tied to the reviewed Species authority." }] });
   writeRecordBundle(animal.speciesOrdinal, animal.speciesId, species, passReview("SPECIES", animal.speciesId, [{ severity: "WARNING", code: "CANONICAL_LIFECYCLE_FIELDS_NOT_PRESENT_IN_INPUT", field: "lifecycle", message: "The supplemental Species does not invent lifecycle enum values absent from owner authority.", requiredFix: "Owner review is required before lifecycle values are added." }]));
 
@@ -838,8 +893,10 @@ for (const animal of birdOfParadiseCorpus) {
   const breedEvidenceId = `EV_${animal.breedOrdinal}_EXACT`;
   const breedSource = sourceRow(breedSourceId, animal.sourceTitle, animal.sourceOrganization, animal.sourcePublisher, animal.sourceUrl);
   const breedEvidence = evidenceRow(breedEvidenceId, breedSourceId, "identity,text,presentation,traits,terrain", "EXACT_BREED_COEXTENSIVE_WITH_SPECIES", animal.sourceFact, "This canonical Breed is coextensive with the exact biological Species and may inherit the independently reviewed Species semantics.");
+  const breedDietSources = (animal.dietSources ?? []).map((row) => sourceRow(`SRC_${animal.breedOrdinal}_DIET_${row.key}`, row.title, row.organization, row.publisher, row.url));
+  const breedDietEvidence = (animal.dietSources ?? []).map((row) => evidenceRow(`EV_${animal.breedOrdinal}_DIET_${row.key}`, `SRC_${animal.breedOrdinal}_DIET_${row.key}`, "foodBroad,foodSpecific", row.key === "EXACT_FOOD_PLANTS" ? "EXACT_SPECIES_DIET" : "TAXONOMIC_COMPLEX_DIET_CONTEXT", row.sourceFact, row.normalization));
   const breedTrait = { text: animal.traitText, historicalFact: animal.historicalFact, worldbuildingInterpretation: animal.interpretation, evidenceRefs: [breedEvidenceId] };
-  const breed = baseRecord({ recordType: "BREED", recordId: animal.breedId, name: animal.breedName, text: animal.text, appearance: animal.appearance, traits: [breedTrait], terrainBroad: animal.terrainBroad, terrainSpecific: animal.terrainSpecific, foodBroad: animal.foodBroad, foodSpecific: animal.foodSpecific, sources: [breedSource], evidence: [breedEvidence], defaultReason: "The exact authority supports identity, display, and habitat but not a complete Breed behavior vector." });
+  const breed = baseRecord({ recordType: "BREED", recordId: animal.breedId, name: animal.breedName, text: animal.text, appearance: animal.appearance, traits: [breedTrait], terrainBroad: animal.terrainBroad, terrainSpecific: animal.terrainSpecific, foodBroad: animal.foodBroad, foodSpecific: animal.foodSpecific, sources: [breedSource, ...breedDietSources], evidence: [breedEvidence, ...breedDietEvidence], defaultReason: "The exact authority supports identity, display, habitat, and bounded diet but not a complete Breed behavior vector." });
   Object.assign(breed, { breedId: animal.breedId, speciesId: animal.speciesId, cultureId: null, parentBreedId: null, populationKind: "BEAST", groupId: "B21", personalityId: personalityByBreed.get(animal.breedId), dependencyRecordIds: [animal.speciesId, "B21"], parentInheritanceDecisions: [{ parentRecordId: animal.speciesId, field: "semanticFields", decision: "INHERIT", rationale: "The canonical Breed is coextensive with the exact reviewed biological Species." }, { parentRecordId: "B21", field: "semanticFields", decision: "NOT_APPLICABLE", rationale: "Species Group is classification context only." }] });
   writeRecordBundle(animal.breedOrdinal, animal.breedId, breed, passReview("BREED", animal.breedId));
 }
@@ -860,13 +917,33 @@ cleanRemediatedBreed(5402, "BRD_HUMAN_UPLAND_FILIPINO_IFUGAO_CORDILLERAN_LUMAD_I
 cleanRemediatedBreed(5403, "BRD_HUMAN_UPLAND_FILIPINO_IFUGAO_CORDILLERAN_LUMAD_LUMAD", ["BLOCKED_PARENT_DEFECT"], [{ severity: "WARNING", code: "HUMAN_WORLD_BUILDING_PROJECTION", field: "primitiveBehavior,derived", message: "Simulator projections are not innate attributes of Indigenous peoples of Mindanao.", requiredFix: "None; retain the explicit boundary." }, { severity: "WARNING", code: "REGIONAL_UMBRELLA", field: "name,traits", message: "Lumad is an umbrella; finer claims require a named people and locality.", requiredFix: "Preserve component scope." }, { severity: "WARNING", code: "MISSING_CULTURE_PARENT_REMEDIATED", field: "cultureId", message: "The owner-canonical composite Culture parent is now present and evidence remains component-scoped.", requiredFix: "None." }]);
 
 {
+  const payload = readRecord(5331, "BRD_HUMAN_SHAMBHALA_SHAMBHALA");
+  payload.foodBroad = ["ANIMAL", "PLANT"];
+  payload.foodSpecific = ["MIXED_DIET"];
+  payload.sources = [
+    ...(payload.sources as Json[]),
+    sourceRow("SRC_5331_HUMAN_DIET", "Ecology of a widespread large omnivore, Homo sapiens, and its impacts on ecosystem processes", "Jens-Christian Svenning et al.", "Ecography", "https://pmc.ncbi.nlm.nih.gov/articles/PMC6802023/"),
+  ];
+  payload.evidence = [
+    ...(payload.evidence as Json[]),
+    evidenceRow("EV_5331_HUMAN_DIET", "SRC_5331_HUMAN_DIET", "foodBroad,foodSpecific", "SPECIES_LEVEL_FUNCTIONAL_ECOLOGY_ONLY", "Peer-reviewed ecological synthesis classifies Homo sapiens as an omnivore that acts as both predator and herbivore and consumes animal and plant foods across highly variable populations.", "Normalize general human omnivory to ANIMAL, PLANT, and MIXED_DIET. This supplies functional Species ecology only and makes no claim about a real Shambhala population or culture."),
+  ];
+  payload.text = String(payload.text).replace("do not provide evidence for a real “Shambhala people,” language, ancestry, diet or human behavioral profile.", "do not provide evidence for a real “Shambhala people,” language, ancestry, culture-specific diet, or human behavioral profile. The simulator therefore uses only general Homo sapiens omnivory—ANIMAL, PLANT, and MIXED_DIET—as functional ecology, not as an ethnographic Shambhala claim.");
+  writeRecordBundle(5331, "BRD_HUMAN_SHAMBHALA_SHAMBHALA", payload, passReview("BREED", "BRD_HUMAN_SHAMBHALA_SHAMBHALA", [{ severity: "WARNING", code: "SPECIES_LEVEL_DIET_ONLY", field: "foodBroad,foodSpecific", message: "General Homo sapiens omnivory supplies functional ecology because Shambhala is not a documented human population.", requiredFix: "Do not reinterpret the mapping as a culture-specific diet." }]));
+}
+
+{
   const payload = readRecord(5596, "BRD_MO_O");
   delete payload.status;
   payload.canonicalConflicts = (payload.canonicalConflicts as Json[]).filter((row) => !["BLOCKED_PARENT_DEFECT", "REQUIRED_SPECIES_PARENT_REVIEW_FAIL", "PARENT_SOURCE_SUBJECT_MISMATCH"].includes(String(row.code)));
   payload.sources = (payload.sources as Json[]).filter((row) => row.sourceId !== "SRC_5596_SPECIES_REVIEW").map((row) => row.sourceId === "SRC_5596_SPECIES" ? sourceRow("SRC_5596_SPECIES", "Approved corrected Species research: SPC_DRACO_MOO", "Echoes of Eidolon dependency remediation", null, "records/3346_SPC_DRACO_MOO.json") : row);
-  payload.evidence = (payload.evidence as Json[]).filter((row) => row.evidenceId !== "EV_5596_02");
+  const evidence = (payload.evidence as Json[]).filter((row) => row.evidenceId !== "EV_5596_02");
+  payload.foodBroad = ["ELEMENTAL"];
+  payload.foodSpecific = ["WATER"];
+  payload.evidence = [...evidence, evidenceRow("EV_5596_05", "SRC_5596_EXACT", "foodBroad,foodSpecific", "EXACT_TRADITION_WITH_WORLD_BUILDING_NORMALIZATION", "University of Hawaiʻi Press describes moʻo as deities embodying the life-giving and death-dealing properties of water and living primarily in or near fresh water.", "Normalize the exact water-deity association to ELEMENTAL/WATER as simulator functional sustenance. This is not a claim that the tradition documents literal feeding behavior.")];
   payload.text = String(payload.text).replace("This child therefore remains blocked pending upstream remediation even though exact-child Hawaiian evidence has been preserved.", "The corrected Hawaiian Species parent now supports this child without importing Korean-dragon material.");
-  writeRecordBundle(5596, "BRD_MO_O", payload, passReview("BREED", "BRD_MO_O", [{ severity: "WARNING", code: "SYNTHETIC_SPECIES_NORMALIZATION", field: "speciesId", message: "The owner-canonical Draco moo key is synthetic; exact semantics are Hawaiian and source-bounded.", requiredFix: "None; preserve the explicit boundary." }]));
+  payload.text = String(payload.text).replace("Food and universal social/reproductive behavior are not responsibly established by this bounded source, so those fields remain empty or neutral rather than being imported from the failed Korean-dragon parent.", "The simulator maps the exact water-deity association to ELEMENTAL/WATER functional sustenance while leaving universal social and reproductive behavior neutral; this is a bounded worldbuilding normalization rather than a literal feeding claim.");
+  writeRecordBundle(5596, "BRD_MO_O", payload, passReview("BREED", "BRD_MO_O", [{ severity: "WARNING", code: "SYNTHETIC_SPECIES_NORMALIZATION", field: "speciesId", message: "The owner-canonical Draco moo key is synthetic; exact semantics are Hawaiian and source-bounded.", requiredFix: "None; preserve the explicit boundary." }, { severity: "WARNING", code: "FUNCTIONAL_SUSTENANCE_NORMALIZATION", field: "foodBroad,foodSpecific", message: "ELEMENTAL/WATER represents the documented water-deity association as simulator ecology, not literal traditional feeding behavior.", requiredFix: "Preserve the explicit interpretation boundary." }]));
 }
 
 // Ensure the corrected parent and every previously failed Breed now have PASS reviews.
@@ -896,6 +973,13 @@ const supplementalRecordIds = [
   "TAX_SPECIES_PARADISAEA_RUBRA", "SPC_PARADISAEA_RUBRA", "BRD_RED_BIRD_OF_PARADISE",
 ];
 const expectedRecordCounts = { TAXONOMY: 2_628, SPECIES: 1_138, CULTURE: 127, SPECIES_GROUP: 84, BREED: 2_062 };
+const breedFoodCoverage = Object.entries(entries)
+  .filter(([name]) => /^records\/\d{4}_BRD_.+\.json$/.test(name))
+  .map(([, bytes]) => parse(bytes))
+  .filter((record) => record.recordType === "BREED")
+  .map((record) => ({ recordId: String(record.recordId), mapped: (Array.isArray(record.foodBroad) && record.foodBroad.length > 0) || (Array.isArray(record.foodSpecific) && record.foodSpecific.length > 0) }));
+const unmappedFoodBreedIds = breedFoodCoverage.filter((row) => !row.mapped).map((row) => row.recordId).sort();
+if (breedFoodCoverage.length !== expectedRecordCounts.BREED || unmappedFoodBreedIds.length > 0) throw new Error(`Breed food coverage is incomplete: ${JSON.stringify({ observedBreeds: breedFoodCoverage.length, expectedBreeds: expectedRecordCounts.BREED, unmappedFoodBreedIds })}`);
 const master = parse(entries["MASTER_MANIFEST.json"]!);
 master.package = "EIDOLON_CHAT_CLASSIFICATION_ALL_RESPONSES_REMEDIATED";
 master.globalOrdinalRange = [1, 6_039];
@@ -912,6 +996,7 @@ master.remediation = {
   originalPackageSha256: sha256(sourceBytes),
   recoveredReviewFailures: expectedRecovered,
   supplementalRecordIds,
+  foodCoverage: { breeds: breedFoodCoverage.length, mappedBreeds: breedFoodCoverage.length - unmappedFoodBreedIds.length, unmappedBreedIds: unmappedFoodBreedIds },
   requestedBreedCoverage: {
     frigatebird: ["BRD_GREAT_FRIGATEBIRD", "BRD_MAGNIFICENT_FRIGATEBIRD"],
     sandgrouse: ["BRD_CHESTNUT_BELLIED_SANDGROUSE", "BRD_NAMAQUA_SANDGROUSE", "BRD_PIN_TAILED_SANDGROUSE"],

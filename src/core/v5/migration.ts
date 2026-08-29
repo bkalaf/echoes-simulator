@@ -36,7 +36,7 @@ export function destinationAttractiveness(opportunity: Score1000, compatibility:
 }
 
 function mergeTransferIntoCell(cell: CohortCell | undefined, transfer: MigrationTransferV5): CohortCell {
-  const result = cell ? structuredClone(cell) : { settlementId: transfer.destinationSettlementId, breedId: transfer.breedId, tiers: {
+  const result = cell ? { ...cell, tiers: { HIGH: { ...cell.tiers.HIGH }, MID: { ...cell.tiers.MID }, LOW: { ...cell.tiers.LOW } } } : { settlementId: transfer.destinationSettlementId, breedId: transfer.breedId, tiers: {
     HIGH: { population: 0n, prosperity: transfer.prosperity }, MID: { population: 0n, prosperity: transfer.prosperity }, LOW: { population: 0n, prosperity: transfer.prosperity },
   } };
   const tier = result.tiers[transfer.tier];
@@ -48,7 +48,7 @@ function mergeTransferIntoCell(cell: CohortCell | undefined, transfer: Migration
 
 export function applyMigrationTransfers(state: WorldStateV5, transfers: readonly MigrationTransferV5[]): WorldStateV5 {
   const before = state.cohorts.reduce((sum, cell) => sum + cellPopulation(cell), 0n);
-  const byKey = new Map(state.cohorts.map((cell) => [`${cell.settlementId}\0${cell.breedId}`, structuredClone(cell)]));
+  const byKey = new Map(state.cohorts.map((cell) => [`${cell.settlementId}\0${cell.breedId}`, { ...cell, tiers: { HIGH: { ...cell.tiers.HIGH }, MID: { ...cell.tiers.MID }, LOW: { ...cell.tiers.LOW } } }]));
   const outgoing = new Map<string, bigint>();
   for (const transfer of transfers) {
     if (transfer.population < 0n) throw new Error("Migration transfer cannot be negative");
@@ -121,6 +121,10 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
   const proposals: MigrationProposal[] = [];
   const foundingContributions = new Map<string, { sourceStateId: string; targetRegionId: string; site: SiteAuthorityV5; rows: FoundingContribution[] }>();
   const hopsByRegion = new Map<string, Map<string, number>>();
+  const destinationsBySettlement = new Map<string, typeof state.settlements>();
+  const destinationScoresByOriginBreed = new Map<string, { scores: number[]; qualified: Array<{ destination: SettlementV5; score: number }> }>();
+  const reachableSitesByStateRegion = new Map<string, SiteAuthorityV5[]>();
+  const foundingSitesByOriginBreed = new Map<string, Array<{ site: SiteAuthorityV5; terrain: number; score: number }>>();
   let destinationScoringCount = 0;
   const migrationCounters: Record<string, number> = { migrationEvaluations: 0, cellsAboveMigrationPushThreshold: 0, desiredOutflowPositive: 0, qualifiedDestinations: 0, migrationTransfers: 0, uniqueOrigins: 0, uniqueDestinations: 0, uniqueBreedTierMovers: 0, totalVoluntaryPopulationMoved: 0, theoreticalMaximumOutflow: 0, actualDesiredOutflow: 0 };
   const foundingCounters: Record<string, number> = { positiveMigrationOutflowOpportunities: 0, noQualifyingOccupiedDestination: 0, foundingCandidateEvaluations: 0, eligibleUnoccupiedSites: 0, candidatesCreated: 0, candidatesMatured: 0, settlementFounded: 0, rejectedRouteReachability: 0, rejectedTerrainCompatibility: 0, rejectedMinimumPopulation: 0, rejectedPersistenceFailure: 0, rejectedSiteConflict: 0, rejectedNoEligibleSite: 0, rejectedRegionalDensity: 0 };
@@ -180,16 +184,25 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
       migrationCounters.actualDesiredOutflow! += Number(desired);
       foundingCounters.positiveMigrationOutflowOpportunities! += 1;
       incrementDimension(origin.stateId, origin.regionId, "desiredOutflowPositive");
-      const destinations = state.settlements.filter((destination) => destination.settlementId !== origin.settlementId && hops.has(destination.regionId) && hops.get(destination.regionId)! <= variables.migrationMaximumHops).sort((a, b) => a.settlementId.localeCompare(b.settlementId));
-      const qualified = destinations.map((destination) => {
-        destinationScoringCount += 1;
-        const destinationSite = siteById.get(destination.siteId)!;
-        const terrain = terrainCompatibility(breed.terrainBroad, breed.terrainSpecific, destinationSite.terrainBroad, destinationSite.terrainSpecific, owner);
-        const faction = importCompatibility(vector, metrics.settlementPopulationFactionVectors[destination.settlementId]!);
-        const score = destinationAttractiveness(metrics.localOpportunity[destination.settlementId]!, faction, 1000 - destination.unrest, terrain, variables);
-        attractivenessValues.push(score);
-        return { destination, score };
-      }).filter((row) => row.score >= variables.migrationDestinationMinimumAttractiveness);
+      let destinations = destinationsBySettlement.get(origin.settlementId);
+      if (!destinations) {
+        destinations = state.settlements.filter((destination) => destination.settlementId !== origin.settlementId && hops!.has(destination.regionId) && hops!.get(destination.regionId)! <= variables.migrationMaximumHops).sort((a, b) => a.settlementId.localeCompare(b.settlementId));
+        destinationsBySettlement.set(origin.settlementId, destinations);
+      }
+      const destinationCacheKey = `${origin.settlementId}\0${cell.breedId}`;
+      let destinationScores = destinationScoresByOriginBreed.get(destinationCacheKey);
+      if (!destinationScores) {
+        const rows = destinations.map((destination) => {
+          const destinationSite = siteById.get(destination.siteId)!;
+          const terrain = terrainCompatibility(breed.terrainBroad, breed.terrainSpecific, destinationSite.terrainBroad, destinationSite.terrainSpecific, owner);
+          const faction = importCompatibility(vector, metrics.settlementPopulationFactionVectors[destination.settlementId]!);
+          return { destination, score: destinationAttractiveness(metrics.localOpportunity[destination.settlementId]!, faction, 1000 - destination.unrest, terrain, variables) };
+        });
+        destinationScores = { scores: rows.map((row) => row.score), qualified: rows.filter((row) => row.score >= variables.migrationDestinationMinimumAttractiveness) };
+        destinationScoresByOriginBreed.set(destinationCacheKey, destinationScores);
+      }
+      destinationScoringCount += destinationScores.scores.length; attractivenessValues.push(...destinationScores.scores);
+      const qualified = destinationScores.qualified;
       if (qualified.length > 0) {
         migrationCounters.qualifiedDestinations! += qualified.length;
         const amounts = largestRemainder(desired, qualified.map((row) => BigInt(row.score + 1)), qualified.map((row) => row.destination.settlementId));
@@ -201,13 +214,24 @@ export function reviewVoluntaryMigration(state: WorldStateV5, metrics: DerivedMe
       const stateRegions = regionsByState.get(origin.stateId) ?? new Set<string>();
       const densityEligibleRegions = [...stateRegions].filter((regionId) => regionCanFound(origin.stateId, regionId));
       if (densityEligibleRegions.length === 0) foundingCounters.rejectedRegionalDensity! += 1;
-      const reachableSites = canonical.sites.filter((site) => densityEligibleRegions.includes(site.regionId) && !occupiedSites.has(site.siteId) && !site.prohibitedFounding && hops.has(site.regionId) && hops.get(site.regionId)! <= variables.migrationMaximumHops);
+      const reachableSitesKey = `${origin.stateId}\0${origin.regionId}`;
+      let reachableSites = reachableSitesByStateRegion.get(reachableSitesKey);
+      if (!reachableSites) {
+        const eligibleRegionIds = new Set(densityEligibleRegions);
+        reachableSites = canonical.sites.filter((site) => eligibleRegionIds.has(site.regionId) && !occupiedSites.has(site.siteId) && !site.prohibitedFounding && hops!.has(site.regionId) && hops!.get(site.regionId)! <= variables.migrationMaximumHops);
+        reachableSitesByStateRegion.set(reachableSitesKey, reachableSites);
+      }
       if (densityEligibleRegions.length > 0 && reachableSites.length === 0) foundingCounters.rejectedRouteReachability! += 1;
-      const sites = reachableSites.map((site) => {
-        const terrain = terrainCompatibility(breed.terrainBroad, breed.terrainSpecific, site.terrainBroad, site.terrainSpecific, owner);
-        const score = foundingSiteScore(terrain, site.quality ?? variables.foundingSiteQualityFallback, foundingDistanceCloseness(hops.get(site.regionId)!, variables.migrationMaximumHops), variables);
-        return { site, terrain, score };
-      }).filter((row) => row.terrain >= variables.foundingTerrainCompatibilityMinimum).sort((a, b) => b.score - a.score || a.site.siteId.localeCompare(b.site.siteId));
+      const foundingSiteCacheKey = `${reachableSitesKey}\0${cell.breedId}`;
+      let sites = foundingSitesByOriginBreed.get(foundingSiteCacheKey);
+      if (!sites) {
+        sites = reachableSites.map((site) => {
+          const terrain = terrainCompatibility(breed.terrainBroad, breed.terrainSpecific, site.terrainBroad, site.terrainSpecific, owner);
+          const score = foundingSiteScore(terrain, site.quality ?? variables.foundingSiteQualityFallback, foundingDistanceCloseness(hops.get(site.regionId)!, variables.migrationMaximumHops), variables);
+          return { site, terrain, score };
+        }).filter((row) => row.terrain >= variables.foundingTerrainCompatibilityMinimum).sort((a, b) => b.score - a.score || a.site.siteId.localeCompare(b.site.siteId));
+        foundingSitesByOriginBreed.set(foundingSiteCacheKey, sites);
+      }
       foundingCounters.eligibleUnoccupiedSites! += sites.length;
       if (reachableSites.length > 0 && sites.length === 0) foundingCounters.rejectedTerrainCompatibility! += 1;
       if (sites.length === 0) foundingCounters.rejectedNoEligibleSite! += 1;

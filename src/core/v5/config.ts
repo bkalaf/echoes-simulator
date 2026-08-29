@@ -208,6 +208,8 @@ export interface OperationalConfigV1 {
   schemaVersion: "echoes-operational-config-v1";
   checkpointIntervalYears: number;
   compression: "NONE" | "GZIP_JSON_V1";
+  checkpointCompressionLevel: 1 | 3 | 6 | 9;
+  divergenceDiagnosticIntervalYears: number;
   auditDetailRetention: "FULL" | "SUMMARIZED";
   expandedTransferArchive: boolean;
   workerCount: number;
@@ -219,7 +221,7 @@ export interface OperationalConfigV1 {
 }
 
 export const DEFAULT_OPERATIONAL_CONFIG_V1: OperationalConfigV1 = {
-  schemaVersion: "echoes-operational-config-v1", checkpointIntervalYears: 5, compression: "GZIP_JSON_V1", auditDetailRetention: "FULL",
+  schemaVersion: "echoes-operational-config-v1", checkpointIntervalYears: 5, compression: "GZIP_JSON_V1", checkpointCompressionLevel: 3, divergenceDiagnosticIntervalYears: 25, auditDetailRetention: "FULL",
   expandedTransferArchive: true, workerCount: 1, cacheMode: "OFF", namingBatchSize: 50,
   interactiveNamingEnabled: false, namingBatchFlushIntervalYears: 25, namingBatchMaximum: 50,
 };

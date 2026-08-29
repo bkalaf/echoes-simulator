@@ -179,24 +179,34 @@ export function familyRelationPressure(signals: readonly FamilyInteractionSignal
 export function reviewFamilyRelations(state: WorldStateV5, signals: readonly FamilyInteractionSignal[], variables: MechanicsVariablesV1, normalizedSeed: string): { state: WorldStateV5; events: CausalEventV5[] } {
   const families = state.families.filter((family) => family.status === "ACTIVE").sort((a, b) => a.familyId.localeCompare(b.familyId));
   let relations = [...state.familyRelations]; const conditions = state.timedConditions.filter((condition) => condition.type !== "FAMILY_RELATION_CANDIDATE"); const prior = new Map(state.timedConditions.filter((condition) => condition.type === "FAMILY_RELATION_CANDIDATE").map((condition) => [condition.key, condition])); const events: CausalEventV5[] = [];
+  const pairKey = (left: string, right: string): string => left.localeCompare(right) <= 0 ? `${left}\0${right}` : `${right}\0${left}`;
+  const activeRelationByPair = new Map<string, FamilyRelationV5>();
+  for (const relation of relations) if (relation.endYear === null) { const key = pairKey(relation.familyAId, relation.familyBId); if (!activeRelationByPair.has(key)) activeRelationByPair.set(key, relation); }
+  const signalByPair = new Map<string, Record<FamilyRelationType, { total: number }>>(); const firstSourceByRelation = new Map<FamilyRelationType, string>();
+  for (const signal of signals) {
+    if (!firstSourceByRelation.has(signal.relation)) firstSourceByRelation.set(signal.relation, signal.sourceEventId);
+    const key = pairKey(signal.familyAId, signal.familyBId); const summary = signalByPair.get(key) ?? { ALLIANCE: { total: 0 }, RIVALRY: { total: 0 } };
+    summary[signal.relation].total += signal.magnitude; signalByPair.set(key, summary);
+  }
   for (let left = 0; left < families.length; left += 1) for (let right = left + 1; right < families.length; right += 1) {
     const a = families[left]!.familyId; const b = families[right]!.familyId;
-    const active = relations.find((relation) => relation.endYear === null && relation.familyAId === a && relation.familyBId === b);
+    const summary = signalByPair.get(pairKey(a, b)) ?? { ALLIANCE: { total: 0 }, RIVALRY: { total: 0 } };
+    const active = activeRelationByPair.get(pairKey(a, b));
     if (active) {
-      const reinforcing = signals.filter((signal) => signal.relation === active.relationType && new Set([signal.familyAId, signal.familyBId]).has(a) && new Set([signal.familyAId, signal.familyBId]).has(b)).reduce((sum, signal) => sum + signal.magnitude, 0);
-      const opposing = signals.filter((signal) => signal.relation !== active.relationType && new Set([signal.familyAId, signal.familyBId]).has(a) && new Set([signal.familyAId, signal.familyBId]).has(b)).reduce((sum, signal) => sum + signal.magnitude, 0);
+      const reinforcing = summary[active.relationType].total;
+      const opposing = summary[active.relationType === "ALLIANCE" ? "RIVALRY" : "ALLIANCE"].total;
       const strength = clamp(active.strength + reinforcing - opposing, 0, 1000); relations = relations.map((row) => row.familyRelationId === active.familyRelationId ? { ...row, strength, endYear: strength === 0 ? state.year : null } : row);
       continue;
     }
     for (const relationType of ["ALLIANCE", "RIVALRY"] as const) {
       const pairId = `${a}/${b}/${relationType}`;
-      const pressure = familyRelationPressure(signals, a, b, relationType);
+      const pressure = clamp(summary[relationType].total, 0, 1000);
       if (pressure < variables.familyRelationThreshold) continue;
       const count = (prior.get(pairId)?.qualifyingReviewCount ?? 0) + 1;
-      if (count < variables.familyRelationRequiredReviews) { conditions.push({ conditionId: `COND_${digest(pairId)}`, type: "FAMILY_RELATION_CANDIDATE", targetType: "FAMILY", targetId: a, magnitude: pressure, startYear: prior.get(pairId)?.startYear ?? state.year, endYear: null, sourceEventId: signals.find((signal) => signal.relation === relationType)?.sourceEventId ?? `EVT_${state.year}_FAMILY_RELATION`, key: pairId, qualifyingReviewCount: count }); continue; }
+      if (count < variables.familyRelationRequiredReviews) { conditions.push({ conditionId: `COND_${digest(pairId)}`, type: "FAMILY_RELATION_CANDIDATE", targetType: "FAMILY", targetId: a, magnitude: pressure, startYear: prior.get(pairId)?.startYear ?? state.year, endYear: null, sourceEventId: firstSourceByRelation.get(relationType) ?? `EVT_${state.year}_FAMILY_RELATION`, key: pairId, qualifyingReviewCount: count }); continue; }
       const chance = thresholdChance(pressure, variables.familyRelationThreshold, variables.familyRelationMaximumChanceBps); const randomNamespace = relationType === "ALLIANCE" ? "FAMILY_RELATION_ALLIANCE" : "FAMILY_RELATION_RIVALRY"; const random = identity(normalizedSeed, randomNamespace, `${a}/${b}`, state.year, relationType); const draw = keyedDrawBps(random);
       if (draw >= chance) continue;
-      const relation: FamilyRelationV5 = { familyRelationId: `FAMILY_RELATION_${digest(pairId)}`, familyAId: a, familyBId: b, relationType, strength: variables.familyRelationInitialStrength, qualifyingReviewCount: 0, startYear: state.year, endYear: null, sourceEventId: signals.find((signal) => signal.relation === relationType)?.sourceEventId ?? `EVT_${state.year}_FAMILY_RELATION` }; relations.push(relation);
+      const relation: FamilyRelationV5 = { familyRelationId: `FAMILY_RELATION_${digest(pairId)}`, familyAId: a, familyBId: b, relationType, strength: variables.familyRelationInitialStrength, qualifyingReviewCount: 0, startYear: state.year, endYear: null, sourceEventId: firstSourceByRelation.get(relationType) ?? `EVT_${state.year}_FAMILY_RELATION` }; relations.push(relation);
       events.push({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_${relation.familyRelationId}`, worldKey: state.worldKey, year: state.year, phase: "FAMILY", sequence: events.length, eventType: `Family${relationType === "ALLIANCE" ? "Alliance" : "Rivalry"}Created`, entityType: "FAMILY_RELATION", entityId: relation.familyRelationId, causeEventIds: [relation.sourceEventId], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: canonicalJson(random), mutations: [], payload: { pressure, chanceBps: chance, drawBps: draw, familyAId: a, familyBId: b, strength: relation.strength } });
       break;
     }
@@ -284,14 +294,14 @@ function controllerCandidates(state: WorldStateV5, settlementId: string, type: O
   return candidates.sort((a, b) => b.score - a.score || `${a.controllerType}/${a.controllerId}`.localeCompare(`${b.controllerType}/${b.controllerId}`));
 }
 
-export interface OrganizationFormationProposal { key: string; type: OrganizationType; context: OrganizationFormationContext; pressure: Score1000; }
+export interface OrganizationFormationProposal { key: string; type: "CORPORATION" | "CRIME_ORGANIZATION"; context: OrganizationFormationContext; pressure: Score1000; }
 export function reviewOrganizationFormation(state: WorldStateV5, proposals: readonly OrganizationFormationProposal[], variables: MechanicsVariablesV1, normalizedSeed: string): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[]; diagnostics: BoundedDiagnosticObservationV5[] } {
   let organizations = [...state.organizations]; let stakes = [...state.ownershipStakes]; const events: CausalEventV5[] = []; const namingRequests: NamingRequestV5[] = [];
   const priorCandidates = new Map(state.timedConditions.filter((condition) => condition.type === "ORGANIZATION_FORMATION_CANDIDATE").map((condition) => [condition.key, condition]));
   const retainedConditions = state.timedConditions.filter((condition) => condition.type !== "ORGANIZATION_FORMATION_CANDIDATE" && !(condition.type === "ORGANIZATION_FORMATION_COOLDOWN" && condition.endYear !== null && condition.endYear < state.year));
   const chosen = new Map<string, OrganizationFormationProposal>();
   const byType = (type: OrganizationType): { counters: Record<string, number>; pressures: number[]; chances: number[]; components: Record<string, number[]> } => ({ counters: { pressureEvaluations: proposals.filter((proposal) => proposal.type === type).length, thresholdCrossings: 0, formationCandidateConditions: 0, candidatesSecondReview: 0, formationDraws: 0, successfulFormationDraws: 0, failedDraws: 0, blockedCooldown: 0, blockedSectorCap: 0, blockedNoEligibleController: 0, blockedOther: 0, organizationsCreated: 0 }, pressures: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.pressure), chances: [], components: { sectorStrength: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.sectorStrength), capitalAvailability: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.capitalAvailability), tradeAccess: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.tradeAccess), sectorRentScore: proposals.filter((proposal) => proposal.type === type).map((proposal) => sectorRentScore(proposal.context.sectorStrength, proposal.context.concentration)), enforcementStrength: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.enforcement), politicalExclusion: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.politicalExclusion), unrest: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.unrest), localFamilyNetworkStrength: proposals.filter((proposal) => proposal.type === type).map((proposal) => proposal.context.familyNetwork) } });
-  const diagnostics: Record<OrganizationType, ReturnType<typeof byType>> = { CORPORATION: byType("CORPORATION"), CRIME_ORGANIZATION: byType("CRIME_ORGANIZATION"), GUILD: byType("GUILD") };
+  const diagnostics = { CORPORATION: byType("CORPORATION"), CRIME_ORGANIZATION: byType("CRIME_ORGANIZATION") };
   for (const proposal of proposals) { const group = `${proposal.context.settlementId}/${proposal.type}`; const current = chosen.get(group); if (!current || proposal.pressure > current.pressure || (proposal.pressure === current.pressure && proposal.context.sectorId.localeCompare(current.context.sectorId) < 0)) chosen.set(group, proposal); }
   for (const proposal of chosen.values()) {
     const threshold = proposal.type === "CORPORATION" ? variables.corporationFormationThreshold : variables.crimeFormationThreshold;
@@ -328,12 +338,34 @@ export function reviewOrganizationFormation(state: WorldStateV5, proposals: read
 
 export function reviewOrganizationLifecycle(state: WorldStateV5, contexts: Readonly<Record<string, OrganizationFormationContext>>, variables: MechanicsVariablesV1): { state: WorldStateV5; events: CausalEventV5[] } {
   let stakes = [...state.ownershipStakes]; const events: CausalEventV5[] = [];
+  const activeStakesByOrganization = new Map<string, OwnershipStakeV5[]>();
+  for (const stake of state.ownershipStakes) if (stake.endYear === null) { const rows = activeStakesByOrganization.get(stake.organizationId) ?? []; rows.push(stake); activeStakesByOrganization.set(stake.organizationId, rows); }
+  const officeById = new Map(state.offices.map((office) => [office.officeId, office])); const personById = new Map(state.politicalPeople.map((person) => [person.personId, person])); const settlementById = new Map(state.settlements.map((settlement) => [settlement.settlementId, settlement]));
+  const activeInstitutionById = new Map(state.institutions.filter((institution) => institution.dissolvedYear === null).map((institution) => [institution.institutionId, institution]));
+  const totalOfficePowerByState = new Map<string, bigint>(); const heldOfficePowerByFamily = new Map<string, bigint>(); const heldOfficePowerByPerson = new Map<string, number>();
+  for (const office of state.offices) { const institution = activeInstitutionById.get(office.institutionId); if (institution) totalOfficePowerByState.set(institution.stateId, (totalOfficePowerByState.get(institution.stateId) ?? 0n) + BigInt(office.power)); }
+  for (const term of state.officeTerms.filter((candidate) => officeTermActiveAt(candidate, state.year))) {
+    const office = officeById.get(term.officeId); if (!office) continue;
+    heldOfficePowerByPerson.set(term.personId, (heldOfficePowerByPerson.get(term.personId) ?? 0) + office.power);
+    const institution = activeInstitutionById.get(office.institutionId); const familyId = personById.get(term.personId)?.familyId;
+    if (institution && familyId) heldOfficePowerByFamily.set(familyId, (heldOfficePowerByFamily.get(familyId) ?? 0n) + BigInt(office.power));
+  }
+  const familyOfficePower = new Map(state.families.map((family) => { const stateId = settlementById.get(family.homeSettlementId)?.stateId; return [family.familyId, stateId ? ratioScore(heldOfficePowerByFamily.get(family.familyId) ?? 0n, totalOfficePowerByState.get(stateId) ?? 0n, 0) : 0]; }));
+  const influenceTarget = (organization: OrganizationV5): Score1000 => {
+    const active = activeStakesByOrganization.get(organization.organizationId) ?? [];
+    const controlling = active.filter((stake) => stake.controllerType !== "DIFFUSE").map((stake) => stake.controlShareBps);
+    const concentration = controlling.length === 0 ? 0 : Number(divideRoundedAway(BigInt(Math.max(...controlling)), 10n));
+    let politicalValue = 0n; let hasPoliticalStake = false;
+    for (const stake of active) if (stake.controllerType === "FAMILY" || stake.controllerType === "PERSON") { hasPoliticalStake = true; const power = stake.controllerType === "FAMILY" ? familyOfficePower.get(stake.controllerId) ?? 0 : clamp(heldOfficePowerByPerson.get(stake.controllerId) ?? 0, 0, 1000); politicalValue += BigInt(stake.controlShareBps) * BigInt(power); }
+    const politicalCapture = hasPoliticalStake ? clamp(Number(divideRoundedAway(politicalValue, 10_000n)), 0, 1000) : 0;
+    return weightedMean([organization.wealth, 4500], [concentration, 3000], [politicalCapture, 2500]);
+  };
   const organizations = state.organizations.map((organization) => {
     if (organization.status === "DISSOLVED") return organization;
-    if (organization.type === "GUILD") return organization;
+    if (!["CORPORATION", "CRIME_ORGANIZATION"].includes(organization.type)) return organization;
     const context = contexts[organization.organizationId]; if (!context) throw new Error(`Missing lifecycle context for ${organization.organizationId}`);
     const performance = organizationPerformanceTarget(organization.type, context);
-    const updated = { ...organization, wealth: blend(organization.wealth, performance, variables.organizationScoreInertiaBps), influence: blend(organization.influence, organizationInfluenceTarget(state, organization), variables.organizationScoreInertiaBps) };
+    const updated = { ...organization, wealth: blend(organization.wealth, performance, variables.organizationScoreInertiaBps), influence: blend(organization.influence, influenceTarget(organization), variables.organizationScoreInertiaBps) };
     const survival = organizationSurvivalScore(state, updated, performance);
     if (survival >= variables.organizationSurvivalThreshold) return { ...updated, status: "ACTIVE" as const, belowSurvivalReviewCount: 0 };
     const count = updated.belowSurvivalReviewCount + 1;

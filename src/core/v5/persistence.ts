@@ -33,6 +33,7 @@ export interface V5RunManifest {
 }
 
 function hash(value: unknown): string { return createHash("sha256").update(canonicalJson(value), "utf8").digest("hex"); }
+function hashCanonicalBytes(value: string | Uint8Array): string { return createHash("sha256").update(value).digest("hex"); }
 export function labelInputHash(labels: Readonly<Record<string, string>>): string { return hash(labels); }
 
 export const V5_EVENT_HISTORY_HASH_VERSION = "echoes-v5-event-chain-v1";
@@ -112,7 +113,7 @@ export function projectWorldStateV54ReadOnly(state: WorldStateV5): WorldStateV5 
   };
 }
 
-export function v5CheckpointHash(state: WorldStateV5): string { return hash(state); }
+export function v5CheckpointHash(state: WorldStateV5, precomputedCanonicalBytes?: string | Uint8Array): string { return precomputedCanonicalBytes === undefined ? hash(state) : hashCanonicalBytes(precomputedCanonicalBytes); }
 export function v5EventHistoryHash(events: readonly CausalEventV5[]): string { return extendV5EventHistoryHash(V5_EMPTY_EVENT_HISTORY_HASH, events); }
 
 export function assertReplayEquivalent(expectedStateHash: string, expectedEventHash: string, state: WorldStateV5, events: readonly CausalEventV5[]): void {

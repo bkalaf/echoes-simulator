@@ -74,12 +74,13 @@ export function applySocialMobility(
   localOpportunity: Score1000,
   institutionalAccess: Score1000,
   variables: MechanicsVariablesV1,
+  options: { sourceCells?: readonly CohortCell[]; returnUpdatedCellsOnly?: boolean } = {},
 ): { state: WorldStateV5; transfers: MobilityTransfer[]; events: CausalEventV5[] } {
-  const sourceCells = state.cohorts.filter((cell) => cell.settlementId === settlement.settlementId).sort((a, b) => a.breedId.localeCompare(b.breedId));
+  const sourceCells = [...(options.sourceCells ?? state.cohorts.filter((cell) => cell.settlementId === settlement.settlementId))].sort((a, b) => a.breedId.localeCompare(b.breedId));
   const actual = Object.fromEntries(TIERS.map((tier) => [tier, sourceCells.reduce((sum, cell) => sum + cell.tiers[tier].population, 0n)])) as Record<SocialTier, bigint>;
   const surplus = Object.fromEntries(TIERS.map((tier) => [tier, actual[tier] > target[tier] ? actual[tier] - target[tier] : 0n])) as Record<SocialTier, bigint>;
   const deficit = Object.fromEntries(TIERS.map((tier) => [tier, target[tier] > actual[tier] ? target[tier] - actual[tier] : 0n])) as Record<SocialTier, bigint>;
-  let budget = settlementPopulation(state, settlement.settlementId) * BigInt(variables.socialMobilityMaximumBps) / 10_000n;
+  let budget = sourceCells.reduce((sum, cell) => sum + cellPopulation(cell), 0n) * BigInt(variables.socialMobilityMaximumBps) / 10_000n;
   const deltas = new Map<string, Record<SocialTier, bigint>>(sourceCells.map((cell) => [cell.breedId, { HIGH: 0n, MID: 0n, LOW: 0n }]));
   const transfers: MobilityTransfer[] = [];
   for (const direction of DIRECTION_ORDER) {
@@ -113,8 +114,8 @@ export function applySocialMobility(
     incomingProsperity.set(destinationKey, (incomingProsperity.get(destinationKey) ?? 0n) + transfer.population * BigInt(transfer.sourceProsperityBefore));
     outgoingPopulation.set(sourceKey, (outgoingPopulation.get(sourceKey) ?? 0n) + transfer.population);
   }
-  const updated = state.cohorts.map((cell) => {
-    if (cell.settlementId !== settlement.settlementId) return cell;
+  const transfersByBreedDestination = new Map<string, MobilityTransfer[]>(); for (const transfer of transfers) { const key = `${transfer.breedId}\0${transfer.destinationTier}`; const rows = transfersByBreedDestination.get(key) ?? []; rows.push(transfer); transfersByBreedDestination.set(key, rows); }
+  const updatedCells = sourceCells.map((cell) => {
     const delta = deltas.get(cell.breedId)!;
     const tiers = {} as CohortCell["tiers"];
     for (const tier of TIERS) {
@@ -126,21 +127,37 @@ export function applySocialMobility(
       const prosperity = population === 0n ? cell.tiers[tier].prosperity : Number(divideRoundedAway(retained * BigInt(cell.tiers[tier].prosperity) + incomingWeightedProsperity, population));
       if (population !== cell.tiers[tier].population + delta[tier]) throw new Error("Mobility delta mismatch");
       tiers[tier] = { population, prosperity };
-      for (const transfer of transfers.filter((row) => row.breedId === cell.breedId && row.destinationTier === tier)) transfer.destinationProsperityAfter = prosperity;
+      for (const transfer of transfersByBreedDestination.get(`${cell.breedId}\0${tier}`) ?? []) transfer.destinationProsperityAfter = prosperity;
     }
     return { ...cell, tiers };
   });
   const before = sourceCells.reduce((sum, cell) => sum + cellPopulation(cell), 0n);
-  const after = updated.filter((cell) => cell.settlementId === settlement.settlementId).reduce((sum, cell) => sum + cellPopulation(cell), 0n);
+  const after = updatedCells.reduce((sum, cell) => sum + cellPopulation(cell), 0n);
   if (before !== after) throw new Error("Social mobility violated Settlement population conservation");
   const events = transfers.map((transfer, sequence): CausalEventV5 => ({ schemaVersion: "echoes-causal-event-v5", eventId: `EVT_${state.worldKey}_${state.year}_MOBILITY_${settlement.settlementId}_${transfer.breedId}_${transfer.sourceTier}_${transfer.destinationTier}`, worldKey: state.worldKey, year: state.year, phase: "SOCIAL_MOBILITY", sequence, eventType: "TierMobilityTransfer", entityType: "COHORT_CELL", entityId: `${settlement.settlementId}/${transfer.breedId}`, causeEventIds: [], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: null, mutations: [], payload: { ...transfer, population: transfer.population.toString(), targetCapacity: transfer.targetCapacity.toString() } }));
-  return { state: { ...state, cohorts: updated }, transfers, events };
+  if (options.returnUpdatedCellsOnly) return { state: { ...state, cohorts: updatedCells }, transfers, events };
+  const updatedByBreedId = new Map(updatedCells.map((cell) => [cell.breedId, cell]));
+  return { state: { ...state, cohorts: state.cohorts.map((cell) => cell.settlementId === settlement.settlementId ? updatedByBreedId.get(cell.breedId)! : cell) }, transfers, events };
 }
 
-export function reviewSettlementSocialMobility(state: WorldStateV5, settlement: SettlementV5, localOpportunity: Score1000, institutionalAccess: Score1000, inequality: Score1000, economicStrain: Score1000, variables: MechanicsVariablesV1) {
-  const cells = state.cohorts.filter((cell) => cell.settlementId === settlement.settlementId);
-  const target = socialEquilibriumTarget(settlementPopulation(state, settlement.settlementId), { settlementProsperity: settlementProsperity(cells), industryBreadth: industryBreadth(settlement), institutionalAccess, inequality, economicStrain }, variables);
-  return applySocialMobility(state, settlement, target, localOpportunity, institutionalAccess, variables);
+export function reviewSettlementSocialMobility(state: WorldStateV5, settlement: SettlementV5, localOpportunity: Score1000, institutionalAccess: Score1000, inequality: Score1000, economicStrain: Score1000, variables: MechanicsVariablesV1, suppliedCells?: readonly CohortCell[]) {
+  const cells = suppliedCells ?? state.cohorts.filter((cell) => cell.settlementId === settlement.settlementId);
+  const population = cells.reduce((sum, cell) => sum + cellPopulation(cell), 0n);
+  const target = socialEquilibriumTarget(population, { settlementProsperity: settlementProsperity(cells), industryBreadth: industryBreadth(settlement), institutionalAccess, inequality, economicStrain }, variables);
+  return applySocialMobility(state, settlement, target, localOpportunity, institutionalAccess, variables, { sourceCells: cells });
+}
+
+export function reviewAllSettlementsSocialMobilityV5(state: WorldStateV5, settlements: readonly SettlementV5[], inputs: Readonly<Record<string, { localOpportunity: Score1000; institutionalAccess: Score1000; inequality: Score1000; economicStrain: Score1000 }>>, cohortsBySettlement: ReadonlyMap<string, readonly CohortCell[]>, variables: MechanicsVariablesV1): { state: WorldStateV5; transfers: MobilityTransfer[]; events: CausalEventV5[] } {
+  const updatedByIdentity = new Map(state.cohorts.map((cell) => [`${cell.settlementId}\0${cell.breedId}`, cell])); const transfers: MobilityTransfer[] = []; const events: CausalEventV5[] = [];
+  for (const settlement of [...settlements].sort((left, right) => left.settlementId.localeCompare(right.settlementId))) {
+    const values = inputs[settlement.settlementId]!; const cells = cohortsBySettlement.get(settlement.settlementId) ?? [];
+    const population = cells.reduce((sum, cell) => sum + cellPopulation(cell), 0n);
+    const target = socialEquilibriumTarget(population, { settlementProsperity: settlementProsperity(cells), industryBreadth: industryBreadth(settlement), institutionalAccess: values.institutionalAccess, inequality: values.inequality, economicStrain: values.economicStrain }, variables);
+    const reviewed = applySocialMobility(state, settlement, target, values.localOpportunity, values.institutionalAccess, variables, { sourceCells: cells, returnUpdatedCellsOnly: true });
+    for (const cell of reviewed.state.cohorts) updatedByIdentity.set(`${cell.settlementId}\0${cell.breedId}`, cell);
+    transfers.push(...reviewed.transfers); events.push(...reviewed.events);
+  }
+  return { state: { ...state, cohorts: state.cohorts.map((cell) => updatedByIdentity.get(`${cell.settlementId}\0${cell.breedId}`)!) }, transfers, events };
 }
 
 export function updateTierProsperity(cell: CohortCell, targets: Record<SocialTier, Score1000>, inertiaBps: number): CohortCell {
