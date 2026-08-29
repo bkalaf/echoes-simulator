@@ -11,7 +11,7 @@ import { normalizeSeed } from "../../src/core/v5/random.js";
 import type { CausalEventV5, WorldStateV5 } from "../../src/core/v5/types.js";
 import { buildBlockingNamingBatchV5, buildPersistedNamingBatchesV5, validateNamingBatchResponseV5 } from "../../src/core/v5/naming.js";
 import { inspectLegacyV5NamingTrust } from "../../src/persistence/v5-legacy-trust.js";
-import { acceptPersistedV5NamingBatch, resumePersistedV5Run } from "../../src/core/v5/service.js";
+import { acceptPersistedV5NamingBatch, acceptPersistedV5NamingBatches, resumePersistedV5Run } from "../../src/core/v5/service.js";
 import { acceptDerogatoryDecisionResponseV5, buildDerogatoryDecisionBatchV5, V5_EMPTY_DEROGATORY_DECISION_STREAM_HASH } from "../../src/core/v5/derogatory-decisions.js";
 import { CANDIDATE_DEROGATORY_MEMBERSHIP_SLICING_POLICY_V1, type CausalPolicyBlockerV5 } from "../../src/core/v5/historical-policies.js";
 
@@ -44,6 +44,17 @@ describe("V5 persistence and replay boundaries", () => {
     const secondEvent: CausalEventV5 = { ...event, eventId: "EV_V5_SECOND", year: 6, sequence: 1 };
     const firstBatchHash = extendV5EventHistoryHash(V5_EMPTY_EVENT_HISTORY_HASH, [event]);
     expect(extendV5EventHistoryHash(firstBatchHash, [secondEvent])).toBe(v5EventHistoryHash([event, secondEvent]));
+  });
+
+  it("loads only the requested recent V5 timeline tail in chronological order", () => {
+    const store = new SimulatorStore(join(mkdtempSync(join(tmpdir(), "echoes-v5-recent-events-")), "run.sqlite"));
+    store.createRun({ runId: "RUN_RECENT", mode: "DIAGNOSTIC", status: "RUNNING", seed: "seed", seedHash: "hash", policyVersion: "v5" });
+    const events = Array.from({ length: 5 }, (_, index) => ({ ...event, eventId: `EV_${index}`, year: index, sequence: index }));
+    store.appendV5CausalEvents("RUN_RECENT", events);
+    expect(store.listRecentV5CausalEvents("RUN_RECENT", "CONCORD", 4, 2).map((row) => row.eventId)).toEqual(["EV_3", "EV_4"]);
+    expect(store.listRecentV5CausalEvents("RUN_RECENT", "CONCORD", 2, 2).map((row) => row.eventId)).toEqual(["EV_1", "EV_2"]);
+    expect(store.listRecentV5CausalEvents("RUN_RECENT", "CONCORD", 4, 0)).toEqual([]);
+    store.close();
   });
 
   it("round-trips BigInt durable state, causal events, manifests, and noncausal labels", () => {
@@ -138,6 +149,27 @@ describe("V5 persistence and replay boundaries", () => {
     store.acceptV5NamingRequests("RUN_BATCHED_NAMES", response.decisions, 25, "BATCHED", { batchId: batch.batchId, responseAttemptId: "ATTEMPT_BATCHED" });
     expect(store.getRun("RUN_BATCHED_NAMES")?.status).toBe("COMPLETE");
     expect(store.loadV5Labels("RUN_BATCHED_NAMES")).toEqual({ FAMILY_A: "Name FAMILY_A", FAMILY_B: "Name FAMILY_B" });
+    store.close();
+  });
+
+  it("accepts a complete response archive atomically without replacing a Derogatory decision blocker", () => {
+    const store = new SimulatorStore(join(mkdtempSync(join(tmpdir(), "echoes-v5-bulk-naming-")), "run.sqlite"));
+    const runId = "RUN_BULK_NAMES";
+    store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_DEROGATORY_DECISIONS", seed: "seed", seedHash: "hash", policyVersion: "v5", currentYear: 14 });
+    store.setRunStatus(runId, "WAITING_FOR_DEROGATORY_DECISIONS", 14);
+    const owner = diagnosticCandidateOwnerInputsV1({ GOV: {} });
+    const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", canonicalBundleHash: "bundle", normalizedSeed: normalizeSeed("bulk names"), mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: { ...DEFAULT_OPERATIONAL_CONFIG_V1, namingBatchMaximum: 1 }, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+    store.saveV5RunManifest(manifest);
+    store.saveV5NamingRequests(runId, [
+      { requestId: "REQ_BULK_A", entityType: "FAMILY", entityId: "FAMILY_BULK_A", behavior: "BATCHED", createdYear: 10, nameEffectiveFromYear: 10, acceptedLabel: null },
+      { requestId: "REQ_BULK_B", entityType: "FAMILY", entityId: "FAMILY_BULK_B", behavior: "BATCHED", createdYear: 11, nameEffectiveFromYear: 11, acceptedLabel: null },
+    ]);
+    const batches = store.materializePendingV5NamingBatches(runId, 1);
+    const responses = batches.map((batch, index) => ({ schemaVersion: "echoes-v5-naming-batch-response-v2" as const, batchId: batch.batchId, runId, decisions: batch.items.map((request) => ({ requestId: request.requestId, entityType: request.entityType, entityId: request.entityId, label: `External Bulk Label ${index + 1}`, nameEffectiveFromYear: request.nameEffectiveFromYear ?? request.createdYear })) }));
+    const accepted = acceptPersistedV5NamingBatches({ store, runId, batches, responses });
+    expect(accepted, accepted.errors.join(" · ")).toMatchObject({ accepted: true, acceptedBatches: 2, acceptedDecisions: 2, pendingBatched: 0 });
+    expect(store.getRun(runId)?.status).toBe("WAITING_FOR_DEROGATORY_DECISIONS");
+    expect(store.loadV5Labels(runId)).toEqual({ FAMILY_BULK_A: "External Bulk Label 1", FAMILY_BULK_B: "External Bulk Label 2" });
     store.close();
   });
 

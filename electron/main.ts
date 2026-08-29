@@ -25,12 +25,15 @@ import { editableV5ConfigurationJson, parseEditableV5Configuration } from "../sr
 import { loadBundledCanonicalV5 } from "../src/core/v5/canonical-adapter.js";
 import { buildReadModelV1 } from "../src/core/v5/read-model.js";
 import type { WorldKey as WorldKeyV5, WorldStateV5 } from "../src/core/v5/types.js";
-import { acceptPersistedV5DerogatoryDecisionBatch, acceptPersistedV5NamingBatch } from "../src/core/v5/service.js";
+import { acceptPersistedV5DerogatoryDecisionBatch, acceptPersistedV5NamingBatch, acceptPersistedV5NamingBatches } from "../src/core/v5/service.js";
 import { buildRouteCoverageReadModel } from "../src/core/v5/routes.js";
 import { buildPoiCoverage } from "../src/core/atlas/coverage.js";
 import { canonicalPolicyReadiness, diagnosticCandidateOwnerInputsV1 } from "../src/core/v5/config.js";
 import { buildNamingGeographyReadModel } from "../src/core/v5/naming-geography.js";
 import { effectiveRouteClassification, loadRouteClassificationAuthority } from "../src/core/v5/route-classification.js";
+import { renderExternalDerogatoryDecisionPromptV5 } from "../src/core/v5/derogatory-decisions.js";
+import { buildNamingPromptExportV5, parseNamingResponseZipV5 } from "../src/core/v5/naming-bulk.js";
+import { buildV5SettlementProjection, type V5OperatorViewDetail } from "./v5-operator-read.js";
 
 let mainWindow: BrowserWindow | null = null;
 const projectRoot = resolve(import.meta.dirname, "../..");
@@ -44,6 +47,24 @@ let poiContextCache: { canonicalDirectory: string; bySite: ReturnType<typeof loa
 let breedCatalogPromise: ReturnType<typeof loadBreedCatalog> | null = null;
 let atlasPoiCache: ReturnType<typeof loadAtlasPois> | null = null;
 let legacyNamingTrust: LegacyV5NamingTrustInspection | null = null;
+let canonicalDataCache: ReturnType<typeof loadBundledCanonical> | null = null;
+let canonicalV5Cache: ReturnType<typeof loadBundledCanonicalV5> | null = null;
+let sitesCache: Record<string, string>[] | null = null;
+let operatorSnapshotInFlight: Promise<OperatorSnapshot & Record<string, unknown>> | null = null;
+
+function canonicalData(): ReturnType<typeof loadBundledCanonical> {
+  canonicalDataCache ??= loadBundledCanonical(runtimeResources);
+  return canonicalDataCache;
+}
+
+function canonicalV5(): ReturnType<typeof loadBundledCanonicalV5> {
+  canonicalV5Cache ??= loadBundledCanonicalV5(join(runtimeResources, "canonical"));
+  return canonicalV5Cache;
+}
+
+function yieldToMainLoop(): Promise<void> {
+  return new Promise((resolvePromise) => setImmediate(resolvePromise));
+}
 
 function getStore(): SimulatorStore {
   if (!store) {
@@ -65,23 +86,17 @@ const V5_WORLDS: readonly WorldKeyV5[] = ["CONCORD", "SCHISM", "RUIN"];
 function v5SettlementProjection(runId: string, state: WorldStateV5): Record<string, unknown>[] {
   const manifest = getStore().loadV5RunManifest(runId);
   if (!manifest) return [];
-  const canonical = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-  const read = buildReadModelV1(state, canonical, manifest.mechanicsVariables, getStore().loadV5Labels(runId, state.year));
-  return read.settlements.map((settlement) => {
-    const durable = state.settlements.find((candidate) => candidate.settlementId === settlement.settlementId)!;
-    const politicalState = state.states.find((candidate) => candidate.stateId === settlement.stateId);
-    const dominantBreed = state.cohorts.filter((cell) => cell.settlementId === settlement.settlementId).map((cell) => ({ breedId: cell.breedId, population: cell.tiers.HIGH.population + cell.tiers.MID.population + cell.tiers.LOW.population })).sort((a, b) => a.population === b.population ? a.breedId.localeCompare(b.breedId) : a.population > b.population ? -1 : 1)[0]?.breedId ?? "NONE";
-    return { settlementId: settlement.settlementId, siteId: durable.siteId, regionId: durable.regionId, stateId: settlement.stateId, name: settlement.label, population: settlement.population, cultureId: null, cultureState: "V5_DERIVED", dominantBreed, dominantFaction: settlement.dominantFaction, politicalForm: politicalState?.actualGovernment ?? null, economicForm: settlement.supportedEconomicForm, prosperity: settlement.prosperity, unrest: settlement.unrest, runtimeIssues: [] };
-  });
+  return buildV5SettlementProjection(getStore(), canonicalV5(), manifest, state);
 }
 
-function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
-  const canonicalData = loadBundledCanonical(runtimeResources);
-  const sitesPath = join(canonicalData.directory, "atlas/sites_naming_master.csv");
-  const sites = existsSync(sitesPath) ? parseCsvSync(readFileSync(sitesPath), { bom: true, columns: true, skip_empty_lines: true }) : [];
+async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string, unknown>> {
+  const loadedCanonicalData = canonicalData();
+  const sitesPath = join(loadedCanonicalData.directory, "atlas/sites_naming_master.csv");
+  sitesCache ??= existsSync(sitesPath) ? parseCsvSync(readFileSync(sitesPath), { bom: true, columns: true, skip_empty_lines: true }) as Record<string, string>[] : [];
+  const sites = sitesCache;
   const runs = getStore().listRuns();
-  if (canonicalData.status === "READY") {
-    if (!poiContextCache || poiContextCache.canonicalDirectory !== canonicalData.directory) poiContextCache = { canonicalDirectory: canonicalData.directory, bySite: loadUnnamedPoisBySite(canonicalData.directory) };
+  if (loadedCanonicalData.status === "READY") {
+    if (!poiContextCache || poiContextCache.canonicalDirectory !== loadedCanonicalData.directory) poiContextCache = { canonicalDirectory: loadedCanonicalData.directory, bySite: loadUnnamedPoisBySite(loadedCanonicalData.directory) };
     for (const run of runs.filter((candidate) => candidate.mode === "CANONICAL" && candidate.status === "WAITING_FOR_NAMING")) {
       const pending = getStore().listPendingNamingJobs(run.runId);
       getStore().supersedePendingNamingJobs(enrichPendingNamingJobsWithPois(pending, poiContextCache.bySite));
@@ -101,27 +116,41 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
   const pendingNamingBatches = buildNamingBatches(pendingNamingJobs);
   const hasActiveRun = runs.some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING", "WAITING_FOR_POLICY_AUTHORITY", "WAITING_FOR_DEROGATORY_DECISIONS"].includes(run.status));
   const v5Configuration = editableV5ConfigurationJson(getStore().loadV5Configuration());
-  const v5States = selectedV5Manifest ? Object.fromEntries(V5_WORLDS.map((world) => [world, getStore().loadLatestV5Checkpoint(selectedRun!.runId, world, persistedYear)?.state ?? null])) as Record<WorldKeyV5, WorldStateV5 | null> : null;
-  const settlementProjections = selectedRun ? selectedV5Manifest
-    ? Object.fromEntries(V5_WORLDS.map((world) => [world, v5States![world] ? v5SettlementProjection(selectedRun.runId, v5States![world]!) : []]))
-    : Object.fromEntries(["CONCORD", "SCHISM", "RUIN"].map((world) => [world, presentedSettlements(selectedRun.runId, getStore().listProjections(selectedRun.runId, world, persistedYear, "SETTLEMENT"))])) : null;
+  let v5States: Record<WorldKeyV5, WorldStateV5 | null> | null = null;
+  if (selectedRun && selectedV5Manifest) {
+    v5States = { CONCORD: null, SCHISM: null, RUIN: null };
+    for (const world of V5_WORLDS) {
+      await yieldToMainLoop();
+      v5States[world] = getStore().loadLatestV5Checkpoint(selectedRun.runId, world, persistedYear)?.state ?? null;
+    }
+  }
+  let settlementProjections: Record<string, unknown[]> | null = null;
+  if (selectedRun && selectedV5Manifest) {
+    settlementProjections = { CONCORD: [], SCHISM: [], RUIN: [] };
+    for (const world of V5_WORLDS) {
+      await yieldToMainLoop();
+      settlementProjections[world] = v5States![world] ? v5SettlementProjection(selectedRun.runId, v5States![world]!) : [];
+    }
+  } else if (selectedRun) {
+    settlementProjections = Object.fromEntries(["CONCORD", "SCHISM", "RUIN"].map((world) => [world, presentedSettlements(selectedRun.runId, getStore().listProjections(selectedRun.runId, world, persistedYear, "SETTLEMENT"))]));
+  }
   const eventCount = selectedRun ? selectedV5Manifest ? getStore().v5EventCount(selectedRun.runId) : getStore().eventCount(selectedRun.runId) : 0;
   const checkpointCount = selectedRun ? selectedV5Manifest ? getStore().v5CheckpointCount(selectedRun.runId) : getStore().checkpointCount(selectedRun.runId) : 0;
   const cohortCount = selectedRun ? selectedV5Manifest ? V5_WORLDS.reduce((sum, world) => sum + (v5States![world]?.cohorts.length ?? 0), 0) : getStore().countCohorts(selectedRun.runId, undefined, persistedYear) : 0;
   const worldSummary = selectedRun ? Object.fromEntries(["CONCORD", "SCHISM", "RUIN"].map((world) => {
     const settlements = settlementProjections![world] as { population?: string; stateId?: string }[];
-    return [world, { finalPopulation: settlements.reduce((sum, settlement) => sum + BigInt(settlement.population ?? "0"), 0n).toString(), settlements: settlements.length, states: new Set(settlements.map((settlement) => String(settlement.stateId))).size, events: selectedV5Manifest ? getStore().listV5CausalEvents(selectedRun!.runId, world).length : eventCount, federalCapitalSiteId: null }];
+    return [world, { finalPopulation: settlements.reduce((sum, settlement) => sum + BigInt(settlement.population ?? "0"), 0n).toString(), settlements: settlements.length, states: new Set(settlements.map((settlement) => String(settlement.stateId))).size, events: selectedV5Manifest ? getStore().v5CausalEventCount(selectedRun!.runId, world, persistedYear) : eventCount, federalCapitalSiteId: null }];
   })) : null;
   const manifest = selectedRun ? { ...selectedRun, currentYear: persistedYear, finalYear: selectedV5Manifest?.targetYear ?? 2000, checkpointCount, eventCount, cohortCount, namingJobCount: selectedV5Manifest ? pendingV5NamingBatches.reduce((sum, batch) => sum + batch.items.length, 0) : pendingNamingJobs.length, worldSummary, activeIssues: [] } : null;
-  const v5CanonicalReadiness = canonicalData.status === "READY" ? (() => {
-    const canonicalV5 = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-    const candidateOwnerInputs = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonicalV5.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
-    return canonicalPolicyReadiness(candidateOwnerInputs, canonicalV5.governments.map((government) => government.governmentFormId));
+  const v5CanonicalReadiness = loadedCanonicalData.status === "READY" ? (() => {
+    const loadedCanonicalV5 = canonicalV5();
+    const candidateOwnerInputs = diagnosticCandidateOwnerInputsV1(Object.fromEntries(loadedCanonicalV5.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
+    return canonicalPolicyReadiness(candidateOwnerInputs, loadedCanonicalV5.governments.map((government) => government.governmentFormId));
   })() : { ready: false, missing: ["CANONICAL_BUNDLE"] };
-  const namingReadiness = canonicalData.status === "READY" ? (() => {
-    const canonicalV5 = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-    const routeClassifications = loadRouteClassificationAuthority(runtimeResources, canonicalV5.routeCorridors);
-    return { routeCorridorsNotReady: canonicalV5.routeCorridors.filter((corridor) => effectiveRouteClassification(corridor, routeClassifications).semanticReadiness === "NOT_READY").length, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: canonicalV5.sites.filter((site) => site.nameStatus !== "CANONICAL").length + canonicalV5.physicalPois.filter((poi) => poi.nameStatus !== "CANONICAL").length, unresolvedDjtYearAuthority: 1 };
+  const namingReadiness = loadedCanonicalData.status === "READY" ? (() => {
+    const loadedCanonicalV5 = canonicalV5();
+    const routeClassifications = loadRouteClassificationAuthority(runtimeResources, loadedCanonicalV5.routeCorridors);
+    return { routeCorridorsNotReady: loadedCanonicalV5.routeCorridors.filter((corridor) => effectiveRouteClassification(corridor, routeClassifications).semanticReadiness === "NOT_READY").length, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: loadedCanonicalV5.sites.filter((site) => site.nameStatus !== "CANONICAL").length + loadedCanonicalV5.physicalPois.filter((poi) => poi.nameStatus !== "CANONICAL").length, unresolvedDjtYearAuthority: 1 };
   })() : { routeCorridorsNotReady: 0, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: 0, unresolvedDjtYearAuthority: 1 };
   const namingQueueSummary = selectedRun && selectedV5Manifest ? (() => {
     const requests = getStore().listV5NamingRequests(selectedRun.runId); const ledger = getStore().loadV5TrustedLabelLedger(selectedRun.runId);
@@ -143,12 +172,18 @@ function snapshotForOperator(): OperatorSnapshot & Record<string, unknown> {
   } : null;
   const v5DerogatoryDecisionBatches = selectedRun && selectedV5Manifest ? getStore().listV5DerogatoryDecisionBatches(selectedRun.runId) : [];
   const acceptedV5DerogatoryBatchIds = new Set(selectedRun && selectedV5Manifest ? getStore().listV5AcceptedDerogatoryDecisionBatches(selectedRun.runId).map((row) => row.batch.batchId) : []);
-  const pendingV5DerogatoryDecisionBatch = v5DerogatoryDecisionBatches.find((row) => !acceptedV5DerogatoryBatchIds.has(row.batchId)) ?? null;
+  const pendingV5DerogatoryBatch = v5DerogatoryDecisionBatches.find((row) => !acceptedV5DerogatoryBatchIds.has(row.batchId)) ?? null;
+  const pendingV5DerogatoryDecisionBatch = pendingV5DerogatoryBatch ? { ...pendingV5DerogatoryBatch, externalPromptText: renderExternalDerogatoryDecisionPromptV5(pendingV5DerogatoryBatch) } : null;
   const v5PolicyBlockers = selectedRun && selectedV5Manifest ? getStore().listV5PolicyBlockers(selectedRun.runId) : [];
-  return { canonicalData, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, pendingV5DerogatoryDecisionBatch, v5PolicyBlockers, atrocityOccurrenceSlots: selectedV5Manifest?.causalOwnerInputs.atrocityOccurrenceSlots ?? [], settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
+  return { canonicalData: loadedCanonicalData, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, pendingV5DerogatoryDecisionBatch, v5PolicyBlockers, atrocityOccurrenceSlots: selectedV5Manifest?.causalOwnerInputs.atrocityOccurrenceSlots ?? [], settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
 }
 
-function runWorker(action: "RUN_DIAGNOSTIC" | "RUN_V5_DIAGNOSTIC" | "RESUME_V5" | "RESUME_CANONICAL" | "GET_BREED_POPULATION", payload: Record<string, unknown>): Promise<unknown> {
+function snapshotForOperator(): Promise<OperatorSnapshot & Record<string, unknown>> {
+  operatorSnapshotInFlight ??= buildOperatorSnapshot().finally(() => { operatorSnapshotInFlight = null; });
+  return operatorSnapshotInFlight;
+}
+
+function runWorker(action: "RUN_DIAGNOSTIC" | "RUN_V5_DIAGNOSTIC" | "RESUME_V5" | "RESUME_CANONICAL" | "GET_BREED_POPULATION" | "GET_V5_RUN_VIEW", payload: Record<string, unknown>): Promise<unknown> {
   return new Promise((resolvePromise, reject) => {
     const worker = new Worker(join(import.meta.dirname, "simulation-worker.js"));
     const requestId = `${action}_${Date.now()}`;
@@ -214,7 +249,7 @@ async function createWindow(): Promise<void> {
 
 ipcMain.handle("simulator:get-runtime-info", () => ({ version: app.getVersion(), userDataPath: app.getPath("userData") }));
 ipcMain.handle("simulator:get-operator-snapshot", snapshotForOperator);
-ipcMain.handle("simulator:save-v5-configuration", (_event, input: { mechanicsJson: string; operationalJson: string; diagnosticJson: string }) => {
+ipcMain.handle("simulator:save-v5-configuration", async (_event, input: { mechanicsJson: string; operationalJson: string; diagnosticJson: string }) => {
   const hasActiveRun = getStore().listRuns().some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING", "WAITING_FOR_POLICY_AUTHORITY", "WAITING_FOR_DEROGATORY_DECISIONS"].includes(run.status));
   if (hasActiveRun) throw new Error("Simulation Variables are read-only while a run is active");
   const configuration = parseEditableV5Configuration(input);
@@ -222,7 +257,7 @@ ipcMain.handle("simulator:save-v5-configuration", (_event, input: { mechanicsJso
   return snapshotForOperator();
 });
 ipcMain.handle("simulator:run-diagnostic", async (_event, seed: string) => {
-  const state = deriveOperatorViewModel(snapshotForOperator());
+  const state = deriveOperatorViewModel(await snapshotForOperator());
   if (!state.canRunDiagnostic) throw new Error(state.diagnosticDisabledReasons.join(" "));
   const result = await runWorker("RUN_DIAGNOSTIC", { seed, resourceDirectory: runtimeResources }) as DiagnosticResult;
   return persistDiagnosticResult(getStore(), result);
@@ -247,74 +282,15 @@ ipcMain.handle("simulator:get-naming-geography", (_event, requestedYear?: number
   const states = Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run.runId, world, year)?.state; return state ? [[world, state]] : []; })) as Partial<Record<WorldKeyV5, WorldStateV5>>;
   return buildNamingGeographyReadModel(canonical, states, getStore().loadV5TrustedLabelLedger(run.runId, year), getStore().listV5NamingRequests(run.runId), year, routeClassifications);
 });
-ipcMain.handle("simulator:select-run", (_event, runId: string) => { getStore().selectRun(runId); return snapshotForOperator(); });
-ipcMain.handle("simulator:get-run-view", (_event, runId: string, world: string, year: number) => {
+ipcMain.handle("simulator:select-run", async (_event, runId: string) => { getStore().selectRun(runId); return snapshotForOperator(); });
+ipcMain.handle("simulator:get-run-view", async (_event, runId: string, world: string, year: number, detail?: V5OperatorViewDetail) => {
   const run = getStore().getRun(runId);
   if (!run) throw new Error(`Unknown run ${runId}`);
   const effectiveYear = Math.max(0, Math.min(Number.isFinite(year) ? Math.trunc(year) : 0, run.currentYear ?? 0));
   const v5Manifest = getStore().loadV5RunManifest(runId);
   if (v5Manifest) {
     if (!V5_WORLDS.includes(world as WorldKeyV5)) throw new Error(`Unknown V5 world ${world}`);
-    const checkpoint = getStore().loadLatestV5Checkpoint(runId, world, effectiveYear);
-    const checkpointYear = checkpoint?.state.year ?? 0;
-    const labels = getStore().loadV5Labels(runId, checkpointYear);
-    const canonical = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-    const personFactionById = Object.fromEntries((checkpoint?.state.politicalPeople ?? []).map((person) => {
-      const family = checkpoint?.state.families.find((candidate) => candidate.familyId === person.familyId);
-      if (family) return [person.personId, family.factionAffinity.CONCORD >= family.factionAffinity.SCHISM && family.factionAffinity.CONCORD >= family.factionAffinity.RUIN ? "CONCORD" : family.factionAffinity.SCHISM >= family.factionAffinity.RUIN ? "SCHISM" : "RUIN"];
-      const breed = canonical.breeds.find((candidate) => candidate.breedId === person.breedId);
-      const vector = breed?.factionObject ?? { CONCORD: 0, SCHISM: 0, RUIN: 0 };
-      return [person.personId, vector.CONCORD >= vector.SCHISM && vector.CONCORD >= vector.RUIN ? "CONCORD" : vector.SCHISM >= vector.RUIN ? "SCHISM" : "RUIN"];
-    }));
-    const familyHistory = checkpoint ? getStore().listV5CheckpointMetadata(runId, world, effectiveYear).flatMap((metadata) => {
-      const historical = getStore().loadLatestV5Checkpoint(runId, world, metadata.year)?.state;
-      return (historical?.families ?? []).map((family) => ({ year: metadata.year, familyId: family.familyId, wealth: family.wealth, influence: family.influence, prestige: family.prestige, status: family.status }));
-    }) : [];
-    const events = getStore().listV5CausalEvents(runId, world, effectiveYear).map((event) => ({ eventId: event.eventId, year: event.year, eventType: event.eventType, entityId: event.entityId, payload: event.payload }));
-    const officeTermSelectionEvidence = Object.fromEntries(events.flatMap((event) => {
-      if (event.eventType !== "OfficeholderSelected" || !event.payload || typeof event.payload !== "object") return [];
-      const payload = event.payload as Record<string, unknown>;
-      if (typeof payload.officeTermId !== "string" || !payload.appliedSelectionRule || typeof payload.appliedSelectionRule !== "object") return [];
-      return [[payload.officeTermId, { selectionEventId: event.eventId, appliedSelectionRule: payload.appliedSelectionRule, sourceGovernmentFormId: typeof payload.sourceGovernmentFormId === "string" ? payload.sourceGovernmentFormId : null, sourceGovernmentOfficeId: typeof payload.sourceGovernmentOfficeId === "string" ? payload.sourceGovernmentOfficeId : null, selectorType: payload.selectorType, selectorId: payload.selectorId, selectedPersonId: payload.selectedPersonId ?? payload.personId }]];
-    }));
-    return {
-      runId, world, requestedYear: year, effectiveYear: checkpointYear,
-      settlements: checkpoint ? v5SettlementProjection(runId, checkpoint.state) : [],
-      events,
-      history: [],
-      checkpoints: getStore().listV5CheckpointMetadata(runId, world, effectiveYear),
-      states: checkpoint?.state.states ?? [],
-      people: checkpoint?.state.politicalPeople ?? [],
-      families: checkpoint?.state.families ?? [],
-      organizations: checkpoint?.state.organizations ?? [],
-      institutions: checkpoint?.state.institutions ?? [],
-      offices: checkpoint?.state.offices ?? [],
-      officeTerms: checkpoint?.state.officeTerms ?? [],
-      ownershipStakes: checkpoint?.state.ownershipStakes ?? [],
-      personRelations: checkpoint?.state.personRelations ?? [],
-      familyRelations: checkpoint?.state.familyRelations ?? [],
-      worldRoutes: checkpoint?.state.worldRoutes ?? [],
-      resourceNodes: checkpoint?.state.resourceNodes ?? [],
-      worldResourceStates: checkpoint?.state.worldResourceStates ?? [],
-      industries: checkpoint?.state.industries ?? [],
-      securityForces: checkpoint?.state.securityForces ?? [],
-      diplomaticRelations: checkpoint?.state.diplomaticRelations ?? [],
-      diplomaticAgreements: checkpoint?.state.diplomaticAgreements ?? [],
-      conflictEpisodes: checkpoint?.state.conflictEpisodes ?? [],
-      settlementControlTerms: checkpoint?.state.settlementControlTerms ?? [],
-      populationSlices: checkpoint?.state.populationSlices ?? [],
-      derogatoryTargetSelections: checkpoint?.state.derogatoryTargetSelections ?? [],
-      localAtrocityResponses: checkpoint?.state.localAtrocityResponses ?? [],
-      forcedDisplacements: checkpoint?.state.forcedDisplacements ?? [],
-      enclaves: checkpoint?.state.enclaves ?? [],
-      atrocityOccurrenceSlots: v5Manifest.causalOwnerInputs.atrocityOccurrenceSlots ?? [],
-      policyBlockers: getStore().listV5PolicyBlockers(runId),
-      derogatoryDecisionBatches: getStore().listV5DerogatoryDecisionBatches(runId),
-      labels,
-      personFactionById,
-      familyHistory,
-      officeTermSelectionEvidence,
-    };
+    return runWorker("GET_V5_RUN_VIEW", { databasePath: getStore().filename, runId, world, year: effectiveYear, detail, resourceDirectory: runtimeResources });
   }
   return {
     runId, world, requestedYear: year, effectiveYear,
@@ -377,12 +353,12 @@ ipcMain.handle("simulator:get-atlas-data", (_event, requestedYear?: number) => {
   }) : []]));
   return { imageUrl: pathToFileURL(imagePath).href, pois: atlasPoiCache.map((poi) => ({ ...poi, namesByWorld: namesByPoi.get(poi.poiId) ?? {}, coverageByWorld: Object.fromEntries(V5_WORLDS.map((world) => [world, poiCoverage.rows.find((row) => row.poiId === poi.poiId)?.worlds[world] ?? null])) })), settlementsByWorld, routes: routeCoverage.rows, routeSummary: routeCoverage };
 });
-ipcMain.handle("simulator:run-canonical", (_event, seed: string) => {
-  const canonicalData = loadBundledCanonical(runtimeResources);
-  const state = deriveOperatorViewModel(snapshotForOperator());
+ipcMain.handle("simulator:run-canonical", async (_event, seed: string) => {
+  const loadedCanonicalData = canonicalData();
+  const state = deriveOperatorViewModel(await snapshotForOperator());
   if (!state.canRunCanonical) throw new Error(state.canonicalDisabledReasons.join(" "));
-  if (canonicalData.status !== "READY") throw new Error(`BUNDLED_CANONICAL_DATA_INVALID: ${canonicalData.errorDetail}`);
-  return bootstrapCanonicalRun({ store: getStore(), seed, canonicalDirectory: canonicalData.directory });
+  if (loadedCanonicalData.status !== "READY") throw new Error(`BUNDLED_CANONICAL_DATA_INVALID: ${loadedCanonicalData.errorDetail}`);
+  return bootstrapCanonicalRun({ store: getStore(), seed, canonicalDirectory: loadedCanonicalData.directory });
 });
 ipcMain.handle("simulator:resume-canonical", (_event, runId: string) => {
   const run = getStore().getRun(runId);
@@ -407,7 +383,7 @@ ipcMain.handle("simulator:submit-naming-response", (_event, responseText: string
       startV5Resume(selected.runId);
       return { ...accepted, status: "RUNNING", resumeStarted: true };
     }
-    return { ...accepted, status: "WAITING_FOR_NAMING", resumeStarted: false };
+    return { ...accepted, status: getStore().getRun(selected.runId)?.status ?? selected.status, resumeStarted: false };
   }
   const firstJob = getStore().getAnyPendingNamingJob();
   if (!firstJob) throw new Error("No pending naming job exists");
@@ -464,6 +440,37 @@ ipcMain.handle("simulator:export-naming-prompt", async (_event, promptText: stri
   if (result.canceled || !result.filePath) return null;
   writeFileSync(result.filePath, promptText, "utf8");
   return { path: result.filePath };
+});
+ipcMain.handle("simulator:export-all-naming-prompts", async () => {
+  const selected = getStore().selectedRun();
+  const manifest = selected ? getStore().loadV5RunManifest(selected.runId) : null;
+  if (!selected || !manifest) throw new Error("No V5 run is selected");
+  const batches = getStore().materializePendingV5NamingBatches(selected.runId, manifest.operationalConfig.namingBatchMaximum);
+  const exported = buildNamingPromptExportV5(selected.runId, batches);
+  const result = await dialog.showOpenDialog(mainWindow!, { title: "Choose a folder for all naming prompts", properties: ["openDirectory", "createDirectory"] });
+  if (result.canceled || !result.filePaths[0]) return null;
+  const directory = result.filePaths[0];
+  for (const file of exported.promptFiles) writeFileSync(join(directory, file.filename), file.text, "utf8");
+  writeFileSync(join(directory, exported.manifestFilename), exported.manifestText, "utf8");
+  return { directory, batchCount: exported.batchCount, requestCount: exported.requestCount, manifestPath: join(directory, exported.manifestFilename) };
+});
+ipcMain.handle("simulator:upload-all-naming-responses", async () => {
+  const result = await dialog.showOpenDialog(mainWindow!, { title: "Choose the ZIP containing all naming response JSON files", properties: ["openFile"], filters: [{ name: "ZIP archive", extensions: ["zip"] }] });
+  if (result.canceled || !result.filePaths[0]) return null;
+  const selected = getStore().selectedRun();
+  const manifest = selected ? getStore().loadV5RunManifest(selected.runId) : null;
+  if (!selected || !manifest) throw new Error("No V5 run is selected");
+  const batches = getStore().materializePendingV5NamingBatches(selected.runId, manifest.operationalConfig.namingBatchMaximum);
+  const archive = parseNamingResponseZipV5(readFileSync(result.filePaths[0]), batches);
+  if (!archive.accepted || !archive.responses) return { accepted: false, errors: archive.errors, filename: result.filePaths[0] };
+  const accepted = acceptPersistedV5NamingBatches({ store: getStore(), runId: selected.runId, batches, responses: archive.responses });
+  if (!accepted.accepted) return { ...accepted, filename: result.filePaths[0] };
+  const shouldResume = (accepted.pendingBlocking ?? 0) === 0 && (accepted.pendingBatched ?? 0) === 0 && (accepted.behaviors?.includes("BLOCKING") || selected.status === "WAITING_FOR_NAMING");
+  if (shouldResume) {
+    startV5Resume(selected.runId);
+    return { ...accepted, status: "RUNNING", resumeStarted: true, filename: result.filePaths[0] };
+  }
+  return { ...accepted, status: getStore().getRun(selected.runId)?.status ?? selected.status, resumeStarted: false, filename: result.filePaths[0] };
 });
 ipcMain.handle("simulator:export-run", async () => {
   const run = getStore().selectedRun();

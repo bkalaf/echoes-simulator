@@ -622,6 +622,17 @@ export class SimulatorStore {
     return rows.map((row) => decodeV5CausalEvent(row.event_json));
   }
 
+  listRecentV5CausalEvents(runId: string, worldKey: string, throughYear = Number.MAX_SAFE_INTEGER, limit = 40): CausalEventV5[] {
+    const boundedLimit = Math.max(0, Math.trunc(limit));
+    if (boundedLimit === 0) return [];
+    const rows = this.database.prepare(`SELECT event_json FROM (
+      SELECT event_json, year, sequence, event_id FROM v5_causal_event
+      WHERE run_id=? AND world_key=? AND year<=?
+      ORDER BY year DESC, sequence DESC, event_id DESC LIMIT ?
+    ) ORDER BY year, sequence, event_id`).all(runId, worldKey, throughYear, boundedLimit) as { event_json: string | Uint8Array }[];
+    return rows.map((row) => decodeV5CausalEvent(row.event_json));
+  }
+
   summarizeV5CausalEventHistory(runId: string, worldKey: string, throughYear = Number.MAX_SAFE_INTEGER): { eventHistoryHash: string; eventCount: number } {
     const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=? ORDER BY year, sequence").iterate(runId, worldKey, throughYear) as Iterable<{ event_json: string | Uint8Array }>;
     let eventHistoryHash = V5_EMPTY_EVENT_HISTORY_HASH;
@@ -967,7 +978,8 @@ export class SimulatorStore {
     atomic?: { response: unknown; manifest: V5RunManifest },
   ): { pendingBlocking: number; pendingBatched: number } {
     if (decisions.length === 0) throw new Error("V5 naming response is empty");
-    this.database.exec("BEGIN IMMEDIATE");
+    const ownsTransaction = !this.v5AtomicWriteActive;
+    if (ownsTransaction) this.database.exec("BEGIN IMMEDIATE");
     try {
       const pendingRows = this.database.prepare("SELECT request_id, request_json FROM v5_naming_request WHERE run_id=?").all(runId) as { request_id: string; request_json: string }[];
       const pending = new Map(pendingRows.map((row) => [row.request_id, JSON.parse(row.request_json) as NamingRequestV5]));
@@ -1003,15 +1015,15 @@ export class SimulatorStore {
       const remaining = remainingRows.map((row) => JSON.parse(row.request_json) as NamingRequestV5);
       const pendingBlocking = remaining.filter((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null).length;
       const pendingBatched = remaining.filter((request) => request.behavior === "BATCHED" && request.acceptedLabel === null).length;
-      if (atomic && (pendingBlocking > 0 || pendingBatched > 0)) this.database.prepare("UPDATE simulation_run SET status='WAITING_FOR_NAMING', updated_at=CURRENT_TIMESTAMP WHERE run_id=?").run(runId);
+      if (atomic && (pendingBlocking > 0 || pendingBatched > 0)) this.database.prepare("UPDATE simulation_run SET status='WAITING_FOR_NAMING', updated_at=CURRENT_TIMESTAMP WHERE run_id=? AND status='WAITING_FOR_NAMING'").run(runId);
       else if (behavior === "BLOCKING" || (atomic && pendingBlocking === 0 && pendingBatched === 0)) this.database.prepare("UPDATE simulation_run SET status='RUNNING', updated_at=CURRENT_TIMESTAMP WHERE run_id=? AND status='WAITING_FOR_NAMING'").run(runId);
       if (atomic) {
         this.database.prepare(`UPDATE v5_run_manifest SET causal_run_hash=?,operational_config_hash=?,diagnostic_config_hash=?,label_input_hash=?,run_manifest_hash=?,manifest_json=? WHERE run_id=?`)
           .run(atomic.manifest.causalRunHash, atomic.manifest.operationalConfigHash, atomic.manifest.diagnosticConfigHash, atomic.manifest.labelInputHash, atomic.manifest.runManifestHash, canonicalJson(atomic.manifest), runId);
       }
-      this.database.exec("COMMIT");
+      if (ownsTransaction) this.database.exec("COMMIT");
       return { pendingBlocking, pendingBatched };
-    } catch (error) { this.database.exec("ROLLBACK"); throw error; }
+    } catch (error) { if (ownsTransaction) try { this.database.exec("ROLLBACK"); } catch { /* preserve original failure */ } throw error; }
   }
 
   loadV5Configuration(): EditableV5Configuration {

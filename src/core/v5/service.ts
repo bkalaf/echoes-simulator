@@ -8,7 +8,7 @@ import { V5_EMPTY_EVENT_HISTORY_HASH, buildNonCausalLabelManifestUpdateV5, build
 import { buildDivergenceReport } from "./read-model.js";
 import { continueV5History, runV5History } from "./runner.js";
 import { buildDiagnosticDjtPolicyV5, buildScheduledTransactionsV5, DJT_POLICY_KEY_V5 } from "./schedule.js";
-import { recoverExportedV2NamingBatchV5, validateNamingBatchResponseV5 } from "./naming.js";
+import { recoverExportedV2NamingBatchV5, validateNamingBatchResponseV5, type NamingBatchResponseV5, type PersistedNamingBatchV5 } from "./naming.js";
 import type { CausalEventV5, WorldKey } from "./types.js";
 import { updateDivergenceTracesV5, type DivergenceTraceV5 } from "./divergence-diagnostics.js";
 import { acceptDerogatoryDecisionResponseV5, V5_EMPTY_DEROGATORY_DECISION_STREAM_HASH, type DerogatoryDecisionResponseV5 } from "./derogatory-decisions.js";
@@ -241,4 +241,43 @@ export function acceptPersistedV5NamingBatch(input: { store: SimulatorStore; run
     { response: input.response, manifest: updatedManifest },
   );
   return { accepted: true, errors: [], acceptedDecisions: validated.decisions.length, currentYear: run.currentYear, behavior: batch.behavior, pendingBlocking, pendingBatched, acceptanceMode };
+}
+
+export function acceptPersistedV5NamingBatches(input: { store: SimulatorStore; runId: string; batches: readonly PersistedNamingBatchV5[]; responses: readonly NamingBatchResponseV5[] }): { accepted: boolean; errors: string[]; acceptedBatches?: number; acceptedDecisions?: number; currentYear?: number; pendingBlocking?: number; pendingBatched?: number; behaviors?: readonly ("BLOCKING" | "BATCHED")[] } {
+  const run = input.store.getRun(input.runId);
+  const manifest = input.store.loadV5RunManifest(input.runId);
+  if (!run || !manifest) throw new Error(`Unknown V5 run ${input.runId}`);
+  const errors: string[] = [];
+  const expected = new Map(input.batches.map((batch) => [batch.batchId, batch]));
+  const responsesByBatch = new Map<string, NamingBatchResponseV5>();
+  for (const [index, response] of input.responses.entries()) {
+    if (!response || typeof response.batchId !== "string") { errors.push(`Response ${index + 1} has no batchId`); continue; }
+    const batch = expected.get(response.batchId);
+    if (!batch) { errors.push(`Unknown or non-pending batchId ${response.batchId}`); continue; }
+    if (responsesByBatch.has(response.batchId)) { errors.push(`Duplicate response for batchId ${response.batchId}`); continue; }
+    const validated = validateNamingBatchResponseV5(batch, response);
+    if (!validated.accepted) errors.push(...validated.errors.map((error) => `${response.batchId}: ${error}`));
+    else responsesByBatch.set(response.batchId, response);
+  }
+  for (const batch of input.batches) if (!responsesByBatch.has(batch.batchId)) errors.push(`Missing response for batchId ${batch.batchId}`);
+  if (errors.length > 0) return { accepted: false, errors };
+  if (input.batches.some((batch) => batch.behavior === "BLOCKING") && run.status !== "WAITING_FOR_NAMING") return { accepted: false, errors: [`V5 run ${input.runId} is not waiting for blocking naming`] };
+
+  try {
+    return input.store.withV5AtomicYearTransaction(() => {
+      let acceptedDecisions = 0;
+      let pendingBlocking = 0;
+      let pendingBatched = 0;
+      for (const batch of input.batches) {
+        const accepted = acceptPersistedV5NamingBatch({ store: input.store, runId: input.runId, response: responsesByBatch.get(batch.batchId)! });
+        if (!accepted.accepted) throw new Error(`${batch.batchId}: ${accepted.errors.join(" · ")}`);
+        acceptedDecisions += accepted.acceptedDecisions ?? 0;
+        pendingBlocking = accepted.pendingBlocking ?? pendingBlocking;
+        pendingBatched = accepted.pendingBatched ?? pendingBatched;
+      }
+      return { accepted: true, errors: [], acceptedBatches: input.batches.length, acceptedDecisions, currentYear: run.currentYear, pendingBlocking, pendingBatched, behaviors: input.batches.map((batch) => batch.behavior) };
+    });
+  } catch (error) {
+    return { accepted: false, errors: [error instanceof Error ? error.message : String(error)] };
+  }
 }

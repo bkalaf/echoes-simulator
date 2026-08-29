@@ -4,6 +4,7 @@ import { runDiagnosticHistory } from "../src/core/engine/diagnostic-runner.js";
 import { resumeCanonicalRun } from "../src/core/engine/canonical-resume.js";
 import { SimulatorStore } from "../src/persistence/sqlite-store.js";
 import { resumePersistedV5Run, runPersistedV5Diagnostic } from "../src/core/v5/service.js";
+import { buildV5RunView, type V5OperatorViewDetail } from "./v5-operator-read.js";
 
 parentPort?.on("message", (candidate: unknown) => {
   let requestId = "UNKNOWN";
@@ -46,6 +47,22 @@ parentPort?.on("message", (candidate: unknown) => {
       const store = new SimulatorStore(databasePath);
       try {
         payload = store.getBreedPopulationView(runId, breedId, Number.isFinite(year) ? Math.trunc(year) : 0);
+      } finally {
+        store.close();
+      }
+    }
+    if (request.action === "GET_V5_RUN_VIEW") {
+      const databasePath = String(request.payload.databasePath);
+      const store = new SimulatorStore(databasePath);
+      try {
+        payload = buildV5RunView({
+          store,
+          runId: String(request.payload.runId),
+          world: String(request.payload.world) as "CONCORD" | "SCHISM" | "RUIN",
+          year: Number(request.payload.year),
+          resourceDirectory: String(request.payload.resourceDirectory),
+          detail: (typeof request.payload.detail === "string" ? request.payload.detail : undefined) as V5OperatorViewDetail | undefined,
+        });
       } finally {
         store.close();
       }

@@ -4,7 +4,7 @@ export const WORKER_SCHEMA_VERSION = "eidolon-simulator-worker-v1" as const;
 const workerRequestSchema = z.object({
   schemaVersion: z.literal(WORKER_SCHEMA_VERSION),
   requestId: z.string().min(1),
-  action: z.enum(["STATUS", "ADVANCE", "PAUSE", "REBUILD_PROJECTION", "RUN_DIAGNOSTIC", "RUN_V5_DIAGNOSTIC", "RESUME_V5", "RESUME_CANONICAL", "GET_BREED_POPULATION"]),
+  action: z.enum(["STATUS", "ADVANCE", "PAUSE", "REBUILD_PROJECTION", "RUN_DIAGNOSTIC", "RUN_V5_DIAGNOSTIC", "RESUME_V5", "RESUME_CANONICAL", "GET_BREED_POPULATION", "GET_V5_RUN_VIEW"]),
   payload: z.record(z.string(), z.unknown()),
 });
 

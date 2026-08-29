@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { deriveOperatorViewModel, type CanonicalDataStatus, type OperatorSnapshot } from "./core/operator/operator-state.js";
 import { AtlasView, type AtlasData } from "./ui/atlas-view.js";
@@ -19,7 +19,7 @@ interface SettlementProjection { settlementId: string; siteId: string; regionId:
 interface NamingJob { namingJobId: string; promptText: string; items: { requestId: string; entityType: string; entityId: string }[]; context: { year: number; world: World; reason: string }; }
 interface NamingBatch { namingBatchId: string; runId: string; world: World; year: number; jobs: NamingJob[]; promptText: string; promptSha256: string; }
 interface V5NamingBatch { schemaVersion: "echoes-v5-naming-batch-v2"; batchId: string; runId: string; year: number; behavior: "BLOCKING" | "BATCHED"; items: { requestId: string; entityType: string; entityId: string }[]; promptText: string; }
-interface V5DerogatoryDecisionBatch { batchId: string; reviewYear: number; barrierYear: number; requests: unknown[]; promptText: string; promptSha256: string; }
+interface V5DerogatoryDecisionBatch { batchId: string; reviewYear: number; barrierYear: number; requests: unknown[]; promptText: string; externalPromptText?: string; promptSha256: string; }
 interface RunView extends Omit<V5OperatorRunView, "settlements"> { runId: string; requestedYear: number; settlements: SettlementProjection[]; history: { year: number; historyType: string; entryId: string; data: unknown }[]; checkpoints: { year: number; stateHash: string }[]; }
 interface V5ConfigurationJson { mechanicsJson: string; operationalJson: string; diagnosticJson: string; }
 interface Snapshot extends OperatorSnapshot { canonicalData: CanonicalDataStatus; manifest: Manifest | null; runs: Manifest[]; selectedRunId: string | null; v5Run?: boolean; v5CanonicalReadiness?: { ready: boolean; missing: string[] }; namingReadiness?: { routeCorridorsNotReady: number; ownerPolicyBlockers: number; canonicalNamingGaps: number; unresolvedDjtYearAuthority: number }; namingQueueSummary?: Record<string, Record<string, number>> | null; progress?: { targetYear: number; currentYear: number; elapsedMilliseconds: number; currentPhase: string; lastCompletedCheckpoint: number; nextCheckpoint: number } | null; exportValidation: { valid: boolean; checkedFiles: number } | null; sites: Site[]; pendingNamingJob?: NamingJob | null; pendingNamingBatches?: NamingBatch[]; pendingV5NamingBatch?: V5NamingBatch | null; pendingV5NamingBatches?: V5NamingBatch[]; pendingV5DerogatoryDecisionBatch?: V5DerogatoryDecisionBatch | null; v5PolicyBlockers?: Record<string, unknown>[]; atrocityOccurrenceSlots?: Record<string, unknown>[]; settlementProjections?: Record<World, SettlementProjection[]> | null; databasePath?: string; canonicalResumeInProgress?: boolean; v5ResumeInProgress?: boolean; v5Configuration?: V5ConfigurationJson; v5ConfigurationEditable?: boolean; }
@@ -28,6 +28,7 @@ interface NamingFeedback { outcome: "accepted" | "rejected"; message: string; }
 const emptySnapshot: Snapshot = { canonicalData: { status: "INVALID", semanticAuthorityVersion: null, semanticAuthorityFilename: null, semanticAuthoritySha256: null, semanticAuthorityVerdict: null, year0Readiness: null, ownerPolicyVersion: null, personalityPolicyVersion: null, bundleVersion: null, bundleContentSha256: null, errorCode: "BUNDLED_CANONICAL_DATA_INVALID", errorDetail: "Runtime is booting" }, manifest: null, runs: [], selectedRunId: null, exportValidation: null, sites: [] };
 const compact = new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 2 });
 const exact = new Intl.NumberFormat("en-US");
+const runViewSections = new Set<Section>(["Live Dashboard", "World Browser", "Settlement Detail", "State Detail", "People", "Families", "Conclave", "Senate", "Institutions", "Resources / Industry", "Conflict", "Derogatory Groups", "Atrocities", "Enclaves", "Parameters / Event Triggers", "Timeline"]);
 
 function Stat({ label, value, note }: { label: string; value: React.ReactNode; note: string }): React.JSX.Element {
   return <article><p>{label}</p><strong>{value}</strong><small>{note}</small></article>;
@@ -62,6 +63,7 @@ function App(): React.JSX.Element {
   const [selectedStateId, setSelectedStateId] = useState<string | null>(null);
   const [selectedPersonId, setSelectedPersonId] = useState<string | null>(null);
   const [v5Configuration, setV5Configuration] = useState<V5ConfigurationJson>({ mechanicsJson: "", operationalJson: "", diagnosticJson: "" });
+  const refreshInFlight = useRef<Promise<void> | null>(null);
   const manifest = snapshot.manifest;
   const selectedSite = snapshot.sites.find((site) => site.siteId === siteId) ?? snapshot.sites[0];
   const visibleSites = useMemo(() => snapshot.sites.slice(0, 175), [snapshot.sites]);
@@ -74,27 +76,40 @@ function App(): React.JSX.Element {
 
   async function refresh(quiet = false): Promise<void> {
     if (!window.eidolonSimulator) { setMessage("Browser preview — desktop IPC is unavailable"); return; }
-    const next = await window.eidolonSimulator.getOperatorSnapshot() as Snapshot;
-    setSnapshot(next); setViewRevision((revision) => revision + 1); if (next.manifest) setYear(next.manifest.currentYear);
-    if (next.v5Configuration) setV5Configuration(Object.fromEntries(Object.entries(next.v5Configuration).map(([key, value]) => [key, JSON.stringify(JSON.parse(value), null, 2)])) as unknown as V5ConfigurationJson);
-    if (!quiet) setMessage("Verified local evidence loaded");
+    if (refreshInFlight.current) return refreshInFlight.current;
+    const request = (async () => {
+      const next = await window.eidolonSimulator!.getOperatorSnapshot() as Snapshot;
+      setSnapshot(next); setViewRevision((revision) => revision + 1); if (next.manifest) setYear(next.manifest.currentYear);
+      if (next.v5Configuration) setV5Configuration(Object.fromEntries(Object.entries(next.v5Configuration).map(([key, value]) => [key, JSON.stringify(JSON.parse(value), null, 2)])) as unknown as V5ConfigurationJson);
+      if (!quiet) setMessage("Verified local evidence loaded");
+    })();
+    refreshInFlight.current = request;
+    try { await request; } finally { if (refreshInFlight.current === request) refreshInFlight.current = null; }
   }
   useEffect(() => { void refresh(); }, []);
   useEffect(() => window.eidolonSimulator?.onCanonicalResumeFailed((failure) => { setMessage(failure.split("\n")[0] ?? "Canonical resume failed"); void refresh(true); }), []);
   useEffect(() => window.eidolonSimulator?.onV5ResumeFailed((failure) => { setMessage(failure.split("\n")[0] ?? "V5 resume failed"); void refresh(true); }), []);
   useEffect(() => {
     if (snapshot.manifest?.status !== "RUNNING" && busy !== "Running V5 diagnostic") return;
-    const interval = window.setInterval(() => { void refresh(true); }, 2_000);
-    return () => window.clearInterval(interval);
+    let cancelled = false;
+    let timeout: number | null = null;
+    const poll = async (): Promise<void> => {
+      await refresh(true);
+      if (!cancelled) timeout = window.setTimeout(() => void poll(), 2_000);
+    };
+    void poll();
+    return () => { cancelled = true; if (timeout !== null) window.clearTimeout(timeout); };
   }, [snapshot.manifest?.status, busy]);
   useEffect(() => {
-    if (!window.eidolonSimulator || !snapshot.selectedRunId) { setRunView(null); return; }
-    void window.eidolonSimulator.getRunView(snapshot.selectedRunId, world, year).then((view) => setRunView(view as RunView));
-  }, [snapshot.selectedRunId, snapshot.manifest?.currentYear, world, year, viewRevision]);
+    if (!window.eidolonSimulator || !snapshot.selectedRunId || !runViewSections.has(selected)) { setRunView(null); return; }
+    let active = true;
+    void window.eidolonSimulator.getRunView(snapshot.selectedRunId, world, year, selected).then((view) => { if (active) setRunView(view as RunView); });
+    return () => { active = false; };
+  }, [selected, snapshot.selectedRunId, snapshot.manifest?.currentYear, world, year, viewRevision]);
   useEffect(() => {
     if (!window.eidolonSimulator || !snapshot.selectedRunId || selected !== "Cities") return;
     let active = true;
-    void Promise.all((["CONCORD", "SCHISM", "RUIN"] as World[]).map(async (item) => [item, await window.eidolonSimulator!.getRunView(snapshot.selectedRunId!, item, year)] as const)).then((entries) => { if (active) setComparisonViews(Object.fromEntries(entries) as Record<World, RunView>); });
+    void Promise.all((["CONCORD", "SCHISM", "RUIN"] as World[]).map(async (item) => [item, await window.eidolonSimulator!.getRunView(snapshot.selectedRunId!, item, year, "Cities")] as const)).then((entries) => { if (active) setComparisonViews(Object.fromEntries(entries) as Record<World, RunView>); });
     return () => { active = false; };
   }, [selected, snapshot.selectedRunId, snapshot.manifest?.currentYear, year, viewRevision]);
   useEffect(() => { setSelectedStateId((current) => runView?.states?.some((state) => state.stateId === current) ? current : runView?.states?.[0]?.stateId ?? null); }, [runView?.effectiveYear, world]);
@@ -183,6 +198,36 @@ function App(): React.JSX.Element {
     }
     finally { setBusy(null); }
   }
+  async function exportAllNamingPrompts(): Promise<void> {
+    if (!window.eidolonSimulator) return;
+    setBusy("Exporting all naming prompts");
+    try {
+      const result = await window.eidolonSimulator.exportAllNamingPrompts() as { directory: string; batchCount: number; requestCount: number } | null;
+      setMessage(result ? `Exported ${result.batchCount} prompts covering ${result.requestCount} requests to ${result.directory}` : "Prompt export canceled");
+    } catch (error) { setMessage(error instanceof Error ? error.message : "Bulk prompt export failed"); }
+    finally { setBusy(null); }
+  }
+  async function uploadAllNamingResponses(): Promise<void> {
+    if (!window.eidolonSimulator) return;
+    setBusy("Uploading all naming responses");
+    setNamingFeedback(null);
+    try {
+      const result = await window.eidolonSimulator.uploadAllNamingResponses() as { accepted: boolean; errors: string[]; acceptedBatches?: number; acceptedDecisions?: number; status?: string } | null;
+      if (!result) { setMessage("Response ZIP upload canceled"); return; }
+      const continued = result.status === "RUNNING" ? " History continuation is running in the background." : "";
+      const omitted = Math.max(0, result.errors.length - 8);
+      const resultMessage = result.accepted
+        ? `${result.acceptedBatches ?? 0} response files and ${result.acceptedDecisions ?? 0} naming decisions accepted atomically.${continued}`
+        : `${result.errors.slice(0, 8).join(" · ")}${omitted > 0 ? ` · ${omitted} more error(s)` : ""}`;
+      setMessage(resultMessage);
+      setNamingFeedback({ outcome: result.accepted ? "accepted" : "rejected", message: resultMessage });
+      if (result.accepted) { setNamingResponse(""); await refresh(); }
+    } catch (error) {
+      const resultMessage = error instanceof Error ? error.message : "Bulk naming response upload failed";
+      setMessage(resultMessage);
+      setNamingFeedback({ outcome: "rejected", message: resultMessage });
+    } finally { setBusy(null); }
+  }
   async function submitDerogatoryDecision(): Promise<void> {
     if (!window.eidolonSimulator || !derogatoryResponse.trim()) return;
     setBusy("Validating Derogatory decisions");
@@ -253,7 +298,7 @@ function App(): React.JSX.Element {
     if (selected === "Institutions") { const institutions = runView?.institutions ?? []; return <HistoricalRows title="CIVIC AND GOVERNMENT INSTITUTIONS" world={world} year={runView?.effectiveYear ?? year} rows={institutions} empty="No persisted Institutions at this year."/>; }
     if (selected === "Resources / Industry") return <><div className="toolbar"><WorldTabs world={world} setWorld={setWorld}/><Year year={year} setYear={setYear}/></div><section className="cards four"><Stat label="RESOURCE NODES" value={runView?.resourceNodes?.length ?? 0} note="Stable physical identities"/><Stat label="WORLD STATUS" value={runView?.worldResourceStates?.length ?? 0} note="Control and availability"/><Stat label="INDUSTRIES" value={runView?.industries?.length ?? 0} note="Bounded aggregate strengths"/><Stat label="GUILDS" value={runView?.organizations?.filter((row) => row.type === "GUILD").length ?? 0} note="No implicit chamber seats"/></section><HistoricalRows title="RESOURCE GEOGRAPHY" world={world} year={runView?.effectiveYear ?? year} rows={runView?.resourceNodes ?? []} empty="No resource geography has executed."/><HistoricalRows title="SETTLEMENT INDUSTRIES" world={world} year={runView?.effectiveYear ?? year} rows={runView?.industries ?? []} empty="No industry review has executed."/></>;
     if (selected === "Conflict") return <><div className="toolbar"><WorldTabs world={world} setWorld={setWorld}/><Year year={year} setYear={setYear}/></div><HistoricalRows title="DIPLOMATIC RELATIONS" world={world} year={runView?.effectiveYear ?? year} rows={runView?.diplomaticRelations ?? []} empty="No relationship justified by border, trade, agreement, alliance, or active dispute."/><HistoricalRows title="CONFLICT EPISODES AND CONTROL TERMS" world={world} year={runView?.effectiveYear ?? year} rows={[...(runView?.conflictEpisodes ?? []), ...(runView?.settlementControlTerms ?? [])]} empty="No staged conflict or occupation at this year."/><HistoricalRows title="SECURITY FORCES" world={world} year={runView?.effectiveYear ?? year} rows={runView?.securityForces ?? []} empty="No security force has formed."/></>;
-    if (selected === "Derogatory Groups") { const batch = snapshot.pendingV5DerogatoryDecisionBatch; return <><div className="toolbar"><WorldTabs world={world} setWorld={setWorld}/><Year year={year} setYear={setYear}/></div><HistoricalRows title="ACTIVE AND HISTORICAL TARGET SELECTIONS" world={world} year={runView?.effectiveYear ?? year} rows={runView?.derogatoryTargetSelections ?? []} empty="No external selection has been accepted."/><section className="cards"><Stat label="EXACT SLICES" value={runView?.populationSlices?.length ?? 0} note="Partition, not added population"/><Stat label="DECISION BATCHES" value={runView?.derogatoryDecisionBatches?.length ?? 0} note="Immutable contexts"/><Stat label="PENDING" value={batch?.requests.length ?? 0} note={batch ? `Review year ${batch.reviewYear}` : "No review barrier"}/></section>{batch && <section className="panel vertical"><p className="eyebrow">EXTERNAL DECISION BARRIER</p><h2>{batch.batchId}</h2><textarea className="dropzone naming-prompt" readOnly aria-label="Derogatory decision prompt" value={batch.promptText}/><textarea className="dropzone naming-response" aria-label="Derogatory decision response JSON" value={derogatoryResponse} onChange={(event) => setDerogatoryResponse(event.target.value)}/><button className="primary" disabled={busy !== null || !derogatoryResponse.trim()} onClick={() => void submitDerogatoryDecision()}>{busy ?? "VALIDATE 63 DECISIONS"}</button></section>}</>; }
+    if (selected === "Derogatory Groups") { const batch = snapshot.pendingV5DerogatoryDecisionBatch; const promptText = batch?.externalPromptText ?? batch?.promptText ?? ""; return <><div className="toolbar"><WorldTabs world={world} setWorld={setWorld}/><Year year={year} setYear={setYear}/></div><HistoricalRows title="ACTIVE AND HISTORICAL TARGET SELECTIONS" world={world} year={runView?.effectiveYear ?? year} rows={runView?.derogatoryTargetSelections ?? []} empty="No external selection has been accepted."/><section className="cards"><Stat label="EXACT SLICES" value={runView?.populationSlices?.length ?? 0} note="Partition, not added population"/><Stat label="DECISION BATCHES" value={runView?.derogatoryDecisionBatches?.length ?? 0} note="Immutable contexts"/><Stat label="PENDING" value={batch?.requests.length ?? 0} note={batch ? `Review year ${batch.reviewYear}` : "No review barrier"}/></section>{batch && <section className="panel vertical"><p className="eyebrow">EXTERNAL DECISION BARRIER</p><h2>{batch.batchId}</h2><textarea className="dropzone naming-prompt" readOnly aria-label="Derogatory decision prompt" value={promptText}/><div className="tabs naming-prompt-actions"><button onClick={() => void navigator.clipboard.writeText(promptText)}>COPY PROMPT</button><button onClick={() => void window.eidolonSimulator?.exportNamingPrompt(promptText, batch.batchId)}>EXPORT PROMPT</button></div><textarea className="dropzone naming-response" aria-label="Derogatory decision response JSON" placeholder="Paste echoes-derogatory-decision-response-v1 JSON" value={derogatoryResponse} onChange={(event) => setDerogatoryResponse(event.target.value)}/><button className="primary" disabled={busy !== null || !derogatoryResponse.trim()} onClick={() => void submitDerogatoryDecision()}>{busy ?? "VALIDATE 63 DECISIONS"}</button></section>}</>; }
     if (selected === "Atrocities") return <><div className="toolbar"><WorldTabs world={world} setWorld={setWorld}/><Year year={year} setYear={setYear}/></div><HistoricalRows title="ATROCITY OCCURRENCES" world={world} year={runView?.effectiveYear ?? year} rows={(runView?.events ?? []).filter((row) => row.eventType === "AtrocityOccurrenceResolved") as unknown as Record<string, unknown>[]} empty="No configured atrocity has fired."/><HistoricalRows title="LOCAL RESPONSES" world={world} year={runView?.effectiveYear ?? year} rows={runView?.localAtrocityResponses ?? []} empty="No local response is persisted."/><HistoricalRows title="FORCED DISPLACEMENT" world={world} year={runView?.effectiveYear ?? year} rows={runView?.forcedDisplacements ?? []} empty="No forced displacement is persisted."/></>;
     if (selected === "Enclaves") return <><div className="toolbar"><WorldTabs world={world} setWorld={setWorld}/><Year year={year} setYear={setYear}/></div><HistoricalRows title="PRIVATE OPERATOR ENCLAVES" world={world} year={runView?.effectiveYear ?? year} rows={runView?.enclaves ?? []} empty="No authorized Enclave has been founded."/></>;
     if (selected === "Parameters / Event Triggers") return <><HistoricalRows title="WITNESS ATROCITY STRUCTURAL SLOTS" world={world} year={runView?.effectiveYear ?? year} rows={runView?.atrocityOccurrenceSlots?.length ? runView.atrocityOccurrenceSlots : snapshot.atrocityOccurrenceSlots ?? []} empty="The required 18 slots are unavailable."/><HistoricalRows title="POINT-OF-USE POLICY BLOCKERS" world={world} year={runView?.effectiveYear ?? year} rows={runView?.policyBlockers?.length ? runView.policyBlockers : snapshot.v5PolicyBlockers ?? []} empty="No policy operation has blocked this run."/></>;
@@ -264,7 +309,27 @@ function App(): React.JSX.Element {
       const promptText = v5Batch?.promptText ?? selectedNamingBatch?.promptText ?? fallbackJob?.promptText;
       const requestCount = v5Batch?.items.length ?? selectedNamingBatch?.jobs.reduce((sum, job) => sum + job.items.length, 0) ?? fallbackJob?.items.length ?? 0;
       const totals = Object.fromEntries(Object.entries(snapshot.namingQueueSummary ?? {}).map(([key, values]) => [key, Object.values(values).reduce((sum, value) => sum + value, 0)]));
-      return <><section className="cards four"><Stat label="PENDING BLOCKING" value={totals.pendingBlocking ?? 0} note="Must be resolved first"/><Stat label="PENDING BATCHED" value={totals.pendingBatched ?? 0} note="Deferrable requests"/><Stat label="ACCEPTED FROM LLM" value={totals.acceptedFromLlm ?? 0} note="Provenance ledger"/><Stat label="CANONICAL / REUSED" value={totals.canonicalOrReused ?? 0} note={`Not ready ${totals.notReadyForNaming ?? 0}`}/></section><section className="panel vertical"><p className="eyebrow">{v5Batch?.behavior === "BATCHED" ? "NON-BLOCKING NAMING BATCH" : "DETERMINISTIC BARRIER"}</p><h2>{v5Batch?.batchId ?? selectedNamingBatch?.namingBatchId ?? fallbackJob?.namingJobId ?? "No pending required naming batch"}</h2><p>{v5Batch ? `V5 · ${v5Batch.behavior} · year ${v5Batch.year} · ${requestCount} exact requests` : selectedNamingBatch ? `${selectedNamingBatch.world} · year ${selectedNamingBatch.year} · ${selectedNamingBatch.jobs.length} jobs · ${requestCount} exact requests` : fallbackJob ? `${fallbackJob.context.world} · year ${fallbackJob.context.year} · ${requestCount} exact request(s)` : snapshot.canonicalResumeInProgress || snapshot.v5ResumeInProgress ? `History continuation is running in the background through persisted year ${manifest?.currentYear ?? 0}.` : "The persisted run has no pending naming input."}</p>{v5Batch && v5NamingBatches.length > 1 && <div className="tabs naming-batch-tabs" aria-label="Pending V5 naming batches">{v5NamingBatches.map((batch) => <button key={batch.batchId} className={v5Batch.batchId === batch.batchId ? "active" : ""} onClick={() => { setSelectedNamingBatchId(batch.batchId); setNamingResponse(""); setNamingFeedback(null); }}>{batch.behavior} · {batch.items.length}</button>)}</div>}{!v5Batch && namingBatches.length > 1 && <div className="tabs naming-batch-tabs" aria-label="Pending world naming batches">{namingBatches.map((batch) => <button key={batch.namingBatchId} className={selectedNamingBatch?.namingBatchId === batch.namingBatchId ? "active" : ""} onClick={() => { setSelectedNamingBatchId(batch.namingBatchId); setNamingResponse(""); setNamingFeedback(null); }}>{batch.world} · {batch.jobs.length} jobs</button>)}</div>}{promptText && <><textarea className="dropzone naming-prompt" aria-label="Naming batch prompt" readOnly value={promptText}/><div className="tabs naming-prompt-actions"><button onClick={() => void navigator.clipboard.writeText(promptText)}>COPY PROMPT</button><button onClick={() => void window.eidolonSimulator?.exportNamingPrompt(promptText, v5Batch?.batchId ?? selectedNamingBatch?.namingBatchId ?? fallbackJob?.namingJobId ?? "v5-naming-batch")}>EXPORT PROMPT</button>{v5Batch?.behavior === "BATCHED" && manifest?.status === "WAITING_FOR_NAMING" && <button onClick={() => void deferV5Naming()} disabled={busy !== null}>DEFER &amp; RESUME</button>}</div><textarea className="dropzone naming-response" aria-label="Naming response JSON" placeholder={v5Batch ? "Paste echoes-v5-naming-batch-response-v2 JSON" : "Paste strict naming-batch-response-v1 or naming-response-v1 JSON"} value={namingResponse} onChange={(event) => { setNamingResponse(event.target.value); setNamingFeedback(null); }}/><button className="primary" onClick={() => void submitNaming()} disabled={busy !== null || !namingResponse.trim()}>{busy ?? "VALIDATE & ACCEPT"}</button></>}{namingFeedback && <div className={`naming-feedback ${namingFeedback.outcome}`} role={namingFeedback.outcome === "accepted" ? "status" : "alert"}><strong>{namingFeedback.outcome === "accepted" ? "ACCEPTED" : "REJECTED"}</strong><span>{namingFeedback.message}</span></div>}</section></>;
+      return <>
+        <section className="cards four"><Stat label="PENDING BLOCKING" value={totals.pendingBlocking ?? 0} note="Must be resolved first"/><Stat label="PENDING BATCHED" value={totals.pendingBatched ?? 0} note="Deferrable requests"/><Stat label="ACCEPTED FROM LLM" value={totals.acceptedFromLlm ?? 0} note="Provenance ledger"/><Stat label="CANONICAL / REUSED" value={totals.canonicalOrReused ?? 0} note={`Not ready ${totals.notReadyForNaming ?? 0}`}/></section>
+        <section className="panel vertical">
+          <p className="eyebrow">{v5Batch?.behavior === "BATCHED" ? "NON-BLOCKING NAMING BATCH" : "DETERMINISTIC BARRIER"}</p>
+          <h2>{v5Batch?.batchId ?? selectedNamingBatch?.namingBatchId ?? fallbackJob?.namingJobId ?? "No pending required naming batch"}</h2>
+          <p>{v5Batch ? `V5 · ${v5Batch.behavior} · year ${v5Batch.year} · ${requestCount} exact requests` : selectedNamingBatch ? `${selectedNamingBatch.world} · year ${selectedNamingBatch.year} · ${selectedNamingBatch.jobs.length} jobs · ${requestCount} exact requests` : fallbackJob ? `${fallbackJob.context.world} · year ${fallbackJob.context.year} · ${requestCount} exact request(s)` : snapshot.canonicalResumeInProgress || snapshot.v5ResumeInProgress ? `History continuation is running in the background through persisted year ${manifest?.currentYear ?? 0}.` : "The persisted run has no pending naming input."}</p>
+          {v5Batch && <div className="tabs naming-prompt-actions" aria-label="Bulk V5 naming controls">
+            <button onClick={() => void exportAllNamingPrompts()} disabled={busy !== null || v5NamingBatches.length === 0}>EXPORT ALL PROMPTS</button>
+            <button onClick={() => void uploadAllNamingResponses()} disabled={busy !== null || v5NamingBatches.length === 0}>UPLOAD ALL RESPONSES (.ZIP)</button>
+          </div>}
+          {v5Batch && v5NamingBatches.length > 1 && <div className="tabs naming-batch-tabs" aria-label="Pending V5 naming batches">{v5NamingBatches.map((batch) => <button key={batch.batchId} className={v5Batch.batchId === batch.batchId ? "active" : ""} onClick={() => { setSelectedNamingBatchId(batch.batchId); setNamingResponse(""); setNamingFeedback(null); }}>{batch.behavior} · {batch.items.length}</button>)}</div>}
+          {!v5Batch && namingBatches.length > 1 && <div className="tabs naming-batch-tabs" aria-label="Pending world naming batches">{namingBatches.map((batch) => <button key={batch.namingBatchId} className={selectedNamingBatch?.namingBatchId === batch.namingBatchId ? "active" : ""} onClick={() => { setSelectedNamingBatchId(batch.namingBatchId); setNamingResponse(""); setNamingFeedback(null); }}>{batch.world} · {batch.jobs.length} jobs</button>)}</div>}
+          {promptText && <>
+            <textarea className="dropzone naming-prompt" aria-label="Naming batch prompt" readOnly value={promptText}/>
+            <div className="tabs naming-prompt-actions"><button onClick={() => void navigator.clipboard.writeText(promptText)}>COPY PROMPT</button><button onClick={() => void window.eidolonSimulator?.exportNamingPrompt(promptText, v5Batch?.batchId ?? selectedNamingBatch?.namingBatchId ?? fallbackJob?.namingJobId ?? "v5-naming-batch")}>EXPORT PROMPT</button>{v5Batch?.behavior === "BATCHED" && manifest?.status === "WAITING_FOR_NAMING" && <button onClick={() => void deferV5Naming()} disabled={busy !== null}>DEFER &amp; RESUME</button>}</div>
+            <textarea className="dropzone naming-response" aria-label="Naming response JSON" placeholder={v5Batch ? "Paste echoes-v5-naming-batch-response-v2 JSON" : "Paste strict naming-batch-response-v1 or naming-response-v1 JSON"} value={namingResponse} onChange={(event) => { setNamingResponse(event.target.value); setNamingFeedback(null); }}/>
+            <button className="primary" onClick={() => void submitNaming()} disabled={busy !== null || !namingResponse.trim()}>{busy ?? "VALIDATE & ACCEPT"}</button>
+          </>}
+          {namingFeedback && <div className={`naming-feedback ${namingFeedback.outcome}`} role={namingFeedback.outcome === "accepted" ? "status" : "alert"}><strong>{namingFeedback.outcome === "accepted" ? "ACCEPTED" : "REJECTED"}</strong><span>{namingFeedback.message}</span></div>}
+        </section>
+      </>;
     }
     if (selected === "Simulation Variables") return <>
       <section className="panel"><div><p className="eyebrow">V5 CONFIGURATION BOUNDARY</p><h2>{snapshot.v5ConfigurationEditable ? "Editable between runs" : "Read-only while a run is active"}</h2><p>Mechanics alter causal history. Operational settings alter execution and storage only. Diagnostic settings alter reports only. Every V5 run snapshots all three documents and hashes them in the proper identity boundary.</p></div><button className="primary" onClick={() => void saveV5Configuration()} disabled={!snapshot.v5ConfigurationEditable || busy !== null || !v5Configuration.mechanicsJson}>{busy ?? "VALIDATE & SAVE"}</button></section>

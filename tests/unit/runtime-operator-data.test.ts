@@ -29,4 +29,27 @@ describe("operator runtime data boundaries", () => {
     expect(preload).toContain("getBreedPopulation");
     expect(preload).toContain("getAtlasData");
   });
+
+  it("keeps heavyweight V5 reads away from the Electron window loop and coalesces polling", () => {
+    const electronMain = readFileSync("electron/main.ts", "utf8");
+    const renderer = readFileSync("src/main.tsx", "utf8");
+    const worker = readFileSync("electron/simulation-worker.ts", "utf8");
+    expect(electronMain).toContain("v5CausalEventCount");
+    expect(electronMain).not.toMatch(/listV5CausalEvents\([^\n]+\)\.length/);
+    expect(renderer).toContain("refreshInFlight");
+    expect(renderer).not.toContain("setInterval(() => { void refresh(true); }, 2_000)");
+    expect(worker).toContain('request.action === "GET_V5_RUN_VIEW"');
+  });
+
+  it("exposes folder export and ZIP-wide response upload on the V5 Naming Queue", () => {
+    const electronMain = readFileSync("electron/main.ts", "utf8");
+    const preload = readFileSync("electron/preload.cts", "utf8");
+    const renderer = readFileSync("src/main.tsx", "utf8");
+    expect(electronMain).toContain('"simulator:export-all-naming-prompts"');
+    expect(electronMain).toContain('"simulator:upload-all-naming-responses"');
+    expect(preload).toContain("exportAllNamingPrompts");
+    expect(preload).toContain("uploadAllNamingResponses");
+    expect(renderer).toContain("EXPORT ALL PROMPTS");
+    expect(renderer).toContain("UPLOAD ALL RESPONSES (.ZIP)");
+  });
 });

@@ -12,11 +12,13 @@ declare global {
       submitNamingResponse(responseText: string): Promise<unknown>;
       submitDerogatoryDecisionResponse(responseText: string): Promise<unknown>;
       exportNamingPrompt(promptText: string, batchId: string): Promise<unknown>;
+      exportAllNamingPrompts(): Promise<unknown>;
+      uploadAllNamingResponses(): Promise<unknown>;
       runDiagnostic(seed: string): Promise<unknown>;
       runV5Diagnostic(seed: string, throughYear?: number, interactiveNaming?: boolean): Promise<unknown>;
       getNamingGeography(year?: number): Promise<unknown>;
       selectRun(runId: string): Promise<unknown>;
-      getRunView(runId: string, world: string, year: number): Promise<unknown>;
+      getRunView(runId: string, world: string, year: number, detail?: string): Promise<unknown>;
       getBreedCatalog(): Promise<unknown>;
       getBreedPopulation(runId: string, breedId: string, year: number): Promise<unknown>;
       getAtlasData(year?: number): Promise<unknown>;

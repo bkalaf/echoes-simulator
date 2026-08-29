@@ -62,6 +62,35 @@ export interface AcceptedDerogatoryDecisionBatchV5 {
   acceptedSelections: readonly (DerogatoryDecisionResponseItemV5 & { worldKey: WorldKey; scope: DerogatoryTargetingScopeV5; priorGroupId: DerogatoryGroupIdV5 | null })[];
 }
 
+export function renderExternalDerogatoryDecisionPromptV5(batch: DerogatoryDecisionBatchV5): string {
+  const context = {
+    schemaVersion: batch.schemaVersion,
+    batchId: batch.batchId,
+    reviewYear: batch.reviewYear,
+    barrierYear: batch.barrierYear,
+    policySha256: batch.policySha256,
+    contextSha256: batch.contextSha256,
+    promptSha256: batch.promptSha256,
+    orderedDecisionIds: batch.orderedDecisionIds,
+    requests: batch.requests,
+  };
+  const responseTemplate = {
+    schemaVersion: "echoes-derogatory-decision-response-v1",
+    batchId: batch.batchId,
+    contextSha256: batch.contextSha256,
+    promptSha256: batch.promptSha256,
+    provider: "<external provider>",
+    model: "<external model>",
+    authorityRef: "<external response or conversation reference>",
+    decisions: batch.requests.map((request) => ({
+      decisionId: request.decisionId,
+      action: `<choose exactly one of: ${request.allowedActions.join(" | ")}>`,
+      selectedGroupId: `<choose exactly one readyGroupId: ${request.readyGroupIds.join(" | ")}>`,
+    })),
+  };
+  return `${batch.promptText}\n\nUse only the immutable context below. Make an explicit independent choice for every request. Do not create group IDs, change decision IDs, or add commentary. Return only JSON matching the required response template.\n\nIMMUTABLE BATCH CONTEXT\n${JSON.stringify(context, null, 2)}\n\nREQUIRED RESPONSE TEMPLATE\n${JSON.stringify(responseTemplate, null, 2)}`;
+}
+
 function hash(value: unknown): string { return createHash("sha256").update(canonicalJson(value), "utf8").digest("hex"); }
 export function isDerogatoryDecisionReviewYearV5(year: number): boolean { return year === 15 || (year >= 150 && year % 100 === 50); }
 

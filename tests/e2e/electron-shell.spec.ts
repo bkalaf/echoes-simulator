@@ -9,6 +9,8 @@ import { bootstrapWorldV5 } from "../../src/core/v5/bootstrap.js";
 import { V5_EMPTY_EVENT_HISTORY_HASH, buildV5RunManifest, extendV5EventHistoryHash } from "../../src/core/v5/persistence.js";
 import { normalizeSeed } from "../../src/core/v5/random.js";
 import type { WorldKey, WorldStateV5 } from "../../src/core/v5/types.js";
+import { buildDerogatoryDecisionBatchV5 } from "../../src/core/v5/derogatory-decisions.js";
+import { CANDIDATE_DEROGATORY_MEMBERSHIP_SLICING_POLICY_V1 } from "../../src/core/v5/historical-policies.js";
 
 async function launch(userData: string, environment: Record<string, string> = {}): Promise<ElectronApplication> {
   return electron.launch({
@@ -79,6 +81,29 @@ function writePrompt01OperatorFixture(userData: string): string {
     store.saveV5Checkpoint(runId, bootstrap.state, extendV5EventHistoryHash(V5_EMPTY_EVENT_HISTORY_HASH, events));
   }
   store.materializePendingV5NamingBatches(runId);
+  store.selectRun(runId);
+  store.close();
+  return runId;
+}
+
+function writeDerogatoryOperatorFixture(userData: string): string {
+  const runId = "RUN_ELECTRON_DEROGATORY_OPERATOR";
+  const store = new SimulatorStore(join(userData, "simulator.sqlite"));
+  const canonical = loadBundledCanonicalV5(resolve("resources/canonical"));
+  const owner = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
+  const seed = normalizeSeed("electron derogatory operator fixture");
+  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 25, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: seed, mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+  store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_DEROGATORY_DECISIONS", seed, seedHash: "derogatory-operator-fixture", policyVersion: V5_MECHANICS_VERSION, currentYear: 14 });
+  store.setRunStatus(runId, "WAITING_FOR_DEROGATORY_DECISIONS", 14);
+  store.saveV5RunManifest(manifest);
+  store.recordV5AcceptedLabel({ ledgerEntryId: "LEDGER_DEROGATORY_FIXTURE", runId, worldKey: null, entityType: "SETTLEMENT", entityId: "CANONICAL_DEROGATORY_FIXTURE", label: "Canonical Derogatory Fixture", source: "CANONICAL_EXISTING", sourceRequestId: null, sourceAuthorityRef: "CANONICAL_NAME_AUTHORITY:DEROGATORY_FIXTURE", sourceBatchId: null, sourceResponseAttemptId: null, nameEffectiveFromYear: 0, acceptanceYear: 0, reusedFromEntityId: null, reusedFromLedgerEntryId: null, namingComparisonGroupId: null, comparisonAuthorityRef: null }, "TEST");
+  const states = Object.fromEntries((["CONCORD", "SCHISM", "RUIN"] as const).map((worldKey) => {
+    const bootstrap = bootstrapWorldV5({ worldKey, canonical, ownerInputs: owner, variables: DEFAULT_MECHANICS_VARIABLES_V1, normalizedSeed: seed, mode: "DIAGNOSTIC" });
+    const state = { ...bootstrap.state, year: 14 };
+    store.saveV5Checkpoint(runId, state, V5_EMPTY_EVENT_HISTORY_HASH);
+    return [worldKey, state];
+  })) as Record<WorldKey, WorldStateV5>;
+  store.saveV5DerogatoryDecisionBatch(runId, buildDerogatoryDecisionBatchV5(states, 15, CANDIDATE_DEROGATORY_MEMBERSHIP_SLICING_POLICY_V1));
   store.selectRun(runId);
   store.close();
   return runId;
@@ -305,6 +330,26 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
   } finally { await application.close(); }
 });
 
+test("Derogatory Groups exposes the complete immutable 63-decision prompt packet", async () => {
+  test.setTimeout(120_000);
+  const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-derogatory-prompt-"));
+  writeDerogatoryOperatorFixture(userData);
+  const application = await launch(userData);
+  try {
+    const page = await application.firstWindow();
+    await page.getByRole("button", { name: "Derogatory Groups", exact: true }).click();
+    const prompt = page.getByLabel("Derogatory decision prompt");
+    await expect(prompt).toBeVisible({ timeout: 30_000 });
+    await expect(prompt).toHaveValue(/IMMUTABLE BATCH CONTEXT/);
+    await expect(prompt).toHaveValue(/REQUIRED RESPONSE TEMPLATE/);
+    await expect(prompt).toHaveValue(/echoes-derogatory-decision-response-v1/);
+    await expect(prompt).toHaveValue(/DEROGATORY_DECISION_15_CONCORD_SOVEREIGN_SCAPEGOAT/);
+    await expect(prompt).toHaveValue(/DEROGATORY_DECISION_15_RUIN_SOVEREIGN_OPPOSITION_INTERNAL_CRUELTY_FOCUS/);
+    await expect(page.getByRole("button", { name: "COPY PROMPT" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "EXPORT PROMPT" })).toBeVisible();
+  } finally { await application.close(); }
+});
+
 test("nine persisted V5 naming batches retain their IDs and advance across an app restart after every acceptance", async () => {
   test.setTimeout(240_000);
   const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-v5-batch-restarts-"));
@@ -315,6 +360,10 @@ test("nine persisted V5 naming batches retain their IDs and advance across an ap
     try {
       const page = await application.firstWindow();
       await page.getByRole("button", { name: "Naming Queue" }).click();
+      if (index === 0) {
+        await expect(page.getByRole("button", { name: "EXPORT ALL PROMPTS", exact: true })).toBeVisible();
+        await expect(page.getByRole("button", { name: "UPLOAD ALL RESPONSES (.ZIP)", exact: true })).toBeVisible();
+      }
       await expect(page.getByRole("heading", { name: fixture.batchIds[index]!, exact: true })).toBeVisible();
       const persistedIds = await page.evaluate(async () => {
         const simulator = (window as unknown as { eidolonSimulator: { getOperatorSnapshot(): Promise<{ pendingV5NamingBatches: { batchId: string }[] }> } }).eidolonSimulator;
@@ -383,6 +432,18 @@ test("V5 year-2000 launch exposes live worker progress without legacy controls",
     await expect(page.getByText("V5 RUNNING", { exact: true })).toBeVisible();
     await expect(page.getByText(/year \d+ \/ 2000/)).toBeVisible({ timeout: 30_000 });
     await expect(page.getByText(/phase .*last checkpoint .*next checkpoint/)).toBeVisible();
+    const heartbeatLatencies = await page.evaluate(async () => {
+      const simulator = (window as unknown as { eidolonSimulator: { getRuntimeInfo(): Promise<unknown> } }).eidolonSimulator;
+      const values: number[] = [];
+      for (let index = 0; index < 5; index += 1) {
+        const started = performance.now();
+        await Promise.race([simulator.getRuntimeInfo(), new Promise((_, reject) => window.setTimeout(() => reject(new Error("Electron main-process heartbeat timed out")), 1_500))]);
+        values.push(performance.now() - started);
+        await new Promise((resolvePromise) => window.setTimeout(resolvePromise, 100));
+      }
+      return values;
+    });
+    expect(Math.max(...heartbeatLatencies)).toBeLessThan(1_500);
     await expect(page.getByRole("button", { name: /RUN LEGACY V4/ })).toHaveCount(0);
   } finally { await application.close(); }
 });
