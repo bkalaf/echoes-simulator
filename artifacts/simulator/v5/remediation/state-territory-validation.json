@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "echoes-state-territory-validation-v56",
+  "topology": {
+    "valid": true,
+    "cellCount": 1,
+    "claimedCount": 1,
+    "unclaimedCount": 0
+  },
+  "closed": true,
+  "nonSelfIntersecting": true,
+  "nonOverlapping": true,
+  "unclaimedGapRepresentation": "explicit UNCLAIMED cells",
+  "geographyContainment": "validated against external canonical physical geometry at projection time",
+  "membershipRule": "Settlement.stateId changes only through explicit membership events",
+  "influenceCannotWriteMembership": true,
+  "dynamicOverlayDeterministic": true,
+  "dynamicOverlayHash": "1d558f3b7605d30f9a11ada181b656881cfaffd8fc9f0b4f9223bd24e83d4245",
+  "selectedYearConsistency": {
+    "runYear": 12,
+    "projectedThrough": 10,
+    "selectedDataYear": 10,
+    "freshness": "STALE",
+    "mixedYearReadsAllowed": false
+  }
+}

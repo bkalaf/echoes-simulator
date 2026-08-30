@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "echoes-shared-postgres-discovery-validation-v1",
+  "generatedAt": "2026-08-30T05:30:54.417Z",
+  "databaseIdentitySha256Prefix": "6f130cfc098f8676",
+  "connection": {
+    "source": "ECHOES_SHARED_LOCAL_CONFIG",
+    "label": "Echoes shared PostgreSQL",
+    "sharedCanonicalDatabase": true,
+    "credentialValueSerialized": false,
+    "manualDatabaseUrlRequired": false,
+    "secondCanonicalDatabaseCreated": false
+  },
+  "schema": {
+    "preflightState": "SEED_REQUIRED",
+    "diagnosticCode": "CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED",
+    "missingStructures": [],
+    "appliedSimulatorMigrations": [
+      "20260829120000_canonical_geography_and_political_alignment",
+      "20260829210000_master_remediation_v56"
+    ],
+    "reusedSharedCanonicalTables": [
+      "Breed",
+      "PointOfInterest",
+      "Site"
+    ],
+    "parallelCanonicalBreedSitePoiTablesCreated": false
+  },
+  "import": {
+    "canonicalAuthorities": [
+      {
+        "authorityId": "SIMULATOR_CANONICAL_V5",
+        "status": "UNREVIEWED",
+        "typedValueCount": 44108
+      }
+    ],
+    "policyRevisionStatuses": [
+      {
+        "status": "UNREVIEWED",
+        "count": 52
+      }
+    ],
+    "policyDefinitions": 52,
+    "lockedAuthorities": 12
+  },
+  "breedDeity": {
+    "sharedBreedRows": 2056,
+    "boundPrimaryDeityRows": 0,
+    "deityRows": 0,
+    "terminalRequirement": 2062,
+    "status": "RECONSTRUCTION_REQUIRED"
+  },
+  "acceptance": {
+    "siblingConfigDiscovery": "PASS",
+    "secretValueNeverLogged": "PASS",
+    "existingCanonicalDatabaseReused": "PASS",
+    "secondCanonicalDatabaseCreated": "NO",
+    "databaseUrlManualConfigurationRequired": "NO",
+    "sqliteRemainsCausalRunStore": "PASS_BY_ARCHITECTURE_AND_INTEGRATION_TEST",
+    "existingSQLiteRunReadableWithPostgresUnavailable": "PASS_BY_INTEGRATION_TEST",
+    "snapshottedRunContinuesWithPostgresUnavailable": "PASS_BY_IMMUTABLE_SNAPSHOT_TEST"
+  }
+}

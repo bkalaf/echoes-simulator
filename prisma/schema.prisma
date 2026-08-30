@@ -1,0 +1,678 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum WorldKey {
+  CONCORD
+  SCHISM
+  RUIN
+}
+
+enum AuthorityRevisionStatus {
+  UNREVIEWED
+  APPROVED
+  REJECTED
+  SUPERSEDED
+}
+
+enum ProjectionFreshnessStatus {
+  CURRENT
+  STALE
+  CATCHING_UP
+  FAILED
+}
+
+enum ResourceAuthorityStatus {
+  RESOURCE_AUTHORITY_REQUIRED
+  READY
+}
+
+enum PolicyValueType {
+  TEXT
+  INTEGER
+  BIGINT
+  DECIMAL
+  BOOLEAN
+  NULL
+  OBJECT
+  ARRAY
+}
+
+model PoliticalPerson {
+  runId                             String
+  worldKey                          WorldKey
+  personId                          String
+  familyId                          String?
+  breedId                           String
+  originSettlementId                String
+  currentConcordAffinity            Int?
+  currentSchismAffinity             Int?
+  currentRuinAffinity               Int?
+  currentAlignmentEffectiveFromYear Int?
+  mechanicsVersion                  String
+  alignmentHistory                  PoliticalPersonAlignment[]
+
+  @@id([runId, worldKey, personId])
+  @@index([runId, worldKey])
+}
+
+model PoliticalPersonAlignment {
+  runId             String
+  worldKey          WorldKey
+  personId          String
+  effectiveFromYear Int
+  effectiveToYear   Int?
+  concordAffinity   Int
+  schismAffinity    Int
+  ruinAffinity      Int
+  sourceEventId     String
+  person            PoliticalPerson @relation(fields: [runId, worldKey, personId], references: [runId, worldKey, personId], onDelete: Cascade)
+
+  @@id([runId, worldKey, personId, effectiveFromYear])
+  @@index([sourceEventId])
+}
+
+model Deity {
+  deityId      String  @id
+  acceptedName String
+  pantheonId   String
+  active       Boolean @default(true)
+  breeds       Breed[]
+}
+
+model Breed {
+  breedId                 String              @id
+  primaryDeityId          String?
+  primaryDeity            Deity?              @relation(fields: [primaryDeityId], references: [deityId], onDelete: Restrict)
+  foodSpecificAuthorities BreedFoodSpecific[]
+
+  @@index([primaryDeityId])
+}
+
+model BreedFoodSpecific {
+  breedId          String
+  foodSpecificId   String
+  sourceRevisionId String
+  breed            Breed  @relation(fields: [breedId], references: [breedId], onDelete: Cascade)
+
+  @@id([breedId, foodSpecificId])
+  @@index([foodSpecificId])
+}
+
+model BreedDeityDecisionAudit {
+  decisionId           String   @id
+  breedId              String
+  deityId              String
+  authorityRevisionId  String
+  externalProvider     String
+  externalModel        String
+  requestSha256        String
+  responseSha256       String
+  sourceEvidenceSha256 String
+  acceptedBy           String
+  acceptedAt           DateTime
+  createdAt            DateTime @default(now())
+
+  @@unique([breedId, authorityRevisionId])
+  @@index([deityId])
+}
+
+model CanonicalAuthorityRevision {
+  revisionId        String                      @id
+  authorityId       String
+  authorityType     String
+  schemaVersion     String
+  contentSha256     String
+  status            AuthorityRevisionStatus
+  approvedBy        String?
+  approvedAt        DateTime?
+  effectiveFromYear Int?
+  effectiveToYear   Int?
+  provenanceRef     String
+  createdAt         DateTime                    @default(now())
+  snapshotEntries   RunAuthoritySnapshotEntry[]
+  values            CanonicalAuthorityValue[]
+
+  @@unique([authorityId, revisionId])
+  @@index([authorityId, status])
+}
+
+model CanonicalAuthorityValue {
+  revisionId   String
+  valuePath    String
+  valueType    PolicyValueType
+  textValue    String?
+  integerValue BigInt?
+  decimalValue Decimal?                   @db.Decimal(30, 12)
+  booleanValue Boolean?
+  revision     CanonicalAuthorityRevision @relation(fields: [revisionId], references: [revisionId], onDelete: Cascade)
+
+  @@id([revisionId, valuePath])
+}
+
+model RunAuthoritySnapshot {
+  snapshotId     String                      @id
+  runId          String
+  snapshotSha256 String
+  schemaVersion  String
+  createdAt      DateTime                    @default(now())
+  epochs         RunAuthorityEpoch[]
+  entries        RunAuthoritySnapshotEntry[]
+
+  @@unique([runId, snapshotSha256])
+}
+
+model RunAuthorityEpoch {
+  epochId           String               @id
+  snapshotId        String
+  effectiveFromYear Int
+  barrierEventId    String?
+  priorEpochId      String?
+  epochSha256       String
+  snapshot          RunAuthoritySnapshot @relation(fields: [snapshotId], references: [snapshotId], onDelete: Restrict)
+
+  @@unique([snapshotId, effectiveFromYear])
+}
+
+model RunAuthoritySnapshotEntry {
+  entryId             String                     @id
+  snapshotId          String
+  authorityRevisionId String
+  authorityId         String
+  schemaVersion       String
+  contentSha256       String
+  approvedBy          String
+  effectiveFromYear   Int
+  snapshot            RunAuthoritySnapshot       @relation(fields: [snapshotId], references: [snapshotId], onDelete: Restrict)
+  revision            CanonicalAuthorityRevision @relation(fields: [authorityRevisionId], references: [revisionId], onDelete: Restrict)
+  values              RunAuthorityValue[]
+
+  @@unique([snapshotId, authorityId, authorityRevisionId])
+}
+
+model RunAuthorityValue {
+  entryId      String
+  valuePath    String
+  valueType    PolicyValueType
+  ordinal      Int?
+  textValue    String?
+  integerValue BigInt?
+  decimalValue Decimal?                  @db.Decimal(30, 12)
+  booleanValue Boolean?
+  entry        RunAuthoritySnapshotEntry @relation(fields: [entryId], references: [entryId], onDelete: Cascade)
+
+  @@id([entryId, valuePath])
+}
+
+model OwnerPolicyDefinition {
+  policyId             String                           @id
+  title                String
+  domain               String
+  description          String
+  unit                 String?
+  reviewAuthority      String
+  lifecycleKind        String
+  defaultEffectiveYear Int?
+  minimumValue         Decimal?                         @db.Decimal(30, 12)
+  maximumValue         Decimal?                         @db.Decimal(30, 12)
+  consumerLinks        OwnerPolicyConsumer[]
+  lockedAuthorityLinks OwnerPolicyLockedAuthorityLink[]
+  revisions            OwnerPolicyRevision[]
+}
+
+model LockedOwnerAuthority {
+  authorityId String                           @id
+  domain      String
+  statement   String
+  policyLinks OwnerPolicyLockedAuthorityLink[]
+}
+
+model OwnerPolicyLockedAuthorityLink {
+  policyId    String
+  authorityId String
+  policy      OwnerPolicyDefinition @relation(fields: [policyId], references: [policyId], onDelete: Cascade)
+  authority   LockedOwnerAuthority  @relation(fields: [authorityId], references: [authorityId], onDelete: Restrict)
+
+  @@id([policyId, authorityId])
+  @@index([authorityId])
+}
+
+model OwnerPolicyConsumer {
+  policyId   String
+  consumerId String
+  causal     Boolean
+  policy     OwnerPolicyDefinition @relation(fields: [policyId], references: [policyId], onDelete: Cascade)
+
+  @@id([policyId, consumerId])
+}
+
+model OwnerPolicyRevision {
+  revisionId        String                     @id
+  policyId          String
+  revisionNumber    Int
+  status            AuthorityRevisionStatus
+  contentSha256     String
+  provenanceRef     String
+  effectiveFromYear Int?
+  effectiveToYear   Int?
+  createdBy         String
+  createdAt         DateTime                   @default(now())
+  priorRevisionId   String?
+  policy            OwnerPolicyDefinition      @relation(fields: [policyId], references: [policyId], onDelete: Restrict)
+  values            OwnerPolicyRevisionValue[]
+  approvals         OwnerPolicyApproval[]
+
+  @@unique([policyId, revisionNumber])
+  @@index([policyId, status])
+}
+
+model OwnerPolicyRevisionValue {
+  revisionId   String
+  valuePath    String
+  valueType    PolicyValueType
+  textValue    String?
+  integerValue BigInt?
+  decimalValue Decimal?            @db.Decimal(30, 12)
+  booleanValue Boolean?
+  revision     OwnerPolicyRevision @relation(fields: [revisionId], references: [revisionId], onDelete: Cascade)
+
+  @@id([revisionId, valuePath])
+}
+
+model OwnerPolicyApproval {
+  approvalId String              @id
+  revisionId String
+  action     String
+  actorId    String
+  exactHash  String
+  reason     String?
+  createdAt  DateTime            @default(now())
+  revision   OwnerPolicyRevision @relation(fields: [revisionId], references: [revisionId], onDelete: Restrict)
+
+  @@index([revisionId, createdAt])
+}
+
+model ProjectionWatermark {
+  runId                String                    @id
+  causalCommittedYear  Int
+  projectedThroughYear Int
+  status               ProjectionFreshnessStatus
+  lastErrorCode        String?
+  lastFailureYear      Int?
+  updatedAt            DateTime                  @updatedAt
+
+  @@index([status])
+}
+
+model StateMembershipTerm {
+  termId            String   @id
+  runId             String
+  worldKey          WorldKey
+  settlementId      String
+  stateId           String
+  effectiveFromYear Int
+  effectiveToYear   Int?
+  cause             String
+  sourceEventId     String
+  provenanceRef     String
+
+  @@unique([runId, worldKey, settlementId, effectiveFromYear])
+  @@index([runId, worldKey, stateId, effectiveFromYear])
+}
+
+model SettlementInfluenceTerm {
+  termId            String   @id
+  runId             String
+  worldKey          WorldKey
+  settlementId      String
+  effectiveFromYear Int
+  effectiveToYear   Int?
+  influenceValue    Decimal  @db.Decimal(30, 12)
+  policyRevisionId  String
+
+  @@unique([runId, worldKey, settlementId, effectiveFromYear])
+}
+
+model StateTerritoryCell {
+  cellId                   String                 @id
+  runId                    String
+  worldKey                 WorldKey
+  year                     Int
+  stateId                  String
+  geometrySha256           String
+  controllerEvidenceSha256 String
+  vertices                 StateTerritoryVertex[]
+
+  @@unique([runId, worldKey, year, cellId])
+}
+
+model StateTerritoryVertex {
+  cellId    String
+  ordinal   Int
+  latitude  Decimal            @db.Decimal(12, 8)
+  longitude Decimal            @db.Decimal(12, 8)
+  cell      StateTerritoryCell @relation(fields: [cellId], references: [cellId], onDelete: Cascade)
+
+  @@id([cellId, ordinal])
+}
+
+model SustenanceClassification {
+  foodSpecificId    String                       @id
+  refugeEligible    Boolean
+  selectorOnly      Boolean
+  ownerAuthorityRef String
+  semanticRevisions SustenanceSemanticRevision[]
+  numericRevisions  SustenanceNumericRevision[]
+}
+
+model SustenanceSemanticRevision {
+  revisionId     String                   @id
+  foodSpecificId String
+  status         AuthorityRevisionStatus
+  contentSha256  String
+  meaning        String
+  sourceMetric   String
+  provenanceRef  String
+  classification SustenanceClassification @relation(fields: [foodSpecificId], references: [foodSpecificId], onDelete: Restrict)
+
+  @@index([foodSpecificId, status])
+}
+
+model SustenanceNumericRevision {
+  revisionId     String                   @id
+  foodSpecificId String
+  status         AuthorityRevisionStatus
+  contentSha256  String
+  unit           String
+  provenanceRef  String
+  classification SustenanceClassification @relation(fields: [foodSpecificId], references: [foodSpecificId], onDelete: Restrict)
+  values         SustenanceNumericValue[]
+
+  @@index([foodSpecificId, status])
+}
+
+model SustenanceNumericValue {
+  revisionId String
+  valueKey   String
+  value      Decimal                   @db.Decimal(30, 12)
+  revision   SustenanceNumericRevision @relation(fields: [revisionId], references: [revisionId], onDelete: Cascade)
+
+  @@id([revisionId, valueKey])
+}
+
+model RefugeNode {
+  refugeId                      String   @id
+  runId                         String
+  worldKey                      WorldKey
+  foodSpecificId                String
+  latitude                      Decimal  @db.Decimal(12, 8)
+  longitude                     Decimal  @db.Decimal(12, 8)
+  genesisOrdinal                Int
+  outputPolicyRevisionId        String
+  replenishmentPolicyRevisionId String
+
+  @@unique([runId, worldKey, foodSpecificId, genesisOrdinal])
+}
+
+model ResourceAuthority {
+  resourceAuthorityId String                  @id
+  revisionId          String?
+  status              ResourceAuthorityStatus
+  contentSha256       String?
+  provenanceRef       String?
+}
+
+model ResourceNode {
+  resourceNodeId            String                                @id
+  resourceAuthorityId       String
+  worldKey                  WorldKey
+  resourceTypeId            String
+  latitude                  Decimal                               @db.Decimal(12, 8)
+  longitude                 Decimal                               @db.Decimal(12, 8)
+  quality                   Decimal                               @db.Decimal(30, 12)
+  capacity                  Decimal                               @db.Decimal(30, 12)
+  renewable                 Boolean
+  accessClass               String
+  condition                 String
+  discoveryYear             Int
+  yieldPolicyRevisionId     String
+  depletionPolicyRevisionId String
+  assignments               ResourceQuartermasterAssignmentTerm[]
+
+  @@index([resourceAuthorityId, worldKey])
+}
+
+model Quartermaster {
+  quartermasterId          String                                @id
+  runId                    String
+  worldKey                 WorldKey
+  settlementId             String
+  capacityPolicyRevisionId String
+  lossPolicyRevisionId     String
+  activeFromYear           Int
+  activeToYear             Int?
+  assignments              ResourceQuartermasterAssignmentTerm[]
+
+  @@unique([runId, worldKey, quartermasterId])
+}
+
+model ResourceQuartermasterAssignmentTerm {
+  assignmentTermId  String        @id
+  resourceNodeId    String
+  quartermasterId   String
+  effectiveFromYear Int
+  effectiveToYear   Int?
+  policyRevisionId  String
+  sourceEventId     String
+  resourceNode      ResourceNode  @relation(fields: [resourceNodeId], references: [resourceNodeId], onDelete: Restrict)
+  quartermaster     Quartermaster @relation(fields: [quartermasterId], references: [quartermasterId], onDelete: Restrict)
+
+  @@unique([resourceNodeId, effectiveFromYear])
+  @@index([quartermasterId, effectiveFromYear])
+}
+
+model LogisticsFlowTerm {
+  flowTermId       String   @id
+  runId            String
+  worldKey         WorldKey
+  year             Int
+  quartermasterId  String
+  sourceType       String
+  sourceId         String
+  intake           Decimal  @db.Decimal(30, 12)
+  storageDelta     Decimal  @db.Decimal(30, 12)
+  allocation       Decimal  @db.Decimal(30, 12)
+  loss             Decimal  @db.Decimal(30, 12)
+  delivered        Decimal  @db.Decimal(30, 12)
+  disrupted        Decimal  @db.Decimal(30, 12)
+  policyRevisionId String
+
+  @@index([runId, worldKey, year, quartermasterId])
+}
+
+model LegendaryRewardItem {
+  legendaryRewardItemId String         @id
+  acceptedName          String
+  acceptedDescription   String
+  canonicalSource       String
+  provenanceRef         String
+  authorityRevisionId   String
+  active                Boolean        @default(true)
+  offices               KeeperOffice[]
+}
+
+model KeeperOffice {
+  keeperOfficeId        String              @id
+  worldKey              WorldKey
+  legendaryRewardItemId String
+  foundedYear           Int
+  dissolvedYear         Int?
+  item                  LegendaryRewardItem @relation(fields: [legendaryRewardItemId], references: [legendaryRewardItemId], onDelete: Restrict)
+  holderTerms           KeeperHolderTerm[]
+
+  @@unique([worldKey, legendaryRewardItemId])
+}
+
+model KeeperHolderTerm {
+  keeperHolderTermId String       @id
+  keeperOfficeId     String
+  holderEntityId     String
+  effectiveFromYear  Int
+  effectiveToYear    Int?
+  selectionEventId   String
+  successionEventId  String?
+  provenanceRef      String
+  office             KeeperOffice @relation(fields: [keeperOfficeId], references: [keeperOfficeId], onDelete: Restrict)
+
+  @@unique([keeperOfficeId, effectiveFromYear])
+  @@index([keeperOfficeId, effectiveToYear])
+}
+
+model RouteStatusTerm {
+  routeStatusTermId         String   @id
+  runId                     String
+  worldKey                  WorldKey
+  corridorId                String
+  effectiveFromYear         Int
+  effectiveToYear           Int?
+  status                    String
+  capacity                  Decimal  @db.Decimal(30, 12)
+  controllerId              String?
+  degradation               Decimal  @db.Decimal(30, 12)
+  embargoed                 Boolean
+  blockaded                 Boolean
+  traffic                   Decimal  @db.Decimal(30, 12)
+  causalAuthorityRevisionId String?
+
+  @@unique([runId, worldKey, corridorId, effectiveFromYear])
+}
+
+model PoiControlTerm {
+  poiControlTermId  String   @id
+  runId             String
+  worldKey          WorldKey
+  poiId             String
+  controllerId      String
+  basis             String
+  effectiveFromYear Int
+  effectiveToYear   Int?
+  sourceEventId     String
+
+  @@unique([runId, worldKey, poiId, effectiveFromYear])
+}
+
+model PoiRenameDecision {
+  decisionId                  String   @id
+  runId                       String
+  worldKey                    WorldKey
+  poiId                       String
+  decision                    String
+  decidedYear                 Int
+  externalRequestId           String?
+  acceptedName                String?
+  consequencePolicyRevisionId String?
+  provenanceRef               String
+
+  @@unique([runId, worldKey, poiId, decidedYear])
+}
+
+model DerogatoryGroupingStructure {
+  structureId         String                         @id
+  acceptedName        String
+  authorityRevisionId String
+  status              AuthorityRevisionStatus
+  memberships         DerogatoryGroupingMembership[]
+}
+
+model DerogatoryGroupingMembership {
+  structureId String
+  groupId     String
+  memberId    String
+  memberType  String
+  ordinal     Int
+  structure   DerogatoryGroupingStructure @relation(fields: [structureId], references: [structureId], onDelete: Cascade)
+
+  @@id([structureId, groupId, memberId])
+}
+
+model DerogatoryDecisionBatch {
+  batchId           String                       @id
+  runId             String
+  reviewYear        Int
+  contextSha256     String
+  promptSha256      String
+  provider          String
+  model             String
+  priorStreamSha256 String
+  streamSha256      String?
+  acceptedAt        DateTime?
+  responses         DerogatoryDecisionResponse[]
+
+  @@unique([runId, reviewYear])
+}
+
+model DerogatoryDecisionResponse {
+  responseId      String                  @id
+  batchId         String
+  ordinal         Int
+  worldKey        WorldKey
+  scopeId         String
+  action          String
+  selectedGroupId String
+  priorGroupId    String?
+  batch           DerogatoryDecisionBatch @relation(fields: [batchId], references: [batchId], onDelete: Cascade)
+
+  @@unique([batchId, ordinal])
+  @@unique([batchId, worldKey, scopeId])
+}
+
+model AtrocityDefinition {
+  atrocityDefinitionId         String   @id
+  worldKey                     WorldKey
+  occurrenceId                 String
+  narrativeAuthorityRevisionId String
+  harmSharePolicyRevisionId    String
+  harmProfilePolicyRevisionId  String
+  narrativeCompleteSha256      String
+  numericFormSha256            String
+
+  @@unique([worldKey, occurrenceId])
+}
+
+model PantheonCenterDesignation {
+  designationId           String   @id
+  runId                   String
+  worldKey                WorldKey
+  pantheonId              String
+  stateId                 String
+  settlementId            String
+  effectiveFromYear       Int
+  effectiveToYear         Int?
+  selectionEvidenceSha256 String
+  presentationLabel       String   @default("Pantheon Center")
+
+  @@unique([runId, worldKey, pantheonId, effectiveFromYear])
+}
+
+model MigrationTransfer {
+  migrationTransferId     String   @id
+  runId                   String
+  worldKey                WorldKey
+  year                    Int
+  sourceSettlementId      String
+  destinationSettlementId String
+  breedId                 String
+  socialTier              String
+  populationCount         BigInt
+  reason                  String
+  forced                  Boolean
+  groupSafetyCohortId     String?
+  triggeringAuthorityId   String
+  sourceEventId           String
+
+  @@index([runId, worldKey, year])
+}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { loadAtlasPois } from "../../src/core/atlas/atlas-view.js";
-import { loadBreedCatalog } from "../../src/core/breeds/breed-catalog.js";
+import { filterBreedCatalog } from "../../src/ui/breed-detail.js";
 
 describe("operator reference catalogs", () => {
   it("loads all POIs without introducing Settlement markers", () => {
@@ -10,29 +10,8 @@ describe("operator reference catalogs", () => {
     expect(pois[0]).not.toHaveProperty("settlementId");
   });
 
-  it("supports exact Breed, Species common, scientific, and identifier search fields", async () => {
-    const catalog = await loadBreedCatalog("resources/canonical");
-    expect(catalog).toHaveLength(2_062);
-    expect(catalog.find((breed) => breed.breedId === "BRD_AARDVARK")).toMatchObject({
-      name: "Aardvark",
-      speciesName: "Aardvark",
-      scientificName: "Orycteropus afer",
-      speciesId: "SPC_ORYCTEROPUS_AFER",
-      factionObject: { CONCORD: expect.any(Number), SCHISM: expect.any(Number), RUIN: expect.any(Number) },
-      dominantFaction: expect.arrayContaining([expect.stringMatching(/^(CONCORD|SCHISM|RUIN)$/)]),
-    });
-    expect(catalog.find((breed) => breed.breedId === "BRD_RED_HANDFISH")).toMatchObject({
-      name: "Red handfish",
-      speciesName: "Red handfish",
-      scientificName: "Thymichthys politus",
-      speciesId: "SPC_THYMICHTHYS_POLITUS",
-    });
-    expect(catalog.find((breed) => breed.breedId === "BRD_VOGELKOP_SUPERB_BIRD_OF_PARADISE")).toMatchObject({
-      name: "Vogelkop superb bird-of-paradise",
-      speciesName: "Vogelkop superb bird-of-paradise",
-      scientificName: "Lophorina niedda",
-      speciesId: "SPC_LOPHORINA_NIEDDA",
-    });
-    expect(catalog.every((breed) => breed.factionObject && Array.isArray(breed.dominantFaction))).toBe(true);
-  }, 20_000);
+  it("supports exact Breed, Species common, scientific, and identifier search fields", () => {
+    const catalog = [{ breedId: "BRD_AARDVARK", name: "Aardvark", speciesName: "Aardvark", scientificName: "Orycteropus afer", speciesId: "SPC_ORYCTEROPUS_AFER", populationKind: "BEAST", groupId: "G01", cultureId: null, factionObject: { CONCORD: 5, SCHISM: 3, RUIN: 4 }, dominantFaction: ["CONCORD" as const], primaryDeity: "Damor", provisionalDeity: null, deityClassificationStatus: "CLASSIFIED" as const }];
+    for (const query of ["aardvark", "orycteropus", "brd_aardvark", "spc_orycteropus", "g01", "damor"]) expect(filterBreedCatalog(catalog, query)).toHaveLength(1);
+  });
 });

@@ -1,0 +1,2026 @@
+{
+  "schemaVersion": "echoes-owner-policy-review-v56",
+  "status": "OWNER_REVIEW_REQUIRED",
+  "mechanicsVersion": "echoes-mechanics-v5.6.0",
+  "schedulerVersion": "echoes-scheduler-v5.6.0",
+  "readModelVersion": "echoes-read-model-v1.4.0",
+  "causalDerivationVersion": "echoes-derived-metrics-v1.1.0",
+  "policyCount": 52,
+  "lockedOwnerStructureCount": 12,
+  "lockedOwnerStructure": [
+    {
+      "authorityId": "FEDERAL_VISION_DIRECTIONALITY",
+      "domain": "Federal Vision",
+      "statement": "Concord → Crown / Church; Ruin → Intellectual Elite / Hereditary Elite; Schism → Corporate Actors / Wealth Elite.",
+      "causalConsumers": [
+        "Federal Vision decisions"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "REFUGE_CLASSIFICATION_STRUCTURE",
+      "domain": "Sustenance",
+      "statement": "Exactly 47 terminal FoodSpecific values are base Refuge-eligible, exactly 14 are non-Refuge classifications, and every eligible value used by more than 100 canonical Breeds receives a second Refuge.",
+      "causalConsumers": [
+        "Refuge genesis"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "NON_REFUGE_SUSTENANCE_STRUCTURE",
+      "domain": "Sustenance",
+      "statement": "The 14 non-Refuge classifications receive no physical Refuge. BLOOD is sourced from the living. NO_FEEDING requires no sustenance. FEAR supports a peaceful/calm penalty and war/unrest availability behavior; detailed meanings and formulas remain unresolved.",
+      "causalConsumers": [
+        "Dynamic sustenance"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "INFLUENCE_BOUNDARY_STRUCTURE",
+      "domain": "Influence / Territory",
+      "statement": "Influence uses normalized geodesic distance. Radii 25:15 divide a contested span 5/8:3/8 with deterministic ties.",
+      "causalConsumers": [
+        "Territory",
+        "control"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "INFLUENCE_CONTRIBUTOR_STRUCTURE",
+      "domain": "Influence / Territory",
+      "statement": "Structural contributors are population/Settlement size, economy, tourism, political power, university prominence, cultural institutions, corporation prominence, Family/dynasty prominence, regional-capital status, political victories, military victories, defeats, catastrophe damage, and atrocity damage. Route centrality is not locked.",
+      "causalConsumers": [
+        "Settlement influence"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "ATROCITY_IDENTITY_AND_ACCOUNTING",
+      "domain": "Atrocity Impact",
+      "statement": "All definitions reference one common harm-share revision; unique harmed is counted once; Book/Witness identifiers remain distinct from Atrocity identifiers.",
+      "causalConsumers": [
+        "All 54 atrocity definitions"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "ATROCITY_PRIMARY_HARM_ACCOUNTING",
+      "domain": "Atrocity Impact",
+      "statement": "Each primary harm profile allocates exactly 100% of uniqueHarmed among mutually exclusive primary outcomes. Secondary consequences may overlap but never increase uniqueHarmed.",
+      "causalConsumers": [
+        "Atrocity execution"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "ATROCITY_SPILLOVER_ACCOUNTING",
+      "domain": "Atrocity Impact",
+      "statement": "DIRECT_HARM_SPILLOVER redistributes the same unique-harmed budget across Settlements/cohorts. SECONDARY_CONSEQUENCE_SPILLOVER changes non-victim consequences and never adds unique harmed. Direct victims cannot be double-counted.",
+      "causalConsumers": [
+        "Atrocity execution",
+        "neighbor effects"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "ATROCITY_17_A_INHERITED_SCHEDULE",
+      "domain": "Event Triggers",
+      "statement": "ATROCITY_17_A inherits the approved year-50 ATROCITY_17 schedule authority.",
+      "causalConsumers": [
+        "Atrocity scheduler"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "ATROCITY_HISTORY_APPEND_ONLY",
+      "domain": "Atrocity Impact",
+      "statement": "Historical events and scar records are append-only. Their current mechanical effects may decay, strengthen, reactivate, or interact with later history under approved policy.",
+      "causalConsumers": [
+        "Historical scars"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "RELIGIOUS_SITE_CARDINALITY",
+      "domain": "Religion",
+      "statement": "At most one Shrine and one Temple may exist per Deity/world.",
+      "causalConsumers": [
+        "Religious-site placement"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    },
+    {
+      "authorityId": "PANTHEON_CENTER_SELECTION_STRUCTURE",
+      "domain": "Religion",
+      "statement": "Pantheon-center selection considers eligible site-hosting Settlements, maximizes site count by State, chooses the smallest eligible Settlement, resolves State-count ties across tied States by smallest eligible Settlement, then uses stable Settlement ID.",
+      "causalConsumers": [
+        "Pantheon-center designation"
+      ],
+      "status": "LOCKED_OWNER_AUTHORITY"
+    }
+  ],
+  "pendingSemanticAuthorityCount": 18,
+  "pendingNumericAuthorityCount": 34,
+  "pendingSemanticAuthority": [
+    {
+      "policyId": "DEROGATORY_TAXONOMY",
+      "humanName": "Derogatory Group canonical structures",
+      "domain": "Derogatory Groups",
+      "purpose": "Reconciles each legacy candidate Group before recording membership in three canonical structures.",
+      "units": "typed review decisions",
+      "allowedRange": "KEEP or REJECT for every legacy Group; three membership decisions only for KEEP Groups",
+      "causalConsumers": [
+        "Derogatory predicate readiness",
+        "atrocity target selection"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v2",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "three canonical structure names",
+          "KEEP or REJECT for each legacy candidate Group",
+          "for each KEEP Group: MEMBER or NOT_MEMBER in each structure"
+        ]
+      },
+      "candidateRationale": "All-NOT_MEMBER cannot implicitly preserve a legacy Group; the atomic 63-decision targeting protocol remains separate.",
+      "revisionId": "DEROGATORY_TAXONOMY_v2_ee37ac4e60544db4",
+      "contentSha256": "ee37ac4e60544db4600a96800de4caf31f0375bacc015792fd438ff1ee3c48fe",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "RELIGIOUS_SIMILARITY",
+      "humanName": "Religious similarity policy",
+      "domain": "Religion",
+      "purpose": "Defines and weights Deity/Pantheon relationship effects.",
+      "units": "typed semantics and fixed-point weights",
+      "allowedRange": "Per-field 0..1000",
+      "causalConsumers": [
+        "cohesion",
+        "migration",
+        "sanctuary",
+        "alliances"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "same-Deity effect",
+          "same-Pantheon/different-Deity effect",
+          "different-Pantheon effect",
+          "corresponding weights"
+        ]
+      },
+      "candidateRationale": "Detailed relationship behavior and weights remain unresolved.",
+      "revisionId": "RELIGIOUS_SIMILARITY_v1_9432c2227e73feda",
+      "contentSha256": "9432c2227e73feda361a296dc8ef548b487c0941e21e5b7047954b325ba87432",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "RESOURCE_QUARTERMASTER_ASSIGNMENT_POLICY",
+      "humanName": "Resource-to-Quartermaster assignment",
+      "domain": "Resources",
+      "purpose": "Deterministically selects the Quartermaster serving each ResourceNode/logistics flow.",
+      "units": "ordered semantic rules",
+      "allowedRange": "Complete deterministic ordering with stable-ID tie-break",
+      "causalConsumers": [
+        "ResourceNode logistics"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "eligible Quartermasters",
+          "control/jurisdiction",
+          "route/access",
+          "capacity priority",
+          "reassignment",
+          "stable-ID tie-break"
+        ]
+      },
+      "candidateRationale": "The assignment authority is required but its ordering is unresolved.",
+      "revisionId": "RESOURCE_QUARTERMASTER_ASSIGNMENT_POLICY_v1_0b18a315ce3261ba",
+      "contentSha256": "0b18a315ce3261ba02446142364bd3e7ae1ca661ad1d1f2d20bf1f178603c216",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "ROUTE_DECISION",
+      "humanName": "Dynamic route decision policy",
+      "domain": "Routes",
+      "purpose": "Controls opening, capacity, degradation, closure, and control of physical corridors.",
+      "units": "typed weights and thresholds",
+      "allowedRange": "Per-field schema limits",
+      "causalConsumers": [
+        "route lifecycle"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "causal route classification",
+          "status transitions",
+          "control and access semantics"
+        ]
+      },
+      "candidateRationale": "Prompt-01 classification remains noncausal until separately promoted.",
+      "revisionId": "ROUTE_DECISION_v1_fcd645079161e1ad",
+      "contentSha256": "fcd645079161e1ad6b5c74a7b44bc2f1511e556c56a4f34fa23a31623b5a6cfa",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_ANGER_SEMANTICS",
+      "humanName": "ANGER semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for ANGER.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:ANGER"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed ANGER causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_ANGER_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_BLOOD_SEMANTICS",
+      "humanName": "BLOOD semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for BLOOD.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:BLOOD"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "BLOOD is sourced from the living; the precise permitted source metrics remain unresolved."
+        ]
+      },
+      "candidateRationale": "No detailed BLOOD causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_BLOOD_SEMANTICS_v1_8dd3fb2f26bc9c11",
+      "contentSha256": "8dd3fb2f26bc9c11320d623c230ccb616d232b5d7b650aa066441a986337b42e",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_DESIRE_SEMANTICS",
+      "humanName": "DESIRE semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for DESIRE.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:DESIRE"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed DESIRE causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_DESIRE_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_DREAMS_SEMANTICS",
+      "humanName": "DREAMS semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for DREAMS.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:DREAMS"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed DREAMS causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_DREAMS_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_EMOTION_SEMANTICS",
+      "humanName": "EMOTION semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for EMOTION.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:EMOTION"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed EMOTION causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_EMOTION_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_ESSENCE_OF_FAITH_SEMANTICS",
+      "humanName": "ESSENCE_OF_FAITH semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for ESSENCE_OF_FAITH.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:ESSENCE_OF_FAITH"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed ESSENCE_OF_FAITH causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_ESSENCE_OF_FAITH_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_FEAR_SEMANTICS",
+      "humanName": "FEAR semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for FEAR.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:FEAR"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "FEAR supports lower availability or a penalty in peaceful/calm conditions and greater availability during war/unrest; detailed mapping remains unresolved."
+        ]
+      },
+      "candidateRationale": "No detailed FEAR causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_FEAR_SEMANTICS_v1_2a6a77e9ebad0b8f",
+      "contentSha256": "2a6a77e9ebad0b8f6724cb350294c960c8673a7d2b0a3ab45621c885f2840682",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_GRIEF_SEMANTICS",
+      "humanName": "GRIEF semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for GRIEF.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:GRIEF"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed GRIEF causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_GRIEF_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_MEMORY_SEMANTICS",
+      "humanName": "MEMORY semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for MEMORY.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:MEMORY"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed MEMORY causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_MEMORY_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_MUSIC_ATTENTION_SEMANTICS",
+      "humanName": "MUSIC_ATTENTION semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for MUSIC_ATTENTION.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:MUSIC_ATTENTION"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed MUSIC_ATTENTION causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_MUSIC_ATTENTION_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_NECROMANTIC_ESSENCE_SEMANTICS",
+      "humanName": "NECROMANTIC_ESSENCE semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for NECROMANTIC_ESSENCE.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:NECROMANTIC_ESSENCE"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed NECROMANTIC_ESSENCE causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_NECROMANTIC_ESSENCE_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_NO_FEEDING_SEMANTICS",
+      "humanName": "NO_FEEDING semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for NO_FEEDING.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:NO_FEEDING"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "NO_FEEDING requires no sustenance; the behavior of demand and satisfaction records remains unresolved."
+        ]
+      },
+      "candidateRationale": "No detailed NO_FEEDING causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_NO_FEEDING_SEMANTICS_v1_3be613a2b85010d2",
+      "contentSha256": "3be613a2b85010d278908d00ee9349ed5b335deba9959d9c2b94684a96b931ec",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_OATHS_HONOR_SEMANTICS",
+      "humanName": "OATHS_HONOR semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for OATHS_HONOR.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:OATHS_HONOR"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed OATHS_HONOR causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_OATHS_HONOR_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_SIN_SEMANTICS",
+      "humanName": "SIN semantic source mapping",
+      "domain": "Population / Demography",
+      "purpose": "Defines the permitted causal source metrics and meaning for SIN.",
+      "units": "typed semantic mapping",
+      "allowedRange": "Explicit permitted metrics and interpretation",
+      "causalConsumers": [
+        "dynamic sustenance:SIN"
+      ],
+      "reviewAuthority": "SEMANTIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "sourceMetricIds",
+          "semanticDescription",
+          "No detailed meaning may be inferred from the classification name."
+        ]
+      },
+      "candidateRationale": "No detailed SIN causal source mapping has been approved.",
+      "revisionId": "SUSTENANCE_SIN_SEMANTICS_v1_957884c72b8d754a",
+      "contentSha256": "957884c72b8d754a946ae4a8b830e52e317e215014edbb83d8d580718c7bbdcf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    }
+  ],
+  "pendingNumericAuthority": [
+    {
+      "policyId": "ATROCITY_17_B_SCHEDULE",
+      "humanName": "ATROCITY_17_B trigger year",
+      "domain": "Event Triggers",
+      "purpose": "Sets only the newly proposed ATROCITY_17_B trigger year.",
+      "units": "simulation year",
+      "allowedRange": "Integer greater than 50",
+      "causalConsumers": [
+        "atrocity scheduler"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "SCHEDULED_BARRIER",
+        "defaultYear": 75
+      },
+      "lockedAuthorityIds": [
+        "ATROCITY_17_A_INHERITED_SCHEDULE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "ATROCITY_17_B": 75
+      },
+      "candidateRationale": "ATROCITY_17_A=50 is inherited locked authority; only the proposed year 75 needs review.",
+      "revisionId": "ATROCITY_17_B_SCHEDULE_v1_8d5edc56210a000d",
+      "contentSha256": "8d5edc56210a000d2e6c887488ca798c88a970a26dc7eedaa29a122e00daa6d9",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "ATROCITY_CONCENTRATION",
+      "humanName": "Atrocity target concentration",
+      "domain": "Atrocity Impact",
+      "purpose": "Controls how the common unique-harmed budget is concentrated among approved target cohorts.",
+      "units": "basis points and fixed-point concentration",
+      "allowedRange": "0..10000; exact population conservation",
+      "causalConsumers": [
+        "atrocity execution",
+        "population slicing"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "SCHEDULED_BARRIER",
+        "defaultYear": 50
+      },
+      "lockedAuthorityIds": [
+        "ATROCITY_IDENTITY_AND_ACCOUNTING"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "target concentration formula",
+          "cohort caps",
+          "stable remainder allocation"
+        ]
+      },
+      "candidateRationale": "No concentration formula has been approved.",
+      "revisionId": "ATROCITY_CONCENTRATION_v1_9ede42cd7ec7a83c",
+      "contentSha256": "9ede42cd7ec7a83c73ae84a869eeaa88bc6bd69ad2307102dfeb2da176bc3aff",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "ATROCITY_HARM_SHARE",
+      "humanName": "Common atrocity harm share",
+      "domain": "Atrocity Impact",
+      "purpose": "Sets the shared proportion of current world population uniquely harmed by each occurrence.",
+      "units": "parts per million of world population",
+      "allowedRange": "0..1000000 ppm",
+      "causalConsumers": [
+        "all 54 atrocity definitions"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "SCHEDULED_BARRIER",
+        "defaultYear": 50
+      },
+      "lockedAuthorityIds": [
+        "ATROCITY_IDENTITY_AND_ACCOUNTING"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "targetHarmSharePpm": 100000
+      },
+      "candidateRationale": "The packet's 10 percent example remains a numeric candidate.",
+      "revisionId": "ATROCITY_HARM_SHARE_v1_afd4a2982b23e358",
+      "contentSha256": "afd4a2982b23e358f8a39e231f7dc7331407ddf833c553ebe6bc98677277cf35",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "ATROCITY_PERSISTENCE",
+      "humanName": "Atrocity persistence and historical scars",
+      "domain": "Atrocity Impact",
+      "purpose": "Controls current mechanical effects of append-only atrocity and scar history.",
+      "units": "years and fixed-point effects",
+      "allowedRange": "Per-field schema limits",
+      "causalConsumers": [
+        "historical scars",
+        "reputation",
+        "group safety",
+        "paired pillars"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "SCHEDULED_BARRIER",
+        "defaultYear": 50
+      },
+      "lockedAuthorityIds": [
+        "ATROCITY_HISTORY_APPEND_ONLY"
+      ],
+      "candidateVersion": "v2",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "decay",
+          "strengthening",
+          "reactivation",
+          "later-history interactions",
+          "effect caps and durations"
+        ]
+      },
+      "candidateRationale": "Append-only records do not imply permanently constant numeric effects.",
+      "revisionId": "ATROCITY_PERSISTENCE_v2_baa2b769829a9def",
+      "contentSha256": "baa2b769829a9defb4a5b46673ae0356d4eb07790372ef198909ae6786b5f30d",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "ATROCITY_PRIMARY_HARM_PROFILES",
+      "humanName": "Atrocity primary harm profiles",
+      "domain": "Atrocity Impact",
+      "purpose": "Allocates uniqueHarmed among mutually exclusive primary outcomes.",
+      "units": "basis points of uniqueHarmed",
+      "allowedRange": "Every profile sums exactly to 10000",
+      "causalConsumers": [
+        "atrocity execution",
+        "migration",
+        "population"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "SCHEDULED_BARRIER",
+        "defaultYear": 50
+      },
+      "lockedAuthorityIds": [
+        "ATROCITY_IDENTITY_AND_ACCOUNTING",
+        "ATROCITY_PRIMARY_HARM_ACCOUNTING"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "mortality",
+          "forced displacement",
+          "detention/forced labor",
+          "civic exclusion",
+          "service/access denial",
+          "asset/property seizure",
+          "growth/reproductive suppression",
+          "other explicitly modeled primary harm"
+        ]
+      },
+      "candidateRationale": "The two conflicting primary-allocation policies were collapsed; no profile values are approved.",
+      "revisionId": "ATROCITY_PRIMARY_HARM_PROFILES_v1_fd5b9934e86cf38f",
+      "contentSha256": "fd5b9934e86cf38f2f8354b7e3c3381653563b04fd10e4cf8b47466eee1bd859",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "ATROCITY_SPILLOVER",
+      "humanName": "Atrocity direct and secondary spillover",
+      "domain": "Atrocity Impact",
+      "purpose": "Separately controls direct-victim redistribution and overlapping non-victim consequences.",
+      "units": "basis points and typed fixed-point effects",
+      "allowedRange": "Direct allocation conserves uniqueHarmed; secondary effects add zero uniqueHarmed",
+      "causalConsumers": [
+        "atrocity execution",
+        "neighbor effects",
+        "migration"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "SCHEDULED_BARRIER",
+        "defaultYear": 50
+      },
+      "lockedAuthorityIds": [
+        "ATROCITY_SPILLOVER_ACCOUNTING"
+      ],
+      "candidateVersion": "v2",
+      "candidateContent": {
+        "DIRECT_HARM_SPILLOVER": {
+          "status": "OWNER_VALUES_REQUIRED",
+          "unresolvedFields": [
+            "redistribution share",
+            "eligible neighboring Settlements/cohorts",
+            "distance/route attenuation"
+          ]
+        },
+        "SECONDARY_CONSEQUENCE_SPILLOVER": {
+          "status": "OWNER_VALUES_REQUIRED",
+          "unresolvedFields": [
+            "reputation",
+            "fear",
+            "grievance",
+            "propaganda",
+            "migration pressure",
+            "diplomacy",
+            "religion",
+            "Family reaction"
+          ]
+        }
+      },
+      "candidateRationale": "Direct-victim and secondary-consequence layers are structurally separate; all magnitudes remain unresolved.",
+      "revisionId": "ATROCITY_SPILLOVER_v2_8c204b8fe78c56a4",
+      "contentSha256": "8c204b8fe78c56a497c92d5ea55fd2ad1900c3ce2b20fb26cd4babe12fba5af0",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "CLASS_POLICY",
+      "humanName": "Class distribution policy",
+      "domain": "Population / Demography",
+      "purpose": "Maps tier populations into causal social-class distributions.",
+      "units": "basis points",
+      "allowedRange": "Each tier distribution sums exactly to 10000",
+      "causalConsumers": [
+        "classDistribution",
+        "office eligibility"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v2",
+      "candidateContent": {
+        "schemaVersion": "echoes-class-policy-v1",
+        "tierWeights": {
+          "HIGH": {
+            "NOBILITY": 7000,
+            "INTELLECTUAL": 2000,
+            "WORKER": 800,
+            "WANDERER": 200
+          },
+          "MID": {
+            "NOBILITY": 1000,
+            "INTELLECTUAL": 4000,
+            "WORKER": 4500,
+            "WANDERER": 500
+          },
+          "LOW": {
+            "NOBILITY": 0,
+            "INTELLECTUAL": 1000,
+            "WORKER": 7000,
+            "WANDERER": 2000
+          }
+        },
+        "contextModifiers": {}
+      },
+      "candidateRationale": "Corrected from a 1,000-scale representation to basis points without approving the values.",
+      "revisionId": "CLASS_POLICY_v2_c1d16039a5d17913",
+      "contentSha256": "c1d16039a5d1791379dde6fa43af62e8ffe4c8e75b093bb1039c9d05a568febf",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "CONFLICT_EPISODE_PROFILE",
+      "humanName": "Conflict episode profile",
+      "domain": "Conflict / Security",
+      "purpose": "Controls aggregate causal effects of conflict episodes.",
+      "units": "typed fixed-point values",
+      "allowedRange": "Per-field schema limits",
+      "causalConsumers": [
+        "conflict"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "ATOMIC_YEAR_BARRIER"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "schemaVersion": "echoes-conflict-episode-profile-v1",
+        "maximumMortalityBps": 20,
+        "maximumDisplacementBps": 100,
+        "maximumProsperityDamage": 40,
+        "maximumIndustryDamage": 50,
+        "maximumUnrestDelta": 80,
+        "maximumLegitimacyDelta": 60,
+        "maximumGrievanceDelta": 100,
+        "maximumExhaustionDelta": 100
+      },
+      "candidateRationale": "Existing numeric review blocker carried forward.",
+      "revisionId": "CONFLICT_EPISODE_PROFILE_v1_0ae69cd686007b94",
+      "contentSha256": "0ae69cd686007b94a4a8ed926f053d86420e985932efe4a8c575636412746de1",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "FEDERAL_VISION_WEIGHTS",
+      "humanName": "Federal Vision decision weights",
+      "domain": "Federal Vision",
+      "purpose": "Weights the locked Concord, Ruin, and Schism directionality in shared decisions.",
+      "units": "basis points",
+      "allowedRange": "Each decision profile sums to 10000",
+      "causalConsumers": [
+        "executive actions",
+        "appointments",
+        "routes",
+        "institutions"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "FEDERAL_VISION_DIRECTIONALITY"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "per-consumer weights",
+          "normalization",
+          "caps"
+        ]
+      },
+      "candidateRationale": "Directionality is locked; its numeric weights remain unresolved.",
+      "revisionId": "FEDERAL_VISION_WEIGHTS_v1_5d72384dc0874f8f",
+      "contentSha256": "5d72384dc0874f8faa573840b2508f2bb8123f68f98b12f3cc42337a44905fac",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "PEACE_EXHAUSTION_POLICY",
+      "humanName": "Peace and exhaustion policy",
+      "domain": "Conflict / Security",
+      "purpose": "Controls war exhaustion and peaceful recovery.",
+      "units": "score/year",
+      "allowedRange": "Per-field schema limits",
+      "causalConsumers": [
+        "peace review"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "ATOMIC_YEAR_BARRIER"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "schemaVersion": "echoes-peace-exhaustion-policy-v1",
+        "warExhaustionIncrease": 80,
+        "peacefulExhaustionRecovery": 40,
+        "postWarCooldownYears": 20
+      },
+      "candidateRationale": "Existing numeric review blocker carried forward.",
+      "revisionId": "PEACE_EXHAUSTION_POLICY_v1_e6b812829e350676",
+      "contentSha256": "e6b812829e350676187d41f42739fe7236643202d202c69257843eb0b4851641",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "POI_RENAME_CONSEQUENCES",
+      "humanName": "POI rename consequence policy",
+      "domain": "Naming / Political Rename Cost",
+      "purpose": "Controls political and historical consequences of KEEP and REQUEST_RENAME decisions.",
+      "units": "typed deltas and durations",
+      "allowedRange": "Per-field schema limits",
+      "causalConsumers": [
+        "POI naming rights"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "ATOMIC_YEAR_BARRIER"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "legitimacy",
+          "acceptance/grievance",
+          "historical erasure",
+          "group safety/migration",
+          "pillar and Family reputation",
+          "propaganda",
+          "diplomatic claims",
+          "conflict risk",
+          "durable cultural memory"
+        ]
+      },
+      "candidateRationale": "Consequence categories are structural; magnitudes remain unresolved.",
+      "revisionId": "POI_RENAME_CONSEQUENCES_v1_7a05dd7c57e83758",
+      "contentSha256": "7a05dd7c57e83758678165356bad7026d933b932bda59ba7dd5988a1a74c0c0c",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "QUARTERMASTER_CAPACITY_LOSS",
+      "humanName": "Quartermaster capacity and loss policy",
+      "domain": "Resources",
+      "purpose": "Controls intake, storage, throughput, disruption, spoilage, and delivery loss.",
+      "units": "aggregate stock/year and basis points",
+      "allowedRange": "Non-negative; loss 0..10000 bps",
+      "causalConsumers": [
+        "logistics flow"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "intake capacity",
+          "storage",
+          "throughput",
+          "disruption",
+          "spoilage",
+          "delivery loss"
+        ]
+      },
+      "candidateRationale": "No numeric capacity or loss formula has been approved.",
+      "revisionId": "QUARTERMASTER_CAPACITY_LOSS_v1_64342e5ef1621316",
+      "contentSha256": "64342e5ef1621316444482b0e96761c6d1f9cdd38bc88d96648c05d7ef8ef796",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "REFUGE_OUTPUT",
+      "humanName": "Refuge output policy",
+      "domain": "Resources",
+      "purpose": "Controls aggregate Refuge output entering local logistics.",
+      "units": "aggregate stock/year",
+      "allowedRange": "Non-negative",
+      "causalConsumers": [
+        "Quartermaster intake"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "REFUGE_CLASSIFICATION_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "production formula",
+          "capacity",
+          "quality modifiers"
+        ]
+      },
+      "candidateRationale": "No numeric output formula has been approved.",
+      "revisionId": "REFUGE_OUTPUT_v1_1229946e174b64e7",
+      "contentSha256": "1229946e174b64e7c485c581fcf4a255baa0d2276078eb6b27a29d3e66ed1615",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "REFUGE_REPLENISHMENT",
+      "humanName": "Refuge replenishment policy",
+      "domain": "Resources",
+      "purpose": "Controls recovery and replenishment of Refuge output.",
+      "units": "aggregate stock/year",
+      "allowedRange": "Non-negative and capacity bounded",
+      "causalConsumers": [
+        "Refuge stock"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "REFUGE_CLASSIFICATION_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "replenishment rate",
+          "damage response",
+          "capacity bound"
+        ]
+      },
+      "candidateRationale": "No numeric replenishment formula has been approved.",
+      "revisionId": "REFUGE_REPLENISHMENT_v1_253d94ee4fc08a07",
+      "contentSha256": "253d94ee4fc08a07b3ad9756c1e4028cb785d4d0fc1a6f6faf045cc9a5eab20d",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "RESOURCE_YIELD_DEPLETION",
+      "humanName": "Resource yield and depletion policy",
+      "domain": "Resources",
+      "purpose": "Controls aggregate ResourceNode yield, regeneration, depletion, and recovery.",
+      "units": "aggregate stock/year",
+      "allowedRange": "Non-negative and capacity bounded",
+      "causalConsumers": [
+        "ResourceNode stock"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "yield",
+          "regeneration",
+          "depletion",
+          "recovery"
+        ]
+      },
+      "candidateRationale": "No numeric Resource formula has been approved.",
+      "revisionId": "RESOURCE_YIELD_DEPLETION_v1_4c61cc77708d47c0",
+      "contentSha256": "4c61cc77708d47c080f896519f52b24019b41b7b77c60befa25ee913d5852c5d",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SETTLEMENT_INFLUENCE",
+      "humanName": "Settlement influence policy",
+      "domain": "Influence / Territory",
+      "purpose": "Transforms locked contributors into a geodesic influence radius.",
+      "units": "distance and fixed-point weights",
+      "allowedRange": "Positive bounded radius; saturating transforms",
+      "causalConsumers": [
+        "territory",
+        "POI/Refuge/Resource/route control"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "INFLUENCE_BOUNDARY_STRUCTURE",
+        "INFLUENCE_CONTRIBUTOR_STRUCTURE"
+      ],
+      "candidateVersion": "v2",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "normalization by contributor",
+          "saturation",
+          "caps",
+          "weights",
+          "radius formula",
+          "whether and how route centrality contributes"
+        ]
+      },
+      "candidateRationale": "Contributor categories and boundary geometry are locked; exact formulas and proposed route centrality remain candidates.",
+      "revisionId": "SETTLEMENT_INFLUENCE_v2_500009a840483505",
+      "contentSha256": "500009a84048350523b2a0135f2bf6fb12cfa49d8ed5b0f7afc1cbe47ad90da0",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SHRINE_THRESHOLD",
+      "humanName": "Shrine settlement-share threshold",
+      "domain": "Religion",
+      "purpose": "Determines when a Deity becomes eligible for its single world Shrine.",
+      "units": "parts per million of Settlement population",
+      "allowedRange": "0..1000000 ppm",
+      "causalConsumers": [
+        "religious-site eligibility"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "RELIGIOUS_SITE_CARDINALITY",
+        "PANTHEON_CENTER_SELECTION_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "minimumSettlementSharePpm": 800000
+      },
+      "candidateRationale": "The 80 percent threshold remains a numeric candidate.",
+      "revisionId": "SHRINE_THRESHOLD_v1_9425e12258965dc8",
+      "contentSha256": "9425e12258965dc836424029bee7aa51bb66a202b7557a45fb057a56d16e1801",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SKIRMISH_PROFILE",
+      "humanName": "Skirmish profile",
+      "domain": "Conflict / Security",
+      "purpose": "Controls bounded skirmish effects.",
+      "units": "typed fixed-point values",
+      "allowedRange": "Per-field schema limits",
+      "causalConsumers": [
+        "border skirmish"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "ATOMIC_YEAR_BARRIER"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "schemaVersion": "echoes-skirmish-profile-v1",
+        "tensionDelta": 40,
+        "grievanceDelta": 50,
+        "exhaustionDelta": 30,
+        "prosperityDamage": 10,
+        "mortalityBps": 1
+      },
+      "candidateRationale": "Existing numeric review blocker carried forward.",
+      "revisionId": "SKIRMISH_PROFILE_v1_3bd80ec59498b6c4",
+      "contentSha256": "3bd80ec59498b6c4768ab0c45d79d2152f6cc97c06ff3bf5a05291fbe3df3c5d",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_ANGER_NUMERIC",
+      "humanName": "ANGER production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for ANGER.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:ANGER"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric ANGER sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_ANGER_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_BLOOD_NUMERIC",
+      "humanName": "BLOOD production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for BLOOD.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:BLOOD"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric BLOOD sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_BLOOD_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_DESIRE_NUMERIC",
+      "humanName": "DESIRE production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for DESIRE.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:DESIRE"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric DESIRE sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_DESIRE_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_DREAMS_NUMERIC",
+      "humanName": "DREAMS production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for DREAMS.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:DREAMS"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric DREAMS sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_DREAMS_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_EMOTION_NUMERIC",
+      "humanName": "EMOTION production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for EMOTION.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:EMOTION"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric EMOTION sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_EMOTION_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_ESSENCE_OF_FAITH_NUMERIC",
+      "humanName": "ESSENCE_OF_FAITH production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for ESSENCE_OF_FAITH.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:ESSENCE_OF_FAITH"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric ESSENCE_OF_FAITH sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_ESSENCE_OF_FAITH_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_FEAR_NUMERIC",
+      "humanName": "FEAR production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for FEAR.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:FEAR"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric FEAR sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_FEAR_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_GRIEF_NUMERIC",
+      "humanName": "GRIEF production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for GRIEF.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:GRIEF"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric GRIEF sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_GRIEF_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_MEMORY_NUMERIC",
+      "humanName": "MEMORY production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for MEMORY.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:MEMORY"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric MEMORY sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_MEMORY_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_MUSIC_ATTENTION_NUMERIC",
+      "humanName": "MUSIC_ATTENTION production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for MUSIC_ATTENTION.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:MUSIC_ATTENTION"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric MUSIC_ATTENTION sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_MUSIC_ATTENTION_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_NECROMANTIC_ESSENCE_NUMERIC",
+      "humanName": "NECROMANTIC_ESSENCE production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for NECROMANTIC_ESSENCE.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:NECROMANTIC_ESSENCE"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric NECROMANTIC_ESSENCE sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_NECROMANTIC_ESSENCE_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_NO_FEEDING_NUMERIC",
+      "humanName": "NO_FEEDING production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for NO_FEEDING.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:NO_FEEDING"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric NO_FEEDING sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_NO_FEEDING_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_OATHS_HONOR_NUMERIC",
+      "humanName": "OATHS_HONOR production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for OATHS_HONOR.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:OATHS_HONOR"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric OATHS_HONOR sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_OATHS_HONOR_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "SUSTENANCE_SIN_NUMERIC",
+      "humanName": "SIN production and demand",
+      "domain": "Population / Demography",
+      "purpose": "Controls production/availability, consumption/demand, scarcity/satisfaction, and decay where applicable for SIN.",
+      "units": "aggregate quantity/year and parts per million",
+      "allowedRange": "Non-negative; conservation-valid; classification semantics respected",
+      "causalConsumers": [
+        "dynamic sustenance:SIN"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "NON_REFUGE_SUSTENANCE_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "status": "OWNER_VALUES_REQUIRED",
+        "unresolvedFields": [
+          "productionAvailability",
+          "consumptionDemand",
+          "scarcitySatisfaction",
+          "decayIfApplicable"
+        ]
+      },
+      "candidateRationale": "No numeric SIN sustenance formula has been approved.",
+      "revisionId": "SUSTENANCE_SIN_NUMERIC_v1_7db16ef6fbe8e06c",
+      "contentSha256": "7db16ef6fbe8e06c2a5145ca2cacd6bdea9770d9aeabf0f6126bc221bf518ce4",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "TEMPLE_THRESHOLD",
+      "humanName": "Temple worshipper threshold",
+      "domain": "Religion",
+      "purpose": "Determines when a Deity becomes eligible for its single world Temple.",
+      "units": "worshippers",
+      "allowedRange": ">= 1",
+      "causalConsumers": [
+        "religious-site eligibility"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [
+        "RELIGIOUS_SITE_CARDINALITY",
+        "PANTHEON_CENTER_SELECTION_STRUCTURE"
+      ],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "minimumWorshippers": 100000
+      },
+      "candidateRationale": "The 100,000 threshold remains a numeric candidate.",
+      "revisionId": "TEMPLE_THRESHOLD_v1_a49b0727edcd7fbc",
+      "contentSha256": "a49b0727edcd7fbca5f81c219262b74eb32aca69fb6db58cce4a226d82a9466d",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    },
+    {
+      "policyId": "TERRAIN_COMPATIBILITY_POLICY",
+      "humanName": "Terrain compatibility policy",
+      "domain": "Influence / Territory",
+      "purpose": "Controls compatibility between population ecology and physical sites.",
+      "units": "score 0..1000",
+      "allowedRange": "0..1000",
+      "causalConsumers": [
+        "founding",
+        "migration"
+      ],
+      "reviewAuthority": "NUMERIC",
+      "lifecycle": {
+        "kind": "GENESIS"
+      },
+      "lockedAuthorityIds": [],
+      "candidateVersion": "v1",
+      "candidateContent": {
+        "schemaVersion": "echoes-terrain-compatibility-v1",
+        "exactSpecificMatch": 1000,
+        "broadMatchNoSpecificConflict": 750,
+        "broadMatchSpecificMismatch": 500,
+        "broadMismatch": 200,
+        "unknown": 500
+      },
+      "candidateRationale": "Existing numeric review blocker carried forward.",
+      "revisionId": "TERRAIN_COMPATIBILITY_POLICY_v1_2cfff04cca59ffc4",
+      "contentSha256": "2cfff04cca59ffc460b9577fb2f458db635d9217a43e4719e7375de0ad6ef729",
+      "status": "UNREVIEWED",
+      "approvedBy": null,
+      "approvedAt": null,
+      "effectiveFromYear": null,
+      "supersededByRevisionId": null
+    }
+  ],
+  "approvedPolicyRevision": [],
+  "rejectedOrSuperseded": [],
+  "approvalMetadata": {
+    "automatic": [
+      "authenticated/current owner identity",
+      "approval timestamp",
+      "revision ID",
+      "generated canonical content hash",
+      "prior revision",
+      "approval action provenance"
+    ],
+    "effectiveBoundaryDefaults": {
+      "GENESIS": "year 0 / next new run",
+      "SCHEDULED_BARRIER": "appropriate designed barrier",
+      "ATOMIC_YEAR_BARRIER": "next permitted atomic-year barrier"
+    },
+    "manualEffectiveYearRequiredOnlyForExplicitOverride": true
+  },
+  "bulkApproval": {
+    "supported": true,
+    "separateImmutableApprovalPerRevision": true,
+    "separateCanonicalHashPerRevision": true
+  },
+  "noCandidateNumericValueApprovedByThisCorrection": true
+}

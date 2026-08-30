@@ -3,7 +3,7 @@ import React from "react";
 type World = "CONCORD" | "SCHISM" | "RUIN";
 export type AtlasPoi = {
   poiId: string; poiType: string; workingLabel: string; nameStatus: string; latitude: number; longitude: number; regionId: string; regionName: string; siteId: string;
-  isMagical: boolean; isRuntimeEffectAnchor: boolean; namesByWorld: Partial<Record<World, string>>; coverageByWorld?: Partial<Record<World, { name: string | null; nameStatus: string; namingBehavior: string }>>;
+  isMagical: boolean; isRuntimeEffectAnchor: boolean; elevationM?: number | null; depthM?: number | null; surfaceType?: string; placementStatus?: string; spatialAuthorityId?: string; namesByWorld: Partial<Record<World, string>>; coverageByWorld?: Partial<Record<World, { name: string | null; nameStatus: string; namingBehavior: string }>>;
 };
 export type AtlasRouteRealization = {
   routeId: string; active: boolean; name: string | null; nameStatus: string; establishedYear: number | null; primaryMode: string; infrastructureClass: string;
@@ -53,7 +53,7 @@ export function AtlasView({ data, world, selectedPoiId, selectedRouteId, setWorl
 }
 
 function PoiDetail({ poi, world }: { poi?: AtlasPoi; world: World }): React.JSX.Element {
-  return <section className="site-card atlas-poi-detail"><p className="eyebrow">SELECTED POINT OF INTEREST</p><h2>{poi?.namesByWorld[world] ?? poi?.workingLabel ?? "—"}</h2><strong>{poi?.poiId} · {poi?.poiType}</strong><dl><div><dt>World</dt><dd>{world}</dd></div><div><dt>Site</dt><dd>{poi?.siteId}</dd></div><div><dt>Region</dt><dd>{poi?.regionId} · {poi?.regionName}</dd></div><div><dt>Coordinates</dt><dd>{poi ? `${poi.latitude.toFixed(2)}, ${poi.longitude.toFixed(2)}` : "—"}</dd></div><div><dt>Name status</dt><dd>{poi?.coverageByWorld?.[world]?.nameStatus ?? poi?.nameStatus}</dd></div><div><dt>Naming behavior</dt><dd>{poi?.coverageByWorld?.[world]?.namingBehavior ?? "—"}</dd></div><div><dt>Magical</dt><dd>{poi?.isMagical ? "Yes" : "No"}</dd></div><div><dt>Runtime effect</dt><dd>{poi?.isRuntimeEffectAnchor ? "Anchor" : "None"}</dd></div></dl></section>;
+  return <section className="site-card atlas-poi-detail"><p className="eyebrow">SELECTED POINT OF INTEREST</p><h2>{poi?.namesByWorld[world] ?? poi?.workingLabel ?? "—"}</h2><strong>{poi?.poiId} · {poi?.poiType}</strong><dl><div><dt>World</dt><dd>{world}</dd></div><div><dt>Site</dt><dd>{poi?.siteId ?? "No approved Site crosswalk"}</dd></div><div><dt>Region</dt><dd>{poi?.regionId} · {poi?.regionName}</dd></div><div><dt>Coordinates</dt><dd>{poi ? `${poi.latitude.toFixed(2)}, ${poi.longitude.toFixed(2)}` : "—"}</dd></div><div><dt>Surface / elevation</dt><dd>{poi ? `${poi.surfaceType ?? "—"} · ${poi.elevationM ?? "—"} m` : "—"}</dd></div><div><dt>Spatial authority</dt><dd>{poi?.spatialAuthorityId ?? "—"}</dd></div><div><dt>Name status</dt><dd>{poi?.coverageByWorld?.[world]?.nameStatus ?? poi?.nameStatus}</dd></div><div><dt>Naming behavior</dt><dd>{poi?.coverageByWorld?.[world]?.namingBehavior ?? "—"}</dd></div><div><dt>Magical</dt><dd>{poi?.isMagical === null ? "Unknown" : poi?.isMagical ? "Yes" : "No"}</dd></div><div><dt>Runtime effect</dt><dd>{poi?.isRuntimeEffectAnchor === null ? "Unknown" : poi?.isRuntimeEffectAnchor ? "Anchor" : "None"}</dd></div></dl></section>;
 }
 
 function AtlasRouteDetail({ route, world }: { route: AtlasRoute; world: World }): React.JSX.Element {

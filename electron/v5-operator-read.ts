@@ -1,10 +1,9 @@
-import { join } from "node:path";
-import { loadBundledCanonicalV5 } from "../src/core/v5/canonical-adapter.js";
 import type { CanonicalDataV5 } from "../src/core/v5/config.js";
 import type { V5RunManifest } from "../src/core/v5/persistence.js";
 import { buildReadModelV1 } from "../src/core/v5/read-model.js";
 import type { CausalEventV5, WorldKey, WorldStateV5 } from "../src/core/v5/types.js";
 import { SimulatorStore } from "../src/persistence/sqlite-store.js";
+import { canonicalV5FromRunAuthoritySnapshot } from "../src/persistence/postgres-canonical.js";
 
 export type V5OperatorViewDetail =
   | "Live Dashboard" | "Cities" | "World Browser" | "Settlement Detail" | "State Detail"
@@ -39,13 +38,19 @@ function eventView(event: CausalEventV5): Record<string, unknown> {
   return { eventId: event.eventId, year: event.year, eventType: event.eventType, entityId: event.entityId, payload: event.payload };
 }
 
+function dominantPersistedPersonFaction(person: WorldStateV5["politicalPeople"][number]): WorldKey | null {
+  const vector = person.factionAffinity;
+  if (!vector) return null;
+  return vector.CONCORD >= vector.SCHISM && vector.CONCORD >= vector.RUIN ? "CONCORD" : vector.SCHISM >= vector.RUIN ? "SCHISM" : "RUIN";
+}
+
 export function buildV5RunView(input: {
   store: SimulatorStore;
   runId: string;
   world: WorldKey;
   year: number;
-  resourceDirectory: string;
   detail?: V5OperatorViewDetail;
+  personAlignmentById?: Readonly<Record<string, import("../src/core/v5/types.js").FactionVector>>;
 }): Record<string, unknown> {
   const { store, runId, world } = input;
   const run = store.getRun(runId);
@@ -57,7 +62,7 @@ export function buildV5RunView(input: {
   const checkpointYear = checkpoint?.state.year ?? 0;
   const state = checkpoint?.state;
   const detail = input.detail ?? "Live Dashboard";
-  const canonical = loadBundledCanonicalV5(join(input.resourceDirectory, "canonical"));
+  const canonical = canonicalV5FromRunAuthoritySnapshot(manifest.authoritySnapshot, manifest.canonicalBundleHash, checkpointYear);
   const labels = store.loadV5Labels(runId, checkpointYear);
   const settlements = state ? buildV5SettlementProjection(store, canonical, manifest, state) : [];
   const result: Record<string, unknown> = {
@@ -76,11 +81,8 @@ export function buildV5RunView(input: {
   if (detail === "State Detail") Object.assign(result, { states: state.states, institutions: state.institutions ?? [], offices: state.offices ?? [] });
   if (detail === "People") {
     const personFactionById = Object.fromEntries((state.politicalPeople ?? []).map((person) => {
-      const family = state.families.find((candidate) => candidate.familyId === person.familyId);
-      if (family) return [person.personId, family.factionAffinity.CONCORD >= family.factionAffinity.SCHISM && family.factionAffinity.CONCORD >= family.factionAffinity.RUIN ? "CONCORD" : family.factionAffinity.SCHISM >= family.factionAffinity.RUIN ? "SCHISM" : "RUIN"];
-      const breed = canonical.breeds.find((candidate) => candidate.breedId === person.breedId);
-      const vector = breed?.factionObject ?? { CONCORD: 0, SCHISM: 0, RUIN: 0 };
-      return [person.personId, vector.CONCORD >= vector.SCHISM && vector.CONCORD >= vector.RUIN ? "CONCORD" : vector.SCHISM >= vector.RUIN ? "SCHISM" : "RUIN"];
+      const persistedAlignment = input.personAlignmentById?.[person.personId] ?? person.factionAffinity;
+      return [person.personId, persistedAlignment ? dominantPersistedPersonFaction({ ...person, factionAffinity: persistedAlignment }) : null];
     }));
     Object.assign(result, { states: state.states, people: state.politicalPeople ?? [], institutions: state.institutions ?? [], offices: state.offices ?? [], officeTerms: state.officeTerms ?? [], ownershipStakes: state.ownershipStakes ?? [], personRelations: state.personRelations ?? [], personFactionById });
   }
@@ -97,13 +99,31 @@ export function buildV5RunView(input: {
       if (!event.payload || typeof event.payload !== "object") return [];
       const payload = event.payload as Record<string, unknown>;
       if (typeof payload.officeTermId !== "string" || !payload.appliedSelectionRule || typeof payload.appliedSelectionRule !== "object") return [];
-      return [[payload.officeTermId, { selectionEventId: event.eventId, appliedSelectionRule: payload.appliedSelectionRule, sourceGovernmentFormId: typeof payload.sourceGovernmentFormId === "string" ? payload.sourceGovernmentFormId : null, sourceGovernmentOfficeId: typeof payload.sourceGovernmentOfficeId === "string" ? payload.sourceGovernmentOfficeId : null, selectorType: payload.selectorType, selectorId: payload.selectorId, selectedPersonId: payload.selectedPersonId ?? payload.personId }]];
+      return [[payload.officeTermId, {
+        selectionEventId: event.eventId,
+        appliedSelectionRule: payload.appliedSelectionRule,
+        sourceGovernmentFormId: typeof payload.sourceGovernmentFormId === "string" ? payload.sourceGovernmentFormId : null,
+        sourceGovernmentOfficeId: typeof payload.sourceGovernmentOfficeId === "string" ? payload.sourceGovernmentOfficeId : null,
+        selectorType: payload.selectorType,
+        selectorId: payload.selectorId,
+        selectedPersonId: payload.selectedPersonId ?? payload.personId,
+        sourceSettlementId: typeof payload.sourceSettlementId === "string" ? payload.sourceSettlementId : null,
+        constituencyFactionAffinity: payload.constituencyFactionAffinity ?? null,
+        representativeFactionAffinity: payload.representativeFactionAffinity ?? null,
+        selectionAuthorityFactionAffinity: payload.selectionAuthorityFactionAffinity ?? null,
+        candidateScore: payload.candidateScore,
+        candidateCount: payload.candidateCount,
+        materialized: payload.materialized,
+        scoreComponents: payload.scoreComponents ?? null,
+      }]];
     }));
     const personFactionById = Object.fromEntries((state.politicalPeople ?? []).map((person) => {
-      const family = state.families.find((candidate) => candidate.familyId === person.familyId);
-      return [person.personId, family ? (family.factionAffinity.CONCORD >= family.factionAffinity.SCHISM && family.factionAffinity.CONCORD >= family.factionAffinity.RUIN ? "CONCORD" : family.factionAffinity.SCHISM >= family.factionAffinity.RUIN ? "SCHISM" : "RUIN") : world];
+      const persistedAlignment = input.personAlignmentById?.[person.personId] ?? person.factionAffinity;
+      return [person.personId, persistedAlignment ? dominantPersistedPersonFaction({ ...person, factionAffinity: persistedAlignment }) : null];
     }));
-    Object.assign(result, { institutions: state.institutions ?? [], offices: state.offices ?? [], officeTerms: state.officeTerms ?? [], people: state.politicalPeople ?? [], families: state.families ?? [], personFactionById, officeTermSelectionEvidence });
+    const settlementFactionById = Object.fromEntries(settlements.map((settlement) => [settlement.settlementId, settlement.dominantFaction ?? null]));
+    const constituencyFactionByOfficeId = Object.fromEntries((state.offices ?? []).map((office) => [office.officeId, office.jurisdictionSettlementId ? settlementFactionById[office.jurisdictionSettlementId] ?? null : null]));
+    Object.assign(result, { institutions: state.institutions ?? [], offices: state.offices ?? [], officeTerms: state.officeTerms ?? [], people: state.politicalPeople ?? [], families: state.families ?? [], personFactionById, constituencyFactionByOfficeId, officeTermSelectionEvidence });
   }
   if (detail === "Institutions") Object.assign(result, { institutions: state.institutions ?? [] });
   if (detail === "Resources / Industry") Object.assign(result, { organizations: state.organizations ?? [], resourceNodes: state.resourceNodes ?? [], worldResourceStates: state.worldResourceStates ?? [], industries: state.industries ?? [] });

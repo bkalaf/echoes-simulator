@@ -5,8 +5,10 @@ import { resumeCanonicalRun } from "../src/core/engine/canonical-resume.js";
 import { SimulatorStore } from "../src/persistence/sqlite-store.js";
 import { resumePersistedV5Run, runPersistedV5Diagnostic } from "../src/core/v5/service.js";
 import { buildV5RunView, type V5OperatorViewDetail } from "./v5-operator-read.js";
+import { disconnectDomainDatabase } from "../src/persistence/postgres-domain.js";
+import { loadPostgresCanonicalV5 } from "../src/persistence/postgres-canonical.js";
 
-parentPort?.on("message", (candidate: unknown) => {
+parentPort?.on("message", async (candidate: unknown) => {
   let requestId = "UNKNOWN";
   try {
     const request = parseWorkerRequest(candidate);
@@ -19,12 +21,13 @@ parentPort?.on("message", (candidate: unknown) => {
     if (request.action === "RUN_V5_DIAGNOSTIC") {
       const store = new SimulatorStore(String(request.payload.databasePath));
       try {
-        payload = runPersistedV5Diagnostic({ store, normalizedSeed: typeof request.payload.seed === "string" ? request.payload.seed : "EIDOLON_V5_DIAGNOSTIC", resourceDirectory: String(request.payload.resourceDirectory), throughYear: Number(request.payload.throughYear ?? 25), namingMode: request.payload.namingMode === "INTERACTIVE_LLM_NAMING" ? "INTERACTIVE_LLM_NAMING" : undefined });
+        const result = runPersistedV5Diagnostic({ store, normalizedSeed: typeof request.payload.seed === "string" ? request.payload.seed : "EIDOLON_V5_DIAGNOSTIC", canonicalAuthority: await loadPostgresCanonicalV5(), throughYear: Number(request.payload.throughYear ?? 25), namingMode: request.payload.namingMode === "INTERACTIVE_LLM_NAMING" ? "INTERACTIVE_LLM_NAMING" : undefined });
+        payload = result;
       } finally { store.close(); }
     }
     if (request.action === "RESUME_V5") {
       const store = new SimulatorStore(String(request.payload.databasePath));
-      try { payload = resumePersistedV5Run({ store, runId: String(request.payload.runId), resourceDirectory: String(request.payload.resourceDirectory) }); }
+      try { payload = resumePersistedV5Run({ store, runId: String(request.payload.runId) }); }
       finally { store.close(); }
     }
     if (request.action === "RESUME_CANONICAL") {
@@ -55,13 +58,16 @@ parentPort?.on("message", (candidate: unknown) => {
       const databasePath = String(request.payload.databasePath);
       const store = new SimulatorStore(databasePath);
       try {
+        const runId = String(request.payload.runId);
+        const world = String(request.payload.world) as "CONCORD" | "SCHISM" | "RUIN";
+        const year = Number(request.payload.year);
+        const detail = (typeof request.payload.detail === "string" ? request.payload.detail : undefined) as V5OperatorViewDetail | undefined;
         payload = buildV5RunView({
           store,
-          runId: String(request.payload.runId),
-          world: String(request.payload.world) as "CONCORD" | "SCHISM" | "RUIN",
-          year: Number(request.payload.year),
-          resourceDirectory: String(request.payload.resourceDirectory),
-          detail: (typeof request.payload.detail === "string" ? request.payload.detail : undefined) as V5OperatorViewDetail | undefined,
+          runId,
+          world,
+          year,
+          detail,
         });
       } finally {
         store.close();
@@ -70,5 +76,7 @@ parentPort?.on("message", (candidate: unknown) => {
     parentPort?.postMessage({ schemaVersion: WORKER_SCHEMA_VERSION, requestId: request.requestId, ok: true, payload });
   } catch (error) {
     parentPort?.postMessage({ schemaVersion: WORKER_SCHEMA_VERSION, requestId, ok: false, error: error instanceof Error ? (error.stack ?? error.message) : "Invalid worker request" });
+  } finally {
+    await disconnectDomainDatabase();
   }
 });

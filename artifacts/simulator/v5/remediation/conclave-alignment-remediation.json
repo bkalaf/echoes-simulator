@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "echoes-conclave-alignment-remediation-v1",
+  "versions": {
+    "mechanics": "echoes-mechanics-v5.5.0",
+    "scheduler": "echoes-scheduler-v5.5.0",
+    "readModel": "echoes-read-model-v1.3.0",
+    "causalDerivation": "echoes-derived-metrics-v1.1.0",
+    "durableSchema": "echoes-world-state-v5"
+  },
+  "politicalPersonAlignment": {
+    "durableField": "PoliticalPerson.factionAffinity",
+    "historyFields": [
+      "PoliticalPerson.factionAlignmentEffectiveFromYear",
+      "PoliticalPerson.factionAlignmentSourceEventId",
+      "PoliticalPersonAlignment.effectiveFromYear",
+      "PoliticalPersonAlignment.effectiveToYear"
+    ],
+    "normalization": "CONCORD + SCHISM + RUIN = 1000",
+    "legacyBehavior": "UNKNOWN/UNALIGNED",
+    "forbiddenReadFallbacks": ["World", "State", "Family", "Settlement", "Breed", "constituency", "selector"],
+    "postgresReadAuthority": true
+  },
+  "selectionMechanics": {
+    "separateVectors": ["constituencyFactionAffinity", "representativeFactionAffinity", "selectionAuthorityFactionAffinity"],
+    "citySeatConstituencySource": "represented Settlement population faction vector",
+    "personSourceInputs": ["Breed", "State", "origin Settlement", "represented constituency", "Family when present", "selection authority when defined"],
+    "selectionMethods": ["HEREDITARY", "RULER_APPOINTMENT", "COUNCIL_APPOINTMENT", "ESTATE_SELECTION", "ELITE_FRANCHISE", "POPULAR_ELECTION", "MILITARY_SELECTION", "RELIGIOUS_SELECTION"],
+    "eventEvidence": ["officeId", "officeTermId", "sourceSettlementId", "candidateOriginSettlementId", "selectorType", "selectorId", "appliedSelectionRule", "constituencyFactionAffinity", "representativeFactionAffinity", "selectionAuthorityFactionAffinity", "candidateScore", "candidateCount", "scoreComponents"]
+  },
+  "regressions": {
+    "lupinStyleMismatchFixture": "Ruin-majority city constituency selects Concord representative under Concord ruler appointment and preserves mismatch",
+    "popularElectionFixture": "same Ruin-majority constituency selects explicit Ruin representative",
+    "legacyUiFixture": "Family Concord plus constituency Ruin plus selector Concord does not backfill missing person alignment",
+    "deterministicRepeat": true
+  },
+  "verification": {
+    "typecheck": "PASS",
+    "v5Architecture": "28/28 PASS",
+    "conclaveUi": "1/1 PASS",
+    "atlasReconciliation": "3/3 PASS",
+    "postgresDomain": "3/3 PASS",
+    "prompt01Relevant": "9/9 PASS",
+    "prompt01Unrelated": "1 FAIL: Breed deity affinity authority coverage does not match canonical Breed catalog"
+  }
+}

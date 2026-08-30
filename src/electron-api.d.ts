@@ -5,6 +5,10 @@ declare global {
     eidolonSimulator?: {
       getRuntimeInfo(): Promise<{ version: string; userDataPath: string }>;
       getOperatorSnapshot(): Promise<unknown>;
+      runDomainDatabaseAction(action: "DOCTOR" | "MIGRATE" | "SEED" | "RETRY"): Promise<unknown>;
+      getOwnerPolicyCenter(): Promise<unknown>;
+      decideOwnerPolicy(input: unknown): Promise<unknown>;
+      createOwnerPolicyRevision(input: unknown): Promise<unknown>;
       saveV5Configuration(input: { mechanicsJson: string; operationalJson: string; diagnosticJson: string }): Promise<unknown>;
       runCanonical(seed: string): Promise<unknown>;
       resumeCanonical(runId: string): Promise<unknown>;

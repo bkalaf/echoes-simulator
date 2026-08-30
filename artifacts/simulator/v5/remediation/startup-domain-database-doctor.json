@@ -1,0 +1,15 @@
+{
+  "state": "SEED_REQUIRED",
+  "diagnosticCode": "CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED",
+  "actions": [
+    "SEED",
+    "RETRY"
+  ],
+  "missingStructures": [],
+  "redactedTarget": "postgresql://127.0.0.1:5432/3424ca3edd",
+  "connectionSource": "ECHOES_SHARED_LOCAL_CONFIG",
+  "connectionLabel": "Echoes shared PostgreSQL",
+  "sharedCanonicalDatabase": true,
+  "manualDatabaseUrlRequired": false,
+  "secondCanonicalDatabaseCreated": false
+}

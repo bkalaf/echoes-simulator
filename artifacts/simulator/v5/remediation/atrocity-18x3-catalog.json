@@ -1,0 +1,2133 @@
+{
+  "schemaVersion": "echoes-atrocity-18x3-catalog-v1",
+  "occurrenceCount": 18,
+  "worldDefinitionCount": 54,
+  "identifiers": [
+    "ATROCITY_17_A",
+    "ATROCITY_17_B",
+    "ATROCITY_16",
+    "ATROCITY_15",
+    "ATROCITY_14",
+    "ATROCITY_13",
+    "ATROCITY_12",
+    "ATROCITY_11",
+    "ATROCITY_10",
+    "ATROCITY_09",
+    "ATROCITY_08",
+    "ATROCITY_07",
+    "ATROCITY_06",
+    "ATROCITY_05",
+    "ATROCITY_04",
+    "ATROCITY_03",
+    "ATROCITY_02",
+    "ATROCITY_01"
+  ],
+  "definitions": [
+    {
+      "definitionId": "ATROCITY_17_A_CONCORD",
+      "occurrenceId": "ATROCITY_17_A",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 18 / ZERO / founding narrative suppression",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: founding exclusion and denial of recognized civic claims.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "348d0f3271994d24e7e3027e435bb824532420b59b64988988cbd2c8c081e26b"
+    },
+    {
+      "definitionId": "ATROCITY_17_A_SCHISM",
+      "occurrenceId": "ATROCITY_17_A",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 18 / ZERO / founding narrative suppression",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: founding exclusion and denial of recognized civic claims.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "5925a6c78746c1d016786299479de974018829ed8e2b2a37d0fe09c5fedbcf95"
+    },
+    {
+      "definitionId": "ATROCITY_17_A_RUIN",
+      "occurrenceId": "ATROCITY_17_A",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 18 / ZERO / founding narrative suppression",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: founding exclusion and denial of recognized civic claims.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "05785217112442f646f851f20bdfdd5daa7cbb3029792f1da6e81ffe520b8385"
+    },
+    {
+      "definitionId": "ATROCITY_17_B_CONCORD",
+      "occurrenceId": "ATROCITY_17_B",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 17 / WHAT WE DID / concealment-retaliation-profiteering",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: concealment, retaliatory status harm, and opportunistic extraction.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "c5d01642c735a2f86467d5a45605fc8fc538b0da8bd723ed169d0b17efda3d30"
+    },
+    {
+      "definitionId": "ATROCITY_17_B_SCHISM",
+      "occurrenceId": "ATROCITY_17_B",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 17 / WHAT WE DID / concealment-retaliation-profiteering",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: concealment, retaliatory status harm, and opportunistic extraction.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "093c3773b644102fa325596744df09ff684a26b273d2346ba8c40ea74c1f60b5"
+    },
+    {
+      "definitionId": "ATROCITY_17_B_RUIN",
+      "occurrenceId": "ATROCITY_17_B",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 17 / WHAT WE DID / concealment-retaliation-profiteering",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: concealment, retaliatory status harm, and opportunistic extraction.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "93ba75aa589e2a708683ff1206441829c1c0c7fc178281f1a21fd091c909ddfe"
+    },
+    {
+      "definitionId": "ATROCITY_16_CONCORD",
+      "occurrenceId": "ATROCITY_16",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 16 / SLEEP / coercive institutional consolidation",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: coercive institutional consolidation without Book/Witness phase identifiers.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "0f8922d9bd5e35bfd9565eb7bd58dd1be703e0888ee9747d87aff8d8f879982d"
+    },
+    {
+      "definitionId": "ATROCITY_16_SCHISM",
+      "occurrenceId": "ATROCITY_16",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 16 / SLEEP / coercive institutional consolidation",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: coercive institutional consolidation without Book/Witness phase identifiers.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "55ca23a62831065343971e3d96fee2b3d349a4394d7db98abc07572725b61b8b"
+    },
+    {
+      "definitionId": "ATROCITY_16_RUIN",
+      "occurrenceId": "ATROCITY_16",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 16 / SLEEP / coercive institutional consolidation",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: coercive institutional consolidation without Book/Witness phase identifiers.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "5d0bc53cbc09bf0790806b50d16fedb46b0720cc9e2f160d013af1d1930abc9e"
+    },
+    {
+      "definitionId": "ATROCITY_15_CONCORD",
+      "occurrenceId": "ATROCITY_15",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 15 / BODIES",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: identity control, conformity, and disenfranchisement.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "73ca74e83f6698627bfc638dc80aa1c626676aecb728e63384c933a9f4b7f387"
+    },
+    {
+      "definitionId": "ATROCITY_15_SCHISM",
+      "occurrenceId": "ATROCITY_15",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 15 / BODIES",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: identity control, conformity, and disenfranchisement.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "d077898e80493c7f706cc1c359f4be88107a1959d58ec2b7a7e98d0b86152b70"
+    },
+    {
+      "definitionId": "ATROCITY_15_RUIN",
+      "occurrenceId": "ATROCITY_15",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 15 / BODIES",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: identity control, conformity, and disenfranchisement.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "8b37c83a628d64057db2c36bf088571851731bf45be2a33f6fa6f496a4e58f60"
+    },
+    {
+      "definitionId": "ATROCITY_14_CONCORD",
+      "occurrenceId": "ATROCITY_14",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 14 / NO RETURN",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: normalized abuse and refusal to correct acknowledged harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "745a10e214e3edb391b89781a4c53f333d1c91ddf8db2e127fa4ca39dd4a3169"
+    },
+    {
+      "definitionId": "ATROCITY_14_SCHISM",
+      "occurrenceId": "ATROCITY_14",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 14 / NO RETURN",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: normalized abuse and refusal to correct acknowledged harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "548be65e37c392f4ee3afec47d9613824ac42c8a6a105106752c996e18c893fe"
+    },
+    {
+      "definitionId": "ATROCITY_14_RUIN",
+      "occurrenceId": "ATROCITY_14",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 14 / NO RETURN",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: normalized abuse and refusal to correct acknowledged harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "515e539004e294a85a9c0dd24758e236a0f9c988923c5099b9806719bf40f411"
+    },
+    {
+      "definitionId": "ATROCITY_13_CONCORD",
+      "occurrenceId": "ATROCITY_13",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 13 / CATACLYSM",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: culpable discriminatory catastrophe triage distinct from the catastrophe itself.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "99116d35adcae6b4aba9255002ddb5d57a15d8b269f220e602b3bb667438d673"
+    },
+    {
+      "definitionId": "ATROCITY_13_SCHISM",
+      "occurrenceId": "ATROCITY_13",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 13 / CATACLYSM",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: culpable discriminatory catastrophe triage distinct from the catastrophe itself.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "e2710f2eb3a28b97887265d1de652e6fd4ce3282afaaea7b0c1d20b92f0e2935"
+    },
+    {
+      "definitionId": "ATROCITY_13_RUIN",
+      "occurrenceId": "ATROCITY_13",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 13 / CATACLYSM",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: culpable discriminatory catastrophe triage distinct from the catastrophe itself.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "261d9ceb37307b60b92d37f5ba2a2da00380b65304677453590d2c9e76577362"
+    },
+    {
+      "definitionId": "ATROCITY_12_CONCORD",
+      "occurrenceId": "ATROCITY_12",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 12 / THE CLEARANCE",
+        "scopeRule": "LOCAL_WITH_NEIGHBOR_SPILLOVER",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: administrative exclusion, forced relocation, and clearance.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "54383b4961d223ff3c6fb776467fe70c25a3e3bcdf61bd940e02f5ed82ee1870"
+    },
+    {
+      "definitionId": "ATROCITY_12_SCHISM",
+      "occurrenceId": "ATROCITY_12",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 12 / THE CLEARANCE",
+        "scopeRule": "LOCAL_WITH_NEIGHBOR_SPILLOVER",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: administrative exclusion, forced relocation, and clearance.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "63115a31df6949cee1d129cc105f694c09d00209306fa0f1fd93c7473b0e7624"
+    },
+    {
+      "definitionId": "ATROCITY_12_RUIN",
+      "occurrenceId": "ATROCITY_12",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 12 / THE CLEARANCE",
+        "scopeRule": "LOCAL_WITH_NEIGHBOR_SPILLOVER",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: administrative exclusion, forced relocation, and clearance.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "30781f0c006cb6b5777f5404b676673d156c14b794ab8906512feb2041a3b346"
+    },
+    {
+      "definitionId": "ATROCITY_11_CONCORD",
+      "occurrenceId": "ATROCITY_11",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 11 / THE FAILED PEACE",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: buried crimes, selective justice, and repeated harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "b7fea0be6dc410e9dc477eb055a2a609523f9fa8ecf233e8ad3210322a531bae"
+    },
+    {
+      "definitionId": "ATROCITY_11_SCHISM",
+      "occurrenceId": "ATROCITY_11",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 11 / THE FAILED PEACE",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: buried crimes, selective justice, and repeated harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "d4eaeffed9c359b1495054692f1ceaebe9854e9d936abaf9ab59ba04d3ffa364"
+    },
+    {
+      "definitionId": "ATROCITY_11_RUIN",
+      "occurrenceId": "ATROCITY_11",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 11 / THE FAILED PEACE",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: buried crimes, selective justice, and repeated harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "4d73f2047c1caa41b557768f07b34755f6b746a02cdf92e481bb0ad55ea61d9c"
+    },
+    {
+      "definitionId": "ATROCITY_10_CONCORD",
+      "occurrenceId": "ATROCITY_10",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 10 / WINTER",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Church-aligned institutions with state complicity; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: restoration of discredited systems through nostalgia or conditional aid.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Crown protection and secular restraint; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "dd4de312c5c3aa76a47610f5b0be55187b00da0482d4a797124a0210cc9a1b1b"
+    },
+    {
+      "definitionId": "ATROCITY_10_SCHISM",
+      "occurrenceId": "ATROCITY_10",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 10 / WINTER",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Corporate actors and charter institutions; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: restoration of discredited systems through nostalgia or conditional aid.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Wealth-elite personal patronage and exceptions; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "5f4d1c43ca68fe61b17ff7114c124a40ace68ea465960a5a79bff5f250aa936f"
+    },
+    {
+      "definitionId": "ATROCITY_10_RUIN",
+      "occurrenceId": "ATROCITY_10",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 10 / WINTER",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Hereditary elite and client Families; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: restoration of discredited systems through nostalgia or conditional aid.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Intellectual, legal, and credentialed opposition; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "fa8179d463c5e31398747a6dcaf00eb90cdab6ff21d06ce519e29dee50b492d3"
+    },
+    {
+      "definitionId": "ATROCITY_09_CONCORD",
+      "occurrenceId": "ATROCITY_09",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 9 / THE SIEGE",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: coercive assignment, credential control, and patronage dependency.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "38b15c76645535e2a99a670aa3c4522082aadaa19f01b2e4294ddd819b1660e6"
+    },
+    {
+      "definitionId": "ATROCITY_09_SCHISM",
+      "occurrenceId": "ATROCITY_09",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 9 / THE SIEGE",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: coercive assignment, credential control, and patronage dependency.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "e2226955209b97720e44f95f4411b5a790cec43b3f5012be54b7b3d02236c377"
+    },
+    {
+      "definitionId": "ATROCITY_09_RUIN",
+      "occurrenceId": "ATROCITY_09",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 9 / THE SIEGE",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: coercive assignment, credential control, and patronage dependency.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "2783e0144b02234aa7be0edc98cfc705e7f5096bf1787f58e8f579bdfecbb70d"
+    },
+    {
+      "definitionId": "ATROCITY_08_CONCORD",
+      "occurrenceId": "ATROCITY_08",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 8 / SVALBARD",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: retaliatory overcorrection and survivalist exclusion.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "d8d8f697e8fc4e89a37961d1606f73454d17ed1a1f5fe891019a457accff5cf3"
+    },
+    {
+      "definitionId": "ATROCITY_08_SCHISM",
+      "occurrenceId": "ATROCITY_08",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 8 / SVALBARD",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: retaliatory overcorrection and survivalist exclusion.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "6fb8f74668fa853e79e1e7d3659d81acbe7c93388b8c225627ac09a1885bd5a9"
+    },
+    {
+      "definitionId": "ATROCITY_08_RUIN",
+      "occurrenceId": "ATROCITY_08",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 8 / SVALBARD",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: retaliatory overcorrection and survivalist exclusion.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "ab9a4a652883d562b1a1587b957aac4e91d74a356aa2fd61f6ee752800dddf41"
+    },
+    {
+      "definitionId": "ATROCITY_07_CONCORD",
+      "occurrenceId": "ATROCITY_07",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 7 / RELOCATION",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: secrecy, surveillance, and restrictions that never sunset.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "e06301e09f1797ce029458845889a6dfea800800f5b7e065281a09a7bee48682"
+    },
+    {
+      "definitionId": "ATROCITY_07_SCHISM",
+      "occurrenceId": "ATROCITY_07",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 7 / RELOCATION",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: secrecy, surveillance, and restrictions that never sunset.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "830acf2411a1f1fe919c55a77eadbb03a9c3e2b08ca5c8d2f10a5116ba4db88f"
+    },
+    {
+      "definitionId": "ATROCITY_07_RUIN",
+      "occurrenceId": "ATROCITY_07",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 7 / RELOCATION",
+        "scopeRule": "GLOBAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: secrecy, surveillance, and restrictions that never sunset.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "88ccdf2501bc57546d058f020dfd64a228cd65b6df2620f55d6f71eb8603fae9"
+    },
+    {
+      "definitionId": "ATROCITY_06_CONCORD",
+      "occurrenceId": "ATROCITY_06",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 6 / ARK 5",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: collective guilt, system failure, and premature abandonment.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "0d8beee7dbc7120811df07f387bd8fb13cac6e4c96a61b33e677cd39fa329a17"
+    },
+    {
+      "definitionId": "ATROCITY_06_SCHISM",
+      "occurrenceId": "ATROCITY_06",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 6 / ARK 5",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: collective guilt, system failure, and premature abandonment.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "3282dccc7e7eb7e59a8281e159cc14fe4253fcccb96481142635eb1834565726"
+    },
+    {
+      "definitionId": "ATROCITY_06_RUIN",
+      "occurrenceId": "ATROCITY_06",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 6 / ARK 5",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: collective guilt, system failure, and premature abandonment.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "93f782075e6e5784f567438a1cbb2cc6829257259dcd873d07b18d944fa01aae"
+    },
+    {
+      "definitionId": "ATROCITY_05_CONCORD",
+      "occurrenceId": "ATROCITY_05",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 5 / THE ENEMY FORMS",
+        "scopeRule": "GLOBAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: alarmism, expedient coercion, and punitive exclusion.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "e418a4cfb6108e1ec87cbe3637ce8cc89ec1a24009c8fe60a224d678e90a7036"
+    },
+    {
+      "definitionId": "ATROCITY_05_SCHISM",
+      "occurrenceId": "ATROCITY_05",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 5 / THE ENEMY FORMS",
+        "scopeRule": "GLOBAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: alarmism, expedient coercion, and punitive exclusion.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "8e106a9023758201aee52c18d52bcbc426770bf7802fe9cd4fd27f178615780e"
+    },
+    {
+      "definitionId": "ATROCITY_05_RUIN",
+      "occurrenceId": "ATROCITY_05",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 5 / THE ENEMY FORMS",
+        "scopeRule": "GLOBAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: alarmism, expedient coercion, and punitive exclusion.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "24de04fbc01de21d16db9a16f180a1e1578fce228b1819d885b7b1277a869dce"
+    },
+    {
+      "definitionId": "ATROCITY_04_CONCORD",
+      "occurrenceId": "ATROCITY_04",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 4 / THE CONTINGENCY",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: principle evasion, bargaining away protection, and inherited debt.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "90cfdb16982f6b6d581a179ed104da6c28d35b07351576d49d6210af709e8f35"
+    },
+    {
+      "definitionId": "ATROCITY_04_SCHISM",
+      "occurrenceId": "ATROCITY_04",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 4 / THE CONTINGENCY",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: principle evasion, bargaining away protection, and inherited debt.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "975c2e937c8fe47213ad415bf25a1692888458495073dfcb6f675ec757bf30c1"
+    },
+    {
+      "definitionId": "ATROCITY_04_RUIN",
+      "occurrenceId": "ATROCITY_04",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 4 / THE CONTINGENCY",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: principle evasion, bargaining away protection, and inherited debt.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "457d0c38ab600d5a39f663ed1f26ed4ddae6592e1d2e535d581cfae9758e8552"
+    },
+    {
+      "definitionId": "ATROCITY_03_CONCORD",
+      "occurrenceId": "ATROCITY_03",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 3 / THE BETTER FUTURE",
+        "scopeRule": "LOCAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: hubristic projects and optimization that externalize harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "3944aaebc34a79c9c3688f66f940c539592f633decccf775b55c96e77564d29b"
+    },
+    {
+      "definitionId": "ATROCITY_03_SCHISM",
+      "occurrenceId": "ATROCITY_03",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 3 / THE BETTER FUTURE",
+        "scopeRule": "LOCAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: hubristic projects and optimization that externalize harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "65ed4ae63e7bdaab6d49579dee3e5cd28571881b16fbb89b1da1c3ae6537ce49"
+    },
+    {
+      "definitionId": "ATROCITY_03_RUIN",
+      "occurrenceId": "ATROCITY_03",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 3 / THE BETTER FUTURE",
+        "scopeRule": "LOCAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: hubristic projects and optimization that externalize harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "1dff3cd83d016d0c963459bf30afe88978d6e8e9c6db9dde03b22326fbaaa159"
+    },
+    {
+      "definitionId": "ATROCITY_02_CONCORD",
+      "occurrenceId": "ATROCITY_02",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 2 / THE SHOWCASE",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: exception, coverup, spectacle, and scapegoating.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "39bbf9102a187fd88140b1c12cc51fd289ee70bb4e475c3a6e771889ca5a070a"
+    },
+    {
+      "definitionId": "ATROCITY_02_SCHISM",
+      "occurrenceId": "ATROCITY_02",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 2 / THE SHOWCASE",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: exception, coverup, spectacle, and scapegoating.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "934187c4f3a353a79f2c997d77b1495abf1a18fe9c096723a123006df94228e5"
+    },
+    {
+      "definitionId": "ATROCITY_02_RUIN",
+      "occurrenceId": "ATROCITY_02",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 2 / THE SHOWCASE",
+        "scopeRule": "REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: exception, coverup, spectacle, and scapegoating.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "d6b75591b236793ecc6a7f1a7da3b75a7f67883216f75548f011961dbf1ce112"
+    },
+    {
+      "definitionId": "ATROCITY_01_CONCORD",
+      "occurrenceId": "ATROCITY_01",
+      "worldKey": "CONCORD",
+      "narrative": {
+        "thematicSpine": "Book 1 / THE FIRST CRACKS",
+        "scopeRule": "LOCAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Crown-aligned state apparatus; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: ordinary emergency compromise becoming systemic harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Church protection and sanctuary; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "7923590529959cadbc538726b4ef1e7a9c029ceec9c914b65af52611f2f84332"
+    },
+    {
+      "definitionId": "ATROCITY_01_SCHISM",
+      "occurrenceId": "ATROCITY_01",
+      "worldKey": "SCHISM",
+      "narrative": {
+        "thematicSpine": "Book 1 / THE FIRST CRACKS",
+        "scopeRule": "LOCAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Wealth elite and personal oligarchic houses; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: ordinary emergency compromise becoming systemic harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Corporate standardization and accountable access; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "ba3157f1b4dd8d1acc9b2f9c3ab64ad95192707bcee2cbf99b9120136d08279a"
+    },
+    {
+      "definitionId": "ATROCITY_01_RUIN",
+      "occurrenceId": "ATROCITY_01",
+      "worldKey": "RUIN",
+      "narrative": {
+        "thematicSpine": "Book 1 / THE FIRST CRACKS",
+        "scopeRule": "LOCAL_OR_REGIONAL",
+        "targetRules": "Use only the accepted atomic Derogatory decision for this world/scope; never infer a target from stereotypes or local synthesis.",
+        "perpetratorsAndComplicity": "Intellectual and technocratic elite; record direct perpetrators, institutional complicity, protection, refusal, and non-participation separately. Mechanism: ordinary emergency compromise becoming systemic harm.",
+        "publicResponse": "Persist fear/compliance separately from grievance/unrest and record both public approval and protection/counter-mobilization.",
+        "reputationConsequences": "Update perpetration, complicity, protection, and refusal reputation as distinct evidence-backed consequences.",
+        "pairedPillarMovement": "Permit evidence-backed movement toward Hereditary protection and Family sponsorship; do not force a quota or scripted outcome.",
+        "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
+        "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
+        "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
+        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
+        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+      },
+      "numericPolicy": {
+        "harmSharePolicyId": "ATROCITY_HARM_SHARE",
+        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "concentrationPolicyId": "ATROCITY_CONCENTRATION",
+        "spilloverPolicyId": "ATROCITY_SPILLOVER",
+        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
+        "persistencePolicyId": "ATROCITY_PERSISTENCE",
+        "trackedComponents": [
+          "UNIQUE_HARMED",
+          "MORTALITY",
+          "DISPLACEMENT",
+          "DETENTION_LABOR",
+          "EXCLUSION",
+          "DENIAL",
+          "SEIZURE",
+          "GROWTH_SUPPRESSION",
+          "SECONDARY_OVERLAP"
+        ]
+      },
+      "definitionSha256": "f987f9df36c38c45c6ed65c84026892ec63881c3a66c00647b735d0a8341c622"
+    }
+  ]
+}

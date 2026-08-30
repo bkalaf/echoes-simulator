@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "echoes-refuge-resource-route-validation-v56",
+  "refuge": {
+    "status": "GENESIS_COUNT_AUDITED_PLACEMENT_AND_NUMERIC_POLICIES_REQUIRED",
+    "eligibleTerminalCount": 47,
+    "nonRefugeCount": 14,
+    "selectors": [
+      "MAGIC",
+      "MIXED_DIET",
+      "PREPARED_MEALS"
+    ],
+    "secondNodeCount": 18,
+    "genesisPerWorld": 65,
+    "secondNodeValues": [
+      {
+        "foodSpecific": "ARTHROPODS",
+        "count": 123
+      },
+      {
+        "foodSpecific": "BIRDS",
+        "count": 169
+      },
+      {
+        "foodSpecific": "CARRION",
+        "count": 122
+      },
+      {
+        "foodSpecific": "FISH",
+        "count": 296
+      },
+      {
+        "foodSpecific": "FLOWERS_POLLEN",
+        "count": 111
+      },
+      {
+        "foodSpecific": "FRUIT",
+        "count": 358
+      },
+      {
+        "foodSpecific": "GRASSES",
+        "count": 220
+      },
+      {
+        "foodSpecific": "INSECTS",
+        "count": 591
+      },
+      {
+        "foodSpecific": "LEAVES",
+        "count": 333
+      },
+      {
+        "foodSpecific": "MOLLUSKS",
+        "count": 206
+      },
+      {
+        "foodSpecific": "RED_MEAT",
+        "count": 121
+      },
+      {
+        "foodSpecific": "REPTILES_AMPHIBIANS",
+        "count": 229
+      },
+      {
+        "foodSpecific": "ROOTS_TUBERS",
+        "count": 211
+      },
+      {
+        "foodSpecific": "SEEDS_GRAINS",
+        "count": 354
+      },
+      {
+        "foodSpecific": "SHELLFISH_CRUSTACEANS",
+        "count": 297
+      },
+      {
+        "foodSpecific": "SMALL_GAME",
+        "count": 273
+      },
+      {
+        "foodSpecific": "WOODY_BIOMASS",
+        "count": 129
+      },
+      {
+        "foodSpecific": "WORMS_LARVAE",
+        "count": 260
+      }
+    ],
+    "moonlightPresent": true
+  },
+  "dynamicSustenance": {
+    "classifications": [
+      "ANGER",
+      "BLOOD",
+      "DESIRE",
+      "DREAMS",
+      "EMOTION",
+      "ESSENCE_OF_FAITH",
+      "FEAR",
+      "GRIEF",
+      "MEMORY",
+      "MUSIC_ATTENTION",
+      "NECROMANTIC_ESSENCE",
+      "NO_FEEDING",
+      "OATHS_HONOR",
+      "SIN"
+    ],
+    "detailedMappingsApproved": false,
+    "causalBehavior": "fails closed per classification until both semantic and numeric revisions are approved"
+  },
+  "resource": {
+    "status": "RESOURCE_AUTHORITY_REQUIRED",
+    "authorityRevisionId": null,
+    "resourceNodeCount": null,
+    "detail": "No approved Resource inventory is available. Unknown authority is not an empty canonical universe."
+  },
+  "logistics": {
+    "quartermasterEntryPoint": [
+      "REFUGE",
+      "RESOURCE_NODE"
+    ],
+    "tracked": [
+      "intake",
+      "storage",
+      "throughput",
+      "allocation",
+      "spoilage/loss",
+      "disruption",
+      "delivery"
+    ],
+    "assignmentPolicy": "RESOURCE_QUARTERMASTER_ASSIGNMENT_POLICY",
+    "assignmentStatus": "UNREVIEWED",
+    "causalBehavior": "no Resource output enters logistics without approved assignment and valid year-effective term"
+  },
+  "routes": {
+    "physicalCorridorSeparatedFromDynamicTerms": true,
+    "prompt01ClassificationCausalStatus": "NONCAUSAL",
+    "promotionRequired": true
+  },
+  "pois": {
+    "yearEffectiveControl": true,
+    "decisions": [
+      "KEEP_EXISTING_NAME",
+      "REQUEST_RENAME"
+    ],
+    "aliasPreservationRequired": true,
+    "consequenceDimensions": [
+      "LEGITIMACY",
+      "ACCEPTANCE_GRIEVANCE",
+      "PERCEIVED_HISTORICAL_ERASURE",
+      "GROUP_SAFETY_MIGRATION",
+      "PILLAR_REPUTATION",
+      "FAMILY_REPUTATION",
+      "PROPAGANDA",
+      "DIPLOMATIC_CLAIMS",
+      "CONFLICT_RISK",
+      "DURABLE_CULTURAL_MEMORY"
+    ],
+    "magnitudesApproved": false
+  }
+}

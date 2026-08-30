@@ -1,12 +1,11 @@
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { loadBreedCatalog } from "../../src/core/breeds/breed-catalog.js";
 import { selectableBreedCatalog, filterBreedCatalog } from "../../src/ui/breed-detail.js";
 import { loadBundledCanonicalV5 } from "../../src/core/v5/canonical-adapter.js";
 import { reconcileChamberAuthorityV5, selectAuthorizedSenateVacanciesV5 } from "../../src/core/v5/chambers.js";
 import { DEFAULT_MECHANICS_VARIABLES_V1, V5_MECHANICS_VERSION, V5_SCHEDULER_VERSION, diagnosticCandidateOwnerInputsV1, type CanonicalDataV5 } from "../../src/core/v5/config.js";
 import { causalStateHash } from "../../src/core/v5/engine.js";
-import { fillMandatoryOfficeVacancies } from "../../src/core/v5/politics.js";
+import { fillMandatoryOfficeVacancies, selectHolderForAuthorizedOfficeVacancy } from "../../src/core/v5/politics.js";
 import { normalizeSeed } from "../../src/core/v5/random.js";
 import { buildRouteCoverageReadModel, buildNonCausalRouteNamingRequests } from "../../src/core/v5/routes.js";
 import { effectiveRouteClassification, parseRouteClassificationAuthority, ROUTE_CLASSIFICATION_SCHEMA_VERSION, type RouteClassificationAuthorityV1 } from "../../src/core/v5/route-classification.js";
@@ -16,7 +15,10 @@ const selectionRule = (selectionMethod: "RULER_APPOINTMENT" | "POPULAR_ELECTION"
 const government = (governmentFormId: string, selectionMethod: "RULER_APPOINTMENT" | "POPULAR_ELECTION") => ({ governmentFormId, doctrineVector: { CONCORD: 1000, SCHISM: 0, RUIN: 0 }, administrationMode: governmentFormId, legitimacyBasis: governmentFormId, authoritySource: governmentFormId, franchiseBreadth: 500, requiredInstitutions: [{ institutionType: "GOVERNMENT", offices: [{ jurisdictionSettlementId: null, titleKey: "RULER", power: 1000, mandatory: true, apex: true, termYears: 10, selectionRule: selectionRule(selectionMethod) }] }] });
 const chamberCanonical: CanonicalDataV5 = {
   schemaVersion: "echoes-canonical-data-v5", canonicalBundleHash: "prompt01-chamber-fixture",
-  breeds: [{ breedId: "BRD_A", populationKind: "HUMAN", groupId: "H01", factionObject: { CONCORD: 10, SCHISM: 0, RUIN: 0 }, dominantFaction: ["CONCORD"], terrainBroad: ["FOREST"], terrainSpecific: ["WOODLAND"], ownershipMode: "COMMON_USE", allocationMode: "MARKET" }],
+  breeds: [
+    { breedId: "BRD_A", populationKind: "HUMAN", groupId: "H01", factionObject: { CONCORD: 10, SCHISM: 0, RUIN: 0 }, dominantFaction: ["CONCORD"], terrainBroad: ["FOREST"], terrainSpecific: ["WOODLAND"], ownershipMode: "COMMON_USE", allocationMode: "MARKET" },
+    { breedId: "BRD_R", populationKind: "HUMAN", groupId: "H01", factionObject: { CONCORD: 0, SCHISM: 0, RUIN: 10 }, dominantFaction: ["RUIN"], terrainBroad: ["FOREST"], terrainSpecific: ["WOODLAND"], ownershipMode: "COMMON_USE", allocationMode: "MARKET" },
+  ],
   sites: [1, 2, 3].map((ordinal) => ({ siteId: `SITE_${ordinal}`, regionId: "R01", regionName: "One", continent: "Raukaam", latitude: 0, longitude: ordinal, terrainBroad: ["FOREST"], terrainSpecific: ["WOODLAND"], quality: 700 })),
   regions: [{ regionId: "R01", directedAdjacentRegionIds: [] }], governments: [government("GOV_APPOINTED", "RULER_APPOINTMENT"), government("GOV_ELECTED", "POPULAR_ELECTION")],
   economicForms: [{ ownershipMode: "COMMON_USE", allocationMode: "MARKET", economicForm: "OPEN_BAZAAR" }], physicalPois: [], routeCorridors: [],
@@ -34,8 +36,8 @@ const chamberState = (year: number): WorldStateV5 => ({
 });
 
 describe("Prompt 01 complete Breed accessibility and continent authority", () => {
-  it("keeps every canonical Breed reachable, including early, middle, and final alphabetic selections", async () => {
-    const catalog = await loadBreedCatalog(resolve("resources/canonical"));
+  it("keeps every canonical Breed reachable, including early, middle, and final alphabetic selections", () => {
+    const catalog = Array.from({ length: 2_062 }, (_, index) => ({ breedId: `BRD_${String(index).padStart(4, "0")}`, name: `Breed ${String(index).padStart(4, "0")}`, populationKind: "BEAST", speciesId: `SPC_${index}`, speciesName: `Species ${index}`, scientificName: `Genus species${index}`, groupId: "G01", cultureId: null, factionObject: { CONCORD: 1, SCHISM: 0, RUIN: 0 }, dominantFaction: ["CONCORD" as const], primaryDeity: "Deity", provisionalDeity: null, deityClassificationStatus: "CLASSIFIED" as const }));
     expect(catalog).toHaveLength(2062);
     const selectable = selectableBreedCatalog(catalog, "", null);
     expect(new Set(selectable.map((breed) => breed.breedId))).toEqual(new Set(catalog.map((breed) => breed.breedId)));
@@ -43,7 +45,7 @@ describe("Prompt 01 complete Breed accessibility and continent authority", () =>
       expect(selectable.some((candidate) => candidate.breedId === breed.breedId)).toBe(true);
       expect(selectableBreedCatalog(catalog, "no such breed query", breed.breedId).at(-1)?.breedId).toBe(breed.breedId);
     }
-  }, 15_000);
+  });
 
   it("searches every required canonical identity dimension", () => {
     const row = { breedId: "BRD_ID", name: "Name", populationKind: "MYTHOS", speciesId: "SPC_ID", speciesName: "Species", scientificName: "Genus species", groupId: "G01", cultureId: "C01", factionObject: { CONCORD: 1, SCHISM: 0, RUIN: 0 }, dominantFaction: ["CONCORD" as const], primaryDeity: null, provisionalDeity: null, deityClassificationStatus: "CLASSIFIED" as const };
@@ -99,6 +101,45 @@ describe("Prompt 01 chamber authority", () => {
     expect((replacementEvidence.appliedSelectionRule as { selectionMethod: string }).selectionMethod).toBe("POPULAR_ELECTION");
     expect((firstEvidence.appliedSelectionRule as { selectionMethod: string }).selectionMethod).toBe("RULER_APPOINTMENT");
   });
+
+  it("separates Ruin constituency, Concord appointing authority, and explicit representative alignment", () => {
+    const prepare = (governmentId: "GOV_APPOINTED" | "GOV_ELECTED") => {
+      let state = chamberState(50);
+      state = { ...state, states: state.states.map((row) => ({ ...row, actualGovernment: governmentId })) };
+      state = reconcileChamberAuthorityV5(state, chamberCanonical).state;
+      const office = state.offices.find((row) => row.jurisdictionSettlementId !== null)!;
+      const constituencyId = office.jurisdictionSettlementId!;
+      const person = (personId: string, breedId: "BRD_A" | "BRD_R", faction: "CONCORD" | "RUIN") => ({
+        personId, familyId: null, breedId, originSettlementId: constituencyId, sourceTier: "HIGH" as const, sourceClass: null,
+        birthYear: 0, activeFromYear: 20, plannedRetirementYear: null, actualRetirementYear: null, naturalDeathYear: 100,
+        actualDeathYear: null, disqualifiedFromYear: null, requalifiedYear: null,
+        factionAffinity: { CONCORD: faction === "CONCORD" ? 1000 : 0, SCHISM: 0, RUIN: faction === "RUIN" ? 1000 : 0 },
+        factionAlignmentEffectiveFromYear: 20, factionAlignmentSourceEventId: `ALIGN_${personId}`,
+      });
+      const ruinCell = { settlementId: constituencyId, breedId: "BRD_R", tiers: { HIGH: { population: 9000n, prosperity: 700 }, MID: { population: 0n, prosperity: 500 }, LOW: { population: 0n, prosperity: 300 } } };
+      return { office, state: { ...state, cohorts: [...state.cohorts, ruinCell], politicalPeople: [person("PERSON_CONCORD", "BRD_A", "CONCORD"), person("PERSON_RUIN", "BRD_R", "RUIN")] } };
+    };
+    const appointedInput = prepare("GOV_APPOINTED");
+    const appointed = selectHolderForAuthorizedOfficeVacancy(appointedInput.state, appointedInput.office.officeId, chamberCanonical, owner, DEFAULT_MECHANICS_VARIABLES_V1, seed, "APPOINTED", 0);
+    expect(appointed.officeTerm?.personId).toBe("PERSON_CONCORD");
+    expect(appointed.officeTerm).toMatchObject({ selectorType: "STATE", selectorId: "STATE_1" });
+    expect(appointed.events[0]!.payload).toMatchObject({
+      sourceSettlementId: appointedInput.office.jurisdictionSettlementId,
+      constituencyFactionAffinity: { CONCORD: 250, SCHISM: 0, RUIN: 750 },
+      representativeFactionAffinity: { CONCORD: 1000, SCHISM: 0, RUIN: 0 },
+      selectionAuthorityFactionAffinity: { CONCORD: 1000, SCHISM: 0, RUIN: 0 },
+    });
+
+    const electedInput = prepare("GOV_ELECTED");
+    const elected = selectHolderForAuthorizedOfficeVacancy(electedInput.state, electedInput.office.officeId, chamberCanonical, owner, DEFAULT_MECHANICS_VARIABLES_V1, seed, "ELECTED", 0);
+    expect(elected.officeTerm?.personId).toBe("PERSON_RUIN");
+    expect(elected.events[0]!.payload).toMatchObject({
+      constituencyFactionAffinity: { CONCORD: 250, SCHISM: 0, RUIN: 750 },
+      representativeFactionAffinity: { CONCORD: 0, SCHISM: 0, RUIN: 1000 },
+      selectionAuthorityFactionAffinity: { CONCORD: 250, SCHISM: 0, RUIN: 750 },
+    });
+    expect(selectHolderForAuthorizedOfficeVacancy(electedInput.state, electedInput.office.officeId, chamberCanonical, owner, DEFAULT_MECHANICS_VARIABLES_V1, seed, "ELECTED", 0).officeTerm).toEqual(elected.officeTerm);
+  });
 });
 
 describe("Prompt 01 non-causal Route classification overlay", () => {
@@ -127,6 +168,6 @@ describe("Prompt 01 non-causal Route classification overlay", () => {
 });
 
 it("preserves Prompt 01 behavior under the next repository causal identity", () => {
-  expect(V5_SCHEDULER_VERSION).toBe("echoes-scheduler-v5.4.0");
-  expect(V5_MECHANICS_VERSION).toBe("echoes-mechanics-v5.4.0");
+  expect(V5_SCHEDULER_VERSION).toBe("echoes-scheduler-v5.6.0");
+  expect(V5_MECHANICS_VERSION).toBe("echoes-mechanics-v5.6.0");
 });

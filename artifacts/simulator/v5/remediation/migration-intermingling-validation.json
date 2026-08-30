@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "echoes-migration-intermingling-validation-v56",
+  "status": "TYPED_TRANSFER_AND_READ_MODEL_CONTRACT_PRESENT_BOUNDED_LIVE_ACCEPTANCE_BLOCKED",
+  "transferFields": [
+    "source",
+    "destination",
+    "Breed",
+    "tier",
+    "count",
+    "reason",
+    "forced/voluntary",
+    "group-safety cohort",
+    "triggering authority"
+  ],
+  "exactPopulationConservationRequired": true,
+  "selectedYearViews": [
+    "Breed distribution",
+    "origins",
+    "arrivals",
+    "Derogatory concentration",
+    "religion",
+    "Families",
+    "births",
+    "deaths",
+    "migration matrices",
+    "cross-world comparison"
+  ],
+  "neutralNormalizedHash": "b9998c75a42062e29bc66b3ec23598d88fcc123d7273c94352430b3b61e147bc",
+  "nonNeutralFixtureHashes": [
+    "756699f231daba6b90e54e0bd3eaf37b6e57ab6f4a0c5e95fbecbe8996d56bf6",
+    "c508f9bf25c311f429dac26e41c7a7dd5e399e7e000d8257a58cf564be656606",
+    "b052b22d805867ea249e8856bc02dfcf7af96d00cda078cd49f6c64c67aa5673"
+  ],
+  "routeEvidenceRequiredForLiveAcceptance": true,
+  "blocker": "DATABASE_URL_NOT_CONFIGURED"
+}

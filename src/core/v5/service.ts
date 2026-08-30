@@ -1,9 +1,9 @@
 import { createHash } from "node:crypto";
-import { join } from "node:path";
 import { canonicalJson } from "../serialization/canonical-json.js";
 import type { SimulatorStore } from "../../persistence/sqlite-store.js";
-import { loadBundledCanonicalV5 } from "./canonical-adapter.js";
-import { diagnosticCandidateOwnerInputsV1, V5_MECHANICS_VERSION } from "./config.js";
+import { canonicalV5FromRunAuthoritySnapshot } from "../../persistence/postgres-canonical.js";
+import { diagnosticCandidateOwnerInputsV1, V5_MECHANICS_VERSION, type CanonicalDataV5 } from "./config.js";
+import type { RunAuthorityInputV1 } from "./authority-snapshot.js";
 import { V5_EMPTY_EVENT_HISTORY_HASH, buildNonCausalLabelManifestUpdateV5, buildV5RunManifest, extendV5EventHistoryHashFromCanonicalJson, v5RuntimeCompatibilityErrors } from "./persistence.js";
 import { buildDivergenceReport } from "./read-model.js";
 import { continueV5History, runV5History } from "./runner.js";
@@ -24,7 +24,7 @@ const DIVERGENCE_EVENT_TYPES = [
 
 export interface PersistedV5DiagnosticInput {
   store: SimulatorStore;
-  resourceDirectory: string;
+  canonicalAuthority: { canonical: CanonicalDataV5; authorityInputs: readonly RunAuthorityInputV1[] };
   normalizedSeed: string;
   throughYear?: number;
   namingMode?: "INTERACTIVE_LLM_NAMING" | "UNATTENDED_CAUSAL_BENCHMARK";
@@ -39,6 +39,34 @@ export function shouldBuildDivergenceDiagnosticV5(input: { year: number; targetY
   return input.year === input.targetYear || input.decisionBarrier || input.explicitYears.has(input.year) || input.year % input.intervalYears === 0;
 }
 
+/**
+ * Replays only committed SQLite causal years into a projection. The callback
+ * must atomically commit every PostgreSQL projection for all three worlds and
+ * the supplied year before returning. Re-running a year is required to be
+ * idempotent; the SQLite watermark advances only after the callback succeeds.
+ */
+export async function catchUpPersistedV5Projection(input: {
+  store: SimulatorStore;
+  runId: string;
+  projectAtomicYear: (year: number, eventsByWorld: Readonly<Record<WorldKey, readonly CausalEventV5[]>>) => Promise<void>;
+}): Promise<ReturnType<SimulatorStore["loadV5ProjectionWatermark"]>> {
+  const watermark = input.store.loadV5ProjectionWatermark(input.runId);
+  if (!watermark || watermark.projectedThroughYear >= watermark.causalCommittedYear) return watermark;
+  const fromYear = watermark.projectedThroughYear + 1;
+  const throughYear = watermark.causalCommittedYear;
+  input.store.beginV5ProjectionCatchup(input.runId, fromYear, throughYear);
+  try {
+    for (let year = fromYear; year <= throughYear; year += 1) {
+      const eventsByWorld = Object.fromEntries(WORLDS.map((world) => [world, input.store.listV5CausalEventsForYear(input.runId, world, year)])) as Record<WorldKey, CausalEventV5[]>;
+      await input.projectAtomicYear(year, eventsByWorld);
+      input.store.advanceV5ProjectionWatermark(input.runId, year);
+    }
+  } catch (error) {
+    input.store.failV5ProjectionCatchup(input.runId, fromYear, throughYear, error);
+  }
+  return input.store.loadV5ProjectionWatermark(input.runId);
+}
+
 export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
   runId: string;
   status: "COMPLETE" | "WAITING_FOR_NAMING" | "WAITING_FOR_POLICY_AUTHORITY" | "WAITING_FOR_DEROGATORY_DECISIONS";
@@ -46,7 +74,7 @@ export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
   causalRunHash: string;
   divergence: ReturnType<typeof buildDivergenceReport>;
 } {
-  const canonical = loadBundledCanonicalV5(join(input.resourceDirectory, "canonical"));
+  const canonical = input.canonicalAuthority.canonical;
   const configuration = input.store.loadV5Configuration();
   const baseOwnerInputs = input.causalOwnerInputs ?? diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
   const djtPolicy = buildDiagnosticDjtPolicyV5(canonical);
@@ -54,9 +82,9 @@ export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
   const scheduledTransactions = buildScheduledTransactionsV5(canonical, ownerInputs, input.normalizedSeed);
   const targetYear = input.throughYear ?? 25;
   const operational = { ...configuration.operational, interactiveNamingEnabled: input.namingMode === "INTERACTIVE_LLM_NAMING" };
-  const provisional = buildV5RunManifest({ runId: "PROVISIONAL", mode: "DIAGNOSTIC", targetYear, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: input.normalizedSeed, mechanics: configuration.mechanics, causalOwnerInputs: ownerInputs, operational, diagnostic: configuration.diagnostic });
+  const provisional = buildV5RunManifest({ runId: "PROVISIONAL", mode: "DIAGNOSTIC", targetYear, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: input.normalizedSeed, mechanics: configuration.mechanics, causalOwnerInputs: ownerInputs, operational, diagnostic: configuration.diagnostic, authorityInputs: input.canonicalAuthority.authorityInputs });
   const runId = `V5_DIAGNOSTIC_${provisional.causalRunHash.slice(0, 16)}_${Date.now()}`;
-  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: input.normalizedSeed, mechanics: configuration.mechanics, causalOwnerInputs: ownerInputs, operational, diagnostic: configuration.diagnostic });
+  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: input.normalizedSeed, mechanics: configuration.mechanics, causalOwnerInputs: ownerInputs, operational, diagnostic: configuration.diagnostic, authorityInputs: input.canonicalAuthority.authorityInputs });
   input.store.createRun({ runId, mode: "DIAGNOSTIC", status: "RUNNING", seed: input.normalizedSeed, seedHash: createHash("sha256").update(input.normalizedSeed).digest("hex"), policyVersion: V5_MECHANICS_VERSION, currentYear: 0 });
   input.store.saveV5RunManifest(manifest);
   input.store.selectRun(runId);
@@ -93,8 +121,16 @@ export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
     }
     input.store.setRunStatus(runId, "RUNNING", snapshot.year);
     });
-    try { input.onPersistedAtomicYear?.(snapshot, runId); }
-    catch (error) { if (!snapshot.checkpointDue) for (const world of WORLDS) input.store.saveV5Checkpoint(runId, snapshot.states[world], historyHashes[world], input.onPerformanceTiming, operational.checkpointCompressionLevel); throw error; }
+    input.store.noteV5CausalYearCommitted(runId, snapshot.year);
+    if (input.onPersistedAtomicYear) {
+      try {
+        input.onPersistedAtomicYear(snapshot, runId);
+        input.store.advanceV5ProjectionWatermark(runId, snapshot.year);
+      } catch (error) {
+        if (!snapshot.checkpointDue) for (const world of WORLDS) input.store.saveV5Checkpoint(runId, snapshot.states[world], historyHashes[world], input.onPerformanceTiming, operational.checkpointCompressionLevel);
+        input.store.markV5ProjectionStale(runId, snapshot.year, error);
+      }
+    }
   };
   try {
     const interactive = input.namingMode === "INTERACTIVE_LLM_NAMING";
@@ -111,7 +147,7 @@ export function runPersistedV5Diagnostic(input: PersistedV5DiagnosticInput): {
   }
 }
 
-export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDirectory: string; runId: string; onPerformanceTiming?: V5PerformanceTimingObserver; onPersistedAtomicYear?: (snapshot: V5AtomicYearSnapshot, runId: string) => void; divergenceDiagnosticYears?: readonly number[] }): { runId: string; status: "COMPLETE" | "WAITING_FOR_NAMING" | "WAITING_FOR_POLICY_AUTHORITY" | "WAITING_FOR_DEROGATORY_DECISIONS"; currentYear: number; divergence: ReturnType<typeof buildDivergenceReport> } {
+export function resumePersistedV5Run(input: { store: SimulatorStore; runId: string; onPerformanceTiming?: V5PerformanceTimingObserver; onPersistedAtomicYear?: (snapshot: V5AtomicYearSnapshot, runId: string) => void; divergenceDiagnosticYears?: readonly number[] }): { runId: string; status: "COMPLETE" | "WAITING_FOR_NAMING" | "WAITING_FOR_POLICY_AUTHORITY" | "WAITING_FOR_DEROGATORY_DECISIONS"; currentYear: number; divergence: ReturnType<typeof buildDivergenceReport> } {
   let manifest = input.store.loadV5RunManifest(input.runId);
   const run = input.store.getRun(input.runId);
   if (!manifest || !run) throw new Error(`Unknown V5 run ${input.runId}`);
@@ -119,8 +155,7 @@ export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDir
   if (compatibilityErrors.length > 0) throw new Error(`V5_CAUSAL_RESUME_VERSION_MISMATCH ${compatibilityErrors.join(",")}`);
   const pendingBlocking = input.store.listV5NamingRequests(input.runId).filter((request) => request.behavior === "BLOCKING" && request.acceptedLabel === null);
   if (pendingBlocking.length > 0) throw new Error(`V5 run ${input.runId} still has ${pendingBlocking.length} unresolved blocking names`);
-  const canonical = loadBundledCanonicalV5(join(input.resourceDirectory, "canonical"));
-  if (canonical.canonicalBundleHash !== manifest.canonicalBundleHash) throw new Error("V5 canonical bundle changed since the run began");
+  const canonical = canonicalV5FromRunAuthoritySnapshot(manifest.authoritySnapshot, manifest.canonicalBundleHash, run.currentYear ?? 0);
   const checkpoints = Object.fromEntries(WORLDS.map((world) => [world, input.store.loadLatestV5Checkpoint(input.runId, world)])) as Record<WorldKey, ReturnType<SimulatorStore["loadLatestV5Checkpoint"]>>;
   if (WORLDS.some((world) => !checkpoints[world])) throw new Error("V5 continuation requires complete world checkpoints");
   const states = Object.fromEntries(WORLDS.map((world) => [world, checkpoints[world]!.state])) as Record<WorldKey, Parameters<typeof continueV5History>[0]["initialStates"][WorldKey]>;
@@ -135,7 +170,7 @@ export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDir
   let divergenceTraces = new Map(input.store.listV5DivergenceTraces(input.runId).map((trace) => [trace.comparisonId, trace]));
   const persistedLabels = input.store.loadV5Labels(input.runId, run.currentYear ?? states.CONCORD.year);
   if (JSON.stringify(Object.entries(persistedLabels).sort()) !== JSON.stringify(Object.entries(manifest.labels).sort())) {
-    manifest = buildV5RunManifest({ runId: manifest.runId, mode: manifest.mode, targetYear: manifest.targetYear, canonicalBundleHash: manifest.canonicalBundleHash, normalizedSeed: manifest.normalizedSeed, mechanics: manifest.mechanicsVariables, causalOwnerInputs: manifest.causalOwnerInputs, operational: manifest.operationalConfig, diagnostic: manifest.diagnosticConfig, labels: persistedLabels });
+    manifest = buildV5RunManifest({ runId: manifest.runId, mode: manifest.mode, targetYear: manifest.targetYear, canonicalBundleHash: manifest.canonicalBundleHash, normalizedSeed: manifest.normalizedSeed, mechanics: manifest.mechanicsVariables, causalOwnerInputs: manifest.causalOwnerInputs, operational: manifest.operationalConfig, diagnostic: manifest.diagnosticConfig, labels: persistedLabels, authoritySnapshot: manifest.authoritySnapshot });
     input.store.saveV5RunManifest(manifest);
   }
   const persistSnapshot = (snapshot: Parameters<NonNullable<Parameters<typeof continueV5History>[0]["onAtomicYear"]>>[0]): void => {
@@ -169,8 +204,16 @@ export function resumePersistedV5Run(input: { store: SimulatorStore; resourceDir
     }
     input.store.setRunStatus(input.runId, "RUNNING", snapshot.year);
     });
-    try { input.onPersistedAtomicYear?.(snapshot, input.runId); }
-    catch (error) { if (!snapshot.checkpointDue) for (const world of WORLDS) input.store.saveV5Checkpoint(input.runId, snapshot.states[world], historySummaries[world].eventHistoryHash, input.onPerformanceTiming, manifest!.operationalConfig.checkpointCompressionLevel); throw error; }
+    input.store.noteV5CausalYearCommitted(input.runId, snapshot.year);
+    if (input.onPersistedAtomicYear) {
+      try {
+        input.onPersistedAtomicYear(snapshot, input.runId);
+        input.store.advanceV5ProjectionWatermark(input.runId, snapshot.year);
+      } catch (error) {
+        if (!snapshot.checkpointDue) for (const world of WORLDS) input.store.saveV5Checkpoint(input.runId, snapshot.states[world], historySummaries[world].eventHistoryHash, input.onPerformanceTiming, manifest!.operationalConfig.checkpointCompressionLevel);
+        input.store.markV5ProjectionStale(input.runId, snapshot.year, error);
+      }
+    }
   };
   input.store.setRunStatus(input.runId, "RUNNING", states.CONCORD.year);
   const acceptedDerogatoryDecisionBatches = input.store.listV5AcceptedDerogatoryDecisionBatches(input.runId);

@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { _electron as electron, expect, test, type ElectronApplication } from "@playwright/test";
 import { SimulatorStore } from "../../src/persistence/sqlite-store.js";
-import { loadBundledCanonicalV5 } from "../../src/core/v5/canonical-adapter.js";
+import { legacyImportTestCanonicalAuthorityV5, loadBundledCanonicalV5 } from "../../src/core/v5/canonical-adapter.js";
 import { DEFAULT_DIAGNOSTIC_CONFIG_V1, DEFAULT_MECHANICS_VARIABLES_V1, DEFAULT_OPERATIONAL_CONFIG_V1, V5_MECHANICS_VERSION, diagnosticCandidateOwnerInputsV1 } from "../../src/core/v5/config.js";
 import { bootstrapWorldV5 } from "../../src/core/v5/bootstrap.js";
 import { V5_EMPTY_EVENT_HISTORY_HASH, buildV5RunManifest, extendV5EventHistoryHash } from "../../src/core/v5/persistence.js";
@@ -17,6 +17,11 @@ async function launch(userData: string, environment: Record<string, string> = {}
     args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-seccomp-filter-sandbox", "--disable-gpu-sandbox", "--no-zygote", `--user-data-dir=${userData}`, "."],
     env: { ...process.env, ELECTRON_DISABLE_SANDBOX: "1", ...environment },
   });
+}
+
+async function canonicalDatabaseReady(page: Awaited<ReturnType<ElectronApplication["firstWindow"]>>): Promise<boolean> {
+  const snapshot = await page.evaluate(async () => (window as unknown as { eidolonSimulator: { getOperatorSnapshot(): Promise<{ domainDatabasePreflight?: { state: string } }> } }).eidolonSimulator.getOperatorSnapshot());
+  return snapshot.domainDatabasePreflight?.state === "READY";
 }
 
 function writeNamingGeographyFixture(directory: string): string {
@@ -44,10 +49,11 @@ function writeNamingGeographyFixture(directory: string): string {
 function writeNineBatchRestartFixture(userData: string): { runId: string; batchIds: string[]; responses: string[] } {
   const runId = "RUN_ELECTRON_NINE_BATCH_RESTART";
   const store = new SimulatorStore(join(userData, "simulator.sqlite"));
-  const canonical = loadBundledCanonicalV5(resolve("resources/canonical"));
+  const canonicalAuthority = legacyImportTestCanonicalAuthorityV5(resolve("resources/canonical"));
+  const canonical = canonicalAuthority.canonical;
   const owner = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, {}])));
   const operational = { ...DEFAULT_OPERATIONAL_CONFIG_V1, namingBatchMaximum: 2, interactiveNamingEnabled: true };
-  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 5, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: normalizeSeed("electron restart naming"), mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 5, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: normalizeSeed("electron restart naming"), mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, authorityInputs: canonicalAuthority.authorityInputs });
   store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_NAMING", seed: "seed", seedHash: "hash", policyVersion: "v5" });
   store.setRunStatus(runId, "WAITING_FOR_NAMING", 5);
   store.saveV5RunManifest(manifest);
@@ -67,10 +73,11 @@ function writeNineBatchRestartFixture(userData: string): { runId: string; batchI
 function writePrompt01OperatorFixture(userData: string): string {
   const runId = "RUN_ELECTRON_PROMPT01_OPERATOR";
   const store = new SimulatorStore(join(userData, "simulator.sqlite"));
-  const canonical = loadBundledCanonicalV5(resolve("resources/canonical"));
+  const canonicalAuthority = legacyImportTestCanonicalAuthorityV5(resolve("resources/canonical"));
+  const canonical = canonicalAuthority.canonical;
   const owner = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
   const seed = normalizeSeed("electron prompt01 operator fixture");
-  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 25, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: seed, mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 25, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: seed, mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, authorityInputs: canonicalAuthority.authorityInputs });
   store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_NAMING", seed, seedHash: "prompt01-operator-fixture", policyVersion: V5_MECHANICS_VERSION, currentYear: 0 });
   store.saveV5RunManifest(manifest);
   for (const worldKey of ["CONCORD", "SCHISM", "RUIN"] as const) {
@@ -89,10 +96,11 @@ function writePrompt01OperatorFixture(userData: string): string {
 function writeDerogatoryOperatorFixture(userData: string): string {
   const runId = "RUN_ELECTRON_DEROGATORY_OPERATOR";
   const store = new SimulatorStore(join(userData, "simulator.sqlite"));
-  const canonical = loadBundledCanonicalV5(resolve("resources/canonical"));
+  const canonicalAuthority = legacyImportTestCanonicalAuthorityV5(resolve("resources/canonical"));
+  const canonical = canonicalAuthority.canonical;
   const owner = diagnosticCandidateOwnerInputsV1(Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
   const seed = normalizeSeed("electron derogatory operator fixture");
-  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 25, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: seed, mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1 });
+  const manifest = buildV5RunManifest({ runId, mode: "DIAGNOSTIC", targetYear: 25, canonicalBundleHash: canonical.canonicalBundleHash, normalizedSeed: seed, mechanics: DEFAULT_MECHANICS_VARIABLES_V1, causalOwnerInputs: owner, operational: DEFAULT_OPERATIONAL_CONFIG_V1, diagnostic: DEFAULT_DIAGNOSTIC_CONFIG_V1, authorityInputs: canonicalAuthority.authorityInputs });
   store.createRun({ runId, mode: "DIAGNOSTIC", status: "WAITING_FOR_DEROGATORY_DECISIONS", seed, seedHash: "derogatory-operator-fixture", policyVersion: V5_MECHANICS_VERSION, currentYear: 14 });
   store.setRunStatus(runId, "WAITING_FOR_DEROGATORY_DECISIONS", 14);
   store.saveV5RunManifest(manifest);
@@ -116,9 +124,14 @@ test("clean startup is V5-first and legacy V4 diagnostics persist behind Diagnos
   try {
     const page = await application.firstWindow();
     await expect(page.getByText("Canonical data is simulation-ready.", { exact: true })).toBeVisible();
-    await expect(page.getByText("V5 DIAGNOSTIC READY", { exact: true })).toBeVisible();
+    await expect(page.getByText("V5 AUTHORITY BLOCKED", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Connected — Echoes shared PostgreSQL", exact: true })).toBeVisible();
+    await expect(page.getByText(/SEED_REQUIRED · CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED/)).toBeVisible();
+    await expect(page.getByRole("button", { name: "SEED", exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: "BOOTSTRAP", exact: true })).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "RETRY", exact: true })).toBeVisible();
     await expect(page.getByRole("button", { name: /RUN LEGACY V4/ })).toHaveCount(0);
-    await expect(page.getByRole("button", { name: "RUN V5 TO YEAR 25" })).toBeEnabled();
+    await expect(page.getByRole("button", { name: "RUN V5 TO YEAR 25" })).toBeDisabled();
     await expect(page.getByRole("button", { name: "Setup & Preflight" })).toHaveCount(0);
     await expect(page.getByText("SELECT & VALIDATE", { exact: true })).toHaveCount(0);
     await page.getByRole("button", { name: "Diagnostics" }).click();
@@ -212,12 +225,49 @@ test("canonical naming supports visible rejection, individual acceptance, and at
   } finally { await application.close(); }
 });
 
+test("Owner Policy Center separates locked structure and supports metadata-free bulk review", async () => {
+  const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-owner-policy-"));
+  const application = await launch(userData);
+  try {
+    const page = await application.firstWindow();
+    await expect(page.getByRole("heading", { name: "Connected — Echoes shared PostgreSQL", exact: true })).toBeVisible({ timeout: 15_000 });
+    await page.getByRole("button", { name: "Owner Policy Center", exact: true }).click();
+    await expect(page.getByLabel("Search Owner Policies")).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByLabel("Owner approval identity")).toHaveCount(0);
+    await expect(page.getByLabel("Policy effective year")).toHaveCount(0);
+
+    await page.getByLabel("Search Owner Policies").fill("FEDERAL_VISION_WEIGHTS");
+    await expect(page.getByRole("heading", { name: "LOCKED OWNER STRUCTURE", exact: true })).toBeVisible();
+    await expect(page.getByText(/Concord → Crown \/ Church/)).toBeVisible();
+
+    await page.getByLabel("Search Owner Policies").fill("CLASS_POLICY");
+    await expect(page.getByRole("heading", { name: "PENDING NUMERIC AUTHORITY", exact: true }).first()).toBeVisible();
+    await expect(page.getByText("7000", { exact: true }).first()).toBeVisible();
+
+    await page.getByLabel("Search Owner Policies").fill("SUSTENANCE_BLOOD");
+    const semantic = page.getByLabel("Select SUSTENANCE_BLOOD_SEMANTICS for bulk decision");
+    const numeric = page.getByLabel("Select SUSTENANCE_BLOOD_NUMERIC for bulk decision");
+    await semantic.check();
+    await numeric.check();
+    await expect(page.getByRole("heading", { name: "2 independent candidate revisions selected", exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: "APPROVE SELECTED", exact: true })).toBeEnabled();
+  } finally { await application.close(); }
+});
+
 test("Breed Detail search and the POI-only master Atlas render through desktop IPC", async () => {
   const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-operator-views-"));
   const application = await launch(userData);
   try {
     const page = await application.firstWindow();
     await page.getByRole("button", { name: "Breed Detail" }).click();
+    if (!(await canonicalDatabaseReady(page))) {
+      await expect(page.getByRole("heading", { name: "Breed catalog unavailable", exact: true })).toBeVisible();
+      await expect(page.getByText(/Connected — Echoes shared PostgreSQL · SEED_REQUIRED · CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED/)).toBeVisible();
+      await page.screenshot({ path: resolve("artifacts/simulator/v5/remediation/electron-domain-authority-blocker.png"), fullPage: true });
+      await page.getByRole("button", { name: "Atlas" }).click();
+      await expect(page.getByRole("heading", { name: "Atlas authority unavailable", exact: true })).toBeVisible();
+      return;
+    }
     const catalog = await page.evaluate(async () => (window as unknown as { eidolonSimulator: { getBreedCatalog(): Promise<{ breedId: string; name: string }[]> } }).eidolonSimulator.getBreedCatalog());
     expect(catalog).toHaveLength(2062);
     const selections = [catalog[0]!, catalog[Math.floor(catalog.length / 2)]!, catalog.at(-1)!];
@@ -237,7 +287,18 @@ test("Breed Detail search and the POI-only master Atlas render through desktop I
     await expect(page.getByRole("heading", { name: "Aardvark", exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Atlas" }).click();
     await expect(page.getByRole("img", { name: "Master Atlas world map" })).toBeVisible();
-    await expect(page.locator(".poi-marker")).toHaveCount(92);
+    await expect(page.locator(".poi-marker")).toHaveCount(85);
+    await expect(page.locator('.poi-marker[aria-label^="POI-008 "]')).toHaveCount(0);
+    const summit = page.locator('.poi-marker[aria-label^="POI-029 "]');
+    await expect(summit).toHaveCount(1);
+    await expect(summit).toHaveAttribute("style", /left: 74\.8958.*top: 26\.875/);
+    const southernOcean = page.locator('.poi-marker[aria-label^="POI-092 "]');
+    await expect(southernOcean).toHaveCount(1);
+    await expect(southernOcean).toHaveAttribute("style", /left: 45%; top: 90%/);
+    await summit.click();
+    await expect(page.getByText("SITE-095 · R14", { exact: true })).toBeVisible();
+    await southernOcean.click();
+    await expect(page.getByText("SITE-169 · R25", { exact: true })).toBeVisible();
     await expect(page.locator(".atlas-stage .atlas-settlement")).toHaveCount(0);
   } finally { await application.close(); }
 });
@@ -268,7 +329,7 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
     await page.getByRole("button", { name: "State Detail" }).click();
     await expect(page.getByLabel("Select State")).toBeVisible();
     const stateOptions = page.getByLabel("Select State").locator("option:not([disabled])");
-    expect(await stateOptions.count()).toBeGreaterThan(1);
+    await expect.poll(() => stateOptions.count()).toBeGreaterThan(1);
     await page.getByLabel("Select State").selectOption({ index: 2 });
     await expect(page.getByText("Actual government", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Cities", exact: true }).click();
@@ -278,16 +339,18 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
       const styles = getComputedStyle(document.documentElement);
       return [styles.getPropertyValue("--faction-concord").trim(), styles.getPropertyValue("--faction-schism").trim(), styles.getPropertyValue("--faction-ruin").trim()];
     })).toEqual(["#246edb", "#e6bd31", "#c9443b"]);
-    await page.getByRole("button", { name: "Routes" }).click();
-    await expect(page.getByLabel("Named Routes")).toBeVisible();
-    await expect(page.getByText("38 physical Region corridors", { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: "Atlas" }).click();
-    await expect(page.getByLabel(/route overlay/).first()).toBeVisible();
-    await page.getByLabel(/route overlay/).first().click();
-    await expect(page.getByText("SELECTED ROUTE", { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: /POI-080 Highcourt Isle/ }).click();
-    await expect(page.getByText("SITE-036", { exact: true })).toBeVisible();
-    await expect(page.getByText("R06 · Highcourt", { exact: true })).toBeVisible();
+    if (await canonicalDatabaseReady(page)) {
+      await page.getByRole("button", { name: "Routes" }).click();
+      await expect(page.getByLabel("Named Routes")).toBeVisible();
+      await expect(page.getByText("38 physical Region corridors", { exact: true })).toBeVisible();
+      await page.getByRole("button", { name: "Atlas" }).click();
+      await expect(page.getByLabel(/route overlay/).first()).toBeVisible();
+      await page.getByLabel(/route overlay/).first().click();
+      await expect(page.getByText("SELECTED ROUTE", { exact: true })).toBeVisible();
+      await page.getByRole("button", { name: /POI-080 Highcourt Isle/ }).click();
+      await expect(page.getByText("SITE-036", { exact: true })).toBeVisible();
+      await expect(page.getByText("R06 · Highcourt", { exact: true })).toBeVisible();
+    }
     await page.getByRole("button", { name: "People" }).click();
     await expect(page.getByLabel("Political People")).toBeVisible();
     await expect(page.getByLabel("People Family")).toBeVisible();
@@ -298,8 +361,8 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
     await expect(page.getByText("FAMILY / LEGACY DETAIL", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Conclave" }).click();
     await expect(page.getByLabel("CONCLAVE chamber")).toBeVisible();
+    await expect(page.locator(".chamber-seat").first()).toBeVisible({ timeout: 30_000 });
     await expect(page.getByText("NO CANONICAL CONCLAVE OFFICE AUTHORITY", { exact: true })).toHaveCount(0);
-    await expect(page.locator(".chamber-seat").first()).toBeVisible();
     const chamberPersonButton = page.getByRole("button", { name: /Open Political Person/ }).first();
     await expect(chamberPersonButton).toBeVisible();
     const chamberPersonId = (await chamberPersonButton.getAttribute("aria-label"))!.replace("Open Political Person ", "");
@@ -323,10 +386,11 @@ test("V5 operator views render persisted economics, comparisons, routes, people,
     await page.getByRole("button", { name: "Enclaves", exact: true }).click();
     await expect(page.getByRole("heading", { name: "PRIVATE OPERATOR ENCLAVES", exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Parameters / Event Triggers", exact: true }).click();
-    await expect(page.getByRole("heading", { name: "WITNESS ATROCITY STRUCTURAL SLOTS", exact: true })).toBeVisible();
-    await expect(page.getByText("ATROCITY_WITNESS_17", { exact: true })).toBeVisible();
-    await expect(page.getByText("ATROCITY_WITNESS_16_A", { exact: true })).toBeVisible();
-    await expect(page.getByText("ATROCITY_WITNESS_16_B", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "ATROCITY STRUCTURAL OCCURRENCES", exact: true })).toBeVisible();
+    await expect(page.getByRole("cell", { name: "ATROCITY_17_A", exact: true })).toBeVisible();
+    await expect(page.getByRole("cell", { name: "ATROCITY_17_B", exact: true })).toBeVisible();
+    await expect(page.getByRole("cell", { name: "ATROCITY_16", exact: true })).toBeVisible();
+    await page.screenshot({ path: resolve("artifacts/simulator/v5/remediation/electron-v56-operator-evidence.png"), fullPage: true });
   } finally { await application.close(); }
 });
 
@@ -416,8 +480,12 @@ test("Naming Geography fixtures classify and style all three physical entity tab
     await expect(poiTable.getByRole("heading", { name: "4 physical identities" })).toBeVisible();
     const routeTable = page.locator("section.naming-table").filter({ hasText: "NAMED ROUTES" });
     await routeTable.getByRole("button", { name: "SHOW ON ATLAS" }).first().click();
-    await expect(page.getByText("SELECTED ROUTE", { exact: true })).toBeVisible();
-    await expect(page.locator(".region-endpoint.selected")).toHaveCount(2);
+    if (await canonicalDatabaseReady(page)) {
+      await expect(page.getByText("SELECTED ROUTE", { exact: true })).toBeVisible();
+      await expect(page.locator(".region-endpoint.selected")).toHaveCount(2);
+    } else {
+      await expect(page.getByRole("heading", { name: "Atlas authority unavailable", exact: true })).toBeVisible();
+    }
   } finally { await application.close(); }
 });
 

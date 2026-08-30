@@ -6,6 +6,9 @@ import type { CanonicalEffectiveBreedSemantics } from "../research/v4-contract.j
 import { normalizeFactionVector, ratioScore } from "./fixed-point.js";
 import type { CanonicalDataV5, GovernmentPrototypeV5 } from "./config.js";
 import type { SelectionRuleV5 } from "./types.js";
+import type { RunAuthorityInputV1 } from "./authority-snapshot.js";
+import { createHash } from "node:crypto";
+import { canonicalJson } from "../serialization/canonical-json.js";
 
 const WORLDS: readonly WorldKey[] = ["CONCORD", "SCHISM", "RUIN"];
 const WORLD_SCOPE: Record<WorldKey, string> = { CONCORD: "C", SCHISM: "S", RUIN: "R" };
@@ -344,6 +347,33 @@ export function loadBundledCanonicalV5(canonicalDirectory: string): CanonicalDat
     canonicalLabels,
     canonicalLabelAuthority,
     canonicalEvents,
+  };
+}
+
+/**
+ * Explicit legacy import/test bridge. Production Electron and causal services
+ * must use PostgreSQL. This bridge never grants owner authority and must not be
+ * used for production completion claims.
+ */
+export function legacyImportTestCanonicalAuthorityV5(canonicalDirectory: string): { canonical: CanonicalDataV5; authorityInputs: RunAuthorityInputV1[] } {
+  const core = loadBundledCanonicalV5(canonicalDirectory);
+  const manifest = JSON.parse(readFileSync(resolve(canonicalDirectory, "canonical_bundle_manifest.json"), "utf8")) as { breedSemanticFilename: string };
+  const archive = openValidatedZip(resolve(canonicalDirectory, "breeds", manifest.breedSemanticFilename));
+  const allBreedIds = (parseJsonLines(member(archive, "canonical_breed_identities.jsonl")) as IdentityRow[]).map((row) => row.breedId).sort();
+  if (allBreedIds.length !== 2_062 || new Set(allBreedIds).size !== 2_062) throw new Error(`Legacy import/test fixture requires exactly 2062 stable Breed identities, observed ${allBreedIds.length}`);
+  const assignments = allBreedIds.map((breedId) => ({ breedId, primaryDeityId: "TEST_ONLY_UNRESOLVED_DEITY" }));
+  const coreSha256 = createHash("sha256").update(canonicalJson(core)).digest("hex");
+  const deityContent = { assignments };
+  const deitySha256 = createHash("sha256").update(canonicalJson(deityContent)).digest("hex");
+  const coreRevisionId = `LEGACY_IMPORT_TEST_${coreSha256.slice(0, 16)}`;
+  const deityRevisionId = `TEST_ONLY_DEITY_${deitySha256.slice(0, 16)}`;
+  const combinedHash = createHash("sha256").update(canonicalJson({ canonicalCoreRevisionId: coreRevisionId, canonicalCoreSha256: coreSha256, breedDeityRevisionId: deityRevisionId, breedDeitySha256: deitySha256 })).digest("hex");
+  return {
+    canonical: { ...core, canonicalBundleHash: combinedHash, breeds: core.breeds.map((breed) => ({ ...breed, primaryDeityId: "TEST_ONLY_UNRESOLVED_DEITY" })) },
+    authorityInputs: [
+      { authorityId: "SIMULATOR_CANONICAL_V5", revisionId: coreRevisionId, authorityType: "LEGACY_IMPORT_TEST_CORE", schemaVersion: core.schemaVersion, approvedBy: "TEST_FIXTURE_ONLY", approvedAt: null, effectiveFromYear: 0, content: core },
+      { authorityId: "BREED_PRIMARY_DEITY", revisionId: deityRevisionId, authorityType: "TEST_FIXTURE_ONLY", schemaVersion: "test-only-breed-deity-v1", approvedBy: "TEST_FIXTURE_ONLY", approvedAt: null, effectiveFromYear: 0, content: deityContent },
+    ],
   };
 }
 

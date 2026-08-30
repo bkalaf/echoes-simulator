@@ -11,7 +11,8 @@ import type { AcceptedLabelLedgerEntryV5, CausalEventV5, NamingRequestV5, WorldS
 import type { NamingBatchAuthorityStatusV5, PersistedNamingBatchV5 } from "../core/v5/naming.js";
 import { buildPersistedNamingBatchesV5, namingRequestSetDigestV5, parseExportedV2BatchIdV5, validateAcceptedLabelProvenanceV5 } from "../core/v5/naming.js";
 import type { V5RunManifest } from "../core/v5/persistence.js";
-import { V5_EMPTY_EVENT_HISTORY_HASH, extendV5EventHistoryHashFromCanonicalJson, projectWorldStateV54ReadOnly, restoreWorldStateV5, v5CheckpointHash } from "../core/v5/persistence.js";
+import { V5_EMPTY_EVENT_HISTORY_HASH, defaultRunAuthorityInputsV1, extendV5EventHistoryHashFromCanonicalJson, projectWorldStateV54ReadOnly, restoreWorldStateV5, v5CheckpointHash } from "../core/v5/persistence.js";
+import { buildRunAuthoritySnapshotV1 } from "../core/v5/authority-snapshot.js";
 import type { EditableV5Configuration } from "../core/v5/configuration.js";
 import { defaultEditableV5Configuration, restoreDiagnosticConfigV1, restoreMechanicsVariablesV1, restoreOperationalConfigV1 } from "../core/v5/configuration.js";
 import { inspectLegacyV5NamingTrust } from "./v5-legacy-trust.js";
@@ -43,6 +44,26 @@ export interface StoredEvent {
   entityType: string;
   entityId: string;
   payload: unknown;
+}
+
+export interface StoredProjectionWatermark {
+  runId: string;
+  causalCommittedYear: number;
+  projectedThroughYear: number;
+  status: "CURRENT" | "STALE" | "CATCHING_UP" | "FAILED";
+  lastErrorCode: string | null;
+  lastFailureYear: number | null;
+  updatedAt: string;
+}
+
+export interface StoredProjectionCatchupTask {
+  runId: string;
+  fromYear: number;
+  throughYear: number;
+  status: "QUEUED" | "RUNNING" | "COMPLETE" | "FAILED";
+  attemptCount: number;
+  lastErrorCode: string | null;
+  updatedAt: string;
 }
 
 function encodeV5CausalEventJson(eventJson: string): Uint8Array {
@@ -466,6 +487,25 @@ export class SimulatorStore {
         diagnostic_json TEXT NOT NULL,
         updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
+      CREATE TABLE IF NOT EXISTS v5_projection_watermark (
+        run_id TEXT PRIMARY KEY REFERENCES simulation_run(run_id),
+        causal_committed_year INTEGER NOT NULL DEFAULT 0,
+        projected_through_year INTEGER NOT NULL DEFAULT 0,
+        status TEXT NOT NULL CHECK(status IN ('CURRENT','STALE','CATCHING_UP','FAILED')),
+        last_error_code TEXT,
+        last_failure_year INTEGER,
+        updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+      );
+      CREATE TABLE IF NOT EXISTS v5_projection_catchup_queue (
+        run_id TEXT NOT NULL REFERENCES simulation_run(run_id),
+        from_year INTEGER NOT NULL,
+        through_year INTEGER NOT NULL,
+        status TEXT NOT NULL CHECK(status IN ('QUEUED','RUNNING','COMPLETE','FAILED')),
+        attempt_count INTEGER NOT NULL DEFAULT 0,
+        last_error_code TEXT,
+        updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY(run_id, from_year, through_year)
+      );
     `);
     const preflightColumns = new Set((this.database.prepare("PRAGMA table_info(preflight)").all() as { name: string }[]).map((column) => column.name));
     for (const column of ["semantic_authority_version", "semantic_authority_filename", "semantic_authority_sha256", "semantic_authority_verdict"]) {
@@ -572,6 +612,81 @@ export class SimulatorStore {
       .run(manifest.runId, manifest.causalRunHash, manifest.operationalConfigHash, manifest.diagnosticConfigHash, manifest.labelInputHash, manifest.runManifestHash, canonicalJson(manifest));
   }
 
+  noteV5CausalYearCommitted(runId: string, year: number): StoredProjectionWatermark {
+    if (!Number.isSafeInteger(year) || year < 0) throw new Error("Projection causal year must be a non-negative integer");
+    this.database.prepare(`INSERT INTO v5_projection_watermark(run_id, causal_committed_year, projected_through_year, status)
+      VALUES (?, ?, 0, CASE WHEN ?=0 THEN 'CURRENT' ELSE 'STALE' END)
+      ON CONFLICT(run_id) DO UPDATE SET
+        causal_committed_year=MAX(v5_projection_watermark.causal_committed_year, excluded.causal_committed_year),
+        status=CASE WHEN v5_projection_watermark.projected_through_year>=excluded.causal_committed_year THEN 'CURRENT' ELSE 'STALE' END,
+        updated_at=CURRENT_TIMESTAMP`).run(runId, year, year);
+    return this.loadV5ProjectionWatermark(runId)!;
+  }
+
+  markV5ProjectionStale(runId: string, failedYear: number, error: unknown): StoredProjectionWatermark {
+    const errorCode = error instanceof Error ? error.message.slice(0, 240) : String(error).slice(0, 240);
+    const current = this.noteV5CausalYearCommitted(runId, failedYear);
+    this.database.prepare(`UPDATE v5_projection_watermark SET status='STALE',last_error_code=?,last_failure_year=?,updated_at=CURRENT_TIMESTAMP WHERE run_id=?`)
+      .run(errorCode || "POSTGRES_PROJECTION_FAILED", failedYear, runId);
+    const fromYear = current.projectedThroughYear + 1;
+    this.database.prepare(`INSERT INTO v5_projection_catchup_queue(run_id,from_year,through_year,status,last_error_code)
+      VALUES (?,?,?,'QUEUED',?)
+      ON CONFLICT(run_id,from_year,through_year) DO UPDATE SET status='QUEUED',last_error_code=excluded.last_error_code,updated_at=CURRENT_TIMESTAMP`)
+      .run(runId, fromYear, failedYear, errorCode || "POSTGRES_PROJECTION_FAILED");
+    return this.loadV5ProjectionWatermark(runId)!;
+  }
+
+  advanceV5ProjectionWatermark(runId: string, throughYear: number): StoredProjectionWatermark {
+    const current = this.loadV5ProjectionWatermark(runId) ?? this.noteV5CausalYearCommitted(runId, throughYear);
+    if (throughYear < current.projectedThroughYear || throughYear > current.causalCommittedYear) throw new Error(`Projection watermark out of range: ${throughYear}`);
+    this.database.prepare(`UPDATE v5_projection_watermark SET projected_through_year=?,status=CASE WHEN causal_committed_year=? THEN 'CURRENT' ELSE 'STALE' END,
+      last_error_code=NULL,updated_at=CURRENT_TIMESTAMP WHERE run_id=?`).run(throughYear, throughYear, runId);
+    this.database.prepare(`UPDATE v5_projection_catchup_queue SET status='COMPLETE',updated_at=CURRENT_TIMESTAMP WHERE run_id=? AND through_year<=?`).run(runId, throughYear);
+    return this.loadV5ProjectionWatermark(runId)!;
+  }
+
+  beginV5ProjectionCatchup(runId: string, fromYear: number, throughYear: number): StoredProjectionCatchupTask {
+    const current = this.loadV5ProjectionWatermark(runId);
+    if (!current) throw new Error(`Projection watermark is missing for ${runId}`);
+    if (fromYear !== current.projectedThroughYear + 1 || throughYear > current.causalCommittedYear || throughYear < fromYear) {
+      throw new Error(`Projection catch-up range is not contiguous: ${fromYear}-${throughYear}`);
+    }
+    this.database.prepare(`INSERT INTO v5_projection_catchup_queue(run_id,from_year,through_year,status,attempt_count,last_error_code)
+      VALUES (?,?,?,'RUNNING',1,NULL)
+      ON CONFLICT(run_id,from_year,through_year) DO UPDATE SET status='RUNNING',attempt_count=v5_projection_catchup_queue.attempt_count+1,last_error_code=NULL,updated_at=CURRENT_TIMESTAMP`)
+      .run(runId, fromYear, throughYear);
+    this.database.prepare("UPDATE v5_projection_watermark SET status='CATCHING_UP',last_error_code=NULL,updated_at=CURRENT_TIMESTAMP WHERE run_id=?").run(runId);
+    return this.loadV5ProjectionCatchupTasks(runId).find((task) => task.fromYear === fromYear && task.throughYear === throughYear)!;
+  }
+
+  failV5ProjectionCatchup(runId: string, fromYear: number, throughYear: number, error: unknown): StoredProjectionWatermark {
+    const errorCode = error instanceof Error ? error.message.slice(0, 240) : String(error).slice(0, 240);
+    this.database.prepare(`UPDATE v5_projection_catchup_queue SET status='FAILED',last_error_code=?,updated_at=CURRENT_TIMESTAMP
+      WHERE run_id=? AND from_year=? AND through_year=?`).run(errorCode || "POSTGRES_PROJECTION_FAILED", runId, fromYear, throughYear);
+    this.database.prepare("UPDATE v5_projection_watermark SET status='STALE',last_error_code=?,updated_at=CURRENT_TIMESTAMP WHERE run_id=?")
+      .run(errorCode || "POSTGRES_PROJECTION_FAILED", runId);
+    return this.loadV5ProjectionWatermark(runId)!;
+  }
+
+  loadV5ProjectionCatchupTasks(runId: string): StoredProjectionCatchupTask[] {
+    const rows = this.database.prepare(`SELECT from_year,through_year,status,attempt_count,last_error_code,updated_at
+      FROM v5_projection_catchup_queue WHERE run_id=? ORDER BY from_year,through_year`).all(runId) as {
+      from_year: number;
+      through_year: number;
+      status: StoredProjectionCatchupTask["status"];
+      attempt_count: number;
+      last_error_code: string | null;
+      updated_at: string;
+    }[];
+    return rows.map((row) => ({ runId, fromYear: row.from_year, throughYear: row.through_year, status: row.status, attemptCount: row.attempt_count, lastErrorCode: row.last_error_code, updatedAt: row.updated_at }));
+  }
+
+  loadV5ProjectionWatermark(runId: string): StoredProjectionWatermark | null {
+    const row = this.database.prepare(`SELECT causal_committed_year,projected_through_year,status,last_error_code,last_failure_year,updated_at
+      FROM v5_projection_watermark WHERE run_id=?`).get(runId) as { causal_committed_year: number; projected_through_year: number; status: StoredProjectionWatermark["status"]; last_error_code: string | null; last_failure_year: number | null; updated_at: string } | undefined;
+    return row ? { runId, causalCommittedYear: row.causal_committed_year, projectedThroughYear: row.projected_through_year, status: row.status, lastErrorCode: row.last_error_code, lastFailureYear: row.last_failure_year, updatedAt: row.updated_at } : null;
+  }
+
   loadV5RunManifest(runId: string): V5RunManifest | null {
     const row = this.database.prepare("SELECT manifest_json FROM v5_run_manifest WHERE run_id=?").get(runId) as { manifest_json: string } | undefined;
     if (!row) return null;
@@ -588,7 +703,9 @@ export class SimulatorStore {
         },
       },
     } : parsed.causalOwnerInputs;
-    return { ...parsed, causalOwnerInputs, mechanicsVariables: { ...parsed.mechanicsVariables, initialPopulation: BigInt(parsed.mechanicsVariables.initialPopulation), initialTierWeights: parsed.mechanicsVariables.initialTierWeights.map(BigInt) as unknown as readonly [bigint, bigint, bigint], foundingMinimumPopulation: BigInt(parsed.mechanicsVariables.foundingMinimumPopulation), secessionMinimumPopulation: BigInt(parsed.mechanicsVariables.secessionMinimumPopulation), conflictStatePopulationReference: BigInt(parsed.mechanicsVariables.conflictStatePopulationReference) }, operationalConfig: restoreOperationalConfigV1(parsed.operationalConfig), diagnosticConfig: { ...parsed.diagnosticConfig, endingPopulationGoal: BigInt(parsed.diagnosticConfig.endingPopulationGoal), foundingNotabilityThreshold: BigInt(parsed.diagnosticConfig.foundingNotabilityThreshold) } };
+    const mechanicsVariables = { ...parsed.mechanicsVariables, initialPopulation: BigInt(parsed.mechanicsVariables.initialPopulation), initialTierWeights: parsed.mechanicsVariables.initialTierWeights.map(BigInt) as unknown as readonly [bigint, bigint, bigint], foundingMinimumPopulation: BigInt(parsed.mechanicsVariables.foundingMinimumPopulation), secessionMinimumPopulation: BigInt(parsed.mechanicsVariables.secessionMinimumPopulation), conflictStatePopulationReference: BigInt(parsed.mechanicsVariables.conflictStatePopulationReference) };
+    const authoritySnapshot = parsed.authoritySnapshot ?? buildRunAuthoritySnapshotV1(defaultRunAuthorityInputsV1({ canonicalBundleHash: parsed.canonicalBundleHash, mechanics: mechanicsVariables, causalOwnerInputs }));
+    return { ...parsed, causalOwnerInputs, mechanicsVariables, authoritySnapshot, operationalConfig: restoreOperationalConfigV1(parsed.operationalConfig), diagnosticConfig: { ...parsed.diagnosticConfig, endingPopulationGoal: BigInt(parsed.diagnosticConfig.endingPopulationGoal), foundingNotabilityThreshold: BigInt(parsed.diagnosticConfig.foundingNotabilityThreshold) } };
   }
 
   appendV5CausalEvents(runId: string, events: readonly CausalEventV5[], canonicalEventJson?: readonly string[]): void {
@@ -612,6 +729,11 @@ export class SimulatorStore {
 
   listV5CausalEvents(runId: string, worldKey: string, throughYear = Number.MAX_SAFE_INTEGER): CausalEventV5[] {
     const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year<=? ORDER BY year, sequence").all(runId, worldKey, throughYear) as { event_json: string | Uint8Array }[];
+    return rows.map((row) => decodeV5CausalEvent(row.event_json));
+  }
+
+  listV5CausalEventsForYear(runId: string, worldKey: string, year: number): CausalEventV5[] {
+    const rows = this.database.prepare("SELECT event_json FROM v5_causal_event WHERE run_id=? AND world_key=? AND year=? ORDER BY sequence,event_id").all(runId, worldKey, year) as { event_json: string | Uint8Array }[];
     return rows.map((row) => decodeV5CausalEvent(row.event_json));
   }
 

@@ -1,9 +1,12 @@
-import { app, BrowserWindow, dialog, ipcMain } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, safeStorage } from "electron";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { Worker } from "node:worker_threads";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { randomUUID } from "node:crypto";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { userInfo } from "node:os";
 import { parse as parseCsvSync } from "csv-parse/sync";
 import { WORKER_SCHEMA_VERSION } from "./ipc-contract.js";
 import { SimulatorStore } from "../src/persistence/sqlite-store.js";
@@ -19,10 +22,12 @@ import { buildPersistedCanonicalExport, buildPersistedV5Export } from "../src/co
 import { verifyExportZip } from "../src/core/export/exporter.js";
 import { applyAcceptedSettlementNames } from "../src/core/operator/presentation.js";
 import { loadBreedCatalog } from "../src/core/breeds/breed-catalog.js";
-import { loadAtlasPois } from "../src/core/atlas/atlas-view.js";
+import { loadCanonicalAtlasPois, runtimeVisibleAtlasPois } from "../src/persistence/postgres-atlas.js";
+import { disconnectDomainDatabase, preflightDomainDatabase, type DomainDatabasePreflight } from "../src/persistence/postgres-domain.js";
+import { createOwnerPolicyCandidateRevision, decideOwnerPolicyRevisions, listOwnerPolicyCenter } from "../src/persistence/postgres-owner-policy.js";
 import { CANONICAL_POLICY_VERSION } from "../src/core/engine/canonical-authority.js";
 import { editableV5ConfigurationJson, parseEditableV5Configuration } from "../src/core/v5/configuration.js";
-import { loadBundledCanonicalV5 } from "../src/core/v5/canonical-adapter.js";
+import { canonicalV5FromRunAuthoritySnapshot, loadPostgresCanonicalV5 } from "../src/persistence/postgres-canonical.js";
 import { buildReadModelV1 } from "../src/core/v5/read-model.js";
 import type { WorldKey as WorldKeyV5, WorldStateV5 } from "../src/core/v5/types.js";
 import { acceptPersistedV5DerogatoryDecisionBatch, acceptPersistedV5NamingBatch, acceptPersistedV5NamingBatches } from "../src/core/v5/service.js";
@@ -30,12 +35,14 @@ import { buildRouteCoverageReadModel } from "../src/core/v5/routes.js";
 import { buildPoiCoverage } from "../src/core/atlas/coverage.js";
 import { canonicalPolicyReadiness, diagnosticCandidateOwnerInputsV1 } from "../src/core/v5/config.js";
 import { buildNamingGeographyReadModel } from "../src/core/v5/naming-geography.js";
-import { effectiveRouteClassification, loadRouteClassificationAuthority } from "../src/core/v5/route-classification.js";
+import { effectiveRouteClassification } from "../src/core/v5/route-classification.js";
 import { renderExternalDerogatoryDecisionPromptV5 } from "../src/core/v5/derogatory-decisions.js";
 import { buildNamingPromptExportV5, parseNamingResponseZipV5 } from "../src/core/v5/naming-bulk.js";
 import { buildV5SettlementProjection, type V5OperatorViewDetail } from "./v5-operator-read.js";
+import { setPackagedDomainDatabaseConnectionProvider } from "../src/persistence/domain-database-connection.js";
 
 let mainWindow: BrowserWindow | null = null;
+const execFileAsync = promisify(execFile);
 const projectRoot = resolve(import.meta.dirname, "../..");
 const runtimeResources = !app.isPackaged && process.env.EIDOLON_SIMULATOR_RESOURCE_DIRECTORY
   ? resolve(process.env.EIDOLON_SIMULATOR_RESOURCE_DIRECTORY)
@@ -45,21 +52,15 @@ let activeCanonicalResume: { runId: string; promise: Promise<unknown> } | null =
 let activeV5Resume: { runId: string; promise: Promise<unknown> } | null = null;
 let poiContextCache: { canonicalDirectory: string; bySite: ReturnType<typeof loadUnnamedPoisBySite> } | null = null;
 let breedCatalogPromise: ReturnType<typeof loadBreedCatalog> | null = null;
-let atlasPoiCache: ReturnType<typeof loadAtlasPois> | null = null;
+let atlasPoiCache: Awaited<ReturnType<typeof loadCanonicalAtlasPois>> | null = null;
 let legacyNamingTrust: LegacyV5NamingTrustInspection | null = null;
 let canonicalDataCache: ReturnType<typeof loadBundledCanonical> | null = null;
-let canonicalV5Cache: ReturnType<typeof loadBundledCanonicalV5> | null = null;
 let sitesCache: Record<string, string>[] | null = null;
 let operatorSnapshotInFlight: Promise<OperatorSnapshot & Record<string, unknown>> | null = null;
 
 function canonicalData(): ReturnType<typeof loadBundledCanonical> {
   canonicalDataCache ??= loadBundledCanonical(runtimeResources);
   return canonicalDataCache;
-}
-
-function canonicalV5(): ReturnType<typeof loadBundledCanonicalV5> {
-  canonicalV5Cache ??= loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-  return canonicalV5Cache;
 }
 
 function yieldToMainLoop(): Promise<void> {
@@ -86,10 +87,11 @@ const V5_WORLDS: readonly WorldKeyV5[] = ["CONCORD", "SCHISM", "RUIN"];
 function v5SettlementProjection(runId: string, state: WorldStateV5): Record<string, unknown>[] {
   const manifest = getStore().loadV5RunManifest(runId);
   if (!manifest) return [];
-  return buildV5SettlementProjection(getStore(), canonicalV5(), manifest, state);
+  return buildV5SettlementProjection(getStore(), canonicalV5FromRunAuthoritySnapshot(manifest.authoritySnapshot, manifest.canonicalBundleHash, state.year), manifest, state);
 }
 
 async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string, unknown>> {
+  const domainDatabasePreflight = await preflightDomainDatabase();
   const loadedCanonicalData = canonicalData();
   const sitesPath = join(loadedCanonicalData.directory, "atlas/sites_naming_master.csv");
   sitesCache ??= existsSync(sitesPath) ? parseCsvSync(readFileSync(sitesPath), { bom: true, columns: true, skip_empty_lines: true }) as Record<string, string>[] : [];
@@ -104,13 +106,18 @@ async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string
   }
   const selectedRun = getStore().selectedRun();
   const selectedV5Manifest = selectedRun ? getStore().loadV5RunManifest(selectedRun.runId) : null;
+  const loadedCanonicalV5 = selectedV5Manifest
+    ? canonicalV5FromRunAuthoritySnapshot(selectedV5Manifest.authoritySnapshot, selectedV5Manifest.canonicalBundleHash, selectedRun?.currentYear ?? 0)
+    : await loadPostgresCanonicalV5().then((result) => result.canonical).catch(() => null);
+  const projectionWatermark = selectedRun && selectedV5Manifest ? getStore().loadV5ProjectionWatermark(selectedRun.runId) : null;
   const pendingV5NamingBatches = selectedRun && selectedV5Manifest && selectedRun.status !== "RUNNING"
     ? getStore().materializePendingV5NamingBatches(selectedRun.runId, selectedV5Manifest.operationalConfig.namingBatchMaximum)
     : [];
   const pendingV5NamingBatch = pendingV5NamingBatches[0] ?? null;
-  const persistedYear = selectedRun?.mode === "CANONICAL"
+  const causalPersistedYear = selectedRun?.mode === "CANONICAL"
     ? Math.max(selectedRun.currentYear ?? 0, getStore().latestCompleteCheckpointYear(selectedRun.runId, ["CONCORD", "SCHISM", "RUIN"]) ?? 0)
     : selectedRun?.currentYear ?? 0;
+  const persistedYear = projectionWatermark ? Math.min(causalPersistedYear, projectionWatermark.projectedThroughYear) : causalPersistedYear;
   const pendingNamingJob = selectedV5Manifest ? null : ((selectedRun && selectedRun.status !== "RETIRED_DATA_AUTHORITY" ? getStore().getPendingNamingJob(selectedRun.runId) : null) ?? (!selectedRun ? getStore().getAnyPendingNamingJob() : null));
   const pendingNamingJobs = pendingNamingJob ? getStore().listPendingNamingJobs(pendingNamingJob.context.runId) : [];
   const pendingNamingBatches = buildNamingBatches(pendingNamingJobs);
@@ -142,15 +149,12 @@ async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string
     return [world, { finalPopulation: settlements.reduce((sum, settlement) => sum + BigInt(settlement.population ?? "0"), 0n).toString(), settlements: settlements.length, states: new Set(settlements.map((settlement) => String(settlement.stateId))).size, events: selectedV5Manifest ? getStore().v5CausalEventCount(selectedRun!.runId, world, persistedYear) : eventCount, federalCapitalSiteId: null }];
   })) : null;
   const manifest = selectedRun ? { ...selectedRun, currentYear: persistedYear, finalYear: selectedV5Manifest?.targetYear ?? 2000, checkpointCount, eventCount, cohortCount, namingJobCount: selectedV5Manifest ? pendingV5NamingBatches.reduce((sum, batch) => sum + batch.items.length, 0) : pendingNamingJobs.length, worldSummary, activeIssues: [] } : null;
-  const v5CanonicalReadiness = loadedCanonicalData.status === "READY" ? (() => {
-    const loadedCanonicalV5 = canonicalV5();
+  const v5CanonicalReadiness = loadedCanonicalV5 ? (() => {
     const candidateOwnerInputs = diagnosticCandidateOwnerInputsV1(Object.fromEntries(loadedCanonicalV5.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }])));
     return canonicalPolicyReadiness(candidateOwnerInputs, loadedCanonicalV5.governments.map((government) => government.governmentFormId));
-  })() : { ready: false, missing: ["CANONICAL_BUNDLE"] };
-  const namingReadiness = loadedCanonicalData.status === "READY" ? (() => {
-    const loadedCanonicalV5 = canonicalV5();
-    const routeClassifications = loadRouteClassificationAuthority(runtimeResources, loadedCanonicalV5.routeCorridors);
-    return { routeCorridorsNotReady: loadedCanonicalV5.routeCorridors.filter((corridor) => effectiveRouteClassification(corridor, routeClassifications).semanticReadiness === "NOT_READY").length, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: loadedCanonicalV5.sites.filter((site) => site.nameStatus !== "CANONICAL").length + loadedCanonicalV5.physicalPois.filter((poi) => poi.nameStatus !== "CANONICAL").length, unresolvedDjtYearAuthority: 1 };
+  })() : { ready: false, missing: ["POSTGRES_CANONICAL_AUTHORITY"] };
+  const namingReadiness = loadedCanonicalV5 ? (() => {
+    return { routeCorridorsNotReady: loadedCanonicalV5.routeCorridors.filter((corridor) => effectiveRouteClassification(corridor).semanticReadiness === "NOT_READY").length, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: loadedCanonicalV5.sites.filter((site) => site.nameStatus !== "CANONICAL").length + loadedCanonicalV5.physicalPois.filter((poi) => poi.nameStatus !== "CANONICAL").length, unresolvedDjtYearAuthority: 1 };
   })() : { routeCorridorsNotReady: 0, ownerPolicyBlockers: v5CanonicalReadiness.missing.length, canonicalNamingGaps: 0, unresolvedDjtYearAuthority: 1 };
   const namingQueueSummary = selectedRun && selectedV5Manifest ? (() => {
     const requests = getStore().listV5NamingRequests(selectedRun.runId); const ledger = getStore().loadV5TrustedLabelLedger(selectedRun.runId);
@@ -175,7 +179,19 @@ async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string
   const pendingV5DerogatoryBatch = v5DerogatoryDecisionBatches.find((row) => !acceptedV5DerogatoryBatchIds.has(row.batchId)) ?? null;
   const pendingV5DerogatoryDecisionBatch = pendingV5DerogatoryBatch ? { ...pendingV5DerogatoryBatch, externalPromptText: renderExternalDerogatoryDecisionPromptV5(pendingV5DerogatoryBatch) } : null;
   const v5PolicyBlockers = selectedRun && selectedV5Manifest ? getStore().listV5PolicyBlockers(selectedRun.runId) : [];
-  return { canonicalData: loadedCanonicalData, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, pendingV5DerogatoryDecisionBatch, v5PolicyBlockers, atrocityOccurrenceSlots: selectedV5Manifest?.causalOwnerInputs.atrocityOccurrenceSlots ?? [], settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
+  return { canonicalData: loadedCanonicalData, domainDatabasePreflight, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, projectionFreshness: projectionWatermark ? { runYear: causalPersistedYear, commonProjectedThroughYear: projectionWatermark.projectedThroughYear, selectedDataYear: persistedYear, freshness: projectionWatermark.status === "CURRENT" ? "CURRENT" : "STALE", lastErrorCode: projectionWatermark.lastErrorCode, mixedYearReadsAllowed: false } : null, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, pendingV5DerogatoryDecisionBatch, v5PolicyBlockers, atrocityOccurrenceSlots: selectedV5Manifest?.causalOwnerInputs.atrocityOccurrenceSlots ?? [], settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
+}
+
+async function runDomainDatabaseAction(action: DomainDatabasePreflight["actions"][number]): Promise<DomainDatabasePreflight> {
+  if (action === "DOCTOR" || action === "RETRY") return preflightDomainDatabase();
+  const script = action === "MIGRATE" ? "db:migrate" : "db:seed-policy-center";
+  await disconnectDomainDatabase();
+  try {
+    await execFileAsync("pnpm", [script], { cwd: projectRoot, env: process.env, timeout: 120_000, maxBuffer: 1_000_000 });
+  } catch {
+    throw new Error(`DOMAIN_DATABASE_${action}_FAILED; run pnpm ${script} in the simulator repository for redacted diagnostics`);
+  }
+  return preflightDomainDatabase();
 }
 
 function snapshotForOperator(): Promise<OperatorSnapshot & Record<string, unknown>> {
@@ -249,6 +265,10 @@ async function createWindow(): Promise<void> {
 
 ipcMain.handle("simulator:get-runtime-info", () => ({ version: app.getVersion(), userDataPath: app.getPath("userData") }));
 ipcMain.handle("simulator:get-operator-snapshot", snapshotForOperator);
+ipcMain.handle("simulator:domain-database-action", async (_event, action: DomainDatabasePreflight["actions"][number]) => {
+  if (!["DOCTOR", "MIGRATE", "SEED", "RETRY"].includes(action)) throw new Error("Unknown domain database action");
+  return runDomainDatabaseAction(action);
+});
 ipcMain.handle("simulator:save-v5-configuration", async (_event, input: { mechanicsJson: string; operationalJson: string; diagnosticJson: string }) => {
   const hasActiveRun = getStore().listRuns().some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING", "WAITING_FOR_POLICY_AUTHORITY", "WAITING_FOR_DEROGATORY_DECISIONS"].includes(run.status));
   if (hasActiveRun) throw new Error("Simulation Variables are read-only while a run is active");
@@ -275,22 +295,24 @@ ipcMain.handle("simulator:get-naming-geography", (_event, requestedYear?: number
   const isolatedFixturePath = process.env.NODE_ENV === "test" ? process.env.EIDOLON_V5_NAMING_GEOGRAPHY_FIXTURE : undefined;
   if (isolatedFixturePath && existsSync(isolatedFixturePath)) return JSON.parse(readFileSync(isolatedFixturePath, "utf8"));
   const run = getStore().selectedRun();
-  if (!run || !getStore().loadV5RunManifest(run.runId)) return null;
+  const manifest = run ? getStore().loadV5RunManifest(run.runId) : null;
+  if (!run || !manifest) return null;
   const year = Math.max(0, Math.min(Number.isFinite(requestedYear) ? Math.trunc(requestedYear!) : run.currentYear ?? 0, run.currentYear ?? 0));
-  const canonical = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-  const routeClassifications = loadRouteClassificationAuthority(runtimeResources, canonical.routeCorridors);
+  const canonical = canonicalV5FromRunAuthoritySnapshot(manifest.authoritySnapshot, manifest.canonicalBundleHash, year);
   const states = Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run.runId, world, year)?.state; return state ? [[world, state]] : []; })) as Partial<Record<WorldKeyV5, WorldStateV5>>;
-  return buildNamingGeographyReadModel(canonical, states, getStore().loadV5TrustedLabelLedger(run.runId, year), getStore().listV5NamingRequests(run.runId), year, routeClassifications);
+  return buildNamingGeographyReadModel(canonical, states, getStore().loadV5TrustedLabelLedger(run.runId, year), getStore().listV5NamingRequests(run.runId), year);
 });
 ipcMain.handle("simulator:select-run", async (_event, runId: string) => { getStore().selectRun(runId); return snapshotForOperator(); });
 ipcMain.handle("simulator:get-run-view", async (_event, runId: string, world: string, year: number, detail?: V5OperatorViewDetail) => {
   const run = getStore().getRun(runId);
   if (!run) throw new Error(`Unknown run ${runId}`);
-  const effectiveYear = Math.max(0, Math.min(Number.isFinite(year) ? Math.trunc(year) : 0, run.currentYear ?? 0));
   const v5Manifest = getStore().loadV5RunManifest(runId);
+  const projectionWatermark = v5Manifest ? getStore().loadV5ProjectionWatermark(runId) : null;
+  const readableThroughYear = projectionWatermark?.projectedThroughYear ?? run.currentYear ?? 0;
+  const effectiveYear = Math.max(0, Math.min(Number.isFinite(year) ? Math.trunc(year) : 0, readableThroughYear));
   if (v5Manifest) {
     if (!V5_WORLDS.includes(world as WorldKeyV5)) throw new Error(`Unknown V5 world ${world}`);
-    return runWorker("GET_V5_RUN_VIEW", { databasePath: getStore().filename, runId, world, year: effectiveYear, detail, resourceDirectory: runtimeResources });
+    return runWorker("GET_V5_RUN_VIEW", { databasePath: getStore().filename, runId, world, year: effectiveYear, detail });
   }
   return {
     runId, world, requestedYear: year, effectiveYear,
@@ -301,20 +323,21 @@ ipcMain.handle("simulator:get-run-view", async (_event, runId: string, world: st
   };
 });
 ipcMain.handle("simulator:get-breed-catalog", async () => {
-  const canonicalData = loadBundledCanonical(runtimeResources);
-  if (canonicalData.status !== "READY") throw new Error(`BUNDLED_CANONICAL_DATA_INVALID: ${canonicalData.errorDetail}`);
-  breedCatalogPromise ??= loadBreedCatalog(canonicalData.directory);
+  breedCatalogPromise ??= loadBreedCatalog();
   return breedCatalogPromise;
 });
+ipcMain.handle("simulator:get-owner-policy-center", async () => listOwnerPolicyCenter());
+ipcMain.handle("simulator:decide-owner-policy", async (_event, input: Parameters<typeof decideOwnerPolicyRevisions>[0]) => decideOwnerPolicyRevisions(input, { actorId: `LOCAL_OWNER_SESSION:${userInfo().username}`, currentRunYear: getStore().selectedRun()?.currentYear ?? null, actionProvenance: "OWNER_POLICY_CENTER:LOCAL_AUTHENTICATED_SESSION" }));
+ipcMain.handle("simulator:create-owner-policy-revision", async (_event, input: Parameters<typeof createOwnerPolicyCandidateRevision>[0]) => createOwnerPolicyCandidateRevision(input, { actorId: `LOCAL_OWNER_SESSION:${userInfo().username}`, actionProvenance: "OWNER_POLICY_CENTER:LOCAL_AUTHENTICATED_SESSION" }));
 ipcMain.handle("simulator:get-breed-population", async (_event, runId: string, breedId: string, year: number) => {
   const run = getStore().getRun(runId);
   if (!run) throw new Error(`Unknown run ${runId}`);
   return runWorker("GET_BREED_POPULATION", { databasePath: getStore().filename, runId, breedId, year });
 });
-ipcMain.handle("simulator:get-atlas-data", (_event, requestedYear?: number) => {
+ipcMain.handle("simulator:get-atlas-data", async (_event, requestedYear?: number) => {
   const canonicalData = loadBundledCanonical(runtimeResources);
   if (canonicalData.status !== "READY") throw new Error(`BUNDLED_CANONICAL_DATA_INVALID: ${canonicalData.errorDetail}`);
-  atlasPoiCache ??= loadAtlasPois(canonicalData.directory);
+  atlasPoiCache ??= await loadCanonicalAtlasPois();
   const run = getStore().selectedRun();
   const year = Math.min(requestedYear ?? run?.currentYear ?? 0, run?.currentYear ?? 0);
   const namesByPoi = new Map<string, Partial<Record<"CONCORD" | "SCHISM" | "RUIN", string>>>();
@@ -341,18 +364,21 @@ ipcMain.handle("simulator:get-atlas-data", (_event, requestedYear?: number) => {
   if (!existsSync(imagePath)) throw new Error("Bundled master Atlas image is missing");
   const v5Manifest = run ? getStore().loadV5RunManifest(run.runId) : null;
   const states = (v5Manifest ? Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run!.runId, world, year)?.state; return state ? [[world, state]] : []; })) : {}) as Partial<Record<WorldKeyV5, WorldStateV5>>;
-  const canonicalV5 = loadBundledCanonicalV5(join(runtimeResources, "canonical"));
-  const routeClassifications = loadRouteClassificationAuthority(runtimeResources, canonicalV5.routeCorridors);
+  const canonicalV5 = v5Manifest
+    ? canonicalV5FromRunAuthoritySnapshot(v5Manifest.authoritySnapshot, v5Manifest.canonicalBundleHash, year)
+    : (await loadPostgresCanonicalV5()).canonical;
   const labels = run && v5Manifest ? getStore().loadV5Labels(run.runId, year) : {};
   const requests = run && v5Manifest ? getStore().listV5NamingRequests(run.runId) : [];
-  const routeCoverage = buildRouteCoverageReadModel(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_ROUTE_${world}_`))])), routeClassifications);
+  const routeCoverage = buildRouteCoverageReadModel(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_ROUTE_${world}_`))])));
   const poiCoverage = buildPoiCoverage(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_POI_${world}_`))])));
   const settlementsByWorld = Object.fromEntries(V5_WORLDS.map((world) => [world, states[world] && run ? v5SettlementProjection(run.runId, states[world]!).map((settlement) => {
     const site = canonicalV5.sites.find((candidate) => candidate.siteId === settlement.siteId);
     return { ...settlement, latitude: site?.latitude ?? 0, longitude: site?.longitude ?? 0 };
   }) : []]));
-  return { imageUrl: pathToFileURL(imagePath).href, pois: atlasPoiCache.map((poi) => ({ ...poi, namesByWorld: namesByPoi.get(poi.poiId) ?? {}, coverageByWorld: Object.fromEntries(V5_WORLDS.map((world) => [world, poiCoverage.rows.find((row) => row.poiId === poi.poiId)?.worlds[world] ?? null])) })), settlementsByWorld, routes: routeCoverage.rows, routeSummary: routeCoverage };
+  return { imageUrl: pathToFileURL(imagePath).href, pois: runtimeVisibleAtlasPois(atlasPoiCache).map((poi) => ({ ...poi, namesByWorld: namesByPoi.get(poi.poiId) ?? {}, coverageByWorld: Object.fromEntries(V5_WORLDS.map((world) => [world, poiCoverage.rows.find((row) => row.poiId === poi.poiId)?.worlds[world] ?? null])) })), settlementsByWorld, routes: routeCoverage.rows, routeSummary: routeCoverage };
 });
+
+app.on("before-quit", () => { void disconnectDomainDatabase(); });
 ipcMain.handle("simulator:run-canonical", async (_event, seed: string) => {
   const loadedCanonicalData = canonicalData();
   const state = deriveOperatorViewModel(await snapshotForOperator());
@@ -477,7 +503,7 @@ ipcMain.handle("simulator:export-run", async () => {
   if (!run) throw new Error("No persisted run is selected");
   const canonicalData = loadBundledCanonical(runtimeResources);
   if (canonicalData.status !== "READY") throw new Error(`BUNDLED_CANONICAL_DATA_INVALID: ${canonicalData.errorDetail}`);
-  const generated = getStore().loadV5RunManifest(run.runId) ? buildPersistedV5Export(getStore(), run.runId, canonicalData.directory) : buildPersistedCanonicalExport(getStore(), run.runId, canonicalData.directory);
+  const generated = getStore().loadV5RunManifest(run.runId) ? buildPersistedV5Export(getStore(), run.runId) : buildPersistedCanonicalExport(getStore(), run.runId, canonicalData.directory);
   const result = await dialog.showSaveDialog(mainWindow!, { defaultPath: `EIDOLON_SIMULATION_${run.runId}.zip`, filters: [{ name: "ZIP archive", extensions: ["zip"] }] });
   if (result.canceled || !result.filePath) return null;
   writeFileSync(result.filePath, generated.bytes);
@@ -486,7 +512,16 @@ ipcMain.handle("simulator:export-run", async () => {
   return { filename: result.filePath, sha256: generated.sha256, checkedFiles: verified.files.length };
 });
 
-app.whenReady().then(createWindow);
+app.whenReady().then(async () => {
+  setPackagedDomainDatabaseConnectionProvider(() => {
+    if (!app.isPackaged) return null;
+    const encryptedPath = join(app.getPath("userData"), "canonical-database-url.safe-storage");
+    if (!existsSync(encryptedPath)) return null;
+    if (!safeStorage.isEncryptionAvailable()) throw new Error("ELECTRON_SAFE_STORAGE_UNAVAILABLE");
+    return safeStorage.decryptString(readFileSync(encryptedPath));
+  });
+  await createWindow();
+});
 app.on("window-all-closed", () => { if (process.platform !== "darwin") app.quit(); });
 app.on("activate", () => { if (BrowserWindow.getAllWindows().length === 0) void createWindow(); });
 app.on("before-quit", () => { store?.close(); store = null; });

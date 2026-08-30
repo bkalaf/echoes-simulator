@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { canonicalJson } from "../core/serialization/canonical-json.js";
 import { normalizeSeed } from "../core/v5/random.js";
 import { runPersistedV5Diagnostic } from "../core/v5/service.js";
+import { legacyImportTestCanonicalAuthorityV5 } from "../core/v5/canonical-adapter.js";
 import { SimulatorStore } from "../persistence/sqlite-store.js";
 
 const throughYear = process.argv[2] === undefined ? 25 : Number(process.argv[2]);
@@ -12,7 +13,7 @@ const outputDirectory = resolve("artifacts/simulator/v5");
 mkdirSync(outputDirectory, { recursive: true });
 const store = new SimulatorStore(resolve(outputDirectory, "diagnostic.sqlite"));
 try {
-  const result = runPersistedV5Diagnostic({ store, resourceDirectory: resolve("resources"), normalizedSeed: seed, throughYear });
+  const result = runPersistedV5Diagnostic({ store, canonicalAuthority: legacyImportTestCanonicalAuthorityV5(resolve("resources/canonical")), normalizedSeed: seed, throughYear });
   process.stdout.write(`${canonicalJson({ ...result, databasePath: store.filename })}\n`);
 } finally {
   store.close();

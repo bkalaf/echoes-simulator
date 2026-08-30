@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "echoes-derogatory-taxonomy-review-v1",
+  "status": "UNREVIEWED",
+  "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+  "authorityRevisionId": null,
+  "structures": [
+    {
+      "structureId": "CANONICAL_STRUCTURE_1",
+      "acceptedName": null,
+      "membershipByGroupId": {}
+    },
+    {
+      "structureId": "CANONICAL_STRUCTURE_2",
+      "acceptedName": null,
+      "membershipByGroupId": {}
+    },
+    {
+      "structureId": "CANONICAL_STRUCTURE_3",
+      "acceptedName": null,
+      "membershipByGroupId": {}
+    }
+  ],
+  "contentSha256": null,
+  "candidateGroups": [
+    {
+      "groupId": "homosexual",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "bisexual",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "transgender",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "black-skinned",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "white-skinned",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "birds",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "reptiles",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "amphibians",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "fish",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "demons",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "angels",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "woodland mythos",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "unborn",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "soulless",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "beasts",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "mythos",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "humans",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "cave dwellers",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "tree dwellers",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "cold blooded",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "carnivores",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "herbivores",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "multi-litters",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "egg layers",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "undead",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "elves",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "dwarves",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    },
+    {
+      "groupId": "insects",
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+    }
+  ],
+  "externalDecisionProtocol": {
+    "scopesPerWorld": 21,
+    "worlds": 3,
+    "decisionsPerBatch": 63,
+    "initialYear": 15,
+    "initialAction": "SELECT",
+    "laterYears": "150 and every 100 years thereafter",
+    "laterActions": [
+      "KEEP",
+      "REPLACE"
+    ],
+    "partialAcceptance": false,
+    "localSynthesis": false
+  }
+}

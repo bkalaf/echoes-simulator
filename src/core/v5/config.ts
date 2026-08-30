@@ -1,17 +1,17 @@
 import { createHash } from "node:crypto";
 import { canonicalJson } from "../serialization/canonical-json.js";
-import type { AtrocityOccurrenceSlotV5, BasisPoints, GovernmentFormId, Score1000, SocialClass, SocialTier, WorldKey } from "./types.js";
+import type { AtrocityOccurrenceSlotV5, BasisPoints, GovernmentFormId, ResourceNodeV5, Score1000, SocialClass, SocialTier, WorldKey } from "./types.js";
 import type { ShockDefinitionV5 } from "./effects.js";
 import type { AtrocityShockDefinitionV5 } from "./atrocities.js";
 import type { HistoricalConflictActionV5 } from "./conflict-actions.js";
 import { CANDIDATE_HISTORICAL_DYNAMISM_POLICIES_V1, V5_HISTORICAL_POLICY_KEYS, type HistoricalDynamismPolicySetV1, type HistoricalPolicyKeyV5 } from "./historical-policies.js";
 import { createAtrocityOccurrenceSlotsV5 } from "./atrocity-slots.js";
 
-export const V5_MECHANICS_VERSION = "echoes-mechanics-v5.4.0";
+export const V5_MECHANICS_VERSION = "echoes-mechanics-v5.6.0";
 export const V5_CAUSAL_DERIVATION_VERSION = "echoes-derived-metrics-v1.1.0";
-export const V5_SCHEDULER_VERSION = "echoes-scheduler-v5.4.0";
+export const V5_SCHEDULER_VERSION = "echoes-scheduler-v5.6.0";
 export const V5_DURABLE_SCHEMA_VERSION = "echoes-world-state-v5";
-export const V5_READ_MODEL_VERSION = "echoes-read-model-v1.2.0";
+export const V5_READ_MODEL_VERSION = "echoes-read-model-v1.4.0";
 
 export interface MechanicsVariablesV1 {
   schemaVersion: "echoes-mechanics-variables-v1";
@@ -251,9 +251,9 @@ export interface ClassPolicyV1 {
 export const CANDIDATE_CLASS_POLICY_V1: ClassPolicyV1 = {
   schemaVersion: "echoes-class-policy-v1",
   tierWeights: {
-    HIGH: { NOBILITY: 700, INTELLECTUAL: 200, WORKER: 80, WANDERER: 20 },
-    MID: { NOBILITY: 100, INTELLECTUAL: 400, WORKER: 450, WANDERER: 50 },
-    LOW: { NOBILITY: 0, INTELLECTUAL: 100, WORKER: 700, WANDERER: 200 },
+    HIGH: { NOBILITY: 7000, INTELLECTUAL: 2000, WORKER: 800, WANDERER: 200 },
+    MID: { NOBILITY: 1000, INTELLECTUAL: 4000, WORKER: 4500, WANDERER: 500 },
+    LOW: { NOBILITY: 0, INTELLECTUAL: 1000, WORKER: 7000, WANDERER: 2000 },
   },
   contextModifiers: {},
 };
@@ -335,6 +335,12 @@ export interface CausalOwnerInputsV1 {
   historicalDynamismPolicies?: Partial<HistoricalDynamismPolicySetV1>;
   historicalDynamismApprovedPolicyHashes?: Partial<Record<HistoricalPolicyKeyV5, string | null>>;
   diagnosticHistoricalPolicyOptIns?: readonly HistoricalPolicyKeyV5[];
+  approvedResourceInventory?: {
+    status: "APPROVED" | "UNREVIEWED" | "REJECTED" | "SUPERSEDED";
+    authorityRevisionId: string;
+    contentSha256: string;
+    nodes: readonly ResourceNodeV5[];
+  };
   atrocityOccurrenceSlots?: readonly AtrocityOccurrenceSlotV5[];
   atrocityShockDefinitions?: readonly AtrocityShockDefinitionV5[];
   scheduledHistoricalConflictActions?: readonly { worldKey: WorldKey; action: HistoricalConflictActionV5 }[];
@@ -400,6 +406,7 @@ export interface V5CausalIdentityInput {
   normalizedSeed: string;
   causalOwnerInputs: CausalOwnerInputsV1;
   keyedRandomVersion: string;
+  initialAuthoritySnapshotHash?: string;
 }
 
 export function causalRunHash(input: V5CausalIdentityInput): string {
@@ -413,11 +420,15 @@ export function causalRunHash(input: V5CausalIdentityInput): string {
     mechanicsVariables: input.mechanics,
     normalizedSeed: input.normalizedSeed,
     causalOwnerInputs: input.causalOwnerInputs,
+    initialAuthoritySnapshotHash: input.initialAuthoritySnapshotHash ?? null,
   });
 }
 
 export interface BreedAuthorityV5 {
   breedId: string;
+  acceptedName?: string;
+  /** Required by production PostgreSQL authority; absent only in legacy import/test material. */
+  primaryDeityId?: string;
   populationKind: "HUMAN" | "BEAST" | "MYTHOS" | "PET";
   groupId: string;
   factionObject: Record<WorldKey, number>;

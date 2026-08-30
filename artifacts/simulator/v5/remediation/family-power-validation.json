@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "echoes-family-power-validation-v56",
+  "status": "NORMALIZED_SCHEMA_AND_CAUSAL_SURFACES_PRESENT_BOUNDED_LIVE_ACCEPTANCE_BLOCKED",
+  "auditedPowerDimensions": [
+    "wealth",
+    "pedigree",
+    "office",
+    "education",
+    "patronage",
+    "property",
+    "corporate",
+    "security",
+    "religious",
+    "route",
+    "reputation",
+    "atrocity"
+  ],
+  "actions": [
+    "sponsorship",
+    "relief",
+    "propaganda",
+    "investment",
+    "alliances",
+    "migration",
+    "protection",
+    "exploitation",
+    "succession",
+    "exile",
+    "specifically authorized execution"
+  ],
+  "deterministicRequirement": true,
+  "blocker": "DATABASE_URL_NOT_CONFIGURED"
+}

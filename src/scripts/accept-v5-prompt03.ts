@@ -5,7 +5,7 @@ import { join, resolve } from "node:path";
 import { canonicalJson } from "../core/serialization/canonical-json.js";
 import { createAtrocityOccurrenceSlotsV5 } from "../core/v5/atrocity-slots.js";
 import type { AtrocityShockDefinitionV5 } from "../core/v5/atrocities.js";
-import { loadBundledCanonicalV5 } from "../core/v5/canonical-adapter.js";
+import { legacyImportTestCanonicalAuthorityV5, loadBundledCanonicalV5 } from "../core/v5/canonical-adapter.js";
 import { diagnosticCandidateOwnerInputsV1, V5_CAUSAL_DERIVATION_VERSION, V5_MECHANICS_VERSION, V5_READ_MODEL_VERSION, V5_SCHEDULER_VERSION, type CausalOwnerInputsV1 } from "../core/v5/config.js";
 import { buildDerogatoryDecisionBatchV5, type AcceptedDerogatoryDecisionBatchV5, type DerogatoryDecisionResponseV5 } from "../core/v5/derogatory-decisions.js";
 import { causalStateHash } from "../core/v5/engine.js";
@@ -70,11 +70,12 @@ function directExecution(input: { canonical: ReturnType<typeof loadBundledCanoni
 const startedAt = Date.now();
 const liveBefore = await liveFingerprints();
 const canonical = loadBundledCanonicalV5(resolve("resources/canonical"));
+const canonicalAuthority = legacyImportTestCanonicalAuthorityV5(resolve("resources/canonical"));
 const normalizedSeed = normalizeSeed("ECHOES_V54_PROMPT03_ACCEPTANCE");
 const governmentMappings = Object.fromEntries(canonical.governments.map((government) => [government.governmentFormId, { source: "DIAGNOSTIC_CANDIDATE" }]));
 const baseOwner = diagnosticCandidateOwnerInputsV1(governmentMappings);
 const targetScope = "SOVEREIGN_SCAPEGOAT" as const;
-const slots = createAtrocityOccurrenceSlotsV5().map((slot) => slot.occurrenceId === "ATROCITY_WITNESS_17" ? { ...slot, status: "CONFIGURED" as const, triggerYear: 20, targetScope, shockDefinitionId: "PROMPT03_TEST_WITNESS_17" } : slot);
+const slots = createAtrocityOccurrenceSlotsV5().map((slot) => slot.occurrenceId === "ATROCITY_17_A" ? { ...slot, status: "CONFIGURED" as const, triggerYear: 20, targetScope, shockDefinitionId: "PROMPT03_TEST_ATROCITY_17_A" } : slot);
 const concordInitial = canonical.initialSettlements.filter((row) => row.worldKey === "CONCORD").sort((a, b) => a.settlementId.localeCompare(b.settlementId));
 const host = concordInitial.find((row) => {
   const site = canonical.sites.find((candidate) => candidate.siteId === row.siteId);
@@ -85,7 +86,7 @@ const defender = host;
 const attacker = concordInitial.find((row) => row.stateId !== defender.stateId)!;
 const destination = concordInitial.find((row) => row.settlementId !== defender.settlementId)!;
 const atrocity: AtrocityShockDefinitionV5 = {
-  schemaVersion: "echoes-atrocity-shock-definition-v1", shockDefinitionId: "PROMPT03_TEST_WITNESS_17", occurrenceId: "ATROCITY_WITNESS_17", triggerYear: 20,
+  schemaVersion: "echoes-atrocity-shock-definition-v1", shockDefinitionId: "PROMPT03_TEST_ATROCITY_17_A", occurrenceId: "ATROCITY_17_A", triggerYear: 20,
   targetScope, authorityStatus: "TEST_FIXTURE", authorityRef: "ISOLATED_ACCEPTANCE_ONLY_NOT_HISTORICAL_AUTHORITY", worldKeys: ["CONCORD"],
   effects: [{ type: "MORTALITY", mortalityBps: 10 }, { type: "GROWTH_SUPPRESSION", modifierPpm: -50_000, durationYears: 5 }, { type: "SEIZURE", confiscationScore: 100 }, { type: "RESTRICTION", restrictionKey: "FIXTURE_MOVEMENT_RESTRICTION" }, { type: "FACTION_OPINION", faction: "RUIN", delta: -50 }, { type: "SANCTUARY", hostSettlementId: host.settlementId }, { type: "ENCLAVE_AUTHORIZATION", hostSettlementId: host.settlementId, form: "UNDERWATER", secrecyState: "HIDDEN", authorizationRef: "ISOLATED_ACCEPTANCE_AUTHORIZATION" }, { type: "DISPLACEMENT", sourceSettlementId: host.settlementId, shareBps: 100, destination: "AUTHORIZED_ENCLAVE" }],
 };
@@ -104,13 +105,13 @@ const databasePath = join(temporaryDirectory, "acceptance.sqlite");
 const store = new SimulatorStore(databasePath);
 const configuration = store.loadV5Configuration();
 store.saveV5Configuration({ ...configuration, operational: { ...configuration.operational, checkpointIntervalYears: 25, interactiveNamingEnabled: false } });
-let run: ReturnType<typeof resumePersistedV5Run> = runPersistedV5Diagnostic({ store, resourceDirectory: resolve("resources"), normalizedSeed, throughYear: targetYear, namingMode: "UNATTENDED_CAUSAL_BENCHMARK", causalOwnerInputs: ownerInputs });
+let run: ReturnType<typeof resumePersistedV5Run> = runPersistedV5Diagnostic({ store, canonicalAuthority, normalizedSeed, throughYear: targetYear, namingMode: "UNATTENDED_CAUSAL_BENCHMARK", causalOwnerInputs: ownerInputs });
 while (run.status === "WAITING_FOR_DEROGATORY_DECISIONS") {
   const batch = store.listV5DerogatoryDecisionBatches(run.runId).find((candidate) => candidate.reviewYear === run.currentYear + 1);
   if (!batch) throw new Error(`Missing persisted Derogatory decision batch after year ${run.currentYear}`);
   const accepted = acceptPersistedV5DerogatoryDecisionBatch({ store, runId: run.runId, response: fixtureResponse(batch) });
   if (!accepted.accepted) throw new Error(`Acceptance fixture decision batch rejected: ${accepted.errors.join("; ")}`);
-  run = resumePersistedV5Run({ store, resourceDirectory: resolve("resources"), runId: run.runId });
+  run = resumePersistedV5Run({ store, runId: run.runId });
 }
 if (run.status !== "COMPLETE" || run.currentYear !== targetYear) throw new Error(`Prompt 03 persisted acceptance stopped at ${run.status}/${run.currentYear}`);
 

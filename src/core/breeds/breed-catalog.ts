@@ -1,8 +1,7 @@
-import { createReadStream, existsSync, readFileSync } from "node:fs";
-import { createInterface } from "node:readline";
-import { resolve } from "node:path";
-import { openValidatedZip, parseJsonLines } from "../inputs/importer.js";
-import { loadBreedDeityAffinity, type BreedDeityAffinityStatus } from "./breed-deity-affinity.js";
+import { getDomainDatabase } from "../../persistence/postgres-domain.js";
+import { loadPostgresCanonicalV5 } from "../../persistence/postgres-canonical.js";
+
+export type BreedDeityAffinityStatus = "CLASSIFIED" | "REVIEW_REQUIRED";
 
 export interface BreedCatalogEntry {
   breedId: string;
@@ -15,69 +14,37 @@ export interface BreedCatalogEntry {
   cultureId: string | null;
   factionObject: Record<"CONCORD" | "SCHISM" | "RUIN", number>;
   dominantFaction: ("CONCORD" | "SCHISM" | "RUIN")[];
-  primaryDeity: string | null;
-  provisionalDeity: string | null;
+  primaryDeity: string;
+  provisionalDeity: null;
   deityClassificationStatus: BreedDeityAffinityStatus;
 }
 
-type SpeciesIdentity = { name: string | null; scientificName: string | null };
-type BreedIdentity = { breedId: string; name: string; populationKind: string; speciesId?: string | null; groupId?: string | null; cultureId?: string | null };
-type BreedFactionProjection = { breedId: string; factionObject: BreedCatalogEntry["factionObject"]; dominantFaction: BreedCatalogEntry["dominantFaction"] };
-
-function derivedScientificName(speciesId: string | null | undefined): string | null {
-  if (!speciesId?.startsWith("SPC_")) return null;
-  const words = speciesId.slice(4).split("_").filter(Boolean);
-  if (words.length < 2) return null;
-  return words.map((word, index) => index === 0 ? `${word[0]}${word.slice(1).toLowerCase()}` : word.toLowerCase()).join(" ");
+function dominantFaction(concord: number, schism: number, ruin: number): BreedCatalogEntry["dominantFaction"] {
+  const maximum = Math.max(concord, schism, ruin);
+  const scores = { CONCORD: concord, SCHISM: schism, RUIN: ruin };
+  return (["CONCORD", "SCHISM", "RUIN"] as const).filter((world) => scores[world] === maximum);
 }
 
-async function loadSpeciesIdentities(canonicalDirectory: string): Promise<Map<string, SpeciesIdentity>> {
-  const filename = resolve(canonicalDirectory, "research-corpus/IMPORT_LEDGER.jsonl");
-  const result = new Map<string, SpeciesIdentity>();
-  if (!existsSync(filename)) return result;
-  const lines = createInterface({ input: createReadStream(filename, { encoding: "utf8" }), crlfDelay: Infinity });
-  for await (const line of lines) {
-    if (!line.includes('"recordType":"SPECIES"')) continue;
-    const row = JSON.parse(line) as { recordId?: string; canonicalPayload?: { name?: string | null; scientificName?: string | null } };
-    if (row.recordId) result.set(row.recordId, { name: row.canonicalPayload?.name ?? null, scientificName: row.canonicalPayload?.scientificName ?? null });
-  }
-  return result;
-}
-
-export async function loadBreedCatalog(canonicalDirectory: string): Promise<BreedCatalogEntry[]> {
-  const manifest = JSON.parse(readFileSync(resolve(canonicalDirectory, "canonical_bundle_manifest.json"), "utf8")) as { breedSemanticFilename: string; breedSemanticSha256?: string | null };
-  const archive = openValidatedZip(resolve(canonicalDirectory, "breeds", manifest.breedSemanticFilename));
-  const bytes = archive.entries[`${archive.prefix}canonical_breed_identities.jsonl`];
-  if (!bytes) throw new Error("Canonical Breed catalog is missing canonical_breed_identities.jsonl");
-  const breeds = parseJsonLines(bytes) as BreedIdentity[];
-  const civicBytes = archive.entries[`${archive.prefix}effective_breed_semantics.jsonl`];
-  const petBytes = archive.entries[`${archive.prefix}pet_policy_semantics.jsonl`];
-  if (!civicBytes || !petBytes) throw new Error("Canonical Breed catalog is missing persisted faction projections");
-  const factionByBreed = new Map([...parseJsonLines(civicBytes), ...parseJsonLines(petBytes)].map((row) => [String(row.breedId), row as unknown as BreedFactionProjection]));
-  if (factionByBreed.size !== breeds.length) throw new Error("Canonical Breed faction projection coverage is incomplete");
-  const deityByBreed = loadBreedDeityAffinity(canonicalDirectory, breeds.map((breed) => breed.breedId), manifest.breedSemanticSha256);
-  const species = await loadSpeciesIdentities(canonicalDirectory);
-  return breeds.map((breed) => {
-    const speciesId = breed.speciesId ?? null;
-    const speciesIdentity = speciesId ? species.get(speciesId) : undefined;
-    const faction = factionByBreed.get(breed.breedId);
-    const deity = deityByBreed.get(breed.breedId);
-    if (!faction) throw new Error(`Canonical Breed faction projection is missing ${breed.breedId}`);
-    if (!deity) throw new Error(`Breed deity affinity is missing ${breed.breedId}`);
-    return {
-      breedId: breed.breedId,
-      name: breed.name,
-      populationKind: breed.populationKind,
-      speciesId,
-      speciesName: speciesIdentity?.name ?? null,
-      scientificName: speciesIdentity?.scientificName ?? derivedScientificName(speciesId),
-      groupId: breed.groupId ?? null,
-      cultureId: breed.cultureId ?? null,
-      factionObject: faction.factionObject,
-      dominantFaction: faction.dominantFaction,
-      primaryDeity: deity.status === "CLASSIFIED" ? deity.deityName : null,
-      provisionalDeity: deity.status === "REVIEW_REQUIRED" ? deity.deityName : null,
-      deityClassificationStatus: deity.status,
-    };
-  }).sort((left, right) => left.name.localeCompare(right.name) || left.breedId.localeCompare(right.breedId));
+/** Production Breed identity and primary-Deity authority is PostgreSQL-only. */
+export async function loadBreedCatalog(_legacyCanonicalDirectory?: string): Promise<BreedCatalogEntry[]> {
+  const [{ canonical }, deities] = await Promise.all([loadPostgresCanonicalV5(), getDomainDatabase().deity.findMany({ select: { deityId: true, acceptedName: true } })]);
+  const deityNames = new Map(deities.map((deity) => [deity.deityId, deity.acceptedName]));
+  const rows = [...canonical.breeds].sort((left, right) => (left.acceptedName ?? left.breedId).localeCompare(right.acceptedName ?? right.breedId) || left.breedId.localeCompare(right.breedId));
+  const uniqueBreedIds = new Set(rows.map((row) => row.breedId));
+  if (rows.length !== 2_062 || uniqueBreedIds.size !== 2_062) throw new Error(`BREED_PRIMARY_DEITY_AUTHORITY_REQUIRED expected=2062 observed=${rows.length} unique=${uniqueBreedIds.size}; open Owner Policy Center > Breed primary Deity reconstruction`);
+  return rows.map((row) => ({
+    breedId: row.breedId,
+    name: row.acceptedName ?? row.breedId,
+    populationKind: row.populationKind,
+    speciesId: null,
+    speciesName: null,
+    scientificName: null,
+    groupId: row.groupId,
+    cultureId: null,
+    factionObject: row.factionObject,
+    dominantFaction: dominantFaction(row.factionObject.CONCORD, row.factionObject.SCHISM, row.factionObject.RUIN),
+    primaryDeity: deityNames.get(row.primaryDeityId!) ?? row.primaryDeityId!,
+    provisionalDeity: null,
+    deityClassificationStatus: "CLASSIFIED",
+  }));
 }

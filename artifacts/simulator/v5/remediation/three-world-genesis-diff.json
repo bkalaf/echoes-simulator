@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "echoes-three-world-genesis-diff-v56",
+  "status": "LIVE_GENESIS_BLOCKED_BY_DOMAIN_AUTHORITY",
+  "requiredIdenticalDomains": [
+    "population",
+    "Breed/tier distribution",
+    "24 physical cities",
+    "Origin Regions",
+    "POIs",
+    "route opportunities",
+    "deity authority",
+    "economy",
+    "RNG semantics",
+    "approved physical corpora"
+  ],
+  "onlyDirectionalInputs": {
+    "sovereignBreed": true,
+    "federalGovernanceAlignment": true,
+    "federalCapitalDesignationAlignment": true
+  },
+  "resourceAuthority": {
+    "status": "RESOURCE_AUTHORITY_REQUIRED",
+    "authorityRevisionId": null,
+    "resourceNodeCount": null,
+    "detail": "No approved Resource inventory is available. Unknown authority is not an empty canonical universe."
+  },
+  "refugeAudit": {
+    "canonicalBreedRows": 2062,
+    "terminalFoodSpecificCount": 61,
+    "selectorCount": 3,
+    "eligibleCount": 47,
+    "nonRefugeCount": 14,
+    "secondNodeValues": [
+      {
+        "foodSpecific": "ARTHROPODS",
+        "canonicalBreedConsumers": 123
+      },
+      {
+        "foodSpecific": "BIRDS",
+        "canonicalBreedConsumers": 169
+      },
+      {
+        "foodSpecific": "CARRION",
+        "canonicalBreedConsumers": 122
+      },
+      {
+        "foodSpecific": "FISH",
+        "canonicalBreedConsumers": 296
+      },
+      {
+        "foodSpecific": "FLOWERS_POLLEN",
+        "canonicalBreedConsumers": 111
+      },
+      {
+        "foodSpecific": "FRUIT",
+        "canonicalBreedConsumers": 358
+      },
+      {
+        "foodSpecific": "GRASSES",
+        "canonicalBreedConsumers": 220
+      },
+      {
+        "foodSpecific": "INSECTS",
+        "canonicalBreedConsumers": 591
+      },
+      {
+        "foodSpecific": "LEAVES",
+        "canonicalBreedConsumers": 333
+      },
+      {
+        "foodSpecific": "MOLLUSKS",
+        "canonicalBreedConsumers": 206
+      },
+      {
+        "foodSpecific": "RED_MEAT",
+        "canonicalBreedConsumers": 121
+      },
+      {
+        "foodSpecific": "REPTILES_AMPHIBIANS",
+        "canonicalBreedConsumers": 229
+      },
+      {
+        "foodSpecific": "ROOTS_TUBERS",
+        "canonicalBreedConsumers": 211
+      },
+      {
+        "foodSpecific": "SEEDS_GRAINS",
+        "canonicalBreedConsumers": 354
+      },
+      {
+        "foodSpecific": "SHELLFISH_CRUSTACEANS",
+        "canonicalBreedConsumers": 297
+      },
+      {
+        "foodSpecific": "SMALL_GAME",
+        "canonicalBreedConsumers": 273
+      },
+      {
+        "foodSpecific": "WOODY_BIOMASS",
+        "canonicalBreedConsumers": 129
+      },
+      {
+        "foodSpecific": "WORMS_LARVAE",
+        "canonicalBreedConsumers": 260
+      }
+    ],
+    "secondNodeCount": 18,
+    "genesisPerWorld": 65,
+    "moonlightCount": 1
+  },
+  "worldKeyCausalRngSalt": false,
+  "normalizedNeutralHash": "b9998c75a42062e29bc66b3ec23598d88fcc123d7273c94352430b3b61e147bc",
+  "nonNeutralHashes": [
+    "756699f231daba6b90e54e0bd3eaf37b6e57ab6f4a0c5e95fbecbe8996d56bf6",
+    "c508f9bf25c311f429dac26e41c7a7dd5e399e7e000d8257a58cf564be656606",
+    "b052b22d805867ea249e8856bc02dfcf7af96d00cda078cd49f6c64c67aa5673"
+  ],
+  "nonNeutralDivergenceProvedByFixture": true
+}

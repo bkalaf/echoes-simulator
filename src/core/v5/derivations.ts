@@ -115,11 +115,11 @@ export function supportedEconomicForm(state: WorldStateV5, settlementId: string,
   const ownershipTotals = Object.fromEntries([...ownership].sort(([left], [right]) => left.localeCompare(right)).map(([key, value]) => [key, value.toString()]));
   const allocationTotals = Object.fromEntries([...allocation].sort(([left], [right]) => left.localeCompare(right)).map(([key, value]) => [key, value.toString()]));
   const denominator = population * 2n;
-  if (population <= 0n || denominator <= 0n) throw new Error(`SUPPORTED_ECONOMIC_FORM_DENOMINATOR_INVALID ${JSON.stringify({ world: state.worldKey, year: state.year, settlementId, population: population.toString(), ownershipTotals, allocationTotals, mappingAuthority: "economic_form_mapping.json" })}`);
+  if (population <= 0n || denominator <= 0n) throw new Error(`SUPPORTED_ECONOMIC_FORM_DENOMINATOR_INVALID ${JSON.stringify({ world: state.worldKey, year: state.year, settlementId, population: population.toString(), ownershipTotals, allocationTotals, mappingAuthority: "RUN_AUTHORITY_SNAPSHOT:SIMULATOR_CANONICAL_V5/economicForms" })}`);
   const candidates = canonical.economicForms.map((row) => ({ row, score: (ownership.get(row.ownershipMode) ?? 0n) + (allocation.get(row.allocationMode) ?? 0n) }))
     .sort((left, right) => left.score === right.score ? left.row.economicForm.localeCompare(right.row.economicForm) : left.score > right.score ? -1 : 1);
   const winner = candidates[0];
-  if (!winner || winner.score <= 0n) throw new Error(`SUPPORTED_ECONOMIC_FORM_MAPPING_INVALID ${JSON.stringify({ world: state.worldKey, year: state.year, settlementId, population: population.toString(), ownershipTotals, allocationTotals, mappingAuthority: "economic_form_mapping.json", mappingCount: canonical.economicForms.length })}`);
+  if (!winner || winner.score <= 0n) throw new Error(`SUPPORTED_ECONOMIC_FORM_MAPPING_INVALID ${JSON.stringify({ world: state.worldKey, year: state.year, settlementId, population: population.toString(), ownershipTotals, allocationTotals, mappingAuthority: "RUN_AUTHORITY_SNAPSHOT:SIMULATOR_CANONICAL_V5/economicForms", mappingCount: canonical.economicForms.length })}`);
   return { economicForm: winner.row.economicForm, denominator: denominator.toString(), ownershipTotals, allocationTotals };
 }
 

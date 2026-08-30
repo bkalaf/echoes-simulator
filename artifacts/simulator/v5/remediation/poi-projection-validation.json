@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "echoes-poi-projection-validation-v1",
+  "coordinateReferenceSystem": "EPSG:4326",
+  "anchors": [
+    {
+      "poiId": "POI-001",
+      "latitude": 28.960942,
+      "longitude": -102.70767,
+      "equirectangular": {
+        "xPercent": 21.47009166666667,
+        "yPercent": 33.91058777777778
+      },
+      "placementStatus": "AUTHORITATIVE"
+    },
+    {
+      "poiId": "POI-029",
+      "latitude": 41.625,
+      "longitude": 89.625,
+      "equirectangular": {
+        "xPercent": 74.89583333333333,
+        "yPercent": 26.875
+      },
+      "placementStatus": "AUTHORITATIVE"
+    },
+    {
+      "poiId": "POI-042",
+      "latitude": 53.581405,
+      "longitude": -97.758628,
+      "equirectangular": {
+        "xPercent": 22.844825555555555,
+        "yPercent": 20.23255277777778
+      },
+      "placementStatus": "AUTHORITATIVE"
+    },
+    {
+      "poiId": "POI-064",
+      "latitude": 15,
+      "longitude": 62,
+      "equirectangular": {
+        "xPercent": 67.22222222222223,
+        "yPercent": 41.66666666666667
+      },
+      "placementStatus": "AUTHORITATIVE"
+    },
+    {
+      "poiId": "POI-092",
+      "latitude": -72,
+      "longitude": -18,
+      "equirectangular": {
+        "xPercent": 45,
+        "yPercent": 90
+      },
+      "placementStatus": "AUTHORITATIVE"
+    }
+  ],
+  "axisSwapDetected": false,
+  "signOverrideDetected": false,
+  "longitudeWrapping": "-180..180",
+  "threeDimensionalTransform": "AtlasGlobe.latLongToVector3(latitude, longitude)",
+  "twoDimensionalTransform": "equirectangularAtlasPosition(latitude, longitude)",
+  "pass": true
+}

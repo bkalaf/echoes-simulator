@@ -24,21 +24,23 @@ function needsPolicy<K extends HistoricalPolicyKeyV5>(state: WorldStateV5, conte
 }
 
 export function establishResourceGeographyV5(state: WorldStateV5, context: HistoricalMechanicsContextV5): { state: WorldStateV5; events: CausalEventV5[] } {
-  if ((state.resourceNodes?.length ?? 0) > 0) return { state, events: [] };
-  const policy = needsPolicy(state, context, "RESOURCE_INDUSTRY", "PLACE_PHYSICAL_RESOURCE_GEOGRAPHY");
+  if ((state.resourceNodes?.length ?? 0) > 0) return { state: state.resourceAuthorityStatus ? state : { ...state, resourceAuthorityStatus: { status: "READY", authorityRevisionId: "LEGACY_CHECKPOINT", contentSha256: null } }, events: [] };
+  const authority = context.ownerInputs.approvedResourceInventory;
+  if (!authority || authority.status !== "APPROVED") return { state: { ...state, resourceAuthorityStatus: { status: "RESOURCE_AUTHORITY_REQUIRED", authorityRevisionId: null, contentSha256: null }, resourceNodes: [], worldResourceStates: [] }, events: [] };
+  const calculatedHash = createHash("sha256").update(canonicalJson(authority.nodes), "utf8").digest("hex");
+  if (calculatedHash !== authority.contentSha256) throw new Error(`RESOURCE_AUTHORITY_HASH_MISMATCH ${authority.authorityRevisionId}`);
+  if (authority.nodes.length === 0) throw new Error(`RESOURCE_AUTHORITY_EMPTY ${authority.authorityRevisionId}: an approved empty inventory cannot stand in for missing Resource authority`);
+  if (new Set(authority.nodes.map((node) => node.resourceNodeId)).size !== authority.nodes.length) throw new Error(`RESOURCE_AUTHORITY_DUPLICATE_IDS ${authority.authorityRevisionId}`);
+  const siteIds = new Set(context.canonical.sites.map((site) => site.siteId));
+  for (const node of authority.nodes) if (!siteIds.has(node.siteId)) throw new Error(`RESOURCE_AUTHORITY_UNKNOWN_SITE ${node.resourceNodeId}/${node.siteId}`);
   const nodes: ResourceNodeV5[] = []; const statuses: WorldResourceStateV5[] = [];
-  for (const site of [...context.canonical.sites].sort((a, b) => a.siteId.localeCompare(b.siteId))) for (const rule of policy.placementRules) {
-    // Empty terrain rules need a separately approved production capability; none is present in the V5.4 canonical adapter.
-    const terrainMatch = rule.broadTerrain.length + rule.specificTerrain.length > 0 && (rule.broadTerrain.some((value) => site.terrainBroad.includes(value)) || rule.specificTerrain.some((value) => site.terrainSpecific.includes(value)));
-    if (!terrainMatch || Number.parseInt(digest([site.siteId, rule.resourceType]).slice(0, 8), 16) % rule.scarcityDivisor !== 0) continue;
-    const resourceNodeId = `RESOURCE_NODE_${digest([site.siteId, rule.resourceType]).slice(0, 24)}`;
-    const quality = clamp(site.quality ?? 500, 0, 1000); const capacityClass = quality >= 700 ? "MAJOR" as const : quality >= 400 ? "MODERATE" as const : "MINOR" as const;
-    nodes.push({ resourceNodeId, resourceType: rule.resourceType, siteId: site.siteId, regionId: site.regionId, quality, capacityClass, renewable: rule.renewable, accessDifficulty: rule.baseAccessDifficulty, placementAuthorityRef: `${policy.schemaVersion}:${rule.resourceType}` });
-    const settlement = state.settlements.find((row) => row.siteId === site.siteId);
-    statuses.push({ worldResourceStateId: `WORLD_RESOURCE_${state.worldKey}_${resourceNodeId}`, resourceNodeId, controllerType: settlement ? "STATE" : "DIFFUSE", controllerId: settlement?.stateId ?? site.regionId, discoveryYear: state.year, availability: "AVAILABLE", seizedByEventId: null });
+  for (const approvedNode of [...authority.nodes].sort((a, b) => a.resourceNodeId.localeCompare(b.resourceNodeId))) {
+    const node = structuredClone(approvedNode); nodes.push(node);
+    const settlement = state.settlements.find((row) => row.siteId === node.siteId);
+    statuses.push({ worldResourceStateId: `WORLD_RESOURCE_${state.worldKey}_${node.resourceNodeId}`, resourceNodeId: node.resourceNodeId, controllerType: settlement ? "STATE" : "DIFFUSE", controllerId: settlement?.stateId ?? node.regionId, discoveryYear: state.year, availability: "AVAILABLE", seizedByEventId: null });
   }
-  const working = { ...state, resourceNodes: nodes.sort((a, b) => a.resourceNodeId.localeCompare(b.resourceNodeId)), worldResourceStates: statuses.sort((a, b) => a.worldResourceStateId.localeCompare(b.worldResourceStateId)) };
-  return { state: working, events: [event(state, "RESOURCE_GEOGRAPHY", "ResourceGeographyEstablished", "WORLD", state.worldKey, { physicalResourceNodes: nodes.length, worldResourceStatuses: statuses.length, policySha256: createHash("sha256").update(canonicalJson(policy)).digest("hex") })] };
+  const working = { ...state, resourceAuthorityStatus: { status: "READY" as const, authorityRevisionId: authority.authorityRevisionId, contentSha256: authority.contentSha256 }, resourceNodes: nodes, worldResourceStates: statuses.sort((a, b) => a.worldResourceStateId.localeCompare(b.worldResourceStateId)) };
+  return { state: working, events: [event(state, "RESOURCE_GEOGRAPHY", "ResourceGeographyEstablished", "WORLD", state.worldKey, { physicalResourceNodes: nodes.length, worldResourceStatuses: statuses.length, authorityRevisionId: authority.authorityRevisionId, authorityContentSha256: authority.contentSha256 })] };
 }
 
 const sectorForIndustry = (industry: IndustryTypeV5): SectorId => {
@@ -51,6 +53,7 @@ const sectorForIndustry = (industry: IndustryTypeV5): SectorId => {
 const COERCIVE = new Set<IndustryTypeV5>(["SEX_TRADE", "SLAVE_LABOR", "INDENTURED_LABOR", "GLADIATORIAL_ENTERTAINMENT", "FIGHTING_PITS", "ORGANIZED_CRIME", "PROTECTION_RACKETS", "SMUGGLING"]);
 
 export function updateIndustriesAndGuildsV5(state: WorldStateV5, context: HistoricalMechanicsContextV5): { state: WorldStateV5; events: CausalEventV5[]; namingRequests: NamingRequestV5[] } {
+  if (state.resourceAuthorityStatus?.status === "RESOURCE_AUTHORITY_REQUIRED") return { state: { ...state, industries: [] }, events: [], namingRequests: [] };
   const policy = needsPolicy(state, context, "RESOURCE_INDUSTRY", "UPDATE_SETTLEMENT_INDUSTRY_AND_GUILDS");
   const indexes = buildEphemeralWorldIndexesV5(state, context.canonical, { includePopulationSlices: false });
   const prior = new Map((state.industries ?? []).map((row) => [row.industryStateId, row])); const industries: IndustryStateV5[] = [];

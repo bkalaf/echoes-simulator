@@ -3,7 +3,7 @@ import { canonicalJson } from "../serialization/canonical-json.js";
 import type { CanonicalDataV5, CausalOwnerInputsV1, GovernmentPrototypeV5, MechanicsVariablesV1 } from "./config.js";
 import { V5_CAUSAL_DERIVATION_VERSION, V5_MECHANICS_VERSION } from "./config.js";
 import { applyCausalEffects } from "./effects.js";
-import { blend, clamp, divideRoundedAway, factionCompatibility, normalizedVectorWeightedMean, thresholdChance, weightedMean } from "./fixed-point.js";
+import { blend, clamp, divideRoundedAway, factionCompatibility, normalizeFactionVector, normalizedVectorWeightedMean, thresholdChance, weightedMean } from "./fixed-point.js";
 import { breedFactionVector, dominantFaction, governmentDoctrineVector, stateFactionTarget, updateDominantFaction } from "./faction.js";
 import { classDistribution, deriveMetrics, derivedInstitutionControlVector, populationFactionVector, settlementPopulation, statePopulation } from "./derivations.js";
 import { keyedDrawBps, keyedInteger, type KeyedRandomIdentity } from "./random.js";
@@ -155,6 +155,60 @@ export function isPersonEligible(person: PoliticalPersonV5, year: number, allowR
   return true;
 }
 
+export function explicitPersonFactionAffinity(person: PoliticalPersonV5): FactionVector | null {
+  return person.factionAffinity ? { ...person.factionAffinity } : null;
+}
+
+function availableFactionBlend(terms: readonly (readonly [FactionVector | null, number])[]): FactionVector {
+  const available = terms.filter((term): term is readonly [FactionVector, number] => term[0] !== null && term[1] > 0);
+  if (available.length === 0) throw new Error("PoliticalPerson alignment requires at least one causal faction input");
+  return normalizeFactionVector({
+    CONCORD: available.reduce((sum, [vector, weight]) => sum + vector.CONCORD * weight, 0),
+    SCHISM: available.reduce((sum, [vector, weight]) => sum + vector.SCHISM * weight, 0),
+    RUIN: available.reduce((sum, [vector, weight]) => sum + vector.RUIN * weight, 0),
+  });
+}
+
+function representedConstituencyFactionAffinity(state: WorldStateV5, office: OfficeV5, canonical: CanonicalDataV5): FactionVector | null {
+  if (!office.jurisdictionSettlementId) return null;
+  if (!state.settlements.some((settlement) => settlement.settlementId === office.jurisdictionSettlementId)) throw new Error(`Office ${office.officeId} references unknown constituency ${office.jurisdictionSettlementId}`);
+  return populationFactionVector(state.cohorts.filter((cell) => cell.settlementId === office.jurisdictionSettlementId), canonical);
+}
+
+function selectionAuthorityFactionAffinity(state: WorldStateV5, office: OfficeV5, selectedPerson: PoliticalPersonV5, canonical: CanonicalDataV5): FactionVector | null {
+  const institution = state.institutions.find((row) => row.institutionId === office.institutionId);
+  if (!institution) throw new Error(`Office ${office.officeId} lacks an Institution`);
+  const selectorId = officeSelectorId(state, office, selectedPerson);
+  switch (office.selectionRule.selectionMethod) {
+    case "RULER_APPOINTMENT": {
+      const selector = selectorId ? state.politicalPeople.find((person) => person.personId === selectorId) : null;
+      if (selector) return explicitPersonFactionAffinity(selector);
+      return state.states.find((row) => row.stateId === selectorId)?.factionAffinity ?? null;
+    }
+    case "HEREDITARY":
+    case "ESTATE_SELECTION":
+      return selectedPerson.familyId ? state.families.find((family) => family.familyId === selectedPerson.familyId)?.factionAffinity ?? null : null;
+    case "COUNCIL_APPOINTMENT":
+      return institutionControlVector(state, institution.stateId, canonical);
+    case "ELITE_FRANCHISE":
+    case "POPULAR_ELECTION":
+      return representedConstituencyFactionAffinity(state, office, canonical);
+    case "MILITARY_SELECTION": {
+      const forces = (state.securityForces ?? []).filter((force) => force.status !== "DISSOLVED" && (
+        (force.jurisdictionType === "STATE" && force.jurisdictionId === institution.stateId)
+        || (force.jurisdictionType === "SETTLEMENT" && state.settlements.find((settlement) => settlement.settlementId === force.jurisdictionId)?.stateId === institution.stateId)
+      ));
+      return forces.length ? normalizeFactionVector({
+        CONCORD: forces.reduce((sum, force) => sum + force.loyalty.CONCORD, 0),
+        SCHISM: forces.reduce((sum, force) => sum + force.loyalty.SCHISM, 0),
+        RUIN: forces.reduce((sum, force) => sum + force.loyalty.RUIN, 0),
+      }) : null;
+    }
+    case "RELIGIOUS_SELECTION":
+      return null;
+  }
+}
+
 export function materializePoliticalPerson(state: WorldStateV5, office: OfficeV5, canonical: CanonicalDataV5, owner: CausalOwnerInputsV1, variables: MechanicsVariablesV1, normalizedSeed: string, vacancyEventId: string, vacancyOrdinal: number): { state: WorldStateV5; person: PoliticalPersonV5; family: FamilyV5 | null; source: PersonSourceContext; namingRequest: NamingRequestV5 } {
   const institution = state.institutions.find((row) => row.institutionId === office.institutionId)!;
   if (office.selectionRule.scope === "SETTLEMENT" && !office.jurisdictionSettlementId) throw new Error(`Settlement-scoped Office ${office.officeId} requires a jurisdiction Settlement`);
@@ -177,7 +231,8 @@ export function materializePoliticalPerson(state: WorldStateV5, office: OfficeV5
     const breed = canonical.breeds.find((row) => row.breedId === candidate.cell.breedId)!;
     const vector = breedFactionVector(breed);
     const eligiblePopulationScore = Number(divideRoundedAway(candidate.eligiblePopulation * 1000n, maximumPopulation));
-    const factionFit = factionCompatibility(vector, politicalState.factionAffinity);
+    const constituency = representedConstituencyFactionAffinity(state, office, canonical);
+    const factionFit = factionCompatibility(vector, constituency ?? politicalState.factionAffinity);
     const classFit = candidate.classContext ? 1000 : 500;
     const settlement = state.settlements.find((row) => row.settlementId === candidate.cell.settlementId)!;
     const localSupport = weightedMean([candidate.cell.tiers[candidate.tier].prosperity, 5000], [1000 - settlement.unrest, 5000]);
@@ -203,19 +258,49 @@ export function materializePoliticalPerson(state: WorldStateV5, office: OfficeV5
     if (!family) family = { familyId: `FAMILY_${digest([comparisonId, "LINEAGE"])}`, homeSettlementId: source.cell.settlementId, founderBreedId: source.cell.breedId, factionAffinity: politicalState.factionAffinity, wealth: source.cell.tiers[source.tier].prosperity, influence: office.power, prestige: 500, status: "ACTIVE", foundingYear: state.year, extinctionYear: null };
     familyId = family.familyId;
   }
-  const person: PoliticalPersonV5 = { personId: `PERSON_${digest(comparisonId)}`, familyId, breedId: source.cell.breedId, originSettlementId: source.cell.settlementId, sourceTier: source.tier, sourceClass: source.classContext, birthYear, activeFromYear: birthYear + activationAge, plannedRetirementYear: retirementAge === null ? null : birthYear + retirementAge, actualRetirementYear: null, naturalDeathYear: birthYear + naturalDeathAge, actualDeathYear: null, disqualifiedFromYear: null, requalifiedYear: null };
+  const personWithoutAlignment: PoliticalPersonV5 = { personId: `PERSON_${digest(comparisonId)}`, familyId, breedId: source.cell.breedId, originSettlementId: source.cell.settlementId, sourceTier: source.tier, sourceClass: source.classContext, birthYear, activeFromYear: birthYear + activationAge, plannedRetirementYear: retirementAge === null ? null : birthYear + retirementAge, actualRetirementYear: null, naturalDeathYear: birthYear + naturalDeathAge, actualDeathYear: null, disqualifiedFromYear: null, requalifiedYear: null };
+  const originFactionAffinity = populationFactionVector(state.cohorts.filter((cell) => cell.settlementId === source.cell.settlementId), canonical);
+  const constituencyFactionAffinity = representedConstituencyFactionAffinity(state, office, canonical);
+  const selectionAuthorityAffinity = selectionAuthorityFactionAffinity(state, office, personWithoutAlignment, canonical);
+  const person: PoliticalPersonV5 = {
+    ...personWithoutAlignment,
+    factionAffinity: availableFactionBlend([
+      [breedFactionVector(breed), office.selectionRule.scoreWeights.factionFit],
+      [politicalState.factionAffinity, office.selectionRule.scoreWeights.classFit],
+      [constituencyFactionAffinity ?? originFactionAffinity, office.selectionRule.scoreWeights.localSupport],
+      [family?.factionAffinity ?? null, office.selectionRule.scoreWeights.lineageFit],
+      [selectionAuthorityAffinity, office.selectionRule.scoreWeights.ruleSpecificFit],
+    ]),
+    factionAlignmentEffectiveFromYear: state.year,
+    factionAlignmentSourceEventId: `${vacancyEventId}_OFFICE_${office.officeId}`,
+  };
   const next = { ...state, politicalPeople: [...state.politicalPeople, person], families: family && !state.families.some((row) => row.familyId === family!.familyId) ? [...state.families, family] : state.families };
   return { state: next, person, family, source, namingRequest: { requestId: `NAME_${person.personId}`, entityType: "POLITICAL_PERSON", entityId: person.personId, behavior: "BATCHED", createdYear: state.year, nameEffectiveFromYear: state.year, worldKey: state.worldKey, namingComparisonGroupId: null, comparisonAuthorityRef: null, acceptedLabel: null, context: { world: state.worldKey, creationYear: state.year, causalReason: "OFFICEHOLDER_MATERIALIZED", officeId: office.officeId, institutionId: office.institutionId, stateId: institution.stateId, originSettlementId: person.originSettlementId, breedId: person.breedId, familyId: person.familyId, sourceTier: person.sourceTier, sourceClass: person.sourceClass } } };
 }
 
-export function officeCandidateScore(state: WorldStateV5, office: OfficeV5, person: PoliticalPersonV5, canonical: CanonicalDataV5, variables: MechanicsVariablesV1): Score1000 {
+export interface OfficeCandidateScoreEvidenceV5 {
+  score: Score1000;
+  constituencyFactionAffinity: FactionVector | null;
+  representativeFactionAffinity: FactionVector;
+  selectionAuthorityFactionAffinity: FactionVector | null;
+  components: { factionFit: Score1000; classFit: Score1000; localSupport: Score1000; lineageFit: Score1000; ruleSpecificFit: Score1000 };
+}
+
+export function officeCandidateScoreEvidence(state: WorldStateV5, office: OfficeV5, person: PoliticalPersonV5, canonical: CanonicalDataV5, variables: MechanicsVariablesV1): OfficeCandidateScoreEvidenceV5 {
   const institution = state.institutions.find((row) => row.institutionId === office.institutionId);
   if (!institution) throw new Error(`Office ${office.officeId} lacks an Institution`);
   const politicalState = state.states.find((row) => row.stateId === institution.stateId);
   const settlement = state.settlements.find((row) => row.settlementId === person.originSettlementId);
   const breed = canonical.breeds.find((row) => row.breedId === person.breedId);
   if (!politicalState || !settlement || !breed) throw new Error(`Office candidate ${person.personId} lacks causal authority`);
-  const factionFit = factionCompatibility(breedFactionVector(breed), politicalState.factionAffinity);
+  const representativeFactionAffinity = explicitPersonFactionAffinity(person);
+  if (!representativeFactionAffinity) throw new Error(`Office candidate ${person.personId} has no explicit persisted faction alignment`);
+  const constituencyFactionAffinity = representedConstituencyFactionAffinity(state, office, canonical);
+  const selectionAuthorityAffinity = selectionAuthorityFactionAffinity(state, office, person, canonical);
+  const factionTarget = office.selectionRule.selectionMethod === "RULER_APPOINTMENT"
+    ? selectionAuthorityAffinity ?? politicalState.factionAffinity
+    : constituencyFactionAffinity ?? selectionAuthorityAffinity ?? politicalState.factionAffinity;
+  const factionFit = factionCompatibility(representativeFactionAffinity, factionTarget);
   const cell = state.cohorts.find((row) => row.settlementId === person.originSettlementId && row.breedId === person.breedId);
   const localSupport = weightedMean([cell?.tiers[person.sourceTier].prosperity ?? 500, 5000], [1000 - settlement.unrest, 5000]);
   const family = person.familyId ? state.families.find((row) => row.familyId === person.familyId && row.status === "ACTIVE") : null;
@@ -224,17 +309,22 @@ export function officeCandidateScore(state: WorldStateV5, office: OfficeV5, pers
   const ruleSpecificFit = (() => {
     switch (office.selectionRule.selectionMethod) {
       case "HEREDITARY": return lineageFit;
-      case "RULER_APPOINTMENT": return factionFit;
-      case "COUNCIL_APPOINTMENT": return institutionEffectiveness(state, institution.stateId, variables);
+      case "RULER_APPOINTMENT": return selectionAuthorityAffinity ? factionCompatibility(representativeFactionAffinity, selectionAuthorityAffinity) : factionFit;
+      case "COUNCIL_APPOINTMENT": return selectionAuthorityAffinity ? factionCompatibility(representativeFactionAffinity, selectionAuthorityAffinity) : institutionEffectiveness(state, institution.stateId, variables);
       case "ESTATE_SELECTION": return family?.influence ?? 0;
-      case "ELITE_FRANCHISE": return weightedMean([localSupport, 6000], [person.sourceTier === "HIGH" ? 1000 : person.sourceTier === "MID" ? 500 : 0, 4000]);
-      case "POPULAR_ELECTION": return localSupport;
-      case "MILITARY_SELECTION": return weightedMean([factionFit, 5000], [politicalState.legitimacy, 5000]);
-      case "RELIGIOUS_SELECTION": return factionFit;
+      case "ELITE_FRANCHISE": return weightedMean([constituencyFactionAffinity ? factionCompatibility(representativeFactionAffinity, constituencyFactionAffinity) : localSupport, 6000], [person.sourceTier === "HIGH" ? 1000 : person.sourceTier === "MID" ? 500 : 0, 4000]);
+      case "POPULAR_ELECTION": return constituencyFactionAffinity ? factionCompatibility(representativeFactionAffinity, constituencyFactionAffinity) : localSupport;
+      case "MILITARY_SELECTION": return weightedMean([selectionAuthorityAffinity ? factionCompatibility(representativeFactionAffinity, selectionAuthorityAffinity) : factionFit, 5000], [politicalState.legitimacy, 5000]);
+      case "RELIGIOUS_SELECTION": return selectionAuthorityAffinity ? factionCompatibility(representativeFactionAffinity, selectionAuthorityAffinity) : factionFit;
     }
   })();
   const weights = office.selectionRule.scoreWeights;
-  return weightedMean([factionFit, weights.factionFit], [classFit, weights.classFit], [localSupport, weights.localSupport], [lineageFit, weights.lineageFit], [ruleSpecificFit, weights.ruleSpecificFit]);
+  const score = weightedMean([factionFit, weights.factionFit], [classFit, weights.classFit], [localSupport, weights.localSupport], [lineageFit, weights.lineageFit], [ruleSpecificFit, weights.ruleSpecificFit]);
+  return { score, constituencyFactionAffinity, representativeFactionAffinity, selectionAuthorityFactionAffinity: selectionAuthorityAffinity, components: { factionFit, classFit, localSupport, lineageFit, ruleSpecificFit } };
+}
+
+export function officeCandidateScore(state: WorldStateV5, office: OfficeV5, person: PoliticalPersonV5, canonical: CanonicalDataV5, variables: MechanicsVariablesV1): Score1000 {
+  return officeCandidateScoreEvidence(state, office, person, canonical, variables).score;
 }
 
 function officeSelectorType(rule: SelectionRuleV5): OfficeTermV5["selectorType"] {
@@ -256,7 +346,7 @@ function officeSelectorId(state: WorldStateV5, office: OfficeV5, selectedPerson:
     case "RULER_APPOINTMENT": {
       const institutionIds = new Set(state.institutions.filter((row) => row.stateId === institution.stateId && row.dissolvedYear === null).map((row) => row.institutionId));
       const apexOfficeIds = new Set(state.offices.filter((row) => row.apex && row.officeId !== office.officeId && institutionIds.has(row.institutionId)).sort((a, b) => b.power - a.power || a.officeId.localeCompare(b.officeId)).map((row) => row.officeId));
-      return state.officeTerms.filter((term) => officeTermActiveAt(term, state.year) && apexOfficeIds.has(term.officeId)).sort((a, b) => a.officeId.localeCompare(b.officeId))[0]?.personId ?? null;
+      return state.officeTerms.filter((term) => officeTermActiveAt(term, state.year) && apexOfficeIds.has(term.officeId)).sort((a, b) => a.officeId.localeCompare(b.officeId))[0]?.personId ?? institution.stateId;
     }
     case "COUNCIL_APPOINTMENT": return institution.institutionId;
     case "ESTATE_SELECTION": return selectedPerson.familyId;
@@ -325,9 +415,8 @@ export function selectHolderForAuthorizedOfficeVacancy(state: WorldStateV5, offi
     const origin = working.settlements.find((settlement) => settlement.settlementId === person.originSettlementId);
     if (!origin || origin.stateId !== institution.stateId) return false;
     if (office!.selectionRule.scope === "SETTLEMENT" && origin.settlementId !== office!.jurisdictionSettlementId) return false;
-    const breed = canonical.breeds.find((row) => row.breedId === person.breedId);
-    const politicalState = working.states.find((row) => row.stateId === institution.stateId);
-    return Boolean(breed && politicalState && factionCompatibility(breedFactionVector(breed), politicalState.factionAffinity) >= office!.selectionRule.minimumFactionCompatibility);
+    if (!canonical.breeds.some((row) => row.breedId === person.breedId) || !working.states.some((row) => row.stateId === institution.stateId) || !explicitPersonFactionAffinity(person)) return false;
+    return officeCandidateScoreEvidence(working, office!, person, canonical, variables).components.factionFit >= office!.selectionRule.minimumFactionCompatibility;
   });
   let candidates = eligible();
   let materialized: ReturnType<typeof materializePoliticalPerson> | null = null;
@@ -342,13 +431,15 @@ export function selectHolderForAuthorizedOfficeVacancy(state: WorldStateV5, offi
     candidates = eligible();
   }
   if (candidates.length === 0) throw new Error(`No eligible Political Person for authorized Office ${office.officeId}`);
-  const scored = candidates.map((person) => ({ person, score: officeCandidateScore(working, office!, person, canonical, variables) })).sort((a, b) => b.score - a.score || a.person.personId.localeCompare(b.person.personId));
-  const top = scored.filter((candidate) => candidate.score === scored[0]!.score);
+  const scored = candidates.map((person) => ({ person, evidence: officeCandidateScoreEvidence(working, office!, person, canonical, variables) })).sort((a, b) => b.evidence.score - a.evidence.score || a.person.personId.localeCompare(b.person.personId));
+  const top = scored.filter((candidate) => candidate.evidence.score === scored[0]!.evidence.score);
   const randomIdentityForSelection = randomIdentity(normalizedSeed, "OFFICE_CANDIDATE_SELECTION", `${institution.stateId}/${office.titleKey}`, state.year, causeEventId);
   const selected = top.length > 1 && office.selectionRule.stochasticTies ? top[keyedInteger(randomIdentityForSelection, 0, top.length - 1)]! : top[0]!;
-  const term: OfficeTermV5 = { officeTermId: `TERM_${digest([office.officeId, selected.person.personId, state.year])}`, officeId: office.officeId, personId: selected.person.personId, startYear: state.year, endYear: office.termYears === null ? null : state.year + office.termYears, selectionEventId: `${causeEventId}_OFFICE_${office.officeId}`, selectorType: officeSelectorType(office.selectionRule), selectorId: officeSelectorId(working, office, selected.person), terminationReason: null };
+  const selectorId = officeSelectorId(working, office, selected.person);
+  const selectorType = office.selectionRule.selectionMethod === "RULER_APPOINTMENT" && working.states.some((row) => row.stateId === selectorId) ? "STATE" : officeSelectorType(office.selectionRule);
+  const term: OfficeTermV5 = { officeTermId: `TERM_${digest([office.officeId, selected.person.personId, state.year])}`, officeId: office.officeId, personId: selected.person.personId, startYear: state.year, endYear: office.termYears === null ? null : state.year + office.termYears, selectionEventId: `${causeEventId}_OFFICE_${office.officeId}`, selectorType, selectorId, terminationReason: null };
   working = { ...working, officeTerms: [...working.officeTerms, term] };
-  const event: CausalEventV5 = { schemaVersion: "echoes-causal-event-v5", eventId: term.selectionEventId, worldKey: state.worldKey, year: state.year, phase: "OFFICE_SELECTION", sequence: ordinal, eventType: "OfficeholderSelected", entityType: "OFFICE", entityId: office.officeId, causeEventIds: [causeEventId], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: top.length > 1 && office.selectionRule.stochasticTies ? canonicalJson(randomIdentityForSelection) : null, mutations: [], payload: { personId: selected.person.personId, selectedPersonId: selected.person.personId, familyId: selected.person.familyId, officeTermId: term.officeTermId, selectorType: term.selectorType, selectorId: term.selectorId, appliedSelectionRule: { ...office.selectionRule, eligibleTiers: [...office.selectionRule.eligibleTiers], eligibleClasses: office.selectionRule.eligibleClasses ? [...office.selectionRule.eligibleClasses] : undefined, scoreWeights: { ...office.selectionRule.scoreWeights } }, sourceGovernmentFormId: chamberAuthority?.sourceGovernmentFormId ?? null, sourceGovernmentOfficeId: chamberAuthority?.sourceGovernmentOfficeId ?? null, sourceSettlementId: selected.person.originSettlementId, sourceBreedId: selected.person.breedId, sourceTier: selected.person.sourceTier, sourceClass: selected.person.sourceClass, candidateScore: selected.score, candidateCount: scored.length, materialized: materialized?.person.personId === selected.person.personId } };
+  const event: CausalEventV5 = { schemaVersion: "echoes-causal-event-v5", eventId: term.selectionEventId, worldKey: state.worldKey, year: state.year, phase: "OFFICE_SELECTION", sequence: ordinal, eventType: "OfficeholderSelected", entityType: "OFFICE", entityId: office.officeId, causeEventIds: [causeEventId], mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION, keyedDecisionIdentity: top.length > 1 && office.selectionRule.stochasticTies ? canonicalJson(randomIdentityForSelection) : null, mutations: [], payload: { officeId: office.officeId, personId: selected.person.personId, selectedPersonId: selected.person.personId, familyId: selected.person.familyId, officeTermId: term.officeTermId, selectorType: term.selectorType, selectorId: term.selectorId, appliedSelectionRule: { ...office.selectionRule, eligibleTiers: [...office.selectionRule.eligibleTiers], eligibleClasses: office.selectionRule.eligibleClasses ? [...office.selectionRule.eligibleClasses] : undefined, scoreWeights: { ...office.selectionRule.scoreWeights } }, sourceGovernmentFormId: chamberAuthority?.sourceGovernmentFormId ?? null, sourceGovernmentOfficeId: chamberAuthority?.sourceGovernmentOfficeId ?? null, sourceSettlementId: office.jurisdictionSettlementId, candidateOriginSettlementId: selected.person.originSettlementId, sourceBreedId: selected.person.breedId, sourceTier: selected.person.sourceTier, sourceClass: selected.person.sourceClass, constituencyFactionAffinity: selected.evidence.constituencyFactionAffinity, representativeFactionAffinity: selected.evidence.representativeFactionAffinity, selectionAuthorityFactionAffinity: selected.evidence.selectionAuthorityFactionAffinity, candidateScore: selected.evidence.score, candidateCount: scored.length, materialized: materialized?.person.personId === selected.person.personId, scoreComponents: selected.evidence.components } };
   return { state: working, events: [event], namingRequests, officeTerm: term };
 }
 

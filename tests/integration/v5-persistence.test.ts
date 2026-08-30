@@ -11,7 +11,7 @@ import { normalizeSeed } from "../../src/core/v5/random.js";
 import type { CausalEventV5, WorldStateV5 } from "../../src/core/v5/types.js";
 import { buildBlockingNamingBatchV5, buildPersistedNamingBatchesV5, validateNamingBatchResponseV5 } from "../../src/core/v5/naming.js";
 import { inspectLegacyV5NamingTrust } from "../../src/persistence/v5-legacy-trust.js";
-import { acceptPersistedV5NamingBatch, acceptPersistedV5NamingBatches, resumePersistedV5Run } from "../../src/core/v5/service.js";
+import { acceptPersistedV5NamingBatch, acceptPersistedV5NamingBatches, catchUpPersistedV5Projection, resumePersistedV5Run } from "../../src/core/v5/service.js";
 import { acceptDerogatoryDecisionResponseV5, buildDerogatoryDecisionBatchV5, V5_EMPTY_DEROGATORY_DECISION_STREAM_HASH } from "../../src/core/v5/derogatory-decisions.js";
 import { CANDIDATE_DEROGATORY_MEMBERSHIP_SLICING_POLICY_V1, type CausalPolicyBlockerV5 } from "../../src/core/v5/historical-policies.js";
 
@@ -25,6 +25,33 @@ const state: WorldStateV5 = {
 const event: CausalEventV5 = { schemaVersion: "echoes-causal-event-v5", eventId: "EV_V5", worldKey: "CONCORD", year: 5, phase: "AUDIT", sequence: 0, eventType: "Audit", entityType: "WORLD", entityId: "CONCORD", causeEventIds: [], mechanicsVersion: "echoes-mechanics-v5.0.0", causalDerivationVersion: "echoes-derived-metrics-v1", keyedDecisionIdentity: null, mutations: [], payload: {} };
 
 describe("V5 persistence and replay boundaries", () => {
+  it("catches a stale projection up idempotently from committed SQLite years", async () => {
+    const store = new SimulatorStore(join(mkdtempSync(join(tmpdir(), "echoes-v5-projection-catchup-")), "run.sqlite"));
+    const runId = "RUN_PROJECTION_CATCHUP";
+    store.createRun({ runId, mode: "DIAGNOSTIC", status: "RUNNING", seed: "seed", seedHash: "hash", policyVersion: "v5" });
+    for (const year of [1, 2]) for (const worldKey of ["CONCORD", "SCHISM", "RUIN"] as const) {
+      store.appendV5CausalEvents(runId, [{ ...event, eventId: `EV_${worldKey}_${year}`, worldKey, entityId: worldKey, year }]);
+    }
+    store.noteV5CausalYearCommitted(runId, 2);
+    store.markV5ProjectionStale(runId, 2, new Error("POSTGRES_DOWN"));
+    const attempts: number[] = [];
+    await catchUpPersistedV5Projection({
+      store,
+      runId,
+      projectAtomicYear: async (year, eventsByWorld) => {
+        attempts.push(year);
+        expect(Object.values(eventsByWorld).every((events) => events.length === 1 && events[0]?.year === year)).toBe(true);
+        if (year === 2) throw new Error("POSTGRES_DOWN");
+      },
+    });
+    expect(store.loadV5ProjectionWatermark(runId)).toMatchObject({ projectedThroughYear: 1, causalCommittedYear: 2, status: "STALE" });
+    await catchUpPersistedV5Projection({ store, runId, projectAtomicYear: async (year) => { attempts.push(year); } });
+    expect(attempts).toEqual([1, 2, 2]);
+    expect(store.loadV5ProjectionWatermark(runId)).toMatchObject({ projectedThroughYear: 2, causalCommittedYear: 2, status: "CURRENT", lastErrorCode: null });
+    expect(store.loadV5ProjectionCatchupTasks(runId).filter((task) => task.status === "COMPLETE")).toHaveLength(2);
+    store.close();
+  });
+
   it("derives legacy naming distrust read-only and refuses schema initialization without changing one byte", () => {
     const filename = join(mkdtempSync(join(tmpdir(), "echoes-v5-legacy-")), "legacy.sqlite");
     const legacy = new DatabaseSync(filename);
@@ -288,7 +315,7 @@ describe("V5 persistence and replay boundaries", () => {
     store.close();
     const before = createHash("sha256").update(readFileSync(filename)).digest("hex");
     store = new SimulatorStore(filename);
-    expect(() => resumePersistedV5Run({ store, resourceDirectory: "resources", runId })).toThrow(/V5_CAUSAL_RESUME_VERSION_MISMATCH.*mechanicsVersion.*schedulerVersion/);
+    expect(() => resumePersistedV5Run({ store, runId })).toThrow(/V5_CAUSAL_RESUME_VERSION_MISMATCH.*mechanicsVersion.*schedulerVersion/);
     store.close();
     expect(createHash("sha256").update(readFileSync(filename)).digest("hex")).toBe(before);
   });

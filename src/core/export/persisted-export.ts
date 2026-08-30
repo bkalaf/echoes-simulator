@@ -4,7 +4,7 @@ import type { WorldKey } from "../contracts/domain.js";
 import { resolveSharedCalendar } from "../events/calendar.js";
 import type { SimulatorStore } from "../../persistence/sqlite-store.js";
 import { buildExportZip, verifyExportZip } from "./exporter.js";
-import { loadBundledCanonicalV5 } from "../v5/canonical-adapter.js";
+import { canonicalV5FromRunAuthoritySnapshot } from "../../persistence/postgres-canonical.js";
 import { adaptV5ToV4ReadExport, buildReadModelV1 } from "../v5/read-model.js";
 import { assertNoSecretEnclaveLeakV54, buildPrivateHistoricalExportV54, buildPublicHistoricalExportV54 } from "../v5/historical-export.js";
 
@@ -53,12 +53,11 @@ export function buildPersistedCanonicalExport(store: SimulatorStore, runId: stri
   return result;
 }
 
-export function buildPersistedV5Export(store: SimulatorStore, runId: string, canonicalDirectory: string): ReturnType<typeof buildExportZip> {
+export function buildPersistedV5Export(store: SimulatorStore, runId: string): ReturnType<typeof buildExportZip> {
   const run = store.getRun(runId);
   const manifest = store.loadV5RunManifest(runId);
   if (!run || !manifest || run.status !== "COMPLETE") throw new Error("Only a completed persisted V5 run can be exported");
-  const canonical = loadBundledCanonicalV5(canonicalDirectory);
-  if (canonical.canonicalBundleHash !== manifest.canonicalBundleHash) throw new Error("V5 export canonical bundle does not match the immutable run manifest");
+  const canonical = canonicalV5FromRunAuthoritySnapshot(manifest.authoritySnapshot, manifest.canonicalBundleHash, run.currentYear ?? manifest.targetYear);
   const labels = store.loadV5Labels(runId, run.currentYear ?? manifest.targetYear);
   const worlds = Object.fromEntries(WORLDS.map((world) => {
     const checkpoint = store.loadLatestV5Checkpoint(runId, world, run.currentYear ?? manifest.targetYear);

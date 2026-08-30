@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "echoes-master-remediation-artifact-manifest-v56",
+  "files": [
+    "startup-domain-database-doctor.json",
+    "breed-deity-affinity-audit.json",
+    "owner-policy-review.md",
+    "owner-policy-review.json",
+    "three-world-genesis-diff.json",
+    "federal-vision-causal-trace.md",
+    "dynamic-influence-validation.json",
+    "state-territory-validation.json",
+    "refuge-resource-route-validation.json",
+    "derogatory-group-canonicalization.md",
+    "derogatory-group-canonicalization.json",
+    "atrocity-18x3-catalog.json",
+    "atrocity-impact-policy.md",
+    "atrocity-fixture-results.json",
+    "deity-religion-validation.json",
+    "family-power-validation.json",
+    "migration-intermingling-validation.json",
+    "ECHOES_OF_EIDOLON_DYNAMIC_ATLAS_HANDOFF.md",
+    "master-remediation-final-report.md"
+  ],
+  "contentSetSha256": "071cd37942089b22614bb604af3179ac00c1147417761734a498a87defcd37a6"
+}

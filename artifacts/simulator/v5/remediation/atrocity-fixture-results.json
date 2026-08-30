@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "echoes-atrocity-fixture-results-v56",
+  "status": "STRUCTURAL_FIXTURES_PRESENT_NUMERIC_EXECUTION_BLOCKED",
+  "fixtures": [
+    {
+      "fixtureId": "POISONED_WELL",
+      "requiredEvidence": [
+        "exact population conservation",
+        "approved concentration and spillover",
+        "scapegoating separated from direct harm",
+        "Family counter-mobilization",
+        "persistent policy effects",
+        "no illustrative hardcoded deltas"
+      ]
+    },
+    {
+      "fixtureId": "RUIN_LITERACY_CREDENTIAL",
+      "requiredEvidence": [
+        "credential exclusion and literacy effects",
+        "exact population conservation",
+        "migration and group-safety transfers",
+        "Family sponsorship and counter-mobilization",
+        "persistent policy effects",
+        "no illustrative hardcoded deltas"
+      ]
+    }
+  ],
+  "hardcodedIllustrativeDeltas": false,
+  "blockingPolicies": [
+    "ATROCITY_HARM_SHARE",
+    "ATROCITY_HARM_PROFILES",
+    "ATROCITY_CONCENTRATION",
+    "ATROCITY_SPILLOVER",
+    "ATROCITY_MORTALITY_DISPLACEMENT",
+    "ATROCITY_PERSISTENCE"
+  ]
+}

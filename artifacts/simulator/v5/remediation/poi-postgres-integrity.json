@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "echoes-poi-postgres-integrity-v1",
+  "authorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+  "currentAuthorities": 1,
+  "pointOfInterestCount": 92,
+  "siteCount": 175,
+  "regionCount": 25,
+  "invalidSiteForeignKeys": 0,
+  "invalidRegionForeignKeys": 0,
+  "invalidParentForeignKeys": 0,
+  "authoritativePlacementCount": 85,
+  "withheldConflictCount": 7,
+  "pass": true
+}

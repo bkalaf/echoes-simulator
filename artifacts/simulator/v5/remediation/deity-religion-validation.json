@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "echoes-deity-religion-validation-v56",
+  "status": "BREED_PRIMARY_DEITY_AND_NUMERIC_POLICY_REQUIRED",
+  "derivation": "actual Settlement Breed population → Breed.primaryDeityId → Deity/Pantheon support",
+  "breedPrimaryDeityRequired": true,
+  "uniqueReligiousSiteLimits": {
+    "templePerDeityWorld": 1,
+    "shrinePerDeityWorld": 1
+  },
+  "structuralPantheonCenterAlgorithmApproved": true,
+  "durableType": "PantheonCenterDesignation",
+  "presentationLabel": "Pantheon Center",
+  "pantheonSeatTermStatus": "PROVISIONAL",
+  "candidatePolicies": [
+    "TEMPLE_THRESHOLD",
+    "SHRINE_THRESHOLD",
+    "RELIGIOUS_SIMILARITY"
+  ]
+}

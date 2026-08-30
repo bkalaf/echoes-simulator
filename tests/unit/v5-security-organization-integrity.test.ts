@@ -41,10 +41,10 @@ function fixture(): WorldStateV5 {
 
 const context = { canonical, ownerInputs: diagnosticCandidateOwnerInputsV1({ GOVERNMENT: {} }), mode: "DIAGNOSTIC" as const };
 
-describe("V5.4 SecurityForce Organization integrity", () => {
+describe("V5.6 SecurityForce Organization integrity", () => {
   it("forms all seven force types as real, controlled Organizations with external naming requests", () => {
     const result = updateCivicInstitutionsAndSecurityV5(fixture(), context);
-    expect({ stateHash: v5CheckpointHash(result.state), eventHash: createHash("sha256").update(canonicalJson(result.events)).digest("hex"), namingHash: createHash("sha256").update(canonicalJson(result.namingRequests)).digest("hex") }).toEqual({ stateHash: "b0b408957330e53740cb4d6cf9f64f76434b8e499736e05a74b0ea3fbf302fc5", eventHash: "1614a5668c66650b2d43d758f70989e10acf8380968db1630df2db1fd86d056a", namingHash: "27dabb02212fea0558afb10a20c591b51b8b4617cdbdf94e482b329e5098237c" });
+    expect({ stateHash: v5CheckpointHash(result.state), eventHash: createHash("sha256").update(canonicalJson(result.events)).digest("hex"), namingHash: createHash("sha256").update(canonicalJson(result.namingRequests)).digest("hex") }).toEqual({ stateHash: "b0b408957330e53740cb4d6cf9f64f76434b8e499736e05a74b0ea3fbf302fc5", eventHash: "27db86000b5d9a1acbc55f993998fd14032e4adc888d49dc2457c5d3d155ee9f", namingHash: "27dabb02212fea0558afb10a20c591b51b8b4617cdbdf94e482b329e5098237c" });
     expect(result.state.securityForces?.map((force) => force.forceType).sort()).toEqual([...V5_SECURITY_FORCE_TYPES].sort());
     expect(result.state.securityForces).toHaveLength(7);
     expect(result.namingRequests).toHaveLength(7);
@@ -67,7 +67,7 @@ describe("V5.4 SecurityForce Organization integrity", () => {
       worldResourceStates: resourceTypes.map((resourceType) => ({ worldResourceStateId: `RESOURCE_STATE_${resourceType}`, resourceNodeId: `RESOURCE_${resourceType}`, controllerType: "STATE" as const, controllerId: "STATE", discoveryYear: 0, availability: "AVAILABLE" as const, seizedByEventId: null })),
     };
     const result = updateIndustriesAndGuildsV5(withResources, context);
-    expect({ stateHash: v5CheckpointHash(result.state), eventHash: createHash("sha256").update(canonicalJson(result.events)).digest("hex"), namingHash: createHash("sha256").update(canonicalJson(result.namingRequests)).digest("hex") }).toEqual({ stateHash: "163d508ecac6019383bfc159142c3ddaf4fa56b47d061cb509cd4133fcbe1ce7", eventHash: "a339dda94faaf375f7bbdc942c7de88872bac813022ed92f46603f65cf050e2f", namingHash: "296274bc036beb6f38e15fb7df1d6e5775c363431ff59664389e5410b329a8a3" });
+    expect({ stateHash: v5CheckpointHash(result.state), eventHash: createHash("sha256").update(canonicalJson(result.events)).digest("hex"), namingHash: createHash("sha256").update(canonicalJson(result.namingRequests)).digest("hex") }).toEqual({ stateHash: "163d508ecac6019383bfc159142c3ddaf4fa56b47d061cb509cd4133fcbe1ce7", eventHash: "a70053873cf0a7cd0659af23c464a7acc6d002484f9360281eaef9b9ab1a9344", namingHash: "296274bc036beb6f38e15fb7df1d6e5775c363431ff59664389e5410b329a8a3" });
     expect(result.state.industries).toHaveLength(40);
   });
 

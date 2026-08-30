@@ -7,7 +7,7 @@ import { normalizeSeed } from "../core/v5/random.js";
 import { runPersistedV5Diagnostic } from "../core/v5/service.js";
 import { buildHistoricalDiagnosticsV5 } from "../core/v5/historical-diagnostics.js";
 import type { CausalEventV5, WorldKey, WorldStateV5 } from "../core/v5/types.js";
-import { loadBundledCanonicalV5 } from "../core/v5/canonical-adapter.js";
+import { legacyImportTestCanonicalAuthorityV5 } from "../core/v5/canonical-adapter.js";
 import { SimulatorStore } from "../persistence/sqlite-store.js";
 import { validateScopedV5DivergenceRegression, V5_REMEDIATION_DIVERGENCE_REGRESSION_SCOPE } from "../core/v5/divergence-regression.js";
 
@@ -22,10 +22,11 @@ const executionId = new Date().toISOString().replaceAll(":", "-").replace(".", "
 const databasePath = resolve(outputDirectory, `${benchmark ? "benchmark" : "interactive"}-${targetYear}-${executionId}.sqlite`);
 const store = new SimulatorStore(databasePath);
 const started = performance.now();
+const canonicalAuthority = legacyImportTestCanonicalAuthorityV5(resolve("resources/canonical"));
 try {
   const result = runPersistedV5Diagnostic({
     store,
-    resourceDirectory: resolve("resources"),
+    canonicalAuthority,
     normalizedSeed: normalizeSeed("EIDOLON_V5_REMEDIATION_ACCEPTANCE_V1"),
     throughYear: targetYear,
     namingMode: benchmark ? "UNATTENDED_CAUSAL_BENCHMARK" : "INTERACTIVE_LLM_NAMING",
@@ -39,7 +40,7 @@ try {
   const finalStates = Object.fromEntries(worlds.map((world) => [world, store.loadLatestV5Checkpoint(result.runId, world, result.currentYear)?.state]).filter((row): row is [WorldKey, WorldStateV5] => Boolean(row[1]))) as Record<WorldKey, WorldStateV5>;
   const diagnosticEventTypes = ["FamilyPromoted","FamilyAllianceCreated","FamilyRivalryCreated","OrganizationFormed","OrganizationDissolved","SettlementFounded","FoundingTransfer"];
   const diagnosticEvents = Object.fromEntries(worlds.map((world) => [world, store.listV5CausalEventsByTypes(result.runId, world, diagnosticEventTypes, result.currentYear)])) as Record<WorldKey, CausalEventV5[]>;
-  const historicalDiagnostics = worlds.every((world) => finalStates[world]) ? buildHistoricalDiagnosticsV5({ canonical: loadBundledCanonicalV5(resolve("resources/canonical")), states: finalStates, events: diagnosticEvents, summaries: store.listV5DiagnosticSummaries(result.runId), divergence: result.divergence, divergenceTraces: store.listV5DivergenceTraces(result.runId) }) : null;
+  const historicalDiagnostics = worlds.every((world) => finalStates[world]) ? buildHistoricalDiagnosticsV5({ canonical: canonicalAuthority.canonical, states: finalStates, events: diagnosticEvents, summaries: store.listV5DiagnosticSummaries(result.runId), divergence: result.divergence, divergenceTraces: store.listV5DivergenceTraces(result.runId) }) : null;
   const storagePayloads = store.v5StoragePayloadAccounting(result.runId);
   const databaseMainBytes = statSync(databasePath).size;
   const databaseWalBytes = statSync(`${databasePath}-wal`, { throwIfNoEntry: false })?.size ?? 0;

@@ -122,6 +122,10 @@ export interface PoliticalPersonV5 {
   actualDeathYear: number | null;
   disqualifiedFromYear: number | null;
   requalifiedYear: number | null;
+  /** Missing only on immutable checkpoints created before mechanics v5.5. */
+  factionAffinity?: FactionVector;
+  factionAlignmentEffectiveFromYear?: number;
+  factionAlignmentSourceEventId?: string;
 }
 
 export type PersonRelationType = "PARENT_CHILD" | "SIBLING" | "COUSIN" | "SPOUSE" | "HEIR" | "PROTEGE";
@@ -283,6 +287,12 @@ export interface ResourceNodeV5 {
   placementAuthorityRef: string;
 }
 
+export interface ResourceAuthorityStateV5 {
+  status: "READY" | "RESOURCE_AUTHORITY_REQUIRED";
+  authorityRevisionId: string | null;
+  contentSha256: string | null;
+}
+
 export interface WorldResourceStateV5 {
   worldResourceStateId: string;
   resourceNodeId: string;
@@ -426,15 +436,15 @@ export interface DerogatoryTargetSelectionV5 {
 }
 
 export const V5_ATROCITY_OCCURRENCE_IDS = [
-  "ATROCITY_WITNESS_17", "ATROCITY_WITNESS_16_A", "ATROCITY_WITNESS_16_B", "ATROCITY_WITNESS_15", "ATROCITY_WITNESS_14", "ATROCITY_WITNESS_13",
-  "ATROCITY_WITNESS_12", "ATROCITY_WITNESS_11", "ATROCITY_WITNESS_10", "ATROCITY_WITNESS_09", "ATROCITY_WITNESS_08", "ATROCITY_WITNESS_07",
-  "ATROCITY_WITNESS_06", "ATROCITY_WITNESS_05", "ATROCITY_WITNESS_04", "ATROCITY_WITNESS_03", "ATROCITY_WITNESS_02", "ATROCITY_WITNESS_01",
+  "ATROCITY_17_A", "ATROCITY_17_B", "ATROCITY_16", "ATROCITY_15", "ATROCITY_14", "ATROCITY_13",
+  "ATROCITY_12", "ATROCITY_11", "ATROCITY_10", "ATROCITY_09", "ATROCITY_08", "ATROCITY_07",
+  "ATROCITY_06", "ATROCITY_05", "ATROCITY_04", "ATROCITY_03", "ATROCITY_02", "ATROCITY_01",
 ] as const;
 export type AtrocityOccurrenceIdV5 = (typeof V5_ATROCITY_OCCURRENCE_IDS)[number];
 export interface AtrocityOccurrenceSlotV5 {
   occurrenceId: AtrocityOccurrenceIdV5;
-  witness: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17;
-  witnessOccurrence: "ONLY" | "A" | "B";
+  structuralOrdinal: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17;
+  structuralOccurrence: "ONLY" | "A" | "B";
   status: "NOT_CONFIGURED" | "CONFIGURED";
   triggerYear: number | null;
   targetScope: DerogatoryTargetingScopeV5 | null;
@@ -504,6 +514,8 @@ export interface WorldStateV5 {
   timedConditions: TimedConditionV5[];
   activeConflicts: ActiveConflictV5[];
   worldRoutes: WorldRouteV5[];
+  /** Empty nodes with REQUIRED means unknown authority, never an empty canon. */
+  resourceAuthorityStatus?: ResourceAuthorityStateV5;
   resourceNodes?: ResourceNodeV5[];
   worldResourceStates?: WorldResourceStateV5[];
   industries?: IndustryStateV5[];

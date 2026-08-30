@@ -1,0 +1,3604 @@
+{
+  "schemaVersion": "echoes-poi-atlas-reconciliation-v1",
+  "generatedAt": "2026-08-29T19:38:42.225Z",
+  "authorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+  "counts": {
+    "EXACT_MATCH": 85,
+    "ATLAS_CORRECTION": 0,
+    "SIMULATOR_ONLY": 0,
+    "ATLAS_ONLY": 0,
+    "ID_CONFLICT": 0,
+    "TYPE_CONFLICT": 0,
+    "INVALID_GEOGRAPHY": 7
+  },
+  "rows": [
+    {
+      "poiId": "POI-001",
+      "names": {
+        "simulator": "Visible Major Waterfall",
+        "atlas": "Visible Major Waterfall"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "WATERFALL",
+        "latitude": 28.960942,
+        "longitude": -102.70767,
+        "siteId": "SITE-035",
+        "regionId": "R05",
+        "surfaceType": "LAND",
+        "hostFeatureId": "WATERFALL-NW-01",
+        "primaryBiomeId": "BIOME-06"
+      },
+      "activeAtlas": {
+        "poiType": "WATERFALL",
+        "latitude": 28.960942,
+        "longitude": -102.70767,
+        "regionId": "R05"
+      },
+      "databaseAfter": {
+        "poiType": "WATERFALL",
+        "latitude": 28.960942,
+        "longitude": -102.70767,
+        "siteId": "SITE-035",
+        "regionId": "R05",
+        "surfaceType": "LAND",
+        "hostFeatureId": "WATERFALL-NW-01",
+        "primaryBiomeId": "BIOME-06",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-002",
+      "names": {
+        "simulator": "Shadow Forest Heart",
+        "atlas": "Shadow Forest Heart"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "SHADOW_FOREST",
+        "latitude": 20.375,
+        "longitude": -91.03125,
+        "siteId": "SITE-044",
+        "regionId": "R07",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-05"
+      },
+      "activeAtlas": {
+        "poiType": "SHADOW_FOREST",
+        "latitude": 20.375,
+        "longitude": -91.03125,
+        "regionId": "R07"
+      },
+      "databaseAfter": {
+        "poiType": "SHADOW_FOREST",
+        "latitude": 20.375,
+        "longitude": -91.03125,
+        "siteId": "SITE-044",
+        "regionId": "R07",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-05",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-003",
+      "names": {
+        "simulator": "Rainbow Heatherland Heart",
+        "atlas": "Rainbow Heatherland Heart"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "HEATHERLANDS",
+        "latitude": 43.125,
+        "longitude": -126.96875,
+        "siteId": "SITE-017",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-03"
+      },
+      "activeAtlas": {
+        "poiType": "HEATHERLANDS",
+        "latitude": 43.125,
+        "longitude": -126.96875,
+        "regionId": "R03"
+      },
+      "databaseAfter": {
+        "poiType": "HEATHERLANDS",
+        "latitude": 43.125,
+        "longitude": -126.96875,
+        "siteId": "SITE-017",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-03",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-004",
+      "names": {
+        "simulator": "Eastern Great Reef",
+        "atlas": "Eastern Great Reef"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "REEF",
+        "latitude": 43.122886,
+        "longitude": 121.880496,
+        "siteId": "SITE-079",
+        "regionId": "R12",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "REEF-EA-01",
+        "primaryBiomeId": "BIOME-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "REEF",
+        "latitude": 43.122886,
+        "longitude": 121.880496,
+        "regionId": "R12"
+      },
+      "databaseAfter": {
+        "poiType": "REEF",
+        "latitude": 43.122886,
+        "longitude": 121.880496,
+        "siteId": "SITE-079",
+        "regionId": "R12",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "REEF-EA-01",
+        "primaryBiomeId": "BIOME-OCEAN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-005",
+      "names": {
+        "simulator": "Visible Volcanic Island Chain",
+        "atlas": "Visible Volcanic Island Chain"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "VOLCANIC_ISLAND_CHAIN",
+        "latitude": -52.559188,
+        "longitude": 74.983089,
+        "siteId": "SITE-145",
+        "regionId": "R21",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-11"
+      },
+      "activeAtlas": {
+        "poiType": "VOLCANIC_ISLAND_CHAIN",
+        "latitude": -52.559188,
+        "longitude": 74.983089,
+        "regionId": "R21"
+      },
+      "databaseAfter": {
+        "poiType": "VOLCANIC_ISLAND_CHAIN",
+        "latitude": -52.559188,
+        "longitude": 74.983089,
+        "siteId": "SITE-145",
+        "regionId": "R21",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-11",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-006",
+      "names": {
+        "simulator": "Great Pit",
+        "atlas": "Great Pit"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "GREAT_PIT",
+        "latitude": 25.062007,
+        "longitude": -69.40248,
+        "siteId": "SITE-029",
+        "regionId": "R05",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-05"
+      },
+      "activeAtlas": {
+        "poiType": "GREAT_PIT",
+        "latitude": 25.062007,
+        "longitude": -69.40248,
+        "regionId": "R05"
+      },
+      "databaseAfter": {
+        "poiType": "GREAT_PIT",
+        "latitude": 25.062007,
+        "longitude": -69.40248,
+        "siteId": "SITE-029",
+        "regionId": "R05",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-05",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-007",
+      "names": {
+        "simulator": "World Tree",
+        "atlas": "World Tree"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "WORLD_TREE",
+        "latitude": 26.076663,
+        "longitude": 102.074408,
+        "siteId": "SITE-081",
+        "regionId": "R12",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-07"
+      },
+      "activeAtlas": {
+        "poiType": "WORLD_TREE",
+        "latitude": 26.076663,
+        "longitude": 102.074408,
+        "regionId": "R12"
+      },
+      "databaseAfter": {
+        "poiType": "WORLD_TREE",
+        "latitude": 26.076663,
+        "longitude": 102.074408,
+        "siteId": "SITE-081",
+        "regionId": "R12",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-07",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-008",
+      "names": {
+        "simulator": "Heavenfall",
+        "atlas": "Heavenfall"
+      },
+      "classification": "INVALID_GEOGRAPHY",
+      "simulatorBefore": {
+        "poiType": "HEAVENFALL",
+        "latitude": 46.369786,
+        "longitude": -3.449831,
+        "siteId": "SITE-104",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "HEAVENFALL",
+        "latitude": 46.369786,
+        "longitude": -3.449831,
+        "regionId": "R15"
+      },
+      "databaseAfter": {
+        "poiType": "HEAVENFALL",
+        "latitude": 46.369786,
+        "longitude": -3.449831,
+        "siteId": "SITE-104",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN",
+        "placementStatus": "WITHHELD_CONFLICT",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2:WITHHELD_CONFLICT",
+      "notes": "Declared LAND coordinate resolves to Nimbus open ocean; no authoritative replacement anchor exists."
+    },
+    {
+      "poiId": "POI-009",
+      "names": {
+        "simulator": "Hell Door",
+        "atlas": "Hell Door"
+      },
+      "classification": "INVALID_GEOGRAPHY",
+      "simulatorBefore": {
+        "poiType": "HELL_DOOR",
+        "latitude": -17.553551,
+        "longitude": 8.726043,
+        "siteId": "SITE-127",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "HELL_DOOR",
+        "latitude": -17.553551,
+        "longitude": 8.726043,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "HELL_DOOR",
+        "latitude": -17.553551,
+        "longitude": 8.726043,
+        "siteId": "SITE-127",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN",
+        "placementStatus": "WITHHELD_CONFLICT",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2:WITHHELD_CONFLICT",
+      "notes": "Declared LAND coordinate resolves to Nimbus open ocean; no authoritative replacement anchor exists."
+    },
+    {
+      "poiId": "POI-010",
+      "names": {
+        "simulator": "Eastern Maelstrom",
+        "atlas": "Eastern Maelstrom"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "MAELSTROM",
+        "latitude": 10.856821,
+        "longitude": 146.719278,
+        "siteId": "SITE-084",
+        "regionId": "R12",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "MAELSTROM",
+        "latitude": 10.856821,
+        "longitude": 146.719278,
+        "regionId": "R12"
+      },
+      "databaseAfter": {
+        "poiType": "MAELSTROM",
+        "latitude": 10.856821,
+        "longitude": 146.719278,
+        "siteId": "SITE-084",
+        "regionId": "R12",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-011",
+      "names": {
+        "simulator": "Ocean Whirlpool",
+        "atlas": "Ocean Whirlpool"
+      },
+      "classification": "INVALID_GEOGRAPHY",
+      "simulatorBefore": {
+        "poiType": "WHIRLPOOL",
+        "latitude": -52.05186,
+        "longitude": -2.435175,
+        "siteId": "SITE-172",
+        "regionId": "R25",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-11"
+      },
+      "activeAtlas": {
+        "poiType": "WHIRLPOOL",
+        "latitude": -52.05186,
+        "longitude": -2.435175,
+        "regionId": "R25"
+      },
+      "databaseAfter": {
+        "poiType": "WHIRLPOOL",
+        "latitude": -52.05186,
+        "longitude": -2.435175,
+        "siteId": "SITE-172",
+        "regionId": "R25",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-11",
+        "placementStatus": "WITHHELD_CONFLICT",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2:WITHHELD_CONFLICT",
+      "notes": "Declared OPEN_WATER coordinate resolves to Nimbus land and biome class 11; no authoritative replacement anchor exists."
+    },
+    {
+      "poiId": "POI-012",
+      "names": {
+        "simulator": "Floating Island Group",
+        "atlas": "Floating Island Group"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FLOATING_ISLAND_GROUP",
+        "latitude": 17.959414,
+        "longitude": 47.282976,
+        "siteId": "SITE-067",
+        "regionId": "R10",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-04"
+      },
+      "activeAtlas": {
+        "poiType": "FLOATING_ISLAND_GROUP",
+        "latitude": 17.959414,
+        "longitude": 47.282976,
+        "regionId": "R10"
+      },
+      "databaseAfter": {
+        "poiType": "FLOATING_ISLAND_GROUP",
+        "latitude": 17.959414,
+        "longitude": 47.282976,
+        "siteId": "SITE-067",
+        "regionId": "R10",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-04",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-013",
+      "names": {
+        "simulator": "Visible Geyser",
+        "atlas": "Visible Geyser"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "GEYSER",
+        "latitude": 19.988726,
+        "longitude": 50.326945,
+        "siteId": "SITE-061",
+        "regionId": "R09",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-04"
+      },
+      "activeAtlas": {
+        "poiType": "GEYSER",
+        "latitude": 19.988726,
+        "longitude": 50.326945,
+        "regionId": "R09"
+      },
+      "databaseAfter": {
+        "poiType": "GEYSER",
+        "latitude": 19.988726,
+        "longitude": 50.326945,
+        "siteId": "SITE-061",
+        "regionId": "R09",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-04",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-014",
+      "names": {
+        "simulator": "Volcanic Caldera",
+        "atlas": "Volcanic Caldera"
+      },
+      "classification": "INVALID_GEOGRAPHY",
+      "simulatorBefore": {
+        "poiType": "CALDERA",
+        "latitude": -18.568207,
+        "longitude": -11.56708,
+        "siteId": "SITE-128",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "CALDERA",
+        "latitude": -18.568207,
+        "longitude": -11.56708,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "CALDERA",
+        "latitude": -18.568207,
+        "longitude": -11.56708,
+        "siteId": "SITE-128",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN",
+        "placementStatus": "WITHHELD_CONFLICT",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2:WITHHELD_CONFLICT",
+      "notes": "Declared LAND coordinate resolves to Nimbus open ocean; no authoritative replacement anchor exists."
+    },
+    {
+      "poiId": "POI-015",
+      "names": {
+        "simulator": "Hot Spring Field",
+        "atlas": "Hot Spring Field"
+      },
+      "classification": "INVALID_GEOGRAPHY",
+      "simulatorBefore": {
+        "poiType": "HOT_SPRING",
+        "latitude": -11.465614,
+        "longitude": -5.479143,
+        "siteId": "SITE-132",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "HOT_SPRING",
+        "latitude": -11.465614,
+        "longitude": -5.479143,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "HOT_SPRING",
+        "latitude": -11.465614,
+        "longitude": -5.479143,
+        "siteId": "SITE-132",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN",
+        "placementStatus": "WITHHELD_CONFLICT",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2:WITHHELD_CONFLICT",
+      "notes": "Declared LAND coordinate resolves to Nimbus open ocean; no authoritative replacement anchor exists."
+    },
+    {
+      "poiId": "POI-016",
+      "names": {
+        "simulator": "Abyssal Underwater Landmark",
+        "atlas": "Abyssal Underwater Landmark"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "UNDERWATER_LANDMARK",
+        "latitude": -50.022548,
+        "longitude": 87.869222,
+        "siteId": "SITE-145",
+        "regionId": "R21",
+        "surfaceType": "UNDERWATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "UNDERWATER_LANDMARK",
+        "latitude": -50.022548,
+        "longitude": 87.869222,
+        "regionId": "R21"
+      },
+      "databaseAfter": {
+        "poiType": "UNDERWATER_LANDMARK",
+        "latitude": -50.022548,
+        "longitude": 87.869222,
+        "siteId": "SITE-145",
+        "regionId": "R21",
+        "surfaceType": "UNDERWATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-017",
+      "names": {
+        "simulator": "Polar Arcane Anomaly",
+        "atlas": "Polar Arcane Anomaly"
+      },
+      "classification": "INVALID_GEOGRAPHY",
+      "simulatorBefore": {
+        "poiType": "POLAR_ANOMALY",
+        "latitude": 75.794814,
+        "longitude": 18.872604,
+        "siteId": "SITE-100",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "POLAR_ANOMALY",
+        "latitude": 75.794814,
+        "longitude": 18.872604,
+        "regionId": "R15"
+      },
+      "databaseAfter": {
+        "poiType": "POLAR_ANOMALY",
+        "latitude": 75.794814,
+        "longitude": 18.872604,
+        "siteId": "SITE-100",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-OCEAN",
+        "placementStatus": "WITHHELD_CONFLICT",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2:WITHHELD_CONFLICT",
+      "notes": "Declared LAND coordinate resolves to Nimbus open ocean; no authoritative replacement anchor exists."
+    },
+    {
+      "poiId": "POI-018",
+      "names": {
+        "simulator": "Northwestern Spine Range",
+        "atlas": "Northwestern Spine Range"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": 52.982609,
+        "longitude": -105.934046,
+        "siteId": "SITE-028",
+        "regionId": "R04",
+        "surfaceType": "LAND",
+        "hostFeatureId": "MOUNTAIN-RANGE-001",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN"
+      },
+      "activeAtlas": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": 52.982609,
+        "longitude": -105.934046,
+        "regionId": "R04"
+      },
+      "databaseAfter": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": 52.982609,
+        "longitude": -105.934046,
+        "siteId": "SITE-028",
+        "regionId": "R04",
+        "surfaceType": "LAND",
+        "hostFeatureId": "MOUNTAIN-RANGE-001",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-019",
+      "names": {
+        "simulator": "High North Peak",
+        "atlas": "High North Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": 75.119537,
+        "longitude": -109.737107,
+        "siteId": "SITE-021",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-NW-01",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": 75.119537,
+        "longitude": -109.737107,
+        "regionId": "R03"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": 75.119537,
+        "longitude": -109.737107,
+        "siteId": "SITE-021",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-NW-01",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-020",
+      "names": {
+        "simulator": "Central Spine Peak",
+        "atlas": "Central Spine Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": 62.236552,
+        "longitude": -107.537895,
+        "siteId": "SITE-016",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-NW-02",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": 62.236552,
+        "longitude": -107.537895,
+        "regionId": "R03"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": 62.236552,
+        "longitude": -107.537895,
+        "siteId": "SITE-016",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-NW-02",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-021",
+      "names": {
+        "simulator": "Southern Spine Peak",
+        "atlas": "Southern Spine Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": 34.889584,
+        "longitude": -99.328597,
+        "siteId": "SITE-035",
+        "regionId": "R05",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-NW-03",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": 34.889584,
+        "longitude": -99.328597,
+        "regionId": "R05"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": 34.889584,
+        "longitude": -99.328597,
+        "siteId": "SITE-035",
+        "regionId": "R05",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-NW-03",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-022",
+      "names": {
+        "simulator": "Western Snow Peak",
+        "atlas": "Western Snow Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": 58.544592,
+        "longitude": 36.611755,
+        "siteId": "SITE-060",
+        "regionId": "R09",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-EA-01",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": 58.544592,
+        "longitude": 36.611755,
+        "regionId": "R09"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": 58.544592,
+        "longitude": 36.611755,
+        "siteId": "SITE-060",
+        "regionId": "R09",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-EA-01",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-023",
+      "names": {
+        "simulator": "Eastern Badland Peak",
+        "atlas": "Eastern Badland Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": 40.86681,
+        "longitude": 95.597215,
+        "siteId": "SITE-097",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-EA-02",
+        "primaryBiomeId": "BIOME-01"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": 40.86681,
+        "longitude": 95.597215,
+        "regionId": "R14"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": 40.86681,
+        "longitude": 95.597215,
+        "siteId": "SITE-097",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-EA-02",
+        "primaryBiomeId": "BIOME-01",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-024",
+      "names": {
+        "simulator": "Southwest Peak",
+        "atlas": "Southwest Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": 18.220072,
+        "longitude": 31.677112,
+        "siteId": "SITE-101",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-EA-03",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": 18.220072,
+        "longitude": 31.677112,
+        "regionId": "R15"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": 18.220072,
+        "longitude": 31.677112,
+        "siteId": "SITE-101",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-EA-03",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-025",
+      "names": {
+        "simulator": "Northwest High Peak",
+        "atlas": "Northwest High Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": -10.135729,
+        "longitude": -78.658727,
+        "siteId": "SITE-121",
+        "regionId": "R18",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-01",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": -10.135729,
+        "longitude": -78.658727,
+        "regionId": "R18"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": -10.135729,
+        "longitude": -78.658727,
+        "siteId": "SITE-121",
+        "regionId": "R18",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-01",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-026",
+      "names": {
+        "simulator": "Central High Peak",
+        "atlas": "Central High Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": -22.626846,
+        "longitude": -68.149411,
+        "siteId": "SITE-122",
+        "regionId": "R18",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-02",
+        "primaryBiomeId": "BIOME-06"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": -22.626846,
+        "longitude": -68.149411,
+        "regionId": "R18"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": -22.626846,
+        "longitude": -68.149411,
+        "siteId": "SITE-122",
+        "regionId": "R18",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-02",
+        "primaryBiomeId": "BIOME-06",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-027",
+      "names": {
+        "simulator": "Eastern Volcano Peak",
+        "atlas": "Eastern Volcano Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": -26.902138,
+        "longitude": 2.704108,
+        "siteId": "SITE-132",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-03",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": -26.902138,
+        "longitude": 2.704108,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": -26.902138,
+        "longitude": 2.704108,
+        "siteId": "SITE-132",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-03",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-028",
+      "names": {
+        "simulator": "Far East Volcano Peak",
+        "atlas": "Far East Volcano Peak"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": -29.976244,
+        "longitude": 20.769489,
+        "siteId": "SITE-127",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-04",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": -29.976244,
+        "longitude": 20.769489,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": -29.976244,
+        "longitude": 20.769489,
+        "siteId": "SITE-127",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-04",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-029",
+      "names": {
+        "simulator": "Derived Summit 01",
+        "atlas": "Derived Summit 01"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": 41.625,
+        "longitude": 89.625,
+        "siteId": "SITE-095",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-DER-001",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": 41.625,
+        "longitude": 89.625,
+        "regionId": "R14"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": 41.625,
+        "longitude": 89.625,
+        "siteId": "SITE-095",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-DER-001",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-030",
+      "names": {
+        "simulator": "Derived Summit 02",
+        "atlas": "Derived Summit 02"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PEAK",
+        "latitude": -36.625,
+        "longitude": -61.125,
+        "siteId": "SITE-147",
+        "regionId": "R21",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-DER-002",
+        "primaryBiomeId": "BIOME-02"
+      },
+      "activeAtlas": {
+        "poiType": "PEAK",
+        "latitude": -36.625,
+        "longitude": -61.125,
+        "regionId": "R21"
+      },
+      "databaseAfter": {
+        "poiType": "PEAK",
+        "latitude": -36.625,
+        "longitude": -61.125,
+        "siteId": "SITE-147",
+        "regionId": "R21",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-DER-002",
+        "primaryBiomeId": "BIOME-02",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-031",
+      "names": {
+        "simulator": "Eastern Monsoon Jungle",
+        "atlas": "Eastern Monsoon Jungle"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "JUNGLE",
+        "latitude": -15.216355,
+        "longitude": -99.392458,
+        "siteId": "SITE-118",
+        "regionId": "R17",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0434",
+        "primaryBiomeId": "BIOME-CLASS-SAVANNA_WARM_GRASSLAND"
+      },
+      "activeAtlas": {
+        "poiType": "JUNGLE",
+        "latitude": -15.216355,
+        "longitude": -99.392458,
+        "regionId": "R17"
+      },
+      "databaseAfter": {
+        "poiType": "JUNGLE",
+        "latitude": -15.216355,
+        "longitude": -99.392458,
+        "siteId": "SITE-118",
+        "regionId": "R17",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0434",
+        "primaryBiomeId": "BIOME-CLASS-SAVANNA_WARM_GRASSLAND",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-032",
+      "names": {
+        "simulator": "Southwestern Emerald Jungle",
+        "atlas": "Southwestern Emerald Jungle"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "JUNGLE",
+        "latitude": -24.80189,
+        "longitude": -29.140077,
+        "siteId": "SITE-130",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1367",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "JUNGLE",
+        "latitude": -24.80189,
+        "longitude": -29.140077,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "JUNGLE",
+        "latitude": -24.80189,
+        "longitude": -29.140077,
+        "siteId": "SITE-130",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1367",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-033",
+      "names": {
+        "simulator": "Eastern Red Badlands",
+        "atlas": "Eastern Red Badlands"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "BADLANDS",
+        "latitude": 14.939025,
+        "longitude": 77.248603,
+        "siteId": "SITE-092",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0413",
+        "primaryBiomeId": "BIOME-SWATH-0217"
+      },
+      "activeAtlas": {
+        "poiType": "BADLANDS",
+        "latitude": 14.939025,
+        "longitude": 77.248603,
+        "regionId": "R14"
+      },
+      "databaseAfter": {
+        "poiType": "BADLANDS",
+        "latitude": 14.939025,
+        "longitude": 77.248603,
+        "siteId": "SITE-092",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0413",
+        "primaryBiomeId": "BIOME-SWATH-0217",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-034",
+      "names": {
+        "simulator": "Central Broken Badlands",
+        "atlas": "Central Broken Badlands"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "BADLANDS",
+        "latitude": 28.835938,
+        "longitude": 96.898438,
+        "siteId": "SITE-087",
+        "regionId": "R13",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1047",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA"
+      },
+      "activeAtlas": {
+        "poiType": "BADLANDS",
+        "latitude": 28.835938,
+        "longitude": 96.898438,
+        "regionId": "R13"
+      },
+      "databaseAfter": {
+        "poiType": "BADLANDS",
+        "latitude": 28.835938,
+        "longitude": 96.898438,
+        "siteId": "SITE-087",
+        "regionId": "R13",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1047",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-035",
+      "names": {
+        "simulator": "Western Heatherlands",
+        "atlas": "Western Heatherlands"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "HEATHERLANDS",
+        "latitude": 48.375,
+        "longitude": -134.65625,
+        "siteId": "SITE-012",
+        "regionId": "R02",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-2171",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN"
+      },
+      "activeAtlas": {
+        "poiType": "HEATHERLANDS",
+        "latitude": 48.375,
+        "longitude": -134.65625,
+        "regionId": "R02"
+      },
+      "databaseAfter": {
+        "poiType": "HEATHERLANDS",
+        "latitude": 48.375,
+        "longitude": -134.65625,
+        "siteId": "SITE-012",
+        "regionId": "R02",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-2171",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-036",
+      "names": {
+        "simulator": "Highcourt Shadow Forest",
+        "atlas": "Highcourt Shadow Forest"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "SHADOW_FOREST",
+        "latitude": 20.508091,
+        "longitude": -91.580353,
+        "siteId": "SITE-041",
+        "regionId": "R06",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0920",
+        "primaryBiomeId": "BIOME-CLASS-SHADOW_FOREST"
+      },
+      "activeAtlas": {
+        "poiType": "SHADOW_FOREST",
+        "latitude": 20.508091,
+        "longitude": -91.580353,
+        "regionId": "R06"
+      },
+      "databaseAfter": {
+        "poiType": "SHADOW_FOREST",
+        "latitude": 20.508091,
+        "longitude": -91.580353,
+        "siteId": "SITE-041",
+        "regionId": "R06",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0920",
+        "primaryBiomeId": "BIOME-CLASS-SHADOW_FOREST",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-037",
+      "names": {
+        "simulator": "Northwestern Long Steppe",
+        "atlas": "Northwestern Long Steppe"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "STEPPE",
+        "latitude": 16.842925,
+        "longitude": -63.925236,
+        "siteId": "SITE-045",
+        "regionId": "R07",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0448",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "STEPPE",
+        "latitude": 16.842925,
+        "longitude": -63.925236,
+        "regionId": "R07"
+      },
+      "databaseAfter": {
+        "poiType": "STEPPE",
+        "latitude": 16.842925,
+        "longitude": -63.925236,
+        "siteId": "SITE-045",
+        "regionId": "R07",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0448",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-038",
+      "names": {
+        "simulator": "Northern Cold Steppe",
+        "atlas": "Northern Cold Steppe"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "STEPPE",
+        "latitude": 60.881,
+        "longitude": 25.825,
+        "siteId": "SITE-104",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-2828",
+        "primaryBiomeId": "BIOME-CLASS-DESERT_BADLANDS"
+      },
+      "activeAtlas": {
+        "poiType": "STEPPE",
+        "latitude": 60.881,
+        "longitude": 25.825,
+        "regionId": "R15"
+      },
+      "databaseAfter": {
+        "poiType": "STEPPE",
+        "latitude": 60.881,
+        "longitude": 25.825,
+        "siteId": "SITE-104",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-2828",
+        "primaryBiomeId": "BIOME-CLASS-DESERT_BADLANDS",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-039",
+      "names": {
+        "simulator": "Southwestern Spine Range",
+        "atlas": "Southwestern Spine Range"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": -28.105205,
+        "longitude": -69.234563,
+        "siteId": "SITE-123",
+        "regionId": "R18",
+        "surfaceType": "LAND",
+        "hostFeatureId": "MOUNTAIN-RANGE-008",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN"
+      },
+      "activeAtlas": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": -28.105205,
+        "longitude": -69.234563,
+        "regionId": "R18"
+      },
+      "databaseAfter": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": -28.105205,
+        "longitude": -69.234563,
+        "siteId": "SITE-123",
+        "regionId": "R18",
+        "surfaceType": "LAND",
+        "hostFeatureId": "MOUNTAIN-RANGE-008",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-040",
+      "names": {
+        "simulator": "Northwestern Great Lake",
+        "atlas": "Northwestern Great Lake"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "LAKE",
+        "latitude": 42.076625,
+        "longitude": -80.302596,
+        "siteId": "SITE-023",
+        "regionId": "R04",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "WATER-NW-01",
+        "primaryBiomeId": "BIOME-SWATH-1886"
+      },
+      "activeAtlas": {
+        "poiType": "LAKE",
+        "latitude": 42.076625,
+        "longitude": -80.302596,
+        "regionId": "R04"
+      },
+      "databaseAfter": {
+        "poiType": "LAKE",
+        "latitude": 42.076625,
+        "longitude": -80.302596,
+        "siteId": "SITE-023",
+        "regionId": "R04",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "WATER-NW-01",
+        "primaryBiomeId": "BIOME-SWATH-1886",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-041",
+      "names": {
+        "simulator": "Eastern Great Lake",
+        "atlas": "Eastern Great Lake"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "LAKE",
+        "latitude": 56.014192,
+        "longitude": 60.415407,
+        "siteId": "SITE-071",
+        "regionId": "R11",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "WATER-EA-01",
+        "primaryBiomeId": "BIOME-SWATH-2883"
+      },
+      "activeAtlas": {
+        "poiType": "LAKE",
+        "latitude": 56.014192,
+        "longitude": 60.415407,
+        "regionId": "R11"
+      },
+      "databaseAfter": {
+        "poiType": "LAKE",
+        "latitude": 56.014192,
+        "longitude": 60.415407,
+        "siteId": "SITE-071",
+        "regionId": "R11",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "WATER-EA-01",
+        "primaryBiomeId": "BIOME-SWATH-2883",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-042",
+      "names": {
+        "simulator": "Northeast Wetland Feeder River",
+        "atlas": "Northeast Wetland Feeder River"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RIVER",
+        "latitude": 53.581405,
+        "longitude": -97.758628,
+        "siteId": "SITE-004",
+        "regionId": "R01",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0001",
+        "primaryBiomeId": "BIOME-CLASS-TEMPERATE_DENSE_FOREST"
+      },
+      "activeAtlas": {
+        "poiType": "RIVER",
+        "latitude": 53.581405,
+        "longitude": -97.758628,
+        "regionId": "R01"
+      },
+      "databaseAfter": {
+        "poiType": "RIVER",
+        "latitude": 53.581405,
+        "longitude": -97.758628,
+        "siteId": "SITE-004",
+        "regionId": "R01",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0001",
+        "primaryBiomeId": "BIOME-CLASS-TEMPERATE_DENSE_FOREST",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-043",
+      "names": {
+        "simulator": "Eastern Wetland Outflow",
+        "atlas": "Eastern Wetland Outflow"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RIVER",
+        "latitude": 48.498128,
+        "longitude": -65.690746,
+        "siteId": "SITE-026",
+        "regionId": "R04",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0002",
+        "primaryBiomeId": "BIOME-CLASS-TEMPERATE_DENSE_FOREST"
+      },
+      "activeAtlas": {
+        "poiType": "RIVER",
+        "latitude": 48.498128,
+        "longitude": -65.690746,
+        "regionId": "R04"
+      },
+      "databaseAfter": {
+        "poiType": "RIVER",
+        "latitude": 48.498128,
+        "longitude": -65.690746,
+        "siteId": "SITE-026",
+        "regionId": "R04",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0002",
+        "primaryBiomeId": "BIOME-CLASS-TEMPERATE_DENSE_FOREST",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-044",
+      "names": {
+        "simulator": "Waterfall River",
+        "atlas": "Waterfall River"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RIVER",
+        "latitude": 37.66776,
+        "longitude": -104.538846,
+        "siteId": "SITE-027",
+        "regionId": "R04",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0003",
+        "primaryBiomeId": "BIOME-CLASS-SHADOW_FOREST"
+      },
+      "activeAtlas": {
+        "poiType": "RIVER",
+        "latitude": 37.66776,
+        "longitude": -104.538846,
+        "regionId": "R04"
+      },
+      "databaseAfter": {
+        "poiType": "RIVER",
+        "latitude": 37.66776,
+        "longitude": -104.538846,
+        "siteId": "SITE-027",
+        "regionId": "R04",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0003",
+        "primaryBiomeId": "BIOME-CLASS-SHADOW_FOREST",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-045",
+      "names": {
+        "simulator": "Great Southbound River",
+        "atlas": "Great Southbound River"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RIVER",
+        "latitude": 14.679719,
+        "longitude": 86.272997,
+        "siteId": "SITE-092",
+        "regionId": "R14",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0004",
+        "primaryBiomeId": "BIOME-SWATH-0217"
+      },
+      "activeAtlas": {
+        "poiType": "RIVER",
+        "latitude": 14.679719,
+        "longitude": 86.272997,
+        "regionId": "R14"
+      },
+      "databaseAfter": {
+        "poiType": "RIVER",
+        "latitude": 14.679719,
+        "longitude": 86.272997,
+        "siteId": "SITE-092",
+        "regionId": "R14",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0004",
+        "primaryBiomeId": "BIOME-SWATH-0217",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-046",
+      "names": {
+        "simulator": "Western Tributary River",
+        "atlas": "Western Tributary River"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RIVER",
+        "latitude": 19.958271,
+        "longitude": 70.921467,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0005",
+        "primaryBiomeId": "BIOME-SWATH-2274"
+      },
+      "activeAtlas": {
+        "poiType": "RIVER",
+        "latitude": 19.958271,
+        "longitude": 70.921467,
+        "regionId": "R11"
+      },
+      "databaseAfter": {
+        "poiType": "RIVER",
+        "latitude": 19.958271,
+        "longitude": 70.921467,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0005",
+        "primaryBiomeId": "BIOME-SWATH-2274",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-047",
+      "names": {
+        "simulator": "Eastern Tributary River",
+        "atlas": "Eastern Tributary River"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RIVER",
+        "latitude": 25.479494,
+        "longitude": 97.752337,
+        "siteId": "SITE-087",
+        "regionId": "R13",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0006",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA"
+      },
+      "activeAtlas": {
+        "poiType": "RIVER",
+        "latitude": 25.479494,
+        "longitude": 97.752337,
+        "regionId": "R13"
+      },
+      "databaseAfter": {
+        "poiType": "RIVER",
+        "latitude": 25.479494,
+        "longitude": 97.752337,
+        "siteId": "SITE-087",
+        "regionId": "R13",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0006",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-048",
+      "names": {
+        "simulator": "Southern Great River",
+        "atlas": "Southern Great River"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RIVER",
+        "latitude": -51.339025,
+        "longitude": -50.280088,
+        "siteId": "SITE-158",
+        "regionId": "R23",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0014",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "RIVER",
+        "latitude": -51.339025,
+        "longitude": -50.280088,
+        "regionId": "R23"
+      },
+      "databaseAfter": {
+        "poiType": "RIVER",
+        "latitude": -51.339025,
+        "longitude": -50.280088,
+        "siteId": "SITE-158",
+        "regionId": "R23",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0014",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-049",
+      "names": {
+        "simulator": "Central Plains River",
+        "atlas": "Central Plains River"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RIVER",
+        "latitude": -39.113585,
+        "longitude": -9.971625,
+        "siteId": "SITE-146",
+        "regionId": "R21",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0016",
+        "primaryBiomeId": "BIOME-CLASS-ICE_SNOW_GLACIER"
+      },
+      "activeAtlas": {
+        "poiType": "RIVER",
+        "latitude": -39.113585,
+        "longitude": -9.971625,
+        "regionId": "R21"
+      },
+      "databaseAfter": {
+        "poiType": "RIVER",
+        "latitude": -39.113585,
+        "longitude": -9.971625,
+        "siteId": "SITE-146",
+        "regionId": "R21",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0016",
+        "primaryBiomeId": "BIOME-CLASS-ICE_SNOW_GLACIER",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-050",
+      "names": {
+        "simulator": "Northwestern Greatwood",
+        "atlas": "Northwestern Greatwood"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FOREST",
+        "latitude": 41.807353,
+        "longitude": -112.617362,
+        "siteId": "SITE-015",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0608",
+        "primaryBiomeId": "BIOME-SWATH-1351"
+      },
+      "activeAtlas": {
+        "poiType": "FOREST",
+        "latitude": 41.807353,
+        "longitude": -112.617362,
+        "regionId": "R03"
+      },
+      "databaseAfter": {
+        "poiType": "FOREST",
+        "latitude": 41.807353,
+        "longitude": -112.617362,
+        "siteId": "SITE-015",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0608",
+        "primaryBiomeId": "BIOME-SWATH-1351",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-051",
+      "names": {
+        "simulator": "Northwestern Shadowwood",
+        "atlas": "Northwestern Shadowwood"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FOREST",
+        "latitude": 20.508091,
+        "longitude": -91.580353,
+        "siteId": "SITE-041",
+        "regionId": "R06",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0920",
+        "primaryBiomeId": "BIOME-CLASS-SHADOW_FOREST"
+      },
+      "activeAtlas": {
+        "poiType": "FOREST",
+        "latitude": 20.508091,
+        "longitude": -91.580353,
+        "regionId": "R06"
+      },
+      "databaseAfter": {
+        "poiType": "FOREST",
+        "latitude": 20.508091,
+        "longitude": -91.580353,
+        "siteId": "SITE-041",
+        "regionId": "R06",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0920",
+        "primaryBiomeId": "BIOME-CLASS-SHADOW_FOREST",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-052",
+      "names": {
+        "simulator": "Eastern Crownwood",
+        "atlas": "Eastern Crownwood"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FOREST",
+        "latitude": 31.392139,
+        "longitude": 58.582888,
+        "siteId": "SITE-074",
+        "regionId": "R11",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0417",
+        "primaryBiomeId": "BIOME-CLASS-SAVANNA_WARM_GRASSLAND"
+      },
+      "activeAtlas": {
+        "poiType": "FOREST",
+        "latitude": 31.392139,
+        "longitude": 58.582888,
+        "regionId": "R11"
+      },
+      "databaseAfter": {
+        "poiType": "FOREST",
+        "latitude": 31.392139,
+        "longitude": 58.582888,
+        "siteId": "SITE-074",
+        "regionId": "R11",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0417",
+        "primaryBiomeId": "BIOME-CLASS-SAVANNA_WARM_GRASSLAND",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-053",
+      "names": {
+        "simulator": "Southwestern Rainwood",
+        "atlas": "Southwestern Rainwood"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FOREST",
+        "latitude": -24.80189,
+        "longitude": -29.140077,
+        "siteId": "SITE-130",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1367",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "FOREST",
+        "latitude": -24.80189,
+        "longitude": -29.140077,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "FOREST",
+        "latitude": -24.80189,
+        "longitude": -29.140077,
+        "siteId": "SITE-130",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1367",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-054",
+      "names": {
+        "simulator": "Northern Amber Desert",
+        "atlas": "Northern Amber Desert"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "DESERT",
+        "latitude": 56.246622,
+        "longitude": 20.310811,
+        "siteId": "SITE-104",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0182",
+        "primaryBiomeId": "BIOME-CLASS-DESERT_BADLANDS"
+      },
+      "activeAtlas": {
+        "poiType": "DESERT",
+        "latitude": 56.246622,
+        "longitude": 20.310811,
+        "regionId": "R15"
+      },
+      "databaseAfter": {
+        "poiType": "DESERT",
+        "latitude": 56.246622,
+        "longitude": 20.310811,
+        "siteId": "SITE-104",
+        "regionId": "R15",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0182",
+        "primaryBiomeId": "BIOME-CLASS-DESERT_BADLANDS",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-055",
+      "names": {
+        "simulator": "Eastern Red Desert",
+        "atlas": "Eastern Red Desert"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "DESERT",
+        "latitude": 28.835938,
+        "longitude": 96.898438,
+        "siteId": "SITE-087",
+        "regionId": "R13",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1047",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA"
+      },
+      "activeAtlas": {
+        "poiType": "DESERT",
+        "latitude": 28.835938,
+        "longitude": 96.898438,
+        "regionId": "R13"
+      },
+      "databaseAfter": {
+        "poiType": "DESERT",
+        "latitude": 28.835938,
+        "longitude": 96.898438,
+        "siteId": "SITE-087",
+        "regionId": "R13",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1047",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-056",
+      "names": {
+        "simulator": "Central Sunwaste",
+        "atlas": "Central Sunwaste"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "DESERT",
+        "latitude": 6.614945,
+        "longitude": 69.397966,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1192",
+        "primaryBiomeId": "BIOME-SWATH-2274"
+      },
+      "activeAtlas": {
+        "poiType": "DESERT",
+        "latitude": 6.614945,
+        "longitude": 69.397966,
+        "regionId": "R11"
+      },
+      "databaseAfter": {
+        "poiType": "DESERT",
+        "latitude": 6.614945,
+        "longitude": 69.397966,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1192",
+        "primaryBiomeId": "BIOME-SWATH-2274",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-057",
+      "names": {
+        "simulator": "Southeastern Drylands",
+        "atlas": "Southeastern Drylands"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "DESERT",
+        "latitude": -0.578713,
+        "longitude": 102.169771,
+        "siteId": "SITE-107",
+        "regionId": "R16",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0398",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA"
+      },
+      "activeAtlas": {
+        "poiType": "DESERT",
+        "latitude": -0.578713,
+        "longitude": 102.169771,
+        "regionId": "R16"
+      },
+      "databaseAfter": {
+        "poiType": "DESERT",
+        "latitude": -0.578713,
+        "longitude": 102.169771,
+        "siteId": "SITE-107",
+        "regionId": "R16",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0398",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-058",
+      "names": {
+        "simulator": "Westwind Grasslands",
+        "atlas": "Westwind Grasslands"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "GRASSLAND",
+        "latitude": 40.047822,
+        "longitude": -127.383937,
+        "siteId": "SITE-009",
+        "regionId": "R02",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0383",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "GRASSLAND",
+        "latitude": 40.047822,
+        "longitude": -127.383937,
+        "regionId": "R02"
+      },
+      "databaseAfter": {
+        "poiType": "GRASSLAND",
+        "latitude": 40.047822,
+        "longitude": -127.383937,
+        "siteId": "SITE-009",
+        "regionId": "R02",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0383",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-059",
+      "names": {
+        "simulator": "Southwestern Greensteppe",
+        "atlas": "Southwestern Greensteppe"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "GRASSLAND",
+        "latitude": -11.173435,
+        "longitude": -73.874529,
+        "siteId": "SITE-120",
+        "regionId": "R18",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1077",
+        "primaryBiomeId": "BIOME-SWATH-0511"
+      },
+      "activeAtlas": {
+        "poiType": "GRASSLAND",
+        "latitude": -11.173435,
+        "longitude": -73.874529,
+        "regionId": "R18"
+      },
+      "databaseAfter": {
+        "poiType": "GRASSLAND",
+        "latitude": -11.173435,
+        "longitude": -73.874529,
+        "siteId": "SITE-120",
+        "regionId": "R18",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-1077",
+        "primaryBiomeId": "BIOME-SWATH-0511",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-060",
+      "names": {
+        "simulator": "Eastern Golden Grasslands",
+        "atlas": "Eastern Golden Grasslands"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "GRASSLAND",
+        "latitude": -9.181,
+        "longitude": 74.619,
+        "siteId": "SITE-072",
+        "regionId": "R11",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0982",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA"
+      },
+      "activeAtlas": {
+        "poiType": "GRASSLAND",
+        "latitude": -9.181,
+        "longitude": 74.619,
+        "regionId": "R11"
+      },
+      "databaseAfter": {
+        "poiType": "GRASSLAND",
+        "latitude": -9.181,
+        "longitude": 74.619,
+        "siteId": "SITE-072",
+        "regionId": "R11",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0982",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-061",
+      "names": {
+        "simulator": "Northwestern Longplain",
+        "atlas": "Northwestern Longplain"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PLAINS",
+        "latitude": 16.842925,
+        "longitude": -63.925236,
+        "siteId": "SITE-045",
+        "regionId": "R07",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0448",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "PLAINS",
+        "latitude": 16.842925,
+        "longitude": -63.925236,
+        "regionId": "R07"
+      },
+      "databaseAfter": {
+        "poiType": "PLAINS",
+        "latitude": 16.842925,
+        "longitude": -63.925236,
+        "siteId": "SITE-045",
+        "regionId": "R07",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0448",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-062",
+      "names": {
+        "simulator": "Southern Great Plain",
+        "atlas": "Southern Great Plain"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PLAINS",
+        "latitude": -37.473492,
+        "longitude": -101.326362,
+        "siteId": "SITE-147",
+        "regionId": "R21",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0644",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN"
+      },
+      "activeAtlas": {
+        "poiType": "PLAINS",
+        "latitude": -37.473492,
+        "longitude": -101.326362,
+        "regionId": "R21"
+      },
+      "databaseAfter": {
+        "poiType": "PLAINS",
+        "latitude": -37.473492,
+        "longitude": -101.326362,
+        "siteId": "SITE-147",
+        "regionId": "R21",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0644",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-063",
+      "names": {
+        "simulator": "Heather Hills",
+        "atlas": "Heather Hills"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "HILLS",
+        "latitude": 42.639529,
+        "longitude": -126.844251,
+        "siteId": "SITE-017",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0687",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "HILLS",
+        "latitude": 42.639529,
+        "longitude": -126.844251,
+        "regionId": "R03"
+      },
+      "databaseAfter": {
+        "poiType": "HILLS",
+        "latitude": 42.639529,
+        "longitude": -126.844251,
+        "siteId": "SITE-017",
+        "regionId": "R03",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-0687",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-064",
+      "names": {
+        "simulator": "Floating Island 01",
+        "atlas": "Floating Island 01"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 15,
+        "longitude": 62,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": "FLOAT-ISLAND-001",
+        "primaryBiomeId": "BIOME-07"
+      },
+      "activeAtlas": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 15,
+        "longitude": 62,
+        "regionId": "R11"
+      },
+      "databaseAfter": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 15,
+        "longitude": 62,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": "FLOAT-ISLAND-001",
+        "primaryBiomeId": "BIOME-07",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-065",
+      "names": {
+        "simulator": "Floating Island 02",
+        "atlas": "Floating Island 02"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 13.5,
+        "longitude": 65,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": "FLOAT-ISLAND-002",
+        "primaryBiomeId": "BIOME-07"
+      },
+      "activeAtlas": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 13.5,
+        "longitude": 65,
+        "regionId": "R11"
+      },
+      "databaseAfter": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 13.5,
+        "longitude": 65,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": "FLOAT-ISLAND-002",
+        "primaryBiomeId": "BIOME-07",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-066",
+      "names": {
+        "simulator": "Floating Island 03",
+        "atlas": "Floating Island 03"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 17,
+        "longitude": 68,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": "FLOAT-ISLAND-003",
+        "primaryBiomeId": "BIOME-07"
+      },
+      "activeAtlas": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 17,
+        "longitude": 68,
+        "regionId": "R11"
+      },
+      "databaseAfter": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 17,
+        "longitude": 68,
+        "siteId": "SITE-073",
+        "regionId": "R11",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": "FLOAT-ISLAND-003",
+        "primaryBiomeId": "BIOME-07",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-067",
+      "names": {
+        "simulator": "Floating Island 04",
+        "atlas": "Floating Island 04"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 11.5,
+        "longitude": 50.5,
+        "siteId": "SITE-058",
+        "regionId": "R09",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": "FLOAT-ISLAND-004",
+        "primaryBiomeId": "BIOME-FLOATING"
+      },
+      "activeAtlas": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 11.5,
+        "longitude": 50.5,
+        "regionId": "R09"
+      },
+      "databaseAfter": {
+        "poiType": "FLOATING_ISLAND",
+        "latitude": 11.5,
+        "longitude": 50.5,
+        "siteId": "SITE-058",
+        "regionId": "R09",
+        "surfaceType": "FLOATING_ISLAND",
+        "hostFeatureId": "FLOAT-ISLAND-004",
+        "primaryBiomeId": "BIOME-FLOATING",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-068",
+      "names": {
+        "simulator": "Northern Crown Glacier",
+        "atlas": "Northern Crown Glacier"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "GLACIER",
+        "latitude": 71.270192,
+        "longitude": -96.805288,
+        "siteId": "SITE-007",
+        "regionId": "R01",
+        "surfaceType": "ICE",
+        "hostFeatureId": "BIOME-SWATH-0306",
+        "primaryBiomeId": "BIOME-CLASS-ICE_SNOW_GLACIER"
+      },
+      "activeAtlas": {
+        "poiType": "GLACIER",
+        "latitude": 71.270192,
+        "longitude": -96.805288,
+        "regionId": "R01"
+      },
+      "databaseAfter": {
+        "poiType": "GLACIER",
+        "latitude": 71.270192,
+        "longitude": -96.805288,
+        "siteId": "SITE-007",
+        "regionId": "R01",
+        "surfaceType": "ICE",
+        "hostFeatureId": "BIOME-SWATH-0306",
+        "primaryBiomeId": "BIOME-CLASS-ICE_SNOW_GLACIER",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-069",
+      "names": {
+        "simulator": "Southwestern Spine Glacier",
+        "atlas": "Southwestern Spine Glacier"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "GLACIER",
+        "latitude": -18.227767,
+        "longitude": -69.680089,
+        "siteId": "SITE-122",
+        "regionId": "R18",
+        "surfaceType": "ICE",
+        "hostFeatureId": "BIOME-SWATH-0676",
+        "primaryBiomeId": "BIOME-CLASS-ICE_SNOW_GLACIER"
+      },
+      "activeAtlas": {
+        "poiType": "GLACIER",
+        "latitude": -18.227767,
+        "longitude": -69.680089,
+        "regionId": "R18"
+      },
+      "databaseAfter": {
+        "poiType": "GLACIER",
+        "latitude": -18.227767,
+        "longitude": -69.680089,
+        "siteId": "SITE-122",
+        "regionId": "R18",
+        "surfaceType": "ICE",
+        "hostFeatureId": "BIOME-SWATH-0676",
+        "primaryBiomeId": "BIOME-CLASS-ICE_SNOW_GLACIER",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-070",
+      "names": {
+        "simulator": "Waterfall River Rapids",
+        "atlas": "Waterfall River Rapids"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RAPIDS",
+        "latitude": 37.66776,
+        "longitude": -104.538846,
+        "siteId": "SITE-027",
+        "regionId": "R04",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0003",
+        "primaryBiomeId": "BIOME-CLASS-SHADOW_FOREST"
+      },
+      "activeAtlas": {
+        "poiType": "RAPIDS",
+        "latitude": 37.66776,
+        "longitude": -104.538846,
+        "regionId": "R04"
+      },
+      "databaseAfter": {
+        "poiType": "RAPIDS",
+        "latitude": 37.66776,
+        "longitude": -104.538846,
+        "siteId": "SITE-027",
+        "regionId": "R04",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0003",
+        "primaryBiomeId": "BIOME-CLASS-SHADOW_FOREST",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-071",
+      "names": {
+        "simulator": "Southern Great River Rapids",
+        "atlas": "Southern Great River Rapids"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "RAPIDS",
+        "latitude": -51.339025,
+        "longitude": -50.280088,
+        "siteId": "SITE-158",
+        "regionId": "R23",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0014",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "RAPIDS",
+        "latitude": -51.339025,
+        "longitude": -50.280088,
+        "regionId": "R23"
+      },
+      "databaseAfter": {
+        "poiType": "RAPIDS",
+        "latitude": -51.339025,
+        "longitude": -50.280088,
+        "siteId": "SITE-158",
+        "regionId": "R23",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": "RIVER-SYS-0014",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-072",
+      "names": {
+        "simulator": "Eastern Volcano",
+        "atlas": "Eastern Volcano"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "VOLCANO",
+        "latitude": -26.902138,
+        "longitude": 2.704108,
+        "siteId": "SITE-132",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-03",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN"
+      },
+      "activeAtlas": {
+        "poiType": "VOLCANO",
+        "latitude": -26.902138,
+        "longitude": 2.704108,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "VOLCANO",
+        "latitude": -26.902138,
+        "longitude": 2.704108,
+        "siteId": "SITE-132",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-03",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-073",
+      "names": {
+        "simulator": "Far-East Volcano",
+        "atlas": "Far-East Volcano"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "VOLCANO",
+        "latitude": -29.976244,
+        "longitude": 20.769489,
+        "siteId": "SITE-127",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-04",
+        "primaryBiomeId": "BIOME-SWATH-0347"
+      },
+      "activeAtlas": {
+        "poiType": "VOLCANO",
+        "latitude": -29.976244,
+        "longitude": 20.769489,
+        "regionId": "R19"
+      },
+      "databaseAfter": {
+        "poiType": "VOLCANO",
+        "latitude": -29.976244,
+        "longitude": 20.769489,
+        "siteId": "SITE-127",
+        "regionId": "R19",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PEAK-SW-04",
+        "primaryBiomeId": "BIOME-SWATH-0347",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-074",
+      "names": {
+        "simulator": "Eastern Badland Range",
+        "atlas": "Eastern Badland Range"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": 40.362604,
+        "longitude": 92.636874,
+        "siteId": "SITE-097",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "MOUNTAIN-RANGE-006",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN"
+      },
+      "activeAtlas": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": 40.362604,
+        "longitude": 92.636874,
+        "regionId": "R14"
+      },
+      "databaseAfter": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": 40.362604,
+        "longitude": 92.636874,
+        "siteId": "SITE-097",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "MOUNTAIN-RANGE-006",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-075",
+      "names": {
+        "simulator": "Southern Long Range",
+        "atlas": "Southern Long Range"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": -38.722025,
+        "longitude": -56.554423,
+        "siteId": "SITE-147",
+        "regionId": "R21",
+        "surfaceType": "LAND",
+        "hostFeatureId": "MOUNTAIN-RANGE-009",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN"
+      },
+      "activeAtlas": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": -38.722025,
+        "longitude": -56.554423,
+        "regionId": "R21"
+      },
+      "databaseAfter": {
+        "poiType": "MOUNTAIN_RANGE",
+        "latitude": -38.722025,
+        "longitude": -56.554423,
+        "siteId": "SITE-147",
+        "regionId": "R21",
+        "surfaceType": "LAND",
+        "hostFeatureId": "MOUNTAIN-RANGE-009",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-076",
+      "names": {
+        "simulator": "Western Heather Hills",
+        "atlas": "Western Heather Hills"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "HILLS",
+        "latitude": 48.375,
+        "longitude": -134.65625,
+        "siteId": "SITE-012",
+        "regionId": "R02",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-2171",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN"
+      },
+      "activeAtlas": {
+        "poiType": "HILLS",
+        "latitude": 48.375,
+        "longitude": -134.65625,
+        "regionId": "R02"
+      },
+      "databaseAfter": {
+        "poiType": "HILLS",
+        "latitude": 48.375,
+        "longitude": -134.65625,
+        "siteId": "SITE-012",
+        "regionId": "R02",
+        "surfaceType": "LAND",
+        "hostFeatureId": "BIOME-SWATH-2171",
+        "primaryBiomeId": "BIOME-CLASS-ALPINE_MOUNTAIN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-077",
+      "names": {
+        "simulator": "Northwestern Reedlands",
+        "atlas": "Northwestern Reedlands"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "WETLAND",
+        "latitude": 37.533898,
+        "longitude": -71.217485,
+        "siteId": "SITE-023",
+        "regionId": "R04",
+        "surfaceType": "WETLAND",
+        "hostFeatureId": "BIOME-SWATH-0461",
+        "primaryBiomeId": "BIOME-SWATH-1886"
+      },
+      "activeAtlas": {
+        "poiType": "WETLAND",
+        "latitude": 37.533898,
+        "longitude": -71.217485,
+        "regionId": "R04"
+      },
+      "databaseAfter": {
+        "poiType": "WETLAND",
+        "latitude": 37.533898,
+        "longitude": -71.217485,
+        "siteId": "SITE-023",
+        "regionId": "R04",
+        "surfaceType": "WETLAND",
+        "hostFeatureId": "BIOME-SWATH-0461",
+        "primaryBiomeId": "BIOME-SWATH-1886",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-078",
+      "names": {
+        "simulator": "Eastern Great Delta Wetlands",
+        "atlas": "Eastern Great Delta Wetlands"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "WETLAND",
+        "latitude": -9.543324,
+        "longitude": 82.804924,
+        "siteId": "SITE-093",
+        "regionId": "R14",
+        "surfaceType": "WETLAND",
+        "hostFeatureId": "BIOME-SWATH-0425",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA"
+      },
+      "activeAtlas": {
+        "poiType": "WETLAND",
+        "latitude": -9.543324,
+        "longitude": 82.804924,
+        "regionId": "R14"
+      },
+      "databaseAfter": {
+        "poiType": "WETLAND",
+        "latitude": -9.543324,
+        "longitude": 82.804924,
+        "siteId": "SITE-093",
+        "regionId": "R14",
+        "surfaceType": "WETLAND",
+        "hostFeatureId": "BIOME-SWATH-0425",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-079",
+      "names": {
+        "simulator": "Southern Blackmarsh",
+        "atlas": "Southern Blackmarsh"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "WETLAND",
+        "latitude": -61.585555,
+        "longitude": -56.111598,
+        "siteId": "SITE-157",
+        "regionId": "R23",
+        "surfaceType": "WETLAND",
+        "hostFeatureId": "BIOME-SWATH-0645",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA"
+      },
+      "activeAtlas": {
+        "poiType": "WETLAND",
+        "latitude": -61.585555,
+        "longitude": -56.111598,
+        "regionId": "R23"
+      },
+      "databaseAfter": {
+        "poiType": "WETLAND",
+        "latitude": -61.585555,
+        "longitude": -56.111598,
+        "siteId": "SITE-157",
+        "regionId": "R23",
+        "surfaceType": "WETLAND",
+        "hostFeatureId": "BIOME-SWATH-0645",
+        "primaryBiomeId": "BIOME-CLASS-WETLAND_DELTA",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-080",
+      "names": {
+        "simulator": "Highcourt Isle",
+        "atlas": "Highcourt Isle"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "ISLAND",
+        "latitude": 21.140243,
+        "longitude": -32.789911,
+        "siteId": "SITE-036",
+        "regionId": "R06",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": "ISL-NW-001",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "ISLAND",
+        "latitude": 21.140243,
+        "longitude": -32.789911,
+        "regionId": "R06"
+      },
+      "databaseAfter": {
+        "poiType": "ISLAND",
+        "latitude": 21.140243,
+        "longitude": -32.789911,
+        "siteId": "SITE-036",
+        "regionId": "R06",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": "ISL-NW-001",
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-081",
+      "names": {
+        "simulator": "Eastern Reef Isle",
+        "atlas": "Eastern Reef Isle"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "ISLAND",
+        "latitude": 39.089905,
+        "longitude": 121.426108,
+        "siteId": "SITE-078",
+        "regionId": "R12",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": "ISL-EA-003",
+        "primaryBiomeId": "BIOME-SWATH-0061"
+      },
+      "activeAtlas": {
+        "poiType": "ISLAND",
+        "latitude": 39.089905,
+        "longitude": 121.426108,
+        "regionId": "R12"
+      },
+      "databaseAfter": {
+        "poiType": "ISLAND",
+        "latitude": 39.089905,
+        "longitude": 121.426108,
+        "siteId": "SITE-078",
+        "regionId": "R12",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": "ISL-EA-003",
+        "primaryBiomeId": "BIOME-SWATH-0061",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-082",
+      "names": {
+        "simulator": "Emberchain Isle",
+        "atlas": "Emberchain Isle"
+      },
+      "classification": "INVALID_GEOGRAPHY",
+      "simulatorBefore": {
+        "poiType": "ISLAND",
+        "latitude": -52.851641,
+        "longitude": 76.390639,
+        "siteId": "SITE-153",
+        "regionId": "R22",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": "ISL-SW-001",
+        "primaryBiomeId": "BIOME-CLASS-SUBTROPICAL_DENSE_FOREST"
+      },
+      "activeAtlas": {
+        "poiType": "ISLAND",
+        "latitude": -52.851641,
+        "longitude": 76.390639,
+        "regionId": "R22"
+      },
+      "databaseAfter": {
+        "poiType": "ISLAND",
+        "latitude": -52.851641,
+        "longitude": 76.390639,
+        "siteId": "SITE-153",
+        "regionId": "R22",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": "ISL-SW-001",
+        "primaryBiomeId": "BIOME-CLASS-SUBTROPICAL_DENSE_FOREST",
+        "placementStatus": "WITHHELD_CONFLICT",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2:WITHHELD_CONFLICT",
+      "notes": "Imported coordinate is outside declared multipart host ISL-SW-001 and resolves to Nimbus ocean; six authored island anchors exist without authority selecting one as Emberchain Isle."
+    },
+    {
+      "poiId": "POI-083",
+      "names": {
+        "simulator": "Far-South Ice Isle",
+        "atlas": "Far-South Ice Isle"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "ISLAND",
+        "latitude": -68.899422,
+        "longitude": 43.914722,
+        "siteId": "SITE-148",
+        "regionId": "R22",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": "ISL-SW-002",
+        "primaryBiomeId": "BIOME-SWATH-0267"
+      },
+      "activeAtlas": {
+        "poiType": "ISLAND",
+        "latitude": -68.899422,
+        "longitude": 43.914722,
+        "regionId": "R22"
+      },
+      "databaseAfter": {
+        "poiType": "ISLAND",
+        "latitude": -68.899422,
+        "longitude": 43.914722,
+        "siteId": "SITE-148",
+        "regionId": "R22",
+        "surfaceType": "COASTAL_LAND",
+        "hostFeatureId": "ISL-SW-002",
+        "primaryBiomeId": "BIOME-SWATH-0267",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-084",
+      "names": {
+        "simulator": "Eastern Crescent Bay",
+        "atlas": "Eastern Crescent Bay"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "BAY",
+        "latitude": 29,
+        "longitude": 31,
+        "siteId": "SITE-099",
+        "regionId": "R15",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-SWATH-2706"
+      },
+      "activeAtlas": {
+        "poiType": "BAY",
+        "latitude": 29,
+        "longitude": 31,
+        "regionId": "R15"
+      },
+      "databaseAfter": {
+        "poiType": "BAY",
+        "latitude": 29,
+        "longitude": 31,
+        "siteId": "SITE-099",
+        "regionId": "R15",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-SWATH-2706",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-085",
+      "names": {
+        "simulator": "Southwestern Emerald Bay",
+        "atlas": "Southwestern Emerald Bay"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "BAY",
+        "latitude": -11,
+        "longitude": -108,
+        "siteId": "SITE-113",
+        "regionId": "R17",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-SWATH-0139"
+      },
+      "activeAtlas": {
+        "poiType": "BAY",
+        "latitude": -11,
+        "longitude": -108,
+        "regionId": "R17"
+      },
+      "databaseAfter": {
+        "poiType": "BAY",
+        "latitude": -11,
+        "longitude": -108,
+        "siteId": "SITE-113",
+        "regionId": "R17",
+        "surfaceType": "SHALLOW_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-SWATH-0139",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-086",
+      "names": {
+        "simulator": "Northern Glacial Upland",
+        "atlas": "Northern Glacial Upland"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PLATEAU",
+        "latitude": 73.492889,
+        "longitude": -105.525328,
+        "siteId": "SITE-007",
+        "regionId": "R01",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PLATEAU-NW-01",
+        "primaryBiomeId": "BIOME-01"
+      },
+      "activeAtlas": {
+        "poiType": "PLATEAU",
+        "latitude": 73.492889,
+        "longitude": -105.525328,
+        "regionId": "R01"
+      },
+      "databaseAfter": {
+        "poiType": "PLATEAU",
+        "latitude": 73.492889,
+        "longitude": -105.525328,
+        "siteId": "SITE-007",
+        "regionId": "R01",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PLATEAU-NW-01",
+        "primaryBiomeId": "BIOME-01",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-087",
+      "names": {
+        "simulator": "Central Arid Plateau",
+        "atlas": "Central Arid Plateau"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PLATEAU",
+        "latitude": 39.390287,
+        "longitude": 85.52993,
+        "siteId": "SITE-095",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PLATEAU-EA-01",
+        "primaryBiomeId": "BIOME-07"
+      },
+      "activeAtlas": {
+        "poiType": "PLATEAU",
+        "latitude": 39.390287,
+        "longitude": 85.52993,
+        "regionId": "R14"
+      },
+      "databaseAfter": {
+        "poiType": "PLATEAU",
+        "latitude": 39.390287,
+        "longitude": 85.52993,
+        "siteId": "SITE-095",
+        "regionId": "R14",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PLATEAU-EA-01",
+        "primaryBiomeId": "BIOME-07",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-088",
+      "names": {
+        "simulator": "Eastern Grassland Upland",
+        "atlas": "Eastern Grassland Upland"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "PLATEAU",
+        "latitude": -36.103872,
+        "longitude": -6.331167,
+        "siteId": "SITE-175",
+        "regionId": "R25",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PLATEAU-SW-01",
+        "primaryBiomeId": "BIOME-11"
+      },
+      "activeAtlas": {
+        "poiType": "PLATEAU",
+        "latitude": -36.103872,
+        "longitude": -6.331167,
+        "regionId": "R25"
+      },
+      "databaseAfter": {
+        "poiType": "PLATEAU",
+        "latitude": -36.103872,
+        "longitude": -6.331167,
+        "siteId": "SITE-175",
+        "regionId": "R25",
+        "surfaceType": "LAND",
+        "hostFeatureId": "PLATEAU-SW-01",
+        "primaryBiomeId": "BIOME-11",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-089",
+      "names": {
+        "simulator": "Meridian Sea",
+        "atlas": "Meridian Sea"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "SEA",
+        "latitude": 39,
+        "longitude": -12,
+        "siteId": "SITE-032",
+        "regionId": "R05",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "SEA",
+        "latitude": 39,
+        "longitude": -12,
+        "regionId": "R05"
+      },
+      "databaseAfter": {
+        "poiType": "SEA",
+        "latitude": 39,
+        "longitude": -12,
+        "siteId": "SITE-032",
+        "regionId": "R05",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-090",
+      "names": {
+        "simulator": "Southern Passage Sea",
+        "atlas": "Southern Passage Sea"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "SEA",
+        "latitude": -29,
+        "longitude": 42,
+        "siteId": "SITE-142",
+        "regionId": "R21",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE"
+      },
+      "activeAtlas": {
+        "poiType": "SEA",
+        "latitude": -29,
+        "longitude": 42,
+        "regionId": "R21"
+      },
+      "databaseAfter": {
+        "poiType": "SEA",
+        "latitude": -29,
+        "longitude": 42,
+        "siteId": "SITE-142",
+        "regionId": "R21",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-CLASS-GRASSLAND_STEPPE",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-091",
+      "names": {
+        "simulator": "Northern Ocean",
+        "atlas": "Northern Ocean"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "OCEAN",
+        "latitude": 73,
+        "longitude": 0,
+        "siteId": "SITE-100",
+        "regionId": "R15",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-CLASS-OCEAN"
+      },
+      "activeAtlas": {
+        "poiType": "OCEAN",
+        "latitude": 73,
+        "longitude": 0,
+        "regionId": "R15"
+      },
+      "databaseAfter": {
+        "poiType": "OCEAN",
+        "latitude": 73,
+        "longitude": 0,
+        "siteId": "SITE-100",
+        "regionId": "R15",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-CLASS-OCEAN",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    },
+    {
+      "poiId": "POI-092",
+      "names": {
+        "simulator": "Southern Ocean",
+        "atlas": "Southern Ocean"
+      },
+      "classification": "EXACT_MATCH",
+      "simulatorBefore": {
+        "poiType": "OCEAN",
+        "latitude": -72,
+        "longitude": -18,
+        "siteId": "SITE-169",
+        "regionId": "R25",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-SWATH-0953"
+      },
+      "activeAtlas": {
+        "poiType": "OCEAN",
+        "latitude": -72,
+        "longitude": -18,
+        "regionId": "R25"
+      },
+      "databaseAfter": {
+        "poiType": "OCEAN",
+        "latitude": -72,
+        "longitude": -18,
+        "siteId": "SITE-169",
+        "regionId": "R25",
+        "surfaceType": "OPEN_WATER",
+        "hostFeatureId": null,
+        "primaryBiomeId": "BIOME-SWATH-0953",
+        "placementStatus": "AUTHORITATIVE",
+        "spatialAuthorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2"
+      },
+      "fieldsChanged": [],
+      "authorityUsed": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+      "notes": null
+    }
+  ]
+}

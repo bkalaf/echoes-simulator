@@ -4,6 +4,7 @@ import type { CausalOwnerInputsV1, DiagnosticConfigV1, MechanicsVariablesV1, Ope
 import { V5_CAUSAL_DERIVATION_VERSION, V5_DURABLE_SCHEMA_VERSION, V5_MECHANICS_VERSION, V5_READ_MODEL_VERSION, V5_SCHEDULER_VERSION, causalOwnerInputsHash, causalRunHash, diagnosticConfigHash, mechanicsVariablesHash, operationalConfigHash } from "./config.js";
 import { KEYED_RANDOM_VERSION_V1 } from "./random.js";
 import type { CausalEventV5, WorldStateV5 } from "./types.js";
+import { buildRunAuthoritySnapshotV1, validateRunAuthoritySnapshotV1, type RunAuthorityInputV1, type RunAuthoritySnapshotV1 } from "./authority-snapshot.js";
 
 export interface V5RunManifest {
   schemaVersion: "echoes-v5-run-manifest-v1";
@@ -30,6 +31,7 @@ export interface V5RunManifest {
   operationalConfig: OperationalConfigV1;
   diagnosticConfig: DiagnosticConfigV1;
   labels: Record<string, string>;
+  authoritySnapshot: RunAuthoritySnapshotV1;
 }
 
 function hash(value: unknown): string { return createHash("sha256").update(canonicalJson(value), "utf8").digest("hex"); }
@@ -54,15 +56,32 @@ export function extendV5EventHistoryHashFromCanonicalJson(priorHash: string, can
   return current;
 }
 
-export function buildV5RunManifest(input: { runId: string; mode: "CANONICAL" | "DIAGNOSTIC"; targetYear?: number; canonicalBundleHash: string; normalizedSeed: string; mechanics: MechanicsVariablesV1; causalOwnerInputs: CausalOwnerInputsV1; operational: OperationalConfigV1; diagnostic: DiagnosticConfigV1; labels?: Record<string, string> }): V5RunManifest {
-  const causal = causalRunHash({ canonicalBundleHash: input.canonicalBundleHash, mechanics: input.mechanics, normalizedSeed: input.normalizedSeed, causalOwnerInputs: input.causalOwnerInputs, keyedRandomVersion: KEYED_RANDOM_VERSION_V1 });
+export function defaultRunAuthorityInputsV1(input: { canonicalBundleHash: string; mechanics: MechanicsVariablesV1; causalOwnerInputs: CausalOwnerInputsV1 }): RunAuthorityInputV1[] {
+  const ownerHash = causalOwnerInputsHash(input.causalOwnerInputs);
+  const mechanicsHash = mechanicsVariablesHash(input.mechanics);
+  return [
+    { authorityId: "CANONICAL_BUNDLE", revisionId: input.canonicalBundleHash, authorityType: "CANONICAL_DOMAIN_BUNDLE", schemaVersion: "echoes-canonical-data-v5", approvedBy: "CANONICAL_BUNDLE_AUTHORITY", approvedAt: null, effectiveFromYear: 0, content: { canonicalBundleHash: input.canonicalBundleHash } },
+    { authorityId: "CAUSAL_OWNER_INPUTS", revisionId: ownerHash, authorityType: "OWNER_POLICY_INPUTS", schemaVersion: input.causalOwnerInputs.schemaVersion, approvedBy: "RUN_CREATION", approvedAt: null, effectiveFromYear: 0, content: input.causalOwnerInputs },
+    { authorityId: "MECHANICS_VARIABLES", revisionId: mechanicsHash, authorityType: "MECHANICS_CONFIGURATION", schemaVersion: input.mechanics.schemaVersion, approvedBy: "RUN_CREATION", approvedAt: null, effectiveFromYear: 0, content: input.mechanics },
+  ];
+}
+
+export function buildV5RunManifest(input: { runId: string; mode: "CANONICAL" | "DIAGNOSTIC"; targetYear?: number; canonicalBundleHash: string; normalizedSeed: string; mechanics: MechanicsVariablesV1; causalOwnerInputs: CausalOwnerInputsV1; operational: OperationalConfigV1; diagnostic: DiagnosticConfigV1; labels?: Record<string, string>; authorityInputs?: readonly RunAuthorityInputV1[]; authoritySnapshot?: RunAuthoritySnapshotV1 }): V5RunManifest {
+  if (input.authorityInputs && input.authoritySnapshot) throw new Error("Provide authorityInputs or authoritySnapshot, not both");
+  const authoritySnapshot = input.authoritySnapshot ?? buildRunAuthoritySnapshotV1([...
+    defaultRunAuthorityInputsV1({ canonicalBundleHash: input.canonicalBundleHash, mechanics: input.mechanics, causalOwnerInputs: input.causalOwnerInputs }),
+    ...(input.authorityInputs ?? []),
+  ]);
+  validateRunAuthoritySnapshotV1(authoritySnapshot);
+  const initialAuthoritySnapshotHash = buildRunAuthoritySnapshotV1(authoritySnapshot.initialEntries.map((entry) => ({ authorityId: entry.authorityId, revisionId: entry.revisionId, authorityType: entry.authorityType, schemaVersion: entry.schemaVersion, approvedBy: entry.approvedBy, approvedAt: entry.approvedAt, effectiveFromYear: entry.effectiveFromYear, content: entry.content }))).snapshotSha256;
+  const causal = causalRunHash({ canonicalBundleHash: input.canonicalBundleHash, mechanics: input.mechanics, normalizedSeed: input.normalizedSeed, causalOwnerInputs: input.causalOwnerInputs, keyedRandomVersion: KEYED_RANDOM_VERSION_V1, initialAuthoritySnapshotHash });
   const core = {
     schemaVersion: "echoes-v5-run-manifest-v1" as const, runId: input.runId, mode: input.mode, targetYear: input.targetYear ?? 2000, causalRunHash: causal,
     durableStateSchemaVersion: V5_DURABLE_SCHEMA_VERSION, mechanicsVersion: V5_MECHANICS_VERSION, causalDerivationVersion: V5_CAUSAL_DERIVATION_VERSION,
     readModelVersion: V5_READ_MODEL_VERSION, schedulerVersion: V5_SCHEDULER_VERSION, keyedRandomVersion: KEYED_RANDOM_VERSION_V1,
     canonicalBundleHash: input.canonicalBundleHash, mechanicsVariablesHash: mechanicsVariablesHash(input.mechanics), causalOwnerInputsHash: causalOwnerInputsHash(input.causalOwnerInputs),
     operationalConfigHash: operationalConfigHash(input.operational), diagnosticConfigHash: diagnosticConfigHash(input.diagnostic), labelInputHash: labelInputHash(input.labels ?? {}),
-    normalizedSeed: input.normalizedSeed, mechanicsVariables: input.mechanics, causalOwnerInputs: input.causalOwnerInputs, operationalConfig: input.operational, diagnosticConfig: input.diagnostic, labels: input.labels ?? {},
+    normalizedSeed: input.normalizedSeed, mechanicsVariables: input.mechanics, causalOwnerInputs: input.causalOwnerInputs, operationalConfig: input.operational, diagnosticConfig: input.diagnostic, labels: input.labels ?? {}, authoritySnapshot,
   };
   return { ...core, runManifestHash: hash(core) };
 }

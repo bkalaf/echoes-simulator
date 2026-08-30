@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "echoes-dynamic-influence-validation-v56",
+  "status": "STRUCTURAL_PASS_NUMERIC_POLICY_REVIEW_REQUIRED",
+  "normalizedDistance": "geodesic distance / approved effective radius",
+  "contestedSpan": {
+    "total": 40,
+    "strengths": [
+      25,
+      15
+    ],
+    "boundaryFromFirst": 25,
+    "shares": [
+      "5/8",
+      "3/8"
+    ]
+  },
+  "deterministicTie": {
+    "settlementId": "S_A",
+    "stateId": "STATE_A",
+    "normalizedDistance": 0.5559754011676645,
+    "status": "CONTROLLED"
+  },
+  "membershipMutationAllowed": false,
+  "controlDomains": [
+    "POI",
+    "REFUGE",
+    "RESOURCE",
+    "ROUTE_SEGMENT"
+  ]
+}

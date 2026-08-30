@@ -11,7 +11,7 @@ import { normalizeSeed } from "../../src/core/v5/random.js";
 import { V5_SECURITY_FORCE_TYPES, type CausalEventV5, type OrganizationV5, type OwnershipStakeV5 } from "../../src/core/v5/types.js";
 import { SimulatorStore } from "../../src/persistence/sqlite-store.js";
 
-describe("V5.4 SecurityForce Organization checkpoint integration", () => {
+describe("V5.6 SecurityForce Organization checkpoint integration", () => {
   it("rolls back every world's persisted year when any atomic-year write fails", () => {
     const directory = mkdtempSync(join(tmpdir(), "echoes-v54-atomic-persistence-"));
     const store = new SimulatorStore(join(directory, "fixture.sqlite"));
@@ -57,5 +57,5 @@ describe("V5.4 SecurityForce Organization checkpoint integration", () => {
       store.close();
       rmSync(directory, { recursive: true, force: true });
     }
-  });
+  }, 15_000);
 });

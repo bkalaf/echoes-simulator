@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "echoes-poi-cross-repo-alignment-v1",
+  "authorityId": "EIDOLON_PUBLIC_3D_ATLAS_e760e7cd01c283d7a0e2",
+  "sharedStableIds": 92,
+  "classifications": {
+    "EXACT_MATCH": 85,
+    "ATLAS_CORRECTION": 0,
+    "SIMULATOR_ONLY": 0,
+    "ATLAS_ONLY": 0,
+    "ID_CONFLICT": 0,
+    "TYPE_CONFLICT": 0,
+    "INVALID_GEOGRAPHY": 7
+  },
+  "exactOwnedFieldMatches": 85,
+  "appliedCorrections": 0,
+  "unresolvedConflicts": 7,
+  "databaseRows": 92,
+  "runtimeRenderedRows": 85,
+  "noNameOrPositionJoins": true,
+  "pass": true
+}
