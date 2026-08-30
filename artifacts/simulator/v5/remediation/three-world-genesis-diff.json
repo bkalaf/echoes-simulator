@@ -1,6 +1,6 @@
 {
   "schemaVersion": "echoes-three-world-genesis-diff-v56",
-  "status": "LIVE_GENESIS_BLOCKED_BY_DOMAIN_AUTHORITY",
+  "status": "AUTHORITY_READY_FOR_BOUNDED_GENESIS",
   "requiredIdenticalDomains": [
     "population",
     "Breed/tier distribution",

@@ -122,22 +122,45 @@ model BreedDeityDecisionAudit {
 }
 
 model CanonicalAuthorityRevision {
-  revisionId        String                      @id
-  authorityId       String
-  authorityType     String
-  schemaVersion     String
-  contentSha256     String
-  status            AuthorityRevisionStatus
-  approvedBy        String?
-  approvedAt        DateTime?
-  effectiveFromYear Int?
-  effectiveToYear   Int?
-  provenanceRef     String
-  createdAt         DateTime                    @default(now())
-  snapshotEntries   RunAuthoritySnapshotEntry[]
-  values            CanonicalAuthorityValue[]
+  revisionId              String                            @id
+  authorityId             String
+  authorityType           String
+  schemaVersion           String
+  contentSha256           String
+  status                  AuthorityRevisionStatus
+  approvedBy              String?
+  approvedAt              DateTime?
+  effectiveFromYear       Int?
+  effectiveToYear         Int?
+  provenanceRef           String
+  createdAt               DateTime                          @default(now())
+  snapshotEntries         RunAuthoritySnapshotEntry[]
+  values                  CanonicalAuthorityValue[]
+  migrationReconciliation CanonicalMigrationReconciliation?
 
   @@unique([authorityId, revisionId])
+  @@index([authorityId, status])
+}
+
+model CanonicalMigrationReconciliation {
+  migrationId                String                     @id
+  authorityId                String
+  revisionId                 String                     @unique
+  sourceAuthorityRef         String
+  sourceManifestSha256       String
+  sourceContentSha256        String
+  importedContentSha256      String
+  stableIdentityCount        Int
+  sourceValueCount           Int
+  importedValueCount         Int
+  unexplainedDifferenceCount Int
+  unexplainedDifferencePaths String[]                   @default([])
+  status                     String
+  activatedAt                DateTime?
+  createdAt                  DateTime                   @default(now())
+  updatedAt                  DateTime                   @updatedAt
+  revision                   CanonicalAuthorityRevision @relation(fields: [revisionId], references: [revisionId], onDelete: Restrict)
+
   @@index([authorityId, status])
 }
 

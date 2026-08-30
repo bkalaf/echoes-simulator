@@ -3,6 +3,7 @@
   "status": "UNREVIEWED",
   "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
   "authorityRevisionId": null,
+  "dispositionByGroupId": {},
   "structures": [
     {
       "structureId": "CANONICAL_STRUCTURE_1",
@@ -24,115 +25,255 @@
   "candidateGroups": [
     {
       "groupId": "homosexual",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "bisexual",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "transgender",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "black-skinned",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "white-skinned",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "birds",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "reptiles",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "amphibians",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "fish",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "demons",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "angels",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "woodland mythos",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "unborn",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "soulless",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "beasts",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "mythos",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "humans",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "cave dwellers",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "tree dwellers",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "cold blooded",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "carnivores",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "herbivores",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "multi-litters",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "egg layers",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "undead",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "elves",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "dwarves",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     },
     {
       "groupId": "insects",
-      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY"
+      "legacyStatus": "LEGACY_UNTRUSTED_TARGET_TAXONOMY",
+      "requiredDisposition": [
+        "KEEP",
+        "REJECT"
+      ],
+      "membershipRequiredOnlyWhen": "KEEP"
     }
   ],
   "externalDecisionProtocol": {

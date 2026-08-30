@@ -8,13 +8,13 @@ import {
   type DomainDatabaseConnectionSource,
 } from "./domain-database-connection.js";
 
-export type DomainDatabasePreflightState = "READY" | "NOT_CONFIGURED" | "UNREACHABLE" | "MIGRATION_REQUIRED" | "SEED_REQUIRED" | "SCHEMA_MISMATCH";
+export type DomainDatabasePreflightState = "READY" | "NOT_CONFIGURED" | "UNREACHABLE" | "MIGRATION_REQUIRED" | "SCHEMA_MISMATCH";
 
 export interface DomainDatabasePreflight {
   state: DomainDatabasePreflightState;
   diagnosticCode: string;
   redactedTarget: string | null;
-  actions: readonly ("DOCTOR" | "MIGRATE" | "SEED" | "RETRY")[];
+  actions: readonly ("DOCTOR" | "MIGRATE" | "RETRY")[];
   missingStructures: readonly string[];
   connectionSource: DomainDatabaseConnectionSource | null;
   connectionLabel: string | null;
@@ -23,7 +23,7 @@ export interface DomainDatabasePreflight {
   secondCanonicalDatabaseCreated: false;
 }
 
-const REQUIRED_DOMAIN_TABLES = ["CanonicalAuthorityRevision", "CanonicalAuthorityValue", "OwnerPolicyDefinition", "LockedOwnerAuthority", "OwnerPolicyRevision", "RunAuthoritySnapshot", "ProjectionWatermark", "Breed", "Deity"] as const;
+const REQUIRED_DOMAIN_TABLES = ["CanonicalAuthorityRevision", "CanonicalAuthorityValue", "CanonicalMigrationReconciliation", "OwnerPolicyDefinition", "LockedOwnerAuthority", "OwnerPolicyRevision", "RunAuthoritySnapshot", "ProjectionWatermark", "Breed", "Site", "PointOfInterest"] as const;
 
 function redactedDatabaseTarget(value: string): string {
   try {
@@ -92,12 +92,6 @@ export async function preflightDomainDatabase(): Promise<DomainDatabasePreflight
     if (missingStructures.length > 0) return { state: "SCHEMA_MISMATCH", diagnosticCode: "DOMAIN_SCHEMA_MISMATCH", actions: ["DOCTOR", "MIGRATE", "RETRY"], missingStructures, ...common };
     const failedMigrations = await client.$queryRawUnsafe<Array<{ count: bigint }>>(`SELECT COUNT(*)::bigint AS count FROM "_prisma_migrations" WHERE finished_at IS NULL AND rolled_back_at IS NULL`);
     if (Number(failedMigrations[0]?.count ?? 0n) > 0) return { state: "MIGRATION_REQUIRED", diagnosticCode: "DOMAIN_MIGRATION_INCOMPLETE", actions: ["DOCTOR", "MIGRATE", "RETRY"], missingStructures: [], ...common };
-    const requiredAuthority = await client.$queryRawUnsafe<Array<{ authorityId: string }>>(`SELECT DISTINCT "authorityId" FROM "CanonicalAuthorityRevision" WHERE status='APPROVED' AND "authorityId" IN ('SIMULATOR_CANONICAL_V5','BREED_PRIMARY_DEITY')`);
-    const observedAuthority = new Set(requiredAuthority.map((row) => row.authorityId));
-    if (!observedAuthority.has("SIMULATOR_CANONICAL_V5")) return { state: "SEED_REQUIRED", diagnosticCode: "CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED", actions: ["SEED", "RETRY"], missingStructures: [], ...common };
-    if (!observedAuthority.has("BREED_PRIMARY_DEITY")) return { state: "SEED_REQUIRED", diagnosticCode: "BREED_PRIMARY_DEITY_RECONSTRUCTION_REQUIRED", actions: ["SEED", "RETRY"], missingStructures: [], ...common };
-    const authorityCounts = await client.$queryRawUnsafe<Array<{ breeds: bigint; deityAudits: bigint }>>(`SELECT (SELECT COUNT(*) FROM "Breed")::bigint AS breeds, (SELECT COUNT(*) FROM "BreedDeityDecisionAudit" audit JOIN "CanonicalAuthorityRevision" revision ON revision."revisionId"=audit."authorityRevisionId" WHERE revision."authorityId"='BREED_PRIMARY_DEITY' AND revision.status='APPROVED')::bigint AS "deityAudits"`);
-    if (Number(authorityCounts[0]?.breeds ?? 0n) !== 2062 || Number(authorityCounts[0]?.deityAudits ?? 0n) !== 2062) return { state: "SEED_REQUIRED", diagnosticCode: "BREED_PRIMARY_DEITY_2062_REQUIRED", actions: ["SEED", "RETRY"], missingStructures: [], ...common };
     return { state: "READY", diagnosticCode: "DOMAIN_DATABASE_READY", actions: ["DOCTOR"], missingStructures: [], ...common };
   } catch (error) {
     await disconnectDomainDatabase().catch(() => undefined);

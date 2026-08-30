@@ -34,10 +34,39 @@ function bindPrimaryDeities(core: CanonicalDataV5, assignments: readonly BreedDe
   return { ...core, canonicalBundleHash: combinedHash, breeds };
 }
 
+function coreOnlyHash(revisionId: string, contentSha256: string): string {
+  return sha256({ canonicalCoreRevisionId: revisionId, canonicalCoreSha256: contentSha256 });
+}
+
+function coreAuthorityInput(coreRevision: {
+  authorityId: string;
+  revisionId: string;
+  authorityType: string;
+  schemaVersion: string;
+  approvedBy: string | null;
+  approvedAt: Date | null;
+}, core: CanonicalDataV5): RunAuthorityInputV1 {
+  return {
+    authorityId: coreRevision.authorityId,
+    revisionId: coreRevision.revisionId,
+    authorityType: coreRevision.authorityType,
+    schemaVersion: coreRevision.schemaVersion,
+    approvedBy: coreRevision.approvedBy ?? "DETERMINISTIC_CANONICAL_MIGRATION",
+    approvedAt: coreRevision.approvedAt?.toISOString() ?? null,
+    effectiveFromYear: 0,
+    content: core,
+  };
+}
+
 export function canonicalV5FromRunAuthoritySnapshot(snapshot: RunAuthoritySnapshotV1, expectedBundleHash: string, year = 0): CanonicalDataV5 {
   const coreEntry = requireRunAuthorityV1(snapshot, V5_CANONICAL_CORE_AUTHORITY_ID, year);
-  const deityEntry = requireRunAuthorityV1(snapshot, BREED_PRIMARY_DEITY_AUTHORITY_ID, year);
   validateCore(coreEntry.content);
+  const deityEntry = authorityEntriesAtYearV1(snapshot, year).find((entry) => entry.authorityId === BREED_PRIMARY_DEITY_AUTHORITY_ID);
+  if (!deityEntry) {
+    const combinedHash = coreOnlyHash(coreEntry.revisionId, coreEntry.contentSha256);
+    if (combinedHash !== expectedBundleHash) throw new Error("Run canonical authority hash no longer matches its immutable snapshot");
+    return { ...structuredClone(coreEntry.content), canonicalBundleHash: combinedHash };
+  }
   const assignments = (deityEntry.content as { assignments?: BreedDeityAssignment[] }).assignments;
   if (!Array.isArray(assignments)) throw new Error("BREED_PRIMARY_DEITY_AUTHORITY_REQUIRED: snapshot contains no stable-ID assignments");
   const combinedHash = sha256({ canonicalCoreRevisionId: coreEntry.revisionId, canonicalCoreSha256: coreEntry.contentSha256, breedDeityRevisionId: deityEntry.revisionId, breedDeitySha256: deityEntry.contentSha256 });
@@ -52,20 +81,35 @@ export function canonicalV5FromRunAuthoritySnapshot(snapshot: RunAuthoritySnapsh
  */
 export function canonicalV5FromRunAuthoritySnapshotForRead(snapshot: RunAuthoritySnapshotV1, expectedBundleHash: string, year = 0): CanonicalDataV5 | null {
   const authorityIds = new Set(authorityEntriesAtYearV1(snapshot, year).map((entry) => entry.authorityId));
-  if (!authorityIds.has(V5_CANONICAL_CORE_AUTHORITY_ID) || !authorityIds.has(BREED_PRIMARY_DEITY_AUTHORITY_ID)) return null;
+  if (!authorityIds.has(V5_CANONICAL_CORE_AUTHORITY_ID)) return null;
   return canonicalV5FromRunAuthoritySnapshot(snapshot, expectedBundleHash, year);
+}
+
+export async function loadPostgresCanonicalCoreV5(): Promise<{ canonical: CanonicalDataV5; authorityInput: RunAuthorityInputV1 }> {
+  const database = getDomainDatabase();
+  const coreRevision = await database.canonicalAuthorityRevision.findFirst({
+    where: {
+      authorityId: V5_CANONICAL_CORE_AUTHORITY_ID,
+      status: "APPROVED",
+      migrationReconciliation: { is: { status: "RECONCILED", unexplainedDifferenceCount: 0 } },
+    },
+    include: { values: { orderBy: { valuePath: "asc" } }, migrationReconciliation: true },
+    orderBy: [{ effectiveFromYear: "desc" }, { approvedAt: "desc" }, { revisionId: "desc" }],
+  });
+  if (!coreRevision) throw new Error("CANONICAL_DOMAIN_RECONCILIATION_REQUIRED: run pnpm db:reconcile-canonical and review only reported unexplained differences");
+  const hydrated = hydrateTypedAuthorityValues(coreRevision.values as TypedAuthorityValue[]);
+  validateCore(hydrated);
+  if (sha256(hydrated) !== coreRevision.contentSha256) throw new Error(`CANONICAL_AUTHORITY_HASH_MISMATCH ${coreRevision.revisionId}`);
+  const canonical = { ...hydrated, canonicalBundleHash: coreOnlyHash(coreRevision.revisionId, coreRevision.contentSha256) };
+  return { canonical, authorityInput: coreAuthorityInput(coreRevision, hydrated) };
 }
 
 export async function loadPostgresCanonicalV5(): Promise<{ canonical: CanonicalDataV5; authorityInputs: RunAuthorityInputV1[] }> {
   const database = getDomainDatabase();
-  const coreRevision = await database.canonicalAuthorityRevision.findFirst({ where: { authorityId: V5_CANONICAL_CORE_AUTHORITY_ID, status: "APPROVED" }, include: { values: { orderBy: { valuePath: "asc" } } }, orderBy: [{ effectiveFromYear: "desc" }, { approvedAt: "desc" }, { revisionId: "desc" }] });
-  if (!coreRevision) throw new Error("SEED_REQUIRED: approved SIMULATOR_CANONICAL_V5 authority is absent; run pnpm db:import-canonical and approve the imported revision");
-  const core = hydrateTypedAuthorityValues(coreRevision.values as TypedAuthorityValue[]);
-  validateCore(core);
-  if (sha256(core) !== coreRevision.contentSha256) throw new Error(`CANONICAL_AUTHORITY_HASH_MISMATCH ${coreRevision.revisionId}`);
+  const { canonical: core, authorityInput: coreInput } = await loadPostgresCanonicalCoreV5();
 
   const deityRevision = await database.canonicalAuthorityRevision.findFirst({ where: { authorityId: BREED_PRIMARY_DEITY_AUTHORITY_ID, status: "APPROVED" }, orderBy: [{ effectiveFromYear: "desc" }, { approvedAt: "desc" }, { revisionId: "desc" }] });
-  if (!deityRevision) throw new Error("BREED_PRIMARY_DEITY_AUTHORITY_REQUIRED: approve the terminal 2062-record stable-ID reconstruction");
+  if (!deityRevision) return { canonical: core, authorityInputs: [coreInput] };
   const breedRows = await database.breed.findMany({ select: { breedId: true, primaryDeityId: true }, orderBy: { breedId: "asc" } });
   const audits = await database.breedDeityDecisionAudit.findMany({ where: { authorityRevisionId: deityRevision.revisionId }, select: { breedId: true, deityId: true }, orderBy: { breedId: "asc" } });
   if (breedRows.length !== 2_062 || audits.length !== 2_062) throw new Error(`BREED_PRIMARY_DEITY_AUTHORITY_REQUIRED revision=${deityRevision.revisionId} breeds=${breedRows.length} provenance=${audits.length} expected=2062`);
@@ -76,10 +120,10 @@ export async function loadPostgresCanonicalV5(): Promise<{ canonical: CanonicalD
   });
   const deityContent = { assignments };
   if (sha256(deityContent) !== deityRevision.contentSha256) throw new Error(`BREED_PRIMARY_DEITY_HASH_MISMATCH ${deityRevision.revisionId}`);
-  const combinedHash = sha256({ canonicalCoreRevisionId: coreRevision.revisionId, canonicalCoreSha256: coreRevision.contentSha256, breedDeityRevisionId: deityRevision.revisionId, breedDeitySha256: deityRevision.contentSha256 });
+  const combinedHash = sha256({ canonicalCoreRevisionId: coreInput.revisionId, canonicalCoreSha256: sha256(coreInput.content), breedDeityRevisionId: deityRevision.revisionId, breedDeitySha256: deityRevision.contentSha256 });
   const canonical = bindPrimaryDeities(core, assignments, combinedHash);
   const authorityInputs: RunAuthorityInputV1[] = [
-    { authorityId: V5_CANONICAL_CORE_AUTHORITY_ID, revisionId: coreRevision.revisionId, authorityType: coreRevision.authorityType, schemaVersion: coreRevision.schemaVersion, approvedBy: coreRevision.approvedBy ?? "OWNER_APPROVAL_REQUIRED", approvedAt: coreRevision.approvedAt?.toISOString() ?? null, effectiveFromYear: 0, content: core },
+    coreInput,
     { authorityId: BREED_PRIMARY_DEITY_AUTHORITY_ID, revisionId: deityRevision.revisionId, authorityType: deityRevision.authorityType, schemaVersion: deityRevision.schemaVersion, approvedBy: deityRevision.approvedBy ?? "OWNER_APPROVAL_REQUIRED", approvedAt: deityRevision.approvedAt?.toISOString() ?? null, effectiveFromYear: 0, content: deityContent },
   ];
   return { canonical, authorityInputs };

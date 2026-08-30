@@ -20,6 +20,15 @@ describe("bundled canonical operator state", () => {
     expect(JSON.stringify(view)).not.toMatch(/validate|preflight|select.*directory/i);
   });
 
+  it("reports shared database readiness independently from an invalid legacy bundle", () => {
+    const view = deriveOperatorViewModel(snapshot({ canonicalData: invalid, domainDatabasePreflight: { state: "READY", connectionLabel: "Echoes shared PostgreSQL", diagnosticCode: "DOMAIN_DATABASE_READY" } }));
+    expect(view.primaryNotice).toMatchObject({ severity: "SUCCESS", title: "Canonical database is ready." });
+    expect(view.primaryNotice.detail).toContain("Connected — Echoes shared PostgreSQL");
+    expect(view.primaryNotice.detail).toContain("only at their causal consumers");
+    expect(view.canRunCanonical).toBe(false);
+    expect(view.canRunDiagnostic).toBe(true);
+  });
+
   it("makes a genuine naming barrier the primary global state", () => {
     const view = deriveOperatorViewModel(snapshot({ manifest: { runId: "RUN", mode: "CANONICAL", status: "WAITING_FOR_NAMING", currentYear: 0 }, pendingNamingJob: {} }));
     expect(view).toMatchObject({ productState: "WAITING_FOR_NAMING", canRunCanonical: false, canRunDiagnostic: false, canSubmitNaming: true });

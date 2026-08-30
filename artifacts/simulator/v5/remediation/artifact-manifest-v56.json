@@ -19,7 +19,8 @@
     "family-power-validation.json",
     "migration-intermingling-validation.json",
     "ECHOES_OF_EIDOLON_DYNAMIC_ATLAS_HANDOFF.md",
-    "master-remediation-final-report.md"
+    "master-remediation-final-report.md",
+    "database-readiness-acceptance.json"
   ],
-  "contentSetSha256": "071cd37942089b22614bb604af3179ac00c1147417761734a498a87defcd37a6"
+  "contentSetSha256": "af936ada0977a9d5d1c1e7287d3a649ec9892f25d59dfd0569c27c944ff2d2d4"
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "echoes-shared-postgres-discovery-validation-v1",
-  "generatedAt": "2026-08-30T05:30:54.417Z",
+  "generatedAt": "2026-08-30T16:21:35.736Z",
   "databaseIdentitySha256Prefix": "6f130cfc098f8676",
   "connection": {
     "source": "ECHOES_SHARED_LOCAL_CONFIG",
@@ -11,12 +11,13 @@
     "secondCanonicalDatabaseCreated": false
   },
   "schema": {
-    "preflightState": "SEED_REQUIRED",
-    "diagnosticCode": "CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED",
+    "preflightState": "READY",
+    "diagnosticCode": "DOMAIN_DATABASE_READY",
     "missingStructures": [],
     "appliedSimulatorMigrations": [
       "20260829120000_canonical_geography_and_political_alignment",
-      "20260829210000_master_remediation_v56"
+      "20260829210000_master_remediation_v56",
+      "20260830010000_canonical_domain_reconciliation"
     ],
     "reusedSharedCanonicalTables": [
       "Breed",
@@ -25,11 +26,137 @@
     ],
     "parallelCanonicalBreedSitePoiTablesCreated": false
   },
+  "canonicalDomainMigration": {
+    "ownerApprovalRequired": false,
+    "domains": [
+      {
+        "authorityId": "BREED_CATALOG_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 41751,
+        "importedValueCount": 41751
+      },
+      {
+        "authorityId": "CANONICAL_BREED_SIMULATION_PROFILE_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 36852,
+        "importedValueCount": 36852
+      },
+      {
+        "authorityId": "CANONICAL_ECONOMY_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 38,
+        "importedValueCount": 38
+      },
+      {
+        "authorityId": "CANONICAL_EVENT_SKELETON_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 276,
+        "importedValueCount": 276
+      },
+      {
+        "authorityId": "CANONICAL_GENESIS_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 726,
+        "importedValueCount": 726
+      },
+      {
+        "authorityId": "CANONICAL_GEOGRAPHY_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 6343,
+        "importedValueCount": 6343
+      },
+      {
+        "authorityId": "CANONICAL_GOVERNANCE_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 987,
+        "importedValueCount": 987
+      },
+      {
+        "authorityId": "CANONICAL_NAMING_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 53,
+        "importedValueCount": 53
+      },
+      {
+        "authorityId": "CANONICAL_ROUTE_CORRIDORS_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 534,
+        "importedValueCount": 534
+      },
+      {
+        "authorityId": "SIMULATOR_CANONICAL_V5",
+        "status": "RECONCILED",
+        "unexplainedDifferenceCount": 0,
+        "sourceValueCount": 44108,
+        "importedValueCount": 44108
+      }
+    ],
+    "unexplainedMigratedValues": 0
+  },
   "import": {
     "canonicalAuthorities": [
       {
+        "authorityId": "BREED_CATALOG_V5",
+        "status": "APPROVED",
+        "typedValueCount": 41751
+      },
+      {
+        "authorityId": "CANONICAL_BREED_SIMULATION_PROFILE_V5",
+        "status": "APPROVED",
+        "typedValueCount": 36852
+      },
+      {
+        "authorityId": "CANONICAL_ECONOMY_V5",
+        "status": "APPROVED",
+        "typedValueCount": 38
+      },
+      {
+        "authorityId": "CANONICAL_EVENT_SKELETON_V5",
+        "status": "APPROVED",
+        "typedValueCount": 276
+      },
+      {
+        "authorityId": "CANONICAL_GENESIS_V5",
+        "status": "APPROVED",
+        "typedValueCount": 726
+      },
+      {
+        "authorityId": "CANONICAL_GEOGRAPHY_V5",
+        "status": "SUPERSEDED",
+        "typedValueCount": 4647
+      },
+      {
+        "authorityId": "CANONICAL_GEOGRAPHY_V5",
+        "status": "APPROVED",
+        "typedValueCount": 6343
+      },
+      {
+        "authorityId": "CANONICAL_GOVERNANCE_V5",
+        "status": "APPROVED",
+        "typedValueCount": 987
+      },
+      {
+        "authorityId": "CANONICAL_NAMING_V5",
+        "status": "APPROVED",
+        "typedValueCount": 53
+      },
+      {
+        "authorityId": "CANONICAL_ROUTE_CORRIDORS_V5",
+        "status": "APPROVED",
+        "typedValueCount": 534
+      },
+      {
         "authorityId": "SIMULATOR_CANONICAL_V5",
-        "status": "UNREVIEWED",
+        "status": "APPROVED",
         "typedValueCount": 44108
       }
     ],
@@ -55,6 +182,14 @@
     "existingCanonicalDatabaseReused": "PASS",
     "secondCanonicalDatabaseCreated": "NO",
     "databaseUrlManualConfigurationRequired": "NO",
+    "databaseInfrastructureState": "READY",
+    "blanketSimulatorCanonicalV5OwnerApproval": "REMOVED",
+    "migratedCanonicalValuesReconciled": "PASS",
+    "unexplainedMigratedValues": 0,
+    "breedCatalogAvailableIndependently": "PASS",
+    "atlasAvailableIndependently": "PASS",
+    "unresolvedDomainAuthorities": "CAPABILITY_SPECIFIC",
+    "unapprovedPolicyBlockingScope": "FIRST_CONSUMER_ONLY",
     "sqliteRemainsCausalRunStore": "PASS_BY_ARCHITECTURE_AND_INTEGRATION_TEST",
     "existingSQLiteRunReadableWithPostgresUnavailable": "PASS_BY_INTEGRATION_TEST",
     "snapshottedRunContinuesWithPostgresUnavailable": "PASS_BY_IMMUTABLE_SNAPSHOT_TEST"

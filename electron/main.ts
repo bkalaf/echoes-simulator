@@ -7,7 +7,6 @@ import { randomUUID } from "node:crypto";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { userInfo } from "node:os";
-import { parse as parseCsvSync } from "csv-parse/sync";
 import { WORKER_SCHEMA_VERSION } from "./ipc-contract.js";
 import { SimulatorStore } from "../src/persistence/sqlite-store.js";
 import { inspectLegacyV5NamingTrustForStartup, type LegacyV5NamingTrustStartupInspection } from "../src/persistence/v5-legacy-trust.js";
@@ -27,7 +26,8 @@ import { disconnectDomainDatabase, preflightDomainDatabase, type DomainDatabaseP
 import { createOwnerPolicyCandidateRevision, decideOwnerPolicyRevisions, listOwnerPolicyCenter } from "../src/persistence/postgres-owner-policy.js";
 import { CANONICAL_POLICY_VERSION } from "../src/core/engine/canonical-authority.js";
 import { editableV5ConfigurationJson, parseEditableV5Configuration } from "../src/core/v5/configuration.js";
-import { canonicalV5FromRunAuthoritySnapshot, canonicalV5FromRunAuthoritySnapshotForRead, loadPostgresCanonicalV5 } from "../src/persistence/postgres-canonical.js";
+import { canonicalV5FromRunAuthoritySnapshotForRead, loadPostgresCanonicalCoreV5 } from "../src/persistence/postgres-canonical.js";
+import { loadCausalCapabilityReadiness } from "../src/persistence/causal-capability-readiness.js";
 import { buildReadModelV1 } from "../src/core/v5/read-model.js";
 import type { WorldKey as WorldKeyV5, WorldStateV5 } from "../src/core/v5/types.js";
 import { acceptPersistedV5DerogatoryDecisionBatch, acceptPersistedV5NamingBatch, acceptPersistedV5NamingBatches } from "../src/core/v5/service.js";
@@ -55,7 +55,6 @@ let breedCatalogPromise: ReturnType<typeof loadBreedCatalog> | null = null;
 let atlasPoiCache: Awaited<ReturnType<typeof loadCanonicalAtlasPois>> | null = null;
 let legacyNamingTrust: LegacyV5NamingTrustStartupInspection | null = null;
 let canonicalDataCache: ReturnType<typeof loadBundledCanonical> | null = null;
-let sitesCache: Record<string, string>[] | null = null;
 let operatorSnapshotInFlight: Promise<OperatorSnapshot & Record<string, unknown>> | null = null;
 
 function canonicalData(): ReturnType<typeof loadBundledCanonical> {
@@ -89,9 +88,6 @@ function v5SettlementProjection(runId: string, state: WorldStateV5): Record<stri
 async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string, unknown>> {
   const domainDatabasePreflight = await preflightDomainDatabase();
   const loadedCanonicalData = canonicalData();
-  const sitesPath = join(loadedCanonicalData.directory, "atlas/sites_naming_master.csv");
-  sitesCache ??= existsSync(sitesPath) ? parseCsvSync(readFileSync(sitesPath), { bom: true, columns: true, skip_empty_lines: true }) as Record<string, string>[] : [];
-  const sites = sitesCache;
   const runs = getStore().listRuns();
   if (loadedCanonicalData.status === "READY") {
     if (!poiContextCache || poiContextCache.canonicalDirectory !== loadedCanonicalData.directory) poiContextCache = { canonicalDirectory: loadedCanonicalData.directory, bySite: loadUnnamedPoisBySite(loadedCanonicalData.directory) };
@@ -104,7 +100,23 @@ async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string
   const selectedV5Manifest = selectedRun ? getStore().loadV5RunManifest(selectedRun.runId) : null;
   const loadedCanonicalV5 = selectedV5Manifest
     ? canonicalV5FromRunAuthoritySnapshotForRead(selectedV5Manifest.authoritySnapshot, selectedV5Manifest.canonicalBundleHash, selectedRun?.currentYear ?? 0)
-    : await loadPostgresCanonicalV5().then((result) => result.canonical).catch(() => null);
+    : domainDatabasePreflight.state === "READY" ? await loadPostgresCanonicalCoreV5().then((result) => result.canonical).catch(() => null) : null;
+  const sites = loadedCanonicalV5?.sites.map((site) => ({
+    siteId: site.siteId,
+    currentSiteName: site.currentName ?? loadedCanonicalV5.canonicalLabels[site.siteId] ?? "",
+    classification: "CANONICAL_SITE",
+    attractivenessTier: site.quality === null ? "UNRATED" : String(site.quality),
+    latitude: String(site.latitude),
+    longitude: String(site.longitude),
+    regionId: site.regionId,
+    regionName: site.regionName,
+    continent: site.continent ?? "",
+    broadTerrain: site.terrainBroad.join(", "),
+    poiCount: String(loadedCanonicalV5.physicalPois.filter((poi) => poi.siteId === site.siteId).length),
+  })) ?? [];
+  const capabilityReadiness = domainDatabasePreflight.state === "READY"
+    ? await loadCausalCapabilityReadiness().catch(() => null)
+    : null;
   const projectionWatermark = selectedRun && selectedV5Manifest ? getStore().loadV5ProjectionWatermark(selectedRun.runId) : null;
   const pendingV5NamingBatches = selectedRun && selectedV5Manifest && selectedRun.status !== "RUNNING"
     ? getStore().materializePendingV5NamingBatches(selectedRun.runId, selectedV5Manifest.operationalConfig.namingBatchMaximum)
@@ -162,15 +174,15 @@ async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string
   const pendingV5DerogatoryBatch = v5DerogatoryDecisionBatches.find((row) => !acceptedV5DerogatoryBatchIds.has(row.batchId)) ?? null;
   const pendingV5DerogatoryDecisionBatch = pendingV5DerogatoryBatch ? { ...pendingV5DerogatoryBatch, externalPromptText: renderExternalDerogatoryDecisionPromptV5(pendingV5DerogatoryBatch) } : null;
   const v5PolicyBlockers = selectedRun && selectedV5Manifest ? getStore().listV5PolicyBlockers(selectedRun.runId) : [];
-  return { canonicalData: loadedCanonicalData, domainDatabasePreflight, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, projectionFreshness: projectionWatermark ? { runYear: causalPersistedYear, commonProjectedThroughYear: projectionWatermark.projectedThroughYear, selectedDataYear: persistedYear, freshness: projectionWatermark.status === "CURRENT" ? "CURRENT" : "STALE", lastErrorCode: projectionWatermark.lastErrorCode, mixedYearReadsAllowed: false } : null, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, pendingV5DerogatoryDecisionBatch, v5PolicyBlockers, atrocityOccurrenceSlots: selectedV5Manifest?.causalOwnerInputs.atrocityOccurrenceSlots ?? [], settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
+  return { canonicalData: loadedCanonicalData, domainDatabasePreflight, capabilityReadiness, manifest, runs: runs.map((run) => ({ ...run, isV5: Boolean(getStore().loadV5RunManifest(run.runId)) })), selectedRunId: selectedRun?.runId ?? null, hasActiveRun, v5Run: Boolean(selectedV5Manifest), v5CanonicalReadiness, namingReadiness, namingQueueSummary, legacyNamingTrust, progress, projectionFreshness: projectionWatermark ? { runYear: causalPersistedYear, commonProjectedThroughYear: projectionWatermark.projectedThroughYear, selectedDataYear: persistedYear, freshness: projectionWatermark.status === "CURRENT" ? "CURRENT" : "STALE", lastErrorCode: projectionWatermark.lastErrorCode, mixedYearReadsAllowed: false } : null, exportValidation: null, sites, pendingNamingJob, pendingNamingBatches, pendingV5NamingBatch, pendingV5NamingBatches, pendingV5DerogatoryDecisionBatch, v5PolicyBlockers, atrocityOccurrenceSlots: selectedV5Manifest?.causalOwnerInputs.atrocityOccurrenceSlots ?? [], settlementProjections, databasePath: getStore().filename, canonicalResumeInProgress: Boolean(activeCanonicalResume && selectedRun && activeCanonicalResume.runId === selectedRun.runId), v5ResumeInProgress: Boolean(activeV5Resume && selectedRun && activeV5Resume.runId === selectedRun.runId), v5Configuration, v5ConfigurationEditable: !hasActiveRun };
 }
 
 async function runDomainDatabaseAction(action: DomainDatabasePreflight["actions"][number]): Promise<DomainDatabasePreflight> {
   if (action === "DOCTOR" || action === "RETRY") return preflightDomainDatabase();
-  const script = action === "MIGRATE" ? "db:migrate" : "db:seed-policy-center";
+  const script = "db:initialize-shared";
   await disconnectDomainDatabase();
   try {
-    await execFileAsync("pnpm", [script], { cwd: projectRoot, env: process.env, timeout: 120_000, maxBuffer: 1_000_000 });
+    await execFileAsync("pnpm", [script], { cwd: projectRoot, env: process.env, timeout: 180_000, maxBuffer: 2_000_000 });
   } catch {
     throw new Error(`DOMAIN_DATABASE_${action}_FAILED; run pnpm ${script} in the simulator repository for redacted diagnostics`);
   }
@@ -250,7 +262,7 @@ ipcMain.handle("simulator:get-runtime-info", () => ({ version: app.getVersion(),
 ipcMain.handle("simulator:get-domain-database-preflight", preflightDomainDatabase);
 ipcMain.handle("simulator:get-operator-snapshot", snapshotForOperator);
 ipcMain.handle("simulator:domain-database-action", async (_event, action: DomainDatabasePreflight["actions"][number]) => {
-  if (!["DOCTOR", "MIGRATE", "SEED", "RETRY"].includes(action)) throw new Error("Unknown domain database action");
+  if (!["DOCTOR", "MIGRATE", "RETRY"].includes(action)) throw new Error("Unknown domain database action");
   return runDomainDatabaseAction(action);
 });
 ipcMain.handle("simulator:save-v5-configuration", async (_event, input: { mechanicsJson: string; operationalJson: string; diagnosticJson: string }) => {
@@ -275,14 +287,15 @@ ipcMain.handle("simulator:run-v5-diagnostic", async (_event, seed: string, throu
   getStore().saveV5Configuration({ ...configuration, operational: { ...configuration.operational, interactiveNamingEnabled: Boolean(interactiveNaming) } });
   return runWorker("RUN_V5_DIAGNOSTIC", { seed, throughYear: targetYear, namingMode: interactiveNaming ? "INTERACTIVE_LLM_NAMING" : undefined, resourceDirectory: runtimeResources, databasePath: getStore().filename });
 });
-ipcMain.handle("simulator:get-naming-geography", (_event, requestedYear?: number) => {
+ipcMain.handle("simulator:get-naming-geography", async (_event, requestedYear?: number) => {
   const isolatedFixturePath = process.env.NODE_ENV === "test" ? process.env.EIDOLON_V5_NAMING_GEOGRAPHY_FIXTURE : undefined;
   if (isolatedFixturePath && existsSync(isolatedFixturePath)) return JSON.parse(readFileSync(isolatedFixturePath, "utf8"));
   const run = getStore().selectedRun();
   const manifest = run ? getStore().loadV5RunManifest(run.runId) : null;
   if (!run || !manifest) return null;
   const year = Math.max(0, Math.min(Number.isFinite(requestedYear) ? Math.trunc(requestedYear!) : run.currentYear ?? 0, run.currentYear ?? 0));
-  const canonical = canonicalV5FromRunAuthoritySnapshot(manifest.authoritySnapshot, manifest.canonicalBundleHash, year);
+  const canonical = canonicalV5FromRunAuthoritySnapshotForRead(manifest.authoritySnapshot, manifest.canonicalBundleHash, year);
+  if (!canonical) return null;
   const states = Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run.runId, world, year)?.state; return state ? [[world, state]] : []; })) as Partial<Record<WorldKeyV5, WorldStateV5>>;
   return buildNamingGeographyReadModel(canonical, states, getStore().loadV5TrustedLabelLedger(run.runId, year), getStore().listV5NamingRequests(run.runId), year);
 });
@@ -319,8 +332,6 @@ ipcMain.handle("simulator:get-breed-population", async (_event, runId: string, b
   return runWorker("GET_BREED_POPULATION", { databasePath: getStore().filename, runId, breedId, year });
 });
 ipcMain.handle("simulator:get-atlas-data", async (_event, requestedYear?: number) => {
-  const canonicalData = loadBundledCanonical(runtimeResources);
-  if (canonicalData.status !== "READY") throw new Error(`BUNDLED_CANONICAL_DATA_INVALID: ${canonicalData.errorDetail}`);
   atlasPoiCache ??= await loadCanonicalAtlasPois();
   const run = getStore().selectedRun();
   const year = Math.min(requestedYear ?? run?.currentYear ?? 0, run?.currentYear ?? 0);
@@ -349,8 +360,9 @@ ipcMain.handle("simulator:get-atlas-data", async (_event, requestedYear?: number
   const v5Manifest = run ? getStore().loadV5RunManifest(run.runId) : null;
   const states = (v5Manifest ? Object.fromEntries(V5_WORLDS.flatMap((world) => { const state = getStore().loadLatestV5Checkpoint(run!.runId, world, year)?.state; return state ? [[world, state]] : []; })) : {}) as Partial<Record<WorldKeyV5, WorldStateV5>>;
   const canonicalV5 = v5Manifest
-    ? canonicalV5FromRunAuthoritySnapshot(v5Manifest.authoritySnapshot, v5Manifest.canonicalBundleHash, year)
-    : (await loadPostgresCanonicalV5()).canonical;
+    ? canonicalV5FromRunAuthoritySnapshotForRead(v5Manifest.authoritySnapshot, v5Manifest.canonicalBundleHash, year)
+    : (await loadPostgresCanonicalCoreV5()).canonical;
+  if (!canonicalV5) throw new Error("ATLAS_RUN_AUTHORITY_SNAPSHOT_UNAVAILABLE");
   const labels = run && v5Manifest ? getStore().loadV5Labels(run.runId, year) : {};
   const requests = run && v5Manifest ? getStore().listV5NamingRequests(run.runId) : [];
   const routeCoverage = buildRouteCoverageReadModel(canonicalV5, states, Object.fromEntries(V5_WORLDS.map((world) => [world, labels])), Object.fromEntries(V5_WORLDS.map((world) => [world, requests.filter((request) => request.entityId.startsWith(`WORLD_ROUTE_${world}_`))])));

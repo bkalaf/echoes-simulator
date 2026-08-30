@@ -1,6 +1,6 @@
 # Owner Policy Review
 
-Locked structure is context, not a request for reapproval. The 52 unresolved revisions below remain candidates; this artifact approves none of them. Independent candidates support multi-select approval while retaining a separate immutable approval and hash for every revision.
+Locked owner structure is displayed for context and is not presented for reapproval. The 52 unresolved revisions remain candidates; this artifact approves none of them. Independent candidates support multi-select approval, with a separate immutable decision and hash for each revision.
 
 ## LOCKED OWNER STRUCTURE
 
@@ -39,8 +39,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: All-NOT_MEMBER cannot implicitly preserve a legacy Group; the atomic 63-decision targeting protocol remains separate.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → DEROGATORY_TAXONOMY → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → DEROGATORY_TAXONOMY → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### RELIGIOUS_SIMILARITY
 
@@ -63,8 +63,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Detailed relationship behavior and weights remain unresolved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → RELIGIOUS_SIMILARITY → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → RELIGIOUS_SIMILARITY → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### RESOURCE_QUARTERMASTER_ASSIGNMENT_POLICY
 
@@ -89,8 +89,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: The assignment authority is required but its ordering is unresolved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → RESOURCE_QUARTERMASTER_ASSIGNMENT_POLICY → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → RESOURCE_QUARTERMASTER_ASSIGNMENT_POLICY → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### ROUTE_DECISION
 
@@ -112,8 +112,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Prompt-01 classification remains noncausal until separately promoted.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → ROUTE_DECISION → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → ROUTE_DECISION → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_ANGER_SEMANTICS
 
@@ -135,8 +135,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed ANGER causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_ANGER_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_ANGER_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_BLOOD_SEMANTICS
 
@@ -158,8 +158,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed BLOOD causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_BLOOD_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_BLOOD_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_DESIRE_SEMANTICS
 
@@ -181,8 +181,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed DESIRE causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_DESIRE_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_DESIRE_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_DREAMS_SEMANTICS
 
@@ -204,8 +204,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed DREAMS causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_DREAMS_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_DREAMS_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_EMOTION_SEMANTICS
 
@@ -227,8 +227,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed EMOTION causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_EMOTION_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_EMOTION_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_ESSENCE_OF_FAITH_SEMANTICS
 
@@ -250,8 +250,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed ESSENCE_OF_FAITH causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_ESSENCE_OF_FAITH_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_ESSENCE_OF_FAITH_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_FEAR_SEMANTICS
 
@@ -273,8 +273,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed FEAR causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_FEAR_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_FEAR_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_GRIEF_SEMANTICS
 
@@ -296,8 +296,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed GRIEF causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_GRIEF_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_GRIEF_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_MEMORY_SEMANTICS
 
@@ -319,8 +319,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed MEMORY causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_MEMORY_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_MEMORY_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_MUSIC_ATTENTION_SEMANTICS
 
@@ -342,8 +342,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed MUSIC_ATTENTION causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_MUSIC_ATTENTION_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_MUSIC_ATTENTION_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_NECROMANTIC_ESSENCE_SEMANTICS
 
@@ -365,8 +365,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed NECROMANTIC_ESSENCE causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_NECROMANTIC_ESSENCE_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_NECROMANTIC_ESSENCE_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_NO_FEEDING_SEMANTICS
 
@@ -388,8 +388,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed NO_FEEDING causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_NO_FEEDING_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_NO_FEEDING_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_OATHS_HONOR_SEMANTICS
 
@@ -411,8 +411,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed OATHS_HONOR causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_OATHS_HONOR_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_OATHS_HONOR_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_SIN_SEMANTICS
 
@@ -434,8 +434,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No detailed SIN causal source mapping has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_SIN_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_SIN_SEMANTICS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 
 ## PENDING NUMERIC AUTHORITY
@@ -455,8 +455,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: ATROCITY_17_A=50 is inherited locked authority; only the proposed year 75 needs review.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → ATROCITY_17_B_SCHEDULE → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → ATROCITY_17_B_SCHEDULE → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### ATROCITY_CONCENTRATION
 
@@ -478,8 +478,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No concentration formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → ATROCITY_CONCENTRATION → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → ATROCITY_CONCENTRATION → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### ATROCITY_HARM_SHARE
 
@@ -496,8 +496,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: The packet's 10 percent example remains a numeric candidate.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → ATROCITY_HARM_SHARE → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → ATROCITY_HARM_SHARE → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### ATROCITY_PERSISTENCE
 
@@ -521,8 +521,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Append-only records do not imply permanently constant numeric effects.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → ATROCITY_PERSISTENCE → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → ATROCITY_PERSISTENCE → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### ATROCITY_PRIMARY_HARM_PROFILES
 
@@ -549,8 +549,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: The two conflicting primary-allocation policies were collapsed; no profile values are approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → ATROCITY_PRIMARY_HARM_PROFILES → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → ATROCITY_PRIMARY_HARM_PROFILES → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### ATROCITY_SPILLOVER
 
@@ -587,8 +587,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Direct-victim and secondary-consequence layers are structurally separate; all magnitudes remain unresolved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → ATROCITY_SPILLOVER → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → ATROCITY_SPILLOVER → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### CLASS_POLICY
 
@@ -626,8 +626,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Corrected from a 1,000-scale representation to basis points without approving the values.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → CLASS_POLICY → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → CLASS_POLICY → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### CONFLICT_EPISODE_PROFILE
 
@@ -652,8 +652,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Existing numeric review blocker carried forward.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → CONFLICT_EPISODE_PROFILE → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → CONFLICT_EPISODE_PROFILE → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### FEDERAL_VISION_WEIGHTS
 
@@ -675,8 +675,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Directionality is locked; its numeric weights remain unresolved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → FEDERAL_VISION_WEIGHTS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → FEDERAL_VISION_WEIGHTS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### PEACE_EXHAUSTION_POLICY
 
@@ -696,8 +696,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Existing numeric review blocker carried forward.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → PEACE_EXHAUSTION_POLICY → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → PEACE_EXHAUSTION_POLICY → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### POI_RENAME_CONSEQUENCES
 
@@ -725,8 +725,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Consequence categories are structural; magnitudes remain unresolved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → POI_RENAME_CONSEQUENCES → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → POI_RENAME_CONSEQUENCES → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### QUARTERMASTER_CAPACITY_LOSS
 
@@ -751,8 +751,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric capacity or loss formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → QUARTERMASTER_CAPACITY_LOSS → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → QUARTERMASTER_CAPACITY_LOSS → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### REFUGE_OUTPUT
 
@@ -774,8 +774,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric output formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → REFUGE_OUTPUT → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → REFUGE_OUTPUT → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### REFUGE_REPLENISHMENT
 
@@ -797,8 +797,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric replenishment formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → REFUGE_REPLENISHMENT → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → REFUGE_REPLENISHMENT → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### RESOURCE_YIELD_DEPLETION
 
@@ -821,8 +821,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric Resource formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → RESOURCE_YIELD_DEPLETION → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → RESOURCE_YIELD_DEPLETION → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SETTLEMENT_INFLUENCE
 
@@ -847,8 +847,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Contributor categories and boundary geometry are locked; exact formulas and proposed route centrality remain candidates.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SETTLEMENT_INFLUENCE → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SETTLEMENT_INFLUENCE → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SHRINE_THRESHOLD
 
@@ -865,8 +865,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: The 80 percent threshold remains a numeric candidate.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SHRINE_THRESHOLD → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SHRINE_THRESHOLD → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SKIRMISH_PROFILE
 
@@ -888,8 +888,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Existing numeric review blocker carried forward.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SKIRMISH_PROFILE → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SKIRMISH_PROFILE → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_ANGER_NUMERIC
 
@@ -912,8 +912,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric ANGER sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_ANGER_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_ANGER_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_BLOOD_NUMERIC
 
@@ -936,8 +936,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric BLOOD sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_BLOOD_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_BLOOD_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_DESIRE_NUMERIC
 
@@ -960,8 +960,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric DESIRE sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_DESIRE_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_DESIRE_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_DREAMS_NUMERIC
 
@@ -984,8 +984,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric DREAMS sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_DREAMS_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_DREAMS_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_EMOTION_NUMERIC
 
@@ -1008,8 +1008,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric EMOTION sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_EMOTION_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_EMOTION_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_ESSENCE_OF_FAITH_NUMERIC
 
@@ -1032,8 +1032,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric ESSENCE_OF_FAITH sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_ESSENCE_OF_FAITH_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_ESSENCE_OF_FAITH_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_FEAR_NUMERIC
 
@@ -1056,8 +1056,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric FEAR sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_FEAR_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_FEAR_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_GRIEF_NUMERIC
 
@@ -1080,8 +1080,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric GRIEF sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_GRIEF_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_GRIEF_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_MEMORY_NUMERIC
 
@@ -1104,8 +1104,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric MEMORY sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_MEMORY_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_MEMORY_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_MUSIC_ATTENTION_NUMERIC
 
@@ -1128,8 +1128,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric MUSIC_ATTENTION sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_MUSIC_ATTENTION_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_MUSIC_ATTENTION_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_NECROMANTIC_ESSENCE_NUMERIC
 
@@ -1152,8 +1152,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric NECROMANTIC_ESSENCE sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_NECROMANTIC_ESSENCE_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_NECROMANTIC_ESSENCE_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_NO_FEEDING_NUMERIC
 
@@ -1176,8 +1176,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric NO_FEEDING sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_NO_FEEDING_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_NO_FEEDING_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_OATHS_HONOR_NUMERIC
 
@@ -1200,8 +1200,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric OATHS_HONOR sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_OATHS_HONOR_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_OATHS_HONOR_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### SUSTENANCE_SIN_NUMERIC
 
@@ -1224,8 +1224,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: No numeric SIN sustenance formula has been approved.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → SUSTENANCE_SIN_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → SUSTENANCE_SIN_NUMERIC → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### TEMPLE_THRESHOLD
 
@@ -1242,8 +1242,8 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: The 100,000 threshold remains a numeric candidate.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → TEMPLE_THRESHOLD → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → TEMPLE_THRESHOLD → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 ### TERRAIN_COMPATIBILITY_POLICY
 
@@ -1265,13 +1265,13 @@ Locked structure is context, not a request for reapproval. The 52 unresolved rev
 ```
 
 - Significance: Existing numeric review blocker carried forward.
-- If unapproved: the simulator fails closed only when a causal consumer first requires this revision.
-- Exact UI action: Owner Policy Center → TERRAIN_COMPATIBILITY_POLICY → review → EDIT AS NEW REVISION if needed → APPROVE. Owner/session, timestamp, revision, hash, prior revision, provenance, and lifecycle-default boundary are automatic; enter a year only for an explicit override.
+- If unapproved: the simulator fails closed only when a causal consumer first requires this policy.
+- Exact action: Owner Policy Center → TERRAIN_COMPATIBILITY_POLICY → review → EDIT AS NEW REVISION if needed → APPROVE. Identity, timestamp, revision, hash, prior revision, provenance, and the lifecycle-default boundary are automatic; enter a year only to override the default.
 
 
 ## APPROVED POLICY REVISION
 
-None are asserted by this regenerated candidate artifact. Runtime approvals, when present, are read from immutable PostgreSQL revisions.
+None are asserted by this regenerated candidate artifact. Runtime approvals, when present, are shown from immutable PostgreSQL revisions.
 
 ## REJECTED / SUPERSEDED
 

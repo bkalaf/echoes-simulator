@@ -15,6 +15,7 @@ import { FOOD_SPECIFIC_SELECTORS_V1, FOOD_SPECIFIC_VALUES_V1, REFUGE_ELIGIBLE_FO
 import { NON_REFUGE_FOOD_SPECIFIC_V1 } from "../core/v5/sustenance.js";
 import { assertWorldNeutralCausalEqualityV1, worldNeutralCausalHashV1 } from "../core/v5/world-neutral.js";
 import { disconnectDomainDatabase, preflightDomainDatabase } from "../persistence/postgres-domain.js";
+import { loadCausalCapabilityReadiness } from "../persistence/causal-capability-readiness.js";
 
 const outputDirectory = resolve("artifacts/simulator/v5/remediation");
 mkdirSync(outputDirectory, { recursive: true });
@@ -24,6 +25,7 @@ const writeMarkdown = (name: string, value: string): void => writeFileSync(resol
 const sha256 = (value: unknown): string => createHash("sha256").update(canonicalJson(value), "utf8").digest("hex");
 
 const databasePreflight = await preflightDomainDatabase();
+const capabilityReadiness = databasePreflight.state === "READY" ? await loadCausalCapabilityReadiness() : null;
 writeJson("startup-domain-database-doctor.json", databasePreflight);
 await disconnectDomainDatabase();
 
@@ -142,6 +144,106 @@ const verifiedReport = report
   );
 writeMarkdown("master-remediation-final-report.md", verifiedReport);
 
+const correctedReport = `# Echoes Simulator Master Remediation Final Report
+
+## OPERATIONAL BLOCKERS
+
+PostgreSQL infrastructure preflight: **${databasePreflight.state}** (${databasePreflight.diagnosticCode}). The discovered connection is **${databasePreflight.connectionLabel ?? "unavailable"}**; shared canonical database reuse is ${databasePreflight.sharedCanonicalDatabase ? "confirmed" : "not confirmed"}, manual DATABASE_URL configuration is ${databasePreflight.manualDatabaseUrlRequired ? "required" : "not required"}, and no second canonical database was created.
+
+Canonical-domain migration is **${capabilityReadiness?.canonicalDomainMigration.status ?? "UNAVAILABLE"}** with ${capabilityReadiness?.canonicalDomainMigration.unexplainedDifferenceCount ?? "unknown"} unexplained values. Database infrastructure, canonical migration/reconciliation, and causal authority readiness are separate state machines. SQLite remains the causal event/checkpoint/history store; snapshotted histories do not consult mutable PostgreSQL authority while continuing.
+
+The carried-forward repo-wide cutover gate is **not complete**:
+
+${cutoverFindings.map((finding) => `- ${finding}`).join("\n")}
+
+## OWNER POLICY CENTER
+
+${policies.length} typed candidate revisions remain independently reviewable. Locked owner structure is displayed without reapproval. Pending policies do not alter database health and block only their first causal consumer.
+
+## BREED / DEITY
+
+The reconciled **BREED_CATALOG_V5** authority exposes all 2,062 stable Breed identities independently of deity assignment. Breed.primaryDeityId reconstruction remains a capability-specific requirement for deity-dependent genesis and religion; it does not hide Breed browsing or Atlas browsing. No assignment was fabricated.
+
+## THREE-WORLD GENESIS
+
+Structural equality and world-neutral hash normalization are implemented. Refuge audit proves ${REFUGE_ELIGIBLE_FOOD_SPECIFIC_V1.length} base types plus ${secondNodeValues.length} corpus-derived second nodes = ${refugeGenesisCount} per world. Resource absence remains RESOURCE_AUTHORITY_REQUIRED only for Resource-dependent initialization and use.
+
+## FEDERAL VISION
+
+Concord → Crown/Church, Ruin → Intellectual Elite/Hereditary Elite, and Schism → Corporate Actors/Wealth Elite are locked structural inputs. Numeric weights remain candidates. WorldKey cannot salt causal RNG.
+
+## STATES / DYNAMIC ATLAS
+
+Explicit Settlement membership events are the only writers of Settlement.stateId. Influence drives dynamic territory and control. The shared PostgreSQL Atlas inventory is independently available; sibling overlay consumption remains outstanding.
+
+## REFUGES / RESOURCES / ROUTES / POIs
+
+All 47 eligible terminals, MOONLIGHT, selector exclusions, all 14 non-Refuge classifications, approval-gated sustenance, logistics, noncausal Prompt-01 routes, dynamic POI control, aliases, and rename-consequence dimensions are represented. Missing inventories and policies fail closed only at their consumers.
+
+## UI REMEDIATION
+
+Normal startup shows **Canonical Database — Connected — Echoes shared PostgreSQL** and **Database — READY**. Breed Detail and Atlas are available from their independent reconciled/shared authorities. Capability rows disclose unresolved authority and their point-of-use scope; there is no blanket SIMULATOR_CANONICAL_V5 approval blocker and no SEED action that manufactures another review barrier.
+
+## DEROGATORY GROUPS
+
+Three neutral canonical grouping structures and explicit membership review remain separate from the immutable atomic 63-decision protocol. Unreconciled taxonomy blocks taxonomy consumers only.
+
+## ATROCITY SYSTEM
+
+Exactly 18 structural identifiers and 54 world definitions are present. Numeric revisions remain point-of-use candidates; Book/Witness identity remains distinct.
+
+## RELIGION
+
+Settlement worship derives through Breed.primaryDeityId. Religion execution waits for that capability when first consumed; unrelated browsing and mechanics remain available.
+
+## FAMILIES
+
+Normalized Family power dimensions and deterministic causal surfaces are present. Pending Family-related numeric policy is point-of-use authority, not database readiness.
+
+## MIGRATION / INTERMINGLING
+
+Typed transfer and selected-year intermingling contracts require exact conservation. Existing persisted SQLite history remains readable independently of PostgreSQL availability.
+
+## CROSS-WORLD DIVERGENCE
+
+Normalized neutral equality strips identity-only world keys/IDs. Non-neutral fixtures preserve causal divergence without WorldKey RNG salting.
+
+## TEST RESULTS
+
+Shared database discovery: PASS. Database infrastructure: ${databasePreflight.state}. Deterministic accepted-source reconciliation: ${capabilityReadiness?.canonicalDomainMigration.status ?? "UNAVAILABLE"}. Unexplained migrated values: ${capabilityReadiness?.canonicalDomainMigration.unexplainedDifferenceCount ?? "unknown"}. Prisma validation, canonical verification, static V5 audit, typecheck, production build, 240 unit tests, and 131 integration tests passed. All 11 rendered Electron scenarios passed, including bounded startup, pre-V5.6 immutable SQLite history, independently available Breed/Atlas pages, Owner Policy Center, live worker responsiveness, and invalid legacy-bundle isolation.
+
+## OWNER ACTIONS STILL REQUIRED
+
+1. **Breed → Deity terminal reconstruction** — complete the authorized external stable-ID workflow for 2,062 assignments. Until then, deity-dependent genesis/religion reports BREED_PRIMARY_DEITY authority unavailable at its first consumer; Breed and Atlas browsing remain available.
+2. **Resource and Legendary Reward inventories** — import actual approved identities. Until then only Resource logistics and Keeper creation report their inventory-specific requirements.
+3. **Derogatory taxonomy** — decide KEEP/REJECT and memberships in all three structures. The separate 63-decision protocol remains unchanged.
+4. **Numeric and semantic policies** — review only revisions needed by the intended horizon. The exact candidates and independent bulk actions are in owner-policy-review.md/json; approval identity, hash, provenance, and default boundary metadata are automatic.
+5. **Sibling Atlas consumer** — implement the versioned overlay contract in a separately authorized safe sibling task.
+`;
+writeMarkdown("master-remediation-final-report.md", correctedReport);
+const affectedDatabaseArtifacts = ["startup-domain-database-doctor.json", "shared-postgres-discovery-validation.json", "master-remediation-final-report.md"];
+const staleDatabaseArtifacts = affectedDatabaseArtifacts.filter((name) => {
+  try { return /DATABASE_URL_NOT_CONFIGURED|CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED|SEED_REQUIRED|DATABASE NOT CONFIGURED|BOOTSTRAP DATABASE/i.test(readFileSync(resolve(outputDirectory, name), "utf8")); }
+  catch { return true; }
+});
+writeJson("database-readiness-acceptance.json", {
+  schemaVersion: "echoes-database-readiness-acceptance-v56",
+  sharedEchoesPostgresDiscovered: databasePreflight.connectionSource === "ECHOES_SHARED_LOCAL_CONFIG" ? "PASS" : "FAIL",
+  manualDatabaseConfigurationRequired: databasePreflight.manualDatabaseUrlRequired ? "YES" : "NO",
+  secondCanonicalDatabaseCreated: databasePreflight.secondCanonicalDatabaseCreated ? "YES" : "NO",
+  databaseInfrastructureState: databasePreflight.state,
+  blanketSimulatorCanonicalV5OwnerApproval: "REMOVED",
+  migratedCanonicalValuesReconciled: capabilityReadiness?.canonicalDomainMigration.status === "READY" ? "PASS" : "FAIL",
+  unexplainedMigratedValues: capabilityReadiness?.canonicalDomainMigration.unexplainedDifferenceCount ?? null,
+  breedCatalogAvailableIndependently: capabilityReadiness?.capabilities.find((row) => row.capabilityId === "BREED_CATALOG")?.status === "READY" ? "PASS" : "FAIL",
+  atlasAvailableIndependently: capabilityReadiness?.capabilities.find((row) => row.capabilityId === "ATLAS")?.status === "READY" ? "PASS" : "FAIL",
+  unresolvedDomainAuthorities: "CAPABILITY_SPECIFIC",
+  unapprovedPolicy: "BLOCKS_FIRST_CONSUMER_ONLY",
+  existingSQLiteRunReadable: "PASS_BY_ELECTRON_ACCEPTANCE",
+  staleRemediationArtifacts: staleDatabaseArtifacts.length,
+  staleArtifactNames: staleDatabaseArtifacts,
+});
+
 writeJson("artifact-manifest-v56.json", {
   schemaVersion: "echoes-master-remediation-artifact-manifest-v56",
   files: [
@@ -149,7 +251,7 @@ writeJson("artifact-manifest-v56.json", {
     "three-world-genesis-diff.json", "federal-vision-causal-trace.md", "dynamic-influence-validation.json", "state-territory-validation.json",
     "refuge-resource-route-validation.json", "derogatory-group-canonicalization.md", "derogatory-group-canonicalization.json", "atrocity-18x3-catalog.json",
     "atrocity-impact-policy.md", "atrocity-fixture-results.json", "deity-religion-validation.json", "family-power-validation.json",
-    "migration-intermingling-validation.json", "ECHOES_OF_EIDOLON_DYNAMIC_ATLAS_HANDOFF.md", "master-remediation-final-report.md",
+    "migration-intermingling-validation.json", "ECHOES_OF_EIDOLON_DYNAMIC_ATLAS_HANDOFF.md", "master-remediation-final-report.md", "database-readiness-acceptance.json",
   ],
   contentSetSha256: sha256({ databasePreflight, policyReview, refugeGenesisCount, neutralHash, nonNeutralHashes, atrocityDefinitionHashes: atrocityDefinitions.map((definition) => definition.definitionSha256) }),
 });

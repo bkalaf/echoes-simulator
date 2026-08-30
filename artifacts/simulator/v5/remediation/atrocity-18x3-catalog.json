@@ -38,15 +38,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -60,7 +59,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "348d0f3271994d24e7e3027e435bb824532420b59b64988988cbd2c8c081e26b"
+      "definitionSha256": "414a121d8e989fa4dfb37d57d71b3c2ee245631fc73e1e878c3d4f02f30a62c4"
     },
     {
       "definitionId": "ATROCITY_17_A_SCHISM",
@@ -77,15 +76,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -99,7 +97,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "5925a6c78746c1d016786299479de974018829ed8e2b2a37d0fe09c5fedbcf95"
+      "definitionSha256": "379f12baf69d3a101b7a7483594a267447f8d9b05c0dac72fed1379d3570ba62"
     },
     {
       "definitionId": "ATROCITY_17_A_RUIN",
@@ -116,15 +114,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -138,7 +135,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "05785217112442f646f851f20bdfdd5daa7cbb3029792f1da6e81ffe520b8385"
+      "definitionSha256": "7a91ce8ed6a6a0599e451c1d9325de6c225c123914a9e1967992bbd6a0b045b3"
     },
     {
       "definitionId": "ATROCITY_17_B_CONCORD",
@@ -155,15 +152,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -177,7 +173,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "c5d01642c735a2f86467d5a45605fc8fc538b0da8bd723ed169d0b17efda3d30"
+      "definitionSha256": "20ae9046485827ea712e109e66626e77eb21625cfdc5f273709c8e995357cf86"
     },
     {
       "definitionId": "ATROCITY_17_B_SCHISM",
@@ -194,15 +190,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -216,7 +211,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "093c3773b644102fa325596744df09ff684a26b273d2346ba8c40ea74c1f60b5"
+      "definitionSha256": "7874b86a23711644e15fff8eb84d3599c2b9f23e254786cd51d33c94f823e23b"
     },
     {
       "definitionId": "ATROCITY_17_B_RUIN",
@@ -233,15 +228,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -255,7 +249,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "93ba75aa589e2a708683ff1206441829c1c0c7fc178281f1a21fd091c909ddfe"
+      "definitionSha256": "ea3a8017cb1b592fcfd6a15bbe754e78a8f432a482b9e84b700b9c791a50372e"
     },
     {
       "definitionId": "ATROCITY_16_CONCORD",
@@ -272,15 +266,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -294,7 +287,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "0f8922d9bd5e35bfd9565eb7bd58dd1be703e0888ee9747d87aff8d8f879982d"
+      "definitionSha256": "c114c05cfff0aea48e53c4998152026a21d0ab439727c14e8cb37b4162188038"
     },
     {
       "definitionId": "ATROCITY_16_SCHISM",
@@ -311,15 +304,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -333,7 +325,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "55ca23a62831065343971e3d96fee2b3d349a4394d7db98abc07572725b61b8b"
+      "definitionSha256": "2d3a01a7a9600bacc7e90bbf44467741b49aea4404632c01a3aa5cd22b11b587"
     },
     {
       "definitionId": "ATROCITY_16_RUIN",
@@ -350,15 +342,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -372,7 +363,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "5d0bc53cbc09bf0790806b50d16fedb46b0720cc9e2f160d013af1d1930abc9e"
+      "definitionSha256": "5fb5d19589d68bc14492a404ea10fcd1e3450dbbdd75e2bb0c041264a038b4d2"
     },
     {
       "definitionId": "ATROCITY_15_CONCORD",
@@ -389,15 +380,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -411,7 +401,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "73ca74e83f6698627bfc638dc80aa1c626676aecb728e63384c933a9f4b7f387"
+      "definitionSha256": "fa132a98423d939d7c314416f4259b2ee45975cab36049a05d9f5a2b75d66341"
     },
     {
       "definitionId": "ATROCITY_15_SCHISM",
@@ -428,15 +418,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -450,7 +439,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "d077898e80493c7f706cc1c359f4be88107a1959d58ec2b7a7e98d0b86152b70"
+      "definitionSha256": "0c9085755634ff73d29498157839da52b7cbf2939504d73770bf5b98a4f8045a"
     },
     {
       "definitionId": "ATROCITY_15_RUIN",
@@ -467,15 +456,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -489,7 +477,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "8b37c83a628d64057db2c36bf088571851731bf45be2a33f6fa6f496a4e58f60"
+      "definitionSha256": "304a41e4f15e1c175811db7590ad635b13b3134f09cfcffa07f595a5d44e6bc0"
     },
     {
       "definitionId": "ATROCITY_14_CONCORD",
@@ -506,15 +494,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -528,7 +515,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "745a10e214e3edb391b89781a4c53f333d1c91ddf8db2e127fa4ca39dd4a3169"
+      "definitionSha256": "e02081ae85edf2a7ea1a57cc5888dcc937b902288884f84b04c5f929ff8e8d19"
     },
     {
       "definitionId": "ATROCITY_14_SCHISM",
@@ -545,15 +532,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -567,7 +553,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "548be65e37c392f4ee3afec47d9613824ac42c8a6a105106752c996e18c893fe"
+      "definitionSha256": "aa3136c27838db9b38925f0c531af55932d0b00eaa36cdaf471bd255477adac1"
     },
     {
       "definitionId": "ATROCITY_14_RUIN",
@@ -584,15 +570,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -606,7 +591,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "515e539004e294a85a9c0dd24758e236a0f9c988923c5099b9806719bf40f411"
+      "definitionSha256": "d43491f612600f505a089843542181d882e67a41604c0212981f766463d96206"
     },
     {
       "definitionId": "ATROCITY_13_CONCORD",
@@ -623,15 +608,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -645,7 +629,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "99116d35adcae6b4aba9255002ddb5d57a15d8b269f220e602b3bb667438d673"
+      "definitionSha256": "58382e8cb22dcc3a845792d2446000d8f486dc98974f1deac352a285698c1c78"
     },
     {
       "definitionId": "ATROCITY_13_SCHISM",
@@ -662,15 +646,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -684,7 +667,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "e2710f2eb3a28b97887265d1de652e6fd4ce3282afaaea7b0c1d20b92f0e2935"
+      "definitionSha256": "200e29e8904f98eec8d0e5c95bc7378af9cde5278fa38f98f3168b5423dcc481"
     },
     {
       "definitionId": "ATROCITY_13_RUIN",
@@ -701,15 +684,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -723,7 +705,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "261d9ceb37307b60b92d37f5ba2a2da00380b65304677453590d2c9e76577362"
+      "definitionSha256": "c7cc691b0b13b20c333f8d6754f0e5825682b398a181c8f9892aa6ccb7defcba"
     },
     {
       "definitionId": "ATROCITY_12_CONCORD",
@@ -740,15 +722,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -762,7 +743,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "54383b4961d223ff3c6fb776467fe70c25a3e3bcdf61bd940e02f5ed82ee1870"
+      "definitionSha256": "866d39fec8da36e55d6111ea3ac19c1e74485d409d84884b05dd0fa6841cd112"
     },
     {
       "definitionId": "ATROCITY_12_SCHISM",
@@ -779,15 +760,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -801,7 +781,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "63115a31df6949cee1d129cc105f694c09d00209306fa0f1fd93c7473b0e7624"
+      "definitionSha256": "ba349cce5ff33fc3f22c9fcc5895518036de4f2a2a5f3edfbee89a924a7c28c6"
     },
     {
       "definitionId": "ATROCITY_12_RUIN",
@@ -818,15 +798,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -840,7 +819,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "30781f0c006cb6b5777f5404b676673d156c14b794ab8906512feb2041a3b346"
+      "definitionSha256": "d7f8b84bd510577dce96fd98c7a38778ef01fb89872aa888f71f5cd9291f267f"
     },
     {
       "definitionId": "ATROCITY_11_CONCORD",
@@ -857,15 +836,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -879,7 +857,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "b7fea0be6dc410e9dc477eb055a2a609523f9fa8ecf233e8ad3210322a531bae"
+      "definitionSha256": "e6333a041b974ebb6f42bb679572053d1771cd651fccca150c871101884b6176"
     },
     {
       "definitionId": "ATROCITY_11_SCHISM",
@@ -896,15 +874,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -918,7 +895,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "d4eaeffed9c359b1495054692f1ceaebe9854e9d936abaf9ab59ba04d3ffa364"
+      "definitionSha256": "db28cd615fcba795c71cb9af18a228497874a48fe97ff80bad6d2f939bf9aeb6"
     },
     {
       "definitionId": "ATROCITY_11_RUIN",
@@ -935,15 +912,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -957,7 +933,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "4d73f2047c1caa41b557768f07b34755f6b746a02cdf92e481bb0ad55ea61d9c"
+      "definitionSha256": "2dafe48027788ed842e1a9e6b5b821738765f13dbdac7239642c5a3691fd912f"
     },
     {
       "definitionId": "ATROCITY_10_CONCORD",
@@ -974,15 +950,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -996,7 +971,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "dd4de312c5c3aa76a47610f5b0be55187b00da0482d4a797124a0210cc9a1b1b"
+      "definitionSha256": "c614c8e79d60ba2bbc0281d7fdcab67d5a347cc9f4dca1e04a7c5b0bfba49dec"
     },
     {
       "definitionId": "ATROCITY_10_SCHISM",
@@ -1013,15 +988,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1035,7 +1009,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "5f4d1c43ca68fe61b17ff7114c124a40ace68ea465960a5a79bff5f250aa936f"
+      "definitionSha256": "dd53d019335219b4ef4dd02b6e3642f517a3f549fca1761ae2ff96da698bb515"
     },
     {
       "definitionId": "ATROCITY_10_RUIN",
@@ -1052,15 +1026,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1074,7 +1047,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "fa8179d463c5e31398747a6dcaf00eb90cdab6ff21d06ce519e29dee50b492d3"
+      "definitionSha256": "89740b9521ddcd0b5842b3230b4b9aa4a058676790efdc3fa3c5a9452b828f7b"
     },
     {
       "definitionId": "ATROCITY_09_CONCORD",
@@ -1091,15 +1064,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1113,7 +1085,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "38b15c76645535e2a99a670aa3c4522082aadaa19f01b2e4294ddd819b1660e6"
+      "definitionSha256": "d03b71ba71dff68e56b18b6142444c7ec29890fb1641e05d0a57134147ab0c90"
     },
     {
       "definitionId": "ATROCITY_09_SCHISM",
@@ -1130,15 +1102,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1152,7 +1123,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "e2226955209b97720e44f95f4411b5a790cec43b3f5012be54b7b3d02236c377"
+      "definitionSha256": "d7334f6ff5e70a206d5f5b6054a74b9e76e81940b4bcd7853098a6f62c3e83d0"
     },
     {
       "definitionId": "ATROCITY_09_RUIN",
@@ -1169,15 +1140,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1191,7 +1161,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "2783e0144b02234aa7be0edc98cfc705e7f5096bf1787f58e8f579bdfecbb70d"
+      "definitionSha256": "91fe0ed3dd70bcbbde9dc533b5e5421194336d29feb8569034eb141d0c539e56"
     },
     {
       "definitionId": "ATROCITY_08_CONCORD",
@@ -1208,15 +1178,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1230,7 +1199,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "d8d8f697e8fc4e89a37961d1606f73454d17ed1a1f5fe891019a457accff5cf3"
+      "definitionSha256": "3f530f751d950d1d54cae9e08aab26cc5f0be12d56186a7f555ab291b7613f67"
     },
     {
       "definitionId": "ATROCITY_08_SCHISM",
@@ -1247,15 +1216,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1269,7 +1237,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "6fb8f74668fa853e79e1e7d3659d81acbe7c93388b8c225627ac09a1885bd5a9"
+      "definitionSha256": "e6c4c28df37526d5c8315bbe622677778a8ba13823cd9d93548fe4937dbe1e9b"
     },
     {
       "definitionId": "ATROCITY_08_RUIN",
@@ -1286,15 +1254,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1308,7 +1275,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "ab9a4a652883d562b1a1587b957aac4e91d74a356aa2fd61f6ee752800dddf41"
+      "definitionSha256": "13e7e5004c18554eaa66d3b66d380ec119b4da8a83eab889509c0989c1c97b04"
     },
     {
       "definitionId": "ATROCITY_07_CONCORD",
@@ -1325,15 +1292,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1347,7 +1313,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "e06301e09f1797ce029458845889a6dfea800800f5b7e065281a09a7bee48682"
+      "definitionSha256": "9d9f05d0af44c8a49b71f3fc839b316cf8a843a45b84b2e83c0bd4bf301d44d9"
     },
     {
       "definitionId": "ATROCITY_07_SCHISM",
@@ -1364,15 +1330,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1386,7 +1351,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "830acf2411a1f1fe919c55a77eadbb03a9c3e2b08ca5c8d2f10a5116ba4db88f"
+      "definitionSha256": "5cd3f517ffbf44380ebb7a71615fe9775a8f4c14b493d97114d65080dd3a55fa"
     },
     {
       "definitionId": "ATROCITY_07_RUIN",
@@ -1403,15 +1368,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1425,7 +1389,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "88ccdf2501bc57546d058f020dfd64a228cd65b6df2620f55d6f71eb8603fae9"
+      "definitionSha256": "b1769f6a5c080d89a4e3bcdd9e0ad45eaed693159e943661bfa89e9f47b48b7e"
     },
     {
       "definitionId": "ATROCITY_06_CONCORD",
@@ -1442,15 +1406,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1464,7 +1427,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "0d8beee7dbc7120811df07f387bd8fb13cac6e4c96a61b33e677cd39fa329a17"
+      "definitionSha256": "bdc9fb1cd9e8a30c8bb8ac97323354140ad6cf5b37028e470b24da9b4271edb6"
     },
     {
       "definitionId": "ATROCITY_06_SCHISM",
@@ -1481,15 +1444,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1503,7 +1465,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "3282dccc7e7eb7e59a8281e159cc14fe4253fcccb96481142635eb1834565726"
+      "definitionSha256": "66d4351ef462bfab66f56b92021a2e6d713bcf1a8ca4d831507441c3dc980aef"
     },
     {
       "definitionId": "ATROCITY_06_RUIN",
@@ -1520,15 +1482,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1542,7 +1503,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "93f782075e6e5784f567438a1cbb2cc6829257259dcd873d07b18d944fa01aae"
+      "definitionSha256": "3011a3298af716fe79a18cd8e37cbb831dd5f320d076d27af6105f4648b87dee"
     },
     {
       "definitionId": "ATROCITY_05_CONCORD",
@@ -1559,15 +1520,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1581,7 +1541,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "e418a4cfb6108e1ec87cbe3637ce8cc89ec1a24009c8fe60a224d678e90a7036"
+      "definitionSha256": "88a9bf642afc6d7fff0a66846ee6b78982c47d5f2d33ba959b10e4f29408017d"
     },
     {
       "definitionId": "ATROCITY_05_SCHISM",
@@ -1598,15 +1558,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1620,7 +1579,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "8e106a9023758201aee52c18d52bcbc426770bf7802fe9cd4fd27f178615780e"
+      "definitionSha256": "0373565f52821c169e5e4fe7484829501e2ab42fc3027e81bc4580f015868f8a"
     },
     {
       "definitionId": "ATROCITY_05_RUIN",
@@ -1637,15 +1596,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1659,7 +1617,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "24de04fbc01de21d16db9a16f180a1e1578fce228b1819d885b7b1277a869dce"
+      "definitionSha256": "c1fb5bff473a823bc9b68939f1a77dbb320002b009466252a1e8e4828b646821"
     },
     {
       "definitionId": "ATROCITY_04_CONCORD",
@@ -1676,15 +1634,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1698,7 +1655,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "90cfdb16982f6b6d581a179ed104da6c28d35b07351576d49d6210af709e8f35"
+      "definitionSha256": "831da03a4b829d2821643028f0878600f54da06d226e62f59d89635b292511b3"
     },
     {
       "definitionId": "ATROCITY_04_SCHISM",
@@ -1715,15 +1672,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1737,7 +1693,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "975c2e937c8fe47213ad415bf25a1692888458495073dfcb6f675ec757bf30c1"
+      "definitionSha256": "24409c9d83fbd17b62675eb45aa5a8b8ac851b6210862dec6d78e8aa62261fce"
     },
     {
       "definitionId": "ATROCITY_04_RUIN",
@@ -1754,15 +1710,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1776,7 +1731,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "457d0c38ab600d5a39f663ed1f26ed4ddae6592e1d2e535d581cfae9758e8552"
+      "definitionSha256": "889eb5421dfe47a0d305de62f9a09e4d413b831e76e7265ef2b2783081febf5e"
     },
     {
       "definitionId": "ATROCITY_03_CONCORD",
@@ -1793,15 +1748,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1815,7 +1769,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "3944aaebc34a79c9c3688f66f940c539592f633decccf775b55c96e77564d29b"
+      "definitionSha256": "32a8a52602f586fa3be865b31bc557cae3d303680c917cac4c45ff5825517a52"
     },
     {
       "definitionId": "ATROCITY_03_SCHISM",
@@ -1832,15 +1786,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1854,7 +1807,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "65ed4ae63e7bdaab6d49579dee3e5cd28571881b16fbb89b1da1c3ae6537ce49"
+      "definitionSha256": "858354abdabe8cc1925b520f019817bd13302b32620ac28a4ede89d72a7136a0"
     },
     {
       "definitionId": "ATROCITY_03_RUIN",
@@ -1871,15 +1824,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1893,7 +1845,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "1dff3cd83d016d0c963459bf30afe88978d6e8e9c6db9dde03b22326fbaaa159"
+      "definitionSha256": "0fe3b1beb5be6f435bce3177259346d10852b16d13e9bbaf0bf95a3d0cc62c4c"
     },
     {
       "definitionId": "ATROCITY_02_CONCORD",
@@ -1910,15 +1862,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1932,7 +1883,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "39bbf9102a187fd88140b1c12cc51fd289ee70bb4e475c3a6e771889ca5a070a"
+      "definitionSha256": "a2ab9b18adaebb97bb671e1a2e0a29f5e46565388885d172cb9276b6ea382b25"
     },
     {
       "definitionId": "ATROCITY_02_SCHISM",
@@ -1949,15 +1900,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -1971,7 +1921,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "934187c4f3a353a79f2c997d77b1495abf1a18fe9c096723a123006df94228e5"
+      "definitionSha256": "a8fc165d4656250f5a927f31a0e0855de00609a4b21ac04592bd6e6fc11e1a2b"
     },
     {
       "definitionId": "ATROCITY_02_RUIN",
@@ -1988,15 +1938,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -2010,7 +1959,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "d6b75591b236793ecc6a7f1a7da3b75a7f67883216f75548f011961dbf1ce112"
+      "definitionSha256": "17f3d57f516bd665663fe8a318b491920e1763c048fe80934dd79842ca21424a"
     },
     {
       "definitionId": "ATROCITY_01_CONCORD",
@@ -2027,15 +1976,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -2049,7 +1997,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "7923590529959cadbc538726b4ef1e7a9c029ceec9c914b65af52611f2f84332"
+      "definitionSha256": "32bd248ebfaa3fee3f2113a7f317215d5f3d16f9ec85687e6cc400fa839dd016"
     },
     {
       "definitionId": "ATROCITY_01_SCHISM",
@@ -2066,15 +2014,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -2088,7 +2035,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "ba3157f1b4dd8d1acc9b2f9c3ab64ad95192707bcee2cbf99b9120136d08279a"
+      "definitionSha256": "a18e2785ed15816547686bcaf2306a97c94149c19e83487a351b38ee5248f5f7"
     },
     {
       "definitionId": "ATROCITY_01_RUIN",
@@ -2105,15 +2052,14 @@
         "migrationConsequences": "Persist source, destination, Breed, tier, count, reason, forced status, and group-safety cohort for every resulting transfer.",
         "religiousConsequences": "Track sanctuary, complicity, loss of trust, conversion pressure, and plural protection without assuming uniform belief response.",
         "familyConsequences": "Track Family sponsorship, relief, exploitation, propaganda, counter-mobilization, succession exposure, and durable reputation.",
-        "neighborEffects": "Apply only approved concentration and spillover policies to refugee intake, safety perceptions, propaganda, diplomacy, and route pressure.",
-        "historicalScar": "Append durable memory and policy terms; never rewrite prior harmed cohorts, aliases, decisions, or causal evidence."
+        "neighborEffects": "Apply approved direct-harm spillover only by redistributing the common unique-harmed budget; apply secondary consequence spillover to safety perceptions, propaganda, diplomacy, migration pressure, religion, Families, and routes without adding victims.",
+        "historicalScar": "Append durable event and scar records without rewriting prior harmed cohorts, aliases, decisions, or evidence. Approved current effects may decay, strengthen, reactivate, or interact with later history."
       },
       "numericPolicy": {
         "harmSharePolicyId": "ATROCITY_HARM_SHARE",
-        "harmProfilePolicyId": "ATROCITY_HARM_PROFILES",
+        "primaryHarmProfilePolicyId": "ATROCITY_PRIMARY_HARM_PROFILES",
         "concentrationPolicyId": "ATROCITY_CONCENTRATION",
         "spilloverPolicyId": "ATROCITY_SPILLOVER",
-        "mortalityDisplacementPolicyId": "ATROCITY_MORTALITY_DISPLACEMENT",
         "persistencePolicyId": "ATROCITY_PERSISTENCE",
         "trackedComponents": [
           "UNIQUE_HARMED",
@@ -2127,7 +2073,7 @@
           "SECONDARY_OVERLAP"
         ]
       },
-      "definitionSha256": "f987f9df36c38c45c6ed65c84026892ec63881c3a66c00647b735d0a8341c622"
+      "definitionSha256": "1c4db5476f243ec9bf80d4ac0c50ed0ab34a0a14dca092698e1f1123f1d7981e"
     }
   ]
 }

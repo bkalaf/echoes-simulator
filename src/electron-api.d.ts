@@ -6,7 +6,7 @@ declare global {
       getRuntimeInfo(): Promise<{ version: string; userDataPath: string }>;
       getDomainDatabasePreflight(): Promise<unknown>;
       getOperatorSnapshot(): Promise<unknown>;
-      runDomainDatabaseAction(action: "DOCTOR" | "MIGRATE" | "SEED" | "RETRY"): Promise<unknown>;
+      runDomainDatabaseAction(action: "DOCTOR" | "MIGRATE" | "RETRY"): Promise<unknown>;
       getOwnerPolicyCenter(): Promise<unknown>;
       decideOwnerPolicy(input: unknown): Promise<unknown>;
       createOwnerPolicyRevision(input: unknown): Promise<unknown>;

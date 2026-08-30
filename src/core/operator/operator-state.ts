@@ -30,6 +30,7 @@ export interface OperatorSnapshot {
   pendingNamingJob?: unknown | null;
   hasActiveRun?: boolean;
   v5Run?: boolean;
+  domainDatabasePreflight?: { state: string; connectionLabel?: string | null; diagnosticCode?: string };
 }
 
 export interface OperatorViewModel {
@@ -67,7 +68,8 @@ export function deriveOperatorViewModel(snapshot: OperatorSnapshot): OperatorVie
   if (runState === "WAITING_FOR_NAMING") primaryNotice = { severity: "WARNING", title: "Run paused for required naming.", detail: "Import each exact world/year batch response to resume from the persisted checkpoint. Compatible individual responses remain supported." };
   else if (runState === "WAITING_FOR_POLICY_AUTHORITY") primaryNotice = { severity: "WARNING", title: "Run paused at a point-of-use policy boundary.", detail: "Review the complete candidate policy and approve its exact SHA-256 before resuming the same uncommitted year." };
   else if (runState === "WAITING_FOR_DEROGATORY_DECISIONS") primaryNotice = { severity: "WARNING", title: "Run paused for Derogatory Group decisions.", detail: "Import the complete immutable 63-decision response to resume the uncommitted review year." };
-  else if (snapshot.canonicalData.status !== "READY") primaryNotice = { severity: "ERROR", title: "Bundled canonical data is invalid.", detail: `BUNDLED_CANONICAL_DATA_INVALID · ${snapshot.canonicalData.errorDetail ?? "This is an internal build/package defect."}` };
+  else if (snapshot.domainDatabasePreflight?.state === "READY") primaryNotice = { severity: "SUCCESS", title: "Canonical database is ready.", detail: `Connected — ${snapshot.domainDatabasePreflight.connectionLabel ?? "Echoes shared PostgreSQL"}. Unresolved authorities are enforced only at their causal consumers.` };
+  else if (snapshot.canonicalData.status !== "READY") primaryNotice = { severity: "ERROR", title: "Bundled legacy canonical data is invalid.", detail: `BUNDLED_CANONICAL_DATA_INVALID · ${snapshot.canonicalData.errorDetail ?? "This is an internal build/package defect."}` };
   else if (runState === "DIAGNOSTIC_RUNNING") primaryNotice = { severity: "INFO", title: "Diagnostic run is executing.", detail: "Diagnostic state is persisted independently from canonical history." };
   else if (runState === "CANONICAL_RUNNING") primaryNotice = { severity: "INFO", title: "Canonical simulation is executing.", detail: "The V4 canonical engine is persisting history and checkpoints." };
   else if (runState === "FAILED") primaryNotice = { severity: "ERROR", title: "The selected run failed.", detail: "Diagnostics contains the persisted failure context." };

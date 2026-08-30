@@ -29,5 +29,5 @@
     "specifically authorized execution"
   ],
   "deterministicRequirement": true,
-  "blocker": "DATABASE_URL_NOT_CONFIGURED"
+  "blocker": "DOMAIN_DATABASE_READY"
 }

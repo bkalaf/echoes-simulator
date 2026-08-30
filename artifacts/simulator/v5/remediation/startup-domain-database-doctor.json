@@ -1,9 +1,8 @@
 {
-  "state": "SEED_REQUIRED",
-  "diagnosticCode": "CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED",
+  "state": "READY",
+  "diagnosticCode": "DOMAIN_DATABASE_READY",
   "actions": [
-    "SEED",
-    "RETRY"
+    "DOCTOR"
   ],
   "missingStructures": [],
   "redactedTarget": "postgresql://127.0.0.1:5432/3424ca3edd",

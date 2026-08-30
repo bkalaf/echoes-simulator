@@ -1,7 +1,10 @@
 import { afterAll, describe, expect, it } from "vitest";
-import { disconnectDomainDatabase, getDomainDatabase } from "../../src/persistence/postgres-domain.js";
+import { disconnectDomainDatabase, getDomainDatabase, preflightDomainDatabase } from "../../src/persistence/postgres-domain.js";
 import { loadPoliticalPersonAlignmentsAtYear } from "../../src/persistence/postgres-political-person.js";
 import { resolveDomainDatabaseConnection } from "../../src/persistence/domain-database-connection.js";
+import { loadCausalCapabilityReadiness } from "../../src/persistence/causal-capability-readiness.js";
+import { loadBreedCatalog } from "../../src/core/breeds/breed-catalog.js";
+import { loadCanonicalAtlasPois } from "../../src/persistence/postgres-atlas.js";
 
 const databaseAvailable = Boolean(resolveDomainDatabaseConnection());
 
@@ -13,8 +16,28 @@ describe.skipIf(!databaseAvailable)("shared Echoes PostgreSQL cutover", () => {
     const migrations = await database.$queryRaw<Array<{ migration_name: string }>>`SELECT migration_name FROM _prisma_migrations WHERE finished_at IS NOT NULL`;
     expect(migrations.map((row) => row.migration_name)).toContain("20260829120000_canonical_geography_and_political_alignment");
     expect(migrations.map((row) => row.migration_name)).toContain("20260829210000_master_remediation_v56");
-    const structures = await database.$queryRaw<Array<{ table_name: string }>>`SELECT table_name FROM information_schema.tables WHERE table_schema='public' AND table_name IN ('Breed','Site','PointOfInterest','OwnerPolicyDefinition','RunAuthoritySnapshot') ORDER BY table_name`;
-    expect(structures.map((row) => row.table_name)).toEqual(["Breed", "OwnerPolicyDefinition", "PointOfInterest", "RunAuthoritySnapshot", "Site"]);
+    expect(migrations.map((row) => row.migration_name)).toContain("20260830010000_canonical_domain_reconciliation");
+    const structures = await database.$queryRaw<Array<{ table_name: string }>>`SELECT table_name FROM information_schema.tables WHERE table_schema='public' AND table_name IN ('Breed','Site','PointOfInterest','OwnerPolicyDefinition','RunAuthoritySnapshot','CanonicalMigrationReconciliation') ORDER BY table_name`;
+    expect(structures.map((row) => row.table_name)).toEqual(["Breed", "CanonicalMigrationReconciliation", "OwnerPolicyDefinition", "PointOfInterest", "RunAuthoritySnapshot", "Site"]);
+    await expect(preflightDomainDatabase()).resolves.toMatchObject({ state: "READY", diagnosticCode: "DOMAIN_DATABASE_READY", sharedCanonicalDatabase: true, manualDatabaseUrlRequired: false, secondCanonicalDatabaseCreated: false });
+  });
+
+  it("activates only zero-difference migrated domains and keeps capabilities independent", async () => {
+    const readiness = await loadCausalCapabilityReadiness();
+    expect(readiness.canonicalDomainMigration).toMatchObject({ status: "READY", unexplainedDifferenceCount: 0 });
+    expect(readiness.canonicalDomainMigration.domains).toHaveLength(10);
+    const aggregate = await getDomainDatabase().canonicalMigrationReconciliation.findFirst({ where: { authorityId: "SIMULATOR_CANONICAL_V5", status: "RECONCILED" }, orderBy: { updatedAt: "desc" } });
+    expect(aggregate).toMatchObject({ stableIdentityCount: 2_211, sourceValueCount: 44_108, importedValueCount: 44_108, unexplainedDifferenceCount: 0 });
+    expect(readiness.capabilities.find((row) => row.capabilityId === "BREED_CATALOG")?.status).toBe("READY");
+    expect(readiness.capabilities.find((row) => row.capabilityId === "ATLAS")?.status).toBe("READY");
+    expect(readiness.capabilities.find((row) => row.capabilityId === "BREED_PRIMARY_DEITY")).toMatchObject({ status: "UNRESOLVED_AUTHORITY", blockingScope: "FIRST_CAUSAL_CONSUMER_ONLY" });
+    expect(readiness.capabilities.find((row) => row.capabilityId === "OWNER_POLICY_REVISIONS")?.blockingScope).toBe("FIRST_CAUSAL_CONSUMER_ONLY");
+
+    const catalog = await loadBreedCatalog();
+    expect(catalog).toHaveLength(2_062);
+    expect(new Set(catalog.map((row) => row.breedId)).size).toBe(2_062);
+    expect(catalog.every((row) => row.deityClassificationStatus === "REVIEW_REQUIRED")).toBe(true);
+    expect(await loadCanonicalAtlasPois()).toHaveLength(92);
   });
 
   it("reuses shared canonical Breed, Site, and PointOfInterest rather than creating parallel shapes", async () => {

@@ -17,10 +17,11 @@ export type BreedPopulationView = {
 };
 
 export function filterBreedCatalog(catalog: readonly BreedCatalogEntry[], query: string): BreedCatalogEntry[] {
-  const needle = query.trim().toLocaleLowerCase();
+  const normalizeSearch = (value: string): string => value.toLocaleLowerCase().replaceAll("_", " ").replace(/\s+/g, " ").trim();
+  const needle = normalizeSearch(query);
   if (!needle) return [...catalog];
   return catalog.filter((breed) => [breed.name, breed.breedId, breed.speciesName, breed.scientificName, breed.speciesId, breed.groupId, breed.cultureId, breed.populationKind, breed.primaryDeity, breed.provisionalDeity]
-    .some((value) => value?.toLocaleLowerCase().includes(needle)));
+    .some((value) => value ? normalizeSearch(value).includes(needle) : false));
 }
 
 export function selectableBreedCatalog(catalog: readonly BreedCatalogEntry[], query: string, selectedBreedId: string | null): BreedCatalogEntry[] {

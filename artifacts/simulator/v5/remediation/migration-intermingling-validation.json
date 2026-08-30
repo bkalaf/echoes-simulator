@@ -32,5 +32,5 @@
     "b052b22d805867ea249e8856bc02dfcf7af96d00cda078cd49f6c64c67aa5673"
   ],
   "routeEvidenceRequiredForLiveAcceptance": true,
-  "blocker": "DATABASE_URL_NOT_CONFIGURED"
+  "blocker": "DOMAIN_DATABASE_READY"
 }

@@ -168,18 +168,21 @@ test("clean startup is V5-first and legacy V4 diagnostics persist behind Diagnos
   try {
     const page = await application.firstWindow();
     const startupStartedAt = Date.now();
-    await expect(page.getByText("Canonical data is simulation-ready.", { exact: true })).toBeVisible({ timeout: 10_000 });
-    await expect(page.getByText("V5 AUTHORITY BLOCKED", { exact: true })).toBeVisible();
+    await expect(page.getByText("Canonical database is ready.", { exact: true })).toBeVisible({ timeout: 10_000 });
+    await expect(page.getByText("V5 AUTHORITY BLOCKED", { exact: true })).toHaveCount(0);
     await expect(page.getByRole("heading", { name: "Connected — Echoes shared PostgreSQL", exact: true })).toBeVisible();
     expect(Date.now() - startupStartedAt).toBeLessThan(10_000);
     await expect(page.getByRole("heading", { name: "CHECKING", exact: true })).toHaveCount(0);
     await expect(page.getByText("Loading simulator state.", { exact: true })).toHaveCount(0);
-    await expect(page.getByText(/SEED_REQUIRED · CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED/)).toBeVisible();
-    await expect(page.getByRole("button", { name: "SEED", exact: true })).toBeVisible();
+    await expect(page.getByText(/READY · DOMAIN_DATABASE_READY/)).toBeVisible();
+    await expect(page.getByRole("button", { name: "SEED", exact: true })).toHaveCount(0);
     await expect(page.getByRole("button", { name: "BOOTSTRAP", exact: true })).toHaveCount(0);
-    await expect(page.getByRole("button", { name: "RETRY", exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: "DOCTOR", exact: true })).toBeVisible();
     await expect(page.getByRole("button", { name: /RUN LEGACY V4/ })).toHaveCount(0);
-    await expect(page.getByRole("button", { name: "RUN V5 TO YEAR 25" })).toBeDisabled();
+    await expect(page.getByRole("button", { name: "RUN V5 TO YEAR 25" })).toBeEnabled();
+    await expect(page.getByText("Canonical migration READY", { exact: true })).toBeVisible();
+    await expect(page.getByText(/0 unexplained migrated values/)).toBeVisible();
+    await page.screenshot({ path: resolve("artifacts/simulator/v5/remediation/electron-shared-database-ready.png"), fullPage: true });
     await expect(page.getByRole("button", { name: "Setup & Preflight" })).toHaveCount(0);
     await expect(page.getByText("SELECT & VALIDATE", { exact: true })).toHaveCount(0);
     await page.getByRole("button", { name: "Diagnostics" }).click();
@@ -193,7 +196,7 @@ test("clean startup is V5-first and legacy V4 diagnostics persist behind Diagnos
     await page.getByRole("button", { name: "Diagnostics" }).click();
     await expect(page.getByText("LEGACY V4 RUNS", { exact: true })).toBeVisible();
     await expect(page.getByText(/DIAGNOSTIC · COMPLETE · 2000/)).toBeVisible();
-    await expect(page.getByText("Canonical data is simulation-ready.", { exact: true })).toBeVisible();
+    await expect(page.getByText("Canonical database is ready.", { exact: true })).toBeVisible();
   } finally { await application.close(); }
 });
 
@@ -326,14 +329,7 @@ test("Breed Detail search and the POI-only master Atlas render through desktop I
     const page = await application.firstWindow();
     await expect(page.getByRole("heading", { name: "Connected — Echoes shared PostgreSQL", exact: true })).toBeVisible({ timeout: 15_000 });
     await page.getByRole("button", { name: "Breed Detail" }).click();
-    if (!(await canonicalDatabaseReady(page))) {
-      await expect(page.getByRole("heading", { name: "Breed catalog unavailable", exact: true })).toBeVisible();
-      await expect(page.getByText(/Connected — Echoes shared PostgreSQL · SEED_REQUIRED · CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED/)).toBeVisible();
-      await page.screenshot({ path: resolve("artifacts/simulator/v5/remediation/electron-domain-authority-blocker.png"), fullPage: true });
-      await page.getByRole("button", { name: "Atlas" }).click();
-      await expect(page.getByRole("heading", { name: "Atlas authority unavailable", exact: true })).toBeVisible();
-      return;
-    }
+    expect(await canonicalDatabaseReady(page)).toBe(true);
     const catalog = await page.evaluate(async () => (window as unknown as { eidolonSimulator: { getBreedCatalog(): Promise<{ breedId: string; name: string }[]> } }).eidolonSimulator.getBreedCatalog());
     expect(catalog).toHaveLength(2062);
     const selections = [catalog[0]!, catalog[Math.floor(catalog.length / 2)]!, catalog.at(-1)!];
@@ -353,8 +349,8 @@ test("Breed Detail search and the POI-only master Atlas render through desktop I
     await expect(page.getByRole("heading", { name: "Aardvark", exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Atlas" }).click();
     await expect(page.getByRole("img", { name: "Master Atlas world map" })).toBeVisible();
-    await expect(page.locator(".poi-marker")).toHaveCount(85);
-    await expect(page.locator('.poi-marker[aria-label^="POI-008 "]')).toHaveCount(0);
+    await expect(page.locator(".poi-marker")).toHaveCount(92);
+    await expect(page.locator('.poi-marker[aria-label^="POI-008 "]')).toHaveCount(1);
     const summit = page.locator('.poi-marker[aria-label^="POI-029 "]');
     await expect(summit).toHaveCount(1);
     await expect(summit).toHaveAttribute("style", /left: 74\.8958.*top: 26\.875/);
@@ -362,10 +358,13 @@ test("Breed Detail search and the POI-only master Atlas render through desktop I
     await expect(southernOcean).toHaveCount(1);
     await expect(southernOcean).toHaveAttribute("style", /left: 45%; top: 90%/);
     await summit.click();
-    await expect(page.getByText("SITE-095 · R14", { exact: true })).toBeVisible();
+    await expect(page.getByText("SITE-095", { exact: true })).toBeVisible();
+    await expect(page.getByText("R14 · Manywater", { exact: true })).toBeVisible();
     await southernOcean.click();
-    await expect(page.getByText("SITE-169 · R25", { exact: true })).toBeVisible();
+    await expect(page.getByText("SITE-169", { exact: true })).toBeVisible();
+    await expect(page.getByText("R25 · Marshroot", { exact: true })).toBeVisible();
     await expect(page.locator(".atlas-stage .atlas-settlement")).toHaveCount(0);
+    await page.screenshot({ path: resolve("artifacts/simulator/v5/remediation/electron-breed-atlas-independent.png"), fullPage: true });
   } finally { await application.close(); }
 });
 
@@ -587,8 +586,9 @@ test("invalid packaged canonical data is an internal defect with no validation w
   const application = await launch(userData, { EIDOLON_SIMULATOR_RESOURCE_DIRECTORY: invalidResources });
   try {
     const page = await application.firstWindow();
-    await expect(page.getByText(/BUNDLED_CANONICAL_DATA_INVALID/).first()).toBeVisible();
+    await expect(page.getByText("Canonical database is ready.", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Diagnostics" }).click();
+    await expect(page.getByText("invalid bundled authority", { exact: true })).toBeVisible();
     await expect(page.getByRole("button", { name: "RUN LEGACY V4 CANONICAL" })).toBeDisabled();
     await expect(page.getByRole("button", { name: "RUN LEGACY V4 DIAGNOSTIC" })).toBeEnabled();
     await expect(page.getByText("SELECT & VALIDATE", { exact: true })).toHaveCount(0);
