@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { canonicalJson } from "../core/serialization/canonical-json.js";
 import type { RunAuthorityInputV1, RunAuthoritySnapshotV1 } from "../core/v5/authority-snapshot.js";
-import { requireRunAuthorityV1 } from "../core/v5/authority-snapshot.js";
+import { authorityEntriesAtYearV1, requireRunAuthorityV1 } from "../core/v5/authority-snapshot.js";
 import type { CanonicalDataV5 } from "../core/v5/config.js";
 import { getDomainDatabase } from "./postgres-domain.js";
 import { hydrateTypedAuthorityValues, type TypedAuthorityValue } from "./typed-authority-values.js";
@@ -43,6 +43,17 @@ export function canonicalV5FromRunAuthoritySnapshot(snapshot: RunAuthoritySnapsh
   const combinedHash = sha256({ canonicalCoreRevisionId: coreEntry.revisionId, canonicalCoreSha256: coreEntry.contentSha256, breedDeityRevisionId: deityEntry.revisionId, breedDeitySha256: deityEntry.contentSha256 });
   if (combinedHash !== expectedBundleHash) throw new Error("Run canonical authority hash no longer matches its immutable snapshot");
   return bindPrimaryDeities(structuredClone(coreEntry.content), assignments, combinedHash);
+}
+
+/**
+ * Read-only compatibility for histories created before V5.6 embedded typed
+ * canonical content. Missing V5.6 entries never fall through to PostgreSQL or
+ * filesystem authority; callers must render only durable checkpoint content.
+ */
+export function canonicalV5FromRunAuthoritySnapshotForRead(snapshot: RunAuthoritySnapshotV1, expectedBundleHash: string, year = 0): CanonicalDataV5 | null {
+  const authorityIds = new Set(authorityEntriesAtYearV1(snapshot, year).map((entry) => entry.authorityId));
+  if (!authorityIds.has(V5_CANONICAL_CORE_AUTHORITY_ID) || !authorityIds.has(BREED_PRIMARY_DEITY_AUTHORITY_ID)) return null;
+  return canonicalV5FromRunAuthoritySnapshot(snapshot, expectedBundleHash, year);
 }
 
 export async function loadPostgresCanonicalV5(): Promise<{ canonical: CanonicalDataV5; authorityInputs: RunAuthorityInputV1[] }> {

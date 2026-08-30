@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { mkdtempSync, readFileSync, statSync } from "node:fs";
+import { mkdtempSync, readFileSync, statSync, truncateSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -10,7 +10,7 @@ import { DEFAULT_DIAGNOSTIC_CONFIG_V1, DEFAULT_MECHANICS_VARIABLES_V1, DEFAULT_O
 import { normalizeSeed } from "../../src/core/v5/random.js";
 import type { CausalEventV5, WorldStateV5 } from "../../src/core/v5/types.js";
 import { buildBlockingNamingBatchV5, buildPersistedNamingBatchesV5, validateNamingBatchResponseV5 } from "../../src/core/v5/naming.js";
-import { inspectLegacyV5NamingTrust } from "../../src/persistence/v5-legacy-trust.js";
+import { inspectLegacyV5NamingTrust, inspectLegacyV5NamingTrustForStartup } from "../../src/persistence/v5-legacy-trust.js";
 import { acceptPersistedV5NamingBatch, acceptPersistedV5NamingBatches, catchUpPersistedV5Projection, resumePersistedV5Run } from "../../src/core/v5/service.js";
 import { acceptDerogatoryDecisionResponseV5, buildDerogatoryDecisionBatchV5, V5_EMPTY_DEROGATORY_DECISION_STREAM_HASH } from "../../src/core/v5/derogatory-decisions.js";
 import { CANDIDATE_DEROGATORY_MEMBERSHIP_SLICING_POLICY_V1, type CausalPolicyBlockerV5 } from "../../src/core/v5/historical-policies.js";
@@ -65,6 +65,24 @@ describe("V5 persistence and replay boundaries", () => {
     expect(() => new SimulatorStore(filename)).toThrow(/LEGACY_UNTRUSTED_NAMING/);
     expect(statSync(filename).size).toBe(bytesBefore);
     expect(createHash("sha256").update(readFileSync(filename)).digest("hex")).toBe(shaBefore);
+  });
+
+  it.runIf(process.platform === "linux")("classifies a production-sized legacy database at startup without scanning its contents", () => {
+    const filename = join(mkdtempSync(join(tmpdir(), "echoes-v5-large-startup-")), "legacy.sqlite");
+    const legacy = new DatabaseSync(filename);
+    legacy.exec("CREATE TABLE v5_run_manifest(run_id TEXT PRIMARY KEY); CREATE TABLE v5_label_input(run_id TEXT, entity_id TEXT, label TEXT); INSERT INTO v5_run_manifest VALUES ('LEGACY_RUN'); INSERT INTO v5_label_input VALUES ('LEGACY_RUN','STATE_1','Diagnostic STATE STATE_1');");
+    legacy.close();
+    const productionSizedBytes = 2 * 1024 * 1024 * 1024;
+    truncateSync(filename, productionSizedBytes);
+    const readCharacters = (): number => Number(/^rchar:\s+(\d+)$/m.exec(readFileSync("/proc/self/io", "utf8"))?.[1] ?? 0);
+    const readBefore = readCharacters();
+    const startedAt = performance.now();
+    const trust = inspectLegacyV5NamingTrustForStartup(filename);
+    const elapsedMilliseconds = performance.now() - startedAt;
+    const startupReadCharacters = readCharacters() - readBefore;
+    expect(trust).toMatchObject({ inspectionMode: "BOUNDED_READ_ONLY_STRUCTURE", trustStatus: "LEGACY_UNTRUSTED_NAMING", requiresFreshTrustedDatabase: true, bytes: productionSizedBytes });
+    expect(startupReadCharacters).toBeLessThan(1024 * 1024);
+    expect(elapsedMilliseconds).toBeLessThan(1_000);
   });
 
   it("produces the same event-history hash incrementally and in one pass", () => {

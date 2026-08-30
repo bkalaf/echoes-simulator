@@ -41,6 +41,7 @@ interface DomainDatabaseSingleton {
 
 const singleton = globalThis as typeof globalThis & { __echoesSimulatorDomainDatabase?: DomainDatabaseSingleton };
 const database = (singleton.__echoesSimulatorDomainDatabase ??= {});
+const DOMAIN_DATABASE_TIMEOUT_MILLISECONDS = 5_000;
 
 export function domainDatabaseUrl(): string {
   const resolved = resolveDomainDatabaseConnection();
@@ -50,7 +51,12 @@ export function domainDatabaseUrl(): string {
 
 export function getDomainDatabase(): PrismaClient {
   if (database.client) return database.client;
-  const pool = new Pool({ connectionString: domainDatabaseUrl() });
+  const pool = new Pool({
+    connectionString: domainDatabaseUrl(),
+    connectionTimeoutMillis: DOMAIN_DATABASE_TIMEOUT_MILLISECONDS,
+    query_timeout: DOMAIN_DATABASE_TIMEOUT_MILLISECONDS,
+    statement_timeout: DOMAIN_DATABASE_TIMEOUT_MILLISECONDS,
+  });
   database.pool = pool;
   database.client = new PrismaClient({ adapter: new PrismaPg(pool) });
   return database.client;
@@ -94,6 +100,7 @@ export async function preflightDomainDatabase(): Promise<DomainDatabasePreflight
     if (Number(authorityCounts[0]?.breeds ?? 0n) !== 2062 || Number(authorityCounts[0]?.deityAudits ?? 0n) !== 2062) return { state: "SEED_REQUIRED", diagnosticCode: "BREED_PRIMARY_DEITY_2062_REQUIRED", actions: ["SEED", "RETRY"], missingStructures: [], ...common };
     return { state: "READY", diagnosticCode: "DOMAIN_DATABASE_READY", actions: ["DOCTOR"], missingStructures: [], ...common };
   } catch (error) {
+    await disconnectDomainDatabase().catch(() => undefined);
     return { state: "UNREACHABLE", diagnosticCode: error instanceof Error && /password authentication/i.test(error.message) ? "DATABASE_AUTHENTICATION_FAILED" : "DATABASE_UNREACHABLE", actions: ["DOCTOR", "RETRY"], missingStructures: [], ...common };
   }
 }

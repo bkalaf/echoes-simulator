@@ -28,12 +28,25 @@ interface Snapshot extends OperatorSnapshot { canonicalData: CanonicalDataStatus
 interface NamingFeedback { outcome: "accepted" | "rejected"; message: string; }
 
 const emptySnapshot: Snapshot = { canonicalData: { status: "INVALID", semanticAuthorityVersion: null, semanticAuthorityFilename: null, semanticAuthoritySha256: null, semanticAuthorityVerdict: null, year0Readiness: null, ownerPolicyVersion: null, personalityPolicyVersion: null, bundleVersion: null, bundleContentSha256: null, errorCode: "BUNDLED_CANONICAL_DATA_INVALID", errorDetail: "Runtime is booting" }, manifest: null, runs: [], selectedRunId: null, exportValidation: null, sites: [] };
+const SNAPSHOT_LOAD_TIMEOUT_MILLISECONDS = 10_000;
+const PREFLIGHT_LOAD_TIMEOUT_MILLISECONDS = 6_000;
 const compact = new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 2 });
 const exact = new Intl.NumberFormat("en-US");
 const runViewSections = new Set<Section>(["Live Dashboard", "World Browser", "Settlement Detail", "State Detail", "People", "Families", "Conclave", "Senate", "Institutions", "Resources / Industry", "Conflict", "Derogatory Groups", "Atrocities", "Enclaves", "Parameters / Event Triggers", "Timeline"]);
 
 function Stat({ label, value, note }: { label: string; value: React.ReactNode; note: string }): React.JSX.Element {
   return <article><p>{label}</p><strong>{value}</strong><small>{note}</small></article>;
+}
+
+function withTimeout<T>(operation: Promise<T>, milliseconds: number, diagnosticCode: string): Promise<T> {
+  return new Promise<T>((resolvePromise, reject) => {
+    const timeout = window.setTimeout(() => reject(new Error(diagnosticCode)), milliseconds);
+    operation.then((value) => { window.clearTimeout(timeout); resolvePromise(value); }, (error) => { window.clearTimeout(timeout); reject(error); });
+  });
+}
+
+function failedPreflight(diagnosticCode: string): DomainDatabasePreflight {
+  return { state: "UNREACHABLE", diagnosticCode, redactedTarget: null, actions: ["RETRY"], missingStructures: [], connectionLabel: null, sharedCanonicalDatabase: false, manualDatabaseUrlRequired: false, secondCanonicalDatabaseCreated: false };
 }
 
 function App(): React.JSX.Element {
@@ -66,6 +79,8 @@ function App(): React.JSX.Element {
   const [selectedPersonId, setSelectedPersonId] = useState<string | null>(null);
   const [ownerPolicies, setOwnerPolicies] = useState<OwnerPolicyDefinitionView[]>([]);
   const [v5Configuration, setV5Configuration] = useState<V5ConfigurationJson>({ mechanicsJson: "", operationalJson: "", diagnosticJson: "" });
+  const [runtimeSnapshotSettled, setRuntimeSnapshotSettled] = useState(false);
+  const [runtimeSnapshotError, setRuntimeSnapshotError] = useState<string | null>(null);
   const refreshInFlight = useRef<Promise<void> | null>(null);
   const manifest = snapshot.manifest;
   const selectedSite = snapshot.sites.find((site) => site.siteId === siteId) ?? snapshot.sites[0];
@@ -81,15 +96,40 @@ function App(): React.JSX.Element {
     if (!window.eidolonSimulator) { setMessage("Browser preview — desktop IPC is unavailable"); return; }
     if (refreshInFlight.current) return refreshInFlight.current;
     const request = (async () => {
-      const next = await window.eidolonSimulator!.getOperatorSnapshot() as Snapshot;
-      setSnapshot(next); setViewRevision((revision) => revision + 1); if (next.manifest) setYear(next.manifest.currentYear);
-      if (next.v5Configuration) setV5Configuration(Object.fromEntries(Object.entries(next.v5Configuration).map(([key, value]) => [key, JSON.stringify(JSON.parse(value), null, 2)])) as unknown as V5ConfigurationJson);
-      if (!quiet) setMessage("Verified local evidence loaded");
+      try {
+        const next = await withTimeout(window.eidolonSimulator!.getOperatorSnapshot() as Promise<Snapshot>, SNAPSHOT_LOAD_TIMEOUT_MILLISECONDS, "OPERATOR_SNAPSHOT_TIMEOUT");
+        setRuntimeSnapshotError(null);
+        setSnapshot(next); setViewRevision((revision) => revision + 1); if (next.manifest) setYear(next.manifest.currentYear);
+        if (next.v5Configuration) setV5Configuration(Object.fromEntries(Object.entries(next.v5Configuration).map(([key, value]) => [key, JSON.stringify(JSON.parse(value), null, 2)])) as unknown as V5ConfigurationJson);
+        if (!quiet) setMessage("Verified local evidence loaded");
+      } catch (error) {
+        const diagnostic = error instanceof Error ? error.message.split("\n")[0]! : "OPERATOR_SNAPSHOT_FAILED";
+        setRuntimeSnapshotError(diagnostic);
+        setMessage(diagnostic);
+        setSnapshot((current) => current.domainDatabasePreflight ? current : { ...current, domainDatabasePreflight: failedPreflight(diagnostic) });
+      } finally {
+        setRuntimeSnapshotSettled(true);
+      }
     })();
     refreshInFlight.current = request;
     try { await request; } finally { if (refreshInFlight.current === request) refreshInFlight.current = null; }
   }
-  useEffect(() => { void refresh(); }, []);
+  useEffect(() => {
+    let active = true;
+    const initialize = async (): Promise<void> => {
+      if (!window.eidolonSimulator) { setRuntimeSnapshotSettled(true); return; }
+      try {
+        const preflight = await withTimeout(window.eidolonSimulator.getDomainDatabasePreflight() as Promise<DomainDatabasePreflight>, PREFLIGHT_LOAD_TIMEOUT_MILLISECONDS, "DOMAIN_DATABASE_PREFLIGHT_TIMEOUT");
+        if (active) setSnapshot((current) => ({ ...current, domainDatabasePreflight: preflight }));
+      } catch (error) {
+        const diagnostic = error instanceof Error ? error.message.split("\n")[0]! : "DOMAIN_DATABASE_PREFLIGHT_FAILED";
+        if (active) setSnapshot((current) => ({ ...current, domainDatabasePreflight: failedPreflight(diagnostic) }));
+      }
+      if (active) await refresh();
+    };
+    void initialize();
+    return () => { active = false; };
+  }, []);
   useEffect(() => window.eidolonSimulator?.onCanonicalResumeFailed((failure) => { setMessage(failure.split("\n")[0] ?? "Canonical resume failed"); void refresh(true); }), []);
   useEffect(() => window.eidolonSimulator?.onV5ResumeFailed((failure) => { setMessage(failure.split("\n")[0] ?? "V5 resume failed"); void refresh(true); }), []);
   useEffect(() => {
@@ -289,7 +329,7 @@ function App(): React.JSX.Element {
       <section className="panel vertical" aria-label="Domain database preflight"><p className="eyebrow">CANONICAL DATABASE</p><h2>{snapshot.domainDatabasePreflight?.connectionLabel ? `Connected — ${snapshot.domainDatabasePreflight.connectionLabel}` : snapshot.domainDatabasePreflight?.state ?? "CHECKING"}</h2><p>{snapshot.domainDatabasePreflight?.state} · {snapshot.domainDatabasePreflight?.diagnosticCode ?? "Running redacted database preflight"}{snapshot.domainDatabasePreflight?.redactedTarget ? ` · ${snapshot.domainDatabasePreflight.redactedTarget}` : ""}</p>{Boolean(snapshot.domainDatabasePreflight?.missingStructures.length) && <p>Missing structures: {snapshot.domainDatabasePreflight!.missingStructures.join(", ")}</p>}<div className="tabs">{snapshot.domainDatabasePreflight?.actions.map((action) => <button key={action} onClick={() => void runDomainDatabaseAction(action)} disabled={busy !== null}>{action}</button>)}</div></section>
       {snapshot.runs.some((run) => run.isV5) && <section className="panel vertical"><p className="eyebrow">PERSISTED V5 RUNS</p><div className="tabs">{snapshot.runs.filter((run) => run.isV5).map((run) => <button key={run.runId} className={snapshot.selectedRunId === run.runId ? "active" : ""} onClick={() => void selectRun(run.runId)}>V5 · {run.status} · {run.currentYear}/{run.finalYear ?? "?"}</button>)}</div></section>}
       <section className="panel vertical"><div><p className="eyebrow">NEW V5 DIAGNOSTIC</p><h2>Run sparse causal history with candidate policies</h2><p>Choose an explicit target. Interactive LLM Naming pauses at blocking barriers and deterministic 25-year batch checkpoints without changing causal history.</p></div><div className="target-years" aria-label="V5 target year">{[25,100,500,1000,2000].map((target) => <button key={target} className={targetYear === target ? "active" : ""} onClick={() => setTargetYear(target)}>{target}</button>)}<label>CUSTOM <input aria-label="Custom V5 target year" type="number" min="1" max="2000" value={targetYear} onChange={(event) => setTargetYear(Math.max(1, Math.min(2000, Number(event.target.value) || 1)))}/></label><label><input aria-label="Interactive LLM Naming" type="checkbox" checked={interactiveNaming} onChange={(event) => setInteractiveNaming(event.target.checked)}/> INTERACTIVE LLM NAMING</label></div><div className="cards four"><Stat label="ROUTES NOT READY" value={snapshot.namingReadiness?.routeCorridorsNotReady ?? "—"} note="Unresolved route mode"/><Stat label="OWNER POLICY BLOCKERS" value={snapshot.namingReadiness?.ownerPolicyBlockers ?? "—"} note="Causal approvals"/><Stat label="CANONICAL DATA GAPS" value={snapshot.namingReadiness?.canonicalNamingGaps ?? "—"} note="Not accepted naming authority"/><Stat label="DJT-YEAR AUTHORITY" value={snapshot.namingReadiness?.unresolvedDjtYearAuthority ? "UNRESOLVED" : "READY"} note="Fixture result is not canon"/></div><button className="primary" onClick={() => void runV5Diagnostic()} disabled={busy !== null || snapshot.hasActiveRun || snapshot.domainDatabasePreflight?.state !== "READY"}>{busy ?? `RUN V5 TO YEAR ${targetYear}`}</button></section>
-      {(snapshot.progress || busy === "Running V5 diagnostic") && <section className="panel progress-panel"><div><p className="eyebrow">V5 RUNNING</p><h2>year {snapshot.progress?.currentYear ?? 0} / {snapshot.progress?.targetYear ?? targetYear}</h2><p>Elapsed {Math.floor((snapshot.progress?.elapsedMilliseconds ?? 0) / 1000)}s · phase {snapshot.progress?.currentPhase ?? "STARTING"} · last checkpoint {snapshot.progress?.lastCompletedCheckpoint ?? 0} · next checkpoint {snapshot.progress?.nextCheckpoint ?? "—"}</p></div><div className="meter"><span style={{ width: `${Math.min(100, ((snapshot.progress?.currentYear ?? 0) / (snapshot.progress?.targetYear ?? targetYear)) * 100)}%` }}/></div></section>}
+      {(snapshot.manifest?.status === "RUNNING" || busy === "Running V5 diagnostic") && <section className="panel progress-panel"><div><p className="eyebrow">V5 RUNNING</p><h2>year {snapshot.progress?.currentYear ?? 0} / {snapshot.progress?.targetYear ?? targetYear}</h2><p>Elapsed {Math.floor((snapshot.progress?.elapsedMilliseconds ?? 0) / 1000)}s · phase {snapshot.progress?.currentPhase ?? "STARTING"} · last checkpoint {snapshot.progress?.lastCompletedCheckpoint ?? 0} · next checkpoint {snapshot.progress?.nextCheckpoint ?? "—"}</p></div><div className="meter"><span style={{ width: `${Math.min(100, ((snapshot.progress?.currentYear ?? 0) / (snapshot.progress?.targetYear ?? targetYear)) * 100)}%` }}/></div></section>}
       {!snapshot.v5CanonicalReadiness?.ready && <section className="panel vertical"><p className="eyebrow">V5 CANONICAL BLOCKED</p><h2>{snapshot.v5CanonicalReadiness?.missing.length ?? 0} owner policy approvals pending</h2><p>{snapshot.v5CanonicalReadiness?.missing.join(" · ")}</p><button onClick={() => setSelected("Diagnostics")}>VIEW BLOCKERS</button></section>}
     </>;
     if (selected === "Live Dashboard") return <>
@@ -364,7 +404,7 @@ function App(): React.JSX.Element {
     return <><section className="cards"><Stat label="CANONICAL DATA" value={snapshot.canonicalData.status} note={snapshot.canonicalData.bundleVersion ?? "Internal bundle defect"}/><Stat label="RUN STATE" value={operator.runState} note={manifest ? `${manifest.mode} · ${manifest.runId}` : "No selected run"}/><Stat label="AUTHORITY" value={operator.semanticAuthorityLabel} note={snapshot.canonicalData.semanticAuthoritySha256?.slice(0, 16) ?? "not loaded"}/></section><section className="detail-grid"><Detail title="Bundled authority" rows={[["Semantic authority", snapshot.canonicalData.semanticAuthorityVersion], ["Verdict", snapshot.canonicalData.semanticAuthorityVerdict], ["Year-0 readiness", snapshot.canonicalData.year0Readiness], ["Owner policy", snapshot.canonicalData.ownerPolicyVersion], ["Personality policy", snapshot.canonicalData.personalityPolicyVersion]]}/><Detail title="Persisted diagnostics" rows={[["Run mode/status", manifest ? `${manifest.mode} / ${manifest.status}` : "NO RUN"], ["Run ID", manifest?.runId], ["Current year", manifest?.currentYear ?? "—"], ["Checkpoint count", manifest?.checkpointCount ?? 0], ["Event count", manifest?.eventCount ?? 0], ["Cohort count", manifest?.cohortCount ?? 0], ["Pending naming job", snapshot.pendingNamingJob?.namingJobId ?? "None"], ["Database path", snapshot.databasePath ?? "Browser preview"]]}/></section>{snapshot.canonicalData.status === "INVALID" && <section className="panel vertical"><p className="eyebrow">INTERNAL BUILD DEFECT</p><h2>BUNDLED_CANONICAL_DATA_INVALID</h2><p>{snapshot.canonicalData.errorDetail}</p></section>}</>;
   })();
 
-  return <main className="app-shell"><aside><div className="brand"><span className="sigil">EOE</span><div><strong>Historical Simulator</strong><small>Standalone operator console</small></div></div><nav aria-label="Simulator sections">{navigation.map((item) => <button key={item} className={selected === item ? "active" : ""} onClick={() => setSelected(item)}>{item}</button>)}</nav><div className="runtime"><span className="status-dot"/>Local-only runtime<br/><small>{message}</small></div></aside><section className="workspace"><header><div><p className="eyebrow">ECHOES OF EIDOLON</p><h1>{selected}</h1></div><span className="badge diagnostic">{manifest?.mode ?? "NO RUN"}</span></header><div className={`notice ${operator.primaryNotice.severity.toLowerCase()}`}><strong>{operator.primaryNotice.title}</strong><span>{operator.primaryNotice.detail}</span></div>{content}</section></main>;
+  return <main className="app-shell"><aside><div className="brand"><span className="sigil">EOE</span><div><strong>Historical Simulator</strong><small>Standalone operator console</small></div></div><nav aria-label="Simulator sections">{navigation.map((item) => <button key={item} className={selected === item ? "active" : ""} onClick={() => setSelected(item)}>{item}</button>)}</nav><div className="runtime"><span className="status-dot"/>Local-only runtime<br/><small>{message}</small></div></aside><section className="workspace"><header><div><p className="eyebrow">ECHOES OF EIDOLON</p><h1>{selected}</h1></div><span className="badge diagnostic">{manifest?.mode ?? "NO RUN"}</span></header>{!runtimeSnapshotSettled ? <div className="notice info"><strong>Loading simulator state.</strong><span>Checking the shared canonical database and existing SQLite history.</span></div> : runtimeSnapshotError ? <div className="notice error" role="alert"><strong>Simulator state failed to load.</strong><span>{runtimeSnapshotError}</span></div> : <div className={`notice ${operator.primaryNotice.severity.toLowerCase()}`}><strong>{operator.primaryNotice.title}</strong><span>{operator.primaryNotice.detail}</span></div>}{content}</section></main>;
 }
 
 function WorldTabs({ world, setWorld }: { world: World; setWorld: (world: World) => void }): React.JSX.Element { return <div className="tabs">{(["CONCORD","SCHISM","RUIN"] as World[]).map((item) => <button className={world === item ? "active" : ""} onClick={() => setWorld(item)} key={item}>{item}</button>)}</div>; }
@@ -373,7 +413,10 @@ function SiteCard({ site, settlement, world, year }: { site?: Site; settlement?:
 function SiteTable({ sites, settlements, selected, select }: { sites: Site[]; settlements: Map<string, SettlementProjection>; selected: string; select: (id: string) => void }): React.JSX.Element { return <div className="table-wrap"><table><thead><tr><th>Site</th><th>Name</th><th>Region</th><th>Class</th><th>Coordinates</th><th>POIs</th></tr></thead><tbody>{sites.map((site) => { const settlement = settlements.get(site.siteId); const faction = settlement?.dominantFaction?.toLocaleLowerCase(); return <tr key={site.siteId} className={selected === site.siteId ? "selected" : ""} onClick={() => select(site.siteId)}><td>{site.siteId}</td><td className={faction ? `faction-name faction-${faction}` : ""}>{settlement?.name || site.currentSiteName || <em>Pending</em>}</td><td>{site.regionId} · {site.regionName}</td><td>{site.classification}</td><td>{Number(site.latitude).toFixed(2)}, {Number(site.longitude).toFixed(2)}</td><td>{site.poiCount}</td></tr>; })}</tbody></table></div>; }
 function SettlementSelect({ settlements, value, select }: { settlements: SettlementProjection[]; value: string; select: (settlement: SettlementProjection) => void }): React.JSX.Element { const ordered = [...settlements].sort((left, right) => (left.name ?? left.settlementId).localeCompare(right.name ?? right.settlementId)); return <label className="settlement-select">SETTLEMENT<select aria-label="Select Settlement" value={value} onChange={(event) => { const settlement = settlements.find((row) => row.settlementId === event.target.value); if (settlement) select(settlement); }}><option value="" disabled>Select a Settlement</option>{ordered.map((settlement) => <option value={settlement.settlementId} key={settlement.settlementId}>{settlement.name ?? settlement.settlementId}</option>)}</select></label>; }
 function Detail({ title, rows }: { title: string; rows: [string, React.ReactNode][] }): React.JSX.Element { return <section className="detail"><h3>{title}</h3><dl>{rows.map(([key,value]) => <div key={key}><dt>{key}</dt><dd>{value ?? "—"}</dd></div>)}</dl></section>; }
-function DomainAuthorityBlocked({ preflight, domain }: { preflight: DomainDatabasePreflight; domain: string }): React.JSX.Element { return <section className="panel vertical" role="alert"><p className="eyebrow">POSTGRESQL AUTHORITY REQUIRED</p><h2>{domain} unavailable</h2><p>{preflight.connectionLabel ? `Connected — ${preflight.connectionLabel} · ` : ""}{preflight.state} · {preflight.diagnosticCode}</p><p>Open Runs and use the displayed doctor, migrate, seed, or retry control. Existing SQLite history remains readable; no runtime filesystem authority fallback is permitted.</p></section>; }
+function DomainAuthorityBlocked({ preflight, domain }: { preflight?: DomainDatabasePreflight; domain: string }): React.JSX.Element {
+  if (!preflight) return <section className="panel vertical" role="status"><p className="eyebrow">POSTGRESQL AUTHORITY</p><h2>{domain} checking…</h2><p>Running the bounded shared-database preflight.</p></section>;
+  return <section className="panel vertical" role="alert"><p className="eyebrow">POSTGRESQL AUTHORITY REQUIRED</p><h2>{domain} unavailable</h2><p>{preflight.connectionLabel ? `Connected — ${preflight.connectionLabel} · ` : ""}{preflight.state} · {preflight.diagnosticCode}</p><p>Open Runs and use the displayed doctor, migrate, seed, or retry control. Existing SQLite history remains readable; no runtime filesystem authority fallback is permitted.</p></section>;
+}
 function humanFieldName(value: string): string { return value.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replaceAll("_", " ").replace(/^./, (letter) => letter.toUpperCase()); }
 function HumanValue({ value, depth = 0 }: { value: unknown; depth?: number }): React.JSX.Element {
   if (value === null || value === undefined || value === "") return <>—</>;

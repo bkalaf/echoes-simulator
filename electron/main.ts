@@ -10,7 +10,7 @@ import { userInfo } from "node:os";
 import { parse as parseCsvSync } from "csv-parse/sync";
 import { WORKER_SCHEMA_VERSION } from "./ipc-contract.js";
 import { SimulatorStore } from "../src/persistence/sqlite-store.js";
-import { inspectLegacyV5NamingTrust, type LegacyV5NamingTrustInspection } from "../src/persistence/v5-legacy-trust.js";
+import { inspectLegacyV5NamingTrustForStartup, type LegacyV5NamingTrustStartupInspection } from "../src/persistence/v5-legacy-trust.js";
 import { bootstrapCanonicalRun } from "../src/core/engine/canonical-runner.js";
 import type { DiagnosticResult } from "../src/core/engine/diagnostic-runner.js";
 import { persistDiagnosticResult } from "../src/core/operator/diagnostic-service.js";
@@ -27,7 +27,7 @@ import { disconnectDomainDatabase, preflightDomainDatabase, type DomainDatabaseP
 import { createOwnerPolicyCandidateRevision, decideOwnerPolicyRevisions, listOwnerPolicyCenter } from "../src/persistence/postgres-owner-policy.js";
 import { CANONICAL_POLICY_VERSION } from "../src/core/engine/canonical-authority.js";
 import { editableV5ConfigurationJson, parseEditableV5Configuration } from "../src/core/v5/configuration.js";
-import { canonicalV5FromRunAuthoritySnapshot, loadPostgresCanonicalV5 } from "../src/persistence/postgres-canonical.js";
+import { canonicalV5FromRunAuthoritySnapshot, canonicalV5FromRunAuthoritySnapshotForRead, loadPostgresCanonicalV5 } from "../src/persistence/postgres-canonical.js";
 import { buildReadModelV1 } from "../src/core/v5/read-model.js";
 import type { WorldKey as WorldKeyV5, WorldStateV5 } from "../src/core/v5/types.js";
 import { acceptPersistedV5DerogatoryDecisionBatch, acceptPersistedV5NamingBatch, acceptPersistedV5NamingBatches } from "../src/core/v5/service.js";
@@ -53,7 +53,7 @@ let activeV5Resume: { runId: string; promise: Promise<unknown> } | null = null;
 let poiContextCache: { canonicalDirectory: string; bySite: ReturnType<typeof loadUnnamedPoisBySite> } | null = null;
 let breedCatalogPromise: ReturnType<typeof loadBreedCatalog> | null = null;
 let atlasPoiCache: Awaited<ReturnType<typeof loadCanonicalAtlasPois>> | null = null;
-let legacyNamingTrust: LegacyV5NamingTrustInspection | null = null;
+let legacyNamingTrust: LegacyV5NamingTrustStartupInspection | null = null;
 let canonicalDataCache: ReturnType<typeof loadBundledCanonical> | null = null;
 let sitesCache: Record<string, string>[] | null = null;
 let operatorSnapshotInFlight: Promise<OperatorSnapshot & Record<string, unknown>> | null = null;
@@ -63,14 +63,10 @@ function canonicalData(): ReturnType<typeof loadBundledCanonical> {
   return canonicalDataCache;
 }
 
-function yieldToMainLoop(): Promise<void> {
-  return new Promise((resolvePromise) => setImmediate(resolvePromise));
-}
-
 function getStore(): SimulatorStore {
   if (!store) {
     const primary = join(app.getPath("userData"), "simulator.sqlite");
-    legacyNamingTrust = inspectLegacyV5NamingTrust(primary);
+    legacyNamingTrust = inspectLegacyV5NamingTrustForStartup(primary);
     store = new SimulatorStore(legacyNamingTrust.requiresFreshTrustedDatabase ? join(app.getPath("userData"), "simulator-v5-trusted.sqlite") : primary);
     store.retireCanonicalRunsExcept(CANONICAL_POLICY_VERSION);
   }
@@ -87,7 +83,7 @@ const V5_WORLDS: readonly WorldKeyV5[] = ["CONCORD", "SCHISM", "RUIN"];
 function v5SettlementProjection(runId: string, state: WorldStateV5): Record<string, unknown>[] {
   const manifest = getStore().loadV5RunManifest(runId);
   if (!manifest) return [];
-  return buildV5SettlementProjection(getStore(), canonicalV5FromRunAuthoritySnapshot(manifest.authoritySnapshot, manifest.canonicalBundleHash, state.year), manifest, state);
+  return buildV5SettlementProjection(getStore(), canonicalV5FromRunAuthoritySnapshotForRead(manifest.authoritySnapshot, manifest.canonicalBundleHash, state.year), manifest, state);
 }
 
 async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string, unknown>> {
@@ -107,7 +103,7 @@ async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string
   const selectedRun = getStore().selectedRun();
   const selectedV5Manifest = selectedRun ? getStore().loadV5RunManifest(selectedRun.runId) : null;
   const loadedCanonicalV5 = selectedV5Manifest
-    ? canonicalV5FromRunAuthoritySnapshot(selectedV5Manifest.authoritySnapshot, selectedV5Manifest.canonicalBundleHash, selectedRun?.currentYear ?? 0)
+    ? canonicalV5FromRunAuthoritySnapshotForRead(selectedV5Manifest.authoritySnapshot, selectedV5Manifest.canonicalBundleHash, selectedRun?.currentYear ?? 0)
     : await loadPostgresCanonicalV5().then((result) => result.canonical).catch(() => null);
   const projectionWatermark = selectedRun && selectedV5Manifest ? getStore().loadV5ProjectionWatermark(selectedRun.runId) : null;
   const pendingV5NamingBatches = selectedRun && selectedV5Manifest && selectedRun.status !== "RUNNING"
@@ -123,30 +119,17 @@ async function buildOperatorSnapshot(): Promise<OperatorSnapshot & Record<string
   const pendingNamingBatches = buildNamingBatches(pendingNamingJobs);
   const hasActiveRun = runs.some((run) => Boolean(getStore().loadV5RunManifest(run.runId)) && ["RUNNING", "WAITING_FOR_NAMING", "WAITING_FOR_POLICY_AUTHORITY", "WAITING_FOR_DEROGATORY_DECISIONS"].includes(run.status));
   const v5Configuration = editableV5ConfigurationJson(getStore().loadV5Configuration());
-  let v5States: Record<WorldKeyV5, WorldStateV5 | null> | null = null;
-  if (selectedRun && selectedV5Manifest) {
-    v5States = { CONCORD: null, SCHISM: null, RUIN: null };
-    for (const world of V5_WORLDS) {
-      await yieldToMainLoop();
-      v5States[world] = getStore().loadLatestV5Checkpoint(selectedRun.runId, world, persistedYear)?.state ?? null;
-    }
-  }
   let settlementProjections: Record<string, unknown[]> | null = null;
-  if (selectedRun && selectedV5Manifest) {
-    settlementProjections = { CONCORD: [], SCHISM: [], RUIN: [] };
-    for (const world of V5_WORLDS) {
-      await yieldToMainLoop();
-      settlementProjections[world] = v5States![world] ? v5SettlementProjection(selectedRun.runId, v5States![world]!) : [];
-    }
-  } else if (selectedRun) {
+  if (selectedRun && !selectedV5Manifest) {
     settlementProjections = Object.fromEntries(["CONCORD", "SCHISM", "RUIN"].map((world) => [world, presentedSettlements(selectedRun.runId, getStore().listProjections(selectedRun.runId, world, persistedYear, "SETTLEMENT"))]));
   }
   const eventCount = selectedRun ? selectedV5Manifest ? getStore().v5EventCount(selectedRun.runId) : getStore().eventCount(selectedRun.runId) : 0;
   const checkpointCount = selectedRun ? selectedV5Manifest ? getStore().v5CheckpointCount(selectedRun.runId) : getStore().checkpointCount(selectedRun.runId) : 0;
-  const cohortCount = selectedRun ? selectedV5Manifest ? V5_WORLDS.reduce((sum, world) => sum + (v5States![world]?.cohorts.length ?? 0), 0) : getStore().countCohorts(selectedRun.runId, undefined, persistedYear) : 0;
+  const cohortCount = selectedRun && !selectedV5Manifest ? getStore().countCohorts(selectedRun.runId, undefined, persistedYear) : 0;
   const worldSummary = selectedRun ? Object.fromEntries(["CONCORD", "SCHISM", "RUIN"].map((world) => {
+    if (selectedV5Manifest) return [world, { finalPopulation: "0", settlements: 0, states: 0, events: getStore().v5CausalEventCount(selectedRun.runId, world, persistedYear), federalCapitalSiteId: null }];
     const settlements = settlementProjections![world] as { population?: string; stateId?: string }[];
-    return [world, { finalPopulation: settlements.reduce((sum, settlement) => sum + BigInt(settlement.population ?? "0"), 0n).toString(), settlements: settlements.length, states: new Set(settlements.map((settlement) => String(settlement.stateId))).size, events: selectedV5Manifest ? getStore().v5CausalEventCount(selectedRun!.runId, world, persistedYear) : eventCount, federalCapitalSiteId: null }];
+    return [world, { finalPopulation: settlements.reduce((sum, settlement) => sum + BigInt(settlement.population ?? "0"), 0n).toString(), settlements: settlements.length, states: new Set(settlements.map((settlement) => String(settlement.stateId))).size, events: eventCount, federalCapitalSiteId: null }];
   })) : null;
   const manifest = selectedRun ? { ...selectedRun, currentYear: persistedYear, finalYear: selectedV5Manifest?.targetYear ?? 2000, checkpointCount, eventCount, cohortCount, namingJobCount: selectedV5Manifest ? pendingV5NamingBatches.reduce((sum, batch) => sum + batch.items.length, 0) : pendingNamingJobs.length, worldSummary, activeIssues: [] } : null;
   const v5CanonicalReadiness = loadedCanonicalV5 ? (() => {
@@ -264,6 +247,7 @@ async function createWindow(): Promise<void> {
 }
 
 ipcMain.handle("simulator:get-runtime-info", () => ({ version: app.getVersion(), userDataPath: app.getPath("userData") }));
+ipcMain.handle("simulator:get-domain-database-preflight", preflightDomainDatabase);
 ipcMain.handle("simulator:get-operator-snapshot", snapshotForOperator);
 ipcMain.handle("simulator:domain-database-action", async (_event, action: DomainDatabasePreflight["actions"][number]) => {
   if (!["DOCTOR", "MIGRATE", "SEED", "RETRY"].includes(action)) throw new Error("Unknown domain database action");

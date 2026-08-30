@@ -4,6 +4,7 @@ declare global {
   interface Window {
     eidolonSimulator?: {
       getRuntimeInfo(): Promise<{ version: string; userDataPath: string }>;
+      getDomainDatabasePreflight(): Promise<unknown>;
       getOperatorSnapshot(): Promise<unknown>;
       runDomainDatabaseAction(action: "DOCTOR" | "MIGRATE" | "SEED" | "RETRY"): Promise<unknown>;
       getOwnerPolicyCenter(): Promise<unknown>;

@@ -15,7 +15,7 @@ import { V5_EMPTY_EVENT_HISTORY_HASH, defaultRunAuthorityInputsV1, extendV5Event
 import { buildRunAuthoritySnapshotV1 } from "../core/v5/authority-snapshot.js";
 import type { EditableV5Configuration } from "../core/v5/configuration.js";
 import { defaultEditableV5Configuration, restoreDiagnosticConfigV1, restoreMechanicsVariablesV1, restoreOperationalConfigV1 } from "../core/v5/configuration.js";
-import { inspectLegacyV5NamingTrust } from "./v5-legacy-trust.js";
+import { inspectLegacyV5NamingTrustForStartup } from "./v5-legacy-trust.js";
 import { mergeBoundedDiagnosticObservations, type BoundedDiagnosticObservationV5 } from "../core/v5/diagnostics.js";
 import type { DivergenceTraceV5 } from "../core/v5/divergence-diagnostics.js";
 import type { CausalPolicyBlockerV5 } from "../core/v5/historical-policies.js";
@@ -110,7 +110,7 @@ export class SimulatorStore {
   constructor(readonly filename: string) {
     mkdirSync(dirname(filename), { recursive: true });
     if (existsSync(filename)) {
-      const trust = inspectLegacyV5NamingTrust(filename);
+      const trust = inspectLegacyV5NamingTrustForStartup(filename);
       if (trust.requiresFreshTrustedDatabase) throw new Error(`LEGACY_UNTRUSTED_NAMING: open ${filename} read-only for diagnostics and create a fresh V5 database for trusted naming`);
     }
     this.database = new DatabaseSync(filename);

@@ -1,6 +1,7 @@
 import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
+import { DatabaseSync } from "node:sqlite";
 import { _electron as electron, expect, test, type ElectronApplication } from "@playwright/test";
 import { SimulatorStore } from "../../src/persistence/sqlite-store.js";
 import { legacyImportTestCanonicalAuthorityV5, loadBundledCanonicalV5 } from "../../src/core/v5/canonical-adapter.js";
@@ -11,6 +12,7 @@ import { normalizeSeed } from "../../src/core/v5/random.js";
 import type { WorldKey, WorldStateV5 } from "../../src/core/v5/types.js";
 import { buildDerogatoryDecisionBatchV5 } from "../../src/core/v5/derogatory-decisions.js";
 import { CANDIDATE_DEROGATORY_MEMBERSHIP_SLICING_POLICY_V1 } from "../../src/core/v5/historical-policies.js";
+import { runPersistedV5Diagnostic } from "../../src/core/v5/service.js";
 
 async function launch(userData: string, environment: Record<string, string> = {}): Promise<ElectronApplication> {
   return electron.launch({
@@ -93,6 +95,48 @@ function writePrompt01OperatorFixture(userData: string): string {
   return runId;
 }
 
+function writeRunningV5ProgressFixture(userData: string): string {
+  const store = new SimulatorStore(join(userData, "simulator.sqlite"));
+  const canonicalAuthority = legacyImportTestCanonicalAuthorityV5(resolve("resources/canonical"));
+  const initial = runPersistedV5Diagnostic({
+    store,
+    canonicalAuthority,
+    normalizedSeed: normalizeSeed("electron live progress fixture"),
+    throughYear: 0,
+    namingMode: "UNATTENDED_CAUSAL_BENCHMARK",
+  });
+  const priorManifest = store.loadV5RunManifest(initial.runId)!;
+  const manifest = buildV5RunManifest({
+    runId: priorManifest.runId,
+    mode: priorManifest.mode,
+    targetYear: 2_000,
+    canonicalBundleHash: priorManifest.canonicalBundleHash,
+    normalizedSeed: priorManifest.normalizedSeed,
+    mechanics: priorManifest.mechanicsVariables,
+    causalOwnerInputs: priorManifest.causalOwnerInputs,
+    operational: priorManifest.operationalConfig,
+    diagnostic: priorManifest.diagnosticConfig,
+    labels: priorManifest.labels,
+    authoritySnapshot: priorManifest.authoritySnapshot,
+  });
+  store.saveV5RunManifest(manifest);
+  store.setRunStatus(initial.runId, "RUNNING", 0);
+  store.selectRun(initial.runId);
+  store.close();
+  return initial.runId;
+}
+
+function removeV56AuthoritySnapshotForCompatibilityFixture(userData: string, runId: string): void {
+  const database = new DatabaseSync(join(userData, "simulator.sqlite"));
+  try {
+    const row = database.prepare("SELECT manifest_json FROM v5_run_manifest WHERE run_id=?").get(runId) as { manifest_json: string };
+    const manifest = JSON.parse(row.manifest_json) as Record<string, unknown>;
+    delete manifest.authoritySnapshot;
+    manifest.mechanicsVersion = "echoes-mechanics-v5.5.0";
+    database.prepare("UPDATE v5_run_manifest SET manifest_json=? WHERE run_id=?").run(JSON.stringify(manifest), runId);
+  } finally { database.close(); }
+}
+
 function writeDerogatoryOperatorFixture(userData: string): string {
   const runId = "RUN_ELECTRON_DEROGATORY_OPERATOR";
   const store = new SimulatorStore(join(userData, "simulator.sqlite"));
@@ -123,9 +167,13 @@ test("clean startup is V5-first and legacy V4 diagnostics persist behind Diagnos
   let application = await launch(userData);
   try {
     const page = await application.firstWindow();
-    await expect(page.getByText("Canonical data is simulation-ready.", { exact: true })).toBeVisible();
+    const startupStartedAt = Date.now();
+    await expect(page.getByText("Canonical data is simulation-ready.", { exact: true })).toBeVisible({ timeout: 10_000 });
     await expect(page.getByText("V5 AUTHORITY BLOCKED", { exact: true })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Connected — Echoes shared PostgreSQL", exact: true })).toBeVisible();
+    expect(Date.now() - startupStartedAt).toBeLessThan(10_000);
+    await expect(page.getByRole("heading", { name: "CHECKING", exact: true })).toHaveCount(0);
+    await expect(page.getByText("Loading simulator state.", { exact: true })).toHaveCount(0);
     await expect(page.getByText(/SEED_REQUIRED · CANONICAL_DOMAIN_IMPORT_APPROVAL_REQUIRED/)).toBeVisible();
     await expect(page.getByRole("button", { name: "SEED", exact: true })).toBeVisible();
     await expect(page.getByRole("button", { name: "BOOTSTRAP", exact: true })).toHaveCount(0);
@@ -146,6 +194,23 @@ test("clean startup is V5-first and legacy V4 diagnostics persist behind Diagnos
     await expect(page.getByText("LEGACY V4 RUNS", { exact: true })).toBeVisible();
     await expect(page.getByText(/DIAGNOSTIC · COMPLETE · 2000/)).toBeVisible();
     await expect(page.getByText("Canonical data is simulation-ready.", { exact: true })).toBeVisible();
+  } finally { await application.close(); }
+});
+
+test("desktop startup reads a pre-V5.6 immutable SQLite run without live-authority substitution", async () => {
+  test.setTimeout(30_000);
+  const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-legacy-snapshot-"));
+  const runId = writePrompt01OperatorFixture(userData);
+  removeV56AuthoritySnapshotForCompatibilityFixture(userData, runId);
+  const application = await launch(userData);
+  try {
+    const page = await application.firstWindow();
+    await expect(page.getByText("Verified local evidence loaded", { exact: true })).toBeVisible({ timeout: 10_000 });
+    await expect(page.getByText(/Canonical authority SIMULATOR_CANONICAL_V5 is not pinned/)).toHaveCount(0);
+    await page.getByRole("button", { name: "Live Dashboard", exact: true }).click();
+    const population = page.locator("article").filter({ hasText: "POPULATION" }).locator("strong");
+    await expect(population).not.toHaveText("—", { timeout: 10_000 });
+    await expect(page.getByText(/LEGACY_RUN_AUTHORITY_SNAPSHOT/)).toHaveCount(0);
   } finally { await application.close(); }
 });
 
@@ -259,6 +324,7 @@ test("Breed Detail search and the POI-only master Atlas render through desktop I
   const application = await launch(userData);
   try {
     const page = await application.firstWindow();
+    await expect(page.getByRole("heading", { name: "Connected — Echoes shared PostgreSQL", exact: true })).toBeVisible({ timeout: 15_000 });
     await page.getByRole("button", { name: "Breed Detail" }).click();
     if (!(await canonicalDatabaseReady(page))) {
       await expect(page.getByRole("heading", { name: "Breed catalog unavailable", exact: true })).toBeVisible();
@@ -492,12 +558,11 @@ test("Naming Geography fixtures classify and style all three physical entity tab
 test("V5 year-2000 launch exposes live worker progress without legacy controls", async () => {
   test.setTimeout(60_000);
   const userData = mkdtempSync(join(tmpdir(), "eidolon-electron-v5-progress-"));
+  writeRunningV5ProgressFixture(userData);
   const application = await launch(userData);
   try {
     const page = await application.firstWindow();
-    await page.getByRole("button", { name: "2000", exact: true }).click();
-    await page.getByRole("button", { name: "RUN V5 TO YEAR 2000" }).click();
-    await expect(page.getByText("V5 RUNNING", { exact: true })).toBeVisible();
+    await expect(page.getByText("V5 RUNNING", { exact: true })).toBeVisible({ timeout: 15_000 });
     await expect(page.getByText(/year \d+ \/ 2000/)).toBeVisible({ timeout: 30_000 });
     await expect(page.getByText(/phase .*last checkpoint .*next checkpoint/)).toBeVisible();
     const heartbeatLatencies = await page.evaluate(async () => {

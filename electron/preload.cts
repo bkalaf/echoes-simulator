@@ -2,6 +2,7 @@ const { contextBridge, ipcRenderer } = require("electron") as typeof import("ele
 
 const api = Object.freeze({
   getRuntimeInfo: (): Promise<{ version: string; userDataPath: string }> => ipcRenderer.invoke("simulator:get-runtime-info"),
+  getDomainDatabasePreflight: (): Promise<unknown> => ipcRenderer.invoke("simulator:get-domain-database-preflight"),
   getOperatorSnapshot: (): Promise<unknown> => ipcRenderer.invoke("simulator:get-operator-snapshot"),
   runDomainDatabaseAction: (action: "DOCTOR" | "MIGRATE" | "SEED" | "RETRY"): Promise<unknown> => ipcRenderer.invoke("simulator:domain-database-action", action),
   getOwnerPolicyCenter: (): Promise<unknown> => ipcRenderer.invoke("simulator:get-owner-policy-center"),

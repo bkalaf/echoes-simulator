@@ -9,10 +9,22 @@ export interface LegacyV5NamingTrustInspection {
   v5RunCount: number;
   legacyLabelCount: number;
   trustedLedgerCount: number;
+  inspectionMode: "FULL_CONTENT_SHA256";
   bytesBefore: number;
   bytesAfter: number;
   sha256Before: string;
   sha256After: string;
+}
+
+export interface LegacyV5NamingTrustStartupInspection {
+  filename: string;
+  trustStatus: LegacyV5NamingTrustInspection["trustStatus"];
+  requiresFreshTrustedDatabase: boolean;
+  v5RunCount: number;
+  legacyLabelCount: number;
+  trustedLedgerCount: number;
+  inspectionMode: "BOUNDED_READ_ONLY_STRUCTURE";
+  bytes: number;
 }
 
 function fingerprint(filename: string): { bytes: number; sha256: string } {
@@ -27,10 +39,33 @@ function fingerprint(filename: string): { bytes: number; sha256: string } {
   return { bytes, sha256: digest.digest("hex") };
 }
 
-/** Opens an existing database read-only and derives trust without schema initialization. */
-export function inspectLegacyV5NamingTrust(filename: string): LegacyV5NamingTrustInspection {
-  const before = fingerprint(filename);
-  if (!existsSync(filename)) return { filename, trustStatus: "NO_DATABASE", requiresFreshTrustedDatabase: false, v5RunCount: 0, legacyLabelCount: 0, trustedLedgerCount: 0, bytesBefore: before.bytes, bytesAfter: before.bytes, sha256Before: before.sha256, sha256After: before.sha256 };
+function statIdentity(filename: string): { bytes: number; identity: string } {
+  if (!existsSync(filename)) return { bytes: 0, identity: "ABSENT" };
+  const metadata = statSync(filename, { bigint: true });
+  return {
+    bytes: Number(metadata.size),
+    identity: [metadata.dev, metadata.ino, metadata.size, metadata.mtimeNs, metadata.ctimeNs].join(":"),
+  };
+}
+
+/**
+ * Startup trust classification is deliberately bounded. It reads only SQLite
+ * schema/count metadata and proves the read-only open did not change the file's
+ * identity metadata. Full-file SHA-256 verification remains an explicit audit
+ * operation through inspectLegacyV5NamingTrust and never blocks Electron boot.
+ */
+export function inspectLegacyV5NamingTrustForStartup(filename: string): LegacyV5NamingTrustStartupInspection {
+  const before = statIdentity(filename);
+  if (!existsSync(filename)) return {
+    filename,
+    trustStatus: "NO_DATABASE",
+    requiresFreshTrustedDatabase: false,
+    v5RunCount: 0,
+    legacyLabelCount: 0,
+    trustedLedgerCount: 0,
+    inspectionMode: "BOUNDED_READ_ONLY_STRUCTURE",
+    bytes: 0,
+  };
   const database = new DatabaseSync(filename, { readOnly: true });
   let v5RunCount = 0; let legacyLabelCount = 0; let trustedLedgerCount = 0;
   try {
@@ -39,8 +74,26 @@ export function inspectLegacyV5NamingTrust(filename: string): LegacyV5NamingTrus
     if (tables.has("v5_label_input")) legacyLabelCount = (database.prepare("SELECT COUNT(*) AS count FROM v5_label_input").get() as { count: number }).count;
     if (tables.has("v5_label_ledger")) trustedLedgerCount = (database.prepare("SELECT COUNT(*) AS count FROM v5_label_ledger").get() as { count: number }).count;
   } finally { database.close(); }
+  const after = statIdentity(filename);
+  if (before.identity !== after.identity) throw new Error("Read-only legacy V5 startup inspection changed database metadata");
+  const legacy = v5RunCount > 0 && (trustedLedgerCount === 0 || legacyLabelCount > 0);
+  return {
+    filename,
+    trustStatus: legacy ? "LEGACY_UNTRUSTED_NAMING" : v5RunCount === 0 ? "NO_V5_RUNS" : "TRUSTED_V5_LEDGER",
+    requiresFreshTrustedDatabase: legacy,
+    v5RunCount,
+    legacyLabelCount,
+    trustedLedgerCount,
+    inspectionMode: "BOUNDED_READ_ONLY_STRUCTURE",
+    bytes: before.bytes,
+  };
+}
+
+/** Opens an existing database read-only and derives trust without schema initialization. */
+export function inspectLegacyV5NamingTrust(filename: string): LegacyV5NamingTrustInspection {
+  const before = fingerprint(filename);
+  const startup = inspectLegacyV5NamingTrustForStartup(filename);
   const after = fingerprint(filename);
   if (before.bytes !== after.bytes || before.sha256 !== after.sha256) throw new Error("Read-only legacy V5 trust inspection changed database bytes");
-  const legacy = v5RunCount > 0 && (trustedLedgerCount === 0 || legacyLabelCount > 0);
-  return { filename, trustStatus: legacy ? "LEGACY_UNTRUSTED_NAMING" : v5RunCount === 0 ? "NO_V5_RUNS" : "TRUSTED_V5_LEDGER", requiresFreshTrustedDatabase: legacy, v5RunCount, legacyLabelCount, trustedLedgerCount, bytesBefore: before.bytes, bytesAfter: after.bytes, sha256Before: before.sha256, sha256After: after.sha256 };
+  return { ...startup, inspectionMode: "FULL_CONTENT_SHA256", bytesBefore: before.bytes, bytesAfter: after.bytes, sha256Before: before.sha256, sha256After: after.sha256 };
 }

@@ -3,7 +3,7 @@ import type { V5RunManifest } from "../src/core/v5/persistence.js";
 import { buildReadModelV1 } from "../src/core/v5/read-model.js";
 import type { CausalEventV5, WorldKey, WorldStateV5 } from "../src/core/v5/types.js";
 import { SimulatorStore } from "../src/persistence/sqlite-store.js";
-import { canonicalV5FromRunAuthoritySnapshot } from "../src/persistence/postgres-canonical.js";
+import { canonicalV5FromRunAuthoritySnapshotForRead } from "../src/persistence/postgres-canonical.js";
 
 export type V5OperatorViewDetail =
   | "Live Dashboard" | "Cities" | "World Browser" | "Settlement Detail" | "State Detail"
@@ -12,10 +12,45 @@ export type V5OperatorViewDetail =
 
 export function buildV5SettlementProjection(
   store: SimulatorStore,
-  canonical: CanonicalDataV5,
+  canonical: CanonicalDataV5 | null,
   manifest: V5RunManifest,
   state: WorldStateV5,
 ): Record<string, unknown>[] {
+  if (!canonical) {
+    const labels = store.loadV5Labels(manifest.runId, state.year);
+    const politicalStates = new Map(state.states.map((politicalState) => [politicalState.stateId, politicalState]));
+    const cellsBySettlement = new Map<string, typeof state.cohorts>();
+    for (const cell of state.cohorts) cellsBySettlement.set(cell.settlementId, [...(cellsBySettlement.get(cell.settlementId) ?? []), cell]);
+    return state.settlements.map((settlement) => {
+      const cells = cellsBySettlement.get(settlement.settlementId) ?? [];
+      const breedTotals = new Map<string, bigint>();
+      let population = 0n; let prosperityTotal = 0n;
+      for (const cell of cells) for (const tier of [cell.tiers.HIGH, cell.tiers.MID, cell.tiers.LOW]) {
+        population += tier.population;
+        prosperityTotal += tier.population * BigInt(tier.prosperity);
+        breedTotals.set(cell.breedId, (breedTotals.get(cell.breedId) ?? 0n) + tier.population);
+      }
+      const dominantBreed = [...breedTotals].sort((left, right) => left[1] === right[1] ? left[0].localeCompare(right[0]) : left[1] > right[1] ? -1 : 1)[0]?.[0] ?? "NONE";
+      const politicalState = politicalStates.get(settlement.stateId);
+      return {
+        settlementId: settlement.settlementId,
+        siteId: settlement.siteId,
+        regionId: settlement.regionId,
+        stateId: settlement.stateId,
+        name: labels[settlement.settlementId] ?? null,
+        population: population.toString(),
+        cultureId: null,
+        cultureState: "LEGACY_CHECKPOINT_ONLY",
+        dominantBreed,
+        dominantFaction: politicalState?.dominantFaction ?? null,
+        politicalForm: politicalState?.actualGovernment ?? null,
+        economicForm: null,
+        prosperity: population > 0n ? Number(prosperityTotal / population) : 0,
+        unrest: settlement.unrest,
+        runtimeIssues: [{ issueCode: "LEGACY_RUN_AUTHORITY_SNAPSHOT", message: "V5.5 history is rendered from its immutable SQLite checkpoint; no live authority was substituted." }],
+      };
+    });
+  }
   const read = buildReadModelV1(state, canonical, manifest.mechanicsVariables, store.loadV5Labels(manifest.runId, state.year));
   const settlements = new Map(state.settlements.map((settlement) => [settlement.settlementId, settlement]));
   const politicalStates = new Map(state.states.map((politicalState) => [politicalState.stateId, politicalState]));
@@ -62,7 +97,7 @@ export function buildV5RunView(input: {
   const checkpointYear = checkpoint?.state.year ?? 0;
   const state = checkpoint?.state;
   const detail = input.detail ?? "Live Dashboard";
-  const canonical = canonicalV5FromRunAuthoritySnapshot(manifest.authoritySnapshot, manifest.canonicalBundleHash, checkpointYear);
+  const canonical = canonicalV5FromRunAuthoritySnapshotForRead(manifest.authoritySnapshot, manifest.canonicalBundleHash, checkpointYear);
   const labels = store.loadV5Labels(runId, checkpointYear);
   const settlements = state ? buildV5SettlementProjection(store, canonical, manifest, state) : [];
   const result: Record<string, unknown> = {
